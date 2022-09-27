@@ -1,85 +1,67 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.net.Uri;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.vn2;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class jv3 extends ev3 {
+public class jv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jv3() {
-        super("navigateToSwanGame");
+    public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
+            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(i);
         }
     }
 
-    @Override // com.baidu.tieba.ev3
-    public yu1 a(JSONObject paramsJson, cg2 callback) {
-        InterceptResult invokeLL;
-        vn2.a W;
-        String I;
-        vn2.a W2;
+    public static final Bitmap b(Drawable drawable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
-            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            Application c = fm2.c();
-            if (c == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            String optString = paramsJson.optString("appKey");
-            boolean z = false;
-            if (optString == null || optString.length() == 0) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            y23 b0 = y23.b0();
-            String str = "";
-            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
-            y23 b02 = y23.b0();
-            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
-                str = I;
-            }
-            jSONObject.put("pre_appid", str);
-            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
-            String d1 = wn2.d1(optString, 1, paramsJson);
-            Uri parse = (d1 == null || d1.length() == 0) ? true : true ? null : Uri.parse(d1);
-            if (parse == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                callback.a(null);
-            } else {
-                callback.onFail(202, "params may be error");
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), drawable.getOpacity() != -1 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return createBitmap;
         }
-        return (yu1) invokeLL.objValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
+        NotificationCompat.Builder builder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            if (Build.VERSION.SDK_INT >= 26) {
+                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
+                builder = new NotificationCompat.Builder(context, String.valueOf(i));
+            } else {
+                builder = new NotificationCompat.Builder(context);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                mv3.c("notifyShow", str3, str4);
+            }
+            if (pendingIntent != null) {
+                builder.setContentIntent(pendingIntent);
+            }
+            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f080169);
+            if (bitmap == null) {
+                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080169));
+            }
+            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
+        }
     }
 }

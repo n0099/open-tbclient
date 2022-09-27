@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import android.app.Activity;
 /* loaded from: classes5.dex */
-public final class o91 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o91 {
 
-    @Inject
-    public static y91 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? x91.a() : (y91) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
     }
+
+    void a(String str);
+
+    String b(Activity activity, String str, a aVar);
+
+    void c(String str, String str2, int i);
 }

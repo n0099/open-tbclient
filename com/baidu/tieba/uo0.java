@@ -1,39 +1,77 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import androidx.annotation.Nullable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uo0 extends AdBaseModel {
+public class uo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public String b;
+    public final String c;
+    public final String d;
+    public final boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uo0(@NonNull po0 po0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(po0Var, jSONObject);
+    public uo0(@NonNull JSONObject jSONObject, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {po0Var, jSONObject};
+            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((po0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (po0Var.k.size() < 3) {
-            throw ParseError.contentError(3, po0Var.a.value);
+        this.a = jSONObject.optString(z ? EmotionResourceInfo.JSON_KEY_PKG_NAME : "apk_name");
+        this.d = jSONObject.optString(z ? "key" : "download_key");
+        this.b = jSONObject.optString("deferred_cmd");
+        this.c = jSONObject.optString("download_url");
+        jSONObject.optString("source", "apk_yuansheng");
+        this.e = a();
+    }
+
+    @Nullable
+    public static uo0 b(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return new uo0(jSONObject, false);
         }
+        return (uo0) invokeL.objValue;
+    }
+
+    @Nullable
+    public static uo0 c(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return new uo0(jSONObject, true);
+        }
+        return (uo0) invokeL.objValue;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
     }
 }

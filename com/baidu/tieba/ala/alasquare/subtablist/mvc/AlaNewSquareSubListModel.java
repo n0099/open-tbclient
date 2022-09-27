@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.ov5;
-import com.baidu.tieba.pv5;
+import com.baidu.tieba.bw5;
+import com.baidu.tieba.cw5;
+import com.baidu.tieba.mt5;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -223,41 +223,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             if (this.o) {
-                ov5 ov5Var = new ov5();
-                zs5 zs5Var = new zs5();
-                zs5Var.e = this.i;
-                zs5Var.b = this.e;
-                zs5Var.c = this.d;
-                zs5Var.d = list.get(i);
-                ov5Var.a = zs5Var;
+                bw5 bw5Var = new bw5();
+                mt5 mt5Var = new mt5();
+                mt5Var.e = this.i;
+                mt5Var.b = this.e;
+                mt5Var.c = this.d;
+                mt5Var.d = list.get(i);
+                bw5Var.a = mt5Var;
                 int i2 = i + 1;
                 if (i2 < size) {
-                    zs5 zs5Var2 = new zs5();
-                    zs5Var2.e = this.i;
-                    zs5Var2.b = this.e;
-                    zs5Var2.c = this.d;
-                    zs5Var2.d = list.get(i2);
-                    ov5Var.b = zs5Var2;
+                    mt5 mt5Var2 = new mt5();
+                    mt5Var2.e = this.i;
+                    mt5Var2.b = this.e;
+                    mt5Var2.c = this.d;
+                    mt5Var2.d = list.get(i2);
+                    bw5Var.b = mt5Var2;
                 }
-                this.n.add(ov5Var);
+                this.n.add(bw5Var);
             } else {
-                pv5 pv5Var = new pv5();
-                zs5 zs5Var3 = new zs5();
-                zs5Var3.e = this.i;
-                zs5Var3.b = this.e;
-                zs5Var3.c = this.d;
-                zs5Var3.d = list.get(i);
-                pv5Var.a = zs5Var3;
+                cw5 cw5Var = new cw5();
+                mt5 mt5Var3 = new mt5();
+                mt5Var3.e = this.i;
+                mt5Var3.b = this.e;
+                mt5Var3.c = this.d;
+                mt5Var3.d = list.get(i);
+                cw5Var.a = mt5Var3;
                 int i3 = i + 1;
                 if (i3 < size) {
-                    zs5 zs5Var4 = new zs5();
-                    zs5Var4.e = this.i;
-                    zs5Var4.b = this.e;
-                    zs5Var4.c = this.d;
-                    zs5Var4.d = list.get(i3);
-                    pv5Var.b = zs5Var4;
+                    mt5 mt5Var4 = new mt5();
+                    mt5Var4.e = this.i;
+                    mt5Var4.b = this.e;
+                    mt5Var4.c = this.d;
+                    mt5Var4.d = list.get(i3);
+                    cw5Var.b = mt5Var4;
                 }
-                this.n.add(pv5Var);
+                this.n.add(cw5Var);
             }
         }
     }

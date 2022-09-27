@@ -1,7 +1,7 @@
 package com.baidu.swan.bdtls.impl.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cm3;
+import com.baidu.tieba.pm3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (cm3) null);
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (pm3) null);
                 int i = (this.a & 1) != 1 ? 0 : 1;
                 bdtls$ApplicationData.sKR_ = this.b;
                 bdtls$ApplicationData.bitField0_ = i;
@@ -298,7 +298,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         bdtls$ApplicationData.initFields();
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cm3 cm3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, pm3 pm3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -405,7 +405,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, cm3 cm3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, pm3 pm3Var) {
         this(builder);
     }
 

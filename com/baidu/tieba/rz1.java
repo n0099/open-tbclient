@@ -1,59 +1,50 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rz1 {
+public final class rz1 extends uy1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean u;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948138816, "Lcom/baidu/tieba/rz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948138816, "Lcom/baidu/tieba/rz1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz1() {
+        super("coverImage", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ij1.a;
+        this.u = false;
     }
 
-    public static void a(@NonNull String str, @NonNull String str2) {
+    @Override // com.baidu.tieba.uy1, com.baidu.tieba.zy1, com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            b(str, str2, null);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void b(@NonNull String str, @NonNull String str2, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (th == null) {
-            yz1.c(str, str2);
-            if (a) {
-                throw new RuntimeException(str2);
-            }
+        super.a(jSONObject);
+        this.u = jSONObject.optBoolean("loadState", false);
+        rt2 rt2Var = this.h;
+        if (rt2Var == null || (jSONObject2 = this.j) == null) {
             return;
         }
-        yz1.d(str, str2, th);
-        if (a) {
-            throw new RuntimeException(str2, th);
-        }
+        rt2Var.i(jSONObject2.optBoolean("fixed", false));
     }
 }

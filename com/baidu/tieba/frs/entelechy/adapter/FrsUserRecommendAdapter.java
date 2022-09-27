@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.b26;
 import com.baidu.tieba.dh6;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ez4;
 import com.baidu.tieba.frs.view.UserRecommendItemView;
 import com.baidu.tieba.frs.view.UserRecommendLayout;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.qg6;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.qh6;
+import com.baidu.tieba.rz4;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsUserRecommendAdapter extends qg6<dh6, FrsUserRecommendViewHolder> {
+public class FrsUserRecommendAdapter extends dh6<qh6, FrsUserRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
@@ -83,13 +83,13 @@ public class FrsUserRecommendAdapter extends qg6<dh6, FrsUserRecommendViewHolder
                 FrsUserRecommendViewHolder frsUserRecommendViewHolder;
                 FlexibleHorizontalScrollView flexibleHorizontalScrollView;
                 UserRecommendLayout userRecommendLayout;
-                cz4 j;
+                pz4 j;
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (flexibleHorizontalScrollView = (frsUserRecommendViewHolder = this.a).b) == null || (userRecommendLayout = frsUserRecommendViewHolder.c) == null) {
                     return;
                 }
                 flexibleHorizontalScrollView.smoothScrollBy(userRecommendLayout.getChildItemWidth(), 0);
-                if ((view2.getTag() instanceof ez4) && (j = ((ez4) view2.getTag()).j()) != null) {
+                if ((view2.getTag() instanceof rz4) && (j = ((rz4) view2.getTag()).j()) != null) {
                     this.a.d(j.getUserId(), 2);
                 }
                 if (this.a.e) {
@@ -159,14 +159,14 @@ public class FrsUserRecommendAdapter extends qg6<dh6, FrsUserRecommendViewHolder
             this.h = new b(this);
             this.e = z;
             this.f = str;
-            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f0924ca);
-            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924c4);
+            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f0924cc);
+            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924c6);
             this.c = userRecommendLayout;
             userRecommendLayout.setItemSpace(ej.f(view2.getContext(), R.dimen.obfuscated_res_0x7f0701be));
             this.c.setAfterLikeBtnClickListener(this.g);
             this.c.setAfterHeaderLickListener(this.h);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c5);
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924c9);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c7);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924cb);
         }
 
         public final void d(String str, int i) {
@@ -289,27 +289,27 @@ public class FrsUserRecommendAdapter extends qg6<dh6, FrsUserRecommendViewHolder
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
+    @Override // com.baidu.tieba.dh6, com.baidu.tieba.qn
     /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dh6 dh6Var, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qh6 qh6Var, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dh6Var, frsUserRecommendViewHolder})) == null) {
-            if (dh6Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qh6Var, frsUserRecommendViewHolder})) == null) {
+            if (qh6Var != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                frsUserRecommendViewHolder.d.setText(dh6Var.b());
+                frsUserRecommendViewHolder.d.setText(qh6Var.b());
                 frsUserRecommendViewHolder.c.setPageContext(this.c);
-                frsUserRecommendViewHolder.c.setData(dh6Var.c());
+                frsUserRecommendViewHolder.c.setData(qh6Var.c());
                 frsUserRecommendViewHolder.b.setMaxOverScrollDistance(frsUserRecommendViewHolder.c.getChildItemWidth());
                 frsUserRecommendViewHolder.d.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0106));
                 frsUserRecommendViewHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0205));
-                if (!dh6Var.f()) {
-                    for (MetaData metaData : dh6Var.c()) {
+                if (!qh6Var.f()) {
+                    for (MetaData metaData : qh6Var.c()) {
                         if (metaData != null && !dj.isEmpty(metaData.getUserId())) {
-                            o16.b().a(new StatisticItem("c12530").param("obj_id", metaData.getUserId()));
+                            b26.b().a(new StatisticItem("c12530").param("obj_id", metaData.getUserId()));
                         }
                     }
-                    dh6Var.j(true);
+                    qh6Var.j(true);
                 }
             }
             return frsUserRecommendViewHolder.getView();

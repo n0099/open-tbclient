@@ -1,208 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.ConnectManager;
+import com.baidu.searchbox.network.outback.OutbackComponent;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.searchbox.network.support.dns.Dns;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.searchbox.network.support.okhttp.converters.HeadersConverter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Proxy;
-import java.net.ProxySelector;
-import java.util.ArrayList;
+import java.net.SocketAddress;
 import java.util.List;
-import javax.net.SocketFactory;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSocketFactory;
+import okhttp3.Call;
+import okhttp3.Connection;
+import okhttp3.EventListener;
+import okhttp3.Handshake;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.Protocol;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes5.dex */
-public class o60 implements Cloneable, Call.Factory {
+public class o60 extends EventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final j60 b;
-    @Nullable
-    public final Proxy c;
-    public final List<k60> d;
-    public final List<k60> e;
-    public final ProxySelector f;
-    public final SSLSocketFactory g;
-    public final HostnameVerifier h;
-    public final Dns i;
-    public final int j;
-    public final int k;
-    public final int l;
-    public s60 m;
-    public boolean n;
-    public boolean o;
-    public String p;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984064, "Lcom/baidu/tieba/o60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947984064, "Lcom/baidu/tieba/o60;");
-                return;
-            }
-        }
-        new ArrayList(2);
-    }
-
-    public o60(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.n = false;
-        this.o = false;
-        this.p = null;
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = Util.immutableList(aVar.d);
-        this.e = Util.immutableList(aVar.e);
-        this.f = aVar.f;
-        this.g = aVar.g;
-        this.h = aVar.h;
-        this.i = aVar.k;
-        this.j = aVar.l;
-        this.k = aVar.m;
-        this.l = aVar.n;
-        if (!this.d.contains(null)) {
-            if (!this.e.contains(null)) {
-                this.m = aVar.o;
-                this.n = aVar.i;
-                this.o = aVar.j;
-                this.p = aVar.p;
-                return;
-            }
-            throw new IllegalStateException("Null network interceptor: " + this.e);
-        }
-        throw new IllegalStateException("Null interceptor: " + this.d);
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call.Factory
-    public Call newCall(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) ? n60.c(request, this, false) : (Call) invokeL.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public j60 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (j60) invokeV.objValue;
-    }
-
-    public HostnameVerifier q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (HostnameVerifier) invokeV.objValue;
-    }
-
-    public s60 r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (s60) invokeV.objValue;
-    }
-
-    public List<k60> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public List<k60> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public a u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new a(this) : (a) invokeV.objValue;
-    }
-
-    public ProxySelector v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (ProxySelector) invokeV.objValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public SSLSocketFactory x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : (SSLSocketFactory) invokeV.objValue;
-    }
-
-    public String y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.p : (String) invokeV.objValue;
-    }
+    public EventListener a;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a extends ResponseBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public j60 b;
-        @Nullable
-        public Proxy c;
-        public final List<k60> d;
-        public final List<k60> e;
-        public ProxySelector f;
-        @Nullable
-        public SSLSocketFactory g;
-        public HostnameVerifier h;
-        public boolean i;
-        public boolean j;
-        public Dns k;
-        public int l;
-        public int m;
-        public int n;
-        public s60 o;
-        public String p;
+        public final /* synthetic */ ResponseBody a;
+        public final /* synthetic */ Request b;
+        public final /* synthetic */ o60 c;
 
-        public a() {
+        /* renamed from: com.baidu.tieba.o60$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0355a implements c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0355a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.o60.c
+            public void a(long j) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                    this.a.b.onFinishReadContent4NetworkStatRecord(j);
+                }
+            }
+        }
+
+        public a(o60 o60Var, ResponseBody responseBody, Request request) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o60Var, responseBody, request};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -212,97 +97,593 @@ public class o60 implements Cloneable, Call.Factory {
                     return;
                 }
             }
-            this.d = new ArrayList();
-            this.e = new ArrayList();
-            this.b = new j60();
-            ProxySelector proxySelector = ProxySelector.getDefault();
-            this.f = proxySelector;
-            if (proxySelector == null) {
-                this.f = new m60();
-            }
-            SocketFactory.getDefault();
-            this.h = null;
-            this.k = Dns.SYSTEM;
-            this.l = 10000;
-            this.m = 10000;
-            this.n = 10000;
-            this.o = new q60();
+            this.c = o60Var;
+            this.a = responseBody;
+            this.b = request;
         }
 
-        public a a(k60 k60Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k60Var)) == null) {
-                if (k60Var != null) {
-                    this.d.add(k60Var);
-                    return this;
-                }
-                throw new IllegalArgumentException("interceptor == null");
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public o60 b() {
+        @Override // okhttp3.ResponseBody
+        public long contentLength() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new o60(this) : (o60) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.contentLength() : invokeV.longValue;
         }
 
-        public a c(j60 j60Var) {
-            InterceptResult invokeL;
+        @Override // okhttp3.ResponseBody
+        public MediaType contentType() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j60Var)) == null) {
-                if (j60Var != null) {
-                    this.b = j60Var;
-                    return this;
-                }
-                throw new IllegalArgumentException("dispatcher == null");
-            }
-            return (a) invokeL.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.contentType() : (MediaType) invokeV.objValue;
         }
 
-        public a d(s60 s60Var) {
-            InterceptResult invokeL;
+        @Override // okhttp3.ResponseBody
+        public BufferedSource source() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, s60Var)) == null) {
-                this.o = s60Var;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c(this.a.source(), new C0355a(this)) : (BufferedSource) invokeV.objValue;
         }
+    }
 
-        public a(o60 o60Var) {
+    /* loaded from: classes5.dex */
+    public class b extends ForwardingSource {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public boolean b;
+        public final /* synthetic */ c c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(o60 o60Var, Source source, c cVar) {
+            super(source);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o60Var};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {o60Var, source, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Source) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = new ArrayList();
-            this.e = new ArrayList();
-            this.b = o60Var.b;
-            this.c = o60Var.c;
-            this.d.addAll(o60Var.d);
-            this.e.addAll(o60Var.e);
-            this.f = o60Var.f;
-            this.k = o60Var.i;
-            this.l = o60Var.j;
-            this.m = o60Var.k;
-            this.n = o60Var.l;
-            this.o = o60Var.m;
-            this.i = o60Var.n;
-            this.j = o60Var.o;
-            this.p = o60Var.p;
-            this.h = o60Var.h;
-            this.g = o60Var.g;
+            this.c = cVar;
+            this.a = 0L;
+        }
+
+        @Override // okio.ForwardingSource, okio.Source, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    super.close();
+                } finally {
+                    c cVar = this.c;
+                    if (cVar != null && !this.b) {
+                        cVar.a(this.a);
+                    }
+                }
+            }
+        }
+
+        @Override // okio.ForwardingSource, okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                try {
+                    long read = super.read(buffer, j);
+                    int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
+                    long j2 = this.a + (i != 0 ? read : 0L);
+                    this.a = j2;
+                    if (i == 0 && this.c != null) {
+                        this.c.a(j2);
+                        this.b = true;
+                    }
+                    return read;
+                } catch (Exception e) {
+                    c cVar = this.c;
+                    if (cVar != null) {
+                        cVar.a(this.a);
+                    }
+                    throw e;
+                }
+            }
+            return invokeLJ.longValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(long j);
+    }
+
+    public o60(EventListener eventListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = eventListener;
+    }
+
+    public final String b(Response response) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, response)) == null) {
+            Headers headers = response.headers();
+            StringBuilder sb = new StringBuilder();
+            int size = headers.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(headers.name(i));
+                sb.append(":");
+                sb.append(headers.value(i));
+                sb.append(ParamableElem.DIVIDE_PARAM);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final BufferedSource c(Source source, c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, source, cVar)) == null) ? Okio.buffer(new b(this, source, cVar)) : (BufferedSource) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.EventListener
+    public void callEnd(Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, call) == null) {
+            if (d(call)) {
+                Request request = (Request) call.request().tag(Request.class);
+                request.getNetworkStatRecord().isConnected = ConnectManager.isNetworkConnected(OutbackComponent.getInstance().getContext());
+                request.getNetworkStatRecord().callEndTimeStamp = System.currentTimeMillis();
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.callEnd(call);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void callFailed(Call call, IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, call, iOException) == null) {
+            if (d(call)) {
+                Request request = (Request) call.request().tag(Request.class);
+                request.getNetworkStatRecord().isConnected = ConnectManager.isNetworkConnected(OutbackComponent.getInstance().getContext());
+                request.getNetworkStatRecord().failTs = System.currentTimeMillis();
+                request.getNetworkStatRecord().exception = iOException;
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.callFailed(call, iOException);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void callStart(Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, call) == null) {
+            if (d(call)) {
+                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().callStartTimeStamp = System.currentTimeMillis();
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.callStart(call);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void connectEnd(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, call, inetSocketAddress, proxy, protocol) == null) {
+            if (d(call)) {
+                Request request = (Request) call.request().tag(Request.class);
+                long currentTimeMillis = System.currentTimeMillis();
+                request.getNetworkStatRecord().connTs = currentTimeMillis;
+                request.getNetworkStatRecord().tcpEndTs = currentTimeMillis;
+                request.getNetworkStatRecord().protocol = protocol == null ? "unknown" : protocol.toString();
+                try {
+                    request.getNetworkStatRecord().useFallbackConn = call.request().isFallbackConn();
+                } catch (Throwable unused) {
+                    request.getNetworkStatRecord().useFallbackConn = false;
+                }
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.connectEnd(call, inetSocketAddress, proxy, protocol);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void connectFailed(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol, IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, call, inetSocketAddress, proxy, protocol, iOException) == null) {
+            if (d(call)) {
+                NetworkStatRecord networkStatRecord = ((Request) call.request().tag(Request.class)).getNetworkStatRecord();
+                networkStatRecord.failTs = System.currentTimeMillis();
+                networkStatRecord.exception = iOException;
+                networkStatRecord.protocol = protocol == null ? "unknown" : protocol.toString();
+                networkStatRecord.remoteIP = inetSocketAddress.toString();
+                e(networkStatRecord, proxy);
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.connectFailed(call, inetSocketAddress, proxy, protocol, iOException);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, call, inetSocketAddress, proxy) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.connectStart(call, inetSocketAddress, proxy);
+            if (d(call)) {
+                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().tcpStartTs = System.currentTimeMillis();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void connectionAcquired(Call call, Connection connection) {
+        InetAddress localAddress;
+        String str;
+        InetAddress inetAddress;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, call, connection) == null) {
+            if (d(call) && connection != null) {
+                Request request = (Request) call.request().tag(Request.class);
+                if (connection.socket() != null) {
+                    String str2 = "";
+                    if (connection.socket().getLocalAddress() != null) {
+                        str = localAddress.getHostAddress() + ":" + connection.socket().getLocalPort();
+                    } else {
+                        str = "";
+                    }
+                    if (connection.socket().getInetAddress() != null) {
+                        str2 = inetAddress.getHostAddress() + ":" + connection.socket().getPort();
+                    }
+                    NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+                    networkStatRecord.localIP = str;
+                    networkStatRecord.remoteIP = str2;
+                    if (Util.isTextEmpty(networkStatRecord.protocol)) {
+                        networkStatRecord.protocol = connection.protocol() != null ? "unknown" : connection.protocol().toString();
+                    }
+                    e(networkStatRecord, connection.route().proxy());
+                }
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.connectionAcquired(call, connection);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void connectionReleased(Call call, Connection connection) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, call, connection) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.connectionReleased(call, connection);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public final boolean d(Call call) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, call)) == null) ? call == null || ((Request) call.request().tag(Request.class)) != null : invokeL.booleanValue;
+    }
+
+    @Override // okhttp3.EventListener
+    public void dnsEnd(Call call, String str, List<InetAddress> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, call, str, list) == null) {
+            if (d(call)) {
+                Request request = (Request) call.request().tag(Request.class);
+                request.getNetworkStatRecord().dnsEndTs = System.currentTimeMillis();
+                request.getNetworkStatRecord().dnsTs = request.getNetworkStatRecord().getDnsTime();
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.dnsEnd(call, str, list);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void dnsStart(Call call, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, call, str) == null) {
+            if (d(call)) {
+                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().dnsStartTs = System.currentTimeMillis();
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.dnsStart(call, str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void e(NetworkStatRecord networkStatRecord, Proxy proxy) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, networkStatRecord, proxy) == null) || proxy.type() == Proxy.Type.DIRECT) {
+            return;
+        }
+        networkStatRecord.isProxyConnect = true;
+        SocketAddress address = proxy.address();
+        if (address instanceof InetSocketAddress) {
+            InetSocketAddress inetSocketAddress = (InetSocketAddress) address;
+            networkStatRecord.proxyHostString = inetSocketAddress.getHostString();
+            networkStatRecord.proxyAddress = inetSocketAddress.toString();
+        }
+    }
+
+    public final Response f(Request request, Response response) {
+        InterceptResult invokeLL;
+        ResponseBody body;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, request, response)) == null) ? (response == null || response.isRedirect() || (body = response.body()) == null) ? response : response.newBuilder().body(new a(this, body, request)).build() : (Response) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.EventListener
+    public void requestBodyEnd(Call call, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048591, this, call, j) == null) {
+            if (d(call)) {
+                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().requestBodyLength = j;
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.requestBodyEnd(call, j);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void requestBodyStart(Call call) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, call) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.requestBodyStart(call);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void requestHeadersEnd(Call call, okhttp3.Request request) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048593, this, call, request) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.requestHeadersEnd(call, request);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void requestHeadersStart(Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, call) == null) {
+            if (d(call)) {
+                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().sendHeaderTs = System.currentTimeMillis();
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.requestHeadersStart(call);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void responseBodyEnd(Call call, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048595, this, call, j) == null) {
+            if (d(call)) {
+                Request request = (Request) call.request().tag(Request.class);
+                request.getNetworkStatRecord().responseTs = System.currentTimeMillis();
+                request.getNetworkStatRecord().responseLength = j;
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.responseBodyEnd(call, j);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void responseBodyStart(Call call) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, call) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.responseBodyStart(call);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void responseHeadersEnd(Call call, Response response) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, call, response) == null) {
+            if (d(call)) {
+                Request request = (Request) call.request().tag(Request.class);
+                if (response != null) {
+                    request.getNetworkStatRecord().statusCode = response.code();
+                    request.onReceiveHeader4NetworkStatRecord(System.currentTimeMillis(), HeadersConverter.fromOks(response.headers()));
+                    response = f(request, response);
+                    int code = response.code();
+                    NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+                    if (response.isRedirect()) {
+                        String header = response.header(com.baidubce.http.Headers.LOCATION);
+                        if (!Util.isTextEmpty(header)) {
+                            networkStatRecord.url = header;
+                        }
+                    }
+                    String header2 = response.header("Content-Type");
+                    if (!Util.isTextEmpty(header2)) {
+                        networkStatRecord.contentType = header2;
+                    }
+                    String b2 = code >= 400 ? b(response) : "";
+                    if (!Util.isTextEmpty(b2)) {
+                        networkStatRecord.errheaders = b2;
+                    }
+                    if (request.getNetworkStatRecord().dnsStartTs == -1) {
+                        request.getNetworkStatRecord().dnsStartTs = 0L;
+                    }
+                    if (request.getNetworkStatRecord().dnsEndTs == -1) {
+                        request.getNetworkStatRecord().dnsEndTs = 0L;
+                    }
+                    if (request.getNetworkStatRecord().dnsTs == -1) {
+                        request.getNetworkStatRecord().dnsTs = 0L;
+                    }
+                    if (request.getNetworkStatRecord().connTs == -1) {
+                        request.getNetworkStatRecord().connTs = 0L;
+                        request.getNetworkStatRecord().isConnReused = true;
+                    }
+                }
+            }
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.responseHeadersEnd(call, response);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void responseHeadersStart(Call call) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, call) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.responseHeadersStart(call);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void secureConnectEnd(Call call, Handshake handshake) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048599, this, call, handshake) == null) {
+            super.secureConnectEnd(call, handshake);
+            EventListener eventListener = this.a;
+            if (eventListener != null) {
+                try {
+                    eventListener.secureConnectEnd(call, handshake);
+                    if (d(call)) {
+                        ((Request) call.request().tag(Request.class)).getNetworkStatRecord().sslEndSTs = System.currentTimeMillis();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @Override // okhttp3.EventListener
+    public void secureConnectStart(Call call) {
+        EventListener eventListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, call) == null) || (eventListener = this.a) == null) {
+            return;
+        }
+        try {
+            eventListener.secureConnectStart(call);
+            if (d(call)) {
+                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().sslStartTs = System.currentTimeMillis();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

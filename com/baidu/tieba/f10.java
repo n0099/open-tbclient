@@ -1,8 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f10 {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, f10 f10Var);
     }

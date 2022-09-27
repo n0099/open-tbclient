@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dt8;
-import com.baidu.tieba.gs8;
+import com.baidu.tieba.st8;
+import com.baidu.tieba.vs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gs8> mBackgroundGroupList;
-    public dt8 mRecommand;
+    public List<vs8> mBackgroundGroupList;
+    public st8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupSocketResponseMessage() {
@@ -61,17 +61,17 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
             DataRes dataRes = getBgByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    dt8 dt8Var = new dt8();
-                    this.mRecommand = dt8Var;
-                    dt8Var.d(getBgByCategoryResIdl.data.recommend);
+                    st8 st8Var = new st8();
+                    this.mRecommand = st8Var;
+                    st8Var.d(getBgByCategoryResIdl.data.recommend);
                 }
                 if (getBgByCategoryResIdl.data.bgs != null) {
                     this.mBackgroundGroupList = new ArrayList();
                     for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                         if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                            gs8 gs8Var = new gs8();
-                            gs8Var.c(themeBgInMain);
-                            this.mBackgroundGroupList.add(gs8Var);
+                            vs8 vs8Var = new vs8();
+                            vs8Var.c(themeBgInMain);
+                            this.mBackgroundGroupList.add(vs8Var);
                         }
                     }
                 }
@@ -81,15 +81,15 @@ public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage
         return invokeIL.objValue;
     }
 
-    public List<gs8> getGroupList() {
+    public List<vs8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBackgroundGroupList : (List) invokeV.objValue;
     }
 
-    public dt8 getRecommand() {
+    public st8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (dt8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 }

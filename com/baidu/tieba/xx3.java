@@ -1,46 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class xx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(fx3 fx3Var, JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, fx3Var, jsObject) == null) {
-            yx3 yx3Var = new yx3();
-            fv1 F = fv1.F(jsObject);
-            if (F == null) {
-                F = new fv1();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948315702, "Lcom/baidu/tieba/xx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            boolean z = false;
-            if (fx3Var == null) {
-                yx3Var.errMsg = "openCustomerServiceConversation:fail";
-                k54.call(F, false, yx3Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948315702, "Lcom/baidu/tieba/xx3;");
                 return;
             }
-            if (iz3.c()) {
-                y23 M = y23.M();
-                if (M != null) {
-                    String str = "{\"appKey\":\"" + M.O() + "\"}";
-                    if (SchemeRouter.invoke(fm2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        yx3Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        yx3Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    yx3Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                yx3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
-            }
-            k54.call(F, z, yx3Var);
         }
+        a = vj1.a;
+        b = -1;
+    }
+
+    public static wx3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            wx3 wx3Var = new wx3();
+            wx3Var.a = b();
+            wx3Var.b = c();
+            wx3Var.c = d();
+            if (a) {
+                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + wx3Var.a + " ,sizeLimit: " + wx3Var.b);
+            }
+            return wx3Var;
+        }
+        return (wx3) invokeV.objValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b < 0) {
+                sm2.g0().getSwitch("minigame_code_cache_max_count", 20);
+                b = 20;
+            }
+            return b;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 102400;
+        }
+        return invokeV.intValue;
+    }
+
+    public static long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b() * 6 * 1048576 : invokeV.longValue;
     }
 }

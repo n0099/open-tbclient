@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.fc7;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.tc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +141,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             super.q(view2, i, i2, j);
-            if (i == 7 && d1() && (msglistModel = this.c) != null && (msg = msglistModel.getMsg(i2)) != null && fc7.w(msg) && content != null) {
+            if (i == 7 && d1() && (msglistModel = this.c) != null && (msg = msglistModel.getMsg(i2)) != null && tc7.w(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {

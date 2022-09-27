@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mp2 extends kp2 {
+public class mp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public ArrayList<String> B;
-    public String z;
+    @Inject(force = false)
+    public te1<kp2> a;
 
     public mp2() {
         Interceptable interceptable = $ic;
@@ -32,44 +25,15 @@ public class mp2 extends kp2 {
                 return;
             }
         }
-        this.z = "";
-        this.A = "";
+        a();
     }
 
-    @Override // com.baidu.tieba.kp2, com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            re1 b = re1.b();
+            this.a = b;
+            b.a(new lp2());
         }
-        super.a(jSONObject);
-        if (jSONObject.has("scale")) {
-            this.k = jSONObject.optDouble("scale", 18.0d);
-        }
-        if (jSONObject.has("name")) {
-            this.z = jSONObject.optString("name");
-        }
-        if (jSONObject.has("address")) {
-            this.A = jSONObject.optString("address");
-        }
-        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
-            int length = optJSONArray.length();
-            this.B = new ArrayList<>();
-            for (int i = 0; i < length; i++) {
-                this.B.add(optJSONArray.optString(i));
-            }
-        }
-        if (jSONObject.has("naviPreference")) {
-            jSONObject.optInt("naviPreference", -1);
-        }
-    }
-
-    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        rp2 rp2Var;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || (rp2Var = this.j) == null || !rp2Var.isValid()) ? false : true : invokeV.booleanValue;
     }
 }

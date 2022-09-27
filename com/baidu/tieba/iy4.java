@@ -1,89 +1,77 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class iy4 {
+public class iy4 implements ky4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public final int b;
-    public final String c;
+    public final TBLottieAnimationView a;
 
-    public iy4(ItemData item, int i, String tid) {
+    public iy4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {item, Integer.valueOf(i), tid};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        this.a = item;
-        this.b = i;
-        this.c = tid;
+        TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(context);
+        this.a = tBLottieAnimationView;
+        tBLottieAnimationView.loop(true);
     }
 
-    public final ItemData a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ky4
+    public void a(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ItemData) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gy4Var) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.a;
+            int i = gy4Var.c;
+            if (i < 0) {
+                i = -2;
             }
-            if (obj instanceof iy4) {
-                iy4 iy4Var = (iy4) obj;
-                return Intrinsics.areEqual(this.a, iy4Var.a) && this.b == iy4Var.b && Intrinsics.areEqual(this.c, iy4Var.c);
-            }
-            return false;
+            int i2 = gy4Var.c;
+            tBLottieAnimationView.setLayoutParams(new LinearLayout.LayoutParams(i, i2 >= 0 ? i2 : -2));
+            SkinManager.setLottieAnimation(this.a, gy4Var.b);
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
+    @Override // com.baidu.tieba.ky4
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ky4
+    public void onDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ItemCardViewButtonData(item=" + this.a + ", position=" + this.b + ", tid=" + this.c + ')';
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.cancelAnimation();
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ky4
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.playAnimation();
+        }
     }
 }

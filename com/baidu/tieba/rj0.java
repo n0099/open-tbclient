@@ -1,96 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.crius.uiwidget.ApkDownloadView;
+import com.baidu.nadcore.crius.uiwidget.JumpButton;
+import com.baidu.nadcore.crius.uiwidget.SyncTextView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.crius.data.RenderData;
+import com.baidu.searchbox.crius.factory.IComponentFactory;
+import com.baidu.searchbox.crius.util.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rj0 {
+public class rj0 implements IComponentFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static sz0 a(@NonNull yj0 yj0Var) {
-        InterceptResult invokeL;
+    public rj0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yj0Var)) == null) {
-            sz0 sz0Var = new sz0();
-            sz0Var.o(yj0Var.e());
-            sz0Var.u(yj0Var.b);
-            sz0Var.t(yj0Var.c.status);
-            sz0Var.q(yj0Var.d);
-            sz0Var.v(yj0Var.g);
-            File file = yj0Var.h;
-            if (file != null) {
-                sz0Var.m(file.getAbsolutePath());
-            } else {
-                sz0Var.m("");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            sz0Var.r((int) (yj0Var.i * 1000.0f));
-            sz0Var.w((int) (yj0Var.j * 1000.0f));
-            sz0Var.s(yj0Var.l);
-            sz0Var.n(yj0Var.m);
-            ck0 ck0Var = yj0Var.p;
-            if (ck0Var != null) {
-                sz0Var.p(ck0.b(ck0Var));
-            } else {
-                sz0Var.p("");
-            }
-            zj0 zj0Var = yj0Var.q;
-            if (zj0Var != null) {
-                sz0Var.k(zj0.b(zj0Var));
-            } else {
-                sz0Var.k("");
-            }
-            bk0 bk0Var = yj0Var.r;
-            if (bk0Var != null) {
-                sz0Var.l(bk0.b(bk0Var));
-            } else {
-                sz0Var.l("");
-            }
-            return sz0Var;
         }
-        return (sz0) invokeL.objValue;
     }
 
-    public static yj0 b(@NonNull sz0 sz0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
+    public View createComponent(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sz0Var)) == null) {
-            yj0 yj0Var = new yj0();
-            yj0Var.h(sz0Var.g());
-            yj0Var.b = sz0Var.z();
-            yj0Var.c = AdDownloadStatus.NONE;
-            AdDownloadStatus[] values = AdDownloadStatus.values();
-            int length = values.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
+                if (NativeConstants.COMPONENT_VIEWBTN.equalsIgnoreCase(str)) {
+                    return new JumpButton(context);
                 }
-                AdDownloadStatus adDownloadStatus = values[i];
-                if (adDownloadStatus.status == sz0Var.y()) {
-                    yj0Var.c = adDownloadStatus;
-                    break;
+                if ("download".equalsIgnoreCase(str)) {
+                    return new ApkDownloadView(context);
                 }
-                i++;
+                if (NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equalsIgnoreCase(str)) {
+                    return new SyncTextView(context);
+                }
+                return null;
             }
-            yj0Var.d = sz0Var.i();
-            yj0Var.g = sz0Var.A();
-            if (!TextUtils.isEmpty(sz0Var.e())) {
-                yj0Var.h = new File(sz0Var.e());
-            }
-            yj0Var.i = sz0Var.j() / 1000.0f;
-            yj0Var.j = sz0Var.B() / 1000.0f;
-            yj0Var.l = sz0Var.x();
-            yj0Var.m = sz0Var.f();
-            yj0Var.p = ck0.a(sz0Var.h());
-            yj0Var.q = zj0.a(sz0Var.c());
-            yj0Var.r = bk0.a(sz0Var.d());
-            return yj0Var;
+            ImageView imageView = new ImageView(context);
+            imageView.setId(R.id.obfuscated_res_0x7f0915d3);
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df2));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            imageView.setContentDescription("不感兴趣");
+            return imageView;
         }
-        return (yj0) invokeL.objValue;
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
+    public boolean renderComponent(String str, View view2, RenderData renderData, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (renderData == null) {
+                return false;
+            }
+            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
+                if (view2 instanceof JumpButton) {
+                    ((JumpButton) view2).setText(renderData.text);
+                    return true;
+                } else if (view2 instanceof ApkDownloadView) {
+                    ApkDownloadView apkDownloadView = (ApkDownloadView) view2;
+                    apkDownloadView.setDownloadStyle(renderData.downloadStyle);
+                    apkDownloadView.setTextSize(renderData.fontSize);
+                    apkDownloadView.setTextColor(ColorUtils.getColorRes(z, renderData.colorNight, renderData.color));
+                    apkDownloadView.setProgressColor(ColorUtils.getColorRes(z, renderData.progressNightColor, renderData.progressColor));
+                    apkDownloadView.setStrokeWidth(renderData.strokeWidth);
+                    apkDownloadView.setStrokeColor(ColorUtils.getColorRes(z, renderData.strokeNightColor, renderData.strokeColor));
+                    apkDownloadView.setBorderRadius(renderData.borderRadius);
+                    RenderData.BackgroundData backgroundData = renderData.backgroundData;
+                    if (backgroundData != null) {
+                        apkDownloadView.setBackgroundColor(ColorUtils.parseColor(z ? backgroundData.backgroundColorNight : backgroundData.backgroundColor));
+                    }
+                    return true;
+                } else if (view2 instanceof SyncTextView) {
+                    ((SyncTextView) view2).update(renderData, z, z3);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            ImageView imageView = (ImageView) view2;
+            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df2));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

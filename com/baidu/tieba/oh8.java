@@ -1,27 +1,71 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oh8 {
+public class oh8 extends lh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nh8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized nh8 a() {
-        InterceptResult invokeV;
-        nh8 nh8Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oh8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (oh8.class) {
-                if (a == null) {
-                    a = new nh8();
-                }
-                nh8Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return nh8Var;
         }
-        return (nh8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rh8
+    public void a(ShareEntity shareEntity, sh8 sh8Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, sh8Var) == null) {
+            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
+                if (TextUtils.isEmpty(shareEntity.getContent())) {
+                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
+                } else {
+                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
+                }
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.SEND");
+                intent.putExtra("android.intent.extra.TEXT", str);
+                intent.setType("text/plain");
+                Context context = this.b;
+                if (th8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.share_to)))) {
+                    if (sh8Var != null) {
+                        sh8Var.d1(0, 1);
+                        return;
+                    }
+                    return;
+                } else if (sh8Var != null) {
+                    sh8Var.d1(0, 2);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            ej.M(d(), R.string.obfuscated_res_0x7f0f1151);
+            if (sh8Var != null) {
+                sh8Var.d1(0, 2);
+            }
+        }
     }
 }

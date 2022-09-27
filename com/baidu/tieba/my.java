@@ -84,10 +84,10 @@ public class my extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: u */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) {
-            this.h.setData(lq4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) {
+            this.h.setData(yq4Var);
         }
     }
 

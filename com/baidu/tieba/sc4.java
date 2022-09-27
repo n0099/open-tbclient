@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.http.callback.StatResponseCallback;
+import com.baidu.tieba.uc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Response;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.String;
 /* loaded from: classes5.dex */
-public class sc4 {
+public abstract class sc4<T extends String> implements StatResponseCallback<T>, uc4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static uc4 a(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    public sc4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            Response executeSync = ca4.g().getRequest().requestFrom(6).requestSubFrom(i).url(str).build().executeSync();
-            if (executeSync == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return new qc4(executeSync);
         }
-        return (uc4) invokeLI.objValue;
     }
 }

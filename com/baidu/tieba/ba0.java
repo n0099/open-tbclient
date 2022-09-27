@@ -1,160 +1,81 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.MarginLayoutParamsCompat;
-import androidx.core.view.ViewCompat;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class ba0 {
+public class ba0 extends aa0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean x;
+    public boolean y;
 
-    public static int a(View view2) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba0(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? b(view2, false) : invokeL.intValue;
-    }
-
-    public static int b(View view2, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return n(view2) ? z ? view2.getLeft() + g(view2) : view2.getLeft() : z ? view2.getRight() - g(view2) : view2.getRight();
         }
-        return invokeLZ.intValue;
+        this.y = false;
     }
 
-    public static int c(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aa0, com.baidu.tieba.y90
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            super.g(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.aa0, com.baidu.tieba.y90
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.l(z);
+            if (this.x) {
+                return;
             }
-            return MarginLayoutParamsCompat.getMarginEnd((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
+            u(0);
         }
-        return invokeL.intValue;
     }
 
-    public static int d(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aa0, com.baidu.tieba.y90
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.m();
+        }
+    }
+
+    @Override // com.baidu.tieba.aa0
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.u(i);
+            LinearLayout linearLayout = this.e;
+            if (linearLayout == null) {
+                return;
             }
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            return MarginLayoutParamsCompat.getMarginStart(marginLayoutParams) + MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
+            this.x = false;
+            if (this.y) {
+                linearLayout.setBackgroundColor(0);
             }
-            return MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
         }
-        return invokeL.intValue;
-    }
-
-    public static int f(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return view2.getMeasuredWidth();
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return ViewCompat.getPaddingEnd(view2);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int h(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return view2.getPaddingLeft() + view2.getPaddingRight();
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return ViewCompat.getPaddingStart(view2);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int j(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) ? k(view2, false) : invokeL.intValue;
-    }
-
-    public static int k(View view2, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, view2, z)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return n(view2) ? z ? view2.getRight() - i(view2) : view2.getRight() : z ? view2.getLeft() + i(view2) : view2.getLeft();
-        }
-        return invokeLZ.intValue;
-    }
-
-    public static int l(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
-            if (view2 == null) {
-                return 0;
-            }
-            return view2.getWidth();
-        }
-        return invokeL.intValue;
-    }
-
-    public static int m(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, view2)) == null) ? l(view2) + d(view2) : invokeL.intValue;
-    }
-
-    public static boolean n(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 }

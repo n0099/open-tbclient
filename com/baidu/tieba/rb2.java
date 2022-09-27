@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class rb2 extends mb2 {
+public class rb2 implements bb2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,10 +26,17 @@ public class rb2 extends mb2 {
         }
     }
 
-    @Override // com.baidu.tieba.xo2
-    public LifecycleProcessType b() {
+    @Override // com.baidu.tieba.bb2
+    public ta2 a(String str, qb2 qb2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, qb2Var, v8ThreadDelegatePolicy)) == null) ? new xa2(str, qb2Var, v8ThreadDelegatePolicy) : (ta2) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bb2
+    public String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.SWAN : (LifecycleProcessType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? kf3.a() : (String) invokeV.objValue;
     }
 }

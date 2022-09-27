@@ -1,62 +1,97 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Observable;
+import java.util.Observer;
 /* loaded from: classes6.dex */
-public class ws1 extends vs1 {
+public class ws1 implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ws1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public ws1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            if (i == 200) {
+                return "";
+            }
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            sb.append(response != null ? Integer.valueOf(response.mCode) : "");
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            sb3.append(base != null ? Integer.valueOf(base.mStatus) : "");
+            return sb3.toString();
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    @Override // java.util.Observer
+    @SuppressLint({"BDThrowableCheck"})
+    public void update(Observable observable, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) == null) && (obj instanceof NetRequestResult)) {
+            NetRequestResult netRequestResult = (NetRequestResult) obj;
+            String url = netRequestResult.getUrl();
+            String valueOf = String.valueOf(netRequestResult.getId());
+            int statusCode = netRequestResult.getStatusCode();
+            if (statusCode == 3) {
+                v82.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+            } else if (statusCode != 4) {
+                if (statusCode == 5) {
+                    v82.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
+                } else if (statusCode == 6) {
+                    v82.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+                }
+            } else if (url != null) {
+                v82.k().q(valueOf, url);
+            }
+            NetInfo netInfo = netRequestResult.getNetInfo();
+            int statusCode2 = netRequestResult.getStatusCode();
+            if (netRequestResult.getFromType() != 1 || url == null || netInfo == null) {
+                if (netInfo != null) {
+                    if (statusCode2 < 0 || statusCode2 >= 400) {
+                        ea3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
+                        return;
+                    }
+                    return;
+                }
                 return;
             }
+            v82.k().B(valueOf, url, netInfo);
+            long l = v82.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = fh3.n().e();
+            ea3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), ea3.l(), e, l, currentTimeMillis, valueOf);
         }
-    }
-
-    @Override // com.baidu.tieba.br1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ActionConfigApi" : (String) invokeV.objValue;
-    }
-
-    public yu1 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#isAllowedAdOpenAppSync", false);
-            if (y23.b0() == null) {
-                return new yu1(1001, "swan app is null");
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isAllowed", fm2.a().d());
-                return new yu1(0, "success", jSONObject);
-            } catch (Exception e) {
-                yz1.d("ActionConfigApi", e.getMessage(), e);
-                return new yu1(1001, e.getMessage() + "");
-            }
-        }
-        return (yu1) invokeV.objValue;
     }
 }

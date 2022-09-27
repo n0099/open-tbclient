@@ -1,11 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface rr0 {
-    void a(BdThumbSeekBarView bdThumbSeekBarView);
+public class rr0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int a = 0;
+    public static int b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131097, "Lcom/baidu/tieba/rr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948131097, "Lcom/baidu/tieba/rr0;");
+                return;
+            }
+        }
+        oz0.h();
+    }
 
-    void c(BdThumbSeekBarView bdThumbSeekBarView);
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : invokeV.intValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.intValue;
+    }
 }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hs7;
+import com.baidu.tieba.dt7;
+import com.baidu.tieba.ms7;
 import com.baidu.tieba.newinterest.model.msg.GetInterestClassListResponseMessage;
-import com.baidu.tieba.ps7;
-import com.baidu.tieba.yr7;
+import com.baidu.tieba.vs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ import java.util.List;
 public class InterestSelectionStyleAModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr7 a;
-    public List<hs7> b;
-    public ps7 c;
+    public ms7 a;
+    public List<vs7> b;
+    public dt7 c;
     public HttpMessageListener d;
 
     /* loaded from: classes5.dex */
@@ -86,12 +86,12 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
     }
 
-    public InterestSelectionStyleAModel(yr7 yr7Var, ps7 ps7Var) {
+    public InterestSelectionStyleAModel(ms7 ms7Var, dt7 dt7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yr7Var, ps7Var};
+            Object[] objArr = {ms7Var, dt7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,8 +103,8 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
         this.b = new ArrayList();
         this.d = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.c = ps7Var;
-        this.a = yr7Var;
+        this.c = dt7Var;
+        this.a = ms7Var;
         D();
         registerListener();
         E();

@@ -1,97 +1,121 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.m16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.ss.android.download.api.constant.BaseConstants;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tn6 extends cw4 {
+public class tn6 extends qn<c76, CardViewHolder<m16>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aw4 c;
+    public TbPageContext<?> a;
+    public m16 b;
+    public i26 c;
     public String d;
 
+    /* loaded from: classes6.dex */
+    public class a implements m16.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tn6 a;
+
+        public a(tn6 tn6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tn6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tn6Var;
+        }
+
+        @Override // com.baidu.tieba.m16.a
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) || this.a.c == null) {
+                return;
+            }
+            this.a.c.a(view2, baseCardInfo);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tn6(aw4 aw4Var, String str) {
-        super(aw4Var);
+    public tn6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), c76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aw4Var, str};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((aw4) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = aw4Var;
+        this.a = tbPageContext;
         this.d = str;
     }
 
-    @dw4(isAsync = false, value = "downloadGame")
-    private void downloadGame(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public CardViewHolder<m16> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new m16(this.a, this.d);
+            return new CardViewHolder<>(this.b);
         }
-        String optString = jSONObject.optString("packageName");
-        String optString2 = jSONObject.optString(TTDownloadField.TT_DOWNLOAD_URL);
-        String optString3 = jSONObject.optString("imageUrl");
-        if (StringUtils.isNull(optString)) {
-            return;
-        }
-        if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c59);
-            return;
-        }
-        if (StringUtils.isNull(optString2)) {
-            g(optString);
-        } else {
-            be8.n().E(optString, optString2, optString, 0, be8.o(optString).intValue(), null, true, false, true, optString3, null, null);
-        }
-        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cw4
-    public String f() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c76 c76Var, CardViewHolder<m16> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_DOWNLOAD_GAME" : (String) invokeV.objValue;
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
-            try {
-                if (!(this.c.getContext() instanceof Activity)) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                this.c.getContext().startActivity(intent);
-            } catch (ActivityNotFoundException e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c76Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
+            cardViewHolder.a().i(c76Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().u(new a(this));
+            return cardViewHolder.a().h();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void v(i26 i26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, i26Var) == null) {
+            this.c = i26Var;
         }
     }
 }

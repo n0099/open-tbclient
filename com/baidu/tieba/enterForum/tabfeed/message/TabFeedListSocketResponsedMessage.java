@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.Cdo;
-import com.baidu.tieba.la6;
-import com.baidu.tieba.za5;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.ya6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements za5 {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements mb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public la6 enterForumTabFeedData;
+    public ya6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -57,9 +57,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                la6 la6Var = new la6();
-                this.enterForumTabFeedData = la6Var;
-                la6Var.g(tabfeedlistResIdl.data);
+                ya6 ya6Var = new ya6();
+                this.enterForumTabFeedData = ya6Var;
+                ya6Var.g(tabfeedlistResIdl.data);
                 return tabfeedlistResIdl;
             }
             return tabfeedlistResIdl;

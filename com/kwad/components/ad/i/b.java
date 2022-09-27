@@ -49,7 +49,7 @@ public class b {
     public c.a Ce;
     public a Cf;
     @Nullable
-    public InterfaceC0536b Cg;
+    public InterfaceC0532b Cg;
     public KsAdWebView bF;
     public int bH;
     public aa bI;
@@ -74,7 +74,7 @@ public class b {
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0536b {
+    public interface InterfaceC0532b {
         void hk();
     }
 
@@ -403,10 +403,10 @@ public class b {
         }
     }
 
-    public final void a(@Nullable InterfaceC0536b interfaceC0536b) {
+    public final void a(@Nullable InterfaceC0532b interfaceC0532b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0536b) == null) {
-            this.Cg = interfaceC0536b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0532b) == null) {
+            this.Cg = interfaceC0532b;
             this.bS.setVisibility(4);
             this.bH = -1;
             String l = l(this.mAdTemplate);

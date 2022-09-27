@@ -1,25 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ak2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
 
-    public static String a(@NonNull String str) {
-        InterceptResult invokeL;
+    public ak2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str.startsWith(ImageSource.FILE_SCHEME)) {
-                str = str.substring(8);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            y23 M = y23.M();
-            return (!ga3.E(str) || M == null) ? str : ga3.H(str, M);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public JSONObject a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("userId", this.a);
+                jSONObject.put("displayName", this.b);
+                jSONObject.put(Config.EVENT_ATTR, this.c);
+                jSONObject.put("role", this.d);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +8,100 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public final class bd2 {
+public class bd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
+    public final Set<String> a;
+    public final Map<String, a<Boolean>> b;
+    public final Map<String, a<b>> c;
+    public a<Exception> d;
+
+    /* loaded from: classes3.dex */
+    public static class a<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Set<ei3<T>> a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new HashSet();
+        }
+
+        public void a(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+                for (ei3<T> ei3Var : this.a) {
+                    ei3Var.a(t);
+                }
+            }
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.clear();
+            }
+        }
+
+        public void c(ei3<T> ei3Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ei3Var) == null) || ei3Var == null) {
+                return;
+            }
+            this.a.add(ei3Var);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final long b;
+
+        public b(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+            this.b = j2;
+            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b > 0 : invokeV.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,15 +116,13 @@ public final class bd2 {
                 return;
             }
         }
-        c = ij1.a;
+        boolean z = vj1.a;
     }
 
-    public bd2(String str, String str2) {
+    public bd2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,25 +132,97 @@ public final class bd2 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
+        this.a = new HashSet();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new a<>();
     }
 
-    public static bd2 a(String str) {
-        InterceptResult invokeL;
+    public static <T> a<T> i(Map<String, a<T>> map, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new bd2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
-            } catch (JSONException e) {
-                if (c) {
-                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
+            a<T> aVar = map.get(str);
+            if (aVar == null) {
+                a<T> aVar2 = new a<>();
+                map.put(str, aVar2);
+                return aVar2;
+            }
+            return aVar;
+        }
+        return (a) invokeLL.objValue;
+    }
+
+    public HashSet<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.a) : (HashSet) invokeV.objValue;
+    }
+
+    public void b(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.d.a(exc);
+            this.d.b();
+        }
+    }
+
+    public void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            a i = i(this.b, str);
+            i.a(Boolean.valueOf(z));
+            i.b();
+        }
+    }
+
+    public void d(String str, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
+            if (bVar == null || bVar.a()) {
+                i(this.c, str).a(bVar);
             }
         }
+    }
+
+    public bd2 e(ei3<Exception> ei3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ei3Var)) == null) {
+            this.d.c(ei3Var);
+            return this;
+        }
         return (bd2) invokeL.objValue;
+    }
+
+    public bd2 f(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+            this.a.addAll(Arrays.asList(strArr));
+            return this;
+        }
+        return (bd2) invokeL.objValue;
+    }
+
+    public final <T> bd2 g(Map<String, a<T>> map, String str, ei3<T> ei3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, ei3Var)) == null) {
+            f(str);
+            i(map, str).c(ei3Var);
+            return this;
+        }
+        return (bd2) invokeLLL.objValue;
+    }
+
+    public bd2 h(String str, ei3<Boolean> ei3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, ei3Var)) == null) {
+            g(this.b, str, ei3Var);
+            return this;
+        }
+        return (bd2) invokeLL.objValue;
     }
 }

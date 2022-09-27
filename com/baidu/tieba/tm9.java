@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class tm9 extends nl9 {
+public class tm9 extends im9<um9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements TTAdNative.FeedAdListener {
+    public class a implements TTAdNative.FullScreenVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tm9 a;
@@ -44,42 +46,48 @@ public class tm9 extends nl9 {
             this.a = tm9Var;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
                 this.a.onError(i, str);
             }
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
-        public void onFeedAdLoad(List<TTFeedAd> list) {
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
                 LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTFeedAd tTFeedAd : list) {
-                    arrayList.add(new am9(tTFeedAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
+                this.a.onAdLoaded((tm9) new um9(tTFullScreenVideoAd));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tm9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
+    public tm9(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,13 +101,48 @@ public class tm9 extends nl9 {
         }
     }
 
-    @Override // com.baidu.tieba.nl9
-    public void h(FunAdSlot funAdSlot) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
-            Ssp.Pid pid = this.mPid;
-            this.e.loadFeedAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            um9 um9Var = (um9) obj;
         }
+    }
+
+    public AdSlot e(FunAdSlot funAdSlot) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
+        }
+        return (AdSlot) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            AdSlot e = e(funAdSlot);
+            onLoadStart(funAdSlot);
+            this.e.loadFullScreenVideoAd(e, new a(this));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            um9 um9Var = (um9) obj;
+            onShowStart(um9Var);
+            ((TTFullScreenVideoAd) um9Var.a).setFullScreenVideoAdInteractionListener(new wm9(this, um9Var));
+            ((TTFullScreenVideoAd) um9Var.a).setDownloadListener(new am9(null));
+            ((TTFullScreenVideoAd) um9Var.a).showFullScreenVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

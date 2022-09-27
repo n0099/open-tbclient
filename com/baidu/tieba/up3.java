@@ -1,88 +1,122 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-@Service
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class up3 implements wo1 {
+public class up3 extends rp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218641, "Lcom/baidu/tieba/up3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948218641, "Lcom/baidu/tieba/up3;");
+                return;
+            }
+        }
+        a = vj1.a;
+    }
 
     public up3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.wo1
-    public xf4 a() {
-        InterceptResult invokeV;
+    public final Cursor a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? tp3.b().a() : (xf4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wo1
-    public void b(c92 c92Var, a92 a92Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c92Var, a92Var) == null) || a92Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
+            matrixCursor.newRow().add("params", str);
+            return matrixCursor;
         }
-        if (c92Var != null && !TextUtils.isEmpty(c92Var.a)) {
-            String str = c92Var.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 1195918653) {
-                if (hashCode == 1825003424 && str.equals("by_click")) {
-                    c = 0;
-                }
-            } else if (str.equals("by_silent")) {
-                c = 1;
+        return (Cursor) invokeL.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("swan_sdk_version", wj1.a());
+                jSONObject.put("swan_core_version", qc3.h(0));
+                jSONObject.put("game_core_version", qc3.h(1));
+                jSONObject.put("uid", sm2.h0().i(AppRuntime.getAppContext()));
+                jSONObject.put(BaiduIdentityManager.PARAM_PASSUID, sm2.h0().h(AppRuntime.getAppContext()));
+                jSONObject.put("ua", h02.s());
+                jSONObject.put("ut", h02.f());
+                jSONObject.put("timestamp", System.currentTimeMillis());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if (c != 0) {
-                if (c != 1) {
-                    a92Var.onFail();
-                    return;
-                } else {
-                    tp3.b().b(true, a92Var);
-                    return;
-                }
-            } else if (c92Var.b) {
-                tp3.b().b(false, a92Var);
-                return;
-            } else {
-                tp3.b().b(true, a92Var);
-                return;
-            }
+            return jSONObject.toString();
         }
-        a92Var.onFail();
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wo1
-    public boolean c() {
-        InterceptResult invokeV;
+    public final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || nc2.d.w() || (nc2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && s92.U().s0()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return Base64.encodeToString(wp3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
+        }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wo1
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rp3
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !tp3.b().c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
+            String b = b();
+            if (a) {
+                Log.i("ParamsProcessor", "params: " + b);
+            }
+            String c = c(b);
+            if (a) {
+                Log.i("ParamsProcessor", "encryption params: " + c);
+            }
+            return a(c);
+        }
+        return (Cursor) invokeLLLLL.objValue;
     }
 }

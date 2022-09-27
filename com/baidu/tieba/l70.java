@@ -1,75 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.NetworkInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.x60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.IOException;
+import java.net.URISyntaxException;
 /* loaded from: classes4.dex */
-public final class l70 {
+public class l70 implements x60 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895652, "Lcom/baidu/tieba/l70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947895652, "Lcom/baidu/tieba/l70;");
-                return;
-            }
-        }
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        c = hashMap;
-        hashMap.put("WIFI", 1);
-        c.put("3GNET", 21);
-        c.put("3GWAP", 22);
-        c.put("CMNET", 31);
-        c.put("UNINET", 32);
-        c.put("CTNET", 33);
-        c.put("CMWAP", 41);
-        c.put("UNIWAP", 42);
-        c.put("CTWAP", 43);
-    }
-
-    public l70(Context context) {
-        String upperCase;
+    public l70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        NetworkInfo a = m70.a(context);
-        if (a != null) {
-            if (!"wifi".equals(a.getTypeName().toLowerCase())) {
-                String extraInfo = a.getExtraInfo();
-                upperCase = extraInfo != null ? extraInfo.toUpperCase() : upperCase;
-                this.b = a.getSubtype();
+    }
+
+    @Override // com.baidu.tieba.x60
+    public Response a(x60.a aVar) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            try {
+                return aVar.a(request);
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
+                }
+                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
+                    throw new IOException(e);
+                }
+                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
             }
-            "wifi".toUpperCase();
-            this.a = upperCase;
-            this.b = a.getSubtype();
         }
+        return (Response) invokeL.objValue;
     }
 }

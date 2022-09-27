@@ -20,7 +20,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -189,7 +189,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09060f);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.noNetworkView);
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }

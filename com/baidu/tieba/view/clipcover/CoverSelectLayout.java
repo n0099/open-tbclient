@@ -21,9 +21,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.og5;
-import com.baidu.tieba.th5;
-import com.baidu.tieba.un5;
+import com.baidu.tieba.bh5;
+import com.baidu.tieba.gi5;
+import com.baidu.tieba.ho5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,7 +183,7 @@ public class CoverSelectLayout extends RelativeLayout {
     public void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.CoverSelectLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.CoverSelectLayout);
             this.c = obtainStyledAttributes.getDimensionPixelSize(1, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
             this.d = obtainStyledAttributes.getDimensionPixelSize(2, (int) TypedValue.applyDimension(1, 0.0f, getResources().getDisplayMetrics()));
             this.g = obtainStyledAttributes.getDimensionPixelSize(0, (int) TypedValue.applyDimension(1, 1.0f, getResources().getDisplayMetrics()));
@@ -222,7 +222,7 @@ public class CoverSelectLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        int[] e = og5.e(str);
+        int[] e = bh5.e(str);
         int i = e[0];
         int i2 = e[1];
         int i3 = this.q;
@@ -233,7 +233,7 @@ public class CoverSelectLayout extends RelativeLayout {
         if (i2 > i4) {
             i2 = i4;
         }
-        Bitmap b = og5.b(str, i, i2);
+        Bitmap b = bh5.b(str, i, i2);
         if (b == null) {
             return;
         }
@@ -290,7 +290,7 @@ public class CoverSelectLayout extends RelativeLayout {
                     this.h.postTranslate(x, y);
                     b();
                 } else if (i == 2) {
-                    float d = th5.d(motionEvent);
+                    float d = gi5.d(motionEvent);
                     if (d > 10.0f) {
                         float f = d / this.m;
                         if (f < 1.0f) {
@@ -320,11 +320,11 @@ public class CoverSelectLayout extends RelativeLayout {
                 }
                 this.a.setImageMatrix(this.h);
             } else if (action == 5) {
-                float d2 = th5.d(motionEvent);
+                float d2 = gi5.d(motionEvent);
                 this.m = d2;
                 if (d2 > 10.0f) {
                     this.i.set(this.h);
-                    this.l = th5.b(motionEvent);
+                    this.l = gi5.b(motionEvent);
                     this.j = 2;
                 }
             } else if (action == 6) {

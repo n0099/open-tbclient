@@ -1,89 +1,197 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ks3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public wr3 a;
+    public Context b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923614, "Lcom/baidu/tieba/ks3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cs3 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ ks3 c;
+
+        /* renamed from: com.baidu.tieba.ks3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0319a extends ResponseCallback<ur3> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            /* renamed from: com.baidu.tieba.ks3$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes4.dex */
+            public class RunnableC0320a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ur3 a;
+                public final /* synthetic */ C0319a b;
+
+                public RunnableC0320a(C0319a c0319a, ur3 ur3Var) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0319a, ur3Var};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0319a;
+                    this.a = ur3Var;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a.c.a == null) {
+                        return;
+                    }
+                    this.b.a.c.a.i(this.a);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923614, "Lcom/baidu/tieba/ks3;");
-                return;
+
+            public C0319a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: a */
+            public void onSuccess(ur3 ur3Var, int i) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeLI(1048576, this, ur3Var, i) == null) || ur3Var == null) {
+                    return;
+                }
+                at3.c(new RunnableC0320a(this, ur3Var));
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: b */
+            public ur3 parseResponse(Response response, int i) {
+                InterceptResult invokeLI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                    if (response == null || response.body() == null || !response.isSuccessful()) {
+                        return null;
+                    }
+                    try {
+                        String string = response.body().string();
+                        if (!TextUtils.isEmpty(string)) {
+                            return new ur3(string);
+                        }
+                    } catch (Exception | OutOfMemoryError e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+                return (ur3) invokeLI.objValue;
+            }
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                }
             }
         }
-        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, 95, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
-        b = new byte[128];
-        int i = 0;
-        while (true) {
-            byte[] bArr = a;
-            if (i >= bArr.length) {
-                return;
+
+        public a(ks3 ks3Var, cs3 cs3Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ks3Var, cs3Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            b[bArr[i]] = (byte) i;
-            i++;
+            this.c = ks3Var;
+            this.a = cs3Var;
+            this.b = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                C0319a c0319a = new C0319a(this);
+                if (NetworkUtils.f(this.c.b)) {
+                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0319a);
+                }
+            }
         }
     }
 
-    public ks3() {
+    public ks3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = context;
+    }
+
+    public void c(cs3 cs3Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, cs3Var, jSONObject) == null) {
+            zs3.d(new a(this, cs3Var, jSONObject), "AdLandingDownloadRequest");
         }
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public void d(wr3 wr3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
-                str = str + "$";
-            }
-            byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[(bytes.length / 3) * 4];
-            int i = 0;
-            int i2 = 0;
-            while (i < bytes.length) {
-                byte[] bArr2 = a;
-                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
-                int i3 = i + 1;
-                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
-                int i4 = i + 2;
-                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & 192) >> 6)];
-                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
-                i += 3;
-                i2 += 4;
-            }
-            return new String(bArr);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wr3Var) == null) {
+            this.a = wr3Var;
         }
-        return (String) invokeL.objValue;
     }
 }

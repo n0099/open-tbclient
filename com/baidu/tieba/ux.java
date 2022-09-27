@@ -24,7 +24,7 @@ public class ux extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public lq4 i;
+    public yq4 i;
     public StatisticItem j;
 
     /* loaded from: classes6.dex */
@@ -131,7 +131,7 @@ public class ux extends nx {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                g16.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                t16.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -203,16 +203,16 @@ public class ux extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: w */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lq4Var) == null) {
-            this.i = lq4Var;
-            PostData topAgreePost = lq4Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(1048581, this, yq4Var) == null) {
+            this.i = yq4Var;
+            PostData topAgreePost = yq4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.s() != null && topAgreePost.s().getUserId() != null) {
-                this.j.param("tid", lq4Var.getThreadData().tid).param("post_id", topAgreePost.L()).param("uid", topAgreePost.s().getUserId());
-                o16.b().a(this.j);
+                this.j.param("tid", yq4Var.getThreadData().tid).param("post_id", topAgreePost.L()).param("uid", topAgreePost.s().getUserId());
+                b26.b().a(this.j);
             }
-            this.h.setData(lq4Var.getThreadData());
+            this.h.setData(yq4Var.getThreadData());
         }
     }
 

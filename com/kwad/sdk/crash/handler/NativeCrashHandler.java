@@ -12,14 +12,14 @@ import com.kwad.sdk.crash.utils.f;
 import java.io.File;
 import java.util.concurrent.CountDownLatch;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NativeCrashHandler extends b {
     public static final String NATIVE_CRASH_HAPPENED_BEGIN = "------ Native Crash Happened Begin ------\n";
     public static final String TAG = "NativeCrashHandler";
     public static ExceptionMessage mMessage = new NativeExceptionMessage();
     public File mMessageFile;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final NativeCrashHandler ahq = new NativeCrashHandler();
     }

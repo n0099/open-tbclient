@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.za5;
+import com.baidu.tieba.mb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,10 +27,10 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public c b;
-    public ArrayList<za5> c;
+    public ArrayList<mb5> c;
 
     /* loaded from: classes4.dex */
-    public static class a implements za5 {
+    public static class a implements mb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -164,10 +164,10 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
             this.a.setStrokeWith(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
-        public void a(za5 za5Var) {
+        public void a(mb5 mb5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, za5Var) == null) {
-                this.d = (a) za5Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mb5Var) == null) {
+                this.d = (a) mb5Var;
                 SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
                 SkinManager.setBackgroundResource(this.c, R.drawable.icon_official_bar_red_dot);
                 this.a.setStrokeColorResId(R.color.CAM_X0401);
@@ -223,7 +223,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         this.b = cVar;
     }
 
-    public void e(ArrayList<? extends za5> arrayList) {
+    public void e(ArrayList<? extends mb5> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || arrayList == null) {
             return;
@@ -238,7 +238,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<za5> arrayList = this.c;
+            ArrayList<mb5> arrayList = this.c;
             if (arrayList == null) {
                 return 0;
             }
@@ -256,14 +256,14 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ArrayList<za5> arrayList;
+        ArrayList<mb5> arrayList;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (arrayList = this.c) == null || arrayList.size() <= 0) {
             return;
         }
-        za5 za5Var = this.c.get(i);
-        if ((viewHolder instanceof b) && (za5Var instanceof a)) {
-            ((b) viewHolder).a(za5Var);
+        mb5 mb5Var = this.c.get(i);
+        if ((viewHolder instanceof b) && (mb5Var instanceof a)) {
+            ((b) viewHolder).a(mb5Var);
         }
     }
 

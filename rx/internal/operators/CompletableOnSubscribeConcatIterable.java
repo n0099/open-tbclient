@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m1a;
-import com.baidu.tieba.n1a;
-import com.baidu.tieba.ow9;
-import com.baidu.tieba.pw9;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.b2a;
+import com.baidu.tieba.c2a;
+import com.baidu.tieba.dx9;
+import com.baidu.tieba.ex9;
+import com.baidu.tieba.mx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,26 +13,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class CompletableOnSubscribeConcatIterable implements ow9.f {
+public final class CompletableOnSubscribeConcatIterable implements dx9.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Iterable<? extends ow9> a;
+    public final Iterable<? extends dx9> a;
 
     /* loaded from: classes9.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements pw9 {
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements ex9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final pw9 actual;
-        public final m1a sd;
-        public final Iterator<? extends ow9> sources;
+        public final ex9 actual;
+        public final b2a sd;
+        public final Iterator<? extends dx9> sources;
 
-        public ConcatInnerSubscriber(pw9 pw9Var, Iterator<? extends ow9> it) {
+        public ConcatInnerSubscriber(ex9 ex9Var, Iterator<? extends dx9> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pw9Var, it};
+                Object[] objArr = {ex9Var, it};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,15 +42,15 @@ public final class CompletableOnSubscribeConcatIterable implements ow9.f {
                     return;
                 }
             }
-            this.actual = pw9Var;
+            this.actual = ex9Var;
             this.sources = it;
-            this.sd = new m1a();
+            this.sd = new b2a();
         }
 
         public void next() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-                Iterator<? extends ow9> it = this.sources;
+                Iterator<? extends dx9> it = this.sources;
                 while (!this.sd.isUnsubscribed()) {
                     try {
                         if (!it.hasNext()) {
@@ -58,7 +58,7 @@ public final class CompletableOnSubscribeConcatIterable implements ow9.f {
                             return;
                         }
                         try {
-                            ow9 next = it.next();
+                            dx9 next = it.next();
                             if (next == null) {
                                 this.actual.onError(new NullPointerException("The completable returned is null"));
                                 return;
@@ -79,7 +79,7 @@ public final class CompletableOnSubscribeConcatIterable implements ow9.f {
             }
         }
 
-        @Override // com.baidu.tieba.pw9
+        @Override // com.baidu.tieba.ex9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -87,7 +87,7 @@ public final class CompletableOnSubscribeConcatIterable implements ow9.f {
             }
         }
 
-        @Override // com.baidu.tieba.pw9
+        @Override // com.baidu.tieba.ex9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -95,16 +95,16 @@ public final class CompletableOnSubscribeConcatIterable implements ow9.f {
             }
         }
 
-        @Override // com.baidu.tieba.pw9
-        public void onSubscribe(xw9 xw9Var) {
+        @Override // com.baidu.tieba.ex9
+        public void onSubscribe(mx9 mx9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, xw9Var) == null) {
-                this.sd.a(xw9Var);
+            if (interceptable == null || interceptable.invokeL(1048579, this, mx9Var) == null) {
+                this.sd.a(mx9Var);
             }
         }
     }
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends ow9> iterable) {
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends dx9> iterable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,23 +123,23 @@ public final class CompletableOnSubscribeConcatIterable implements ow9.f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ow9.f, com.baidu.tieba.ex9
-    public void call(pw9 pw9Var) {
+    @Override // com.baidu.tieba.dx9.f, com.baidu.tieba.tx9
+    public void call(ex9 ex9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pw9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ex9Var) == null) {
             try {
-                Iterator<? extends ow9> it = this.a.iterator();
+                Iterator<? extends dx9> it = this.a.iterator();
                 if (it == null) {
-                    pw9Var.onSubscribe(n1a.c());
-                    pw9Var.onError(new NullPointerException("The iterator returned is null"));
+                    ex9Var.onSubscribe(c2a.c());
+                    ex9Var.onError(new NullPointerException("The iterator returned is null"));
                     return;
                 }
-                ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(pw9Var, it);
-                pw9Var.onSubscribe(concatInnerSubscriber.sd);
+                ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(ex9Var, it);
+                ex9Var.onSubscribe(concatInnerSubscriber.sd);
                 concatInnerSubscriber.next();
             } catch (Throwable th) {
-                pw9Var.onSubscribe(n1a.c());
-                pw9Var.onError(th);
+                ex9Var.onSubscribe(c2a.c());
+                ex9Var.onError(th);
             }
         }
     }

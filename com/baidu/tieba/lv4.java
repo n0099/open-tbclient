@@ -1,35 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
-public class lv4 implements AppLaunchInfoFetcher.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lv4 {
+    ov4 a();
 
-    public lv4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    View b();
 
-    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(ch5 ch5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ch5Var) == null) || ch5Var == null) {
-            return;
-        }
-        mv4.a().c(ch5Var.b);
-    }
+    rv4 c();
+
+    TbImageView d(Context context);
 }

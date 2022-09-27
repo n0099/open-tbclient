@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import android.net.LocalServerSocket;
+import android.net.LocalSocket;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.m12;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +13,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 /* loaded from: classes5.dex */
-public final class q12 {
+public class q12 implements m12.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public m12.b a;
+    public LocalServerSocket b;
+    public o12 c;
+    public String d;
+    public boolean e;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public long c;
+        public Map<String, String> a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,115 +56,73 @@ public final class q12 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = new HashMap();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
-        public static final boolean a;
-        public static int b;
         public transient /* synthetic */ FieldHolder $fh;
+        public a a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-540374279, "Lcom/baidu/tieba/q12$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-540374279, "Lcom/baidu/tieba/q12$b;");
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = ij1.a;
-            b = -1;
+            this.a = aVar;
         }
 
-        public static boolean a() {
+        public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (h() & 255) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
-        public static int b() {
-            InterceptResult invokeV;
+        public abstract Map<String, String> b();
+
+        public abstract String c();
+
+        public final void d(PrintWriter printWriter, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                int h = h();
-                return h == 0 ? h : (h >> 16) & 255;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
+                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
             }
-            return invokeV.intValue;
         }
 
-        public static int c() {
-            InterceptResult invokeV;
+        public void e(OutputStream outputStream) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                int h = h();
-                return h == 0 ? h : (h >> 8) & 255;
-            }
-            return invokeV.intValue;
-        }
-
-        public static a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-                a aVar = new a();
-                aVar.a = f();
-                aVar.b = g();
-                aVar.c = e();
-                if (a) {
-                    Log.d("CodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + aVar.a + " ,sizeLimit: " + aVar.b + " ,diskSizeThreshold: " + aVar.c);
+            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
+                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
+                d(printWriter, "Date", simpleDateFormat.format(new Date()));
+                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
+                Map<String, String> b = b();
+                if (b != null && b.size() > 0) {
+                    for (Map.Entry<String, String> entry : b.entrySet()) {
+                        d(printWriter, entry.getKey(), entry.getValue());
+                    }
                 }
-                return aVar;
+                printWriter.append("\r\n");
+                printWriter.append((CharSequence) a());
+                printWriter.flush();
             }
-            return (a) invokeV.objValue;
-        }
-
-        public static long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-                return 31457280L;
-            }
-            return invokeV.longValue;
-        }
-
-        public static int f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-                return 20;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                return 102400;
-            }
-            return invokeV.intValue;
-        }
-
-        public static int h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                if (b == -1) {
-                    fm2.g0().getSwitch("swan_custom_code_cache", 0);
-                    b = 0;
-                }
-                return b;
-            }
-            return invokeV.intValue;
         }
     }
 
@@ -161,50 +139,77 @@ public final class q12 {
                 return;
             }
         }
-        a = ij1.a;
+        f = vj1.a;
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public q12(String str, m12.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                a d = b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a) {
-                Log.d("V8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("V8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        this.d = str;
+        this.a = bVar;
     }
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.m12.c
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e) {
+            return;
         }
-        return invokeCommon.intValue;
+        try {
+            this.b = new LocalServerSocket(this.d);
+            this.e = true;
+            int i = 0;
+            while (this.e) {
+                LocalSocket accept = this.b.accept();
+                o12 o12Var = new o12(accept.getInputStream(), accept.getOutputStream());
+                this.c = o12Var;
+                o12Var.o(this.a);
+                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
+                if (kz2.H() && (i = i + 1) > 10) {
+                    if (f) {
+                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
+                        return;
+                    }
+                    return;
+                }
+            }
+        } catch (IOException e) {
+            l02.d("V8InspectorServer", "launch local server fail", e);
+        }
+    }
+
+    @Override // com.baidu.tieba.m12.c
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = false;
+            LocalServerSocket localServerSocket = this.b;
+            if (localServerSocket != null) {
+                try {
+                    localServerSocket.close();
+                } catch (IOException e) {
+                    l02.d("V8InspectorServer", "stop local server fail", e);
+                }
+                this.b = null;
+            }
+            o12 o12Var = this.c;
+            if (o12Var != null) {
+                o12Var.l();
+                this.c = null;
+            }
+            this.a = null;
+        }
     }
 }

@@ -1,51 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ef6 implements CustomMessageTask.CustomRunnable<Object> {
+public class ef6 extends dh6<gh6, FrsEmpertyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ef6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ef6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: E */
+    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
-                return null;
-            }
-            byte[] a = new df6().a(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
-            GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
-            try {
-                getLevelInfoReadCacheResponsedMessage.decodeInBackGround(2003007, a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return getLevelInfoReadCacheResponsedMessage;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.mContext)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
+    }
+
+    public View F(int i, View view2, ViewGroup viewGroup, gh6 gh6Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gh6Var, frsEmpertyItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, gh6Var, frsEmpertyItemViewHolder);
+            frsEmpertyItemViewHolder.b(gh6Var.b());
+            frsEmpertyItemViewHolder.a(gh6Var.a());
+            return view2;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.dh6, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        F(i, view2, viewGroup, (gh6) obj, (FrsEmpertyItemViewHolder) viewHolder);
+        return view2;
     }
 }

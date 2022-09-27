@@ -1,92 +1,77 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestParam;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class us1 extends ps1 {
+public class us1 implements NetRequest.RequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(us1 us1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {us1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gg3.a(lo2.U().getActivity());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public us1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public us1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.br1
-    public String j() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
+    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
+    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "RestartApi" : (String) invokeV.objValue;
-    }
-
-    public yu1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#restart params=" + str, false);
-            Pair<yu1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((yu1) s.first).isSuccess() && jSONObject != null) {
-                if (!jSONObject.optString("invokeFrom").equals("swanWeb")) {
-                    return new yu1(201, "error invoke from value.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
+            if (netRequestParam == null) {
+                return false;
+            }
+            String url = netRequestParam.getUrl();
+            if (TextUtils.isEmpty(url)) {
+                if (netRequestResult != null) {
+                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
                 }
-                sg3.a0(new a(this));
-                return yu1.f();
+                return true;
             }
-            return new yu1(202);
+            JsObject jsObject = netRequestParam.getJsObject();
+            if (jsObject != null) {
+                try {
+                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
+                    r2 = propertyIndex > 0 ? jsObject.toString(propertyIndex) : null;
+                    int c = c43.c("request", url, r2);
+                    if (c != 0) {
+                        lv1 Y = zs1.Y(c);
+                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
+                        return true;
+                    }
+                } finally {
+                    if (vs1.e() && jsObject != null) {
+                        jsObject.release();
+                    }
+                }
+            }
+            if (vs1.e() && jsObject != null) {
+                jsObject.release();
+            }
+            if (!TextUtils.isEmpty(r2)) {
+                netRequestParam.addHeader("X-SWAN-HOSTSIGN", iz2.b(jz2.h(r2)));
+            }
+            netRequestParam.addHeader("Referer", at1.d());
+            netRequestParam.addHeader("User-Agent", da4.b().getUserAgent());
+            return false;
         }
-        return (yu1) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

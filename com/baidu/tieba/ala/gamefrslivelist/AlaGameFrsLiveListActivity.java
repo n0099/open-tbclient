@@ -30,12 +30,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ei6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ic5;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.lc5;
-import com.baidu.tieba.rh6;
-import com.baidu.tieba.y85;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.vc5;
+import com.baidu.tieba.xc5;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     }
 
     /* loaded from: classes3.dex */
-    public class c extends ic5 {
+    public class c extends vc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaGameFrsLiveListActivity b;
@@ -147,24 +147,24 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             this.b = alaGameFrsLiveListActivity;
         }
 
-        @Override // com.baidu.tieba.ic5
-        public boolean a(kc5 kc5Var) {
+        @Override // com.baidu.tieba.vc5
+        public boolean a(xc5 xc5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kc5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xc5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ic5
+        @Override // com.baidu.tieba.vc5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? lc5.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? yc5.b().c() : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.ic5
+        @Override // com.baidu.tieba.vc5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -206,13 +206,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof rh6)) {
-                rh6 rh6Var = (rh6) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ei6)) {
+                ei6 ei6Var = (ei6) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (rh6Var.e() != null) {
-                    for (y85 y85Var : rh6Var.e()) {
-                        if (y85Var.b().a != null) {
-                            arrayList.add(y85Var.b().a);
+                if (ei6Var.e() != null) {
+                    for (l95 l95Var : ei6Var.e()) {
+                        if (l95Var.b().a != null) {
+                            arrayList.add(l95Var.b().a);
                         }
                     }
                 }
@@ -330,7 +330,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         this.b.setCenterTextTitle(sb.toString());
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -349,11 +349,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.hc5
-    public ic5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
+    public vc5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new c(this) : (ic5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new c(this) : (vc5) invokeV.objValue;
     }
 
     public final void initTabSpec() {
@@ -363,11 +363,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            rh6 rh6Var = new rh6(getPageContext().getPageActivity());
-            rh6Var.g(this.g);
-            rh6Var.h(this.h);
-            rh6Var.f(this.i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, rh6Var));
+            ei6 ei6Var = new ei6(getPageContext().getPageActivity());
+            ei6Var.g(this.g);
+            ei6Var.h(this.h);
+            ei6Var.f(this.i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, ei6Var));
         }
     }
 

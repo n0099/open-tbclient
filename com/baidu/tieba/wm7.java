@@ -1,119 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes6.dex */
-public class wm7 {
+public class wm7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoNetworkView a;
-    public NavigationBar b;
-    public BdListView c;
-    public View d;
-    public um7 e;
-    public View f;
-    public TbImageView g;
-    public TextView h;
-    public MemberTaskCenterActivity i;
+    public rm7 a;
+    public List<xm7> b;
+    public List<xm7> c;
 
-    public wm7(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948275464, "Lcom/baidu/tieba/wm7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948275464, "Lcom/baidu/tieba/wm7;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
+
+    public wm7(VipThemeList vipThemeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipThemeList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = memberTaskCenterActivity;
-        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0582);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091c81);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0925c4);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0925c2);
-        this.b = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0adc);
-        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0914fe);
-        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0583, (ViewGroup) null);
-        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09014a);
-        this.g = tbImageView;
-        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090747);
-        this.g.setOnClickListener(onClickListener);
-        um7 um7Var = new um7(memberTaskCenterActivity);
-        this.e = um7Var;
-        um7Var.d(onClickListener);
-        this.c.addHeaderView(this.f);
-        this.c.setAdapter((ListAdapter) this.e);
-    }
-
-    public final SpannableString a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
-            return spannableString;
+        if (vipThemeList == null) {
+            return;
         }
-        return (SpannableString) invokeLL.objValue;
+        String str = vipThemeList.card_id;
+        rm7 rm7Var = new rm7();
+        this.a = rm7Var;
+        rm7Var.e(2);
+        this.a.d(vipThemeList.class_name);
+        this.a.f(vipThemeList.class_url_name);
+        this.a.g(vipThemeList.class_url);
+        if (vipThemeList.item != null) {
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipThemeList.item) {
+                this.b.add(new xm7(vipThemeItem));
+            }
+        }
+        if (vipThemeList.item_card != null) {
+            this.c = new ArrayList();
+            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
+                this.c.add(new xm7(vipThemeItem2));
+            }
+        }
     }
 
-    public BdListView b() {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdListView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b.onChangeSkinType(this.i.getPageContext(), i);
-            this.a.d(this.i.getPageContext(), i);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
-        }
-    }
-
-    public void e(String str, List<rm7> list, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
-            this.g.K(str, 10, false);
-            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0484), String.valueOf(j)));
-            this.e.c(list);
-            this.e.notifyDataSetChanged();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

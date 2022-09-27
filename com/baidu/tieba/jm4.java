@@ -1,48 +1,85 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class jm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public ArrayList<nm4> c;
+    public String d;
 
-    public static JSONObject a(@Nullable JSONObject jSONObject, int i, int i2, String str) {
-        InterceptResult invokeCommon;
+    public jm4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
-            if (i != 0 && i2 != 0 && !dj.isEmpty(str)) {
-                if (jSONObject == null) {
-                    jSONObject = new JSONObject();
-                }
-                try {
-                    jSONObject.put(i + "-" + i2, str);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public static void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            new StatisticItem("c13318").param("obj_source", i).param("obj_type", i2).eventStat();
         }
     }
 
-    public static void c(int i, int i2) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            new StatisticItem("c13317").param("obj_source", i).param("obj_type", i2).eventStat();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public ArrayList<nm4> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || dj.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.a = jSONObject.optLong("start_date", 0L) * 1000;
+            this.b = jSONObject.optLong("end_date", 0L) * 1000;
+            this.d = jSONObject.optString("ahead_url", "");
+            this.c = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("time");
+            if (optJSONArray == null || optJSONArray.length() <= 0) {
+                return;
+            }
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
+                nm4 nm4Var = new nm4();
+                nm4Var.c(optJSONArray2);
+                this.c.add(nm4Var);
+            }
+        } catch (Exception e) {
+            BdLog.e(e);
         }
     }
 }

@@ -1,28 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dp2;
-import com.baidu.tieba.ep2;
-import com.baidu.tieba.fp2;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class bp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static List<WeakReference<ap2>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<dp2> a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,108 +28,95 @@ public class bp2 {
                 return;
             }
         }
-        b = ij1.a;
+        a = new ArrayList();
     }
 
-    public bp2() {
+    public static void a(tp1 tp1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        e();
-    }
-
-    @Nullable
-    public final ep2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
-            ep2.a aVar = new ep2.a();
-            aVar.e(str);
-            aVar.g(i);
-            aVar.c(i2);
-            aVar.b(str2);
-            aVar.f(obj);
-            ep2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
-                    return null;
+        if (interceptable == null || interceptable.invokeL(65537, null, tp1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ap2 ap2Var = a.get(size).get();
+                if (ap2Var == null) {
+                    a.remove(size);
+                } else {
+                    ap2Var.d(tp1Var);
                 }
-                return null;
             }
-            return a;
         }
-        return (ep2) invokeCommon.objValue;
     }
 
-    @Nullable
-    public final fp2 b(int i, @NonNull String str, @NonNull Object obj) {
-        InterceptResult invokeILL;
+    public static void b(tp1 tp1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
-            fp2.a aVar = new fp2.a();
-            aVar.e(i);
-            aVar.d(str);
-            aVar.b(obj);
-            fp2 a = aVar.a();
-            if (a == null) {
-                if (b) {
-                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+        if (interceptable == null || interceptable.invokeL(65538, null, tp1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ap2 ap2Var = a.get(size).get();
+                if (ap2Var == null) {
+                    a.remove(size);
+                } else {
+                    ap2Var.b(tp1Var);
                 }
-                return null;
             }
-            return a;
         }
-        return (fp2) invokeILL.objValue;
     }
 
-    @NonNull
-    public List<dp2> c() {
-        InterceptResult invokeV;
+    public static void c(tp1 tp1Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.a) : (List) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fp2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
-            if (b2 == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(65539, null, tp1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ap2 ap2Var = a.get(size).get();
+                if (ap2Var == null) {
+                    a.remove(size);
+                } else {
+                    ap2Var.c(tp1Var);
+                }
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
-            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
-            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
-            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
-            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
-            dp2.a aVar = new dp2.a();
-            aVar.c(b2);
-            aVar.a(arrayList);
-            dp2 b3 = aVar.b();
-            if (b3 == null) {
-                return false;
-            }
-            return this.a.add(b3);
         }
-        return invokeV.booleanValue;
     }
 
-    public final void e() {
+    public static void d(tp1 tp1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
-            yz1.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tp1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ap2 ap2Var = a.get(size).get();
+                if (ap2Var == null) {
+                    a.remove(size);
+                } else {
+                    ap2Var.a(tp1Var);
+                }
+            }
+        }
+    }
+
+    public static void e(ap2 ap2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, ap2Var) == null) || ap2Var == null) {
+            return;
+        }
+        boolean z = false;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ap2 ap2Var2 = a.get(size).get();
+            if (ap2Var2 == null) {
+                a.remove(size);
+            } else {
+                z = ap2Var2 == ap2Var;
+            }
+        }
+        if (z) {
+            return;
+        }
+        a.add(new WeakReference<>(ap2Var));
+    }
+
+    public static void f(ap2 ap2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, ap2Var) == null) || ap2Var == null) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ap2 ap2Var2 = a.get(size).get();
+            if (ap2Var2 == null || ap2Var == ap2Var2) {
+                a.remove(size);
+            }
         }
     }
 }

@@ -1,79 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.c33;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.TimeoutException;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class jz2 extends bo2<jz2> implements iz2 {
+public class jz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kz2 b;
-    public final String c;
-    public final Set<rh3<c33.a>> d;
-    public final Set<rh3<jz2>> e;
-    public final Set<String> f;
-    public final Set<Integer> g;
-    public Exception h;
-    public long i;
-    public boolean j;
-    public final Runnable k;
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jz2 a;
-
-        public a(jz2 jz2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jz2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jz2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.a.b) {
-                    this.a.b.b0(this.a, this.a.W());
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -88,373 +37,262 @@ public final class jz2 extends bo2<jz2> implements iz2 {
                 return;
             }
         }
-        l = ij1.a;
+        a = vj1.a;
     }
 
-    public jz2(@NonNull kz2 kz2Var, String str) {
+    public static void a(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kz2Var, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, map, str) == null) || map == null) {
+            return;
         }
-        this.d = new HashSet();
-        this.e = new HashSet();
-        this.f = new HashSet();
-        this.g = new HashSet();
-        this.h = null;
-        this.i = 0L;
-        this.j = false;
-        this.k = new a(this);
-        this.b = kz2Var;
-        this.c = TextUtils.isEmpty(str) ? UUID.randomUUID().toString() : str;
-        if (l) {
-            U("IpcSession", "host=" + kz2Var + " id=" + str + " mId=" + this.c);
+        String b = b(map, "dynamicLibPath", 3);
+        String b2 = b(map, "dynamicLibConfig", 3);
+        String b3 = b(map, "pluginPath", 4);
+        String b4 = b(map, "dependenciesPath", 6);
+        String b5 = b(map, "dependenciesConfig", 6);
+        if (TextUtils.isEmpty(str) || !a) {
+            return;
         }
+        dz2.b(str + ", dynamicLibPath = " + b + "; dynamicLibConfig = " + b2 + "; pluginPath = " + b3 + "; dependenciesPath = " + b4 + "; dependenciesConfig = " + b5);
     }
 
-    public static String O() {
-        InterceptResult invokeV;
+    public static String b(Map<String, String> map, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                ActivityManager activityManager = (ActivityManager) AppRuntime.getAppContext().getSystemService("activity");
-                if (activityManager == null) {
-                    return "ActivityManager=null";
-                }
-                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
-                if (runningAppProcesses == null) {
-                    return "RunningAppProcessInfoList=null";
-                }
-                StringBuilder sb = new StringBuilder();
-                String str = "";
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null) {
-                        sb.append(str);
-                        sb.append(runningAppProcessInfo.processName);
-                        str = ",";
-                    }
-                }
-                return sb.toString();
-            } catch (Exception e) {
-                return e.toString();
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i)) == null) {
+            if (map == null || TextUtils.isEmpty(str)) {
+                return null;
             }
+            l33 M = l33.M();
+            String e = M != null ? M.U().e(str, null) : null;
+            if (!TextUtils.isEmpty(e)) {
+                map.put(str, e);
+                return e;
+            }
+            SwanAppConfigData Q = M != null ? M.Q() : null;
+            if (i == 3) {
+                sy2.m(Q, false);
+                e = i(str, null);
+            } else if (i == 4) {
+                e = l(Q);
+            } else if (i == 6) {
+                qy2.a(Q);
+                e = i(str, null);
+            }
+            map.put(str, e);
+            return e;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLLI.objValue;
     }
 
-    public jz2 F(rh3<jz2> rh3Var) {
+    public static void c(String str, String str2) {
+        l33 M;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str) || (M = l33.M()) == null) {
+            return;
+        }
+        M.U().j(str, str2);
+    }
+
+    public static String d(List<hz2> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rh3Var)) == null) {
-            H(this.e, rh3Var);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            int size = list.size();
+            StringBuilder sb = new StringBuilder();
+            sb.append("select * from (SELECT * from ");
+            sb.append("swan_plugin");
+            sb.append(" ORDER BY update_time) group by bundle_id having bundle_id in ");
+            sb.append("(");
+            for (int i = 0; i < size; i++) {
+                sb.append("'");
+                sb.append(list.get(i).a);
+                sb.append("'");
+                if (i == size - 1) {
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                } else {
+                    sb.append(",");
+                }
+            }
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            return sb.toString();
         }
-        return (jz2) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public jz2 G(rh3<c33.a> rh3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rh3Var)) == null) {
-            H(this.d, rh3Var);
-            return this;
-        }
-        return (jz2) invokeL.objValue;
-    }
-
-    public final <CallBackT> jz2 H(@NonNull Set<CallBackT> set, CallBackT callbackt) {
+    public static String e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, callbackt)) == null) {
-            synchronized (this.b) {
-                if (Z() && callbackt != null) {
-                    set.add(callbackt);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            return this;
+            SwanAppConfigData b = x33.b(str);
+            if (b == null) {
+                dz2.b("getDownloadKey, app.json is null");
+                return null;
+            }
+            SwanAppConfigData.m mVar = b.d;
+            if (mVar == null) {
+                dz2.b("getDownloadKey, sub pkg obj is null");
+                return null;
+            }
+            Map<String, String> map = mVar.a;
+            if (map == null) {
+                dz2.b("getDownloadKey, sub pkg map is null");
+                return null;
+            }
+            return map.get(str2);
         }
-        return (jz2) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public jz2 I(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            synchronized (this.b) {
-                this.g.add(Integer.valueOf(i));
-                Y();
-            }
-            return this;
-        }
-        return (jz2) invokeI.objValue;
-    }
-
-    public jz2 J(String str) {
+    public static String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.b) {
-                this.f.add(str);
-                Y();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return this;
+            mc4 g = g(str);
+            if ((g == null || TextUtils.isEmpty(g.r)) ? false : true) {
+                return g.r;
+            }
+            dz2.b("get plugin appKey form db, but empty, plugin appId = " + str);
+            return null;
         }
-        return (jz2) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public jz2 K(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            synchronized (this.b) {
-                this.j = z;
-                Y();
-            }
-            return this;
-        }
-        return (jz2) invokeZ.objValue;
-    }
-
-    public final qz2 L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Bundle D = D();
-            D.putString("ipc_session_id", this.c);
-            D.putLong("ipc_session_timeout", this.i);
-            D.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
-            D.putString("ipc_topic", this.b.X(this));
-            qz2 qz2Var = new qz2(V(), D);
-            qz2Var.p(true);
-            qz2Var.f(!SwanAppProcessInfo.current().isSwanService || this.j);
-            for (Integer num : this.g) {
-                int intValue = num.intValue();
-                if (SwanAppProcessInfo.checkProcessId(intValue)) {
-                    qz2Var.a(intValue);
-                }
-            }
-            for (String str : this.f) {
-                if (!TextUtils.isEmpty(str)) {
-                    qz2Var.c(str);
-                }
-            }
-            if (l) {
-                U("createMsg", "msgCooker=" + qz2Var + " bundle=" + D);
-            }
-            return qz2Var;
-        }
-        return (qz2) invokeV.objValue;
-    }
-
-    public jz2 M(Exception exc) {
+    public static mc4 g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, exc)) == null) {
-            synchronized (this.b) {
-                if (!R()) {
-                    x23.M().removeCallbacks(this.k);
-                    this.i = -1L;
-                    this.h = exc;
-                    this.d.clear();
-                    for (rh3<jz2> rh3Var : this.e) {
-                        rh3Var.a(this);
-                    }
-                    this.e.clear();
-                    this.j = false;
-                    this.f.clear();
-                    this.g.clear();
-                    b();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return this;
+            return sy2.p(str, com.kuaishou.weapon.p0.q1.e, 0L);
         }
-        return (jz2) invokeL.objValue;
+        return (mc4) invokeL.objValue;
     }
 
-    public Exception N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (Exception) invokeV.objValue;
-    }
-
-    public boolean P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h != null : invokeV.booleanValue;
-    }
-
-    public String Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i < 0 : invokeV.booleanValue;
-    }
-
-    public long S(long j) {
-        InterceptResult invokeJ;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
-            synchronized (this.b) {
-                if (Z()) {
-                    this.i = Math.max(Math.max(j, iz2.n0), this.i);
-                    Handler M = x23.M();
-                    if (this.i > 0) {
-                        M.removeCallbacks(this.k);
-                        M.postDelayed(this.k, this.i);
-                    }
-                }
-                j2 = this.i;
-            }
-            return j2;
-        }
-        return invokeJ.longValue;
-    }
-
-    public final void T(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && l) {
-            Log.i("IpcSession", SwanAppProcessInfo.current() + " >> " + str);
-        }
-    }
-
-    public final void U(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            T(str + ": " + str2);
-        }
-    }
-
-    public final int V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            boolean z = SwanAppProcessInfo.current().isSwanService;
-            int i = z ? 111 : 11;
-            if (l) {
-                U("msgType", "service=" + z + " msgType=" + i);
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public Exception W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            long nanoTime = l ? System.nanoTime() : 0L;
-            TimeoutException timeoutException = new TimeoutException("#ipcHttpTimeout session=" + this + " processList=" + O());
-            if (l) {
-                Log.d("IpcSession", "#newIpcTimeoutException 耗时(ms): " + ((System.nanoTime() - nanoTime) / 1000000.0d));
-            }
-            return timeoutException;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    public boolean X(c33.a aVar) {
+    public static mc4 h(String str) {
         InterceptResult invokeL;
-        boolean z;
+        SwanAppConfigData Q;
+        List<mc4> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, aVar)) == null) {
-            synchronized (this.b) {
-                z = (!Z() || this.d.isEmpty() || aVar == null) ? false : true;
-                if (z) {
-                    for (rh3<c33.a> rh3Var : this.d) {
-                        rh3Var.a(aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!c12.d() && !kz2.H() && !kz2.D()) {
+                return g(str);
+            }
+            l33 M = l33.M();
+            if (M != null && (Q = M.Q()) != null && (list = Q.l) != null) {
+                for (mc4 mc4Var : list) {
+                    if (TextUtils.equals(str, mc4Var.g)) {
+                        return mc4Var;
                     }
                 }
             }
-            return z;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (mc4) invokeL.objValue;
     }
 
-    public jz2 Y() {
-        InterceptResult invokeV;
+    public static String i(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this : (jz2) invokeV.objValue;
-    }
-
-    public boolean Z() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.b) {
-                z = (R() || P() || TextUtils.isEmpty(this.c)) ? false : true;
-                if (l) {
-                    U("valid", z + " isFinished=" + R() + " hasException=" + this.h + " id=" + this.c);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            l33 M = l33.M();
+            if (M == null || TextUtils.isEmpty(str)) {
+                return null;
             }
-            return z;
+            return M.U().e(str, str2);
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.uh3
-    public /* bridge */ /* synthetic */ uh3 a() {
-        Y();
-        return this;
-    }
-
-    public jz2 call() {
-        InterceptResult invokeV;
+    public static void j() {
+        u22 V;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? call(iz2.n0) : (jz2) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (V = yo2.U().V()) != null && (V.m() instanceof v22)) {
+            yo2.U().getActivity().onBackPressed();
+        }
     }
 
-    @Override // com.baidu.tieba.bo2
-    public synchronized String toString() {
-        InterceptResult invokeV;
-        String str;
+    public static List<mc4> k(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            synchronized (this) {
-                str = "IpcSession: id=" + this.c + " timeout=" + this.i;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public jz2 call(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
-            synchronized (this.b) {
-                if (l) {
-                    U(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                if (length == 0) {
+                    return null;
                 }
-                if (Z()) {
-                    long S = S(j);
-                    if (l) {
-                        U(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + S);
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("plugin_id");
+                        if (!TextUtils.isEmpty(optString)) {
+                            mc4 mc4Var = new mc4();
+                            mc4Var.g = optString;
+                            mc4Var.i = optJSONObject.optLong("version_code", 0L);
+                            mc4Var.j = optJSONObject.optString("version_name", com.kuaishou.weapon.p0.q1.e);
+                            mc4Var.p = optJSONObject.optString("token");
+                            mc4Var.q = optJSONObject.optString("domains");
+                            mc4Var.h = 4;
+                            mc4Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                            mc4Var.s = optJSONObject.optString("app_name");
+                            mc4Var.l = "";
+                            mc4Var.m = "";
+                            mc4Var.n = "";
+                            arrayList.add(mc4Var);
+                            if (z) {
+                                ib4.i().m(mc4Var);
+                            }
+                        }
                     }
-                    oz2.e().h(L());
-                    b();
-                } else {
-                    this.b.b0(this, new IllegalStateException("invalid session call"));
                 }
-                Y();
+                return arrayList;
+            } catch (JSONException e) {
+                dz2.b(Log.getStackTraceString(e));
+                return null;
             }
-            return this;
         }
-        return (jz2) invokeJ.objValue;
+        return (List) invokeLZ.objValue;
+    }
+
+    public static String l(SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, swanAppConfigData)) == null) {
+            if (swanAppConfigData == null) {
+                dz2.b("parse app.json is null");
+                return null;
+            }
+            List<hz2> i = swanAppConfigData.i(4);
+            if (i != null && !i.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (hz2 hz2Var : i) {
+                    if (hz2Var != null && hz2Var.a()) {
+                        lg3.f(jSONObject, hz2Var.a, hz2Var.e);
+                    }
+                }
+                String jSONObject2 = jSONObject.toString();
+                c("pluginPath", jSONObject2);
+                return jSONObject2;
+            }
+            c("pluginPath", null);
+            dz2.b("this swan app not apply on someone plugin");
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

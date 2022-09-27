@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class i52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public PMSAppInfo b;
-    public PrefetchEvent.c c;
 
     public i52() {
         Interceptable interceptable = $ic;
@@ -26,5 +23,20 @@ public class i52 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public h52 a(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return new j52(context);
+                }
+                return new l52(context);
+            }
+            return new j52(context);
+        }
+        return (h52) invokeLI.objValue;
     }
 }

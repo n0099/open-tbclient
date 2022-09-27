@@ -16,22 +16,22 @@ import com.baidu.poly.widget.ChannelListView;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.AuthWidgetForCashierActivity;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.ac1;
-import com.baidu.tieba.cc1;
-import com.baidu.tieba.da1;
-import com.baidu.tieba.dc1;
-import com.baidu.tieba.ec1;
-import com.baidu.tieba.fb1;
-import com.baidu.tieba.fc1;
-import com.baidu.tieba.ha1;
-import com.baidu.tieba.ic1;
-import com.baidu.tieba.lc1;
+import com.baidu.tieba.ad1;
+import com.baidu.tieba.bc1;
+import com.baidu.tieba.gc1;
+import com.baidu.tieba.hc1;
+import com.baidu.tieba.jc1;
+import com.baidu.tieba.kc1;
 import com.baidu.tieba.nc1;
-import com.baidu.tieba.ob1;
-import com.baidu.tieba.tb1;
-import com.baidu.tieba.ub1;
-import com.baidu.tieba.wb1;
-import com.baidu.tieba.xb1;
+import com.baidu.tieba.pc1;
+import com.baidu.tieba.qa1;
+import com.baidu.tieba.qc1;
+import com.baidu.tieba.rc1;
+import com.baidu.tieba.sb1;
+import com.baidu.tieba.sc1;
+import com.baidu.tieba.ua1;
+import com.baidu.tieba.vc1;
+import com.baidu.tieba.yc1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,34 +42,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.protobuf.CodedInputStream;
 /* loaded from: classes2.dex */
-public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
+public class PolyActivity extends Activity implements ChannelListView.m, vc1 {
     public static /* synthetic */ Interceptable $ic;
     public static IChannelPay d;
     public static IChannelAuth e;
-    public static lc1 f;
+    public static yc1 f;
     public static Activity g;
-    public static da1.c h;
+    public static qa1.c h;
     public static boolean i;
     public static PolyActivity j;
     public transient /* synthetic */ FieldHolder $fh;
     public ChannelListView a;
     public Bundle b;
-    public cc1 c;
+    public pc1 c;
 
     /* loaded from: classes2.dex */
-    public class a extends nc1.e {
+    public class a extends ad1.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* renamed from: com.baidu.poly.widget.PolyActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0126a implements nc1.f {
+        public class C0123a implements ad1.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0126a(a aVar) {
+            public C0123a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.nc1.f
+            @Override // com.baidu.tieba.ad1.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -118,29 +118,29 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.tieba.nc1.e
+        @Override // com.baidu.tieba.ad1.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "我知道了" : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nc1.e
-        public nc1.f b() {
+        @Override // com.baidu.tieba.ad1.e
+        public ad1.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0126a(this) : (nc1.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0123a(this) : (ad1.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends nc1.e {
+    public class b extends ad1.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes2.dex */
-        public class a implements nc1.f {
+        public class a implements ad1.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -163,7 +163,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 this.a = bVar;
             }
 
-            @Override // com.baidu.tieba.nc1.f
+            @Override // com.baidu.tieba.ad1.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -194,30 +194,30 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.tieba.nc1.e
+        @Override // com.baidu.tieba.ad1.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nc1.e
-        public nc1.f b() {
+        @Override // com.baidu.tieba.ad1.e
+        public ad1.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (nc1.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (ad1.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class c extends nc1.e {
+    public class c extends ad1.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cc1 a;
+        public final /* synthetic */ pc1 a;
         public final /* synthetic */ PolyActivity b;
 
         /* loaded from: classes2.dex */
-        public class a implements nc1.f {
+        public class a implements ad1.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -240,7 +240,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.nc1.f
+            @Override // com.baidu.tieba.ad1.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -251,12 +251,12 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             }
         }
 
-        public c(PolyActivity polyActivity, cc1 cc1Var) {
+        public c(PolyActivity polyActivity, pc1 pc1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {polyActivity, cc1Var};
+                Object[] objArr = {polyActivity, pc1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -267,32 +267,32 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 }
             }
             this.b = polyActivity;
-            this.a = cc1Var;
+            this.a = pc1Var;
         }
 
-        @Override // com.baidu.tieba.nc1.e
+        @Override // com.baidu.tieba.ad1.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "去验证" : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nc1.e
-        public nc1.f b() {
+        @Override // com.baidu.tieba.ad1.e
+        public ad1.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (nc1.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (ad1.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class d extends nc1.e {
+    public class d extends ad1.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes2.dex */
-        public class a implements nc1.f {
+        public class a implements ad1.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -315,7 +315,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 this.a = dVar;
             }
 
-            @Override // com.baidu.tieba.nc1.f
+            @Override // com.baidu.tieba.ad1.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -346,29 +346,29 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.tieba.nc1.e
+        @Override // com.baidu.tieba.ad1.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nc1.e
-        public nc1.f b() {
+        @Override // com.baidu.tieba.ad1.e
+        public ad1.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (nc1.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (ad1.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes2.dex */
-    public class e extends nc1.e {
+    public class e extends ad1.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes2.dex */
-        public class a implements nc1.f {
+        public class a implements ad1.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -391,7 +391,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.nc1.f
+            @Override // com.baidu.tieba.ad1.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -420,18 +420,18 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.tieba.nc1.e
+        @Override // com.baidu.tieba.ad1.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "去验证" : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.nc1.e
-        public nc1.f b() {
+        @Override // com.baidu.tieba.ad1.e
+        public ad1.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (nc1.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (ad1.f) invokeV.objValue;
         }
     }
 
@@ -470,14 +470,14 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             return;
         }
         if (h != null) {
-            String a2 = ub1.a(2, null, "repeat_pay_cancel");
+            String a2 = hc1.a(2, null, "repeat_pay_cancel");
             h.a(2, a2);
-            ob1.j(2, a2, "0");
+            bc1.j(2, a2, "0");
         }
         j.finish();
     }
 
-    public static void l(Context context, IChannelPay iChannelPay, da1.c cVar, Bundle bundle) {
+    public static void l(Context context, IChannelPay iChannelPay, qa1.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, context, iChannelPay, cVar, bundle) == null) {
             if (i) {
@@ -488,65 +488,65 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             Intent intent = new Intent(context, PolyActivity.class);
             intent.putExtra("pay_arguements", bundle);
             if (!(context instanceof Activity)) {
-                xb1.g("!context instanceof Activity");
+                kc1.g("!context instanceof Activity");
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
         }
     }
 
-    public static void m(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, da1.c cVar, Bundle bundle) {
+    public static void m(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, qa1.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, context, iChannelPay, iChannelAuth, cVar, bundle) == null) {
             e = iChannelAuth;
             if (context instanceof Activity) {
                 g = (Activity) context;
             }
-            fb1.a().c((Activity) context);
+            sb1.a().c((Activity) context);
             l(context, iChannelPay, cVar, bundle);
         }
     }
 
-    public static void n(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, lc1 lc1Var, da1.c cVar, Bundle bundle) {
+    public static void n(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, yc1 yc1Var, qa1.c cVar, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, iChannelPay, iChannelAuth, lc1Var, cVar, bundle}) == null) {
-            f = lc1Var;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, iChannelPay, iChannelAuth, yc1Var, cVar, bundle}) == null) {
+            f = yc1Var;
             m(context, iChannelPay, iChannelAuth, cVar, bundle);
         }
     }
 
-    @Override // com.baidu.tieba.ic1
+    @Override // com.baidu.tieba.vc1
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nc1.d dVar = new nc1.d();
+            ad1.d dVar = new ad1.d();
             dVar.e("账号风险提示");
             dVar.c("当前帐号存在比较高的风险，无法完成本次支付");
             dVar.d(new a(this));
-            nc1 a2 = dVar.a(this);
+            ad1 a2 = dVar.a(this);
             a2.setCancelable(false);
             a2.show();
         }
     }
 
-    @Override // com.baidu.tieba.ic1
-    public void b(cc1 cc1Var) {
-        ha1 ha1Var;
+    @Override // com.baidu.tieba.vc1
+    public void b(pc1 pc1Var) {
+        ua1 ua1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cc1Var) == null) || this.a == null || cc1Var == null || (ha1Var = cc1Var.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc1Var) == null) || this.a == null || pc1Var == null || (ua1Var = pc1Var.a) == null) {
             return;
         }
-        if (TextUtils.isEmpty(ha1Var.a("authId"))) {
-            this.a.M(cc1Var);
-        } else if (wb1.a(this) == null) {
-            this.a.M(cc1Var);
+        if (TextUtils.isEmpty(ua1Var.a("authId"))) {
+            this.a.M(pc1Var);
+        } else if (jc1.a(this) == null) {
+            this.a.M(pc1Var);
         } else {
-            this.c = cc1Var;
-            nc1.d dVar = new nc1.d();
+            this.c = pc1Var;
+            ad1.d dVar = new ad1.d();
             dVar.e("账号风险提示");
             dVar.c("当前账号存在风险，请完成本人身份验证后继续支付");
-            dVar.b(new b(this), new c(this, cc1Var));
-            nc1 a2 = dVar.a(this);
+            dVar.b(new b(this), new c(this, pc1Var));
+            ad1 a2 = dVar.a(this);
             a2.setCancelable(false);
             a2.show();
         }
@@ -571,22 +571,22 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             super.finish();
             overridePendingTransition(0, 0);
             f();
-            ob1.f();
+            bc1.f();
         }
     }
 
-    public final void h(cc1 cc1Var) {
+    public final void h(pc1 pc1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cc1Var) == null) {
-            Intent a2 = wb1.a(this);
+        if (interceptable == null || interceptable.invokeL(1048580, this, pc1Var) == null) {
+            Intent a2 = jc1.a(this);
             if (a2 != null) {
-                a2.putExtra("EXTRA_PARAM_AUTH_ID", cc1Var.a.a("authId"));
+                a2.putExtra("EXTRA_PARAM_AUTH_ID", pc1Var.a.a("authId"));
                 startActivityForResult(a2, 100);
                 return;
             }
             ChannelListView channelListView = this.a;
             if (channelListView != null) {
-                channelListView.M(cc1Var);
+                channelListView.M(pc1Var);
             }
         }
     }
@@ -615,11 +615,11 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.c == null) {
             return;
         }
-        nc1.d dVar = new nc1.d();
+        ad1.d dVar = new ad1.d();
         dVar.e("验证失败提示");
         dVar.c("身份证验证未通过，请通过验证后再继续支付");
         dVar.b(new d(this), new e(this));
-        nc1 a2 = dVar.a(this);
+        ad1 a2 = dVar.a(this);
         a2.setCancelable(false);
         a2.show();
     }
@@ -659,7 +659,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
                 return;
             }
             if (i3 == -1) {
-                dc1.h().i(this, intent.getExtras(), this.a, true);
+                qc1.h().i(this, intent.getExtras(), this.a, true);
                 return;
             }
             ChannelListView channelListView2 = this.a;
@@ -681,7 +681,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             if (!channelListView.Y()) {
                 super.onBackPressed();
             }
-            xb1.g("PolyActivity onBackPressed");
+            kc1.g("PolyActivity onBackPressed");
         }
     }
 
@@ -700,11 +700,11 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             j();
             i = true;
             j = this;
-            ob1.k();
+            bc1.k();
             super.onCreate(bundle);
             overridePendingTransition(0, 0);
             i();
-            xb1.g("PolyActivity onCreate");
+            kc1.g("PolyActivity onCreate");
         }
     }
 
@@ -755,20 +755,20 @@ public class PolyActivity extends Activity implements ChannelListView.m, ic1 {
             this.a.setResultListener(h);
             this.a.setCloseListener(this);
             this.a.setChannelAuth(e);
-            fc1 fc1Var = new fc1(new ec1(this, d), this);
-            fc1Var.s(f);
-            this.a.setWalletList(fc1Var);
+            sc1 sc1Var = new sc1(new rc1(this, d), this);
+            sc1Var.s(f);
+            this.a.setWalletList(sc1Var);
             String string = this.b.getString("chosenChannel");
             String string2 = this.b.getString("panelType");
             String string3 = this.b.getString("tradeType");
-            xb1.g("onWindowFocusChanged panelType=" + string2 + ", tradeType=" + string3);
+            kc1.g("onWindowFocusChanged panelType=" + string2 + ", tradeType=" + string3);
             if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && TextUtils.equals(string3, "DIRECTPAY")) {
-                tb1.e(this.b);
-                this.a.R(ac1.b(this, this.b), string);
+                gc1.e(this.b);
+                this.a.R(nc1.b(this, this.b), string);
             } else if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && !TextUtils.isEmpty(string)) {
-                this.a.q0(ac1.b(this, this.b), string);
+                this.a.q0(nc1.b(this, this.b), string);
             } else {
-                this.a.j0(ac1.b(this, this.b));
+                this.a.j0(nc1.b(this, this.b));
                 this.a.l0();
             }
         }

@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class sn8 {
     public static /* synthetic */ Interceptable $ic;
-    public static sn8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocationData a;
-    public boolean b;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
 
     public sn8() {
         Interceptable interceptable = $ic;
@@ -28,54 +26,19 @@ public class sn8 {
                 return;
             }
         }
-        this.b = bx4.k().h("no_longer_show_address", false);
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
     }
 
-    public static sn8 a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (sn8.class) {
-                    if (c == null) {
-                        c = new sn8();
-                    }
-                }
-            }
-            return c;
-        }
-        return (sn8) invokeV.objValue;
-    }
-
-    public LocationData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (LocationData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void d(LocationData locationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationData) == null) {
-            this.a = locationData;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
         }
     }
 }

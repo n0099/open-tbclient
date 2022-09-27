@@ -1,69 +1,63 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e80 {
+public class e80 extends f80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public int c;
-    public String d;
-    public boolean e;
-    public byte[] f;
-    public long g;
-    public long h;
-    public long i;
-    public int j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public long n;
-    public boolean o;
 
-    public e80() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e80(Context context, int i, int i2) {
+        super(context, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new byte[0];
-        this.b = 15000L;
-        this.c = -1;
-        this.d = "";
-        this.e = false;
-        this.f = new byte[0];
-        this.g = 60000L;
-        this.h = -1L;
-        this.i = -1L;
-        this.j = -1;
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.n = -1L;
-        this.o = false;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f80
+    public f80 b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.m) {
-                return "Request correlationId :" + this.n + ", serviceId :" + this.h + ", methodId :" + this.i + ", connectState :" + this.j + ", isNotify :" + this.e + ", bodySize :" + this.a.length;
-            }
-            return "Response correlationId " + this.n + ", serviceId :" + this.h + ", methodId :" + this.i + ", errorCode :" + this.c + ", errorMsg :" + this.d + ", intervalMs :" + this.g + ", isNotify :" + this.e + ", bodySize :" + this.f.length;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? this : (f80) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.f80
+    public f80 c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) ? this : (f80) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.f80
+    public f80 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) ? this : (f80) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.f80
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (String) invokeV.objValue;
     }
 }

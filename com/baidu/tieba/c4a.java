@@ -1,44 +1,38 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes3.dex */
 public class c4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public c4a(String str, String str2, String str3) {
+    public static void a(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                t4a.b(i, i2, PayUIEventType.purchaseclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                t4a.b(i, i2, PayUIEventType.purchaseclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void b(int i, int i2, CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.a + "', rightTitle='" + this.b + "', rightUrl='" + w4a.a(this.c) + "'}";
+        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                t4a.b(i, i2, PayUIEventType.paypageclose_bt);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
+            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
+                t4a.b(i, i2, PayUIEventType.paypageclose_transparent);
+                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

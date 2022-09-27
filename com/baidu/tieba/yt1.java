@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.l12;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yt1 extends xt1 {
+public class yt1 extends rt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,15 +22,14 @@ public class yt1 extends xt1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ yt1 c;
+        public final /* synthetic */ yt1 b;
 
-        public a(yt1 yt1Var, String str, String str2) {
+        public a(yt1 yt1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yt1Var, str, str2};
+                Object[] objArr = {yt1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,45 +39,93 @@ public class yt1 extends xt1 {
                     return;
                 }
             }
-            this.c = yt1Var;
+            this.b = yt1Var;
             this.a = str;
-            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                byte[] bytes = this.a.getBytes(StandardCharsets.UTF_8);
-                if (bytes.length > 3145728) {
-                    this.c.d(this.b, new yu1(202, "Data Too Large."));
-                    return;
-                }
-                String d = ej4.d(bytes, false);
-                if (TextUtils.isEmpty(d)) {
-                    this.c.d(this.b, new yu1(1001, "Execute Fail."));
-                    return;
-                }
-                yu1 yu1Var = new yu1(0);
-                yu1Var.g(TiebaStatic.LogFields.RESULT, d);
-                this.c.d(this.b, yu1Var);
+                this.b.d(this.a, new lv1(0, b.a().b()));
             }
         }
     }
 
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @NonNull
+        public static b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                b bVar = new b();
+                bVar.a = l12.d();
+                l12.c i = l12.i();
+                bVar.b = i.c;
+                bVar.c = i.a;
+                bVar.d = i.b;
+                bVar.e = k12.b();
+                return bVar;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public JSONObject b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("deviceTotalMem", this.a);
+                    jSONObject.put("deviceUsedMem", this.b);
+                    jSONObject.put("hostUsedMem", this.c);
+                    jSONObject.put("appUsedMem", this.d);
+                    jSONObject.put("appUsedCpu", this.e);
+                } catch (JSONException e) {
+                    l02.l("GetDeviceProfileApi", "#toJSONObject 失败", e);
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yt1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public yt1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
+            Object[] objArr = {mr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,31 +133,30 @@ public class yt1 extends xt1 {
         }
     }
 
-    @Override // com.baidu.tieba.br1
+    @Override // com.baidu.tieba.or1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CalcMD5Api" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetDeviceProfileApi" : (String) invokeV.objValue;
     }
 
-    public yu1 x(String str) {
+    public lv1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#calcMD5", false);
-            Pair<yu1, JSONObject> s = s(str);
-            yu1 yu1Var = (yu1) s.first;
-            if (yu1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("data");
+            q("#getDeviceProfile", false);
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (lv1Var.isSuccess()) {
+                String optString = ((JSONObject) s.second).optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    return new yu1(202, "Empty Data.");
+                    return new lv1(202, "cb is empty");
                 }
-                sf3.k(new a(this, optString, jSONObject.optString("cb")), "CalcMD5Api");
-                return yu1.f();
+                fg3.k(new a(this, optString), "GetDeviceProfileApi");
+                return lv1.f();
             }
-            return yu1Var;
+            return lv1Var;
         }
-        return (yu1) invokeL.objValue;
+        return (lv1) invokeL.objValue;
     }
 }

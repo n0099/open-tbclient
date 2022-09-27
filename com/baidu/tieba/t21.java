@@ -1,253 +1,247 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Locale;
 /* loaded from: classes5.dex */
 public class t21 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String a() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
-            switch (lowerCase.hashCode()) {
-                case -1443430368:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_SMARTISAN)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1245779295:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_GIONEE)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1206476313:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_HUAWEI)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -759499589:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_XIAOMI)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3418016:
-                    if (lowerCase.equals("oppo")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3620012:
-                    if (lowerCase.equals("vivo")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 103777484:
-                    if (lowerCase.equals("meizu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 105170387:
-                    if (lowerCase.equals(RomUtils.MANUFACTURER_NUBIA)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? g31.b() : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
+        }
+
+        public static boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 17 : invokeV.booleanValue;
+        }
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 19 : invokeV.booleanValue;
+        }
+
+        public static boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
+        }
+
+        public static boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static DisplayMetrics a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-453593065, "Lcom/baidu/tieba/t21$c;")) == null) {
+                return;
             }
-            switch (c) {
-                case 0:
-                    String e = e("ro.build.version.emui");
-                    b = e;
-                    if (!TextUtils.isEmpty(e)) {
-                        a = "EMUI";
-                        return "EMUI";
-                    }
-                    return d();
-                case 1:
-                    String e2 = e("ro.miui.ui.version.name");
-                    b = e2;
-                    if (!TextUtils.isEmpty(e2)) {
-                        a = "MIUI";
-                        return "MIUI";
-                    }
-                    return d();
-                case 2:
-                    String e3 = e("ro.build.version.opporom");
-                    b = e3;
-                    if (!TextUtils.isEmpty(e3)) {
-                        a = "OPPO";
-                        return "OPPO";
-                    }
-                    return d();
-                case 3:
-                    String e4 = e("ro.vivo.os.version");
-                    b = e4;
-                    if (!TextUtils.isEmpty(e4)) {
-                        a = "VIVO";
-                        return "VIVO";
-                    }
-                    return d();
-                case 4:
-                    String e5 = e("ro.smartisan.version");
-                    b = e5;
-                    if (!TextUtils.isEmpty(e5)) {
-                        a = "SMARTISAN";
-                        return "SMARTISAN";
-                    }
-                    return d();
-                case 5:
-                    String e6 = e(RomUtils.KEY_VERSION_GIONEE);
-                    b = e6;
-                    if (!TextUtils.isEmpty(e6)) {
-                        a = RomUtils.ROM_GIONEE;
-                        return RomUtils.ROM_GIONEE;
-                    }
-                    return d();
-                case 6:
-                    String e7 = e(RomUtils.KEY_VERSION_NUBIA);
-                    b = e7;
-                    if (!TextUtils.isEmpty(e7)) {
-                        a = RomUtils.ROM_NUBIA;
-                        return RomUtils.ROM_NUBIA;
-                    }
-                    return d();
-                case 7:
-                    if (Build.DISPLAY.toUpperCase(Locale.getDefault()).contains("FLYME")) {
-                        a = "FLYME";
-                        return "FLYME";
-                    }
-                    return d();
-                default:
-                    return d();
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-453593065, "Lcom/baidu/tieba/t21$c;");
             }
         }
-        return (String) invokeV.objValue;
-    }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.PRODUCT : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = a;
-            return str == null ? a() : str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = Build.DISPLAY;
-            b = str;
-            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
-                a = "FLYME";
-            } else {
-                b = "unknown";
-                a = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
+        public static int a(@Nullable Context context, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
+                if (context == null) {
+                    return 0;
+                }
+                return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
             }
-            return a;
+            return invokeLF.intValue;
         }
-        return (String) invokeV.objValue;
-    }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String e(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) != null) {
-            return (String) invokeL.objValue;
+        public static float b(@Nullable Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+                i(context);
+                DisplayMetrics displayMetrics = a;
+                if (displayMetrics != null) {
+                    return displayMetrics.density;
+                }
+                return 0.0f;
+            }
+            return invokeL.floatValue;
         }
-        BufferedReader bufferedReader3 = null;
-        try {
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
-                try {
-                    String readLine = bufferedReader.readLine();
-                    bufferedReader.close();
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return readLine;
-                } catch (IOException e2) {
-                    e = e2;
-                    Log.e("Rom", "Unable to read prop " + str, e);
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
+
+        public static int c(@Nullable Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+                DisplayMetrics d = d(context);
+                if (d != null) {
+                    return d.heightPixels;
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public static DisplayMetrics d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+                if (context == null) {
                     return null;
                 }
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader3 = bufferedReader2;
-                if (bufferedReader3 != null) {
+                return context.getResources().getDisplayMetrics();
+            }
+            return (DisplayMetrics) invokeL.objValue;
+        }
+
+        public static int e(@Nullable Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+                DisplayMetrics d = d(context);
+                if (d != null) {
+                    return d.widthPixels;
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public static int f(@Nullable Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+                if (context == null) {
+                    return 0;
+                }
+                WindowManager windowManager = (WindowManager) context.getSystemService("window");
+                if (windowManager != null) {
+                    DisplayMetrics displayMetrics = new DisplayMetrics();
+                    if (b.b()) {
+                        windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
+                        return displayMetrics.heightPixels;
+                    }
+                    return c(context);
+                }
+                return -1;
+            }
+            return invokeL.intValue;
+        }
+
+        public static int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+                int identifier = zi0.b().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+                int i = 0;
+                if (identifier > 0) {
                     try {
-                        bufferedReader3.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                        i = zi0.b().getResources().getDimensionPixelSize(identifier);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
-                throw th;
+                return i == 0 ? (int) (b(null) * 25.0f) : i;
             }
-        } catch (IOException e5) {
-            e = e5;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (bufferedReader3 != null) {
-            }
-            throw th;
+            return invokeV.intValue;
         }
+
+        public static float h(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+                TypedValue typedValue = new TypedValue();
+                zi0.b().getResources().getValue(i, typedValue, true);
+                return typedValue.getFloat();
+            }
+            return invokeI.floatValue;
+        }
+
+        public static void i(Context context) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(65545, null, context) == null) && a == null && context != null) {
+                a = context.getResources().getDisplayMetrics();
+            }
+        }
+
+        public static boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? zi0.b().getResources().getConfiguration().orientation == 2 : invokeV.booleanValue;
+        }
+
+        public static int k(@Nullable Context context, float f) {
+            InterceptResult invokeLF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(65547, null, context, f)) == null) {
+                if (context == null) {
+                    return 0;
+                }
+                return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
+            }
+            return invokeLF.intValue;
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
+            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
+                for (int i = 0; i < 7; i++) {
+                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

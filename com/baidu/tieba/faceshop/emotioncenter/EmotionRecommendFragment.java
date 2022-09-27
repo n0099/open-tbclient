@@ -24,10 +24,10 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
-import com.baidu.tieba.gr7;
-import com.baidu.tieba.id6;
-import com.baidu.tieba.kd6;
-import com.baidu.tieba.lx4;
+import com.baidu.tieba.ur7;
+import com.baidu.tieba.vd6;
+import com.baidu.tieba.xd6;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class EmotionRecommendFragment extends BaseFragment implements id6 {
+public class EmotionRecommendFragment extends BaseFragment implements vd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kd6 a;
+    public xd6 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,7 +47,7 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public lx4.g j;
+    public yx4.g j;
     public BdListView.p k;
 
     /* loaded from: classes4.dex */
@@ -193,7 +193,7 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements lx4.g {
+    public class d implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -216,7 +216,7 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -292,14 +292,14 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
         this.k = new e(this);
     }
 
-    @Override // com.baidu.tieba.id6
+    @Override // com.baidu.tieba.vd6
     public void H0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.id6
+    @Override // com.baidu.tieba.vd6
     public void S0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCenterData) == null) {
@@ -334,9 +334,9 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            kd6 kd6Var = this.a;
-            if (kd6Var != null) {
-                kd6Var.m(i);
+            xd6 xd6Var = this.a;
+            if (xd6Var != null) {
+                xd6Var.m(i);
             }
         }
     }
@@ -356,9 +356,9 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            kd6 kd6Var = new kd6(getPageContext(), getUniqueId());
-            this.a = kd6Var;
-            kd6Var.p(this.j);
+            xd6 xd6Var = new xd6(getPageContext(), getUniqueId());
+            this.a = xd6Var;
+            xd6Var.p(this.j);
             this.a.q(this.k);
             registerListener(this.g);
             registerListener(this.h);
@@ -413,22 +413,22 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
     public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (gr7.l().r()) {
-                kd6 kd6Var = this.a;
-                if (kd6Var != null) {
-                    kd6Var.r();
+            if (ur7.l().r()) {
+                xd6 xd6Var = this.a;
+                if (xd6Var != null) {
+                    xd6Var.r();
                     return;
                 }
                 return;
             }
-            kd6 kd6Var2 = this.a;
-            if (kd6Var2 != null) {
-                kd6Var2.n();
+            xd6 xd6Var2 = this.a;
+            if (xd6Var2 != null) {
+                xd6Var2.n();
             }
         }
     }
 
-    @Override // com.baidu.tieba.id6
+    @Override // com.baidu.tieba.vd6
     public void v0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionCenterData) == null) {
@@ -445,9 +445,9 @@ public class EmotionRecommendFragment extends BaseFragment implements id6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            kd6 kd6Var = this.a;
-            if (kd6Var != null) {
-                return kd6Var.f();
+            xd6 xd6Var = this.a;
+            if (xd6Var != null) {
+                return xd6Var.f();
             }
             return 0;
         }

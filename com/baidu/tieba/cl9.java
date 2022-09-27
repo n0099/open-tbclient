@@ -1,141 +1,372 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cl9 extends BaseAdRipper {
+public final class cl9 extends jq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final List<b> b;
+    public final int c;
+
+    /* loaded from: classes3.dex */
+    public static final class a extends jq9 implements zk9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+        public final Ssp.Pid c;
+        public final b d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, b bVar) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput, map, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = bVar;
+            long readLong = objectInput.readLong();
+            this.a = readLong;
+            this.b = objectInput.readInt();
+            this.c = map.get(Long.valueOf(readLong));
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(JSONObject jSONObject, Map<Long, Ssp.Pid> map, b bVar) {
+            super(0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map, bVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.d = bVar;
+            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
+            this.a = adjustLong;
+            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            this.c = map.get(Long.valueOf(adjustLong));
+        }
+
+        @Override // com.baidu.tieba.zk9
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.zk9
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || a.class != obj.getClass()) {
+                    return false;
+                }
+                a aVar = (a) obj;
+                return this.a == aVar.a && this.b == aVar.b && Objects.equals(this.c, aVar.c);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.jq9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
+                objectOutput.writeLong(this.a);
+                objectOutput.writeInt(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class b extends jq9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final List<a> b;
+
+        /* loaded from: classes3.dex */
+        public class a implements Comparator<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.util.Comparator
+            public int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((a) obj).b, ((a) obj2).b) : invokeLL.intValue;
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = objectInput.readLong();
+            int readInt = objectInput.readInt();
+            HashSet hashSet = new HashSet();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
+            }
+            ArrayList arrayList = new ArrayList(hashSet);
+            a(arrayList);
+            this.b = Collections.unmodifiableList(arrayList);
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+            super(0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = NumberUtils.adjustLong(jSONObject.optLong("tmout", 5000L), 100L, 30000L);
+            HashSet hashSet = new HashSet();
+            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                hashSet.add(new a(jSONArray.getJSONObject(i3), map, this));
+            }
+            ArrayList arrayList = new ArrayList(hashSet);
+            a(arrayList);
+            this.b = Collections.unmodifiableList(arrayList);
+        }
+
+        public final <T extends a> List<T> a(List<T> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                Collections.sort(list, new a(this));
+                return list;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || b.class != obj.getClass()) {
+                    return false;
+                }
+                b bVar = (b) obj;
+                return this.a == bVar.a && Objects.equals(this.b, bVar.b);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(Long.valueOf(this.a), this.b) : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.jq9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
+                objectOutput.writeLong(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (a aVar : this.b) {
+                    aVar.srzable(objectOutput);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cl9(Ssp.Pid pid) {
-        super(pid);
+    public cl9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {Integer.valueOf(i), objectInput, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = objectInput.readUTF();
+        int readInt = objectInput.readInt();
+        ArrayList arrayList = new ArrayList();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            arrayList.add(new b(objectInput.readInt(), objectInput, map));
+        }
+        this.b = Collections.unmodifiableList(arrayList);
+        if (i >= 1) {
+            this.c = objectInput.readInt();
+        } else {
+            this.c = 0;
+        }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00bf A[Catch: Exception -> 0x0124, TryCatch #0 {Exception -> 0x0124, blocks: (B:5:0x0005, B:7:0x0017, B:10:0x0020, B:11:0x0023, B:14:0x0032, B:17:0x003f, B:20:0x0045, B:22:0x004d, B:24:0x0056, B:26:0x006b, B:28:0x007b, B:34:0x008c, B:36:0x0094, B:42:0x00bf, B:44:0x00c7, B:45:0x00cf, B:37:0x00a6, B:39:0x00ae), top: B:54:0x0005 }] */
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String optString;
-        String str5;
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cl9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+        super(1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                A a = ((vl9) obj).a;
-                String[] strArr = {"com.bytedance.sdk.openadsdk.core.r.w", "com.bytedance.sdk.openadsdk.core.s.y"};
-                Object obj2 = null;
-                for (int i = 0; i < 2; i++) {
-                    obj2 = ReflectionUtils.findField(strArr[i], a);
-                    if (obj2 != null) {
-                        break;
-                    }
-                }
-                String[] strArr2 = {"bY", "ce", "ca"};
-                JSONObject jSONObject = null;
-                for (int i2 = 0; i2 < 3 && (jSONObject = (JSONObject) ReflectionUtils.invoke(obj2, strArr2[i2], null, new Object[0])) == null; i2++) {
-                }
-                if (jSONObject == null) {
-                    return null;
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
-                String optString2 = optJSONObject3 != null ? optJSONObject3.optString("url") : null;
-                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), al9.a);
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
-                if (optJSONObject4 != null) {
-                    str2 = optJSONObject4.optString("video_url");
-                    str = optJSONObject4.optString("cover_url");
-                } else {
-                    str = null;
-                    str2 = null;
-                }
-                int optInt = jSONObject.optInt("interaction_type", -1);
-                if (optInt == 3) {
-                    JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
-                    if (optJSONObject5 != null) {
-                        str3 = null;
-                        str4 = null;
-                        optString = optJSONObject5.optString("deeplink_url");
-                        str5 = null;
-                        if (str3 == null) {
-                        }
-                        RippedAd.Builder builder = new RippedAd.Builder();
-                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                        return builder.build();
-                    }
-                    str5 = null;
-                    optString = null;
-                    str3 = null;
-                    str4 = null;
-                    if (str3 == null) {
-                    }
-                    RippedAd.Builder builder2 = new RippedAd.Builder();
-                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                    return builder2.build();
-                }
-                if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
-                    String optString3 = optJSONObject2.optString("app_name");
-                    String optString4 = optJSONObject2.optString("package_name");
-                    str5 = optJSONObject2.optString("download_url");
-                    str4 = optString4;
-                    str3 = optString3;
-                    optString = null;
-                    if (str3 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
-                        str3 = optJSONObject.optString("app_name");
-                        str4 = optJSONObject.optString("package_name");
-                    }
-                    RippedAd.Builder builder22 = new RippedAd.Builder();
-                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                    return builder22.build();
-                }
-                str5 = null;
-                optString = null;
-                str3 = null;
-                str4 = null;
-                if (str3 == null) {
-                    str3 = optJSONObject.optString("app_name");
-                    str4 = optJSONObject.optString("package_name");
-                }
-                RippedAd.Builder builder222 = new RippedAd.Builder();
-                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                return builder222.build();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        this.a = jSONObject.getString("sid");
+        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
+        ArrayList arrayList = new ArrayList();
+        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            arrayList.add(new b(jSONArray.getJSONObject(i3), map));
+        }
+        this.b = Collections.unmodifiableList(arrayList);
+        this.c = jSONObject.optInt("ver", 0);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || cl9.class != obj.getClass()) {
+                return false;
+            }
+            cl9 cl9Var = (cl9) obj;
+            return Objects.equals(this.a, cl9Var.a) && Objects.equals(this.b, cl9Var.b) && this.c == cl9Var.c;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, Integer.valueOf(this.c)) : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.jq9
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
+            objectOutput.writeUTF(this.a);
+            objectOutput.writeInt(this.b.size());
+            for (b bVar : this.b) {
+                bVar.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.c);
+        }
     }
 }

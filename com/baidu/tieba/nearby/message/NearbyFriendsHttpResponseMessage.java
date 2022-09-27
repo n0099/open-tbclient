@@ -3,7 +3,7 @@ package com.baidu.tieba.nearby.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.up7;
+import com.baidu.tieba.iq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public up7 nearbyFriendData;
+    public iq7 nearbyFriendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NearbyFriendsHttpResponseMessage() {
@@ -40,16 +40,16 @@ public class NearbyFriendsHttpResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                up7 up7Var = new up7();
-                this.nearbyFriendData = up7Var;
-                up7Var.a(jSONObject);
+                iq7 iq7Var = new iq7();
+                this.nearbyFriendData = iq7Var;
+                iq7Var.a(jSONObject);
             }
         }
     }
 
-    public up7 getNearbyFriendData() {
+    public iq7 getNearbyFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nearbyFriendData : (up7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.nearbyFriendData : (iq7) invokeV.objValue;
     }
 }

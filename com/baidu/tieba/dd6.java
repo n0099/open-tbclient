@@ -1,114 +1,175 @@
 package com.baidu.tieba;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public class dd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public BdTypeListView b;
-    public final List<qn> c;
-    public EmotionCategoryAdapter d;
-    public EmotionHorizontalAdapter e;
-    public List<Cdo> f;
 
-    public dd6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    /* loaded from: classes3.dex */
+    public class a implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicInteger a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ c c;
+
+        public a(dd6 dd6Var, AtomicInteger atomicInteger, List list, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd6Var, atomicInteger, list, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = atomicInteger;
+            this.b = list;
+            this.c = cVar;
+        }
+
+        @Override // com.baidu.tieba.dd6.d
+        public void a(ImageUploadResult imageUploadResult) {
+            ImageUploadResult.picInfo picinfo;
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
+                this.a.decrementAndGet();
+                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
+                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                }
+                if (this.a.get() == 0) {
+                    if (!ListUtils.isEmpty(this.b)) {
+                        this.c.d0(this.b);
+                    } else {
+                        this.c.B0();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageFileInfo a;
+        public final /* synthetic */ d b;
+
+        public b(dd6 dd6Var, ImageFileInfo imageFileInfo, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd6Var, imageFileInfo, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageFileInfo;
+            this.b = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String filePath = this.a.getFilePath();
+                ImageUploader imageUploader = new ImageUploader("from_user_collect");
+                if (this.a.isGif()) {
+                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
+                    return;
+                }
+                Bitmap b = rr7.b(this.a);
+                if (b == null) {
+                    this.b.a(null);
+                    return;
+                }
+                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
+                b.recycle();
+                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
+                    this.b.a(null);
+                    return;
+                }
+                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
+                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
+                this.b.a(uploadInBackground);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void B0();
+
+        void d0(List<String> list);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a(ImageUploadResult imageUploadResult);
+    }
+
+    public dd6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList();
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        b();
     }
 
-    public void a(List<Cdo> list) {
+    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || ListUtils.isEmpty(arrayList)) {
             return;
         }
-        if (this.b != null) {
-            this.f.addAll(list);
-            this.b.setData(this.f);
-        }
-        c();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, ed6.a);
-            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, fd6.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.b.a(this.c);
+        AtomicInteger atomicInteger = new AtomicInteger();
+        atomicInteger.set(arrayList.size());
+        ArrayList arrayList2 = new ArrayList();
+        Iterator<ImageFileInfo> it = arrayList.iterator();
+        while (it.hasNext()) {
+            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
         }
     }
 
-    public void c() {
-        BdTypeListView bdTypeListView;
+    public final void b(ImageFileInfo imageFileInfo, d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.b) == null || bdTypeListView.getAdapter2() == null || !(this.b.getAdapter2() instanceof BaseAdapter)) {
-            return;
-        }
-        this.b.getAdapter2().notifyDataSetChanged();
-    }
-
-    public void d(List<Cdo> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.f)) {
-            this.f.clear();
-        }
-        BdTypeListView bdTypeListView = this.b;
-        if (bdTypeListView != null) {
-            bdTypeListView.setData(list);
-            this.f.addAll(list);
-        }
-        c();
-    }
-
-    public void e(EmotionPackageData emotionPackageData) {
-        fd6 fd6Var;
-        EmotionPackageData emotionPackageData2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
-            return;
-        }
-        for (Cdo cdo : this.f) {
-            if ((cdo instanceof fd6) && (fd6Var = (fd6) cdo) != null && (emotionPackageData2 = fd6Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
-                emotionPackageData2.download = emotionPackageData.download;
-                emotionPackageData2.share = emotionPackageData.share;
-                c();
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
+            hr7.b().a(new b(this, imageFileInfo, dVar));
         }
     }
 }

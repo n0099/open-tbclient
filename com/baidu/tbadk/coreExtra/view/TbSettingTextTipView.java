@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.pp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,8 +109,8 @@ public class TbSettingTextTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0866, (ViewGroup) this, true);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ed);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ef);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bb);
         }
     }
@@ -118,7 +118,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, ap8.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, pp8.TbSettingView);
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);
@@ -152,7 +152,7 @@ public class TbSettingTextTipView extends FrameLayout {
             }
             SkinManager.setViewTextColor(textView, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            uu4.d(this).f(R.color.CAM_X0205);
+            hv4.d(this).f(R.color.CAM_X0205);
         }
     }
 

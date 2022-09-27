@@ -1,76 +1,54 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.NewHottopic.TimeLine;
+import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes4.dex */
-public class f57 extends v06<d57> {
+public class f57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public d57 j;
+    public String a;
+    public List<e57> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f57(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public f57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = h().findViewById(R.id.obfuscated_res_0x7f090590);
     }
 
-    @Override // com.baidu.tieba.v06
-    public int d() {
-        InterceptResult invokeV;
+    public void a(long j, TimeLine timeLine) {
+        Long l;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bc : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: r */
-    public void i(d57 d57Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, d57Var) == null) || d57Var == null) {
+        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) || timeLine == null || ListUtils.isEmpty(timeLine.timeline_info)) {
             return;
         }
-        this.j = d57Var;
-        SkinManager.setBackgroundColor(this.i, d57Var.b);
-        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
-        layoutParams.height = ej.f(this.c, d57Var.a);
-        this.i.setLayoutParams(layoutParams);
+        this.a = timeLine.title;
+        this.b = new ArrayList();
+        int i = 0;
+        for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
+            if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
+                e57 e57Var = new e57();
+                e57Var.a = j;
+                e57Var.f = i;
+                e57Var.a(timeLineInfo);
+                this.b.add(e57Var);
+                i++;
+            }
+        }
     }
 }

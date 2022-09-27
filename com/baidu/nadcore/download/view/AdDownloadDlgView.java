@@ -16,10 +16,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap0;
-import com.baidu.tieba.bj0;
-import com.baidu.tieba.fk0;
-import com.baidu.tieba.vh0;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.oj0;
+import com.baidu.tieba.sk0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,28 +68,28 @@ public class AdDownloadDlgView extends RelativeLayout {
         public void onClick(View view2) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.getTag() instanceof ap0)) {
-                ap0 ap0Var = (ap0) this.a.getTag();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.getTag() instanceof np0)) {
+                np0 np0Var = (np0) this.a.getTag();
                 int id = view2.getId();
                 if (id == R.id.obfuscated_res_0x7f0915e6) {
-                    ap0.b bVar = ap0Var.g;
+                    np0.b bVar = np0Var.g;
                     if (bVar != null) {
                         str = bVar.b;
                     }
                     str = "";
                 } else {
                     if (id == R.id.obfuscated_res_0x7f0915e5) {
-                        ap0.a aVar = ap0Var.h;
+                        np0.a aVar = np0Var.h;
                         if (aVar != null) {
                             str = aVar.b;
                         }
-                    } else if (id == R.id.obfuscated_res_0x7f0915e2 && !TextUtils.isEmpty(ap0Var.d)) {
-                        this.a.d(ap0Var.d);
+                    } else if (id == R.id.obfuscated_res_0x7f0915e2 && !TextUtils.isEmpty(np0Var.d)) {
+                        this.a.d(np0Var.d);
                         return;
                     }
                     str = "";
                 }
-                vh0.c(bj0.a().a(str), this.a.getContext());
+                ii0.c(oj0.a().a(str), this.a.getContext());
             }
         }
     }
@@ -115,26 +115,26 @@ public class AdDownloadDlgView extends RelativeLayout {
         }
     }
 
-    public void b(fk0 fk0Var) {
+    public void b(sk0 sk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fk0Var) == null) {
-            if (fk0Var != null && fk0Var.b != null) {
-                this.i.setText(fk0Var.c);
-                this.i.setVisibility(fk0Var.a != 2 ? 0 : 8);
-                ap0 ap0Var = fk0Var.b;
-                setTag(ap0Var);
-                this.b.g(ap0Var.b);
-                this.c.setText(ap0Var.c);
-                this.d.setText(ap0Var.i);
-                this.e.setText(ap0Var.d);
+        if (interceptable == null || interceptable.invokeL(1048576, this, sk0Var) == null) {
+            if (sk0Var != null && sk0Var.b != null) {
+                this.i.setText(sk0Var.c);
+                this.i.setVisibility(sk0Var.a != 2 ? 0 : 8);
+                np0 np0Var = sk0Var.b;
+                setTag(np0Var);
+                this.b.g(np0Var.b);
+                this.c.setText(np0Var.c);
+                this.d.setText(np0Var.i);
+                this.e.setText(np0Var.d);
                 this.e.setOnClickListener(this.k);
-                this.f.setText(ap0Var.f);
-                ap0.b bVar = ap0Var.g;
+                this.f.setText(np0Var.f);
+                np0.b bVar = np0Var.g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                     this.g.setText(bVar.a);
                     this.g.setOnClickListener(this.k);
                 }
-                ap0.a aVar = ap0Var.h;
+                np0.a aVar = np0Var.h;
                 if (aVar == null || TextUtils.isEmpty(aVar.b) || TextUtils.isEmpty(aVar.a)) {
                     return;
                 }

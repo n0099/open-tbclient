@@ -3,7 +3,7 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p97;
+import com.baidu.tieba.da7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
 public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p97 majorHistoryData;
+    public da7 majorHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketMajorHistoryMessage() {
@@ -34,7 +34,7 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
                 return;
             }
         }
-        this.majorHistoryData = new p97();
+        this.majorHistoryData = new da7();
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class ResponseSocketMajorHistoryMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public p97 getData() {
+    public da7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.majorHistoryData : (p97) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.majorHistoryData : (da7) invokeV.objValue;
     }
 }

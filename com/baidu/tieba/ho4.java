@@ -1,19 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface ho4 {
-    void a(int i);
+    void a(List<fo4> list);
 
-    void b(String str);
-
-    void c(String str);
-
-    void d(String str);
-
-    void e(boolean z, boolean z2, int i, String str, String str2, String str3);
-
-    void f(String str, boolean z);
-
-    void g(boolean z, boolean z2, int i);
-
-    void onAdDismiss();
+    void onPreLoad();
 }

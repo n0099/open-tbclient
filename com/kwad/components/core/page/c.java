@@ -90,12 +90,12 @@ public final class c implements x.b {
         public final boolean FY;
         public final boolean FZ;
 
-        public b(C0582c c0582c) {
+        public b(C0578c c0578c) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0582c};
+                Object[] objArr = {c0578c};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,20 +105,20 @@ public final class c implements x.b {
                     return;
                 }
             }
-            this.FY = c0582c.FY;
-            this.FZ = c0582c.FZ;
-            this.FD = c0582c.FD;
-            this.FC = c0582c.FC;
+            this.FY = c0578c.FY;
+            this.FZ = c0578c.FZ;
+            this.FD = c0578c.FD;
+            this.FC = c0578c.FC;
         }
 
-        public /* synthetic */ b(C0582c c0582c, byte b) {
-            this(c0582c);
+        public /* synthetic */ b(C0578c c0578c, byte b) {
+            this(c0578c);
         }
     }
 
     /* renamed from: com.kwad.components.core.page.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0582c {
+    public static class C0578c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String FC;
@@ -126,7 +126,7 @@ public final class c implements x.b {
         public boolean FY;
         public boolean FZ;
 
-        public C0582c() {
+        public C0578c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,44 +143,44 @@ public final class c implements x.b {
             this.FZ = true;
         }
 
-        public final C0582c aq(String str) {
+        public final C0578c aq(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 this.FC = str;
                 return this;
             }
-            return (C0582c) invokeL.objValue;
+            return (C0578c) invokeL.objValue;
         }
 
-        public final C0582c ar(String str) {
+        public final C0578c ar(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.FD = str;
                 return this;
             }
-            return (C0582c) invokeL.objValue;
+            return (C0578c) invokeL.objValue;
         }
 
-        public final C0582c as(boolean z) {
+        public final C0578c as(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
                 this.FY = true;
                 return this;
             }
-            return (C0582c) invokeZ.objValue;
+            return (C0578c) invokeZ.objValue;
         }
 
-        public final C0582c at(boolean z) {
+        public final C0578c at(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
                 this.FZ = false;
                 return this;
             }
-            return (C0582c) invokeZ.objValue;
+            return (C0578c) invokeZ.objValue;
         }
 
         public final b nI() {
@@ -323,7 +323,7 @@ public final class c implements x.b {
             com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.zO);
             this.mTitleBarHelper = aVar;
             aVar.a(new com.kwad.components.core.kwai.b(bl));
-            this.mTitleBarHelper.a(new a.InterfaceC0580a(this) { // from class: com.kwad.components.core.page.c.5
+            this.mTitleBarHelper.a(new a.InterfaceC0576a(this) { // from class: com.kwad.components.core.page.c.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c FX;
@@ -346,7 +346,7 @@ public final class c implements x.b {
                     this.FX = this;
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0580a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0576a
                 public final void r(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
@@ -364,7 +364,7 @@ public final class c implements x.b {
                     }
                 }
 
-                @Override // com.kwad.components.core.kwai.a.InterfaceC0580a
+                @Override // com.kwad.components.core.kwai.a.InterfaceC0576a
                 public final void s(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {

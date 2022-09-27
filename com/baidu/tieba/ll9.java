@@ -1,113 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.Button;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.ObjectInput;
 /* loaded from: classes4.dex */
-public class ll9 implements TTAppDownloadListener {
+public class ll9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Button a;
 
-    public ll9(Button button) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {button};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946864, "Lcom/baidu/tieba/ll9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947946864, "Lcom/baidu/tieba/ll9;");
                 return;
             }
         }
-        this.a = button;
+        a = new Object();
+        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
-    public final String a(Context context, long j, long j2) {
-        InterceptResult invokeCommon;
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f078d, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f078e) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b.getInt("key_sid_c_pre_" + str, 0);
+        }
+        return invokeL.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
+    public static ok9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            LogPrinter.d("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(a(button.getContext(), j, j2));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (ok9) uk9.b(b.getString("key_adcfg", null), ik9.a) : (ok9) invokeV.objValue;
+    }
+
+    public static /* synthetic */ ok9 c(ObjectInput objectInput) {
+        return new ok9(objectInput.readInt(), objectInput);
+    }
+
+    public static void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
+            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
+        }
+    }
+
+    public static void e(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65541, null, i, i2, i3) == null) {
+            synchronized (a) {
+                int j = j();
+                int k = k();
+                int i4 = i();
+                b.edit().putInt("key_rpt_req_c", ((j - i) - i2) - i3).putInt("key_rpt_fai_c", g() - i).putInt("key_rpt_suc_c", k - i2).putInt("key_rpt_mis_c", i4 - i3).apply();
             }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
+    public static void f(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f078c);
-            }
+        if (interceptable == null || interceptable.invokeLI(65542, null, str, i) == null) {
+            b.edit().putInt(str, i).apply();
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
+    public static int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f078f);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            LogPrinter.d("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(a(button.getContext(), j, j2));
-            }
-        }
+    public static /* synthetic */ al9 h(ObjectInput objectInput) {
+        return new al9(objectInput.readInt(), objectInput);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onIdle() {
+    public static int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f078c);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onInstalled(String str, String str2) {
+    public static int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f0790);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
+    }
+
+    public static al9 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? (al9) uk9.b(b.getString("key_rptcfg", null), ck9.a) : (al9) invokeV.objValue;
+    }
+
+    public static double m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            synchronized (a) {
+                f("key_rpt_req_c", j() + 1);
             }
         }
     }

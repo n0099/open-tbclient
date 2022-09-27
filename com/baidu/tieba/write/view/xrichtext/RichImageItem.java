@@ -19,9 +19,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.g85;
+import com.baidu.tieba.k85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.t75;
-import com.baidu.tieba.x75;
+import com.baidu.tieba.t85;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -123,7 +123,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements t75 {
+    public class c implements g85 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -146,7 +146,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.t75
+        @Override // com.baidu.tieba.g85
         public void a(on onVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, onVar, str, z) == null) || onVar == null) {
@@ -300,12 +300,12 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = g85.g(i, i * 2);
+            ImageOperation g = t85.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                on d2 = new x75().d(this.d, new c(this), true);
+                on d2 = new k85().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }

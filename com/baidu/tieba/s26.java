@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class s26 extends BaseCardInfo {
+public class s26 extends x26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId N0;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,13 +29,15 @@ public class s26 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        N0 = BdUniqueId.gen();
     }
 
-    public s26() {
+    public s26(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,14 +47,26 @@ public class s26 extends BaseCardInfo {
                 return;
             }
         }
-        this.a = R.color.CAM_X0204;
-        this.b = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.a = threadData;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public static boolean W(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? threadData != null && threadData.getType() == ThreadData.TYPE_ARTICLE : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x26, com.baidu.tieba.p26, com.baidu.tieba.yq4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x26, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? N0 : (BdUniqueId) invokeV.objValue;
     }
 }

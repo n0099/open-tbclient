@@ -1,51 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.JsonWriter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class bb9 {
+public class bb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ab9 a;
 
-    public bb9() {
+    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
+        Object opt;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
+            if (obj != null && obj != JSONObject.NULL) {
+                if (obj instanceof JSONArray) {
+                    JSONArray jSONArray = (JSONArray) obj;
+                    jsonWriter.beginArray();
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        Object opt2 = jSONArray.opt(i);
+                        if (opt2 != null) {
+                            a(jsonWriter, opt2);
+                        }
+                    }
+                    jsonWriter.endArray();
+                    return;
+                } else if (obj instanceof JSONObject) {
+                    JSONObject jSONObject = (JSONObject) obj;
+                    jsonWriter.beginObject();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
+                            jsonWriter.name(next);
+                            a(jsonWriter, opt);
+                        }
+                    }
+                    jsonWriter.endObject();
+                    return;
+                } else if (obj instanceof Number) {
+                    jsonWriter.value((Number) obj);
+                    return;
+                } else if (obj instanceof String) {
+                    jsonWriter.value((String) obj);
+                    return;
+                } else if (obj instanceof Boolean) {
+                    jsonWriter.value(((Boolean) obj).booleanValue());
+                    return;
+                } else {
+                    jsonWriter.value(obj.toString());
+                    return;
+                }
             }
-        }
-        this.a = new ab9();
-    }
-
-    public final List<com.baidu.ubs.analytics.a.l> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
-        }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.c(lVar);
+            jsonWriter.nullValue();
         }
     }
 }

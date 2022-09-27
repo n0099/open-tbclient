@@ -1,78 +1,116 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class i66 {
+public class i66 implements e66 {
     public static /* synthetic */ Interceptable $ic;
-    public static final i66 a;
-    public static final s0 b;
-    public static final Class<? extends k46>[] c;
-    public static final s0 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final e66 a;
+    public final Map<Integer, e66> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805504, "Lcom/baidu/tieba/i66;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805504, "Lcom/baidu/tieba/i66;");
-                return;
-            }
-        }
-        a = new i66();
-        s0 b2 = s0.d(p46.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{p46.class, o46.class};
-        s0.b d2 = s0.d(p46.class, o46.class);
-        d2.c(q46.class, s46.class);
-        s0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
-    }
-
-    public i66() {
+    public i66(e66 defaultLayouter, Pair<Integer, ? extends e66>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultLayouter, layouter};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
+    }
+
+    @Override // com.baidu.tieba.e66
+    public void a(q46 item, long j, q66 displayer, k46 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            f(item).a(item, j, displayer, config);
+        }
+    }
+
+    @Override // com.baidu.tieba.e66
+    public void b(q46 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
+        }
+    }
+
+    @Override // com.baidu.tieba.e66
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (e66 e66Var : this.b.values()) {
+                e66Var.c(i, i2);
             }
         }
     }
 
-    public final s0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e66
+    public void clear() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (s0) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (e66 e66Var : this.b.values()) {
+                e66Var.clear();
+            }
+        }
     }
 
-    public final Class<? extends k46>[] b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e66
+    public boolean d(q46 item, long j, q66 displayer, k46 config) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (Class[]) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return f(item).d(item, j, displayer, config);
+        }
+        return invokeCommon.booleanValue;
     }
 
-    public final s0 c() {
-        InterceptResult invokeV;
+    public int e(q46 item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (s0) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().j();
+        }
+        return invokeL.intValue;
+    }
+
+    public final e66 f(q46 q46Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, q46Var)) == null) {
+            e66 e66Var = this.b.get(Integer.valueOf(e(q46Var)));
+            return e66Var == null ? this.a : e66Var;
+        }
+        return (e66) invokeL.objValue;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cy5;
+import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public cy5 e;
+    public py5 e;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            cy5 cy5Var = this.e;
-            if (cy5Var != null) {
-                cy5Var.m(i);
+            py5 py5Var = this.e;
+            if (py5Var != null) {
+                py5Var.m(i);
             }
         }
     }
@@ -58,9 +58,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            cy5 cy5Var = this.e;
-            if (cy5Var != null) {
-                cy5Var.m(i);
+            py5 py5Var = this.e;
+            if (py5Var != null) {
+                py5Var.m(i);
             }
         }
     }
@@ -81,9 +81,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            cy5 cy5Var = new cy5(pageContext, true);
-            this.e = cy5Var;
-            cy5Var.s(this.c);
+            py5 py5Var = new py5(pageContext, true);
+            this.e = py5Var;
+            py5Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

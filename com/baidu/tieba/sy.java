@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.dz;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class sy<T extends lq4> implements xx, fo5 {
+public class sy<T extends yq4> implements xx, so5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public wx<T> a;
@@ -109,7 +109,7 @@ public class sy<T extends lq4> implements xx, fo5 {
         this(bVar);
     }
 
-    @Override // com.baidu.tieba.fo5
+    @Override // com.baidu.tieba.so5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -288,11 +288,11 @@ public class sy<T extends lq4> implements xx, fo5 {
                 this.m.h = R.color.CAM_X0205;
             }
             if (this.g != null) {
-                this.d.setTag(R.id.obfuscated_res_0x7f092607, null);
+                this.d.setTag(R.id.obfuscated_res_0x7f092609, null);
                 this.g.a(t);
                 gx<T> gxVar = this.g;
-                if (gxVar instanceof u09) {
-                    this.d.setTag(R.id.obfuscated_res_0x7f092607, gxVar);
+                if (gxVar instanceof j19) {
+                    this.d.setTag(R.id.obfuscated_res_0x7f092609, gxVar);
                 }
             }
             gx<T> gxVar2 = this.h;
@@ -363,7 +363,7 @@ public class sy<T extends lq4> implements xx, fo5 {
             if (gxVar != null) {
                 gxVar.onChangeSkinType(tbPageContext, i);
                 if (this.j == null && ((t2 = this.n) == null || !t2.isSupportContent())) {
-                    uu4 d = uu4.d(this.d);
+                    hv4 d = hv4.d(this.d);
                     d.m(1);
                     d.n(R.string.J_X06);
                     d.f(this.m.h);
@@ -382,14 +382,14 @@ public class sy<T extends lq4> implements xx, fo5 {
             if (gxVar3 != null) {
                 gxVar3.onChangeSkinType(tbPageContext, i);
                 if (this.g == null && ((t = this.n) == null || !t.isSupportContent())) {
-                    uu4 d2 = uu4.d(this.d);
+                    hv4 d2 = hv4.d(this.d);
                     d2.m(2);
                     d2.n(R.string.J_X06);
                     d2.f(this.m.h);
                 }
             }
             if (this.g != null && this.j != null) {
-                uu4 d3 = uu4.d(this.d);
+                hv4 d3 = hv4.d(this.d);
                 d3.n(R.string.J_X06);
                 d3.i(this.m.h, R.color.CAM_X0206);
             }
@@ -413,25 +413,25 @@ public class sy<T extends lq4> implements xx, fo5 {
         }
     }
 
-    public void p(v16<T> v16Var) {
+    public void p(i26<T> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, v16Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, i26Var) == null) {
             gx<T> gxVar = this.g;
             if (gxVar != null) {
-                gxVar.m(v16Var);
+                gxVar.m(i26Var);
             }
             gx<T> gxVar2 = this.h;
             if (gxVar2 != null) {
-                gxVar2.m(v16Var);
+                gxVar2.m(i26Var);
             }
             for (nx nxVar : this.i) {
                 if (nxVar != null) {
-                    nxVar.m(v16Var);
+                    nxVar.m(i26Var);
                 }
             }
             gx<T> gxVar3 = this.j;
             if (gxVar3 != null) {
-                gxVar3.m(v16Var);
+                gxVar3.m(i26Var);
             }
         }
     }
@@ -553,7 +553,7 @@ public class sy<T extends lq4> implements xx, fo5 {
         } else {
             inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0880, viewGroup, false);
         }
-        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f09217e);
+        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f092180);
         this.d = threadCardView;
         this.e = (RelativeLayout) threadCardView.findViewById(R.id.obfuscated_res_0x7f0904fd);
         LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0903b6);

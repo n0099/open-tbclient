@@ -1,163 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xw4 {
+public class xw4 extends pw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public nw4 c;
 
-    public xw4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xw4(nw4 nw4Var) {
+        super(nw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((nw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(AgreeData agreeData, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
-            AgreeEvent agreeEvent = new AgreeEvent();
-            agreeEvent.agreeData = agreeData;
-            agreeEvent.agreeExtra = str;
-            aa5.i(agreeEvent);
-        }
-    }
-
-    public void b(Context context, rq4 rq4Var, AgreeData agreeData, ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rq4Var, agreeData, threadData) == null) || rq4Var == null || agreeData == null) {
-            return;
-        }
-        BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-        StatisticItem param = new StatisticItem("c13271").param("obj_type", rq4Var.g).param("obj_locate", rq4Var.h).param("obj_id", rq4Var.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
-        if (threadData != null) {
-            param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
-            if (threadData.getBaijiahaoData() != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
-                if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
-                    param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-            }
-            if (threadData.isBjhDynamicThread()) {
-                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
-            } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
-                int i = threadData.threadType;
-                if (i == 0 || i == 40) {
-                    param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
-                }
-            } else {
-                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
-            }
-        } else {
-            param.param("tid", agreeData.threadId);
-            param.param("nid", agreeData.nid);
-            param.param("fid", agreeData.forumId);
-            param.param("card_type", agreeData.cardType);
-            param.param("ab_tag", agreeData.recomAbTag);
-            param.param("recom_source", agreeData.recomSource);
-            param.param("weight", agreeData.recomWeight);
-            param.param("extra", agreeData.recomExtra);
-            BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
-            if (baijiahaoData2 != null) {
-                param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
-            }
-        }
-        if (context != null) {
-            gc5.b(context, param);
-        }
-        TiebaStatic.log(param);
-    }
-
-    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
-            if (agreeData == null) {
-                ov4.a(3, -1);
                 return;
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-            httpMessage.addParam("thread_id", agreeData.threadId);
-            httpMessage.addParam("op_type", i);
-            if (agreeData.objType == 0) {
-                agreeData.objType = 3;
-            }
-            httpMessage.addParam("obj_type", agreeData.objType);
-            httpMessage.addParam("agree_type", agreeData.agreeType);
-            httpMessage.addParam("forum_id", agreeData.forumId);
-            if (!StringUtil.isEmpty(agreeData.objSource)) {
-                httpMessage.addParam("obj_source", agreeData.objSource);
-            }
-            if (!TextUtils.isEmpty(agreeData.postId)) {
-                httpMessage.addParam("post_id", agreeData.postId);
-            }
-            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-            if (baijiahaoData != null) {
-                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
-                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
-                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
-                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
-            }
-            httpMessage.setTag(bdUniqueId);
-            httpMessage.setExtra(Integer.valueOf(i));
-            httpMessage.addHeader("needSig", "1");
-            if (z) {
-                if (!TextUtils.isEmpty(y95.b())) {
-                    httpMessage.addParam(HttpRequest.BDUSS, y95.b());
-                }
-                if (!TextUtils.isEmpty(y95.f())) {
-                    httpMessage.addParam(HttpRequest.TBS, y95.f());
-                }
-                if (!TextUtils.isEmpty(y95.e())) {
-                    httpMessage.addParam("stoken", y95.e());
-                }
-            }
-            MessageManager.getInstance().sendMessage(httpMessage);
         }
+        this.c = nw4Var;
     }
 
-    public void d(AgreeData agreeData, lm8 lm8Var) {
+    @Override // com.baidu.tieba.pw4
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, lm8Var) == null) {
-            lm8Var.b = agreeData;
-            if (agreeData.isInThread) {
-                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
-                if (baijiahaoData != null) {
-                    agreeData.nid = baijiahaoData.oriUgcNid;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, lm8Var));
-                a(agreeData, AgreeEvent.IS_THREAD);
-            } else if (agreeData.isInPost) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, lm8Var));
-                a(agreeData, AgreeEvent.IS_POST);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_SHOW_SHARE_DIALOG" : (String) invokeV.objValue;
+    }
+
+    @qw4(isAsync = false, value = "showShareDialog")
+    public void showShareDialog(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        String optString = jSONObject.optString("title");
+        String optString2 = jSONObject.optString("content");
+        String optString3 = jSONObject.optString("imgUrl");
+        String optString4 = jSONObject.optString("shareUrl");
+        ShareItem shareItem = new ShareItem();
+        shareItem.v = optString;
+        shareItem.w = optString2;
+        if (optString3 == null) {
+            shareItem.z = null;
+        } else {
+            shareItem.z = Uri.parse(optString3);
+        }
+        shareItem.x = optString4;
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.c.getContext(), shareItem, true);
+        shareDialogConfig.setIsSupportNightMode(true);
+        shareDialogConfig.setIsCopyLink(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

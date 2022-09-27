@@ -72,11 +72,11 @@ public class yx extends az {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null, true);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092568);
-            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092567);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09256a);
+            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092569);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ad4);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ad0);
-            ra8 q = q();
+            fb8 q = q();
             this.j = q;
             q.getMainView().setBackgroundResource(R.color.transparent);
         }
@@ -97,10 +97,10 @@ public class yx extends az {
     }
 
     @Override // com.baidu.tieba.gx
-    public void m(v16<lq4> v16Var) {
+    public void m(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v16Var) == null) {
-            this.y.setSubClickListener(v16Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, i26Var) == null) {
+            this.y.setSubClickListener(i26Var);
         }
     }
 
@@ -117,39 +117,39 @@ public class yx extends az {
     }
 
     @Override // com.baidu.tieba.az
-    public ra8 q() {
+    public fb8 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            sa8 sa8Var = new sa8(this.b, this.i);
-            sa8Var.setStageType("2003");
-            return sa8Var;
+            gb8 gb8Var = new gb8(this.b, this.i);
+            gb8Var.setStageType("2003");
+            return gb8Var;
         }
-        return (ra8) invokeV.objValue;
+        return (fb8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.az, com.baidu.tieba.wx
     /* renamed from: r */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lq4Var) == null) {
-            this.h = lq4Var;
-            if (lq4Var == null || lq4Var.getThreadData() == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, yq4Var) == null) {
+            this.h = yq4Var;
+            if (yq4Var == null || yq4Var.getThreadData() == null) {
                 return;
             }
-            ThreadData threadData = lq4Var.getThreadData();
+            ThreadData threadData = yq4Var.getThreadData();
             if (threadData.getThreadVideoInfo() != null) {
                 this.y.setVisibility(8);
                 this.i.setVisibility(0);
                 this.A.setVisibility(8);
-                super.a(lq4Var);
+                super.a(yq4Var);
                 return;
             }
             this.i.setVisibility(8);
             this.y.setVisibility(0);
             this.A.setVisibility(0);
-            this.y.a(lq4Var);
+            this.y.a(yq4Var);
             ThreadCardUtils.setTitle(this.g, threadData);
             ThreadCardUtils.setAbstract(this.A, this.g, threadData, B);
         }

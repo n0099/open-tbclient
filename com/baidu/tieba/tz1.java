@@ -1,90 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.CRC32;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tz1 {
+public final class tz1 extends xy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public final Map<String, String> d;
+    public int D;
+    public String E;
 
-    public tz1(long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz1() {
+        super("coverView", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new HashMap();
-        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.c = Long.toHexString(a(this.a + "#" + this.b));
-        this.d.put("timestamp", Long.toString(this.a));
-        this.d.put("delta", Long.toString(this.b));
-        this.d.put("rasign", this.c);
+        this.E = "";
     }
 
-    public static tz1 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xy1, com.baidu.tieba.zy1, com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new tz1(0L) : (tz1) invokeV.objValue;
-    }
-
-    public final long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            CRC32 crc32 = new CRC32();
-            crc32.reset();
-            crc32.update(str.getBytes());
-            return crc32.getValue();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeL.longValue;
-    }
-
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return Long.toHexString(a(j + "#smartapp_formid"));
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
-        return (String) invokeJ.objValue;
-    }
-
-    public String d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            return Long.toHexString(a(j + "#payid"));
+        rt2 rt2Var = this.h;
+        if (rt2Var == null || (jSONObject2 = this.j) == null) {
+            return;
         }
-        return (String) invokeJ.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
-        }
-        return (String) invokeV.objValue;
+        rt2Var.i(jSONObject2.optBoolean("fixed", false));
     }
 }

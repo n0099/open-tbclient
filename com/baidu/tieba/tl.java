@@ -30,7 +30,7 @@ public class tl {
     public volatile hm a;
 
     /* loaded from: classes6.dex */
-    public static class a implements l81 {
+    public static class a implements y81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,14 +48,14 @@ public class tl {
             }
         }
 
-        @Override // com.baidu.tieba.l81
+        @Override // com.baidu.tieba.y81
         public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.l81
+        @Override // com.baidu.tieba.y81
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {

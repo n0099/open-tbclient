@@ -1,77 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-@Deprecated
 /* loaded from: classes4.dex */
-public final class h95 {
+public class h95 implements c95 {
     public static /* synthetic */ Interceptable $ic;
-    @NonNull
-    public static final h95 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, g95> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778565, "Lcom/baidu/tieba/h95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947778565, "Lcom/baidu/tieba/h95;");
-                return;
-            }
-        }
-        b = new h95();
-    }
 
     public h95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new HashMap();
     }
 
-    public static void a(@NonNull String str, @NonNull g95 g95Var) {
+    @Override // com.baidu.tieba.c95
+    public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, g95Var) == null) {
-            b.a.put(str, g95Var);
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2;
+            if (z) {
+                relativeLayout.addView(view3, 0);
+            } else {
+                relativeLayout.addView(view3);
+            }
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.addRule(14);
+            view3.setLayoutParams(layoutParams);
         }
-    }
-
-    @Nullable
-    public static <T> T b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) b.a.get(str) : (T) invokeL.objValue;
-    }
-
-    @NonNull
-    public static <T> T c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (T) Objects.requireNonNull(b(str)) : (T) invokeL.objValue;
     }
 }

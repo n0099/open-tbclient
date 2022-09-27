@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ph2 {
+public class ph2 extends fh2<lh2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ph2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, jj2> a;
 
     public ph2() {
         Interceptable interceptable = $ic;
@@ -28,65 +24,31 @@ public class ph2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap();
     }
 
-    public static ph2 a() {
+    @Override // com.baidu.tieba.fh2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ph2.class) {
-                    if (b == null) {
-                        b = new ph2();
-                    }
-                }
-            }
-            return b;
-        }
-        return (ph2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollUp" : (String) invokeV.objValue;
     }
 
-    public static void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull lh2 lh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (b != null) {
-                b.b();
-            }
-            b = null;
-        }
-    }
-
-    public final synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                yz1.i("RtcRoomWidgetManager", "release");
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    ((jj2) it.next()).onRelease();
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public synchronized void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this) {
-                yz1.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    jj2 jj2Var = (jj2) it.next();
-                    if (TextUtils.equals(jj2Var.b(), str)) {
-                        jj2Var.onRelease();
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, lh2Var) == null) {
+            int i = command.arg1;
+            int g = ch3.g(command.arg2);
+            int i2 = command.arg3;
+            int g2 = ch3.g(command.arg4);
+            String str = command.what;
+            d(lh2Var, str, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + g + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + g2, false);
+            lh2Var.z0(i, g, i2, g2);
         }
     }
 }

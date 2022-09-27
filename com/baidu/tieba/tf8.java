@@ -1,82 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
-import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class tf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public boolean b;
-    public boolean c;
-    public HttpResponsedMessage d;
-    public b e;
-    public final HttpMessageListener f;
+    public int a;
+    public final Context b;
+    public final ViewGroup c;
 
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tf8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(tf8 tf8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tf8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tf8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.a.c) {
-                    this.a.d = httpResponsedMessage;
-                } else {
-                    this.a.f(httpResponsedMessage);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(wf8 wf8Var);
-
-        void onFail();
-    }
-
-    public tf8() {
+    public tf8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,69 +33,56 @@ public class tf8 {
                 return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.b = false;
-        this.c = false;
-        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
-        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f);
+        this.a = 0;
+        this.b = context;
+        this.c = viewGroup;
     }
 
-    public void d() {
+    public final boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
-            f(this.d);
-            this.c = false;
-            this.d = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if ("apk_download".equals(str)) {
+                return "apk_download".equals(str2);
+            }
+            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
+                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void e() {
+    public uf8 b(ef8 ef8Var, uf8 uf8Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = true;
-        }
-    }
-
-    public final void f(HttpResponsedMessage httpResponsedMessage) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
-            this.b = false;
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
-                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
-                    bVar.onFail();
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ef8Var, uf8Var)) == null) {
+            if (ef8Var == null || (str = ef8Var.a) == null) {
+                return uf8Var;
+            }
+            if (uf8Var == null || !a(str, uf8Var.a)) {
+                ViewGroup viewGroup = this.c;
+                if (viewGroup == null) {
+                    return null;
                 }
-                sf8.d().i(false);
-                b bVar2 = this.e;
-                if (bVar2 != null) {
-                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
+                viewGroup.removeAllViews();
+                if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(ef8Var.a)) {
+                    if (this.a == 2) {
+                        return new sf8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08d0, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                    }
+                    return new qf8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d085a, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                } else if ("apk_download".equals(ef8Var.a)) {
+                    if (this.a == 2) {
+                        return new rf8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08cf, this.c, true), "apk_download");
+                    }
+                    return new pf8(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0859, this.c, true), "apk_download");
+                } else {
+                    return null;
                 }
             }
+            return uf8Var;
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && sf8.d().e()) {
-            if (this.b) {
-                MessageManager.getInstance().removeHttpMessage(this.a);
-            }
-            this.b = true;
-            SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
-            searchRecForumRequestMessage.setParams(sf8.d().c());
-            searchRecForumRequestMessage.setTag(this.a);
-            MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
-        }
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.e = bVar;
-        }
+        return (uf8) invokeLL.objValue;
     }
 }

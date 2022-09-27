@@ -1,61 +1,119 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.hm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qe2 {
+public class qe2 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        String optString;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            y23 b0 = y23.b0();
-            JSONObject jSONObject = new JSONObject();
-            if (b0 != null) {
-                jSONObject = b0.W().M();
+    /* loaded from: classes5.dex */
+    public class a implements hm2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(qe2 qe2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qe2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return (jSONObject == null || (optString = jSONObject.optString("keyfeed")) == null || (indexOf = optString.indexOf("_")) < 0 || !TextUtils.equals("miniapp", optString.substring(0, indexOf))) ? "" : optString.substring(indexOf + 1);
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.hm2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.hm2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                Toast.makeText(sm2.c(), (int) R.string.obfuscated_res_0x7f0f0151, 1).show();
+            }
+        }
+
+        @Override // com.baidu.tieba.hm2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File d = sc3.d();
+                File c = sc3.c();
+                if (d.exists() && pj4.U(d.getPath(), c.getPath())) {
+                    kz2.M(true);
+                    Toast.makeText(sm2.c(), (int) R.string.obfuscated_res_0x7f0f0152, 1).show();
+                    return;
+                }
+                Toast.makeText(sm2.c(), (int) R.string.obfuscated_res_0x7f0f0151, 1).show();
+            }
+        }
     }
 
-    public static Map<String, Object> b(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qe2(i43 i43Var) {
+        super(i43Var, "/swanAPI/debugSwanCore");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-            hashMap.put("op_type", str2);
-            String a = a();
-            if (!TextUtils.isEmpty(a)) {
-                hashMap.put("nid", a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return hashMap;
         }
-        return (Map) invokeLL.objValue;
     }
 
-    public static Map<String, Object> c(String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
-            hashMap.put("op_type", "add");
-            return hashMap;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (i53.b) {
+                JSONObject a2 = i53.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0149, 1).show();
+                    return false;
+                }
+                String optString = a2.optString("downloadurl");
+                if (TextUtils.isEmpty(optString)) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f011e, 1).show();
+                    return false;
+                }
+                hm2.J(optString, new a(this));
+                return true;
+            }
+            return false;
         }
-        return (Map) invokeLI.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class yu2 extends xu2 {
+public class yu2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
 
     public yu2() {
         Interceptable interceptable = $ic;
@@ -25,48 +24,36 @@ public final class yu2 extends xu2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "SwanAppPayCheckNode";
     }
 
-    @Override // com.baidu.tieba.xu2
-    public String a() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "payinfo" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xu2
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            Log.d(this.a, "onFail: ");
-        }
-    }
-
-    @Override // com.baidu.tieba.xu2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            Log.d(this.a, "onFiltered: ");
-        }
-    }
-
-    @Override // com.baidu.tieba.xu2
-    public void d(String str, JSONObject jSONObject, String str2) {
-        y23 b0;
-        h73 e0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
-            if (this.b) {
-                Log.d(this.a, "onUpdate: ");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            a03 c = yz2.c(yu2.class, null);
+            if (c.a()) {
+                return c.a.getInt("net_quality", -1);
             }
-            if (jSONObject == null || (b0 = y23.b0()) == null || (e0 = b0.e0()) == null) {
-                return;
-            }
-            e0.B("note_data_pay_check_list", jSONObject.toString());
+            return -1;
         }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (SwanAppNetworkUtils.h()) {
+                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                bundle2.putInt("net_quality", 3);
+            }
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

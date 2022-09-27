@@ -206,6 +206,7 @@ public class BubbleListModel extends BdBaseModel {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REQUEST_BUBBLELIST_CMD, TbConfig.SERVER_ADDRESS + "c/e/bu/getbubblelist");
             tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
             messageManager.registerTask(tbHttpMessageTask);
             registerListener(this.e);
         }

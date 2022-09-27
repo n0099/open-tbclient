@@ -1,140 +1,213 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.h5power.DescriptionTableInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class pn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<kn8> a;
 
-    public pn8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public final String e;
+        public final boolean f;
+        public final StatisticItem g;
+
+        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, a aVar) {
+            this(str, str2, str3, str4, str5);
+        }
+
+        public final StatisticItem b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                StatisticItem statisticItem = new StatisticItem(this.a);
+                if (!StringUtils.isNull(this.b)) {
+                    statisticItem = statisticItem.param("line", this.b);
+                }
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem = statisticItem.param("page", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem = statisticItem.param("locate", this.d);
+                }
+                return !StringUtils.isNull(this.e) ? statisticItem.param("task", this.e) : statisticItem;
+            }
+            return (StatisticItem) invokeV.objValue;
+        }
+
+        public final StatisticItem c(String str, String str2, String str3, String str4, String str5) {
+            InterceptResult invokeLLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5)) == null) {
+                if (!StringUtils.isNull(str)) {
+                    this.g.param("action_type", str);
+                }
+                if (!StringUtils.isNull(str2)) {
+                    this.g.param("obj_id", str2);
+                }
+                if (!StringUtils.isNull(str3)) {
+                    this.g.param("fid", str3);
+                }
+                if (!StringUtils.isNull(str4)) {
+                    this.g.param("fname", str4);
+                }
+                if (!StringUtils.isNull(str5)) {
+                    this.g.param("tid", str5);
+                }
+                this.g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, gj.k()).param("log_ver", "1.1");
+                return this.g;
+            }
+            return (StatisticItem) invokeLLLLL.objValue;
+        }
+
+        public b d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                    this.g.param(str, str2);
+                }
+                return this;
+            }
+            return (b) invokeLL.objValue;
+        }
+
+        public void delete(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.g.delete(str);
             }
         }
-        this.a = new ArrayList<>();
-    }
 
-    public void a(kn8 kn8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kn8Var) == null) {
-            this.a.add(kn8Var);
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                TiebaStatic.log(this.g);
+                if (this.f) {
+                    return;
+                }
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    BdLog.e("Invalid parameter.");
+                    return;
+                }
+                throw new IllegalArgumentException();
+            }
+        }
+
+        public b(String str, String str2, String str3, String str4, String str5) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, str4, str5};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = str5;
+            this.f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
+            this.g = b();
         }
     }
 
-    public final void b(WebView webView, String str, String str2) {
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public static b a(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) || webView == null || dj.isEmpty(str) || dj.isEmpty(str2)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, str2, "tpoint", null);
+            bVar.c(null, null, str3, str4, str5);
+            if (!dj.isEmpty(str6)) {
+                bVar.d("obj_ref", str6);
+            }
+            return bVar;
+        }
+        return (b) invokeCommon.objValue;
+    }
+
+    public static b b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10})) == null) {
+            b bVar = new b(str, str2, str3, str4, str5, null);
+            bVar.c(str6, str7, str8, str9, str10);
+            return bVar;
+        }
+        return (b) invokeCommon.objValue;
+    }
+
+    @Deprecated
+    public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
+            b bVar = new b("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
+            bVar.c(str2, str7, str3, str4, str5);
+            bVar.d(TiebaStatic.Params.OBJ_URL, str6);
+            bVar.e();
+        }
+    }
+
+    @Deprecated
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || dj.isEmpty(str)) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= 19) {
-            webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
-            return;
+        StatisticItem statisticItem = new StatisticItem(str);
+        if (str2 != null) {
+            statisticItem = statisticItem.param("obj_type", str2);
         }
-        webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
-    }
-
-    public mn8 c(on8 on8Var, mn8 mn8Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, on8Var, mn8Var)) == null) {
-            if (mn8Var == null) {
-                mn8Var = new mn8();
-            }
-            if (ActionJsonData.TAG_NOTIFICATION.equals(on8Var.c()) && "addObserver".equals(on8Var.a())) {
-                Iterator<kn8> it = this.a.iterator();
-                while (it.hasNext()) {
-                    mn8Var = it.next().addObserver(on8Var.d(), mn8Var, true);
-                    if (mn8Var.j()) {
-                        return mn8Var;
-                    }
-                }
-                if (!mn8Var.j()) {
-                    mn8Var.y(202);
-                    mn8Var.u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036c));
-                }
-            } else {
-                String c = on8Var.c();
-                if (!dj.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
-                    mn8Var.y(201);
-                    return mn8Var;
-                }
-                Iterator<kn8> it2 = this.a.iterator();
-                while (it2.hasNext()) {
-                    mn8Var = it2.next().dispatch(on8Var, mn8Var);
-                    if (mn8Var.i()) {
-                        return mn8Var;
-                    }
-                }
-                if (!mn8Var.i()) {
-                    mn8Var.y(202);
-                }
-            }
-            return mn8Var;
-        }
-        return (mn8) invokeLL.objValue;
-    }
-
-    public void d(WebView webView, mn8 mn8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, webView, mn8Var) == null) || webView == null || mn8Var == null || !mn8Var.k()) {
-            return;
-        }
-        b(webView, mn8Var.c(), mn8Var.d());
-    }
-
-    public void e(WebView webView, List<mn8> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) || webView == null || ListUtils.isEmpty(list)) {
-            return;
-        }
-        for (mn8 mn8Var : list) {
-            if (mn8Var != null && mn8Var.k()) {
-                b(webView, mn8Var.c(), mn8Var.d());
-            }
-        }
-    }
-
-    public List<mn8> f(String str, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, hashMap)) == null) {
-            List<mn8> list = null;
-            if (dj.isEmpty(str)) {
-                return null;
-            }
-            Iterator<kn8> it = this.a.iterator();
-            while (it.hasNext()) {
-                list = it.next().processNotification(str, hashMap);
-                if (!ListUtils.isEmpty(list)) {
-                    break;
-                }
-            }
-            return list;
-        }
-        return (List) invokeLL.objValue;
+        TiebaStatic.log(statisticItem);
     }
 }

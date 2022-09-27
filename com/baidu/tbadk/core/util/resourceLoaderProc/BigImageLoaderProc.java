@@ -20,16 +20,16 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.ch;
+import com.baidu.tieba.dx4;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.jh5;
 import com.baidu.tieba.kc;
+import com.baidu.tieba.mh5;
 import com.baidu.tieba.oc;
 import com.baidu.tieba.on;
-import com.baidu.tieba.qw4;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.wg5;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,7 +135,7 @@ public class BigImageLoaderProc implements ah<on> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && wg5.a(str)) {
+            if (str != null && jh5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -175,7 +175,7 @@ public class BigImageLoaderProc implements ah<on> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && wg5.a(str)) {
+            if (str != null && jh5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -377,8 +377,8 @@ public class BigImageLoaderProc implements ah<on> {
                 } else {
                     str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
                 }
-                zg5.e(booleanValue, str3, str);
-                Pair<Boolean, String> d = zg5.d(str3);
+                mh5.e(booleanValue, str3, str);
+                Pair<Boolean, String> d = mh5.d(str3);
                 if (((Boolean) d.first).booleanValue()) {
                     str4 = (String) d.second;
                     z = true;
@@ -394,11 +394,11 @@ public class BigImageLoaderProc implements ah<on> {
                 boolean needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    qw4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    dx4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                     try {
-                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be2, new TypedValue());
+                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be4, new TypedValue());
                         downloadImageBytes = sg.d(openRawResource);
                         ch.c(openRawResource);
                     } catch (Throwable th) {
@@ -409,7 +409,7 @@ public class BigImageLoaderProc implements ah<on> {
                 if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                     bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                     if (z && bitmap == null) {
-                        zg5.b(str4);
+                        mh5.b(str4);
                         downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                         needCache = webClient.needCache();
                         if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

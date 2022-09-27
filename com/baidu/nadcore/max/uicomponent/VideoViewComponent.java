@@ -17,21 +17,21 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao0;
 import com.baidu.tieba.bo0;
-import com.baidu.tieba.do0;
-import com.baidu.tieba.fy0;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.jh0;
-import com.baidu.tieba.jn0;
-import com.baidu.tieba.ki0;
-import com.baidu.tieba.nn0;
-import com.baidu.tieba.on0;
-import com.baidu.tieba.tn0;
-import com.baidu.tieba.vn0;
-import com.baidu.tieba.vq0;
-import com.baidu.tieba.wo0;
-import com.baidu.tieba.wq0;
-import com.baidu.tieba.zq0;
+import com.baidu.tieba.go0;
+import com.baidu.tieba.io0;
+import com.baidu.tieba.ir0;
+import com.baidu.tieba.jp0;
+import com.baidu.tieba.jr0;
+import com.baidu.tieba.mr0;
+import com.baidu.tieba.oo0;
+import com.baidu.tieba.qo0;
+import com.baidu.tieba.sy0;
+import com.baidu.tieba.t21;
+import com.baidu.tieba.wh0;
+import com.baidu.tieba.wn0;
+import com.baidu.tieba.xi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,9 +49,9 @@ import org.json.JSONObject;
 public final class VideoViewComponent extends AbsComponentPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vq0 d;
-    public zq0 e;
-    public wo0 f;
+    public ir0 d;
+    public mr0 e;
+    public jp0 f;
     public int g;
     public VideoViewHolder h;
     public FrameLayout i;
@@ -95,18 +95,18 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j().k(new on0(VideoEventTypeEnum.LEFT_SLIDE_ON_VIDEO));
+                this.a.j().k(new bo0(VideoEventTypeEnum.LEFT_SLIDE_ON_VIDEO));
             }
         }
 
         @Override // com.baidu.nadcore.max.uiwidget.basic.VideoViewHolder.a
         public void onClick() {
-            tn0 tn0Var;
+            go0 go0Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.p || (tn0Var = (tn0) this.a.j().p(tn0.class)) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.p || (go0Var = (go0) this.a.j().p(go0.class)) == null) {
                 return;
             }
-            tn0Var.j(true, true, false);
+            go0Var.j(true, true, false);
         }
 
         @Override // com.baidu.nadcore.max.uiwidget.basic.VideoViewHolder.a
@@ -115,16 +115,16 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, event) == null) {
                 Intrinsics.checkNotNullParameter(v, "v");
                 Intrinsics.checkNotNullParameter(event, "event");
-                tn0 tn0Var = (tn0) this.a.j().p(tn0.class);
-                if (tn0Var != null) {
-                    tn0Var.i(event);
+                go0 go0Var = (go0) this.a.j().p(go0.class);
+                if (go0Var != null) {
+                    go0Var.i(event);
                 }
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b extends zq0 {
+    public static final class b extends mr0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoViewComponent a;
@@ -148,24 +148,24 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             this.a = videoViewComponent;
         }
 
-        @Override // com.baidu.tieba.zq0, com.baidu.tieba.sq0
+        @Override // com.baidu.tieba.mr0, com.baidu.tieba.fr0
         public void onInfo(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
                 if (i == 904) {
-                    this.a.j().k(new on0(VideoEventTypeEnum.FIRST_FRAME_INTERVAL));
+                    this.a.j().k(new bo0(VideoEventTypeEnum.FIRST_FRAME_INTERVAL));
                 } else if (i == 955 || i == 956) {
-                    this.a.j().k(new on0(VideoEventTypeEnum.PLAY_SEEK_TO_END));
+                    this.a.j().k(new bo0(VideoEventTypeEnum.PLAY_SEEK_TO_END));
                     this.a.q++;
                 }
             }
         }
 
-        @Override // com.baidu.tieba.zq0, com.baidu.tieba.sq0
+        @Override // com.baidu.tieba.mr0, com.baidu.tieba.fr0
         public void onUpdateProgress(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
-                this.a.j().k(new nn0(VideoEventTypeEnum.PLAY_INFO_PROCESS, i, i3));
+                this.a.j().k(new ao0(VideoEventTypeEnum.PLAY_INFO_PROCESS, i, i3));
             }
         }
     }
@@ -237,7 +237,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             layoutParams.gravity = 48;
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
-                videoViewHolder.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dd9);
+                videoViewHolder.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ddb);
                 videoViewHolder.setEnableSlideLeft(true);
                 videoViewHolder.setInterceptOnTouchListener(new a(this, viewGroup, layoutParams));
                 viewGroup.addView(videoViewHolder, layoutParams);
@@ -248,32 +248,32 @@ public final class VideoViewComponent extends AbsComponentPlugin {
     public final void B() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d == null && this.f != null) {
-            wq0 wq0Var = new wq0();
-            wq0Var.a = 0;
-            this.d = vq0.a.b(getContext(), 0, wq0Var);
-            fy0 fy0Var = new fy0();
-            fy0Var.k(false);
-            fy0Var.l(true);
-            fy0Var.p(false);
-            fy0Var.q(false);
-            fy0Var.j(2);
-            fy0Var.n(this.j);
-            fy0Var.m(true);
-            fy0Var.o(false);
+            jr0 jr0Var = new jr0();
+            jr0Var.a = 0;
+            this.d = ir0.a.b(getContext(), 0, jr0Var);
+            sy0 sy0Var = new sy0();
+            sy0Var.k(false);
+            sy0Var.l(true);
+            sy0Var.p(false);
+            sy0Var.q(false);
+            sy0Var.j(2);
+            sy0Var.n(this.j);
+            sy0Var.m(true);
+            sy0Var.o(false);
             this.e = new b(this);
-            vq0 vq0Var = this.d;
-            if (vq0Var != null) {
-                vq0Var.d(fy0Var);
-                vq0Var.setVideoScalingMode(0);
+            ir0 ir0Var = this.d;
+            if (ir0Var != null) {
+                ir0Var.d(sy0Var);
+                ir0Var.setVideoScalingMode(0);
                 FrameLayout frameLayout = this.i;
                 if (frameLayout != null) {
-                    vq0Var.attachToContainer(frameLayout);
-                    wo0 wo0Var = this.f;
-                    if (wo0Var != null) {
-                        vq0Var.c(wo0Var);
+                    ir0Var.attachToContainer(frameLayout);
+                    jp0 jp0Var = this.f;
+                    if (jp0Var != null) {
+                        ir0Var.c(jp0Var);
                     }
-                    vq0Var.a(this.e);
-                    vq0Var.start();
+                    ir0Var.a(this.e);
+                    ir0Var.start();
                     return;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup");
@@ -290,7 +290,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             }
             HashMap hashMap = (HashMap) serializableExtra;
             if (hashMap != null) {
-                this.f = wo0.c(hashMap);
+                this.f = jp0.c(hashMap);
                 Object obj = hashMap != null ? hashMap.get(WriteActivityConfig.VIDEO_INFO) : null;
                 String str = obj instanceof String ? obj : null;
                 if (str == null || str.length() == 0) {
@@ -314,13 +314,13 @@ public final class VideoViewComponent extends AbsComponentPlugin {
     }
 
     @Override // com.baidu.nadcore.component.AbsComponentPlugin, com.baidu.nadcore.component.api.IComponentPlugin
-    public void b(ki0 event) {
+    public void b(xi0 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             super.b(event);
-            if (Intrinsics.areEqual(event.a(), jn0.class.getSimpleName())) {
-                x((jn0) event);
+            if (Intrinsics.areEqual(event.a(), wn0.class.getSimpleName())) {
+                x((wn0) event);
             }
         }
     }
@@ -330,7 +330,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.d();
-            j().s(vn0.class, w());
+            j().s(io0.class, w());
         }
     }
 
@@ -357,9 +357,9 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            vq0 vq0Var = this.d;
-            if (vq0Var != null) {
-                vq0Var.pause();
+            ir0 ir0Var = this.d;
+            if (ir0Var != null) {
+                ir0Var.pause();
             }
         }
     }
@@ -369,12 +369,12 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onRelease();
-            vq0 vq0Var = this.d;
-            if (vq0Var != null) {
-                vq0Var.release();
+            ir0 ir0Var = this.d;
+            if (ir0Var != null) {
+                ir0Var.release();
             }
             this.d = null;
-            jh0.e(this.h);
+            wh0.e(this.h);
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
                 videoViewHolder.removeAllViews();
@@ -390,9 +390,9 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            vq0 vq0Var = this.d;
-            if (vq0Var != null) {
-                vq0Var.resume();
+            ir0 ir0Var = this.d;
+            if (ir0Var != null) {
+                ir0Var.resume();
             }
         }
     }
@@ -403,31 +403,31 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public final vn0 w() {
+    public final io0 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (vn0) this.r.getValue() : (vn0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (io0) this.r.getValue() : (io0) invokeV.objValue;
     }
 
-    public final void x(jn0 jn0Var) {
+    public final void x(wn0 wn0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jn0Var) == null) {
-            int i = bo0.$EnumSwitchMapping$0[jn0Var.getType().ordinal()];
+        if (interceptable == null || interceptable.invokeL(1048589, this, wn0Var) == null) {
+            int i = oo0.$EnumSwitchMapping$0[wn0Var.getType().ordinal()];
             if (i == 1) {
                 this.p = true;
-                vq0 vq0Var = this.d;
-                if (vq0Var == null || vq0Var.isPlaying()) {
+                ir0 ir0Var = this.d;
+                if (ir0Var == null || ir0Var.isPlaying()) {
                     return;
                 }
-                vq0Var.resume();
+                ir0Var.resume();
             } else if (i != 2) {
             } else {
                 this.p = false;
-                vq0 vq0Var2 = this.d;
-                if (vq0Var2 == null || vq0Var2.isPause()) {
+                ir0 ir0Var2 = this.d;
+                if (ir0Var2 == null || ir0Var2.isPause()) {
                     return;
                 }
-                vq0Var2.pause();
+                ir0Var2.pause();
             }
         }
     }
@@ -441,7 +441,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             }
             AdImageView adImageView = new AdImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            adImageView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dd9);
+            adImageView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ddb);
             adImageView.g(this.l);
             adImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             adImageView.setLayoutParams(layoutParams);
@@ -458,7 +458,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
         if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.i == null && this.h != null) {
             this.i = new FrameLayout(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            do0.a.a(layoutParams, g21.c.e(getContext()), this.g, this.o, 1 / this.n, this.k, this.m);
+            qo0.a.a(layoutParams, t21.c.e(getContext()), this.g, this.o, 1 / this.n, this.k, this.m);
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
                 videoViewHolder.addView(this.i, layoutParams);

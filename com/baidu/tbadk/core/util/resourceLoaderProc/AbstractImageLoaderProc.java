@@ -25,16 +25,16 @@ import com.baidu.tieba.ah;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.hq4;
 import com.baidu.tieba.kc;
+import com.baidu.tieba.mh5;
 import com.baidu.tieba.oc;
 import com.baidu.tieba.on;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.up4;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.zg;
-import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -208,7 +208,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? up4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? hq4.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -219,7 +219,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                u75.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                h85.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -263,7 +263,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 long currentTimeMillis = System.currentTimeMillis();
                 onVar.A(i);
                 onVar.z(i2);
-                u75.k().d(str, onVar);
+                h85.k().d(str, onVar);
                 wg.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -339,7 +339,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            on m = u75.k().m(str);
+            on m = h85.k().m(str);
             if (z) {
                 wg.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -396,8 +396,8 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
             int i8 = suggestHeight;
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, i7, i8);
-            zg5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = zg5.d(urlbyClientServerAddr);
+            mh5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = mh5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -427,7 +427,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                     webClient2 = webClient3;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be1, new TypedValue());
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be3, new TypedValue());
                     byte[] d2 = sg.d(openRawResource);
                     Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
                     WebClient webClient4 = webClient2;
@@ -493,7 +493,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            u75.k().i(TbConfig.getPbImageSize() + bArr3.length);
+            h85.k().i(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i6 = 1;
                 p = m41decodeToResource(bArr3, rect).p();
@@ -504,7 +504,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                 p = decodeToResourceWithWH(bArr3, i5, i4).p();
             }
             if (z && p == null) {
-                zg5.b(str4);
+                mh5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z4);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {

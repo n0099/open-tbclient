@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import java.util.Random;
 /* loaded from: classes4.dex */
-public class g67 implements Cdo {
+public final class g67 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final Random a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,53 +25,12 @@ public class g67 implements Cdo {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        a = new Random();
     }
 
-    public g67() {
+    public static int a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a(TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) || topicList == null) {
-            return;
-        }
-        topicList.topic_id.longValue();
-        String str = topicList.topic_name;
-        topicList.tag.intValue();
-        topicList.discuss_num.longValue();
-        String str2 = topicList.topic_desc;
-        String str3 = topicList.topic_pic;
-    }
-
-    public void b(TopicListModule topicListModule) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
-            try {
-                String str = topicListModule.module_title;
-                String str2 = topicListModule.tips;
-                String str3 = topicListModule.rule_jump_url;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? i >= i2 ? i : (int) ((a.nextFloat() * (i2 - i)) + i) : invokeII.intValue;
     }
 }

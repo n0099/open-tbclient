@@ -1,5 +1,94 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.ig3;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface k84 {
-    void e(l84 l84Var);
+public class k84 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static class a implements ig3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dq2 a;
+        public final /* synthetic */ v84 b;
+        public final /* synthetic */ r84 c;
+
+        public a(dq2 dq2Var, v84 v84Var, r84 r84Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dq2Var, v84Var, r84Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dq2Var;
+            this.b = v84Var;
+            this.c = r84Var;
+        }
+
+        @Override // com.baidu.tieba.ig3.b
+        public void a(String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    l02.o("map", " icon is null ");
+                }
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
+                    }
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    iq2 iq2Var = this.a.d;
+                    builder.point(new Point(iq2Var.a, iq2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    t84 t84Var = new t84();
+                    t84Var.a = this.a;
+                    t84Var.b = imageView;
+                    this.b.o.add(t84Var);
+                }
+            }
+        }
+    }
+
+    public static void a(v84 v84Var, dq2 dq2Var, r84 r84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, v84Var, dq2Var, r84Var) == null) {
+            l02.i("map", "createControl start");
+            if (dq2Var != null && dq2Var.isValid()) {
+                ig3.e(dq2Var.b, new a(dq2Var, v84Var, r84Var));
+            }
+            l02.i("map", "createControl end");
+        }
+    }
 }

@@ -1,177 +1,108 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.LinearLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.RoundLinearLayout;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r38 extends p9 {
+public class r38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoundLinearLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TbPageContext f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
+    public LinearLayout a;
+    public EMTextView b;
+    public BdTypeRecyclerView c;
+    public View d;
+    public zw7 e;
+    public h08 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r38(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext);
+    public r38(t28 t28Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, onClickListener};
+            Object[] objArr = {t28Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = tbPageContext;
-        p(tbPageContext, onClickListener);
+        b(t28Var.P());
+        zw7 zw7Var = new zw7(t28Var, bdUniqueId, this.c);
+        this.e = zw7Var;
+        this.f = new h08(this.c, zw7Var);
+        c();
     }
 
-    public View j() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public View k() {
-        InterceptResult invokeV;
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public View l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (View) invokeV.objValue;
-    }
-
-    public View m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (View) invokeV.objValue;
-    }
-
-    public View n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public View o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (View) invokeV.objValue;
-    }
-
-    public final void p(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, tbPageContext, onClickListener) == null) {
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0716, (ViewGroup) null);
-            this.a = roundLinearLayout;
-            roundLinearLayout.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09195f);
-            this.b = textView;
-            textView.setOnClickListener(onClickListener);
-            TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091961);
-            this.c = textView2;
-            textView2.setOnClickListener(onClickListener);
-            TextView textView3 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09195d);
-            this.d = textView3;
-            textView3.setOnClickListener(onClickListener);
-            TextView textView4 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091960);
-            this.e = textView4;
-            textView4.setOnClickListener(onClickListener);
-            TextView textView5 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09195e);
-            this.g = textView5;
-            textView5.setOnClickListener(onClickListener);
-            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091962);
-            TextView textView6 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09195b);
-            this.i = textView6;
-            textView6.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d076a, (ViewGroup) null);
+            this.a = linearLayout;
+            this.b = (EMTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092419);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091877);
+            this.c = bdTypeRecyclerView;
+            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+            this.c.setFadingEdgeLength(0);
+            this.c.setOverScrollMode(2);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            this.c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
+            this.c.setNestedScrollingEnabled(false);
+            this.d = new View(context);
         }
     }
 
-    public void q() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0211);
-            SkinManager.setViewTextColorSelector(this.d, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.b, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.c, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColorSelector(this.i, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.g, R.color.CAM_X0107);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            this.e.e();
         }
     }
 
-    public void r(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e.setVisibility(0);
-            if (i == 0) {
-                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0b49));
-            } else if (i == 1) {
-                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f14bc));
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c.y(this.d);
+            this.d.setLayoutParams(new ViewGroup.LayoutParams(1, i));
+            this.c.r(this.d);
         }
     }
 
-    public void s(boolean z, boolean z2, boolean z3) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (z) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0ff0);
-            } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0754);
-            }
-            if (z2) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f0fea);
-            } else {
-                this.d.setText(R.string.obfuscated_res_0x7f0f031e);
-            }
-            if (z3) {
-                this.i.setVisibility(0);
-            } else {
-                this.i.setVisibility(8);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c.setNestedScrollingEnabled(z);
         }
     }
 
-    public void t(String str) {
+    public void f(jv7 jv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.h.setVisibility(8);
-                return;
-            }
-            this.h.setVisibility(0);
-            this.h.setText(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0b04), str));
+        if (interceptable == null || interceptable.invokeL(1048581, this, jv7Var) == null) {
+            this.f.k(jv7Var);
         }
     }
 }

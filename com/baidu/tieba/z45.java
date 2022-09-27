@@ -1,42 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z45 extends f55 {
+public class z45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z45(int i) {
-        super((String) null, 1, 0);
+    public static void a(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
+            return;
         }
-        if (i == 7) {
-            this.d = R.drawable.obfuscated_res_0x7f08081e;
-            this.f = R.color.CAM_X0105;
-            this.j = true;
-        } else {
-            this.d = R.drawable.obfuscated_res_0x7f0809bd;
-            this.i = true;
+        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+        bdTopToast.h(false);
+        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f099c));
+        bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+    }
+
+    public static void b(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
+            return;
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f135c);
+        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+        bdTopToast.h(false);
+        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f099e));
+        bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+    }
+
+    public static void c(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+        bdTopToast.h(true);
+        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f09a3));
+        bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
     }
 }

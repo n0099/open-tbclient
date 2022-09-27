@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.yr8;
+import com.baidu.tieba.ns8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.GetCard.GetCardResIdl;
 public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr8 cardData;
+    public ns8 cardData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardDetailHttpReponse(int i) {
@@ -37,10 +37,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         }
     }
 
-    public yr8 getCardData() {
+    public ns8 getCardData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (yr8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.cardData : (ns8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,10 +63,10 @@ public class PersonalCardDetailHttpReponse extends TbHttpResponsedMessage {
         if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
             personalCardDetailRequest = (PersonalCardDetailRequest) getOrginalMessage().getExtra();
         }
-        yr8 yr8Var = new yr8();
-        this.cardData = yr8Var;
+        ns8 ns8Var = new ns8();
+        this.cardData = ns8Var;
         if (personalCardDetailRequest != null) {
-            yr8Var.m(personalCardDetailRequest.getCardId());
+            ns8Var.m(personalCardDetailRequest.getCardId());
         }
         this.cardData.v(getCardResIdl.data.title);
         this.cardData.p(getCardResIdl.data.description);

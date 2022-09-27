@@ -1,96 +1,128 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.jr1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
-@Service
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
-public class r54 extends jr1 implements kk1 {
+public class r54 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReentrantLock c;
+    public static volatile r54 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<jr1.a> a;
+    public List<t54> a;
+    public u54 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072600, "Lcom/baidu/tieba/r54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948072600, "Lcom/baidu/tieba/r54;");
+                return;
+            }
+        }
+        c = new ReentrantLock();
+    }
 
     public r54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.a = new ArrayList(3);
     }
 
-    @Nullable
-    public static r54 c() {
+    public static r54 a() {
         InterceptResult invokeV;
-        vy3 vy3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            h22 V = lo2.U().V();
-            if (V == null || (vy3Var = (vy3) V.n(vy3.class)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (r54.class) {
+                    if (d == null) {
+                        d = new r54();
+                    }
+                }
             }
-            return vy3Var.u3();
+            return d;
         }
         return (r54) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jr1
-    public synchronized void a(jr1.a aVar) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (!this.a.contains(aVar)) {
-                    this.a.add(aVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.a.clear();
+        }
+    }
+
+    public final void c(t54 t54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t54Var) == null) {
+            c.lock();
+            try {
+                if (this.b != null) {
+                    this.b.a(t54Var);
+                } else {
+                    this.a.add(t54Var);
                 }
+            } finally {
+                c.unlock();
             }
         }
     }
 
-    @Override // com.baidu.tieba.jr1
-    public synchronized void b(int i) {
+    public void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                Iterator<jr1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().b(i);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            l02.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
+            t54 t54Var = new t54(str);
+            t54Var.hasUpdate = z;
+            c(t54Var);
         }
     }
 
-    public synchronized void d() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Iterator<jr1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.a.clear();
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.isEmpty() || this.b == null) {
+            return;
+        }
+        c.lock();
+        try {
+            for (t54 t54Var : this.a) {
+                this.b.a(t54Var);
             }
+            this.a.clear();
+        } finally {
+            c.unlock();
         }
     }
 
-    @Override // com.baidu.tieba.kk1
-    public jr1 getInstance() {
-        InterceptResult invokeV;
+    public void f(u54 u54Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c() : (jr1) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, u54Var) == null) {
+            this.b = u54Var;
+            e();
+        }
     }
 }

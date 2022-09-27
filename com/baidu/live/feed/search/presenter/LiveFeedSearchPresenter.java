@@ -13,9 +13,9 @@ import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.live.feed.search.model.data.SearchResultBean;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.tieba.fa0;
-import com.baidu.tieba.ga0;
-import com.baidu.tieba.ha0;
+import com.baidu.tieba.sa0;
+import com.baidu.tieba.ta0;
+import com.baidu.tieba.ua0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,16 +34,16 @@ import kotlin.jvm.internal.PropertyReference0Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 32\u00020\u0001:\u00013B\u0011\u0012\b\u0010,\u001a\u0004\u0018\u00010+¢\u0006\u0004\b2\u00101J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J'\u0010\u0013\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u001d\u0010\u0015\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0017\u0010\nJ\u000f\u0010\u0018\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0018\u0010\nJ\u0017\u0010\u001a\u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001c\u0010\nJ'\u0010 \u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u001f\u001a\u00020\u001eH\u0016¢\u0006\u0004\b \u0010!J\u0017\u0010\"\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\"\u0010\fR\u0018\u0010#\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R$\u0010,\u001a\u0004\u0018\u00010+8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u00067²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002"}, d2 = {"Lcom/baidu/live/feed/search/presenter/LiveFeedSearchPresenter;", "Lcom/baidu/tieba/ha0;", "Landroid/content/Context;", "context", "", "content", "", "addHistoryRecord", "(Landroid/content/Context;Ljava/lang/String;)V", "cancelSearch", "()V", "deleteAllHistoryRecord", "(Landroid/content/Context;)V", "", CriusAttrConstants.POSITION, "deleteHistoryRecord", "(Landroid/content/Context;I)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchBean", "followClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;Landroid/content/Context;I)V", "followRealization", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "loadHotRank", "loadSearchHotWordsList", "words", "matchSuggestionWords", "(Ljava/lang/String;)V", "onDetach", "pn", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "requestData", "searchWord", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/live/feed/search/model/data/RequestSearchData;)V", "showHistoryRecord", "curInputWords", "Ljava/lang/String;", "", "searchIsCancel", "Z", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "searchModel", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "searchPage", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "getSearchPage", "()Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "setSearchPage", "(Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;)V", "<init>", "Companion", "Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "kotlin.jvm.PlatformType", "manager", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 32\u00020\u0001:\u00013B\u0011\u0012\b\u0010,\u001a\u0004\u0018\u00010+¢\u0006\u0004\b2\u00101J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u001f\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000f\u0010\u0010J'\u0010\u0013\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u001d\u0010\u0015\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0017\u0010\nJ\u000f\u0010\u0018\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0018\u0010\nJ\u0017\u0010\u001a\u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001c\u0010\nJ'\u0010 \u001a\u00020\u00062\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u001f\u001a\u00020\u001eH\u0016¢\u0006\u0004\b \u0010!J\u0017\u0010\"\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\"\u0010\fR\u0018\u0010#\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R$\u0010,\u001a\u0004\u0018\u00010+8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b,\u0010-\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u00067²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002²\u0006\u0016\u00106\u001a\n 5*\u0004\u0018\u000104048\n@\nX\u008a\u0084\u0002"}, d2 = {"Lcom/baidu/live/feed/search/presenter/LiveFeedSearchPresenter;", "Lcom/baidu/tieba/ua0;", "Landroid/content/Context;", "context", "", "content", "", "addHistoryRecord", "(Landroid/content/Context;Ljava/lang/String;)V", "cancelSearch", "()V", "deleteAllHistoryRecord", "(Landroid/content/Context;)V", "", CriusAttrConstants.POSITION, "deleteHistoryRecord", "(Landroid/content/Context;I)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "searchBean", "followClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;Landroid/content/Context;I)V", "followRealization", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "loadHotRank", "loadSearchHotWordsList", "words", "matchSuggestionWords", "(Ljava/lang/String;)V", "onDetach", "pn", "Lcom/baidu/live/feed/search/model/data/RequestSearchData;", "requestData", "searchWord", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/live/feed/search/model/data/RequestSearchData;)V", "showHistoryRecord", "curInputWords", "Ljava/lang/String;", "", "searchIsCancel", "Z", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "searchModel", "Lcom/baidu/live/feed/search/model/LiveSearchModel;", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "searchPage", "Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "getSearchPage", "()Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;", "setSearchPage", "(Lcom/baidu/live/feed/search/presenter/LiveFeedSearchContract$ISearchPage;)V", "<init>", "Companion", "Lcom/baidu/searchbox/live/interfaces/service/AccountManagerService;", "kotlin.jvm.PlatformType", "manager", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LiveFeedSearchPresenter implements ha0 {
+public final class LiveFeedSearchPresenter implements ua0 {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ KProperty[] e;
     public transient /* synthetic */ FieldHolder $fh;
-    public fa0 a;
+    public sa0 a;
     public String b;
     public boolean c;
-    public ga0 d;
+    public ta0 d;
 
     /* loaded from: classes2.dex */
     public static final class a implements AccountManagerService.LoginResultListener {
@@ -83,7 +83,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b implements fa0.a<Boolean> {
+    public static final class b implements sa0.a<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveFeedSearchPresenter a;
@@ -109,31 +109,31 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         /* renamed from: a */
         public void onSuccess(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
                 if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                    ga0 n = this.a.n();
+                    ta0 n = this.a.n();
                     if (n != null) {
                         n.showToast("关注成功");
                     }
-                    ga0 n2 = this.a.n();
+                    ta0 n2 = this.a.n();
                     if (n2 != null) {
                         n2.b(this.b);
                         return;
                     }
                     return;
                 }
-                ga0 n3 = this.a.n();
+                ta0 n3 = this.a.n();
                 if (n3 != null) {
                     n3.showToast("关注失败");
                 }
             }
         }
 
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         public void onFail(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -142,7 +142,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c implements fa0.a<List<? extends LiveRoomEntity>> {
+    public static final class c implements sa0.a<List<? extends LiveRoomEntity>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveFeedSearchPresenter a;
@@ -167,10 +167,10 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         /* renamed from: a */
         public void onSuccess(List<? extends LiveRoomEntity> list) {
-            ga0 n;
+            ta0 n;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (n = this.a.n()) == null) {
                 return;
@@ -178,9 +178,9 @@ public final class LiveFeedSearchPresenter implements ha0 {
             n.h0(list);
         }
 
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         public void onFail(int i, String str) {
-            ga0 n;
+            ta0 n;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (n = this.a.n()) == null) {
                 return;
@@ -190,7 +190,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
     }
 
     /* loaded from: classes2.dex */
-    public static final class d implements fa0.a<LiveSearchHotWordListData> {
+    public static final class d implements sa0.a<LiveSearchHotWordListData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveFeedSearchPresenter a;
@@ -215,30 +215,30 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         /* renamed from: a */
         public void onSuccess(LiveSearchHotWordListData liveSearchHotWordListData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, liveSearchHotWordListData) == null) {
                 List<String> hotWordList = liveSearchHotWordListData != null ? liveSearchHotWordListData.getHotWordList() : null;
                 if (!(hotWordList == null || hotWordList.isEmpty())) {
-                    ga0 n = this.a.n();
+                    ta0 n = this.a.n();
                     if (n != null) {
                         n.y0(liveSearchHotWordListData != null ? liveSearchHotWordListData.getHotWordList() : null);
                         return;
                     }
                     return;
                 }
-                ga0 n2 = this.a.n();
+                ta0 n2 = this.a.n();
                 if (n2 != null) {
                     n2.y0(CollectionsKt__CollectionsKt.mutableListOf("搜索主播和直播内容"));
                 }
             }
         }
 
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         public void onFail(int i, String str) {
-            ga0 n;
+            ta0 n;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (n = this.a.n()) == null) {
                 return;
@@ -248,7 +248,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
     }
 
     /* loaded from: classes2.dex */
-    public static final class e implements fa0.a<LiveSearchSuggestionsBean> {
+    public static final class e implements sa0.a<LiveSearchSuggestionsBean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveFeedSearchPresenter a;
@@ -273,7 +273,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         /* renamed from: a */
         public void onSuccess(LiveSearchSuggestionsBean liveSearchSuggestionsBean) {
             Interceptable interceptable = $ic;
@@ -283,14 +283,14 @@ public final class LiveFeedSearchPresenter implements ha0 {
                     if (!(list == null || list.isEmpty())) {
                         String str = liveSearchSuggestionsBean.question;
                         if (str != null && !str.equals(this.a.b)) {
-                            ga0 n = this.a.n();
+                            ta0 n = this.a.n();
                             if (n != null) {
                                 n.P(liveSearchSuggestionsBean.mSearchResultList, null);
                                 return;
                             }
                             return;
                         }
-                        ga0 n2 = this.a.n();
+                        ta0 n2 = this.a.n();
                         if (n2 != null) {
                             n2.P(liveSearchSuggestionsBean.mSearchResultList, liveSearchSuggestionsBean.suggestionList);
                             return;
@@ -298,16 +298,16 @@ public final class LiveFeedSearchPresenter implements ha0 {
                         return;
                     }
                 }
-                ga0 n3 = this.a.n();
+                ta0 n3 = this.a.n();
                 if (n3 != null) {
                     n3.P(liveSearchSuggestionsBean != null ? liveSearchSuggestionsBean.mSearchResultList : null, null);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         public void onFail(int i, String str) {
-            ga0 n;
+            ta0 n;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (n = this.a.n()) == null) {
                 return;
@@ -317,7 +317,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
     }
 
     /* loaded from: classes2.dex */
-    public static final class f implements fa0.a<SearchResultBean> {
+    public static final class f implements sa0.a<SearchResultBean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveFeedSearchPresenter a;
@@ -343,7 +343,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         /* renamed from: a */
         public void onSuccess(SearchResultBean searchResultBean) {
             Interceptable interceptable = $ic;
@@ -351,31 +351,31 @@ public final class LiveFeedSearchPresenter implements ha0 {
                 return;
             }
             if (searchResultBean != null) {
-                ga0 n = this.a.n();
+                ta0 n = this.a.n();
                 if (n != null) {
                     n.o(searchResultBean);
                 }
             } else if (Intrinsics.areEqual(this.b, "0")) {
-                ga0 n2 = this.a.n();
+                ta0 n2 = this.a.n();
                 if (n2 != null) {
                     n2.K();
                 }
-                ga0 n3 = this.a.n();
+                ta0 n3 = this.a.n();
                 if (n3 != null) {
                     n3.e();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.fa0.a
+        @Override // com.baidu.tieba.sa0.a
         public void onFail(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && !this.a.c && Intrinsics.areEqual(this.b, "0")) {
-                ga0 n = this.a.n();
+                ta0 n = this.a.n();
                 if (n != null) {
                     n.K();
                 }
-                ga0 n2 = this.a.n();
+                ta0 n2 = this.a.n();
                 if (n2 != null) {
                     n2.e();
                 }
@@ -399,12 +399,12 @@ public final class LiveFeedSearchPresenter implements ha0 {
         e = new KProperty[]{Reflection.property0(new PropertyReference0Impl(Reflection.getOrCreateKotlinClass(LiveFeedSearchPresenter.class), "manager", "<v#0>")), Reflection.property0(new PropertyReference0Impl(Reflection.getOrCreateKotlinClass(LiveFeedSearchPresenter.class), "manager", "<v#1>"))};
     }
 
-    public LiveFeedSearchPresenter(ga0 ga0Var) {
+    public LiveFeedSearchPresenter(ta0 ta0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ga0Var};
+            Object[] objArr = {ta0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -414,14 +414,14 @@ public final class LiveFeedSearchPresenter implements ha0 {
                 return;
             }
         }
-        this.d = ga0Var;
-        if (ga0Var != null) {
-            ga0Var.j(this);
+        this.d = ta0Var;
+        if (ta0Var != null) {
+            ta0Var.j(this);
         }
-        this.a = new fa0();
+        this.a = new sa0();
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
@@ -463,7 +463,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
@@ -481,7 +481,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -489,19 +489,19 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = true;
-            ga0 ga0Var = this.d;
-            if (ga0Var != null) {
-                ga0Var.K();
+            ta0 ta0Var = this.d;
+            if (ta0Var != null) {
+                ta0Var.K();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
@@ -519,19 +519,19 @@ public final class LiveFeedSearchPresenter implements ha0 {
                 }
             } else {
                 arrayList.clear();
-                ga0 ga0Var = this.d;
-                if (ga0Var != null) {
-                    ga0Var.k0();
+                ta0 ta0Var = this.d;
+                if (ta0Var != null) {
+                    ta0Var.k0();
                 }
             }
-            ga0 ga0Var2 = this.d;
-            if (ga0Var2 != null) {
-                ga0Var2.m(arrayList);
+            ta0 ta0Var2 = this.d;
+            if (ta0Var2 != null) {
+                ta0Var2.m(arrayList);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void f(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, context, i) == null) {
@@ -552,7 +552,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void g(String str, String str2, RequestSearchData requestSearchData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, requestSearchData) == null) {
@@ -561,7 +561,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -569,7 +569,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
@@ -578,7 +578,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
         }
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, liveSearchResultInfo, context, i) == null) {
@@ -607,7 +607,7 @@ public final class LiveFeedSearchPresenter implements ha0 {
                 str = null;
             }
             String str3 = str;
-            fa0 fa0Var = this.a;
+            sa0 sa0Var = this.a;
             String str4 = liveSearchResultInfo.thirdId;
             Intrinsics.checkExpressionValueIsNotNull(str4, "searchBean.thirdId");
             if (str3 == null) {
@@ -617,17 +617,17 @@ public final class LiveFeedSearchPresenter implements ha0 {
             Intrinsics.checkExpressionValueIsNotNull(str5, "searchBean.type");
             String str6 = liveSearchResultInfo.feedId;
             Intrinsics.checkExpressionValueIsNotNull(str6, "searchBean.feedId");
-            fa0Var.f("", str4, str3, str5, !liveSearchResultInfo.hasFollowed, str6, new b(this, i));
+            sa0Var.f("", str4, str3, str5, !liveSearchResultInfo.hasFollowed, str6, new b(this, i));
         }
     }
 
-    public final ga0 n() {
+    public final ta0 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : (ga0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.d : (ta0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ha0
+    @Override // com.baidu.tieba.ua0
     public void onDetach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

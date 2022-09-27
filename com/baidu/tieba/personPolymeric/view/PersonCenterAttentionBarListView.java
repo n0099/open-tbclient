@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a88;
-import com.baidu.tieba.d88;
+import com.baidu.tieba.o88;
+import com.baidu.tieba.r88;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public a88 b;
+    public o88 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -163,7 +163,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<d88> e = this.a.e(i);
+                List<r88> e = this.a.e(i);
                 if (ListUtils.isEmpty(e)) {
                     return null;
                 }
@@ -213,20 +213,20 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<d88> e(int i) {
+    public final List<r88> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            a88 a88Var = this.b;
-            if (a88Var == null || ListUtils.isEmpty(a88Var.a)) {
+            o88 o88Var = this.b;
+            if (o88Var == null || ListUtils.isEmpty(o88Var.a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i2 = i * 4;
             for (int i3 = i2; i3 < i2 + 4; i3++) {
-                d88 d88Var = (d88) ListUtils.getItem(this.b.a, i3);
-                if (d88Var != null) {
-                    arrayList.add(d88Var);
+                r88 r88Var = (r88) ListUtils.getItem(this.b.a, i3);
+                if (r88Var != null) {
+                    arrayList.add(r88Var);
                 }
             }
             return arrayList;

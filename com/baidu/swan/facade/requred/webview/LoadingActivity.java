@@ -15,21 +15,21 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c33;
-import com.baidu.tieba.nc2;
-import com.baidu.tieba.oc2;
-import com.baidu.tieba.pc2;
-import com.baidu.tieba.pg3;
-import com.baidu.tieba.rh3;
-import com.baidu.tieba.sg3;
-import com.baidu.tieba.tp3;
-import com.baidu.tieba.x23;
+import com.baidu.tieba.ad2;
+import com.baidu.tieba.bd2;
+import com.baidu.tieba.cd2;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.ei3;
+import com.baidu.tieba.fh3;
+import com.baidu.tieba.gq3;
+import com.baidu.tieba.k33;
+import com.baidu.tieba.p33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LoadingActivity extends Activity implements rh3<c33.a> {
+public class LoadingActivity extends Activity implements ei3<p33.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SwanAppActionBar a;
@@ -37,25 +37,25 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
     public LottieAnimationView c;
     public ImageView d;
     public TextView e;
-    public pc2 f;
+    public cd2 f;
     public boolean g;
-    public final rh3<pc2> h;
-    public final rh3<pc2> i;
+    public final ei3<cd2> h;
+    public final ei3<cd2> i;
 
     /* loaded from: classes3.dex */
-    public class a implements rh3<pc2> {
+    public class a implements ei3<cd2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
 
         /* renamed from: com.baidu.swan.facade.requred.webview.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0184a implements Runnable {
+        public class RunnableC0181a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0184a(a aVar) {
+            public RunnableC0181a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,18 +101,18 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
+        @Override // com.baidu.tieba.ei3
         /* renamed from: b */
-        public void a(pc2 pc2Var) {
+        public void a(cd2 cd2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc2Var) == null) {
-                sg3.e0(new RunnableC0184a(this));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd2Var) == null) {
+                fh3.e0(new RunnableC0181a(this));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements rh3<pc2> {
+    public class b implements ei3<cd2> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoadingActivity a;
@@ -136,11 +136,11 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
+        @Override // com.baidu.tieba.ei3
         /* renamed from: b */
-        public void a(pc2 pc2Var) {
+        public void a(cd2 cd2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc2Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd2Var) == null) {
                 this.a.finish();
             }
         }
@@ -237,14 +237,14 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.setText(getString(R.string.obfuscated_res_0x7f0f019d, new Object[]{0}));
             Intent intent = getIntent();
-            Bitmap d2 = tp3.b().d();
+            Bitmap d2 = gq3.b().d();
             if (d2 == null) {
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f0801c0);
             } else {
                 this.d.setImageBitmap(d2);
             }
             String stringExtra = intent == null ? "" : intent.getStringExtra("so_lib_name");
-            pc2 j = nc2.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
+            cd2 j = ad2.d.j(TextUtils.isEmpty(stringExtra) ? "" : stringExtra);
             this.f = j;
             if (j != null && !j.n()) {
                 this.f.v(this.h);
@@ -287,9 +287,9 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rh3
+    @Override // com.baidu.tieba.ei3
     /* renamed from: f */
-    public void a(c33.a aVar) {
+    public void a(p33.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && TextUtils.equals(aVar.b, "loading_hide")) {
             finish();
@@ -299,7 +299,7 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            x23.K().u(this);
+            k33.K().u(this);
         }
     }
 
@@ -318,15 +318,15 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            x23.K().o(this);
+            k33.K().o(this);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            pc2 pc2Var = this.f;
-            oc2.b m = pc2Var == null ? null : pc2Var.m();
+            cd2 cd2Var = this.f;
+            bd2.b m = cd2Var == null ? null : cd2Var.m();
             if (m == null || !m.a()) {
                 return;
             }
@@ -343,13 +343,13 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-            int c0 = sg3.c0(this);
+            int c0 = fh3.c0(this);
             super.onCreate(bundle);
-            sg3.g(this, c0);
+            fh3.g(this, c0);
             setContentView(R.layout.obfuscated_res_0x7f0d0041);
             e();
             d();
-            pg3.a(this);
+            ch3.a(this);
             g();
             c();
         }
@@ -362,10 +362,10 @@ public class LoadingActivity extends Activity implements rh3<c33.a> {
             this.b.removeAllAnimatorListeners();
             this.b.cancelAnimation();
             this.c.cancelAnimation();
-            pc2 pc2Var = this.f;
-            if (pc2Var != null) {
-                pc2Var.g(this.i);
-                pc2Var.h(this.h);
+            cd2 cd2Var = this.f;
+            if (cd2Var != null) {
+                cd2Var.g(this.i);
+                cd2Var.h(this.h);
             }
             i();
             super.onDestroy();

@@ -14,22 +14,22 @@ import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.eh5;
-import com.baidu.tieba.h38;
-import com.baidu.tieba.k38;
-import com.baidu.tieba.l38;
+import com.baidu.tieba.rh5;
+import com.baidu.tieba.v38;
+import com.baidu.tieba.y38;
+import com.baidu.tieba.z38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements k38.b, View.OnClickListener, AdapterView.OnItemClickListener {
+public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements y38.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public l38 b;
-    public k38 c;
+    public z38 b;
+    public y38 c;
 
     public PraiseListActivity() {
         Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.c = null;
     }
 
-    @Override // com.baidu.tieba.k38.b
-    public void Q0(int i, List<h38> list, int i2, int i3) {
+    @Override // com.baidu.tieba.y38.b
+    public void Q0(int i, List<v38> list, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             this.b.r(i, list, i2, i3);
@@ -65,7 +65,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // com.baidu.tieba.k38.b
+    @Override // com.baidu.tieba.y38.b
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -95,7 +95,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
                     finish();
                     return;
                 }
-                eh5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
+                rh5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
             } else if (view2 != this.b.k() || this.b.m()) {
             } else {
                 this.b.p(true);
@@ -113,23 +113,23 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             if (bundle != null) {
                 this.a = bundle.getInt(IntentConfig.LIST_TYPE, 0);
                 z = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-                k38 k38Var = new k38(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-                this.c = k38Var;
-                k38Var.u(bundle.getInt("KeyIntentPraiseId"));
+                y38 y38Var = new y38(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+                this.c = y38Var;
+                y38Var.u(bundle.getInt("KeyIntentPraiseId"));
             } else if (getIntent() != null) {
                 this.a = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
                 z = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-                this.c = new k38(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+                this.c = new y38(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             } else {
                 z = false;
             }
             if (this.c == null) {
-                this.c = new k38();
+                this.c = new y38();
             }
             this.c.t(z);
-            l38 l38Var = new l38(this, this.c.i());
-            this.b = l38Var;
-            l38Var.p(false);
+            z38 z38Var = new z38(this, this.c.i());
+            this.b = z38Var;
+            z38Var.p(false);
             this.c.m(this.a);
         }
     }
@@ -145,12 +145,12 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        h38 j2;
+        v38 j2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.c.j(i)) == null) {
             return;
         }
-        eh5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        rh5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -176,11 +176,11 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     public final void z1() {
-        k38 k38Var;
+        y38 y38Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (k38Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (y38Var = this.c) == null) {
             return;
         }
-        k38Var.v();
+        y38Var.v();
     }
 }

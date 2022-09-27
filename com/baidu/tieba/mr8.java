@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +16,18 @@ public class mr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final wp8 b;
+    public final xp8 b;
+    public hs8 c;
+    public is8 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mr8(MainTabActivity mainTabActivity, ip8 ip8Var) {
-        super(2921579);
+    public mr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
+            Object[] objArr = {mainTabActivity, xp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,19 +39,26 @@ public class mr8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = xp8Var;
+        this.c = new hs8(mainTabActivity.getPageContext(), xp8Var, mainTabActivity);
+        is8 is8Var = new is8(mainTabActivity.getPageContext(), xp8Var, mainTabActivity);
+        this.d = is8Var;
+        PriorityOrganizer.s(this.c, is8Var);
+        setPriority(1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        wp8 wp8Var;
+        xp8 xp8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (wp8Var = this.b) == null || wp8Var.h() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921728 || (xp8Var = this.b) == null || xp8Var.B() == null) {
             return;
         }
-        Runnable runnable = this.b.h().c;
-        gh.a().removeCallbacks(runnable);
-        gh.a().postDelayed(runnable, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (getTag() == (currentActivity instanceof BdBaseFragmentActivity ? ((BdBaseFragmentActivity) currentActivity).getUniqueId() : null) && !this.c.w(true)) {
+            this.c.F(true);
+            this.a.d0().v(this.c);
+        }
     }
 }

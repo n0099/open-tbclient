@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class f46 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f46 {
 
     /* loaded from: classes4.dex */
     public interface a {
+        void a();
+
+        void b();
+
+        void c(String str);
     }
 
-    public final void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            throw null;
-        }
-    }
+    boolean a(g46 g46Var);
+
+    boolean b(List<String> list);
 }

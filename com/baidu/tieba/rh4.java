@@ -1,336 +1,192 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.os.Build;
-import android.view.View;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes5.dex */
-public class rh4 {
+public class rh4<D> {
     public static /* synthetic */ Interceptable $ic;
-    public static final k a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public b<D> b;
+    public a<D> c;
+    public Context d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     /* loaded from: classes5.dex */
-    public static class a implements k {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a<D> {
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* loaded from: classes5.dex */
+    public interface b<D> {
+    }
+
+    public String a(D d) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d)) == null) {
+            StringBuilder sb = new StringBuilder(64);
+            uh4.a(d, sb);
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
+            printWriter.print(str);
+            printWriter.print("mId=");
+            printWriter.print(this.a);
+            printWriter.print(" mListener=");
+            printWriter.println(this.b);
+            if (this.e || this.h || this.i) {
+                printWriter.print(str);
+                printWriter.print("mStarted=");
+                printWriter.print(this.e);
+                printWriter.print(" mContentChanged=");
+                printWriter.print(this.h);
+                printWriter.print(" mProcessingChange=");
+                printWriter.println(this.i);
+            }
+            if (this.f || this.g) {
+                printWriter.print(str);
+                printWriter.print("mAbandoned=");
+                printWriter.print(this.f);
+                printWriter.print(" mReset=");
+                printWriter.println(this.g);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class c extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class d extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rh4.k
-        public int a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? sh4.a(view2) : invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.rh4.k
-        public void c(View view2, int i, Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, paint) == null) {
-                sh4.b(view2, i, paint);
-            }
-        }
-
-        @Override // com.baidu.tieba.rh4.k
-        public void d(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, view2, z) == null) {
-                sh4.c(view2, z);
-            }
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class e extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rh4.k
-        public boolean b(View view2, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) ? th4.a(view2, i) : invokeLI.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class f extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rh4.k
-        public boolean e(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? uh4.a(view2) : invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class g extends f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class h extends g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class i extends h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class j extends i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public j() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface k {
-        int a(View view2);
-
-        boolean b(View view2, int i);
-
-        void c(View view2, int i, Paint paint);
-
-        void d(View view2, boolean z);
-
-        boolean e(View view2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948121611, "Lcom/baidu/tieba/rh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948121611, "Lcom/baidu/tieba/rh4;");
+    public void f(int i, b<D> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bVar) == null) {
+            if (this.b == null) {
+                this.b = bVar;
+                this.a = i;
                 return;
             }
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-            a = new j();
-        } else {
-            a = new i();
+            throw new IllegalStateException("There is already a listener registered");
         }
     }
 
-    public rh4() {
+    public void g(a<D> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            if (this.c == null) {
+                this.c = aVar;
+                return;
             }
+            throw new IllegalStateException("There is already a listener registered");
         }
     }
 
-    public static boolean a(View view2, int i2) {
-        InterceptResult invokeLI;
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, view2, i2)) == null) ? a.b(view2, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (Context) invokeV.objValue;
     }
 
-    public static int b(View view2) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) ? a.a(view2) : invokeL.intValue;
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? a.e(view2) : invokeL.booleanValue;
-    }
-
-    public static void d(View view2, int i2, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, view2, i2, paint) == null) {
-            a.c(view2, i2, paint);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c();
+            this.g = true;
+            this.e = false;
+            this.f = false;
+            this.h = false;
+            this.i = false;
         }
     }
 
-    public static void e(View view2, boolean z) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65542, null, view2, z) == null) {
-            a.d(view2, z);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e = true;
+            this.g = false;
+            this.f = false;
+            d();
         }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.e = false;
+            e();
+        }
+    }
+
+    public void k(b<D> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            b<D> bVar2 = this.b;
+            if (bVar2 == null) {
+                throw new IllegalStateException("No listener register");
+            }
+            if (bVar2 == bVar) {
+                this.b = null;
+                return;
+            }
+            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        }
+    }
+
+    public void l(a<D> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            a<D> aVar2 = this.c;
+            if (aVar2 == null) {
+                throw new IllegalStateException("No listener register");
+            }
+            if (aVar2 == aVar) {
+                this.c = null;
+                return;
+            }
+            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            StringBuilder sb = new StringBuilder(64);
+            uh4.a(this, sb);
+            sb.append(" id=");
+            sb.append(this.a);
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

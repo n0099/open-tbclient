@@ -45,17 +45,17 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au4;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.e05;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fi5;
+import com.baidu.tieba.fp4;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.lo4;
+import com.baidu.tieba.jq4;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.so4;
+import com.baidu.tieba.nu4;
+import com.baidu.tieba.r05;
+import com.baidu.tieba.si5;
 import com.baidu.tieba.ui;
-import com.baidu.tieba.wp4;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,7 +104,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public boolean isNeedRefresh;
     public boolean mAutoChangeStyle;
     public Bundle mBundle;
-    public fi5.b mCookieInfo;
+    public si5.b mCookieInfo;
     public boolean mCustomJump;
     public boolean mEnableJs;
     public boolean mFixTitle;
@@ -126,7 +126,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public Timer mTimer;
     public String mUrl;
     public String mUrlTitle;
-    public so4 mView;
+    public fp4 mView;
     public final CustomMessageListener webviewLoginListener;
 
     /* loaded from: classes3.dex */
@@ -203,11 +203,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
                     ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.a;
                     if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
-                        au4 au4Var = new au4(this.a);
-                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), au4Var)) {
-                            au4Var.setContentViewSize(2);
-                            au4Var.setContentView(threadAchievementShareDialogView);
-                            au4Var.create(this.a.getPageContext()).show();
+                        nu4 nu4Var = new nu4(this.a);
+                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), nu4Var)) {
+                            nu4Var.setContentViewSize(2);
+                            nu4Var.setContentView(threadAchievementShareDialogView);
+                            nu4Var.create(this.a.getPageContext()).show();
                             return;
                         }
                         return;
@@ -326,9 +326,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                     return;
                 }
-                so4 so4Var = this.a.mView;
-                if (so4Var != null) {
-                    so4Var.l();
+                fp4 fp4Var = this.a.mView;
+                if (fp4Var != null) {
+                    fp4Var.l();
                 }
                 this.a.refresh();
             }
@@ -546,7 +546,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            wp4.b c2 = wp4.b().c(TbadkCoreApplication.getCurrentBduss());
+            jq4.b c2 = jq4.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 != null) {
                 String str3 = c2.a;
@@ -562,8 +562,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 str = "";
             }
             boolean z = true;
-            fi5.b bVar = new fi5.b(str2, str);
-            fi5.b bVar2 = this.mCookieInfo;
+            si5.b bVar = new si5.b(str2, str);
+            si5.b bVar2 = this.mCookieInfo;
             if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
                 z = false;
             }
@@ -581,7 +581,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (context == null || str == null || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            List<String> a2 = e05.a();
+            List<String> a2 = r05.a();
             if (ListUtils.isEmpty(a2)) {
                 return null;
             }
@@ -806,7 +806,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -968,11 +968,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeL(1048605, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091c81) {
+            if (id == R.id.obfuscated_res_0x7f091c83) {
                 if (isTranslucent()) {
                     finish();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09267f) {
+            } else if (id == R.id.obfuscated_res_0x7f092681) {
                 if (this.mView.z) {
                     loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                     gh.a().post(this.mShareRunnable);
@@ -1003,7 +1003,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             initWebView();
-            this.mView = new so4(this);
+            this.mView = new fp4(this);
             initData();
             this.mView.p();
             this.mView.F(this.mOnRefreshClickListener);
@@ -1042,9 +1042,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             webViewDestory();
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             stopLoadTimer();
-            so4 so4Var = this.mView;
-            if (so4Var != null) {
-                so4Var.t();
+            fp4 fp4Var = this.mView;
+            if (fp4Var != null) {
+                fp4Var.t();
             }
             super.onDestroy();
         }
@@ -1110,9 +1110,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             dismissAllDialog();
             dismissAllPopupWindow();
             hideListMenu();
-            so4 so4Var = this.mView;
-            if (so4Var != null) {
-                so4Var.h();
+            fp4 fp4Var = this.mView;
+            if (fp4Var != null) {
+                fp4Var.h();
             }
         }
     }
@@ -1122,9 +1122,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
             super.onUserChanged(z);
-            so4 so4Var = this.mView;
-            if (so4Var != null) {
-                so4Var.A(z);
+            fp4 fp4Var = this.mView;
+            if (fp4Var != null) {
+                fp4Var.A(z);
             }
         }
     }
@@ -1143,7 +1143,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (dj.isEmpty(shareInfoUrl)) {
                 shareInfoUrl = this.mUrl;
             }
-            lo4.l(pageActivity, shareInfoUrl);
+            yo4.l(pageActivity, shareInfoUrl);
         }
     }
 
@@ -1273,12 +1273,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     public void showTipToast(boolean z, String str) {
-        so4 so4Var;
+        fp4 fp4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048630, this, z, str) == null) || (so4Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeZL(1048630, this, z, str) == null) || (fp4Var = this.mView) == null) {
             return;
         }
-        so4Var.R(z, str);
+        fp4Var.R(z, str);
     }
 
     public void startLoadTimer() {

@@ -15,7 +15,7 @@ import com.baidu.live.feed.search.holder.LiveSearchHotRankHeaderViewHolder;
 import com.baidu.live.feed.search.holder.LiveSearchHotRankItemViewHolder;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k90;
+import com.baidu.tieba.x90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -181,7 +181,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
                         View view3 = ((LiveSearchHotRankItemViewHolder) this.$holder).a;
                         Intrinsics.checkExpressionValueIsNotNull(view3, "holder.itemView");
                         Context context = view3.getContext();
-                        k90.I(context != null ? context.getApplicationContext() : null, this.$position, this.$entity);
+                        x90.I(context != null ? context.getApplicationContext() : null, this.$position, this.$entity);
                     }
                 }
             });
@@ -192,7 +192,7 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
             View view2 = liveSearchHotRankItemViewHolder.a;
             Intrinsics.checkExpressionValueIsNotNull(view2, "holder.itemView");
             Context context = view2.getContext();
-            k90.J(context != null ? context.getApplicationContext() : null, i, liveRoomEntity);
+            x90.J(context != null ? context.getApplicationContext() : null, i, liveRoomEntity);
         }
     }
 

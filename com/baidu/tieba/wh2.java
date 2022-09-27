@@ -8,8 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class wh2 extends sg2<ij2> {
+public class wh2 extends fh2<th2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,25 +29,31 @@ public class wh2 extends sg2<ij2> {
         }
     }
 
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUserId" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ij2 ij2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull th2 th2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ij2Var) == null) {
-            String str = command.what;
-            d(ij2Var, str, "" + command.obj, true);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, th2Var) == null) {
             Object obj = command.obj;
-            if (obj instanceof Long) {
-                ij2Var.X(((Long) obj).longValue());
+            if (obj instanceof ArrayList) {
+                ArrayList arrayList = (ArrayList) obj;
+                if (arrayList.size() < 4) {
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("Cookie", (String) arrayList.get(1));
+                hashMap.put("User-Agent", (String) arrayList.get(2));
+                hashMap.put("Referer", (String) arrayList.get(3));
+                th2Var.k((String) arrayList.get(0), hashMap);
             }
         }
     }

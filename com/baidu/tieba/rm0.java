@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class rm0 implements ce1 {
+public class rm0 extends jn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,16 +25,11 @@ public class rm0 implements ce1 {
         }
     }
 
-    @Override // com.baidu.tieba.ce1
-    public Object get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jn0, com.baidu.tieba.mn0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new fh0());
-            arrayList.add(new yt0());
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && e31.b()) {
+            qm0.b().request().a(true);
         }
-        return invokeV.objValue;
     }
 }

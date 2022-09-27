@@ -1,14 +1,63 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class r09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public float c;
+    public long d;
+    public Bitmap e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public p09 j;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r09 a;
+
+        public a(r09 r09Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r09Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r09Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Bitmap bitmap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                r09 r09Var = this.a;
+                if (r09Var.j == null || (bitmap = r09Var.e) == null || bitmap.isRecycled()) {
+                    return;
+                }
+                r09 r09Var2 = this.a;
+                r09Var2.j.a(r09Var2.f, r09Var2.e);
+            }
+        }
+    }
 
     public r09() {
         Interceptable interceptable = $ic;
@@ -24,36 +73,10 @@ public class r09 {
         }
     }
 
-    public static r09 a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? new r09() : (r09) invokeCommon.objValue;
-    }
-
-    public static r09 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
-                }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
-            }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ih9.a().post(new a(this));
         }
-        return (r09) invokeI.objValue;
     }
 }

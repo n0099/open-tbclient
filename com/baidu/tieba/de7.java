@@ -1,77 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes3.dex */
-public class de7 {
+public class de7 extends be7 implements nb5, tb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ud7 ud7Var, int i) {
+    public de7() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, ud7Var, i) == null) || ud7Var == null || ud7Var.C() == null || ListUtils.isEmpty(ud7Var.n()) || ud7Var.n().size() < 2) {
-            return;
-        }
-        List<NewFloorInfo> n = ud7Var.n();
-        if (n.size() > 2) {
-            if (StringHelper.equals(ud7Var.C().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                if (n.get(1) != null) {
-                    if (n.get(1).is_floor.intValue() == 0) {
-                        b(ud7Var, 12, i);
-                        return;
-                    } else if (n.get(1).is_floor.intValue() == 1) {
-                        b(ud7Var, 13, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
-            } else if (n.get(1) != null) {
-                if (n.get(1).is_floor.intValue() == 0) {
-                    if (ud7Var.z() != null) {
-                        if (StringHelper.equals(ud7Var.z().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                            b(ud7Var, 14, i);
-                            return;
-                        } else {
-                            b(ud7Var, 15, i);
-                            return;
-                        }
-                    }
-                    return;
-                } else if (n.get(1).is_floor.intValue() == 1) {
-                    b(ud7Var, 16, i);
-                    return;
-                } else {
-                    return;
-                }
-            } else {
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b(ud7Var, 11, i);
     }
 
-    public static void b(ud7 ud7Var, int i, int i2) {
+    @Override // com.baidu.tieba.ob5
+    public String getCacheKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, ud7Var, i, i2) == null) || ud7Var == null || ud7Var.A() == null || ud7Var.r() == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nb5
+    public boolean initByByteArray(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            try {
+                initByProtobuf((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem("c12928");
-        statisticItem.param("tid", ud7Var.r().f);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("fid", ud7Var.r().e);
-        statisticItem.param("fname", ud7Var.r().d);
-        statisticItem.param("pid", ud7Var.t());
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", i2);
-        TiebaStatic.log(statisticItem);
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nb5
+    public byte[] toCacheByteArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

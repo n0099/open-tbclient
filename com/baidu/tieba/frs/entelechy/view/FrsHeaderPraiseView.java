@@ -97,9 +97,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = findViewById(R.id.obfuscated_res_0x7f09081c);
             this.b = findViewById(R.id.obfuscated_res_0x7f090803);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd2);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090bd1);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bcf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd1);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090bd0);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bce);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }

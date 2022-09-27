@@ -1,33 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.base.BdBaseFragmentActivity;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class xq8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final ip8 b;
-    public sr8 c;
-    public tr8 d;
+    public final xp8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xq8(MainTabActivity mainTabActivity, ip8 ip8Var) {
-        super(2921728);
+    public xq8(MainTabActivity mainTabActivity, xp8 xp8Var) {
+        super(2007002);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
+            Object[] objArr = {mainTabActivity, xp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,26 +39,57 @@ public class xq8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = ip8Var;
-        this.c = new sr8(mainTabActivity.getPageContext(), ip8Var, mainTabActivity);
-        tr8 tr8Var = new tr8(mainTabActivity.getPageContext(), ip8Var, mainTabActivity);
-        this.d = tr8Var;
-        PriorityOrganizer.s(this.c, tr8Var);
-        setPriority(1);
+        this.b = xp8Var;
+        setPriority(100);
+    }
+
+    public final void a(Intent intent) {
+        xp8 xp8Var;
+        int a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null || (xp8Var = this.b) == null || xp8Var.B() == null) {
+            return;
+        }
+        try {
+            if (intent.hasExtra("locate_type")) {
+                a = intent.getIntExtra("locate_type", 1);
+            } else {
+                a = this.a.o.a();
+            }
+            this.b.B().setCurrentTabByType(a);
+        } catch (Throwable th) {
+            BdLog.e(th);
+            this.a.finish();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ip8 ip8Var;
+        ArrayList<l95> b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921728 || (ip8Var = this.b) == null || ip8Var.B() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null || (b = ((n95) customResponsedMessage.getData()).b()) == null || b.size() == 0) {
             return;
         }
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (getTag() == (currentActivity instanceof BdBaseFragmentActivity ? ((BdBaseFragmentActivity) currentActivity).getUniqueId() : null) && !this.c.w(true)) {
-            this.c.F(true);
-            this.a.d0().v(this.c);
+        this.b.C(b);
+        if (this.a.c) {
+            xp8 xp8Var = this.b;
+            if (xp8Var != null && xp8Var.B() != null) {
+                this.b.B().setCurrentTabByType(this.a.b);
+            }
+        } else {
+            xp8 xp8Var2 = this.b;
+            if (xp8Var2 != null && xp8Var2.B() != null) {
+                if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                    this.b.B().setCurrentTabByType(2);
+                } else {
+                    a(this.a.getIntent());
+                }
+            }
         }
+        this.a.c = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
     }
 }

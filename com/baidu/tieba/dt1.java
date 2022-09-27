@@ -1,126 +1,80 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.tieba.br1;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.u22;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dt1 extends bt1 {
+public class dt1 extends ct1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements br1.a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dt1 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ r22 b;
+        public final /* synthetic */ u22 c;
+        public final /* synthetic */ u22.b d;
+        public final /* synthetic */ dt1 e;
 
-        public a(dt1 dt1Var) {
+        public a(dt1 dt1Var, int i, r22 r22Var, u22 u22Var, u22.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dt1Var};
+                Object[] objArr = {dt1Var, Integer.valueOf(i), r22Var, u22Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = dt1Var;
+            this.e = dt1Var;
+            this.a = i;
+            this.b = r22Var;
+            this.c = u22Var;
+            this.d = bVar;
         }
 
-        @Override // com.baidu.tieba.br1.a
-        public yu1 a(y23 y23Var, JSONObject jSONObject, String str) {
-            InterceptResult invokeLLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, y23Var, jSONObject, str)) == null) ? this.a.E(y23Var, jSONObject, str) : (yu1) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dt1 b;
-
-        public b(dt1 dt1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dt1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a > 1 && !this.b.D0) {
+                    vf3.b(this.c, this.e.getContext(), 1);
                 }
+                this.d.a();
             }
-            this.b = dt1Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.b.B(this.a, exc == null ? "" : exc.getMessage());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.b.d(this.a, this.b.D(response));
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dt1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public dt1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
+            Object[] objArr = {mr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -128,104 +82,92 @@ public class dt1 extends bt1 {
         }
     }
 
-    public final void A(@NonNull Request request, String str) {
+    public static void y() {
+        l33 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, request, str) == null) {
-            ba4 ba4Var = new ba4(request.url().toString(), request.body(), new b(this, str));
-            ba4Var.i = request.tag();
-            ba4Var.f = true;
-            ba4Var.g = true;
-            ba4Var.h = true;
-            ca4.g().e(ba4Var);
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (b0 = l33.b0()) == null) {
+            return;
         }
+        b0.B().I(b0.getAppId());
     }
 
-    public final void B(@NonNull String str, String str2) {
+    public lv1 A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            d(str, new yu1(500106, str2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q("#hideModalPage", false);
+            y();
+            return z(1, "hideModalPage", 10);
         }
+        return (lv1) invokeV.objValue;
     }
 
-    public final RequestBody C(@NonNull y23 y23Var, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, y23Var, jSONObject)) == null) {
-            String optString = jSONObject.optString("subscribeId");
-            String O = y23Var.O();
-            String optString2 = jSONObject.optString("templateId");
-            if (TextUtils.isEmpty(O) || TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-                return null;
-            }
-            return new FormBody.Builder().add("appkey", O).add("uniq_id", optString).add("type", jSONObject.optString("type", "query")).add("template_id", optString2).build();
-        }
-        return (RequestBody) invokeLL.objValue;
-    }
-
-    public yu1 D(Response response) {
+    public lv1 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, response)) == null) {
-            if (response != null && response.body() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(response.body().string());
-                    String optString = jSONObject.optString("errno");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (TextUtils.equals("0", optString) && optJSONObject != null) {
-                        return new yu1(0, optJSONObject, false);
-                    }
-                    return new yu1(500106, "subscribe fail");
-                } catch (Exception e) {
-                    return new yu1(500106, Log.getStackTraceString(e));
-                }
-            }
-            return new yu1(500106, "response body is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#navigateBack params=" + str, false);
+            y();
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            return !lv1Var.isSuccess() ? lv1Var : z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
         }
-        return (yu1) invokeL.objValue;
+        return (lv1) invokeL.objValue;
     }
 
-    public final yu1 E(@NonNull y23 y23Var, @NonNull JSONObject jSONObject, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, y23Var, jSONObject, str)) == null) {
-            Pair<Request, Integer> z = z(y23Var, jSONObject);
-            Request request = (Request) z.first;
-            if (request == null) {
-                return new yu1(((Integer) z.second).intValue(), IActiveUploadListener.PARAM_ERR_MSG);
-            }
-            A(request, str);
-            return new yu1(0, "success");
-        }
-        return (yu1) invokeLLL.objValue;
-    }
-
-    public yu1 F(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#subscribe params=" + str, false);
-            return l(str, true, new a(this));
-        }
-        return (yu1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.br1
+    @Override // com.baidu.tieba.or1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "SubscribeServiceApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
     }
 
-    public final Pair<Request, Integer> z(@NonNull y23 y23Var, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public final lv1 z(int i, String str, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, y23Var, jSONObject)) == null) {
-            RequestBody C = C(y23Var, jSONObject);
-            if (C == null) {
-                return new Pair<>(null, 202);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
+            String uuid = UUID.randomUUID().toString();
+            rw2.b(uuid);
+            u22 V = yo2.U().V();
+            if (V == null) {
+                l02.c("NavigateBackApi", "manager is null");
+                return new lv1(1001, "manager is null");
             }
-            return new Pair<>(new Request.Builder().url(fm2.W().a()).post(C).build(), 0);
+            int k = V.k();
+            if (k == 1) {
+                l02.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
+                return new lv1(1001, "navigateBack api can only work when slave's count greater than 1");
+            }
+            if (i >= k) {
+                i = k - 1;
+            }
+            lt2 f = z93.f(uuid, i);
+            r22 m = V.m();
+            if (m == null) {
+                l02.c("NavigateBackApi", "slave container is null");
+                return new lv1(1001, "slave container is null");
+            } else if (TextUtils.equals("hideModalPage", str) && !m.D0) {
+                l02.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
+                return new lv1(1001, "hideModalPage api can only work after showModalPage");
+            } else {
+                rw2.c(i2, uuid);
+                u22.b i3 = V.i(str);
+                i3.n(u22.i, u22.h);
+                i3.h(i);
+                fh3.a0(new a(this, k, m, V, i3));
+                t22 o = V.o();
+                lt2 m3 = o == null ? null : o.m3();
+                qw2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
+                rw2.a(uuid, m3);
+                if (!(V.m() instanceof t22)) {
+                    l02.c("NavigateBackApi", "top fragment error");
+                    z93.i(f);
+                    return new lv1(1001, "top fragment error");
+                }
+                t22 t22Var = (t22) V.m();
+                return new lv1(0, u63.c(t22Var != null ? t22Var.t3() : ""));
+            }
         }
-        return (Pair) invokeLL.objValue;
+        return (lv1) invokeCommon.objValue;
     }
 }

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ce8;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.nd8;
-import com.baidu.tieba.sr4;
+import com.baidu.tieba.fs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public sr4 l;
+    public fs4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -162,7 +162,7 @@ public class BannerView extends RelativeLayout {
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092360);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092362);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090327);
             this.g = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
@@ -190,11 +190,11 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    public void setBannerData(sr4 sr4Var) {
+    public void setBannerData(fs4 fs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sr4Var) == null) {
-            this.l = sr4Var;
-            nd8.f(sr4Var.g, this.f, sr4Var.h, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, fs4Var) == null) {
+            this.l = fs4Var;
+            ce8.f(fs4Var.g, this.f, fs4Var.h, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

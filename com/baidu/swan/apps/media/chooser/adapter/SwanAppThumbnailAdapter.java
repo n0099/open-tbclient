@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm2;
+import com.baidu.tieba.sm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -123,7 +123,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            fm2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            sm2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 

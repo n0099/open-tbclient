@@ -1,55 +1,48 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Matrix;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.webrtc.TextureBufferImpl;
+import org.webrtc.VideoFrame;
+/* compiled from: CameraSession.java */
 /* loaded from: classes6.dex */
-public abstract class vw9<T> implements xw9 {
+public final /* synthetic */ class vw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bz9 a;
 
-    public vw9() {
+    public static VideoFrame.TextureBuffer a(TextureBufferImpl textureBufferImpl, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{textureBufferImpl, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.preTranslate(0.5f, 0.5f);
+            if (z) {
+                matrix.preScale(-1.0f, 1.0f);
             }
+            matrix.preRotate(i);
+            matrix.preTranslate(-0.5f, -0.5f);
+            return textureBufferImpl.applyTransformMatrix(matrix, textureBufferImpl.getWidth(), textureBufferImpl.getHeight());
         }
-        this.a = new bz9();
+        return (VideoFrame.TextureBuffer) invokeCommon.objValue;
     }
 
-    public final void a(xw9 xw9Var) {
+    public static int b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xw9Var) == null) {
-            this.a.a(xw9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    return rotation != 3 ? 0 : 270;
+                }
+                return 180;
+            }
+            return 90;
         }
-    }
-
-    public abstract void b(Throwable th);
-
-    public abstract void c(T t);
-
-    @Override // com.baidu.tieba.xw9
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xw9
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.unsubscribe();
-        }
+        return invokeL.intValue;
     }
 }

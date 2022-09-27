@@ -227,12 +227,12 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d3, this);
-            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091d5f);
-            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091d61);
-            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091d5d);
-            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091d60);
-            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091d62);
-            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091d5c);
+            this.c = (OneKeyLoginView) findViewById(R.id.obfuscated_res_0x7f091d61);
+            this.d = (ShareLoginView) findViewById(R.id.obfuscated_res_0x7f091d63);
+            this.e = (HistoryLoginView) findViewById(R.id.obfuscated_res_0x7f091d5f);
+            this.f = (SendSmsView) findViewById(R.id.obfuscated_res_0x7f091d62);
+            this.g = (ThirdPartyView) findViewById(R.id.obfuscated_res_0x7f091d64);
+            this.h = (AgreementView) findViewById(R.id.obfuscated_res_0x7f091d5e);
             this.g.setLoginCallback(this);
             this.h.a((Activity) this.a, this.i);
             b();

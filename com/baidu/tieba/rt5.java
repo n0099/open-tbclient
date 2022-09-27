@@ -1,157 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.YyExtData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.FrsNoListItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class rt5 {
+public class rt5 extends qn<lh6, FrsNoListItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public st5 a;
-    public tt5 b;
-    public xt5 c;
-    public wt5 d;
-    public ut5 e;
-    public vt5 f;
-    public List<qn> g;
+    public final int a;
 
-    /* loaded from: classes5.dex */
-    public class a implements lu5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ String b;
-
-        public a(rt5 rt5Var, TbPageContext tbPageContext, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rt5Var, tbPageContext, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.lu5
-        public void a(zs5 zs5Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, zs5Var) == null) || zs5Var == null || zs5Var.getThreadData() == null) {
-                return;
-            }
-            if (zs5Var.getThreadData().getThreadAlaInfo() != null && zs5Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                AlaInfoData threadAlaInfo = zs5Var.getThreadData().getThreadAlaInfo();
-                TbPageContext tbPageContext = this.a;
-                YyExtData yyExtData = threadAlaInfo.mYyExtData;
-                String str = yyExtData.mSid;
-                String str2 = yyExtData.mSsid;
-                String str3 = yyExtData.mTemplateId;
-                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, threadAlaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
-                AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
-                if (alaUserInfoData != null) {
-                    StatisticItem.make("c14719").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", alaUserInfoData.ala_id).param("obj_locate", y16.f(this.b)).eventStat();
-                    return;
-                }
-                return;
-            }
-            dt5.h(this.a.getPageActivity(), zs5Var.getThreadData());
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements lu5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(rt5 rt5Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rt5Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.lu5
-        public void a(zs5 zs5Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, zs5Var) == null) || zs5Var == null || zs5Var.getThreadData() == null || zs5Var.getThreadData().getThreadAlaInfo() == null || zs5Var.getThreadData().getThreadAlaInfo().mYyExtData == null) {
-                return;
-            }
-            AlaInfoData threadAlaInfo = zs5Var.getThreadData().getThreadAlaInfo();
-            TbPageContext tbPageContext = this.a;
-            YyExtData yyExtData = threadAlaInfo.mYyExtData;
-            String str = yyExtData.mSid;
-            String str2 = yyExtData.mSsid;
-            String str3 = yyExtData.mTemplateId;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
-        }
-    }
-
-    public rt5(TbPageContext tbPageContext, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rt5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), lh6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new LinkedList();
-        this.a = new st5(tbPageContext);
-        this.b = new tt5(tbPageContext, str);
-        this.c = new xt5(tbPageContext);
-        this.d = new wt5(tbPageContext);
-        this.e = new ut5(tbPageContext);
-        this.f = new vt5(tbPageContext);
-        this.b.u(new a(this, tbPageContext, str));
-        this.d.u(new b(this, tbPageContext));
-        this.g.add(this.a);
-        this.g.add(this.b);
-        this.g.add(this.c);
-        this.g.add(this.d);
-        this.g.add(this.e);
-        this.g.add(this.f);
+        this.a = (ej.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
     }
 
-    public List<qn> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lh6 lh6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+        t(i, view2, viewGroup, lh6Var, frsNoListItemViewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d033e, viewGroup, false);
+            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
+            generateLayoutParamsByParent.width = -1;
+            generateLayoutParamsByParent.height = this.a;
+            inflate.setLayoutParams(generateLayoutParamsByParent);
+            return new FrsNoListItemViewHolder(inflate, viewGroup);
+        }
+        return (FrsNoListItemViewHolder) invokeL.objValue;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, lh6 lh6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lh6Var, frsNoListItemViewHolder})) == null) {
+            frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c72);
+            SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
+            SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

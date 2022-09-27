@@ -1,14 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class wz3 implements n04 {
+public class wz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public xz3[] changedTouches;
+    @V8JavascriptField
+    public long timeStamp;
+    @V8JavascriptField
+    public xz3[] touches;
 
     public wz3() {
         Interceptable interceptable = $ic;
@@ -24,21 +32,12 @@ public class wz3 implements n04 {
         }
     }
 
-    @Override // com.baidu.tieba.n04
-    public void a(m34 m34Var, l34 l34Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, m34Var, l34Var) == null) || l34Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
         }
-        l34Var.a(m34Var, "Method 'shareVideo' is not implemented.");
-    }
-
-    @Override // com.baidu.tieba.n04
-    public void b(d34 d34Var, c34 c34Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d34Var, c34Var) == null) || c34Var == null) {
-            return;
-        }
-        c34Var.a(d34Var, "Method 'clipVideo' is not implemented.");
+        return (String) invokeV.objValue;
     }
 }

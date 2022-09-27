@@ -3,53 +3,45 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import tv.athena.revenue.RevenueManager;
 /* loaded from: classes6.dex */
 public class u4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
+    public static IPayServiceStatistics a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == ((double) j)) {
-                return String.valueOf(j);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
+            if (revenue == null) {
+                RLog.error("MonitorReporter", "getMonitorReporter error revenue null", new Object[0]);
+                return null;
             }
-            return new DecimalFormat("#.##").format(d);
+            return revenue.getPayServiceStatistics();
         }
-        return (String) invokeCommon.objValue;
+        return (IPayServiceStatistics) invokeII.objValue;
     }
 
-    public static String b(double d) {
-        InterceptResult invokeCommon;
+    public static void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == ((double) j)) {
-                return String.valueOf(j);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            IPayServiceStatistics a = a(i, i2);
+            if (a == null) {
+                RLog.error("MonitorReporter", "onShowPayFailResult error payReporter null", new Object[0]);
+                return;
             }
-            return new DecimalFormat("#.#").format(d);
+            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
+            cReportResponse.mEventId = "6";
+            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
+            cReportResponse.mErrCode = i3 + "";
+            cReportResponse.mErrMsg = str;
+            a.onShowPayResult(cReportResponse);
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static double c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
-            }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error("StringUtils", "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
-            }
-        }
-        return invokeL.doubleValue;
     }
 }

@@ -20,11 +20,11 @@ import com.baidu.nps.pm.manager.NPSPackageManager;
 import com.baidu.nps.runtime.InitException;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import com.baidu.tieba.c91;
-import com.baidu.tieba.d91;
-import com.baidu.tieba.i81;
-import com.baidu.tieba.j81;
-import com.baidu.tieba.m81;
+import com.baidu.tieba.p91;
+import com.baidu.tieba.q91;
+import com.baidu.tieba.v81;
+import com.baidu.tieba.w81;
+import com.baidu.tieba.z81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,7 +86,7 @@ public class NPSManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (TextUtils.isEmpty(this.a)) {
-                    if (d91.a()) {
+                    if (q91.a()) {
                         Log.i(NPSManager.TAG, "loadBundle, retCode=5");
                     }
                     this.b.onResult(5, Constant.MSG.retMsgErrParam(this.a, this.c), null);
@@ -94,7 +94,7 @@ public class NPSManager {
                 }
                 int prepareBundle = NPSPackageManager.getInstance().prepareBundle(this.a, this.d, this.e, this.f);
                 if (prepareBundle != 41) {
-                    if (d91.a()) {
+                    if (q91.a()) {
                         Log.i(NPSManager.TAG, "loadBundle, retCode=" + prepareBundle);
                     }
                     this.b.onResult(prepareBundle, Constant.MSG.retMsgBundleNotReady(prepareBundle), null);
@@ -103,7 +103,7 @@ public class NPSManager {
                 NPSPackageManager.getInstance().recordBundleRunning(this.a);
                 Bundle bundleInternal = this.h.getBundleInternal(this.a);
                 if (bundleInternal == null) {
-                    if (d91.a()) {
+                    if (q91.a()) {
                         Log.i(NPSManager.TAG, "loadBundle, retCode=5");
                     }
                     this.b.onResult(5, Constant.MSG.retMsgInvalidPkg(this.a), null);
@@ -116,20 +116,20 @@ public class NPSManager {
                     } else {
                         loadClass = bundleInternal.loadClass(this.c, this.g);
                     }
-                    i81.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess(), null);
-                    if (d91.a()) {
+                    v81.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess(), null);
+                    if (q91.a()) {
                         Log.i(NPSManager.TAG, "loadBundle, retCode=14");
                     }
                     this.b.onResult(14, Constant.MSG.retMsgSuccess(), loadClass);
                 } catch (InvokeException e) {
-                    i81.a().b().recordInvokeResult(e.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e.errMsg(), null);
-                    if (d91.a()) {
+                    v81.a().b().recordInvokeResult(e.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e.errMsg(), null);
+                    if (q91.a()) {
                         Log.i(NPSManager.TAG, "loadBundle, retCode=" + e.errCode());
                     }
                     this.b.onResult(e.errCode(), e.errMsg(), null);
                 } catch (InitException e2) {
-                    i81.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg(), null);
-                    if (d91.a()) {
+                    v81.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg(), null);
+                    if (q91.a()) {
                         Log.i(NPSManager.TAG, "loadBundle, retCode=" + e2.errCode());
                     }
                     this.b.onResult(e2.errCode(), e2.errMsg(), null);
@@ -240,7 +240,7 @@ public class NPSManager {
     private void loadBundle(String str, String str2, Class cls, int i, IInvokeCallback iInvokeCallback, boolean z, BundleConfig bundleConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{str, str2, cls, Integer.valueOf(i), iInvokeCallback, Boolean.valueOf(z), bundleConfig}) == null) {
-            j81.a().b().run(new a(this, str, iInvokeCallback, str2, i, z, bundleConfig, cls));
+            w81.a().b().run(new a(this, str, iInvokeCallback, str2, i, z, bundleConfig, cls));
         }
     }
 
@@ -260,7 +260,7 @@ public class NPSManager {
     private void registerRestartReceiver() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ContextHolder.getApplicationContext().registerReceiver(new b(this), new IntentFilter(c91.a));
+            ContextHolder.getApplicationContext().registerReceiver(new b(this), new IntentFilter(p91.a));
         }
     }
 
@@ -268,7 +268,7 @@ public class NPSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, str, invokeException) == null) {
             try {
-                i81.a().b().recordException(2, invokeException.toString(), str);
+                v81.a().b().recordException(2, invokeException.toString(), str);
             } catch (Exception unused) {
             }
         }
@@ -403,7 +403,7 @@ public class NPSManager {
             try {
                 cls = bundleInternal.loadClass(str);
             } catch (InvokeException e) {
-                if (1 == m81.b().a(str)) {
+                if (1 == z81.b().a(str)) {
                     statisticClassNotFind(str, e);
                     cls = ProtectActivity.class;
                 } else {
@@ -434,7 +434,7 @@ public class NPSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, configurations, z) == null) {
             synchronized (this) {
-                d91.b(configurations.debug);
+                q91.b(configurations.debug);
                 registerRestartReceiver();
                 if (z) {
                     NPSPackageManager.getInstance().init();
@@ -454,7 +454,7 @@ public class NPSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, str2, cls, Integer.valueOf(i), iInvokeCallback, Boolean.valueOf(z), bundleConfig}) == null) {
             if (TextUtils.isEmpty(str2)) {
-                if (d91.a()) {
+                if (q91.a()) {
                     Log.i(TAG, "loadClazz, retCode=5");
                 }
                 iInvokeCallback.onResult(5, Constant.MSG.retMsgErrParam(str, str2), null);
@@ -482,15 +482,15 @@ public class NPSManager {
                     }
                     try {
                         Object invoke = bundleInternal.invoke(str2, objArr);
-                        i81.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess(), null);
+                        v81.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess(), null);
                         iInvokeCallback.onResult(14, Constant.MSG.retMsgSuccess(), invoke);
                         return;
                     } catch (InvokeException e) {
-                        i81.a().b().recordInvokeResult(e.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e.errMsg(), null);
+                        v81.a().b().recordInvokeResult(e.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e.errMsg(), null);
                         iInvokeCallback.onResult(e.errCode(), e.errMsg(), null);
                         return;
                     } catch (InitException e2) {
-                        i81.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg(), null);
+                        v81.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg(), null);
                         iInvokeCallback.onResult(e2.errCode(), e2.errMsg(), null);
                         return;
                     }
@@ -521,15 +521,15 @@ public class NPSManager {
                 }
                 try {
                     Class loadClass = bundleInternal.loadClass(str2, cls);
-                    i81.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess(), null);
+                    v81.a().b().recordInvokeResult(14, bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), Constant.MSG.retMsgSuccess(), null);
                     loadResult.setRet(14, Constant.MSG.retMsgSuccess(), loadClass);
                     return loadResult;
                 } catch (InvokeException e) {
-                    i81.a().b().recordInvokeResult(e.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e.errMsg(), null);
+                    v81.a().b().recordInvokeResult(e.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e.errMsg(), null);
                     loadResult.setRet(e.errCode(), e.errMsg(), null);
                     return loadResult;
                 } catch (InitException e2) {
-                    i81.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg(), null);
+                    v81.a().b().recordInvokeResult(e2.errCode(), bundleInternal.getBundleInfo().getPackageName(), bundleInternal.getBundleInfo().getVersionCode(), e2.errMsg(), null);
                     loadResult.setRet(e2.errCode(), e2.errMsg(), null);
                     return loadResult;
                 }

@@ -1,28 +1,31 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IIdConfig;
-import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
+@Keep
 /* loaded from: classes7.dex */
 public class b implements IIdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public a a;
 
+    @Keep
     /* loaded from: classes7.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public v a;
+        @Keep
+        public w a;
 
+        @Keep
         public a(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -56,32 +59,8 @@ public class b implements IIdConfig {
         this.a = new a(this);
     }
 
-    public static b a(Context context) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String a2 = d0.a(context, "supplierconfig.json");
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            b bVar = new b();
-            try {
-                JSONObject jSONObject = (JSONObject) new JSONTokener(a2).nextValue();
-                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("supplier")) != null) {
-                    if (a(bVar, optJSONObject)) {
-                        return bVar;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (b) invokeL.objValue;
-    }
+    @Keep
+    public static native b a(Context context);
 
     public static boolean a(b bVar, JSONObject jSONObject) {
         InterceptResult invokeLL;
@@ -91,10 +70,10 @@ public class b implements IIdConfig {
                 return false;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("vivo");
-            v vVar = new v();
+            w wVar = new w();
             if (optJSONObject != null) {
-                vVar.a = optJSONObject.optString("appid");
-                bVar.a.a = vVar;
+                wVar.a = optJSONObject.optString("appid");
+                bVar.a.a = wVar;
             }
             return bVar.a.a != null;
         }
@@ -102,15 +81,6 @@ public class b implements IIdConfig {
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdConfig
-    public String getVivoAppID() {
-        InterceptResult invokeV;
-        v vVar;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = this.a;
-            return (aVar == null || (vVar = aVar.a) == null || (str = vVar.a) == null) ? "" : str;
-        }
-        return (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getVivoAppID();
 }

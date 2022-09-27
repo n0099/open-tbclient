@@ -1,57 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.tieba.vb9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Date;
 /* loaded from: classes6.dex */
 public final class wb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static vb9.a b;
+    public static vb9.a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            d().edit().putBoolean(str, true).apply();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948264955, "Lcom/baidu/tieba/wb9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948264955, "Lcom/baidu/tieba/wb9;");
         }
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public static synchronized void a(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? d().getBoolean(str, false) : invokeL.booleanValue;
-    }
-
-    public static long c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? d().getLong(str, 0L) : invokeL.longValue;
-    }
-
-    public static SharedPreferences d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sa9.h().getContext().getSharedPreferences("baidu_ab_general_config", 0) : (SharedPreferences) invokeV.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? d().getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            d().edit().putString(str, str2).apply();
-        }
-    }
-
-    public static void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
-            d().edit().putLong(str, j).apply();
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            synchronized (wb9.class) {
+                if (!a) {
+                    ic9.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                    b = new xb9();
+                    c = new hc9();
+                    vb9.a().c();
+                    vb9.a().d(c);
+                    vb9.a().d(b);
+                    vb9.a().e(context);
+                    a = true;
+                    return;
+                }
+                ic9.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+            }
         }
     }
 }

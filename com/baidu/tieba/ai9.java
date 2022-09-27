@@ -1,13 +1,55 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface ai9 {
-    void a(String str, JSONObject jSONObject);
+public class ai9 extends yh9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, JSONObject jSONObject);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai9(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -100;
+    }
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
+    @Override // com.baidu.tieba.xh9
+    public xh9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            i();
+            return this;
+        }
+        return (xh9) invokeV.objValue;
+    }
 
-    void d(String str, String str2, JSONObject jSONObject);
+    public xh9 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (xh9) invokeV.objValue;
+    }
 }

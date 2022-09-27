@@ -76,7 +76,7 @@ public class NetworkErrorView extends CommonEmptyView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setVisibility(0);
             setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f132b));
-            setIcon(R.drawable.obfuscated_res_0x7f08119d);
+            setIcon(R.drawable.obfuscated_res_0x7f0811a1);
         }
     }
 

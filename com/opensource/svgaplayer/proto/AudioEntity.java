@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.os9;
-import com.baidu.tieba.ps9;
-import com.baidu.tieba.ts9;
+import com.baidu.tieba.dt9;
+import com.baidu.tieba.et9;
+import com.baidu.tieba.it9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -150,62 +150,62 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public AudioEntity decode(os9 os9Var) throws IOException {
+        public AudioEntity decode(dt9 dt9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, os9Var)) != null) {
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, dt9Var)) != null) {
                 return (AudioEntity) invokeL.objValue;
             }
             Builder builder = new Builder();
-            long c = os9Var.c();
+            long c = dt9Var.c();
             while (true) {
-                int f = os9Var.f();
+                int f = dt9Var.f();
                 if (f == -1) {
-                    os9Var.d(c);
+                    dt9Var.d(c);
                     return builder.build();
                 } else if (f == 1) {
-                    builder.audioKey(ProtoAdapter.STRING.decode(os9Var));
+                    builder.audioKey(ProtoAdapter.STRING.decode(dt9Var));
                 } else if (f == 2) {
-                    builder.startFrame(ProtoAdapter.INT32.decode(os9Var));
+                    builder.startFrame(ProtoAdapter.INT32.decode(dt9Var));
                 } else if (f == 3) {
-                    builder.endFrame(ProtoAdapter.INT32.decode(os9Var));
+                    builder.endFrame(ProtoAdapter.INT32.decode(dt9Var));
                 } else if (f == 4) {
-                    builder.startTime(ProtoAdapter.INT32.decode(os9Var));
+                    builder.startTime(ProtoAdapter.INT32.decode(dt9Var));
                 } else if (f != 5) {
-                    FieldEncoding g = os9Var.g();
-                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(os9Var));
+                    FieldEncoding g = dt9Var.g();
+                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(dt9Var));
                 } else {
-                    builder.totalTime(ProtoAdapter.INT32.decode(os9Var));
+                    builder.totalTime(ProtoAdapter.INT32.decode(dt9Var));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(ps9 ps9Var, AudioEntity audioEntity) throws IOException {
+        public void encode(et9 et9Var, AudioEntity audioEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ps9Var, audioEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, et9Var, audioEntity) == null) {
                 String str = audioEntity.audioKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(ps9Var, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(et9Var, 1, str);
                 }
                 Integer num = audioEntity.startFrame;
                 if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(ps9Var, 2, num);
+                    ProtoAdapter.INT32.encodeWithTag(et9Var, 2, num);
                 }
                 Integer num2 = audioEntity.endFrame;
                 if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(ps9Var, 3, num2);
+                    ProtoAdapter.INT32.encodeWithTag(et9Var, 3, num2);
                 }
                 Integer num3 = audioEntity.startTime;
                 if (num3 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(ps9Var, 4, num3);
+                    ProtoAdapter.INT32.encodeWithTag(et9Var, 4, num3);
                 }
                 Integer num4 = audioEntity.totalTime;
                 if (num4 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(ps9Var, 5, num4);
+                    ProtoAdapter.INT32.encodeWithTag(et9Var, 5, num4);
                 }
-                ps9Var.k(audioEntity.unknownFields());
+                et9Var.k(audioEntity.unknownFields());
             }
         }
 
@@ -293,7 +293,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
             }
             if (obj instanceof AudioEntity) {
                 AudioEntity audioEntity = (AudioEntity) obj;
-                return unknownFields().equals(audioEntity.unknownFields()) && ts9.f(this.audioKey, audioEntity.audioKey) && ts9.f(this.startFrame, audioEntity.startFrame) && ts9.f(this.endFrame, audioEntity.endFrame) && ts9.f(this.startTime, audioEntity.startTime) && ts9.f(this.totalTime, audioEntity.totalTime);
+                return unknownFields().equals(audioEntity.unknownFields()) && it9.f(this.audioKey, audioEntity.audioKey) && it9.f(this.startFrame, audioEntity.startFrame) && it9.f(this.endFrame, audioEntity.endFrame) && it9.f(this.startTime, audioEntity.startTime) && it9.f(this.totalTime, audioEntity.totalTime);
             }
             return false;
         }

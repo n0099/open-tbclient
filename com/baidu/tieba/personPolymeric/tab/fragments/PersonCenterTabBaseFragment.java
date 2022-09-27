@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n98;
+import com.baidu.tieba.ba8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n98 a;
+    public ba8 a;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -34,12 +34,12 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        n98 n98Var;
+        ba8 ba8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (n98Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ba8Var = this.a) == null) {
             return;
         }
-        n98Var.dettachView(view2);
+        ba8Var.dettachView(view2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -47,9 +47,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            n98 n98Var = this.a;
-            if (n98Var != null) {
-                n98Var.onChangeSkinType();
+            ba8 ba8Var = this.a;
+            if (ba8Var != null) {
+                ba8Var.onChangeSkinType();
             }
         }
     }
@@ -65,9 +65,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048581, this, view2, str, z) == null) {
             if (this.a == null) {
-                n98 n98Var = new n98(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = n98Var;
-                n98Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+                ba8 ba8Var = new ba8(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = ba8Var;
+                ba8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
                 this.a.f();

@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.YulePostActivity;
 /* loaded from: classes6.dex */
 public class yt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
 
     public yt4() {
         Interceptable interceptable = $ic;
@@ -26,8 +24,12 @@ public class yt4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
     public String a() {
@@ -42,39 +44,30 @@ public class yt4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optLong("start_time");
-            jSONObject.optLong("end_time");
-            this.a = jSONObject.optString("activity_banner");
-            jSONObject.optString("activity_url");
-            jSONObject.optString("activity_desc");
-            this.b = jSONObject.optString("activity_button");
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void d(YulePostActivity yulePostActivity) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, yulePostActivity) == null) || yulePostActivity == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
         }
-        Long l = yulePostActivity.start_time;
-        if (l != null) {
-            l.longValue();
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
-        Long l2 = yulePostActivity.end_time;
-        if (l2 != null) {
-            l2.longValue();
-        }
-        this.a = yulePostActivity.activity_banner;
-        String str = yulePostActivity.activity_url;
-        String str2 = yulePostActivity.activity_desc;
-        this.b = yulePostActivity.activity_button;
     }
 }

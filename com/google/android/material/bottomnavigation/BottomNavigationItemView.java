@@ -571,8 +571,8 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) this, true);
         setBackgroundResource(R.drawable.obfuscated_res_0x7f08048b);
         this.defaultMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb);
-        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e21);
-        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091f04);
+        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e20);
+        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
         this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f091256);
         ViewCompat.setImportantForAccessibility(this.smallLabel, 2);
         ViewCompat.setImportantForAccessibility(this.largeLabel, 2);

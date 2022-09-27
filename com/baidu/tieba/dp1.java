@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tieba.fp1;
+import android.content.Context;
 /* loaded from: classes3.dex */
-public interface dp1<T extends fp1> extends gp1<T> {
-    void E();
+public interface dp1 {
+    void b();
 
-    void F(ViewGroup viewGroup);
+    void c();
 
-    void G(View view2);
+    dp1 create();
 
-    void P(boolean z);
+    void d(vs2 vs2Var, boolean z);
 
-    void V();
+    void e(vs2 vs2Var, Context context);
 
-    void g0(String str, String str2);
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

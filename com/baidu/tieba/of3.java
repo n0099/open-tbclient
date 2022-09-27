@@ -1,148 +1,212 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.rc3;
+import com.baidu.tieba.nf3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
+import java.io.File;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class of3 {
+public class of3 extends or1 implements nf3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public String g;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ rh3 c;
+        public final /* synthetic */ ft2 a;
+        public final /* synthetic */ of3 b;
 
-        public a(int i, long j, rh3 rh3Var) {
+        public a(of3 of3Var, ft2 ft2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), rh3Var};
+                Object[] objArr = {of3Var, ft2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = j;
-            this.c = rh3Var;
+            this.b = of3Var;
+            this.a = ft2Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    of3.f(jSONObject, lu2.c(), this.a, this.b);
-                } catch (Exception e) {
-                    yf3.f(jSONObject, "errorMsg", e.getMessage());
+                if (sm2.h().a(this.b.f, this.a)) {
+                    this.b.A(this.a);
+                    return;
                 }
-                this.c.a(jSONObject);
+                of3 of3Var = this.b;
+                of3Var.d(of3Var.g, new lv1(2003, "upload fail"));
             }
         }
     }
 
-    public of3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948030285, "Lcom/baidu/tieba/of3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948030285, "Lcom/baidu/tieba/of3;");
+                return;
+            }
+        }
+        h = vj1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public of3(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
+    public final void A(ft2 ft2Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new DecimalFormat("#.##").format(j / 1.073741824E9d) : (String) invokeJ.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ft2Var) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("bosUrl", ft2Var.e);
+                d(this.g, new lv1(0, jSONObject));
+            } catch (JSONException e) {
+                if (h) {
+                    e.printStackTrace();
+                }
+                d(this.g, new lv1(2003, "upload fail"));
+            }
+        }
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public final boolean B(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (of3.class) {
-                    a = e();
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) ? file.length() > 52428800 : invokeL.booleanValue;
+    }
+
+    public lv1 C(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#uploadBosFile", false);
+            if (h) {
+                Log.d("UploadBosApi", "#uploadBosFile params=" + str);
+            }
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (lv1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("cb");
+                this.g = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    return new lv1(202);
+                }
+                String optString2 = jSONObject.optString("filePath");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new lv1(202);
+                }
+                yo2 U = yo2.U();
+                String i = U.G().i(optString2);
+                this.f = i;
+                if (TextUtils.isEmpty(i)) {
+                    return new lv1(2001, "file not found");
+                }
+                File file = new File(this.f);
+                if (file.exists() && file.isFile()) {
+                    if (B(file)) {
+                        return new lv1(2002, "file over size");
+                    }
+                    if (!k33.K().q().N().e(U.getActivity())) {
+                        return new lv1(10004, "user not logged in");
+                    }
+                    sm2.h().b(U.getActivity(), this.f, this);
+                    return lv1.f();
+                }
+                return new lv1(2001, "file not found");
+            }
+            return lv1Var;
+        }
+        return (lv1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nf3.a
+    public void c(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, str) == null) {
+            if (jSONObject == null) {
+                d(this.g, new lv1(2003, "upload fail"));
+                return;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                d(this.g, new lv1(2003, "upload fail"));
+                return;
+            }
+            String optString = jSONObject.optString("errno");
+            if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "0")) {
+                ft2 a2 = ft2.a(optJSONObject, str);
+                if (TextUtils.isEmpty(a2.e)) {
+                    d(this.g, new lv1(2003, "upload fail"));
+                    return;
+                } else {
+                    ExecutorUtilsExt.postOnElastic(new a(this, a2), "doBosUpload", 2);
+                    return;
                 }
             }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(@NonNull vn2 vn2Var, @NonNull rh3<JSONObject> rh3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, vn2Var, rh3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(vn2Var.i("host_launch_type"), vn2Var.k("box_cold_launch"), rh3Var), "getDeviceInfoAsync", 2);
+            d(this.g, new lv1(2003, "upload fail"));
         }
     }
 
-    public static String e() {
+    @Override // com.baidu.tieba.or1
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String replace = TextUtils.isEmpty(str) ? "NUL" : str.replace("_", "-");
-            String str2 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str2) ? "0.0" : str2.replace("_", "-");
-            int i = Build.VERSION.SDK_INT;
-            String str3 = Build.MANUFACTURER;
-            String replace3 = TextUtils.isEmpty(str3) ? "NUL" : str3.replace("_", "-");
-            return replace + "_" + replace2 + "_" + i + "_" + replace3;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "PrivateFile" : (String) invokeV.objValue;
     }
 
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
+    @Override // com.baidu.tieba.or1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            yf3.f(jSONObject, "model", Build.MODEL);
-            yf3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            yf3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            rc3.a a2 = rc3.a(fm2.c());
-            yf3.f(jSONObject, "batteryLevel", Integer.valueOf(a2 == null ? -1 : a2.a));
-            yf3.f(jSONObject, "appCurVersion", sg3.D());
-            yf3.f(jSONObject, "startupType", String.valueOf(i2));
-            yf3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(ul2.i());
-            yf3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            yf3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) x23.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                yf3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                yf3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                yf3.f(jSONObject, "lowMemory", memoryInfo.lowMemory ? "1" : "0");
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "UploadBosApi" : (String) invokeV.objValue;
     }
 }

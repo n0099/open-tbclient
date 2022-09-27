@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.k77;
+import com.baidu.tieba.m77;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.w67;
-import com.baidu.tieba.y67;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -179,9 +179,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
         void F0(String str);
 
-        void m0(y67 y67Var);
+        void m0(m77 m77Var);
 
-        void v0(y67 y67Var, y67 y67Var2, y67 y67Var3);
+        void v0(m77 m77Var, m77 m77Var2, m77 m77Var3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -279,7 +279,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f = new a(this, 2016491);
-            dm8.b(2016491, w67.class);
+            sm8.b(2016491, k77.class);
             registerListener(this.f);
         }
     }
@@ -288,8 +288,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            dm8.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            dm8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            sm8.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            sm8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
             registerListener(this.e);
         }
     }

@@ -1,107 +1,93 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gu5 extends v06<qt5> {
+public class gu5 extends qn<du5, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fu5 i;
-    public fu5 j;
-    public LinearLayout k;
-    public ViewGroup l;
-    public View m;
+    public TbPageContext a;
+    public tu5 b;
+    public yu5 c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gu5(TbPageContext<?> tbPageContext, ViewGroup viewGroup, String str) {
-        super(tbPageContext, viewGroup);
+    public gu5(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), du5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, str};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new fu5(tbPageContext, str);
-        this.j = new fu5(tbPageContext, str);
-        ViewGroup viewGroup2 = (ViewGroup) h();
-        this.l = viewGroup2;
-        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090e60);
-        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090e56);
-        View view2 = new View(getContext());
-        this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12));
-        this.k.addView(this.i.h());
-        this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.k.addView(this.j.h());
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.v06
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d084e : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            this.i.k(tbPageContext, i);
-            this.j.k(tbPageContext, i);
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
+        this.d = "";
+        this.a = tbPageContext;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: r */
-    public void i(qt5 qt5Var) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, qt5Var) == null) || qt5Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            tu5 tu5Var = new tu5(this.a, viewGroup, this.d);
+            this.b = tu5Var;
+            yu5 yu5Var = this.c;
+            if (yu5Var != null) {
+                tu5Var.s(yu5Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        this.i.i(qt5Var.a);
-        this.j.i(qt5Var.b);
-        if (qt5Var.c) {
-            this.m.setVisibility(0);
-        } else {
-            this.m.setVisibility(8);
-        }
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
     }
 
-    public void s(lu5 lu5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, du5 du5Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
+        InterceptResult invokeCommon;
+        tu5 tu5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lu5Var) == null) {
-            this.i.l(lu5Var);
-            this.j.l(lu5Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, du5Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder == null || (tu5Var = liveTabConcernItemViewLineHolder.a) == null) {
+                return null;
+            }
+            tu5Var.i(du5Var);
+            return liveTabConcernItemViewLineHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void u(yu5 yu5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yu5Var) == null) {
+            this.c = yu5Var;
+            tu5 tu5Var = this.b;
+            if (tu5Var != null) {
+                tu5Var.s(yu5Var);
+            }
         }
     }
 }

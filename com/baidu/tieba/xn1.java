@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.tieba.x43;
 /* loaded from: classes6.dex */
-public interface xn1 extends pw2 {
-    File a();
+public interface xn1 {
+    boolean a(Activity activity, String str, x43.b bVar);
 
-    void e(String str, String str2);
+    boolean b(Context context, String str);
 
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    boolean c(Activity activity, Uri uri, String str);
 }

@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a27;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.o27;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,27 +104,27 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(a27 a27Var) {
+    public void setData(o27 o27Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, a27Var) == null) || a27Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, o27Var) == null) || o27Var == null) {
             return;
         }
-        if (!a27Var.a()) {
+        if (!o27Var.a()) {
             setVisibility(8);
             return;
         }
-        if (a27Var.c > 0) {
-            bx4.k().x(bx4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + a27Var.c);
+        if (o27Var.c > 0) {
+            ox4.k().x(ox4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + o27Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(a27Var.d)) {
-            this.d.setText(a27Var.d);
+        if (this.d != null && !StringUtils.isNull(o27Var.d)) {
+            this.d.setText(o27Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout == null || a27Var.b == null) {
+        if (linearLayout == null || o27Var.b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = a27Var.b;
+        List<String> list = o27Var.b;
         for (int i = 0; i < list.size(); i++) {
             String str = list.get(i);
             if (!StringUtils.isNull(str)) {

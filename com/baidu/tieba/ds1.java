@@ -1,193 +1,156 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.tieba.cs1;
-import com.baidu.tieba.ym2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ds1 {
+public class ds1 extends cs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ds1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
 
     /* loaded from: classes3.dex */
-    public class a implements by2 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cs1.c a;
-        public final /* synthetic */ ds1 b;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ l33 d;
+        public final /* synthetic */ ds1 e;
 
-        public a(ds1 ds1Var, cs1.c cVar) {
+        public a(ds1 ds1Var, File file, int i, String str, l33 l33Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ds1Var, cVar};
+                Object[] objArr = {ds1Var, file, Integer.valueOf(i), str, l33Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ds1Var;
-            this.a = cVar;
+            this.e = ds1Var;
+            this.a = file;
+            this.b = i;
+            this.c = str;
+            this.d = l33Var;
         }
 
-        @Override // com.baidu.tieba.by2
-        public void a(String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.by2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                yz1.c("GetLocationHelper", str);
-                ea3.b("getLocation", 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements ym2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cs1.c a;
-        public final /* synthetic */ ds1 b;
-
-        public b(ds1 ds1Var, cs1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ds1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                File k = jg3.k(this.a.getName());
+                if (!jg3.b(this.a, k, this.b)) {
+                    l02.c("ImageApi", "compress image failed");
+                    this.e.d(this.c, new lv1(1001, "compress image failed"));
                     return;
                 }
-            }
-            this.b = ds1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.ym2.a
-        public void a(x53 x53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                this.b.a.g(this.a, x53Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.ym2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                ea3.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("tempFilePath", ta3.J(k.getAbsolutePath(), this.d.b));
+                } catch (JSONException e) {
+                    l02.c("ImageApi", e.toString());
+                }
+                this.e.d(this.c, new lv1(0, jSONObject));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface c {
-        void b(cs1.c cVar, int i);
-
-        void f(cs1.c cVar, String str);
-
-        void g(cs1.c cVar, x53 x53Var);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715015, "Lcom/baidu/tieba/ds1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715015, "Lcom/baidu/tieba/ds1;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
-
-    public ds1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ds1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static ds1 d() {
+    @Override // com.baidu.tieba.or1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (ds1.class) {
-                    if (b == null) {
-                        b = new ds1();
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
+    }
+
+    public lv1 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#compressImage", false);
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (lv1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    l02.c("ImageApi", "cb is empty");
+                    return new lv1(202, "cb is empty");
                 }
+                return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
             }
-            return b;
+            return lv1Var;
         }
-        return (ds1) invokeV.objValue;
+        return (lv1) invokeL.objValue;
     }
 
-    public final void c(cs1.c cVar) {
+    public final lv1 y(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                str = TextUtils.equals(cVar.a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
+            l33 b0 = l33.b0();
+            if (b0 == null) {
+                return new lv1(1001, "swan app is null");
             }
-            fm2.I().b(str, false, cVar.b, new b(this, cVar));
-        }
-    }
-
-    public void e(@NonNull cs1.c cVar, @NonNull c cVar2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (sg3.M()) {
-                c(cVar);
-            } else if (z) {
-                ea3.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
-            } else {
-                ay2.g(x23.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
+            int i2 = (i < 0 || i > 100) ? 80 : i;
+            if (TextUtils.isEmpty(str2)) {
+                l02.c("ImageApi", "src is null");
+                return new lv1(202, "src is null");
             }
+            PathType s = ta3.s(str2);
+            String str3 = null;
+            if (s == PathType.BD_FILE) {
+                str3 = ta3.M(str2, b0.b);
+            } else if (s == PathType.RELATIVE) {
+                str3 = ta3.L(str2, b0, b0.k0());
+            }
+            if (TextUtils.isEmpty(str3)) {
+                l02.c("ImageApi", "file path error");
+                return new lv1(2001, "file path error");
+            }
+            File file = new File(str3);
+            if (!file.exists()) {
+                l02.c("ImageApi", "file does not exist");
+                return new lv1(2001, "file does not exist");
+            }
+            fg3.k(new a(this, file, i2, str, b0), "compressImage");
+            return lv1.f();
         }
+        return (lv1) invokeLLI.objValue;
     }
 }

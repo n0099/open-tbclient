@@ -1,30 +1,75 @@
 package com.baidu.tieba;
 
-import android.graphics.BitmapFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
-public final class xr9 {
+public class xr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BitmapFactory.Options a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final /* synthetic */ InstallActivity b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310122, "Lcom/baidu/tieba/xr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310122, "Lcom/baidu/tieba/xr9;");
+    public xr9(InstallActivity installActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new BitmapFactory.Options();
+        this.b = installActivity;
+        this.a = false;
+    }
+
+    public void a(com.google.ar.core.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
+            synchronized (this.b) {
+                if (this.a) {
+                    return;
+                }
+                InstallActivity.e(this.b, pVar);
+                int ordinal = pVar.ordinal();
+                if (ordinal != 0) {
+                    if (ordinal == 1) {
+                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
+                    } else if (ordinal == 2) {
+                        if (!InstallActivity.f(this.b)) {
+                            InstallActivity.g(this.b);
+                        }
+                        InstallActivity.a(this.b, null);
+                    }
+                    this.a = true;
+                }
+            }
+        }
+    }
+
+    public void b(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            synchronized (this.b) {
+                if (this.a) {
+                    return;
+                }
+                this.a = true;
+                InstallActivity.e(this.b, com.google.ar.core.p.b);
+                boolean z = exc instanceof UnavailableException;
+                InstallActivity.a(this.b, exc);
+            }
+        }
     }
 }

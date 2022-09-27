@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.tieba.ae8;
-import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public interface bd8 {
-    void onDestroy();
+public class bd8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public String b;
+    public String c;
+    public ArrayList<String> d;
+    public boolean e;
+    public boolean f;
 
-    void onPause();
-
-    void onPrimary(boolean z);
-
-    void onUserVisibleHint(boolean z);
-
-    void onViewClick();
-
-    void onViewDoubleClick();
-
-    void onViewDragToRight();
-
-    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
-
-    void setPageChangeHandler(ae8.a aVar, int i);
-
-    void updateTiebaData(int i, VideoItemModel videoItemModel);
+    public bd8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

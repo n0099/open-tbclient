@@ -23,18 +23,18 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a71;
-import com.baidu.tieba.ap0;
-import com.baidu.tieba.ho0;
-import com.baidu.tieba.il0;
+import com.baidu.tieba.cl0;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.h01;
+import com.baidu.tieba.ii0;
 import com.baidu.tieba.lk0;
-import com.baidu.tieba.pk0;
-import com.baidu.tieba.rk0;
-import com.baidu.tieba.uz0;
-import com.baidu.tieba.vh0;
-import com.baidu.tieba.yj0;
-import com.baidu.tieba.z21;
-import com.baidu.tieba.z61;
+import com.baidu.tieba.m31;
+import com.baidu.tieba.m71;
+import com.baidu.tieba.n71;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.uo0;
+import com.baidu.tieba.vl0;
+import com.baidu.tieba.yk0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,15 +46,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NadRewardOperateView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a71 a;
-    public z61 b;
+    public n71 a;
+    public m71 b;
     public AdImageView c;
     public SimpleFeedAdInfoView d;
     public RelativeLayout e;
     public TextView f;
     public TextView g;
     public TextView h;
-    public lk0 i;
+    public yk0 i;
 
     /* loaded from: classes2.dex */
     public class a implements SimpleAdInfoView.c {
@@ -126,19 +126,19 @@ public class NadRewardOperateView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements pk0 {
+    public class c implements cl0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ yj0 b;
+        public final /* synthetic */ lk0 b;
         public final /* synthetic */ NadRewardOperateView c;
 
-        public c(NadRewardOperateView nadRewardOperateView, AdBaseModel adBaseModel, yj0 yj0Var) {
+        public c(NadRewardOperateView nadRewardOperateView, AdBaseModel adBaseModel, lk0 lk0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nadRewardOperateView, adBaseModel, yj0Var};
+                Object[] objArr = {nadRewardOperateView, adBaseModel, lk0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -150,10 +150,10 @@ public class NadRewardOperateView extends FrameLayout {
             }
             this.c = nadRewardOperateView;
             this.a = adBaseModel;
-            this.b = yj0Var;
+            this.b = lk0Var;
         }
 
-        @Override // com.baidu.tieba.pk0
+        @Override // com.baidu.tieba.cl0
         public void a(AdDownloadStatus adDownloadStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) {
@@ -187,7 +187,7 @@ public class NadRewardOperateView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.pk0
+        @Override // com.baidu.tieba.cl0
         public void b(AdDownloadCode adDownloadCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) {
@@ -229,11 +229,11 @@ public class NadRewardOperateView extends FrameLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vh0.c(this.a.h.d, this.b.getContext());
-                uz0.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(this.a.f.d));
-                a71 a71Var = this.b.a;
-                if (a71Var != null) {
-                    a71Var.b(this.a);
+                ii0.c(this.a.h.d, this.b.getContext());
+                h01.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(this.a.f.d));
+                n71 n71Var = this.b.a;
+                if (n71Var != null) {
+                    n71Var.b(this.a);
                 }
             }
         }
@@ -329,7 +329,7 @@ public class NadRewardOperateView extends FrameLayout {
             if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.d)) {
                 clogBuilder.p(adBaseModel.f.d);
             }
-            uz0.b(clogBuilder);
+            h01.b(clogBuilder);
         }
     }
 
@@ -338,7 +338,7 @@ public class NadRewardOperateView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2 == null) {
             return;
         }
-        z21.a(view2.getContext(), view2, 6.0f);
+        m31.a(view2.getContext(), view2, 6.0f);
     }
 
     public final void g() {
@@ -346,13 +346,13 @@ public class NadRewardOperateView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0610, (ViewGroup) this, true);
             this.c = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09160d);
-            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091c0c);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c0d);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c0e);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c10);
+            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091c0e);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c0f);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c10);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c12);
             this.e = relativeLayout;
             f(relativeLayout);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c0f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c11);
             this.h = textView;
             f(textView);
         }
@@ -360,13 +360,13 @@ public class NadRewardOperateView extends FrameLayout {
 
     public final boolean h(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
-        ho0 ho0Var;
+        uo0 uo0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adBaseModel)) == null) {
-            if (adBaseModel == null || (ho0Var = adBaseModel.l) == null) {
+            if (adBaseModel == null || (uo0Var = adBaseModel.l) == null) {
                 return false;
             }
-            return ho0Var.e;
+            return uo0Var.e;
         }
         return invokeL.booleanValue;
     }
@@ -374,9 +374,9 @@ public class NadRewardOperateView extends FrameLayout {
     public final boolean i() {
         InterceptResult invokeV;
         AdBaseModel adBaseModel;
-        ho0 ho0Var;
+        uo0 uo0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (getTag() instanceof AdBaseModel) && (adBaseModel = (AdBaseModel) getTag()) != null && (ho0Var = adBaseModel.l) != null && ho0Var.e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (getTag() instanceof AdBaseModel) && (adBaseModel = (AdBaseModel) getTag()) != null && (uo0Var = adBaseModel.l) != null && uo0Var.e : invokeV.booleanValue;
     }
 
     public final boolean j() {
@@ -391,8 +391,8 @@ public class NadRewardOperateView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) || this.c == null) {
             return;
         }
-        ap0 ap0Var = adBaseModel.i;
-        if (ap0Var != null && !TextUtils.isEmpty(ap0Var.b)) {
+        np0 np0Var = adBaseModel.i;
+        if (np0Var != null && !TextUtils.isEmpty(np0Var.b)) {
             this.c.g(adBaseModel.i.b);
         } else if (TextUtils.isEmpty(adBaseModel.f.f)) {
         } else {
@@ -459,7 +459,7 @@ public class NadRewardOperateView extends FrameLayout {
             ((GradientDrawable) this.h.getBackground()).setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602f0));
             ((GradientDrawable) this.h.getBackground()).setStroke(2, getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602f1));
         } else {
-            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df2));
+            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df4));
         }
         if (!TextUtils.isEmpty(adBaseModel.h.c)) {
             this.h.setText(adBaseModel.h.c);
@@ -481,29 +481,29 @@ public class NadRewardOperateView extends FrameLayout {
             this.e.setVisibility(8);
             return;
         }
-        rk0<?> a2 = il0.a(this.e, IDownloadViewCreator.ViewType.REWARD_DOWNLOAD_VIEW);
+        el0<?> a2 = vl0.a(this.e, IDownloadViewCreator.ViewType.REWARD_DOWNLOAD_VIEW);
         this.e.setVisibility(0);
-        yj0 c2 = yj0.c(adBaseModel);
-        this.i = new lk0(c2, a2);
+        lk0 c2 = lk0.c(adBaseModel);
+        this.i = new yk0(c2, a2);
         this.e.setOnClickListener(new b(this));
-        z61 z61Var = this.b;
-        if (z61Var != null) {
-            z61Var.c(adBaseModel);
+        m71 m71Var = this.b;
+        if (m71Var != null) {
+            m71Var.c(adBaseModel);
         }
         this.i.o(new c(this, adBaseModel, c2));
     }
 
-    public void setFeedListener(a71 a71Var) {
+    public void setFeedListener(n71 n71Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, a71Var) == null) {
-            this.a = a71Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, n71Var) == null) {
+            this.a = n71Var;
         }
     }
 
-    public void setViewDownloadListener(z61 z61Var) {
+    public void setViewDownloadListener(m71 m71Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, z61Var) == null) {
-            this.b = z61Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, m71Var) == null) {
+            this.b = m71Var;
         }
     }
 

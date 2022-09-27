@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class dh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
+    public Handler a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public b h;
+    public Runnable i;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dh5 a;
@@ -42,100 +45,100 @@ public class dh5 {
             this.a = dh5Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.a == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.a.g > this.a.f) {
+                    dh5 dh5Var = this.a;
+                    dh5Var.f = currentTimeMillis - dh5Var.d;
+                    dh5 dh5Var2 = this.a;
+                    dh5Var2.g = dh5Var2.f;
+                }
+                long j = currentTimeMillis - this.a.f;
+                this.a.c += this.a.d;
+                if (this.a.c < this.a.b) {
+                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
+                    if (this.a.h != null) {
+                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
+                    }
+                } else {
+                    dh5 dh5Var3 = this.a;
+                    dh5Var3.c = dh5Var3.b;
+                    this.a.m();
+                }
+                this.a.f = currentTimeMillis;
             }
-            this.a.a.dismiss();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ dh5 b;
+    public interface b {
+        void onCountDown(long j, long j2);
 
-        public b(dh5 dh5Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dh5Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dh5Var;
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.b.a != null) {
-                    this.b.a.dismiss();
-                }
-                if (StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
-                    return;
-                }
-                lo4.o(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
-            }
-        }
+        void onCountDownFinish(long j);
     }
 
-    public dh5() {
+    public dh5(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.i = new a(this);
+        this.b = j;
+        this.d = j2;
+    }
+
+    public final void m() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.h) == null) {
+            return;
+        }
+        bVar.onCountDownFinish(this.b);
+    }
+
+    public void n(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.h = bVar;
         }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public void o() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? bx4.k().h("key_member_auto_ban_renewal_show", false) : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.e = currentTimeMillis;
+            this.f = currentTimeMillis;
+            b bVar = this.h;
+            if (bVar != null) {
+                long j = this.b;
+                bVar.onCountDown(j, j - this.c);
+            }
+            this.a.postDelayed(this.i, this.d);
+        }
     }
 
-    public void c(Activity activity) {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null && alertDialog.isShowing()) {
-                this.a.dismiss();
-            }
-            if (activity == null) {
-                return;
-            }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f4f, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0804, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0adb);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037c);
-            tBAlertBuilder.r(aVar2, aVar);
-            tBAlertBuilder.m(true);
-            tBAlertBuilder.h(false);
-            tBAlertBuilder.l(3);
-            this.a = tBAlertBuilder.w();
-            bx4.k().u("key_member_auto_ban_renewal_show", true);
-            aVar.a(new a(this));
-            aVar2.a(new b(this, activity));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = this.e;
+            this.f = j;
+            this.g = j;
+            this.a.removeCallbacks(this.i);
         }
     }
 }

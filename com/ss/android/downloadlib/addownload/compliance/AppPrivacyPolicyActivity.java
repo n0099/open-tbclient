@@ -28,7 +28,7 @@ public class AppPrivacyPolicyActivity extends Activity {
 
     private void b() {
         this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091025);
-        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091a84);
+        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091a86);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

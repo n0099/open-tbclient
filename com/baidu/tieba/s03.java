@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,158 +12,74 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class s03 {
+public final class s03 extends i53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public a13 c;
-    public Context d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097555, "Lcom/baidu/tieba/s03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948097555, "Lcom/baidu/tieba/s03;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948097555, "Lcom/baidu/tieba/s03;")) == null) {
+            return;
         }
-        e = ij1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948097555, "Lcom/baidu/tieba/s03;");
+        }
     }
 
-    public s03(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s03(i43 dispatcher) {
+        super(dispatcher, "/swanAPI/community/closeCommunityEditor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {dispatcher};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
+        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
     }
 
-    public final a13 a(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a13 a13Var = this.c;
-            if (a13Var != null) {
-                return a13Var;
-            }
-            if (view2 instanceof a13) {
-                a13 a13Var2 = (a13) view2;
-                this.c = a13Var2;
-                return a13Var2;
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    a13 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, l33Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            if (l33Var != null) {
+                yo2 U = yo2.U();
+                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
+                u22 V = U.V();
+                if (V != null) {
+                    r22 m = V.m();
+                    if (m instanceof p03) {
+                        ((p03) m).q3();
+                        entity.result = UnitedSchemeUtility.wrapCallbackParams(0, "");
+                        return true;
                     }
                 }
-                return null;
-            } else {
-                return null;
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "top is not publisher");
+                return false;
             }
+            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+            return false;
         }
-        return (a13) invokeL.objValue;
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (z03.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-                if (z03.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-            }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
-            }
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
-            }
-            this.a = i2;
-            a13 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
-            }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < x03.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > x03.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
-            } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

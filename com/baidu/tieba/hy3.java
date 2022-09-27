@@ -1,64 +1,126 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hy3 implements oa2 {
+public class hy3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile boolean a;
+    public static volatile boolean b;
+    public static volatile List<md2> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static String a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (TextUtils.isEmpty(a)) {
-                    a = ye3.b();
-                }
-                return a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947840007, "Lcom/baidu/tieba/hy3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return (String) invokeV.objValue;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947840007, "Lcom/baidu/tieba/hy3;");
+                return;
+            }
         }
+        c = new ArrayList();
     }
 
     public hy3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.oa2
-    public ga2 a(String str, db2 db2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, db2Var, v8ThreadDelegatePolicy)) == null) ? new iy3(str, db2Var, v8ThreadDelegatePolicy) : (ga2) invokeLLL.objValue;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
+            synchronized (hy3.class) {
+                if (c != null) {
+                    for (int i = 0; i < c.size(); i++) {
+                        yo2.U().m("console", c.get(i));
+                    }
+                    c.clear();
+                    c = null;
+                }
+            }
+            b = true;
+        }
     }
 
-    @Override // com.baidu.tieba.oa2
-    public String getUserAgent() {
-        InterceptResult invokeV;
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "log" : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (hy3.class) {
+                c = new ArrayList();
+            }
+            b = false;
+        }
+    }
+
+    public static void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            e(b(i), str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
+            f(by3.t(str, str2));
+        }
+    }
+
+    public static void f(md2 md2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, md2Var) == null) {
+            if (!b) {
+                synchronized (hy3.class) {
+                    if (c != null) {
+                        c.add(md2Var);
+                        return;
+                    }
+                }
+            }
+            yo2.U().m("console", md2Var);
+        }
+    }
+
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
+            f(by3.v(str, str2));
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            a = z;
+            l02.n(z);
+        }
     }
 }

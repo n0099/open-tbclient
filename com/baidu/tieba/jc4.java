@@ -1,64 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Objects;
 /* loaded from: classes4.dex */
-public class jc4 {
+public class jc4 extends hc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String g;
+    public int h;
+    public long i;
+    public String j;
+    public long k;
+    public String l;
+    public String m;
+    public String n;
 
-    public static void a(@NonNull sd4 sd4Var, @Nullable List<yb4> list, @Nullable List<zb4> list2, @NonNull ta4 ta4Var) {
+    public jc4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, sd4Var, list, list2, ta4Var) == null) {
-            dd4 b = lc4.b(sd4Var, ta4Var);
-            if (list != null && !list.isEmpty()) {
-                lc4.a(b, cd4.h(list, ta4Var));
-            }
-            if (list2 != null && !list2.isEmpty()) {
-                lc4.a(b, cd4.e(list2, ta4Var));
-            }
-            b.e();
-        }
-    }
-
-    public static void b(td4 td4Var, ta4 ta4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, td4Var, ta4Var) == null) {
-            lc4.c(td4Var, ta4Var);
-        }
-    }
-
-    public static void c(ud4 ud4Var, ta4 ta4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ud4Var, ta4Var) == null) {
-            lc4.d(ud4Var, ta4Var);
-        }
-    }
-
-    public static void d(vd4 vd4Var, ta4 ta4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, vd4Var, ta4Var) == null) {
-            lc4.e(vd4Var, ta4Var);
-        }
-    }
-
-    public static void e(qf4 qf4Var, ta4 ta4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, qf4Var, ta4Var) == null) {
-            lc4.f(qf4Var, ta4Var);
-        }
-    }
-
-    public static synchronized void f(List<zb4> list, ta4 ta4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, ta4Var) == null) {
-            synchronized (jc4.class) {
-                lc4.g(list, ta4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.g) || this.i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true : invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
+            }
+            if (obj != null && (obj instanceof jc4)) {
+                jc4 jc4Var = (jc4) obj;
+                return (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(jc4Var.j)) ? this.g.equals(jc4Var.g) && this.i == jc4Var.i : TextUtils.equals(this.g, jc4Var.g) && this.i == jc4Var.i && TextUtils.equals(this.j, jc4Var.j);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j) : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
+        }
+        return (String) invokeV.objValue;
     }
 }

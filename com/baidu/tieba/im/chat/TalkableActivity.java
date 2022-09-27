@@ -65,34 +65,34 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ap8;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.fc7;
+import com.baidu.tieba.di5;
+import com.baidu.tieba.dp4;
+import com.baidu.tieba.e15;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.hc7;
 import com.baidu.tieba.hi5;
-import com.baidu.tieba.i95;
+import com.baidu.tieba.ih5;
+import com.baidu.tieba.il5;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.LocalPicModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.jc7;
-import com.baidu.tieba.lo8;
-import com.baidu.tieba.lu4;
+import com.baidu.tieba.j85;
+import com.baidu.tieba.ja7;
+import com.baidu.tieba.ll5;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.qh5;
-import com.baidu.tieba.qo4;
-import com.baidu.tieba.r05;
 import com.baidu.tieba.sj;
+import com.baidu.tieba.tc7;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.uh5;
 import com.baidu.tieba.ui;
-import com.baidu.tieba.v97;
-import com.baidu.tieba.vg5;
-import com.baidu.tieba.vk5;
-import com.baidu.tieba.w75;
+import com.baidu.tieba.ui5;
+import com.baidu.tieba.v95;
+import com.baidu.tieba.vc7;
+import com.baidu.tieba.xc7;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.yf;
-import com.baidu.tieba.yk5;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -111,7 +111,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class TalkableActivity<T> extends BaseFragmentActivity implements VoiceManager.j, yk5, View.OnTouchListener, BdListView.s, BdListView.p, yf, xf, lu4.e, ActivityCompat.OnRequestPermissionsResultCallback {
+public abstract class TalkableActivity<T> extends BaseFragmentActivity implements VoiceManager.j, ll5, View.OnTouchListener, BdListView.s, BdListView.p, yf, xf, yu4.e, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
@@ -123,7 +123,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     public TalkableActivity<T>.k g;
     public boolean h;
     public boolean i;
-    public w75.b<ChatMessage> j;
+    public j85.b<ChatMessage> j;
     public long k;
     public View l;
     public WriteImagesInfo m;
@@ -133,7 +133,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     public CustomMessageListener q;
     public q9 r;
     public boolean s;
-    public hc7 t;
+    public vc7 t;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -214,7 +214,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     }
 
     /* loaded from: classes4.dex */
-    public class c implements w75.b<ChatMessage> {
+    public class c implements j85.b<ChatMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TalkableActivity a;
@@ -238,7 +238,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w75.b
+        @Override // com.baidu.tieba.j85.b
         /* renamed from: b */
         public void a(int i, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -258,7 +258,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         public final /* synthetic */ TalkableActivity d;
 
         /* loaded from: classes4.dex */
-        public class a extends qh5<Object> {
+        public class a extends di5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -281,7 +281,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 this.a = dVar;
             }
 
-            @Override // com.baidu.tieba.qh5
+            @Override // com.baidu.tieba.di5
             public Object doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
 
         /* loaded from: classes4.dex */
-        public class b implements vg5<Object> {
+        public class b implements ih5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -318,7 +318,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 this.a = dVar;
             }
 
-            @Override // com.baidu.tieba.vg5
+            @Override // com.baidu.tieba.ih5
             public void onReturnDataInUI(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -364,7 +364,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageFileInfo = this.a) == null || imageFileInfo.getFilePath() == null) {
                 return;
             }
-            uh5.b(new a(this), new b(this));
+            hi5.b(new a(this), new b(this));
         }
     }
 
@@ -399,9 +399,9 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vk5.a)) {
-                vk5.a aVar = (vk5.a) customResponsedMessage.getData();
-                vk5.b(this.a.getPageContext(), aVar.a, aVar.b, aVar.c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof il5.a)) {
+                il5.a aVar = (il5.a) customResponsedMessage.getData();
+                il5.b(this.a.getPageContext(), aVar.a, aVar.b, aVar.c);
             }
         }
     }
@@ -584,7 +584,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     }
 
     /* loaded from: classes4.dex */
-    public class h implements hc7 {
+    public class h implements vc7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TalkableActivity a;
@@ -607,7 +607,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a = talkableActivity;
         }
 
-        @Override // com.baidu.tieba.hc7
+        @Override // com.baidu.tieba.vc7
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -618,7 +618,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.hc7
+        @Override // com.baidu.tieba.vc7
         public void b() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.Z0() == null) {
@@ -627,14 +627,14 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a.Z0().cancelRecord();
         }
 
-        @Override // com.baidu.tieba.hc7
+        @Override // com.baidu.tieba.vc7
         public boolean isForeground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.i : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.hc7
+        @Override // com.baidu.tieba.vc7
         public void setRecoding(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -642,7 +642,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             }
         }
 
-        @Override // com.baidu.tieba.hc7
+        @Override // com.baidu.tieba.vc7
         public void startRecord() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a.Z0() == null) {
@@ -652,7 +652,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a.Z0().d(sj.b);
         }
 
-        @Override // com.baidu.tieba.hc7
+        @Override // com.baidu.tieba.vc7
         public void stopRecord() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.Z0() == null) {
@@ -663,18 +663,18 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     }
 
     /* loaded from: classes4.dex */
-    public class i extends qh5<Object> {
+    public class i extends di5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r05 a;
+        public final /* synthetic */ e15 a;
         public final /* synthetic */ TalkableActivity b;
 
-        public i(TalkableActivity talkableActivity, r05 r05Var) {
+        public i(TalkableActivity talkableActivity, e15 e15Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {talkableActivity, r05Var};
+                Object[] objArr = {talkableActivity, e15Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -685,15 +685,15 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 }
             }
             this.b = talkableActivity;
-            this.a = r05Var;
+            this.a = e15Var;
         }
 
-        @Override // com.baidu.tieba.qh5
+        @Override // com.baidu.tieba.di5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String d = i95.b.d(this.a.d(), true);
+                String d = v95.b.d(this.a.d(), true);
                 boolean exists = new File(d).exists();
                 if (!exists) {
                     d = d.replace(".gif", ".jpg");
@@ -702,7 +702,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 imageFileInfo.setFilePath(d);
                 imageFileInfo.setIsGif(exists);
                 this.b.V0(imageFileInfo);
-                String b = i95.b.b(this.a.d());
+                String b = v95.b.b(this.a.d());
                 int i = a.a[this.a.getType().ordinal()];
                 String str = i != 1 ? i != 2 ? i != 3 ? "-1" : "3" : "2" : "1";
                 HashMap hashMap = new HashMap();
@@ -715,7 +715,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
     }
 
     /* loaded from: classes4.dex */
-    public class j implements vg5<Object> {
+    public class j implements ih5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TalkableActivity a;
@@ -738,7 +738,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             this.a = talkableActivity;
         }
 
-        @Override // com.baidu.tieba.vg5
+        @Override // com.baidu.tieba.ih5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -859,7 +859,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         this.t = new h(this);
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -869,21 +869,21 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public void G(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public void I(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<RelativeLayout> L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -893,7 +893,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (ug) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<ImageView> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -903,7 +903,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (ug) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<View> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -913,18 +913,18 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (ug) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public void Q(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public void R(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, context, str, z) == null) {
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{qo4.k(str)});
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dp4.k(str)});
         }
     }
 
@@ -934,7 +934,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public void V(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, context, str, str2) == null) {
@@ -951,7 +951,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                     FileHelper.saveGifByRelativePath(imageFileInfo.getFilePath(), null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY);
                     return;
                 }
-                Bitmap c2 = hi5.c(0, getPageContext().getContext(), null, imageFileInfo.getFilePath(), TbImageHelper.getInstance().getPostImageSize());
+                Bitmap c2 = ui5.c(0, getPageContext().getContext(), null, imageFileInfo.getFilePath(), TbImageHelper.getInstance().getPostImageSize());
                 if (c2 == null || FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c2, 85) == null || (resizeBitmap = BitmapHelper.resizeBitmap(c2, 100)) == null) {
                     return;
                 }
@@ -1037,7 +1037,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<TextView> Y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1047,7 +1047,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (ug) invokeV.objValue;
     }
 
-    public lo8 Z0() {
+    public ap8 Z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -1057,7 +1057,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             }
             return this.f.getRecorderManager();
         }
-        return (lo8) invokeV.objValue;
+        return (ap8) invokeV.objValue;
     }
 
     public MsglistModel a1() {
@@ -1112,7 +1112,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<ItemCardView> e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1164,14 +1164,14 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public void g1(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048600, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1221,7 +1221,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 this.c.markDeleteMsg(i2);
                 showToast((int) R.string.obfuscated_res_0x7f0f04be);
             } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a2))) {
-                String i3 = fc7.i(msg.getContent(), true);
+                String i3 = tc7.i(msg.getContent(), true);
                 if (i3 == null) {
                     return;
                 }
@@ -1328,11 +1328,11 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.lu4.e
-    public void n0(lu4 lu4Var, int i2, View view2) {
+    @Override // com.baidu.tieba.yu4.e
+    public void n0(yu4 yu4Var, int i2, View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048608, this, lu4Var, i2, view2) == null) && this.b.getMsgItemOperationDialog() != null && lu4Var.e() == this.b.getMsgItemOperationDialog().f()) {
-            int intValue = ((Integer) lu4Var.e().getTag()).intValue();
+        if ((interceptable == null || interceptable.invokeLIL(1048608, this, yu4Var, i2, view2) == null) && this.b.getMsgItemOperationDialog() != null && yu4Var.e() == this.b.getMsgItemOperationDialog().f()) {
+            int intValue = ((Integer) yu4Var.e().getTag()).intValue();
             if (view2 instanceof TextView) {
                 String charSequence = ((TextView) view2).getText().toString();
                 if (TextUtils.isEmpty(charSequence)) {
@@ -1350,9 +1350,9 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.c.saveDraft(this.b.getDraft()) : invokeV.booleanValue;
     }
 
-    public void o1(r05 r05Var) {
+    public void o1(e15 e15Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, r05Var) == null) || r05Var == null || r05Var.c() == null || r05Var.c().p() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048610, this, e15Var) == null) || e15Var == null || e15Var.c() == null || e15Var.c().p() == null) {
             return;
         }
         Activity pageActivity = getPageContext().getPageActivity();
@@ -1364,7 +1364,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         if (this.n.startRequestPermission(pageActivity)) {
             return;
         }
-        uh5.b(new i(this, r05Var), new j(this));
+        hi5.b(new i(this, e15Var), new j(this));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -1669,13 +1669,13 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             if (i2 == 1) {
-                if (v97.a(this)) {
+                if (ja7.a(this)) {
                     return;
                 }
                 this.b.showDiaItemContentOperate(i3, W0(i2, this.h));
             } else if (i2 == 8) {
                 ChatMessage msg3 = this.c.getMsg(i3);
-                if (msg3 == null || !fc7.x(msg3) || (msg = this.c.getMsg(i3)) == null || (content = msg.getContent()) == null) {
+                if (msg3 == null || !tc7.x(msg3) || (msg = this.c.getMsg(i3)) == null || (content = msg.getContent()) == null) {
                     return;
                 }
                 try {
@@ -1691,14 +1691,14 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 if (msg4 == null || msg4.getContent() == null) {
                     return;
                 }
-                jc7 jc7Var = new jc7();
-                jc7Var.c(msg4.getContent(), getClass().getName());
-                if (jc7Var.b() != 4 || jc7Var.a() == null || StringUtils.isNull(((ShareFromFrsMsgData) jc7Var.a()).getName())) {
+                xc7 xc7Var = new xc7();
+                xc7Var.c(msg4.getContent(), getClass().getName());
+                if (xc7Var.b() != 4 || xc7Var.a() == null || StringUtils.isNull(((ShareFromFrsMsgData) xc7Var.a()).getName())) {
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) jc7Var.a()).getName(), null)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) xc7Var.a()).getName(), null)));
             } else if (i2 == 5) {
-                if (!d1() || (msg2 = this.c.getMsg(i3)) == null || fc7.z(msg2)) {
+                if (!d1() || (msg2 = this.c.getMsg(i3)) == null || tc7.z(msg2)) {
                 }
             } else if (i2 != 6) {
                 switch (i2) {
@@ -1716,21 +1716,21 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         } catch (Exception e3) {
                             BdLog.e(e3.toString());
                         }
-                        jc7 jc7Var2 = new jc7();
-                        jc7Var2.c(msg5.getContent(), getClass().getName());
-                        if (jc7Var2.b() == 1 && jc7Var2.a() != null) {
-                            String theNewThemeId = ((ShareFromPBMsgData) jc7Var2.a()).getTheNewThemeId();
+                        xc7 xc7Var2 = new xc7();
+                        xc7Var2.c(msg5.getContent(), getClass().getName());
+                        if (xc7Var2.b() == 1 && xc7Var2.a() != null) {
+                            String theNewThemeId = ((ShareFromPBMsgData) xc7Var2.a()).getTheNewThemeId();
                             if (!StringUtils.isNull(theNewThemeId)) {
                                 long g2 = dh.g(theNewThemeId, 0L);
                                 if (g2 <= 0) {
                                     return;
                                 }
-                                sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(getPageContext().getContext(), g2, ((ShareFromPBMsgData) jc7Var2.a()).getImageUrl())));
+                                sendMessage(new CustomMessage(2002001, new PbChosenActivityConfig(getPageContext().getContext(), g2, ((ShareFromPBMsgData) xc7Var2.a()).getImageUrl())));
                                 return;
-                            } else if (StringUtils.isNull(((ShareFromPBMsgData) jc7Var2.a()).getThreadId())) {
+                            } else if (StringUtils.isNull(((ShareFromPBMsgData) xc7Var2.a()).getThreadId())) {
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) jc7Var2.a()).getThreadId(), ((ShareFromPBMsgData) jc7Var2.a()).getPostId(), null)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) xc7Var2.a()).getThreadId(), ((ShareFromPBMsgData) xc7Var2.a()).getPostId(), null)));
                                 return;
                             }
                         }
@@ -1744,10 +1744,10 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         if (msg6 == null || msg6.getContent() == null) {
                             return;
                         }
-                        jc7 jc7Var3 = new jc7();
-                        jc7Var3.c(msg6.getContent(), getClass().getName());
-                        if (jc7Var3.b() == 1 && jc7Var3.a() != null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, jc7Var3));
+                        xc7 xc7Var3 = new xc7();
+                        xc7Var3.c(msg6.getContent(), getClass().getName());
+                        if (xc7Var3.b() == 1 && xc7Var3.a() != null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001255, xc7Var3));
                             return;
                         }
                         return;
@@ -1760,10 +1760,10 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         if (msg7 == null || msg7.getContent() == null) {
                             return;
                         }
-                        jc7 jc7Var4 = new jc7();
-                        jc7Var4.c(msg7.getContent(), getClass().getName());
-                        if (jc7Var4.b() == 1 && jc7Var4.a() != null) {
-                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{((ShareFromGameCenterMsgData) jc7Var4.a()).getShareSourceUrl()}, true);
+                        xc7 xc7Var4 = new xc7();
+                        xc7Var4.c(msg7.getContent(), getClass().getName());
+                        if (xc7Var4.b() == 1 && xc7Var4.a() != null) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{((ShareFromGameCenterMsgData) xc7Var4.a()).getShareSourceUrl()}, true);
                             return;
                         }
                         return;
@@ -1827,7 +1827,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<GifView> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1867,7 +1867,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<TiebaPlusRecommendCard> y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1877,7 +1877,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
         return (ug) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yk5
+    @Override // com.baidu.tieba.ll5
     public ug<LinearLayout> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

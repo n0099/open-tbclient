@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq4;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ww4;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.oq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
                 if (basePersonInfoActivity.i && basePersonInfoActivity.m != 23011) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                    ww4.g(this.a.getPageContext().getPageActivity(), 200, false);
+                    jx4.g(this.a.getPageContext().getPageActivity(), 200, false);
                 }
                 this.a.finish();
             }
@@ -125,7 +125,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
-                basePersonInfoActivity.c = bq4.a(basePersonInfoActivity.m1()) % 3;
+                basePersonInfoActivity.c = oq4.a(basePersonInfoActivity.m1()) % 3;
                 int m1 = this.a.m1();
                 String str = m1 != 2 ? m1 != 3 ? m1 != 4 ? m1 != 5 ? "" : "friend" : "post" : "group" : "like";
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
@@ -170,10 +170,10 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        bq4.c(this.a.m1(), BasePersonInfoActivity.t[this.a.c]);
+                        oq4.c(this.a.m1(), BasePersonInfoActivity.t[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.l, BasePersonInfoActivity.r[this.a.c], BasePersonInfoActivity.q[this.a.c]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
-                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.obfuscated_res_0x7f080aca);
+                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.obfuscated_res_0x7f080acc);
                         return;
                     }
                     this.a.showToast(httpResponsedMessage.getErrorString());
@@ -199,7 +199,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
         }
         q = new int[]{R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
-        r = new int[]{R.drawable.obfuscated_res_0x7f0808fe, R.drawable.obfuscated_res_0x7f080902, R.drawable.obfuscated_res_0x7f080900};
+        r = new int[]{R.drawable.obfuscated_res_0x7f080900, R.drawable.obfuscated_res_0x7f080904, R.drawable.obfuscated_res_0x7f080902};
         s = new int[]{R.string.obfuscated_res_0x7f0f0903, R.string.obfuscated_res_0x7f0f0904, R.string.obfuscated_res_0x7f0f0905};
         t = new int[]{1, 2, 3};
     }
@@ -392,7 +392,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i, keyEvent)) == null) {
             if (i == 4 && keyEvent.getRepeatCount() == 0) {
                 if (this.i && this.m != 23011) {
-                    ww4.g(getPageContext().getPageActivity(), 200, false);
+                    jx4.g(getPageContext().getPageActivity(), 200, false);
                 }
                 finish();
                 return true;
@@ -466,7 +466,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (this.g && this.m != 23003 && !this.i) {
                 ImageView imageView = (ImageView) this.k.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0925, (View.OnClickListener) null);
                 this.l = imageView;
-                SkinManager.setNavbarIconSrc(imageView, r[bq4.a(m1()) - 1], q[bq4.a(m1()) - 1]);
+                SkinManager.setNavbarIconSrc(imageView, r[oq4.a(m1()) - 1], q[oq4.a(m1()) - 1]);
                 this.l.setOnClickListener(new b(this));
             }
             this.b = new int[]{0, 1};

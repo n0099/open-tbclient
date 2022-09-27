@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.b85;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,23 +119,23 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             a(e(privateForumPopInfoData.C()));
             if (privateForumPopInfoData.C().equals("left_time")) {
                 this.f.setText(R.string.obfuscated_res_0x7f0f0747);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3c);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f40);
             } else if (!privateForumPopInfoData.C().equals("clear_forum") && !privateForumPopInfoData.C().equals("task_fail")) {
                 if (privateForumPopInfoData.C().equals("task_complete")) {
                     this.f.setText(R.string.obfuscated_res_0x7f0f0747);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3d);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f41);
                 } else {
                     this.f.setText(R.string.obfuscated_res_0x7f0f0747);
                     f();
-                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f39);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3a);
+                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f3d);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3e);
                 }
             } else {
                 this.f.setText(R.string.obfuscated_res_0x7f0f0749);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3b);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3f);
             }
             this.f.setTag(R.id.obfuscated_res_0x7f090f89, Boolean.valueOf(z));
-            this.f.setTag(R.id.obfuscated_res_0x7f091a8e, privateForumPopInfoData);
+            this.f.setTag(R.id.obfuscated_res_0x7f091a90, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
             this.e.setText(privateForumPopInfoData.A());
             return true;
@@ -151,10 +151,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (bx4.k().h(str, false)) {
+            if (ox4.k().h(str, false)) {
                 return true;
             }
-            bx4.k().u(str, true);
+            ox4.k().u(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -164,7 +164,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0342, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bd7);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bd6);
             HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090a92);
             this.b = headImageView;
             headImageView.setIsRound(true);
@@ -172,25 +172,25 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
             this.b.setBorderWidth(j);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a91);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd6);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a8d);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090d47);
-            this.i = findViewById(R.id.obfuscated_res_0x7f091a8c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd4);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a8f);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090d46);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091a8e);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            uu4 d = uu4.d(this.f);
+            hv4 d = hv4.d(this.f);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            uu4 d2 = uu4.d(this.d);
+            hv4 d2 = hv4.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            uu4 d3 = uu4.d(this.h);
+            hv4 d3 = hv4.d(this.h);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            uu4 d4 = uu4.d(this.i);
+            hv4 d4 = hv4.d(this.i);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -207,7 +207,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = o75.d().e().getAvater();
+            String avater = b85.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.K(avater, 10, false);
             } else {

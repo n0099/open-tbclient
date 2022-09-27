@@ -1,184 +1,27 @@
 package com.baidu.tieba;
 
-import android.graphics.Typeface;
-import android.view.View;
+import android.content.Context;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Calendar;
 /* loaded from: classes6.dex */
-public class tl5<T> {
+public class tl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public WheelView b;
-    public WheelView c;
-    public WheelView d;
-    public List<T> e;
-    public List<List<T>> f;
-    public List<List<List<T>>> g;
-    public boolean h;
-    public boolean i;
-    public yl5 j;
-    public yl5 k;
-    public ll5 l;
-    public int m;
-    public int n;
-    public int o;
-    public WheelView.DividerType p;
-    public float q;
+    public ul5 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements yl5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tl5 a;
-
-        public a(tl5 tl5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tl5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tl5Var;
-        }
-
-        @Override // com.baidu.tieba.yl5
-        public void onItemSelected(int i) {
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a.f == null) {
-                    if (this.a.l != null) {
-                        this.a.l.a(this.a.b.getCurrentItem(), 0, 0);
-                        return;
-                    }
-                    return;
-                }
-                if (this.a.i) {
-                    i2 = 0;
-                } else {
-                    i2 = this.a.c.getCurrentItem();
-                    if (i2 >= ((List) this.a.f.get(i)).size() - 1) {
-                        i2 = ((List) this.a.f.get(i)).size() - 1;
-                    }
-                }
-                this.a.c.setAdapter(new el5((List) this.a.f.get(i)));
-                this.a.c.setCurrentItem(i2);
-                if (this.a.g != null) {
-                    this.a.k.onItemSelected(i2);
-                } else if (this.a.l != null) {
-                    this.a.l.a(i, i2, 0);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements yl5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tl5 a;
-
-        public b(tl5 tl5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tl5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tl5Var;
-        }
-
-        @Override // com.baidu.tieba.yl5
-        public void onItemSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                int i2 = 0;
-                if (this.a.g != null) {
-                    int currentItem = this.a.b.getCurrentItem();
-                    if (currentItem >= this.a.g.size() - 1) {
-                        currentItem = this.a.g.size() - 1;
-                    }
-                    if (i >= ((List) this.a.f.get(currentItem)).size() - 1) {
-                        i = ((List) this.a.f.get(currentItem)).size() - 1;
-                    }
-                    if (!this.a.i) {
-                        i2 = this.a.d.getCurrentItem() >= ((List) ((List) this.a.g.get(currentItem)).get(i)).size() + (-1) ? ((List) ((List) this.a.g.get(currentItem)).get(i)).size() - 1 : this.a.d.getCurrentItem();
-                    }
-                    this.a.d.setAdapter(new el5((List) ((List) this.a.g.get(this.a.b.getCurrentItem())).get(i)));
-                    this.a.d.setCurrentItem(i2);
-                    if (this.a.l != null) {
-                        this.a.l.a(this.a.b.getCurrentItem(), i, i2);
-                    }
-                } else if (this.a.l != null) {
-                    this.a.l.a(this.a.b.getCurrentItem(), i, 0);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements yl5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tl5 a;
-
-        public c(tl5 tl5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tl5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tl5Var;
-        }
-
-        @Override // com.baidu.tieba.yl5
-        public void onItemSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.l.a(this.a.b.getCurrentItem(), this.a.c.getCurrentItem(), i);
-            }
-        }
-    }
-
-    public tl5(View view2, boolean z) {
+    public tl5(Context context, am5 am5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Boolean.valueOf(z)};
+            Object[] objArr = {context, am5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -188,261 +31,179 @@ public class tl5<T> {
                 return;
             }
         }
-        this.h = true;
-        this.i = z;
-        this.a = view2;
-        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091749);
-        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09174a);
-        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09174b);
+        ul5 ul5Var = new ul5(2);
+        this.a = ul5Var;
+        ul5Var.A = context;
+        ul5Var.a = am5Var;
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setTextColorOut(this.m);
-            this.c.setTextColorOut(this.m);
-            this.d.setTextColorOut(this.m);
-        }
-    }
-
-    public void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.m = i;
-            A();
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            float f = i;
-            this.b.setTextSize(f);
-            this.c.setTextSize(f);
-            this.d.setTextSize(f);
-        }
-    }
-
-    public int[] i() {
+    public fm5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int[] iArr = new int[3];
-            iArr[0] = this.b.getCurrentItem();
-            List<List<T>> list = this.f;
-            if (list != null && list.size() > 0) {
-                iArr[1] = this.c.getCurrentItem() > this.f.get(iArr[0]).size() - 1 ? 0 : this.c.getCurrentItem();
-            } else {
-                iArr[1] = this.c.getCurrentItem();
-            }
-            List<List<List<T>>> list2 = this.g;
-            if (list2 != null && list2.size() > 0) {
-                iArr[2] = this.d.getCurrentItem() <= this.g.get(iArr[0]).get(iArr[1]).size() - 1 ? this.d.getCurrentItem() : 0;
-            } else {
-                iArr[2] = this.d.getCurrentItem();
-            }
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new fm5(this.a) : (fm5) invokeV.objValue;
     }
 
-    public void j() {
+    public tl5 b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.invalidate();
-            this.c.invalidate();
-            this.d.invalidate();
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.T = z;
+            return this;
         }
+        return (tl5) invokeZ.objValue;
     }
 
-    public void k(boolean z) {
+    public tl5 c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.b.h(z);
-            this.c.h(z);
-            this.d.h(z);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
         }
+        return (tl5) invokeZ.objValue;
     }
 
-    public final void l(int i, int i2, int i3) {
+    public tl5 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            if (this.e != null) {
-                this.b.setCurrentItem(i);
-            }
-            List<List<T>> list = this.f;
-            if (list != null) {
-                this.c.setAdapter(new el5(list.get(i)));
-                this.c.setCurrentItem(i2);
-            }
-            List<List<List<T>>> list2 = this.g;
-            if (list2 != null) {
-                this.d.setAdapter(new el5(list2.get(i).get(i2)));
-                this.d.setCurrentItem(i3);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
         }
+        return (tl5) invokeI.objValue;
     }
 
-    public void m(Typeface typeface) {
+    public tl5 e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, typeface) == null) {
-            this.b.setCenterTypeface(typeface);
-            this.c.setCenterTypeface(typeface);
-            this.d.setCenterTypeface(typeface);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
         }
+        return (tl5) invokeI.objValue;
     }
 
-    public void n(int i, int i2, int i3) {
+    public tl5 f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
-            if (this.h) {
-                l(i, i2, i3);
-                return;
-            }
-            this.b.setCurrentItem(i);
-            this.c.setCurrentItem(i2);
-            this.d.setCurrentItem(i3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
         }
+        return (tl5) invokeI.objValue;
     }
 
-    public void o(boolean z) {
+    public tl5 g(Calendar calendar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.b.setCyclic(z);
-            this.c.setCyclic(z);
-            this.d.setCyclic(z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
         }
+        return (tl5) invokeL.objValue;
     }
 
-    public final void p() {
+    public tl5 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b.setDividerColor(this.o);
-            this.c.setDividerColor(this.o);
-            this.d.setDividerColor(this.o);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
         }
+        return (tl5) invokeL.objValue;
     }
 
-    public void q(int i) {
+    public tl5 i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.o = i;
-            p();
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
         }
+        return (tl5) invokeI.objValue;
     }
 
-    public final void r() {
+    public tl5 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.b.setDividerType(this.p);
-            this.c.setDividerType(this.p);
-            this.d.setDividerType(this.p);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            ul5 ul5Var = this.a;
+            ul5Var.l = str;
+            ul5Var.m = str2;
+            ul5Var.n = str3;
+            ul5Var.o = str4;
+            ul5Var.p = str5;
+            ul5Var.q = str6;
+            return this;
         }
+        return (tl5) invokeCommon.objValue;
     }
 
-    public void s(WheelView.DividerType dividerType) {
+    public tl5 k(int i, vl5 vl5Var) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dividerType) == null) {
-            this.p = dividerType;
-            r();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, vl5Var)) == null) {
+            ul5 ul5Var = this.a;
+            ul5Var.x = i;
+            ul5Var.c = vl5Var;
+            return this;
         }
+        return (tl5) invokeIL.objValue;
     }
 
-    public void t(int i) {
+    public tl5 l(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.b.setItemsVisible(i);
-            this.c.setItemsVisible(i);
-            this.d.setItemsVisible(i);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
         }
+        return (tl5) invokeF.objValue;
     }
 
-    public final void u() {
+    public tl5 m(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.b.setLineSpacingMultiplier(this.q);
-            this.c.setLineSpacingMultiplier(this.q);
-            this.d.setLineSpacingMultiplier(this.q);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
         }
+        return (tl5) invokeI.objValue;
     }
 
-    public void v(float f) {
+    public tl5 n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.q = f;
-            u();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
         }
+        return (tl5) invokeI.objValue;
     }
 
-    public void w(ll5 ll5Var) {
+    public tl5 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, ll5Var) == null) {
-            this.l = ll5Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            ul5 ul5Var = this.a;
+            ul5Var.r = i;
+            ul5Var.s = i2;
+            ul5Var.t = i3;
+            ul5Var.u = i4;
+            ul5Var.v = i5;
+            ul5Var.w = i6;
+            return this;
         }
+        return (tl5) invokeCommon.objValue;
     }
 
-    public void x(List<T> list, List<List<T>> list2, List<List<List<T>>> list3) {
+    public tl5 p(boolean[] zArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, list, list2, list3) == null) {
-            this.e = list;
-            this.f = list2;
-            this.g = list3;
-            this.b.setAdapter(new el5(list));
-            this.b.setCurrentItem(0);
-            List<List<T>> list4 = this.f;
-            if (list4 != null) {
-                this.c.setAdapter(new el5(list4.get(0)));
-            }
-            WheelView wheelView = this.c;
-            wheelView.setCurrentItem(wheelView.getCurrentItem());
-            List<List<List<T>>> list5 = this.g;
-            if (list5 != null) {
-                this.d.setAdapter(new el5(list5.get(0).get(0)));
-            }
-            WheelView wheelView2 = this.d;
-            wheelView2.setCurrentItem(wheelView2.getCurrentItem());
-            this.b.setIsOptions(true);
-            this.c.setIsOptions(true);
-            this.d.setIsOptions(true);
-            if (this.f == null) {
-                this.c.setVisibility(8);
-            } else {
-                this.c.setVisibility(0);
-            }
-            if (this.g == null) {
-                this.d.setVisibility(8);
-            } else {
-                this.d.setVisibility(0);
-            }
-            this.j = new a(this);
-            this.k = new b(this);
-            if (list != null && this.h) {
-                this.b.setOnItemSelectedListener(this.j);
-            }
-            if (list2 != null && this.h) {
-                this.c.setOnItemSelectedListener(this.k);
-            }
-            if (list3 == null || !this.h || this.l == null) {
-                return;
-            }
-            this.d.setOnItemSelectedListener(new c(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
         }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.b.setTextColorCenter(this.n);
-            this.c.setTextColorCenter(this.n);
-            this.d.setTextColorCenter(this.n);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.n = i;
-            y();
-        }
+        return (tl5) invokeL.objValue;
     }
 }

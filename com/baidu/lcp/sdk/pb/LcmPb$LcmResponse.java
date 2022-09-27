@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k80;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -165,7 +165,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this, (k80) null);
+                LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this, (x80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 lcmPb$LcmResponse.logId_ = this.b;
@@ -374,7 +374,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         lcmPb$LcmResponse.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, k80 k80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, x80 x80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -571,7 +571,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ LcmPb$LcmResponse(GeneratedMessageLite.Builder builder, k80 k80Var) {
+    public /* synthetic */ LcmPb$LcmResponse(GeneratedMessageLite.Builder builder, x80 x80Var) {
         this(builder);
     }
 

@@ -1,92 +1,141 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rl9 extends FunNativeAd2Bridger<am9, com.fun.module.csj.g0> {
+public class rl9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TTNativeAd.AdInteractionListener b;
-    public final /* synthetic */ nl9 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rl9(nl9 nl9Var, ReporterPidLoader reporterPidLoader, am9 am9Var) {
-        super(reporterPidLoader);
+    public rl9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nl9Var, reporterPidLoader, am9Var};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = nl9Var;
-        this.b = new nl9.b(nl9Var, am9Var);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.g0, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.csj.g0 createExpressView(am9 am9Var) {
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00bf A[Catch: Exception -> 0x0124, TryCatch #0 {Exception -> 0x0124, blocks: (B:5:0x0005, B:7:0x0017, B:10:0x0020, B:11:0x0023, B:14:0x0032, B:17:0x003f, B:20:0x0045, B:22:0x004d, B:24:0x0056, B:26:0x006b, B:28:0x007b, B:34:0x008c, B:36:0x0094, B:42:0x00bf, B:44:0x00c7, B:45:0x00cf, B:37:0x00a6, B:39:0x00ae), top: B:54:0x0005 }] */
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String optString;
+        String str5;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, am9Var)) == null) ? ol9.a((TTNativeAd) am9Var.a) : (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, am9 am9Var, BaseNativeAd2<am9, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, am9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.g(activity, am9Var, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, am9 am9Var, BaseNativeAd2<am9, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, am9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-            am9 am9Var2 = am9Var;
-            nl9 nl9Var = this.c;
-            FunNativeAdListenerHelper<am9, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = nl9Var.f;
-            pid = nl9Var.mPid;
-            funNativeAdListenerHelper.startShow(am9Var2, str, pid, this.b, funAdInteractionListener);
-            com.fun.module.csj.g0 expressView = baseNativeAd2.getExpressView();
-            if (expressView != null) {
-                this.c.f(activity, am9Var2, expressInflater.inflate(), expressView, this.b);
-            } else if (FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("The image mode of ad is not support!");
-            } else {
-                LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                A a = ((km9) obj).a;
+                String[] strArr = {"com.bytedance.sdk.openadsdk.core.r.w", "com.bytedance.sdk.openadsdk.core.s.y"};
+                Object obj2 = null;
+                for (int i = 0; i < 2; i++) {
+                    obj2 = ReflectionUtils.findField(strArr[i], a);
+                    if (obj2 != null) {
+                        break;
+                    }
+                }
+                String[] strArr2 = {"bY", "ce", "ca"};
+                JSONObject jSONObject = null;
+                for (int i2 = 0; i2 < 3 && (jSONObject = (JSONObject) ReflectionUtils.invoke(obj2, strArr2[i2], null, new Object[0])) == null; i2++) {
+                }
+                if (jSONObject == null) {
+                    return null;
+                }
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
+                String optString2 = optJSONObject3 != null ? optJSONObject3.optString("url") : null;
+                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), pl9.a);
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
+                if (optJSONObject4 != null) {
+                    str2 = optJSONObject4.optString("video_url");
+                    str = optJSONObject4.optString("cover_url");
+                } else {
+                    str = null;
+                    str2 = null;
+                }
+                int optInt = jSONObject.optInt("interaction_type", -1);
+                if (optInt == 3) {
+                    JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
+                    if (optJSONObject5 != null) {
+                        str3 = null;
+                        str4 = null;
+                        optString = optJSONObject5.optString("deeplink_url");
+                        str5 = null;
+                        if (str3 == null) {
+                        }
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                        return builder.build();
+                    }
+                    str5 = null;
+                    optString = null;
+                    str3 = null;
+                    str4 = null;
+                    if (str3 == null) {
+                    }
+                    RippedAd.Builder builder2 = new RippedAd.Builder();
+                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder2.build();
+                }
+                if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
+                    String optString3 = optJSONObject2.optString("app_name");
+                    String optString4 = optJSONObject2.optString("package_name");
+                    str5 = optJSONObject2.optString("download_url");
+                    str4 = optString4;
+                    str3 = optString3;
+                    optString = null;
+                    if (str3 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
+                        str3 = optJSONObject.optString("app_name");
+                        str4 = optJSONObject.optString("package_name");
+                    }
+                    RippedAd.Builder builder22 = new RippedAd.Builder();
+                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder22.build();
+                }
+                str5 = null;
+                optString = null;
+                str3 = null;
+                str4 = null;
+                if (str3 == null) {
+                    str3 = optJSONObject.optString("app_name");
+                    str4 = optJSONObject.optString("package_name");
+                }
+                RippedAd.Builder builder222 = new RippedAd.Builder();
+                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                return builder222.build();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

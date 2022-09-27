@@ -1,87 +1,128 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class wg3 implements bg4 {
+public class wg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final wg3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-318699448, "Lcom/baidu/tieba/wg3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-318699448, "Lcom/baidu/tieba/wg3$b;");
-                    return;
-                }
+    public static BitmapFactory.Options a(Uri uri) {
+        InterceptResult invokeL;
+        InputStream openInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            InputStream inputStream = null;
+            if (appContext == null || uri == null) {
+                return null;
             }
-            a = new wg3(null);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            try {
+                try {
+                    openInputStream = appContext.getContentResolver().openInputStream(uri);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            }
+            try {
+                BitmapFactory.decodeStream(openInputStream, null, options);
+                pj4.d(openInputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                inputStream = openInputStream;
+                e.printStackTrace();
+                pj4.d(inputStream);
+                return options;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = openInputStream;
+                pj4.d(inputStream);
+                throw th;
+            }
+            return options;
         }
+        return (BitmapFactory.Options) invokeL.objValue;
     }
 
-    public /* synthetic */ wg3(a aVar) {
-        this();
-    }
-
-    public static wg3 b() {
-        InterceptResult invokeV;
+    public static boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (wg3) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a != null) {
+                String str = a.outMimeType;
+                return !TextUtils.isEmpty(str) && str.equalsIgnoreCase("image/gif");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bg4
-    public boolean a(@NonNull String str, @NonNull int i) {
-        InterceptResult invokeLI;
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i == 0) {
-                File file = new File(ul2.g(), str);
-                return file.exists() && file.isDirectory();
-            } else if (i != 1) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
-            } else {
-                File file2 = new File(gm2.g().b(), str);
-                return file2.exists() && file2.isDirectory();
             }
+            return b(dh3.p(str));
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public wg3() {
+    public static boolean d(int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return false;
             }
+            float f = i;
+            if (f > 100.0f) {
+                float f2 = i2;
+                if (f2 > 100.0f) {
+                    float f3 = f / f2;
+                    return f3 > 2.5f || 1.0f / f3 > 2.5f;
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean e(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            return a != null && d(a.outWidth, a.outHeight, b(uri));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return e(dh3.p(str));
+        }
+        return invokeL.booleanValue;
     }
 }

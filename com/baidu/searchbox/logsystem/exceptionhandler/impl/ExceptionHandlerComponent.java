@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.de1;
-import com.baidu.tieba.fe1;
+import com.baidu.tieba.qe1;
+import com.baidu.tieba.se1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ public class ExceptionHandlerComponent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public fe1<IExceptionHandlerContext> exceptionHandlerContext;
+    public se1<IExceptionHandlerContext> exceptionHandlerContext;
 
     public ExceptionHandlerComponent() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class ExceptionHandlerComponent {
     public void initexceptionHandlerContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            de1 b = de1.b();
+            qe1 b = qe1.b();
             this.exceptionHandlerContext = b;
             b.a(new IExceptionHandlerContext_ExceptionHandlerComponent_Provider());
         }

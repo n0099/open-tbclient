@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nk7 extends se1<NetworkAgentService> {
+public final class nk7 extends ff1<LiveUserSecurityDeviceInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class nk7 extends se1<NetworkAgentService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
+    @Override // com.baidu.tieba.ff1
     /* renamed from: a */
-    public NetworkAgentService createService() throws ServiceNotFoundException {
+    public LiveUserSecurityDeviceInfoService createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ok7() : (NetworkAgentService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LiveUserSecurityDeviceInfoServiceImpl() : (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 }

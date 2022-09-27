@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ColorEgg;
+import org.json.JSONObject;
+import tbclient.AppCode;
 /* loaded from: classes4.dex */
 public class hr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public int b;
+    public String a;
 
     public hr4() {
         Interceptable interceptable = $ic;
@@ -27,44 +26,37 @@ public class hr4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public ArrayList<String> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public boolean c(ColorEgg colorEgg) {
-        InterceptResult invokeL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
-            this.b = 0;
-            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
-                return false;
-            }
-            for (String str : colorEgg.holiday_words) {
-                if (!StringUtils.isNull(str)) {
-                    this.a.add(str);
-                }
-            }
-            if (this.a.size() <= 0) {
-                return false;
-            }
-            this.b = colorEgg.style_flag.intValue();
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        try {
+            jSONObject.optString("game_icon");
+            this.a = jSONObject.optString("post_url");
+            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void c(AppCode appCode) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) == null) || appCode == null) {
+            return;
+        }
+        String str = appCode.game_icon;
+        this.a = appCode.post_url;
+        String str2 = appCode.button_text;
     }
 }

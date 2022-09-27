@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.su4;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.um;
-import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +110,7 @@ public class NewUserRewardDialogView extends LinearLayout {
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0916a5);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(su4.y(R.string.J_X06));
+            this.b.setRoundLayoutRadius(fv4.y(R.string.J_X06));
         }
     }
 
@@ -121,12 +121,12 @@ public class NewUserRewardDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
-            uu4 d = uu4.d(this.f);
+            hv4 d = hv4.d(this.f);
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0902);
             d.n(R.string.J_X01);
             d.v(R.color.CAM_X0105);
-            uu4 d2 = uu4.d(this.g);
+            hv4 d2 = hv4.d(this.g);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);
             d2.n(R.string.J_X01);

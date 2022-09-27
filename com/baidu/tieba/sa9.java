@@ -1,163 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.SampleResult;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class sa9 {
+public class sa9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile na9 a;
+    public static ka9 b;
+    public static ma9 c;
+    public static la9 d;
+    public static m99 e;
+    public static q99 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public boolean d;
-    public JSONArray e;
-    public Map<String, com.baidu.ubs.analytics.a.g> f;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final sa9 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-438578463, "Lcom/baidu/tieba/sa9$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-438578463, "Lcom/baidu/tieba/sa9$a;");
-                    return;
-                }
-            }
-            a = new sa9((byte) 0);
-        }
-    }
-
-    public /* synthetic */ sa9(byte b) {
-        this();
-    }
-
-    public static sa9 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (sa9) invokeV.objValue;
-    }
-
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = context;
-        }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            synchronized (this) {
-                this.f = new HashMap();
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i) != null) {
-                        this.f.put(list.get(i).getId(), list.get(i));
-                    }
-                }
-            }
-        }
-    }
-
-    public final synchronized void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            synchronized (this) {
-                this.d = z;
-            }
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public final SampleResult f(String str) {
-        InterceptResult invokeL;
-        Map<String, com.baidu.ubs.analytics.a.g> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (this.e == null) {
-                if (str != null && (map = this.f) != null) {
-                    if (map.containsKey(str)) {
-                        return ac9.a(this.f.get(str).getGroup());
-                    }
-                    return SampleResult.OTHERE;
-                }
-                return SampleResult.OTHERE;
-            }
-            for (int i = 0; i < this.e.length(); i++) {
-                JSONObject optJSONObject = this.e.optJSONObject(i);
-                if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                    return ac9.a(optJSONObject.optString("group"));
-                }
-            }
-            return SampleResult.OTHERE;
-        }
-        return (SampleResult) invokeL.objValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Context) invokeV.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public final Map<String, com.baidu.ubs.analytics.a.g> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (Map) invokeV.objValue;
-    }
 
     public sa9() {
         Interceptable interceptable = $ic;
@@ -169,9 +27,116 @@ public final class sa9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = true;
+    }
+
+    public static ka9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ka9 ka9Var = b;
+            if (ka9Var != null) {
+                return ka9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
+        }
+        return (ka9) invokeV.objValue;
+    }
+
+    public static la9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            la9 la9Var = d;
+            if (la9Var != null) {
+                return la9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
+        }
+        return (la9) invokeV.objValue;
+    }
+
+    public static ma9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ma9 ma9Var = c;
+            if (ma9Var != null) {
+                return ma9Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
+        }
+        return (ma9) invokeV.objValue;
+    }
+
+    public static na9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (sa9.class) {
+                if (a == null) {
+                    a = ra9.a();
+                }
+            }
+            return a;
+        }
+        return (na9) invokeV.objValue;
+    }
+
+    public static m99 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            m99 m99Var = e;
+            if (m99Var != null) {
+                return m99Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
+        }
+        return (m99) invokeV.objValue;
+    }
+
+    public static q99 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            q99 q99Var = f;
+            if (q99Var != null) {
+                return q99Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
+        }
+        return (q99) invokeV.objValue;
     }
 }

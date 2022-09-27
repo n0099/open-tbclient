@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xy extends gx<lq4> {
+public class xy extends gx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class xy extends gx<lq4> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public lq4 j;
+    public yq4 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -66,7 +66,7 @@ public class xy extends gx<lq4> {
                 this.a.e().a(this.a.i, this.a.j);
             }
             String id = this.a.j.getThreadData().getId();
-            g16.a(id);
+            t16.a(id);
             this.a.t(id);
             this.a.a.o(new dz.a(1));
         }
@@ -113,8 +113,8 @@ public class xy extends gx<lq4> {
         } else {
             this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) null, false);
         }
-        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09217f);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092171);
+        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092181);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092173);
         OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f091766);
         this.i = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.l);
@@ -128,10 +128,10 @@ public class xy extends gx<lq4> {
     }
 
     @Override // com.baidu.tieba.gx
-    public void m(v16<lq4> v16Var) {
+    public void m(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v16Var) == null) {
-            super.m(v16Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i26Var) == null) {
+            super.m(i26Var);
         }
     }
 
@@ -146,23 +146,23 @@ public class xy extends gx<lq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: s */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) || lq4Var == null || lq4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) || yq4Var == null || yq4Var.getThreadData() == null) {
             return;
         }
-        this.j = lq4Var;
-        ThreadCardUtils.setTitle(this.g, lq4Var.getThreadData(), this.k);
-        ThreadCardUtils.setAbstract(this.h, this.g, lq4Var.getThreadData(), m, this.k);
-        this.i.i(lq4Var.getThreadData().originalThreadData);
+        this.j = yq4Var;
+        ThreadCardUtils.setTitle(this.g, yq4Var.getThreadData(), this.k);
+        ThreadCardUtils.setAbstract(this.h, this.g, yq4Var.getThreadData(), m, this.k);
+        this.i.i(yq4Var.getThreadData().originalThreadData);
     }
 
     public final void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            g16.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            g16.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(g16.k(str));
+            t16.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            t16.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(t16.k(str));
         }
     }
 

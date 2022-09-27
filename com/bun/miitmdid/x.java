@@ -1,24 +1,27 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bun.miitmdid.provider.xiaomi.IdentifierManager;
+@Keep
 /* loaded from: classes7.dex */
-public class x extends m {
+public class x extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context i;
+    @Keep
+    public String l;
+    @Keep
+    public Context m;
 
-    public x(Context context) {
+    public x(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,23 +31,11 @@ public class x extends m {
                 return;
             }
         }
-        this.i = context;
+        this.m = context;
+        this.l = str;
     }
 
-    @Override // com.bun.miitmdid.m
-    public g a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g gVar = new g();
-            this.i = a(this.i);
-            gVar.e(new h(IdentifierManager.class, null, "isSupported", null, null));
-            gVar.d(null);
-            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.i}));
-            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.i}));
-            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.i}));
-            return gVar;
-        }
-        return (g) invokeV.objValue;
-    }
+    @Override // com.bun.miitmdid.n
+    @Keep
+    public native g d();
 }

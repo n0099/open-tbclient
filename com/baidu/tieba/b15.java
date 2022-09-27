@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -26,18 +27,21 @@ public class b15 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        jSONObject.optInt("offline");
-        jSONObject.optString("title");
-        String optString = jSONObject.optString("link");
-        this.a = optString;
-        if (TextUtils.isEmpty(optString)) {
-            return;
+        try {
+            this.a = jSONObject.optString("client_id");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.a = this.a.replaceFirst("webview:", "http://");
     }
 }

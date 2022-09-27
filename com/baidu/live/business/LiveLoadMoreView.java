@@ -13,7 +13,7 @@ import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,7 +99,7 @@ public class LiveLoadMoreView extends LiveBaseItemView {
                 }
             }
             LayoutInflater.from(getContext()).inflate(i, this);
-            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c6a);
+            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c6c);
             LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09140f);
             this.i = lottieAnimationView;
             lottieAnimationView.loop(true);
@@ -110,16 +110,16 @@ public class LiveLoadMoreView extends LiveBaseItemView {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            String g = hc0.f().g(str);
+            String g = uc0.f().g(str);
             if (TextUtils.isEmpty(g)) {
-                int h = hc0.f().h(str);
+                int h = uc0.f().h(str);
                 if (h != 0) {
                     this.i.setAnimation(h);
                 }
             } else {
                 this.i.setAnimation(g);
             }
-            this.j.setTextColor(hc0.f().a(getContext(), str, "color_1F1F1F"));
+            this.j.setTextColor(uc0.f().a(getContext(), str, "color_1F1F1F"));
         }
     }
 

@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vw5 extends y85 {
+public class vw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabVideoFragment c;
+    public r9 a;
+    public BdTypeListView b;
+    public final List<qn> c;
+    public uw5 d;
+    public rw5 e;
+    public pw5 f;
+    public qw5 g;
 
-    public vw5() {
+    public vw5(r9 r9Var, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,71 +36,52 @@ public class vw5 extends y85 {
                 return;
             }
         }
-        this.c = new AlaGameFrsLiveTabVideoFragment();
-        b().a = this.c;
+        this.c = new ArrayList();
+        this.a = r9Var;
+        this.b = bdTypeListView;
+        a(z);
     }
 
-    @Override // com.baidu.tieba.y85
-    public z85 a() {
-        InterceptResult invokeV;
+    public final void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            z85 z85Var = new z85();
-            z85Var.e = 3;
-            z85Var.b = R.string.obfuscated_res_0x7f0f0226;
-            z85Var.i = z85.k;
-            return z85Var;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                rw5 rw5Var = new rw5((TbPageContext) this.a, lx5.c);
+                this.e = rw5Var;
+                this.c.add(rw5Var);
+            } else {
+                uw5 uw5Var = new uw5((TbPageContext) this.a, lx5.c);
+                this.d = uw5Var;
+                this.c.add(uw5Var);
+            }
+            this.f = new pw5((TbPageContext) this.a, xw5.a);
+            this.g = new qw5((TbPageContext) this.a, yw5.a);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.b.a(this.c);
         }
-        return (z85) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y85
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
+    public void b(jt5 jt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jt5Var) == null) {
+            uw5 uw5Var = this.d;
+            if (uw5Var != null) {
+                uw5Var.u(jt5Var);
+            }
+            rw5 rw5Var = this.e;
+            if (rw5Var != null) {
+                rw5Var.u(jt5Var);
+            }
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y85
-    public boolean d() {
-        InterceptResult invokeV;
+    public void c(List<Cdo> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
             return;
         }
-        alaGameFrsLiveTabVideoFragment.t1(str);
-    }
-
-    public void h(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
-            return;
-        }
-        alaGameFrsLiveTabVideoFragment.u1(str);
-    }
-
-    public void i(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
-            return;
-        }
-        alaGameFrsLiveTabVideoFragment.v1(z);
+        bdTypeListView.setData(list);
     }
 }

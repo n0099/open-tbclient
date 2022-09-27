@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lq4;
 import com.baidu.tieba.wx;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class SmartAppBottomLayout extends LinearLayout implements wx<lq4> {
+public class SmartAppBottomLayout extends LinearLayout implements wx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,10 +90,10 @@ public class SmartAppBottomLayout extends LinearLayout implements wx<lq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: c */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) || (threadData = lq4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) || (threadData = yq4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
             return;
         }
         if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {

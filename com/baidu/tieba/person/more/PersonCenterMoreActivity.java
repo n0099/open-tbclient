@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g48;
-import com.baidu.tieba.g58;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.u48;
+import com.baidu.tieba.u58;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g48 a;
+    public u48 a;
     public Bundle b;
-    public g58 c;
-    public v16 d;
+    public u58 c;
+    public i26 d;
 
     /* loaded from: classes5.dex */
-    public class a extends v16<g58> {
+    public class a extends i26<u58> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,12 +61,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v16
+        @Override // com.baidu.tieba.i26
         /* renamed from: d */
-        public void a(View view2, g58 g58Var) {
+        public void a(View view2, u58 u58Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, g58Var) == null) {
-                this.b.c = g58Var;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, u58Var) == null) {
+                this.b.c = u58Var;
                 if (this.b.c == null || this.b.F1()) {
                     return;
                 }
@@ -124,7 +124,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            lo4.x(getPageContext().getPageActivity(), true, str);
+            yo4.x(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -146,9 +146,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            g48 g48Var = this.a;
-            if (g48Var != null) {
-                g48Var.c();
+            u48 u48Var = this.a;
+            if (u48Var != null) {
+                u48Var.c();
             }
         }
     }
@@ -163,9 +163,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
             setContentView(R.layout.obfuscated_res_0x7f0d06fb);
-            g48 g48Var = new g48(getPageContext(), this.b, this.d);
-            this.a = g48Var;
-            g48Var.b();
+            u48 u48Var = new u48(getPageContext(), this.b, this.d);
+            this.a = u48Var;
+            u48Var.b();
         }
     }
 

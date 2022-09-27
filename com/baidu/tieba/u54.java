@@ -1,66 +1,60 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.util.Log;
 import android.webkit.JavascriptInterface;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 /* loaded from: classes6.dex */
 public class u54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public String backgroundColor;
-    @V8JavascriptField
-    public String borderColor;
-    @V8JavascriptField
-    public double borderRadius;
-    @V8JavascriptField
-    public int borderWidth;
-    @V8JavascriptField
-    public String color;
-    @V8JavascriptField
-    public double fontSize;
-    @V8JavascriptField
-    public String fontWeight;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public boolean hidden;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int lineHeight;
-    @V8JavascriptField
-    public double opacity;
-    @V8JavascriptField
-    public String textAlign;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
+    public s54 a;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void r();
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+
+        public a(u54 u54Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u54Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tg3.a(this.a);
+            }
+        }
     }
 
-    public u54(@NonNull fv1 fv1Var) {
+    public u54(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fv1Var};
+            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,72 +64,61 @@ public class u54 {
                 return;
             }
         }
-        this.fontSize = 16.0d;
-        this.opacity = 1.0d;
-        a(fv1Var);
+        this.a = s54.d(sv1.F(jsObject));
+        r54.a().f(this);
     }
 
-    public static int c(@ColorInt int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
+        if (r1.equals("checkForUpdate") != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(t54 t54Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            float f = (((-16777216) & i) >>> 24) / 255.0f;
-            return f > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f) + 0.5d), (int) ((((65280 & i) >> 8) * f) + 0.5d), (int) (((i & 255) * f) + 0.5d)) : i;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull fv1 fv1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fv1Var) == null) {
-            this.left = fv1Var.r("left", this.left);
-            this.top = fv1Var.r("top", this.top);
-            this.width = fv1Var.r("width", this.width);
-            this.height = fv1Var.r("height", this.height);
-            this.backgroundColor = fv1Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
-            this.borderColor = fv1Var.C("borderColor", this.borderColor);
-            this.borderRadius = fv1Var.n("borderRadius", this.borderRadius);
-            this.borderWidth = fv1Var.r("borderWidth", this.borderWidth);
-            this.fontSize = fv1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
-            this.lineHeight = fv1Var.r("lineHeight", this.lineHeight);
-            this.textAlign = fv1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
-            this.fontWeight = fv1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
-            this.hidden = fv1Var.m("hidden", this.hidden);
-            this.opacity = fv1Var.n(NativeConstants.OPACITY, this.opacity);
-            this.color = fv1Var.C("color", this.color);
-            if (ij1.a) {
-                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, t54Var) == null) && this.a != null && JSEvent.isValid(t54Var)) {
+            char c = 0;
+            l02.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", t54Var.type, Boolean.valueOf(t54Var.hasUpdate)));
+            String str = t54Var.type;
+            int hashCode = str.hashCode();
+            if (hashCode == -1330233754) {
+                if (str.equals("updateFailed")) {
+                    c = 2;
+                }
+                c = 65535;
+            } else if (hashCode != -1317168438) {
+                if (hashCode == -585906598 && str.equals("updateReady")) {
+                    c = 1;
+                }
+                c = 65535;
             }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
+            if (c == 0) {
+                this.a.a(t54Var);
+            } else if (c == 1) {
+                this.a.c();
+            } else if (c != 2) {
+            } else {
+                this.a.b();
+            }
         }
     }
 
     @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (ij1.a) {
-                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.r();
-            }
-        }
-    }
-
-    public String toString() {
+    public boolean applyUpdate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SwanAppActivity activity = yo2.U().getActivity();
+            if (activity == null) {
+                l02.c("UpdateManagerApi", "applyUpdate activity is null");
+                return false;
+            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+                return false;
+            } else {
+                fh3.e0(new a(this, activity));
+                return true;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

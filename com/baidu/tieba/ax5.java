@@ -1,74 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class ax5 extends BaseAdapter {
+public class ax5 extends l95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public List<ThreadData> b;
+    public AlaFrsLiveFragment c;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TbImageView b;
-        public AlaCardBottomUserInfoLayout c;
-        public RelativeLayout d;
-        public TextView e;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f0d);
-            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c7);
-            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c9);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c8);
-        }
-    }
-
-    public ax5(TbPageContext<?> tbPageContext) {
+    public ax5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,93 +33,91 @@ public class ax5 extends BaseAdapter {
                 return;
             }
         }
-        this.a = tbPageContext;
+        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
+        this.c = alaFrsLiveFragment;
+        alaFrsLiveFragment.F1(z);
+        b().a = this.c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ThreadData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.l95
+    public m95 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<ThreadData> list = this.b;
-            if (list != null && i >= 0 && i <= list.size()) {
-                return this.b.get(i);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            m95 m95Var = new m95();
+            m95Var.e = 2;
+            m95Var.b = R.string.obfuscated_res_0x7f0f0226;
+            m95Var.i = m95.k;
+            return m95Var;
         }
-        return (ThreadData) invokeI.objValue;
+        return (m95) invokeV.objValue;
     }
 
-    public void b(List<ThreadData> list) {
+    @Override // com.baidu.tieba.l95
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
-            notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.tieba.l95
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return 0;
-            }
-            return this.b.size();
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void g(String str) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (alaFrsLiveFragment = this.c) == null) {
+            return;
+        }
+        alaFrsLiveFragment.B1(str);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        AlaInfoData threadAlaInfo;
+    public void h(String str) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) null);
-                aVar = new a(view2);
-                aVar.b.setIsRound(true);
-                aVar.b.setDrawBorder(false);
-                aVar.b.setAutoChangeStyle(true);
-                aVar.b.setGifIconSupport(false);
-                int k = (ej.k(this.a.getPageActivity()) - this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) / 3;
-                int i2 = (k * 16) / 9;
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.d.getLayoutParams();
-                layoutParams.height = k;
-                layoutParams.width = i2;
-                aVar.d.setLayoutParams(layoutParams);
-                AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
-                ((ViewGroup.LayoutParams) layoutParams2).width = i2;
-                view2.setLayoutParams(layoutParams2);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            ThreadData item = getItem(i);
-            if (item == null || (threadAlaInfo = item.getThreadAlaInfo()) == null) {
-                return null;
-            }
-            aVar.b.K(threadAlaInfo.cover, 10, false);
-            aVar.c.setData(item);
-            aVar.c.setUserHeadImgVisible(8);
-            aVar.e.setText(item.getTitle());
-            aVar.c.onChangeSkinType(this.a);
-            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaFrsLiveFragment = this.c) == null) {
+            return;
         }
-        return (View) invokeILL.objValue;
+        alaFrsLiveFragment.C1(str);
+    }
+
+    public void i(String str) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (alaFrsLiveFragment = this.c) == null) {
+            return;
+        }
+        alaFrsLiveFragment.D1(str);
+    }
+
+    public void j(int i) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (alaFrsLiveFragment = this.c) == null) {
+            return;
+        }
+        alaFrsLiveFragment.E1(i);
+    }
+
+    public void k(boolean z) {
+        AlaFrsLiveFragment alaFrsLiveFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (alaFrsLiveFragment = this.c) == null) {
+            return;
+        }
+        alaFrsLiveFragment.G1(z);
     }
 }

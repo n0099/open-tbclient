@@ -2,136 +2,101 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g37 extends qn<j26, CardViewHolder<e16>> {
+public class g37 extends gx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public String c;
-    public e16 d;
-    public NEGFeedBackView.b e;
-    public v16<j26> f;
-
-    /* loaded from: classes4.dex */
-    public class a extends v16<j26> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g37 b;
-
-        public a(g37 g37Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g37Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = g37Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v16
-        /* renamed from: d */
-        public void a(View view2, j26 j26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, j26Var) == null) {
-                int i = 2;
-                if (this.b.d.w == view2) {
-                    i = 1;
-                } else if (view2 == this.b.d.l.getCommentContainer()) {
-                    i = 5;
-                } else if ((this.b.d.M() == null || view2.getId() != this.b.d.M().getId()) && (this.b.d.O() == null || view2.getId() != this.b.d.O().getId())) {
-                    i = 0;
-                }
-                if (i != 0) {
-                    p27.d(j26Var.a, this.b.a, j26Var.n(), i);
-                }
-                a37.k(view2, j26Var, this.b.c);
-            }
-        }
-    }
+    public AlaRecommendLayout f;
+    public int g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g37(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public g37(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = null;
-        this.f = new a(this);
-        this.b = tbPageContext;
-        this.c = str;
+        this.g = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof AlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
+            this.f = (AlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
+        } else {
+            this.f = new AlaRecommendLayout(tbPageContext.getPageActivity());
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public CardViewHolder<e16> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.gx
+    public View h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.d(i);
+                n(this.f, 3);
+            }
+            this.g = i;
+        }
+    }
+
+    public m26 p(yq4 yq4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            e16 e16Var = new e16(this.b, this.a);
-            this.d = e16Var;
-            e16Var.C(2);
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                this.d.Y(bdUniqueId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yq4Var)) == null) {
+            if (yq4Var instanceof p27) {
+                p27 p27Var = (p27) yq4Var;
+                return new m26(p27Var.getType(), p27Var.c(), "recommend");
+            } else if (yq4Var instanceof xx6) {
+                xx6 xx6Var = (xx6) yq4Var;
+                return new m26(xx6Var.getType(), xx6Var.c(), ImageViewerConfig.FROM_CONCERN);
+            } else {
+                return new m26();
             }
-            return new CardViewHolder<>(this.d);
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (m26) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j26 j26Var, CardViewHolder<e16> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.wx
+    /* renamed from: q */
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j26Var, cardViewHolder})) == null) {
-            j26Var.I(j26Var.position + 1);
-            j26Var.a.statFloor = j26Var.n();
-            e16 a2 = cardViewHolder.a();
-            a2.b0(i + 1);
-            a2.i(j26Var);
-            a2.n(this.f);
-            a2.B(this.e);
-            p27.i(j26Var.a, this.a, j26Var.n());
-            a37.r(j26Var, this.c);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) {
+            m26 p = p(yq4Var);
+            if (p != null && !ListUtils.isEmpty(p.c())) {
+                this.f.setData(p);
+                this.f.d(TbadkCoreApplication.getInst().getSkinType());
+                this.f.setVisibility(0);
+                return;
+            }
+            this.f.setVisibility(8);
         }
-        return (View) invokeCommon.objValue;
     }
 }

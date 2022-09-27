@@ -1,38 +1,192 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
-import android.util.Log;
-import android.view.Surface;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.video.SendVideoSuccessShareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
-@TargetApi(18)
 /* loaded from: classes3.dex */
 public class ev8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLDisplay a;
-    public EGLContext b;
-    public EGLSurface c;
-    public Surface d;
+    public View a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public boolean f;
+    public PostWriteCallBackData g;
+    public TextView h;
+    public SendVideoSuccessShareModel i;
 
-    public ev8(Surface surface) {
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ev8 a;
+
+        public a(ev8 ev8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ev8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ev8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f) {
+                this.a.f();
+                if (this.a.g == null || StringUtils.isNull(this.a.g.buildVideoFakeOnWallUrl())) {
+                    return;
+                }
+                yo4.p(this.a.b, null, this.a.g.buildVideoFakeOnWallUrl());
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ev8 a;
+
+        /* loaded from: classes3.dex */
+        public class a extends q9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.q9
+            public void c(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                    ShareItem shareItem = new ShareItem();
+                    shareItem.l0 = false;
+                    shareItem.X = OriginalThreadInfo.ShareInfo.generateShareInfo((OriginalThreadInfo) obj);
+                    y36.c().l(new ShareDialogConfig(this.a.a.b, shareItem, true, true));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param(TiebaStatic.Params.OBJ_PARAM3, 1));
+                }
+            }
+        }
+
+        public b(ev8 ev8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ev8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ev8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.f();
+                if (this.a.g == null || StringUtils.isNull(this.a.g.getVideoid())) {
+                    return;
+                }
+                this.a.i.B(this.a.g.getVideoid());
+                this.a.i.setLoadDataCallBack(new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ev8 a;
+
+        public c(ev8 ev8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ev8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ev8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public ev8(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {surface};
+            Object[] objArr = {context, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,102 +196,67 @@ public class ev8 {
                 return;
             }
         }
-        if (surface != null) {
-            this.d = surface;
-            b();
+        this.b = context;
+        this.c = viewGroup;
+        this.i = new SendVideoSuccessShareModel();
+        if (this.b == null || this.c == null) {
             return;
         }
-        throw null;
-    }
-
-    public final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            boolean z = false;
-            while (true) {
-                int eglGetError = EGL14.eglGetError();
-                if (eglGetError == 12288) {
-                    break;
-                }
-                Log.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-                z = true;
-            }
-            if (z) {
-                throw new RuntimeException("EGL error encountered (see log)");
-            }
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b4, (ViewGroup) null);
+        this.a = inflate;
+        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb1);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0924fc);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09256b);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, ej.f(context, R.dimen.obfuscated_res_0x7f0701aa));
+        if (this.a.getParent() == null) {
+            viewGroup.addView(this.a, layoutParams);
         }
+        this.a.setVisibility(8);
+        this.a.setOnClickListener(new a(this));
+        this.h.setOnClickListener(new b(this));
     }
 
-    public final void b() {
+    public void e() {
+        SendVideoSuccessShareModel sendVideoSuccessShareModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr = new int[2];
-                if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    this.a = null;
-                    throw new RuntimeException("unable to initialize EGL14");
-                }
-                EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                if (EGL14.eglChooseConfig(this.a, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                    this.b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
-                    a("eglCreateContext");
-                    if (this.b != null) {
-                        this.c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.d, new int[]{12344}, 0);
-                        a("eglCreateWindowSurface");
-                        if (this.c == null) {
-                            throw new RuntimeException("surface was null");
-                        }
-                        return;
-                    }
-                    throw new RuntimeException("null context");
-                }
-                throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
-            }
-            throw new RuntimeException("unable to get EGL14 display");
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sendVideoSuccessShareModel = this.i) == null) {
+            return;
         }
+        sendVideoSuccessShareModel.cancelLoadData();
     }
 
-    public void c() {
+    public void f() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EGLDisplay eGLDisplay = this.a;
-            EGLSurface eGLSurface = this.c;
-            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.b)) {
-                throw new RuntimeException("eglMakeCurrent failed");
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view2 = this.a) == null) {
+            return;
         }
+        view2.setVisibility(8);
     }
 
-    public void d() {
+    public void g(PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (EGL14.eglGetCurrentContext().equals(this.b)) {
-                EGLDisplay eGLDisplay = this.a;
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-            }
-            EGL14.eglDestroySurface(this.a, this.c);
-            EGL14.eglDestroyContext(this.a, this.b);
-            this.d.release();
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postWriteCallBackData) == null) || postWriteCallBackData == null) {
+            return;
         }
-    }
-
-    public void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, this.c, j);
+        this.g = postWriteCallBackData;
+        this.f = postWriteCallBackData.mVideoTitleData != null;
+        View view2 = this.a;
+        if (view2 == null || this.d == null || this.e == null || this.h == null) {
+            return;
         }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EGL14.eglSwapBuffers(this.a, this.c) : invokeV.booleanValue;
+        SkinManager.setBackgroundColor(view2, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+        SkinManager.setImageResource(this.e, R.drawable.icon_arrow_more_white);
+        SkinManager.setBackgroundResource(this.h, R.drawable.immediately_share_background);
+        this.a.setVisibility(0);
+        this.a.postDelayed(new c(this), 5000L);
+        if (this.f) {
+            this.d.setText(R.string.obfuscated_res_0x7f0f1524);
+        } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
+            this.d.setText(postWriteCallBackData.getErrorString());
+        } else {
+            this.a.setVisibility(8);
+        }
     }
 }

@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.Bigvip.BigvipResIdl;
-import tbclient.Bigvip.UserInfoBigVip;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pa7 implements CustomMessageTask.CustomRunnable<Object> {
+public class pa7 extends eb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pa7() {
+        super(2016007);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,37 +25,49 @@ public class pa7 implements CustomMessageTask.CustomRunnable<Object> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kb
+    /* renamed from: c */
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         InterceptResult invokeL;
+        List<ImMessageCenterPojo> data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            UserInfoBigVip userInfoBigVip = null;
-            if (customMessage != null && (customMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customMessage.getData()).longValue();
-                zt4.f();
-                jf<byte[]> d = zt4.d("tb.im_recommend_detail");
-                if (d == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                byte[] bArr = d.get(longValue + "");
-                if (bArr == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                try {
-                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo = null;
+            if (customResponsedMessage == null) {
+                return null;
             }
-            return new CustomResponsedMessage<>(2001306, null);
+            if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
+                ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+                if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
+                    ImMessageCenterPojo imMessageCenterPojo2 = null;
+                    for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
+                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {
+                            imMessageCenterPojo = imMessageCenterPojo3;
+                        }
+                        if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -7) {
+                            imMessageCenterPojo2 = imMessageCenterPojo3;
+                        }
+                    }
+                    if (imMessageCenterPojo != null) {
+                        data.remove(imMessageCenterPojo);
+                        data.add(t77.a(imMessageCenterPojo));
+                    }
+                    if (imMessageCenterPojo2 != null) {
+                        data.remove(imMessageCenterPojo2);
+                        data.add(u77.a(imMessageCenterPojo2));
+                    }
+                }
+            }
+            return customResponsedMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

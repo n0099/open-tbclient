@@ -1,70 +1,83 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.tieba.t93;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Locale;
 /* loaded from: classes3.dex */
-public class d93 implements b93<JSONObject> {
+public class d93 implements SoUtils.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659339, "Lcom/baidu/tieba/d93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659339, "Lcom/baidu/tieba/d93;");
+                return;
+            }
+        }
+        a = vj1.a;
+    }
 
     public d93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public final String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(sm2.c(), str);
+            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, findSoFilesInLibrary == null ? null : findSoFilesInLibrary.getAbsolutePath(), Long.valueOf(findSoFilesInLibrary == null ? 0L : findSoFilesInLibrary.length()));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.so.SoUtils.a
+    public void onEvent(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.b == null) {
-            this.b = new JSONArray();
+        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
+        String str3 = Arrays.toString(strArr) + "\n" + wj1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
+        if (a) {
+            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
         }
-        this.b.put(jSONObject);
-        if (b93.a) {
-            Log.d("WhiteCollector", "FEStage: " + jSONObject);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = null;
-        }
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("stageError", this.b);
-            } catch (JSONException e) {
-                if (b93.a) {
-                    Log.e("WhiteCollector", Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        t93.b bVar = new t93.b(10007);
+        bVar.j(str);
+        bVar.i(str3);
+        bVar.h(l33.g0());
+        bVar.m();
     }
 }

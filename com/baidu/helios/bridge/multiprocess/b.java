@@ -19,7 +19,7 @@ public class b implements Parcelable {
     public IBinder a;
 
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<b> {
+    public class a implements Parcelable.Creator<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

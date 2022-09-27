@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wc3;
+import com.baidu.tieba.jd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,7 +76,7 @@ public final class MediaBrightness extends FrameLayout {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811de);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811e2);
             this.a.setLayoutParams(layoutParams);
         }
     }
@@ -84,7 +84,7 @@ public final class MediaBrightness extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = wc3.c().a((Activity) getContext());
+            this.f = jd3.c().a((Activity) getContext());
         }
     }
 
@@ -105,7 +105,7 @@ public final class MediaBrightness extends FrameLayout {
             } else if (f <= 0.0f) {
                 f = 0.0f;
             }
-            wc3.c().e((Activity) getContext(), f);
+            jd3.c().e((Activity) getContext(), f);
         }
     }
 

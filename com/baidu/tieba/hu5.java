@@ -1,98 +1,126 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hu5 extends v06<yt5> {
+public class hu5 extends qn<lu5, LiveTabConcernNotificationViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public TbImageView k;
-    public TbImageView l;
-    public View m;
-    public yt5 n;
+    public TbPageContext a;
+    public boolean b;
+    public i26<lu5> c;
+
+    /* loaded from: classes4.dex */
+    public class a extends i26<lu5> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hu5 b;
+
+        public a(hu5 hu5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hu5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.i26
+        /* renamed from: d */
+        public void a(View view2, lu5 lu5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, lu5Var) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090e58) {
+                    if (this.b.b) {
+                        return;
+                    }
+                    this.b.b = true;
+                    AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090e59) {
+                    ou5.b(this.b.a);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hu5(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public hu5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), lu5.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e5a);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e59);
-        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090e58);
-        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090e57);
-        this.l = tbImageView;
-        tbImageView.setAutoChangeStyle(true);
-        this.l.setDefaultResource(17170445);
-        this.l.setDefaultBgResource(17170445);
-        this.k.setOnClickListener(this);
-        this.j.setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.v06
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0851 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
-            SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
-            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ea);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
-            return;
-        }
-        e().a(view2, this.n);
+        this.b = false;
+        this.c = new a(this);
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: r */
-    public void i(yt5 yt5Var) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yt5Var) == null) {
-            this.n = yt5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            uu5 uu5Var = new uu5(this.a, viewGroup);
+            uu5Var.n(this.c);
+            return new LiveTabConcernNotificationViewHolder(uu5Var);
         }
+        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lu5 lu5Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
+        InterceptResult invokeCommon;
+        uu5 uu5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lu5Var, liveTabConcernNotificationViewHolder})) == null) {
+            if (liveTabConcernNotificationViewHolder == null || (uu5Var = liveTabConcernNotificationViewHolder.a) == null) {
+                return null;
+            }
+            this.b = false;
+            uu5Var.i(lu5Var);
+            return liveTabConcernNotificationViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

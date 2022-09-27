@@ -11,15 +11,15 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.a01;
-import com.baidu.tieba.kz0;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.p11;
-import com.baidu.tieba.q11;
-import com.baidu.tieba.r11;
-import com.baidu.tieba.si0;
-import com.baidu.tieba.t11;
-import com.baidu.tieba.zz0;
+import com.baidu.tieba.b21;
+import com.baidu.tieba.c21;
+import com.baidu.tieba.d21;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.fj0;
+import com.baidu.tieba.g21;
+import com.baidu.tieba.m01;
+import com.baidu.tieba.n01;
+import com.baidu.tieba.xz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class ClogBuilder extends zz0 {
+public class ClogBuilder extends m01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final JSONObject c;
@@ -482,7 +482,7 @@ public class ClogBuilder extends zz0 {
                 return;
             }
         }
-        this.c = kz0.c(null);
+        this.c = xz0.c(null);
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
@@ -496,20 +496,20 @@ public class ClogBuilder extends zz0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xz0, com.baidu.tieba.a01
+    @Override // com.baidu.tieba.k01, com.baidu.tieba.n01
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             g();
-            si0 si0Var = (si0) ServiceManager.getService(si0.a);
-            if (si0Var != null) {
-                A(si0Var.a(this.c.optString("extra_param")));
+            fj0 fj0Var = (fj0) ServiceManager.getService(fj0.a);
+            if (fj0Var != null) {
+                A(fj0Var.a(this.c.optString("extra_param")));
             }
         }
     }
 
-    @Override // com.baidu.tieba.xz0, com.baidu.tieba.a01
-    public <T extends a01> T b(String str, String str2) {
+    @Override // com.baidu.tieba.k01, com.baidu.tieba.n01
+    public <T extends n01> T b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
@@ -519,15 +519,15 @@ public class ClogBuilder extends zz0 {
         return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.xz0
-    public <T extends a01> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.k01
+    public <T extends n01> T d(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            kz0.f(this.c, str, obj);
+            xz0.f(this.c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -535,18 +535,18 @@ public class ClogBuilder extends zz0 {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && p11.a) {
-            q11 q11Var = (q11) o11.a().a(q11.class);
-            if (q11Var != null) {
-                q11Var.a(h());
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c21.a) {
+            d21 d21Var = (d21) b21.a().a(d21.class);
+            if (d21Var != null) {
+                d21Var.a(h());
             }
-            r11 r11Var = (r11) o11.a().a(r11.class);
-            if (r11Var != null) {
-                r11Var.a(h());
+            e21 e21Var = (e21) b21.a().a(e21.class);
+            if (e21Var != null) {
+                e21Var.a(h());
             }
-            t11 t11Var = (t11) o11.a().a(t11.class);
-            if (t11Var != null) {
-                t11Var.a(h());
+            g21 g21Var = (g21) b21.a().a(g21.class);
+            if (g21Var != null) {
+                g21Var.a(h());
             }
         }
     }
@@ -568,7 +568,7 @@ public class ClogBuilder extends zz0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zz0, com.baidu.tieba.a01
+    @Override // com.baidu.tieba.m01, com.baidu.tieba.n01
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -691,7 +691,7 @@ public class ClogBuilder extends zz0 {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zz0, com.baidu.tieba.xz0, com.baidu.tieba.a01
+    @Override // com.baidu.tieba.m01, com.baidu.tieba.k01, com.baidu.tieba.n01
     @NonNull
     public String toString() {
         InterceptResult invokeV;

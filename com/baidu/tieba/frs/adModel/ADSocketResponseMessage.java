@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.adModel;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zi6;
+import com.baidu.tieba.mj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int has_more;
-    public List<zi6> list;
+    public List<mj6> list;
     public long offset;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,15 +65,15 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
                 return getADListResIdl;
             }
             for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
-                zi6 zi6Var = new zi6();
-                zi6Var.s(getADListResIdl.data.ad_list.get(i2));
+                mj6 mj6Var = new mj6();
+                mj6Var.s(getADListResIdl.data.ad_list.get(i2));
                 if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                    zi6Var.t(true);
+                    mj6Var.t(true);
                 } else {
-                    zi6Var.t(false);
+                    mj6Var.t(false);
                 }
-                if (zi6Var.r() == 0 || zi6Var.r() == 2) {
-                    this.list.add(zi6Var);
+                if (mj6Var.r() == 0 || mj6Var.r() == 2) {
+                    this.list.add(mj6Var);
                 }
             }
             this.has_more = getADListResIdl.data.has_more.intValue();
@@ -89,7 +89,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.has_more : invokeV.intValue;
     }
 
-    public List<zi6> getList() {
+    public List<mj6> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.list : (List) invokeV.objValue;

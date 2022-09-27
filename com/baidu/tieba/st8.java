@@ -1,95 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeRecommand;
 /* loaded from: classes5.dex */
 public class st8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    public static void a(nu4 nu4Var, int i) {
+    public st8() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, nu4Var, i) == null) || nu4Var == null || i < 0) {
-            return;
-        }
-        int i2 = i + 1;
-        boolean d = nu4Var.d();
-        TiebaStatic.log(new StatisticItem("c14633").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())).param("obj_locate", i2).param("obj_type", d ? 2 : 1));
-    }
-
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLIL.booleanValue;
     }
 
-    public static String c(View view2) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof PostData) {
-                PostData postData = (PostData) tag;
-                if (postData.s() != null) {
-                    return postData.s().getUserId();
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public static void e(Activity activity, String str) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) || activity == null || TextUtils.isEmpty(str)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void d(ThemeRecommand themeRecommand) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, themeRecommand) == null) || themeRecommand == null) {
             return;
         }
-        g((ViewGroup) activity.findViewById(16908290), str, false);
-    }
-
-    public static void f(View view2, PostData postData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, view2, postData) == null) || view2 == null) {
-            return;
-        }
-        view2.setTag(postData);
-    }
-
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) || viewGroup == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-        bdTopToast.h(z);
-        bdTopToast.g(str);
-        bdTopToast.i(viewGroup);
+        this.a = themeRecommand.icon;
+        this.b = themeRecommand.tip_text;
+        this.c = themeRecommand.button_text;
+        String str = themeRecommand.button_url;
     }
 }

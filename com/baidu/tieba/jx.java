@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jx extends gx<lq4> implements u09 {
+public class jx extends gx<yq4> implements j19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public lq4 h;
+    public yq4 h;
     public b i;
 
     /* loaded from: classes4.dex */
@@ -62,7 +62,7 @@ public class jx extends gx<lq4> implements u09 {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(lq4 lq4Var, View view2);
+        void a(yq4 yq4Var, View view2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,7 +93,7 @@ public class jx extends gx<lq4> implements u09 {
         this.f.setUserAfterClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.u09
+    @Override // com.baidu.tieba.j19
     public void b() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class jx extends gx<lq4> implements u09 {
         }
     }
 
-    @Override // com.baidu.tieba.u09
+    @Override // com.baidu.tieba.j19
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -153,11 +153,11 @@ public class jx extends gx<lq4> implements u09 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: r */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lq4Var) == null) {
-            this.h = lq4Var;
-            this.f.setData(lq4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048583, this, yq4Var) == null) {
+            this.h = yq4Var;
+            this.f.setData(yq4Var.getThreadData());
         }
     }
 

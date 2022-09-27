@@ -7,8 +7,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eg1;
-import com.baidu.tieba.p21;
+import com.baidu.tieba.c31;
+import com.baidu.tieba.rg1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     public MediaPlayer a;
     public Surface b;
     public SurfaceHolder c;
-    public eg1 d;
+    public rg1 d;
     public State e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -191,12 +191,12 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     public final void f(int i) {
-        eg1 eg1Var;
+        rg1 rg1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (eg1Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (rg1Var = this.d) == null) {
             return;
         }
-        eg1Var.a(i);
+        rg1Var.a(i);
     }
 
     public void g() {
@@ -270,10 +270,10 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         }
     }
 
-    public void m(eg1 eg1Var) {
+    public void m(rg1 rg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, eg1Var) == null) {
-            this.d = eg1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, rg1Var) == null) {
+            this.d = rg1Var;
         }
     }
 
@@ -382,7 +382,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public void r(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !p21.a(context, "android.permission.WAKE_LOCK")) {
+        if (!(interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) || this.a == null || context == null || !c31.a(context, "android.permission.WAKE_LOCK")) {
             return;
         }
         this.a.setWakeMode(context.getApplicationContext(), i);

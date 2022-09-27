@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.jf;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.member.ForumMemberReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.member.ForumMemberReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class df6 {
+public class df6 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jf<byte[]> a;
 
     public df6() {
         Interceptable interceptable = $ic;
@@ -25,41 +25,27 @@ public class df6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public byte[] a(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            jf<byte[]> jfVar = this.a;
-            jf.b<byte[]> h = (jfVar == null || str == null) ? null : jfVar.h(str);
-            if (h == null || (bArr = h.b) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage instanceof ForumMemberReadCacheRequestMessage) {
+                byte[] a = new bf6().a(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
+                ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
+                try {
+                    forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return forumMemberReadCacheResponseMessage;
             }
-            return bArr;
+            return null;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            zt4.f();
-            this.a = zt4.d("tb.tbtiel_level_info");
-        }
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        b();
-        this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,44 +1,44 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v22 {
+public class v22 extends r22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String F0;
+    public JSONObject G0;
+    public boolean H0;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ v22 b;
 
-        public a(String str, File file) {
+        public a(v22 v22Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, file};
+                Object[] objArr = {v22Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,254 +48,196 @@ public class v22 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = file;
+            this.b = v22Var;
+            this.a = jSONObject;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (v22.class) {
-                    cj4.S(this.a, this.b, true);
-                }
-                v22.c();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yo2.U().u(new xy2(this.b.F0, this.a.toString(), this.b.G0.optString("slaveId")).a());
+                this.b.H0 = false;
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Comparator<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Long l, Long l2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) ? l2.compareTo(l) : invokeLL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948188819, "Lcom/baidu/tieba/v22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948188819, "Lcom/baidu/tieba/v22;");
-                return;
-            }
-        }
-        a = ij1.a;
     }
 
     public v22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.H0 = true;
+    }
+
+    public static v22 Y2(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            v22 v22Var = new v22();
+            if (!TextUtils.isEmpty(str2)) {
+                Bundle bundle = new Bundle();
+                bundle.putString("plugin_fun_page_path", str);
+                bundle.putString("plugin_pay_params", str2);
+                v22Var.j1(bundle);
+            }
+            return v22Var;
+        }
+        return (v22) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r22, com.baidu.swan.support.v4.app.Fragment
+    public void B0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c0 = null;
+            super.B0();
         }
     }
 
-    public static File b(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.r22
+    public boolean I() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.H0 || (jSONObject = this.G0) == null) {
+                return false;
             }
-            File file = new File(f + File.separator + j);
-            if (file.exists()) {
-                cj4.L(file);
-            }
-            cj4.h(file);
-            return file;
+            wy2 wy2Var = new wy2(jSONObject.optString("componentId"));
+            wy2Var.a = this.G0.optString("slaveId");
+            wy2Var.b();
+            return false;
         }
-        return (File) invokeJ.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void c() {
-        y23 b0;
+    @Override // com.baidu.tieba.r22
+    public void U1(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (b0 = y23.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            V1(view2);
+            t2(-1);
+            C2(-16777216);
+            v2(G(R.string.obfuscated_res_0x7f0f1279));
+            x2(true);
+            J2(false);
+        }
+    }
+
+    public final void X2(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || this.G0 == null) {
             return;
         }
-        File file = new File(ul2.g().getPath() + File.separator + "launch_tips");
-        if (file.exists() && file.isDirectory()) {
-            cj4.j(file);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e50);
+        l33 b0 = l33.b0();
+        if (b0 != null) {
+            textView.setText(b0.Y().K());
         }
+        JSONObject optJSONObject = this.G0.optJSONObject("args");
+        if (optJSONObject == null) {
+            return;
+        }
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e51)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e53);
+        mc4 g = jz2.g(this.G0.optString("pluginProvider"));
+        if (g != null) {
+            textView2.setText(g.s);
+        }
+        ((Button) view2.findViewById(R.id.obfuscated_res_0x7f090e52)).setOnClickListener(new a(this, optJSONObject));
     }
 
-    public static File d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            File[] g = g();
-            if (g != null && g.length != 0) {
-                File file = null;
-                for (File file2 : g) {
-                    try {
-                        long parseLong = Long.parseLong(file2.getName());
-                        if (parseLong == j) {
-                            file = file2;
-                        } else if (j - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
-                            cj4.j(file2);
-                        }
-                    } catch (NumberFormatException unused) {
-                        cj4.j(file2);
-                    }
-                }
-                return file == null ? b(j) : file;
-            }
-            return b(j);
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static String e() {
+    @Override // com.baidu.tieba.r22
+    public boolean c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File[] g = g();
-            if (g == null) {
-                return null;
-            }
-            TreeMap treeMap = new TreeMap(new b());
-            long i = i(System.currentTimeMillis());
-            for (File file : g) {
-                try {
-                    long parseLong = Long.parseLong(file.getName());
-                    if (i - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
-                        cj4.j(file);
-                    } else {
-                        List<String> F = cj4.F(file);
-                        if (F != null && F.size() > 0) {
-                            treeMap.put(Long.valueOf(parseLong), F);
-                        }
-                    }
-                } catch (NumberFormatException unused) {
-                    cj4.j(file);
-                }
-            }
-            if (treeMap.size() == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder("\n（二）历史日志");
-            for (Map.Entry entry : treeMap.entrySet()) {
-                sb.append("\n----------【");
-                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
-                sb.append("】----------");
-                for (String str : (List) entry.getValue()) {
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append("\n");
-                        sb.append(str);
-                    }
-                }
-            }
-            sb.append("\n");
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String f() {
+    @Override // com.baidu.tieba.r22
+    public boolean e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            y23 b0 = y23.b0();
-            if (b0 == null) {
-                return null;
-            }
-            String appId = b0.getAppId();
-            if (TextUtils.isEmpty(appId)) {
-                return null;
-            }
-            return ul2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static File[] g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r22, com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f);
-            if (file.exists() && file.isDirectory()) {
-                return file.listFiles();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+            return true;
         }
-        return (File[]) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void h(long j, String str) {
+    @Override // com.baidu.tieba.r22
+    public void j2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
-            long i = i(j);
-            if (i == -1) {
-                if (a) {
-                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.r22, com.baidu.swan.support.v4.app.Fragment
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onResume();
+            H2(1);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void u0(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.u0(bundle);
+            Bundle p = p();
+            if (p == null) {
                 return;
             }
-            File d = d(i);
-            if (d == null || !d.exists()) {
-                return;
-            }
-            sf3.k(new a(str, d), "saveLaunchTipsLog");
+            this.F0 = p.getString("plugin_fun_page_path");
+            this.G0 = lg3.d(p.getString("plugin_pay_params"));
         }
     }
 
-    public static long i(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            try {
-                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
-                if (parse == null) {
-                    return -1L;
-                }
-                return parse.getTime();
-            } catch (ParseException e) {
-                if (ij1.a) {
-                    e.printStackTrace();
-                }
-                return -1L;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0818, viewGroup, false);
+            U1(inflate);
+            X2(inflate);
+            if (T1()) {
+                inflate = W1(inflate);
             }
+            return D1(inflate, this);
         }
-        return invokeJ.longValue;
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.y0();
+            k33.K().q().e0().v();
+        }
     }
 }

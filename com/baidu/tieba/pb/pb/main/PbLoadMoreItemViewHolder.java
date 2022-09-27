@@ -95,12 +95,12 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
         this.i = new a(this, 2921471);
         this.a = view2;
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091848);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091845);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09184a);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091847);
         this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0916cc);
         this.h = ej.f(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0908e5);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091aba);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abc);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,8 +9,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class a36 {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
 
     public a36() {
         Interceptable interceptable = $ic;
@@ -27,30 +29,16 @@ public class a36 {
         }
     }
 
-    public static Handler a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (a36.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
-                }
-            }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public static void b(Runnable runnable) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
         }
     }
 }

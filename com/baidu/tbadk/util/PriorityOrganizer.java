@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kh5;
+import com.baidu.tieba.xh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -281,7 +281,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                kh5.d(this.b != null, "任务需先添加到 PriorityOrganizer");
+                xh5.d(this.b != null, "任务需先添加到 PriorityOrganizer");
                 return this.b;
             }
             return (PriorityOrganizer) invokeV.objValue;

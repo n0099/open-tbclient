@@ -1,25 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface td9 {
-    void a(DownloadException downloadException);
+    void close() throws IOException;
 
-    void b(DownloadException downloadException);
-
-    void onConnectCanceled();
-
-    void onConnected(long j, long j2, boolean z);
-
-    void onConnecting();
-
-    void onDownloadCanceled();
-
-    void onDownloadCompleted(String str);
-
-    void onDownloadPaused();
-
-    void onDownloadProgress(long j, long j2, int i);
-
-    void onStarted();
+    int write(byte[] bArr, int i, int i2) throws IOException;
 }

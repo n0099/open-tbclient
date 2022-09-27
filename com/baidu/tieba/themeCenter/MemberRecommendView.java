@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.st8;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public dt8 f;
+    public st8 f;
     public int g;
 
     /* loaded from: classes6.dex */
@@ -156,13 +156,13 @@ public class MemberRecommendView extends FrameLayout {
         }
     }
 
-    public void e(dt8 dt8Var) {
+    public void e(st8 st8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dt8Var) == null) || dt8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, st8Var) == null) || st8Var == null) {
             return;
         }
-        this.f = dt8Var;
-        this.c.K(dt8Var.b(), 10, false);
+        this.f = st8Var;
+        this.c.K(st8Var.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -177,12 +177,12 @@ public class MemberRecommendView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d057b, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925eb);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ed);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08123c);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
             this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092248);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224a);
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091033);
             this.e = textView;
             textView.setOnClickListener(new a(this));

@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.me5;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.zd5;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,11 +128,11 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zd5 zd5Var = new zd5(309264);
-            zd5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            zd5Var.g(true);
-            zd5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(zd5Var);
+            me5 me5Var = new me5(309264);
+            me5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            me5Var.g(true);
+            me5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(me5Var);
         }
     }
 
@@ -174,7 +174,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, dm8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, sm8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);

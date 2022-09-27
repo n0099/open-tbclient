@@ -22,9 +22,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.nl5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -610,8 +610,8 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.i = this.h.getAdapter().getCount();
         boolean z = false;
         for (int i = 0; i < this.i; i++) {
-            if (this.h.getAdapter() instanceof al5) {
-                z = ((al5) this.h.getAdapter()).a(i);
+            if (this.h.getAdapter() instanceof nl5) {
+                z = ((nl5) this.h.getAdapter()).a(i);
             }
             w(i, this.h.getAdapter().getPageTitle(i).toString(), z);
         }
@@ -959,7 +959,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             tabTextView.setHasRedDot(z);
             tabTextView.setText(str);
             if (this.c0 != 0) {
-                uu4.d(tabTextView).y(this.c0);
+                hv4.d(tabTextView).y(this.c0);
             }
             tabTextView.setGravity(17);
             tabTextView.setTextSize(0, this.I);
@@ -1089,7 +1089,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.I = 17;
         this.J = 17;
         this.T = 0;
-        this.U = R.drawable.obfuscated_res_0x7f080e83;
+        this.U = R.drawable.obfuscated_res_0x7f080e85;
         this.V = false;
         this.W = false;
         this.c0 = 0;

@@ -14,8 +14,8 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q90;
-import com.baidu.tieba.w90;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.ja0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -233,12 +233,12 @@ public final class LiveExpandTabView extends ConstraintLayout {
             this.d = str;
             RecyclerView recyclerView = this.a;
             if (recyclerView != null) {
-                w90 w90Var = w90.a;
+                ja0 ja0Var = ja0.a;
                 Context context = recyclerView.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context, "context");
-                recyclerView.setBackgroundDrawable(w90Var.c(context, str));
+                recyclerView.setBackgroundDrawable(ja0Var.c(context, str));
                 recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(q90.b(recyclerView.getContext(), 14.0f)));
+                recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(da0.b(recyclerView.getContext(), 14.0f)));
                 LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
                 liveExpandTabAdapter.i(new c(this, str));
                 this.b = liveExpandTabAdapter;
@@ -253,10 +253,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (recyclerView = this.a) == null) {
             return;
         }
-        w90 w90Var = w90.a;
+        ja0 ja0Var = ja0.a;
         Context context = getContext();
         Intrinsics.checkExpressionValueIsNotNull(context, "context");
-        recyclerView.setBackgroundDrawable(w90Var.c(context, this.d));
+        recyclerView.setBackgroundDrawable(ja0Var.c(context, this.d));
     }
 
     public final void e() {

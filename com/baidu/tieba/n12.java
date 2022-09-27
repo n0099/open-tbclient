@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o12;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n12 implements o12.b {
+public class n12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    @SuppressLint({"BDOfflineUrl"})
+    public String b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public boolean g;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +44,11 @@ public class n12 implements o12.b {
                 return;
             }
         }
-        a = ij1.a;
+        h = vj1.a;
+        i = "V8Master";
+        j = "page";
+        k = "runtime/index.js";
+        l = "ws://localhost:4000";
     }
 
     public n12() {
@@ -37,36 +56,53 @@ public class n12 implements o12.b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = String.valueOf(System.currentTimeMillis());
+        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
+        this.c = false;
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = true;
     }
 
-    @Override // com.baidu.tieba.o12.b
-    public void a() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
-            Log.d("SimplePreDownloadCallback", "pre download success");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("title", i);
+                jSONObject.putOpt("type", j);
+                jSONObject.putOpt("url", k);
+                jSONObject.putOpt("webSocketDebuggerUrl", l);
+                jSONObject.putOpt("id", this.a);
+                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
+                jSONObject.putOpt("swanJsVersion", qc3.h(0));
+                jSONObject.putOpt("appVersion", fh3.D());
+                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
+                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
+                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
+                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
+                jSONObject2.putOpt("visible", Boolean.valueOf(this.g));
+                jSONObject.putOpt("description", jSONObject2.toString());
+                jSONArray.put(jSONObject);
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("V8Module", "Build V8 module fail", e);
+                }
+            }
+            return jSONArray.toString();
         }
-    }
-
-    @Override // com.baidu.tieba.o12.b
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
-        }
-    }
-
-    @Override // com.baidu.tieba.o12.b
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
-            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
-        }
+        return (String) invokeV.objValue;
     }
 }

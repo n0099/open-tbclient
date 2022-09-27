@@ -1,20 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class np1 implements zo1 {
+public final class np1 extends oo2<np1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        public static final String a = oo2.r("SwanApkFetcher.Params", "title");
+        public static final String b = oo2.r("SwanApkFetcher.Params", EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        public static final String c = oo2.r("SwanApkFetcher.Params", "description");
+        public static final String d = oo2.r("SwanApkFetcher.Params", "should_auto_install");
+        public static final String e = oo2.r("SwanApkFetcher.Params", "current_swan_app");
+        public static final String f = oo2.r("SwanApkFetcher.Params", "content_disposition");
+        public static final String g = oo2.r("SwanApkFetcher.Params", "mime_type");
+        public static final String h = oo2.r("SwanApkFetcher.Params", HttpRequest.USER_AGENT);
+        public static final String i = oo2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
+        public static final String j = oo2.r("SwanApkFetcher.Params", "ext_info");
+    }
 
     public np1() {
         Interceptable interceptable = $ic;
@@ -30,73 +43,75 @@ public class np1 implements zo1 {
         }
     }
 
-    @Override // com.baidu.tieba.zo1
-    public hp1 a(Context context) {
+    public np1 E(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new SwanWebModeWidget(context) : (hp1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) ? t(a.d, bool.booleanValue()) : (np1) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zo1
-    public dp1 b(Context context) {
+    public np1 F(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new v12(context) : (dp1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? z(a.f, str) : (np1) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zo1
-    public hp1 c(Context context) {
+    public np1 G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? new up1(context) : (hp1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.i, str) : (np1) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zo1
-    public t42 d() {
+    public np1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? z(a.e, str) : (np1) invokeL.objValue;
+    }
+
+    public np1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? z(a.c, str) : (np1) invokeL.objValue;
+    }
+
+    public np1 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? z(a.j, str) : (np1) invokeL.objValue;
+    }
+
+    public np1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? z(a.g, str) : (np1) invokeL.objValue;
+    }
+
+    public np1 L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? z(a.b, str) : (np1) invokeL.objValue;
+    }
+
+    public np1 M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new t42() : (t42) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (np1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zo1
-    public ep1 e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) ? new SwanAppSlaveManager(context) : (ep1) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.zo1
-    public hp1 f(Context context) {
+    public np1 N(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? new nq1(context) : (hp1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? z(a.a, str) : (np1) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zo1
-    public hp1 g(Context context) {
+    public np1 O(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new rq1(context) : (hp1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? z(a.h, str) : (np1) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zo1
-    public u42 h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) ? new v42().a(context, i) : (u42) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.zo1
-    public hp1 i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? new SwanAppSimpleH5Widget(context) : (hp1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zo1
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+    @Override // com.baidu.tieba.hi3
+    public /* bridge */ /* synthetic */ hi3 a() {
+        M();
+        return this;
     }
 }

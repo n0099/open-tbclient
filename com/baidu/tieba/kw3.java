@@ -1,118 +1,64 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c23;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class kw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c23 a;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-        public final /* synthetic */ DialogInterface.OnClickListener e;
-        public final /* synthetic */ kw3 f;
+    public static boolean a(View view2, rt2 rt2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, rt2Var)) == null) {
+            cl1 W = yo2.U().W();
+            return W != null && W.c(view2, rt2Var);
+        }
+        return invokeLL.booleanValue;
+    }
 
-        public a(kw3 kw3Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kw3Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            cl1 W = yo2.U().W();
+            return (W == null || !W.b() || W.h()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            cl1 W = yo2.U().W();
+            return W != null && W.d(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            cl1 W = yo2.U().W();
+            if (W == null) {
+                return false;
             }
-            this.f = kw3Var;
-            this.a = activity;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-            this.e = onClickListener;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f.a != null && this.f.a.isShowing()) {
-                    this.f.a.dismiss();
+            if (W.h()) {
+                SwanAppActivity activity = yo2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
                 }
-                Activity activity = this.a;
-                if (activity == null || activity.isFinishing()) {
-                    return;
-                }
-                c23.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
-                this.f.a = d.X();
+                W.g(false);
             }
+            return W.removeView(view2);
         }
-    }
-
-    public kw3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final c23.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
-            c23.a aVar = new c23.a(activity);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new gi3());
-            aVar.m(z);
-            aVar.Q(R.color.obfuscated_res_0x7f060a80);
-            aVar.f(true);
-            aVar.P(str2, onClickListener);
-            return aVar;
-        }
-        return (c23.a) invokeCommon.objValue;
-    }
-
-    public void e() {
-        c23 c23Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (c23Var = this.a) == null) {
-            return;
-        }
-        if (c23Var.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a = null;
-    }
-
-    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
-            sg3.a0(new a(this, activity, str, str2, z, onClickListener));
-        }
+        return invokeL.booleanValue;
     }
 }

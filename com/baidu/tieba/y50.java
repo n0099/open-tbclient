@@ -1,163 +1,281 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.support.okhttp.converters.ResponseConverter;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
+import com.google.android.material.internal.ManufacturerUtils;
 /* loaded from: classes6.dex */
-public class y50 implements Call {
+public class y50 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile y50 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Request a;
-    @NonNull
-    public okhttp3.Request b;
-    @NonNull
-    public OkHttpClient c;
-    @NonNull
-    public okhttp3.Call d;
 
     /* loaded from: classes6.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.searchbox.network.outback.core.Callback a;
-        public final /* synthetic */ y50 b;
+    public interface a {
+        void a(boolean z, String str);
+    }
 
-        public a(y50 y50Var, com.baidu.searchbox.network.outback.core.Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y50Var, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = y50Var;
-            this.a = callback;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948281013, "Lcom/baidu/tieba/y50;")) == null) {
+            return;
         }
-
-        @Override // okhttp3.Callback
-        public void onFailure(okhttp3.Call call, IOException iOException) {
-            com.baidu.searchbox.network.outback.core.Callback callback;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) || (callback = this.a) == null) {
-                return;
-            }
-            callback.onFailure(this.b, iOException);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // okhttp3.Callback
-        public void onResponse(okhttp3.Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.b.a, response);
-                if (fromOks.getStatRecord() != null) {
-                    fromOks.getStatRecord().finishTs = System.currentTimeMillis();
-                }
-                com.baidu.searchbox.network.outback.core.Callback callback = this.a;
-                if (callback != null) {
-                    callback.onResponse(this.b, fromOks);
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948281013, "Lcom/baidu/tieba/y50;");
         }
     }
 
-    public y50(@NonNull Request request, @NonNull okhttp3.Request request2, @NonNull OkHttpClient okHttpClient) {
+    public y50() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {request, request2, okHttpClient};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = request;
-        this.b = request2;
-        this.c = okHttpClient;
-        this.d = okHttpClient.newCall(request2);
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.cancel();
-        }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void enqueue(com.baidu.searchbox.network.outback.core.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
-            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            this.d.enqueue(new a(this, callback));
-        }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public com.baidu.searchbox.network.outback.core.Response execute() throws IOException {
+    public static y50 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.a, this.d.execute());
-            if (fromOks.getStatRecord() != null) {
-                fromOks.getStatRecord().finishTs = System.currentTimeMillis();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (y50.class) {
+                    if (a == null) {
+                        a = new y50();
+                        return a;
+                    }
+                    return null;
+                }
             }
-            return fromOks;
+            return null;
         }
-        return (com.baidu.searchbox.network.outback.core.Response) invokeV.objValue;
+        return (y50) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isCanceled() {
-        InterceptResult invokeV;
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.isCanceled() : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo("com.huawei.hwid", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isExecuted() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d.isExecuted() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                String str = Build.BRAND;
+                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase("vivo") : false;
+                try {
+                    if (Build.VERSION.SDK_INT < 28) {
+                        return false;
+                    }
+                } catch (Throwable unused) {
+                }
+                return equalsIgnoreCase;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Request request() {
-        InterceptResult invokeV;
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Request) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.meizu.flyme.openidsdk", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Call clone() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new y50(this.a, this.b, this.c) : (Call) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            try {
+                String str = Build.BRAND;
+                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG) : false;
+                try {
+                    if (Build.VERSION.SDK_INT < 29) {
+                        return false;
+                    }
+                } catch (Throwable unused) {
+                }
+                return equalsIgnoreCase;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.zui.deviceidservice", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                String str = Build.BRAND;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                return str.equalsIgnoreCase(RomUtils.MANUFACTURER_NUBIA);
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.asus.msa.SupplementaryDID", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(Context context, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            if (k()) {
+                z50.a(context, aVar);
+            } else if (d()) {
+                b60.a(context, aVar);
+            } else if (c(context)) {
+                t50.a(context, aVar);
+            } else if (j()) {
+                w50.a(context, aVar);
+            } else if (f()) {
+                a60.a(context, aVar);
+            } else if (e(context)) {
+                v50.a(context, aVar);
+            } else if (h()) {
+                x50.a(context, aVar);
+            } else if (g(context)) {
+                u50.a(context, aVar);
+            } else if (i(context)) {
+                s50.a(context, aVar);
+            } else {
+                aVar.a(false, null);
+            }
+        }
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                String str = Build.BRAND;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                if (!str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) && !str.equalsIgnoreCase("redmi")) {
+                    if (!str.equalsIgnoreCase("blackshark")) {
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(11:3|4|5|(9:7|(1:11)|14|15|16|17|(1:22)|19|20)|25|15|16|17|(0)|19|20) */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0023, code lost:
+        if (r1.equalsIgnoreCase("oneplus") != false) goto L14;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean k() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                String str = Build.BRAND;
+                if (!TextUtils.isEmpty(str)) {
+                    if (!str.equalsIgnoreCase("oppo") && !str.equalsIgnoreCase("realme")) {
+                    }
+                    z = true;
+                    if (Build.VERSION.SDK_INT < 28) {
+                        return false;
+                    }
+                    return z;
+                }
+                z = false;
+                if (Build.VERSION.SDK_INT < 28) {
+                }
+                return z;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

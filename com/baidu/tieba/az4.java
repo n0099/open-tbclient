@@ -1,22 +1,148 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class az4 extends vy4<az4> {
+public class az4 {
     public static /* synthetic */ Interceptable $ic;
+    public static az4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
+    public final HashMap<String, DownloadData> a;
+    public final HashMap<String, DownloadData> b;
+    public final HashMap<String, String> c;
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ az4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(az4 az4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = az4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
+                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+                if (ListUtils.isEmpty(data)) {
+                    return;
+                }
+                for (DownloadData downloadData : data) {
+                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
+                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
+                        int status = downloadData.getStatus();
+                        if (status == 0) {
+                            if (this.a.a.containsKey(str)) {
+                                this.a.b.put(str, this.a.a.get(str));
+                                this.a.a.remove(str);
+                                zy4.a(downloadData, 700);
+                                return;
+                            }
+                            return;
+                        } else if (status != 2) {
+                            if (status == 4 && this.a.a.containsKey(str)) {
+                                this.a.a.remove(str);
+                                zy4.a(downloadData, 400);
+                                return;
+                            }
+                            return;
+                        } else {
+                            zy4.a(downloadData, 600);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ az4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(az4 az4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = az4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Intent) {
+                    Intent intent = (Intent) data;
+                    String g = x85.g(intent);
+                    if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) || "android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
+                        if (this.a.b.containsKey(g)) {
+                            zy4.a((DownloadData) this.a.b.get(g), 900);
+                            this.a.b.remove(g);
+                        }
+                    } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
+                        this.a.l(g);
+                    }
+                }
+            }
+        }
+    }
 
     public az4() {
         Interceptable interceptable = $ic;
@@ -28,109 +154,106 @@ public class az4 extends vy4<az4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        h();
+        i();
     }
 
-    public static az4 w(@NonNull az4 az4Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
+    public static az4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, az4Var, editable)) == null) {
-            az4 az4Var2 = new az4();
-            az4Var2.b(az4Var);
-            az4Var2.p(editable);
-            return az4Var2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                d = new az4();
+            }
+            return d;
         }
-        return (az4) invokeLL.objValue;
+        return (az4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vy4
-    public void a(Editable editable, int i, int i2, int i3) {
+    public void d(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy4
-    public void r(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            k(sb);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
-    @Override // com.baidu.tieba.vy4
-    public void s(Editable editable, int i) {
+    public void e(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            k(sb);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
-    public void t() {
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c.containsKey(str)) {
+                return this.c.get(str);
+            }
+            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
+            this.c.put(str, string);
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            q(true);
-            x();
+            a aVar = new a(this, 2001118);
+            aVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(aVar);
         }
     }
 
-    public String u() {
-        InterceptResult invokeV;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.i + "#";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            k(u());
-            if (ug5.g(this.c, f())) {
-                return;
-            }
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a45, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-            eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-            n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
-            n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b bVar = new b(this, 2002504);
+            bVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(bVar);
         }
     }
 
-    public az4(String str) {
+    public void j(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
         }
-        this.i = str;
+    }
+
+    public void k(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c.remove(str);
+            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+            edit.remove(str);
+            edit.commit();
+        }
+    }
+
+    public void m(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || StringHelper.equals(this.c.get(str), str2)) {
+            return;
+        }
+        this.c.put(str, str2);
+        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+        edit.putString(str, str2);
+        edit.commit();
     }
 }

@@ -1,31 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.tieba.j33;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Callback;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-@SuppressLint({"StaticFieldLeak"})
-/* loaded from: classes3.dex */
-public class f14 extends HttpManager {
+/* loaded from: classes4.dex */
+public class f14 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile f14 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f14() {
-        super(fm2.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,89 +27,84 @@ public class f14 extends HttpManager {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = "";
+        this.b = Integer.MAX_VALUE;
+        this.c = false;
+        this.d = false;
     }
 
-    public static f14 a() {
-        InterceptResult invokeV;
+    public boolean a(sv1 sv1Var) throws JSTypeMismatchException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (f14.class) {
-                    if (a == null) {
-                        a = new f14();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sv1Var)) == null) {
+            try {
+                this.a = sv1Var.B("defaultValue");
+                this.b = sv1Var.q("maxLength");
+                this.c = sv1Var.l("multiple");
+                this.d = sv1Var.l("confirmHold");
+                String B = sv1Var.B("confirmType");
+                char c = 65535;
+                switch (B.hashCode()) {
+                    case -906336856:
+                        if (B.equals("search")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                        if (B.equals("go")) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 3089282:
+                        if (B.equals("done")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 3377907:
+                        if (B.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 3526536:
+                        if (B.equals("send")) {
+                            c = 4;
+                            break;
+                        }
+                        break;
                 }
-            }
-            return a;
-        }
-        return (f14) invokeV.objValue;
-    }
-
-    public static f14 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            f14 f14Var = new f14();
-            f14Var.setHttpDnsEnable(a().getHttpDnsEnable());
-            return f14Var;
-        }
-        return (f14) invokeV.objValue;
-    }
-
-    public void call(Request request, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) || request == null) {
-            return;
-        }
-        getOkHttpClient().newCall(request).enqueue(callback);
-    }
-
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    public OkHttpClient initClient() {
-        InterceptResult invokeV;
-        j33.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (y23.M() == null) {
-                return super.initClient();
-            }
-            s24 s24Var = (s24) y23.M().T();
-            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
-            int i = 60000;
-            if (s24Var != null && (aVar = s24Var.a) != null) {
-                i = aVar.a;
-                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
-                newBuilder.addNetworkInterceptor(new ru2());
-            }
-            long j = i;
-            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
-            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
-            OkHttpClient build = newBuilder.build();
-            build.dispatcher().setMaxRequests(10);
-            return build;
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    public void call(Request request, List<Interceptor> list, Callback callback) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, request, list, callback) == null) || request == null) {
-            return;
-        }
-        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
-        if (list != null && !list.isEmpty()) {
-            for (Interceptor interceptor : list) {
-                if (interceptor != null) {
-                    newBuilder.addInterceptor(interceptor);
+                if (c == 0) {
+                    this.e = 6;
+                    this.f = "done";
+                } else if (c == 1) {
+                    this.e = 5;
+                    this.f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                } else if (c == 2) {
+                    this.e = 3;
+                    this.f = "search";
+                } else if (c == 3) {
+                    this.e = 2;
+                    this.f = "go";
+                } else if (c != 4) {
+                    this.e = 6;
+                    this.f = "done";
+                } else {
+                    this.e = 4;
+                    this.f = "send";
                 }
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
         }
-        newBuilder.build().newCall(request).enqueue(callback);
+        return invokeL.booleanValue;
     }
 }

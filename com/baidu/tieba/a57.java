@@ -1,77 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.NewHottopic.DataRes;
+import tbclient.NewHottopic.RelateThread;
+import tbclient.NewHottopic.SpecialTopic;
+import tbclient.NewHottopic.TopicDetail;
+import tbclient.NewHottopic.TopicThread;
+import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
-public class a57 extends qn<d57, CardViewHolder<f57>> {
+public class a57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public b57 e;
+    public List<Cdo> f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a57(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d57.c);
+    public a57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.i = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public CardViewHolder<f57> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            f57 f57Var = new f57(this.a);
-            f57Var.o(this.mPageId);
-            CardViewHolder<f57> cardViewHolder = new CardViewHolder<>(f57Var);
-            int f = ej.f(this.a.getPageActivity(), R.dimen.tbds44);
-            cardViewHolder.getView().setPadding(f, 0, f, 0);
-            return cardViewHolder;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d57 d57Var, CardViewHolder<f57> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d57Var, cardViewHolder})) == null) {
-            if (d57Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
-                return null;
+        this.h = false;
+        TopicDetail topicDetail = dataRes.topic_info;
+        if (topicDetail != null) {
+            this.a = topicDetail.topic_id.longValue();
+            TopicDetail topicDetail2 = dataRes.topic_info;
+            this.b = topicDetail2.topic_name;
+            this.c = topicDetail2.share_title;
+            this.d = topicDetail2.share_pic;
+            b57 b57Var = new b57();
+            this.e = b57Var;
+            b57Var.a(dataRes.topic_info);
+            if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
+                this.h = true;
             }
-            cardViewHolder.a().i(d57Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
         }
-        return (View) invokeCommon.objValue;
+        if (dataRes.pk_module != null) {
+            this.i = true;
+            this.h = true;
+            if (this.e == null) {
+                this.e = new b57();
+            }
+            this.e.b(dataRes.pk_module);
+        } else {
+            this.i = false;
+        }
+        if (dataRes.time_line != null) {
+            this.h = true;
+            if (this.e == null) {
+                this.e = new b57();
+            }
+            this.e.c(dataRes.time_line);
+        }
+        this.f = new ArrayList();
+        if (!ListUtils.isEmpty(dataRes.special_topic)) {
+            this.h = true;
+            int i = 1;
+            for (SpecialTopic specialTopic : dataRes.special_topic) {
+                if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
+                    boolean z = false;
+                    for (ThreadInfo threadInfo : specialTopic.thread_list) {
+                        if (threadInfo != null) {
+                            d57 d57Var = new d57();
+                            if (!z) {
+                                d57Var.a = true;
+                                d57Var.d = specialTopic.title;
+                                z = true;
+                            }
+                            d57Var.b = i;
+                            d57Var.c = this.a;
+                            d57Var.c(threadInfo);
+                            this.f.add(d57Var);
+                            i++;
+                        }
+                    }
+                }
+            }
+        }
+        if (this.h) {
+            r57 r57Var = new r57();
+            r57Var.a = R.dimen.tbds78;
+            r57Var.b = R.color.CAM_X0201;
+            this.f.add(r57Var);
+        }
+        RelateThread relateThread = dataRes.relate_thread;
+        if (relateThread == null || ListUtils.isEmpty(relateThread.thread_list)) {
+            return;
+        }
+        r57 r57Var2 = new r57();
+        r57Var2.a = R.dimen.tbds16;
+        this.f.add(r57Var2);
+        this.g = dataRes.relate_thread.has_more.intValue() == 1;
+        for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
+            if (topicThread != null) {
+                c57 c57Var = new c57();
+                c57Var.c(topicThread);
+                c57Var.c = this.a;
+                c57Var.f = this.i;
+                this.f.add(c57Var);
+            }
+        }
     }
 }

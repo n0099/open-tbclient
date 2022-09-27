@@ -1,75 +1,176 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public JSONObject e;
+    public long f;
+    public int g;
+    public String h;
+    public String i;
+    public boolean j;
+    public String k;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
+    public vi4(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeL.objValue;
-    }
-
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "2g";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "3g";
-                case 13:
-                case 18:
-                case 19:
-                    return "4g";
-                case 20:
-                    return "5g";
-                default:
-                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeIL.objValue;
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str;
+        this.b = str;
+        this.c = -1;
+        this.d = str2;
+        this.g = i;
+        if ((i & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
     }
 
-    public static String c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = this.e;
+            return jSONObject != null ? jSONObject.optString("bizId") : "";
         }
         return (String) invokeV.objValue;
+    }
+
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.b) && qi4.g().a(this.a)) {
+            this.h = ri4.g().h();
+        }
+    }
+
+    public vi4(String str, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str;
+        this.b = str;
+        this.c = -1;
+        this.e = jSONObject;
+        this.g = i;
+        if ((i & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+    }
+
+    public vi4(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str2;
+        this.b = str;
+        this.c = i;
+        this.d = str3;
+        this.g = i2;
+        if ((i2 & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
+    }
+
+    public vi4(String str, String str2, int i, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str2;
+        this.b = str;
+        this.c = i;
+        this.d = str3;
+        this.g = i2;
+        if ((i2 & 2) == 0) {
+            if (j > 0) {
+                this.f = j;
+            } else {
+                this.f = System.currentTimeMillis();
+            }
+        }
+        if (TextUtils.isEmpty(this.d)) {
+            return;
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
     }
 }

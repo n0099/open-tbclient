@@ -1,106 +1,141 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ze6 implements Cdo {
+public class ze6 extends qn<af6, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
-    public int c;
+    public View.OnClickListener b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357118, "Lcom/baidu/tieba/ze6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ze6 a;
+
+        public a(ze6 ze6Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948357118, "Lcom/baidu/tieba/ze6;");
-                return;
+            this.a = ze6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
+                String str = (String) view2.getTag();
+                if (this.a.a == 1 || this.a.a == 4) {
+                    str = str + "?isNightModel=1";
+                }
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f0426), str, true));
+                customMessage.setTag(this.a.mPageId);
+                MessageManager.getInstance().sendMessage(customMessage);
             }
         }
-        d = BdUniqueId.gen();
     }
 
-    public ze6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ze6(r9 r9Var) {
+        super(r9Var.getPageActivity(), af6.c, r9Var.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.c = -1;
+        this.b = new a(this);
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, af6 af6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        z(i, view2, viewGroup, af6Var, complaintBarlordViewHolder);
+        return view2;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void w(ComplaintBarlordViewHolder complaintBarlordViewHolder, af6 af6Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? StringUtils.isNull(this.b) || this.a < 0 : invokeV.booleanValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, complaintBarlordViewHolder, af6Var) == null) {
+            complaintBarlordViewHolder.d.setText(af6Var.a);
+            complaintBarlordViewHolder.b.setTag(af6Var.b);
+            complaintBarlordViewHolder.b.setOnClickListener(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048579, this, complaintBarlordViewHolder) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.a = skinType;
+            if (complaintBarlordViewHolder.a == skinType) {
+                return;
+            }
+            complaintBarlordViewHolder.a = skinType;
+            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
+            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
+            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
-    public void j(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: y */
+    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03eb, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
+    }
+
+    public View z(int i, View view2, ViewGroup viewGroup, af6 af6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, af6Var, complaintBarlordViewHolder})) == null) {
+            if (af6Var != null && complaintBarlordViewHolder != null) {
+                x(complaintBarlordViewHolder);
+                w(complaintBarlordViewHolder, af6Var);
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cu4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.em8;
-import com.baidu.tieba.pt4;
-import com.baidu.tieba.rt4;
+import com.baidu.tieba.eu4;
+import com.baidu.tieba.tm8;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,8 +43,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public pt4 k;
-    public rt4 l;
+    public cu4 k;
+    public eu4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -114,45 +114,45 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092451);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092450);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092295);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092453);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092452);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092297);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092291);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092292);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09228e);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092452);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092293);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092290);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092296);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092454);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ae);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916af);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090ba5);
+        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090ba4);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
         h();
     }
 
-    public void f(em8 em8Var) {
+    public void f(tm8 tm8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, em8Var) == null) || em8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tm8Var) == null) || tm8Var == null) {
             return;
         }
-        pt4 c = em8Var.c();
-        rt4 f = em8Var.f();
+        cu4 c = tm8Var.c();
+        eu4 f = tm8Var.f();
         this.k = c;
         this.l = f;
-        if (em8Var.h()) {
+        if (tm8Var.h()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        pt4 pt4Var = this.k;
-        if (pt4Var == null) {
+        cu4 cu4Var = this.k;
+        if (cu4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(pt4Var.g())) {
+        } else if (StringUtils.isNull(cu4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {

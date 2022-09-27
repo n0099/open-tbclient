@@ -1,194 +1,359 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Surface;
-import androidx.annotation.RequiresApi;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLSurfaceView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.DuMixCallback;
+import com.baidu.ar.capture.ICaptureResult;
+import com.baidu.minivideo.arface.bean.Filter;
+import com.baidu.minivideo.arface.bean.Sticker;
+import com.baidu.tieba.bg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.VideoEncoderCore;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@TargetApi(16)
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class qf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface a;
-    public pf9 b;
-    public MediaCodec c;
-    public MediaCodec.BufferInfo d;
-    public int e;
-    public boolean f;
-    public Bundle g;
-    public long h;
-    public int i;
+    public zf9 a;
 
-    @TargetApi(18)
-    public qf9(int i, int i2, int i3, boolean z, pf9 pf9Var) throws IOException {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Object obj);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        boolean a();
+
+        int b();
+
+        void c(int i, int i2, int i3, int i4);
+
+        void d(byte[] bArr);
+
+        String e();
+
+        boolean f();
+
+        void g(int i, int i2, int i3, boolean z);
+
+        void h(boolean z);
+
+        void i(boolean z);
+
+        void j(boolean z);
+
+        boolean k(SurfaceTexture surfaceTexture, f fVar);
+
+        void l(int i);
+
+        void m(boolean z);
+
+        void n();
+
+        boolean o();
+
+        boolean p();
+
+        void q();
+
+        int r();
+
+        void release();
+
+        void s(a aVar);
+
+        void t(int i, int i2, int i3, int i4);
+
+        void u(int i);
+
+        int v();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void onBeautyEnableChanged(ye0 ye0Var);
+
+        void onChangeGender(boolean z);
+
+        void onLuaMessage(HashMap<String, Object> hashMap);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e extends bg9.b {
+        void a(ICaptureResult iCaptureResult);
+
+        void b();
+
+        void c(int i);
+
+        void d();
+
+        void e();
+
+        void f(int i, int i2);
+
+        void g(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a(byte[] bArr, int i);
+    }
+
+    public qf9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pf9Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new Bundle();
-        this.h = 0L;
-        this.i = 10000;
-        String str = MimeTypes.VIDEO_H265;
-        str = (!z || lg9.m(MimeTypes.VIDEO_H265) == null) ? "video/avc" : "video/avc";
-        this.d = new MediaCodec.BufferInfo();
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
-        createVideoFormat.setInteger("color-format", 2130708361);
-        createVideoFormat.setInteger("bitrate", i3);
-        createVideoFormat.setInteger("frame-rate", 30);
-        createVideoFormat.setInteger("i-frame-interval", 5);
-        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(str);
-        this.c = createEncoderByType;
-        createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.a = this.c.createInputSurface();
-        this.c.start();
-        this.g.putInt("request-sync", 0);
-        if (Build.VERSION.SDK_INT >= 19) {
-            this.c.setParameters(this.g);
-        }
-        this.e = -1;
-        this.f = false;
-        this.b = pf9Var;
+        this.a = new zf9(context);
     }
 
-    public Surface a() {
+    public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a0() : invokeV.booleanValue;
     }
 
-    public void b(int i) {
+    public boolean B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.i = i;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c0() : invokeV.booleanValue;
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.X();
         }
     }
 
-    @RequiresApi(api = 18)
-    public void c(boolean z) throws Exception {
+    public void D(int i) {
+        zf9 zf9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (zf9Var = this.a) == null) {
             return;
         }
-        if (z) {
-            this.c.signalEndOfInputStream();
-        }
-        while (true) {
-            ByteBuffer[] outputBuffers = this.c.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.d, this.i);
-                if (dequeueOutputBuffer == -1) {
-                    if (!z) {
-                        return;
-                    }
-                } else if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    if (this.f) {
-                        throw new RuntimeException("format changed twice");
-                    }
-                    MediaFormat outputFormat = this.c.getOutputFormat();
-                    bg9.c(VideoEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.e = this.b.a(outputFormat);
-                    if (!this.b.c()) {
-                        synchronized (this.b) {
-                            while (!this.b.e()) {
-                                try {
-                                    this.b.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                    this.f = true;
-                } else if (dequeueOutputBuffer < 0) {
-                    bg9.l(VideoEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                    }
-                    MediaCodec.BufferInfo bufferInfo = this.d;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.d;
-                    if (bufferInfo2.size != 0) {
-                        if (!this.f) {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                        byteBuffer.position(bufferInfo2.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.d;
-                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.b.b(this.e, byteBuffer, this.d);
-                    }
-                    this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.h >= 500) {
-                        this.c.setParameters(this.g);
-                        this.h = System.currentTimeMillis();
-                    }
-                    if ((this.d.flags & 4) != 0) {
-                        if (z) {
-                            return;
-                        }
-                        bg9.l(VideoEncoderCore.TAG, "reached end of stream unexpectedly");
-                        return;
-                    }
-                }
-            }
-        }
+        zf9Var.r(i);
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaCodec mediaCodec = this.c;
-            if (mediaCodec != null) {
-                mediaCodec.stop();
-                this.c.release();
-                this.c = null;
-            }
-            pf9 pf9Var = this.b;
-            if (pf9Var != null) {
-                try {
-                    pf9Var.d();
-                } catch (IllegalStateException e) {
-                    bg9.g(e);
-                }
-                this.b = null;
-            }
-        }
-    }
-
-    public synchronized void e() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-            }
+            this.a.onDestroy();
         }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.q0() : (String) invokeV.objValue;
+    }
+
+    public void c(b bVar, int i, int i2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
+            this.a.A(bVar, i, i2, z, str);
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                return zf9Var.p0();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.a.B(cVar);
+            this.a.e0();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onPause();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.a.onResume();
+        }
+    }
+
+    public void h() {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.k0();
+    }
+
+    public void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            this.a.s(i, i2);
+        }
+    }
+
+    public void j() {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.c();
+    }
+
+    public void k(DuMixCallback duMixCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, duMixCallback) == null) {
+            this.a.x(duMixCallback);
+        }
+    }
+
+    public void l(Filter filter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, filter) == null) {
+            this.a.y(filter);
+        }
+    }
+
+    public void m(GLSurfaceView gLSurfaceView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, gLSurfaceView) == null) {
+            this.a.w(gLSurfaceView);
+        }
+    }
+
+    public void n() {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.d();
+    }
+
+    public void o(boolean z) {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.f0(z);
+    }
+
+    public void p(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onFrameAvailableListener) == null) {
+            this.a.u(onFrameAvailableListener);
+        }
+    }
+
+    public void q(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
+            this.a.C(dVar);
+        }
+    }
+
+    public void r(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
+            this.a.D(eVar);
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        }
+    }
+
+    public void t(boolean z) {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.G(z);
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.a.T(z);
+        }
+    }
+
+    public void w(boolean z) {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.Y(z);
+    }
+
+    public void x(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
+            this.a.setSpeed(f2);
+        }
+    }
+
+    public boolean y(Sticker sticker, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, sticker, str)) == null) ? this.a.H(sticker, str) : invokeLL.booleanValue;
+    }
+
+    public void z(float f2) {
+        zf9 zf9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || (zf9Var = this.a) == null) {
+            return;
+        }
+        zf9Var.q(f2);
     }
 }

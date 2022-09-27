@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qu6;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.ev6;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,9 +91,9 @@ public class FunAdSmallPicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            uu4.d(this.e).v(R.color.CAM_X0105);
-            uu4.d(this.d).v(R.color.CAM_X0109);
-            uu4.d(this.f).v(R.color.CAM_X0109);
+            hv4.d(this.e).v(R.color.CAM_X0105);
+            hv4.d(this.d).v(R.color.CAM_X0109);
+            hv4.d(this.f).v(R.color.CAM_X0109);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
@@ -107,7 +107,7 @@ public class FunAdSmallPicView extends LinearLayout {
             this.d.setText(funNativeAd2.getNativeInfo().getTitle());
             this.e.setText(funNativeAd2.getNativeInfo().getDescription());
         }
-        qu6.F(this.b, funNativeAd2);
+        ev6.F(this.b, funNativeAd2);
         if (!StringHelper.equals(str, this.a.getUrl())) {
             this.a.F();
         }

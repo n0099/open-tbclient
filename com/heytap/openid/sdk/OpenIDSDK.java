@@ -1,16 +1,16 @@
 package com.heytap.openid.sdk;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.util.Log;
+import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.openid.sdk.b;
+import com.heytap.openid.bean.OpenIDInfo;
+import java.util.HashMap;
+@Keep
 /* loaded from: classes7.dex */
 public class OpenIDSDK {
     public static /* synthetic */ Interceptable $ic;
@@ -30,93 +30,79 @@ public class OpenIDSDK {
         }
     }
 
+    @Deprecated
     public static void clear(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            String str = "pkg:" + context.getPackageName() + " clear";
-            if (a.a()) {
-                b bVar = b.C0521b.a;
-                Context a = a.a(context);
-                synchronized (bVar) {
-                    try {
-                        if (bVar.a != null) {
-                            a.unbindService(bVar.e);
-                            bVar.a = null;
-                        }
-                    } catch (Exception unused) {
-                        Log.e("OpenIDHelper", "ex: unbind fail");
-                    }
-                }
-            }
+            m_h.m_a(context.getPackageName() + " 2007");
         }
     }
 
+    @Deprecated
     public static String getAAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? !a.a() ? "" : b.C0521b.a.a(a.a(context), "AUID") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            m_h.m_a("2005");
+            return m_g.m_a(context, 2, "AUID");
+        }
+        return (String) invokeL.objValue;
     }
 
+    @Keep
+    public static native OpenIDInfo getIds(Context context, int i);
+
+    @Deprecated
     public static String getOAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? !a.a() ? "" : b.C0521b.a.a(a.a(context), "OUID") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            m_h.m_a("2003");
+            return m_g.m_a(context, 8, "OUID");
+        }
+        return (String) invokeL.objValue;
     }
 
+    @Deprecated
     public static boolean getOAIDStatus(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (a.a()) {
-                return "TRUE".equalsIgnoreCase(b.C0521b.a.a(a.a(context), "OUID_STATUS"));
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            m_h.m_a("2002");
+            HashMap<String, String> m_a = m_d.m_a(context, 32);
+            return "TRUE".equalsIgnoreCase(m_a.get("OUID_STATUS") == null ? "FALSE" : m_a.get("OUID_STATUS"));
         }
         return invokeL.booleanValue;
     }
 
+    @Deprecated
     public static String getUDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? !a.a() ? "" : b.C0521b.a.a(a.a(context), "GUID") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            m_h.m_a("2001");
+            return m_g.m_a(context, 16, "GUID");
+        }
+        return (String) invokeL.objValue;
     }
 
+    @Deprecated
     public static String getVAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? !a.a() ? "" : b.C0521b.a.a(a.a(context), "DUID") : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            m_h.m_a("2004");
+            return m_g.m_a(context, 4, "DUID");
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            b bVar = b.C0521b.a;
-            Context a = a.a(context);
-            bVar.getClass();
-            boolean z = false;
-            try {
-                PackageInfo packageInfo = a.getPackageManager().getPackageInfo("com.heytap.openid", 0);
-                if (packageInfo != null) {
-                    if (packageInfo.versionCode >= 1) {
-                        z = true;
-                    }
-                }
-            } catch (PackageManager.NameNotFoundException unused) {
-            }
-            a.b = z;
-            a.a = true;
-        }
-    }
+    @Keep
+    public static native void init(Context context);
 
-    public static boolean isSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (!a.a) {
-                Log.e("OpenIDHelper", "SDK Need Init First!");
-            }
-            return a.b;
-        }
-        return invokeV.booleanValue;
-    }
+    @Keep
+    public static native boolean isSupported();
+
+    @Keep
+    public static native void setLoggable(boolean z);
 }

@@ -1,137 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.LoadingViewAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class cz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<qn> b;
-    public jo c;
-    public az6 d;
-    public fz6 e;
-    public vy6 f;
-    public xy6 g;
-    public wy6 h;
-    public yy6 i;
-    public zy6 j;
-    public bz6 k;
 
-    public cz6(TbPageContext tbPageContext, jo joVar) {
+    public static boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, joVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
             }
+            int i = threadData.threadType;
+            return i == 0 || i == 11 || i == 40 || threadData.isUgcThreadType();
         }
-        this.a = tbPageContext;
-        this.c = joVar;
-        b();
+        return invokeL.booleanValue;
     }
 
-    public List<Cdo> a() {
-        InterceptResult invokeV;
+    public static void b(yq4 yq4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.getData() : (List) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            this.b = arrayList;
-            arrayList.add(new ez6(this.a));
-            this.b.add(new dz6(this.a));
-            this.b.add(new LoadingViewAdapter(this.a));
-            az6 az6Var = new az6(this.a);
-            this.d = az6Var;
-            az6Var.v(this.c);
-            this.b.add(this.d);
-            fz6 fz6Var = new fz6(this.a);
-            this.e = fz6Var;
-            fz6Var.v(this.c);
-            this.b.add(this.e);
-            vy6 vy6Var = new vy6(this.a);
-            this.f = vy6Var;
-            vy6Var.v(this.c);
-            this.b.add(this.f);
-            xy6 xy6Var = new xy6(this.a);
-            this.g = xy6Var;
-            xy6Var.v(this.c);
-            this.b.add(this.g);
-            wy6 wy6Var = new wy6(this.a);
-            this.h = wy6Var;
-            wy6Var.v(this.c);
-            this.b.add(this.h);
-            yy6 yy6Var = new yy6(this.a);
-            this.i = yy6Var;
-            yy6Var.v(this.c);
-            this.b.add(this.i);
-            zy6 zy6Var = new zy6(this.a);
-            this.j = zy6Var;
-            zy6Var.v(this.c);
-            this.b.add(this.j);
-            TbPageContext tbPageContext = this.a;
-            bz6 bz6Var = new bz6(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
-            this.k = bz6Var;
-            bz6Var.v(this.c);
-            this.b.add(this.k);
-            this.c.a(this.b);
-        }
-    }
-
-    public void c() {
-        jo joVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (joVar = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{yq4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || yq4Var == null || yq4Var.getThreadData() == null || context == null) {
             return;
         }
-        joVar.getListAdapter().notifyDataSetChanged();
-    }
-
-    public void d(List<Cdo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
+        ThreadData threadData = yq4Var.getThreadData();
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, ImageViewerConfig.FROM_GAME_VIDEO, 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+        createFromThreadCfg.setFrom("from_game_video");
+        createFromThreadCfg.setForumName(threadData.getForum_name());
+        createFromThreadCfg.setStartFrom(i);
+        createFromThreadCfg.setVideoOriginArea(rect);
+        if (yq4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(yq4Var.getPbInputLocate());
         }
+        if (TbSingleton.getInstance().isPbPreloadSwitchOn() && a(threadData)) {
+            createFromThreadCfg.setNeedPreLoad(true);
+            eh6.update(threadData);
+        }
+        createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
+        createFromThreadCfg.setJumpGodReply(z);
+        t16.a(threadData.getTid());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
-    public void e(dp4 dp4Var) {
+    public static void c(p26 p26Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dp4Var) == null) {
-            for (qn qnVar : this.b) {
-                if (qnVar instanceof uy6) {
-                    ((uy6) qnVar).u(dp4Var);
+        if (!(interceptable == null || interceptable.invokeLI(65538, null, p26Var, i) == null) || p26Var == null) {
+            return;
+        }
+        int i2 = 1;
+        StatisticItem w = p26Var.w("c13488", true);
+        if (w != null) {
+            if (p26Var.getThreadData() != null) {
+                ThreadData threadData = p26Var.getThreadData();
+                if (threadData.getTopAgreePost() == null || (threadData.getTopAgreePost().W() == null && threadData.getTopAgreePost().l0() == null)) {
+                    i2 = 0;
+                }
+                w.param("obj_name", i2);
+                if (threadData.getAuthor() != null) {
+                    w.param(TiebaStatic.Params.AB_TYPE, threadData.getAuthor().hadConcerned() ? 1 : 0);
                 }
             }
+            w.param("obj_type", i);
+            TiebaStatic.log(w);
         }
     }
 
-    public void f(BdUniqueId bdUniqueId) {
+    public static void d(p26 p26Var, int i) {
+        StatisticItem w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            for (qn qnVar : this.b) {
-                qnVar.setPageId(bdUniqueId);
-            }
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, p26Var, i) == null) || p26Var == null || p26Var.getThreadData() == null || !y26.R(p26Var.a) || (w = p26Var.w("c13494", true)) == null) {
+            return;
         }
+        w.param("obj_type", i);
+        TbSingleton.getInstance().setCurrentClickTime(System.currentTimeMillis());
+        TiebaStatic.log(w);
+    }
+
+    public static void e(p26 p26Var, int i) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, p26Var, i) == null) || p26Var == null || !y26.R(p26Var.a) || (w = p26Var.w("c13495", true)) == null) {
+            return;
+        }
+        w.param("obj_type", i);
+        TiebaStatic.log(w);
+    }
+
+    public static void f(p26 p26Var, int i) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, p26Var, i) == null) || p26Var == null || p26Var.getThreadData() == null || (w = p26Var.w("c13496", true)) == null) {
+            return;
+        }
+        w.param("obj_type", i);
+        TiebaStatic.log(w);
     }
 }

@@ -1,55 +1,155 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.ul2;
+import android.annotation.SuppressLint;
+import androidx.annotation.IntRange;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class c02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
 
-    public static ul2.g a(vn2 vn2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vn2Var)) == null) {
-            File file = new File(Environment.getExternalStorageDirectory() + "/" + d02.d());
-            ul2.M(file, b(), vn2Var);
-            cj4.j(file);
-            ul2.g gVar = new ul2.g();
-            File file2 = new File(b(), "app.json");
-            SwanAppConfigData c = SwanAppConfigData.c(cj4.E(file2), b());
-            gVar.a = b().getPath() + File.separator;
-            gVar.b = c;
-            yz1.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (ul2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
-            if (!file.exists()) {
-                file.mkdirs();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620868, "Lcom/baidu/tieba/c02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return file;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947620868, "Lcom/baidu/tieba/c02;");
+                return;
+            }
         }
-        return (File) invokeV.objValue;
+        b = vj1.a;
+        c = 5;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public c02(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        c(i, false);
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i >> c : invokeI.intValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean b(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                l02.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (b) {
+                    throw new IndexOutOfBoundsException("diff < 0: " + i);
+                }
+                return false;
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i <= length) {
+                return ((1 << i) & iArr[a(i)]) != 0;
+            }
+            String str = "diff > " + length + ": " + i;
+            l02.c("Component-DiffBitMap", str);
+            if (b) {
+                throw new IndexOutOfBoundsException(str);
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void c(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i <= 0) {
+                String str = "number <= 0: " + i;
+                l02.c("Component-DiffBitMap", str);
+                if (b) {
+                    throw new NegativeArraySizeException(str);
+                }
+                i = 500;
+            }
+            int[] iArr = new int[a(i - 1) + 1];
+            this.a = iArr;
+            int length = iArr.length;
+            if (z) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.a[i2] = -1;
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void d(@IntRange(from = 0) int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i < 0) {
+                l02.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (b) {
+                    throw new IndexOutOfBoundsException("diff < 0: " + i);
+                }
+                return;
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                l02.c("Component-DiffBitMap", str);
+                if (b) {
+                    throw new IndexOutOfBoundsException(str);
+                }
+                return;
+            }
+            int a = a(i);
+            iArr[a] = (1 << i) | iArr[a];
+        }
+    }
+
+    public c02(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        c(i, z);
     }
 }

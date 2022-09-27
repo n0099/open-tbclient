@@ -27,7 +27,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AnrHandler extends b {
     public static final String ANR_HAPPENED_BEGIN = "------ ANR Happened Begin ------\n";
     public static final String DEFAULT_TRACE_ROOT = "/data/anr/";
@@ -41,7 +41,7 @@ public final class AnrHandler extends b {
     public static final Pattern PID_PATTERN = Pattern.compile("-{5}\\spid\\s\\d+\\sat\\s\\d+-\\d+-\\d+\\s\\d{2}:\\d{2}:\\d{2}\\s-{5}");
     public static final boolean DUMP_FROM_SIG_QUIT = SystemUtil.bD(21);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final AnrHandler ahn = new AnrHandler();
     }

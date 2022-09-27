@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.i87;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.m77;
-import com.baidu.tieba.vn8;
+import com.baidu.tieba.ko8;
+import com.baidu.tieba.w87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
-public class MsgPhotoLiveCardVew extends m77 {
+public class MsgPhotoLiveCardVew extends a87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long F;
@@ -80,7 +80,7 @@ public class MsgPhotoLiveCardVew extends m77 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.F <= 0) {
                 return;
             }
-            vn8 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+            ko8 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
             if (this.a.H != 1) {
                 if (this.a.H != 3) {
                     if (this.a.H != 4) {
@@ -223,7 +223,7 @@ public class MsgPhotoLiveCardVew extends m77 {
             this.M = (TextView) j(R.id.obfuscated_res_0x7f09048e);
             this.N = (TextView) j(R.id.obfuscated_res_0x7f090490);
             this.P = (LinearLayout) j(R.id.obfuscated_res_0x7f0902ea);
-            this.O = (TextView) j(R.id.obfuscated_res_0x7f091bd0);
+            this.O = (TextView) j(R.id.obfuscated_res_0x7f091bd2);
             this.Q = (TextView) j(R.id.obfuscated_res_0x7f0904d2);
             this.I.setOnClickListener(new a(this));
         }
@@ -236,7 +236,7 @@ public class MsgPhotoLiveCardVew extends m77 {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) == null) || chatMessage == null) {
             return;
         }
-        i87.a a2 = i87.a(chatMessage.getContent());
+        w87.a a2 = w87.a(chatMessage.getContent());
         if (a2 == null) {
             this.F = 0L;
             return;

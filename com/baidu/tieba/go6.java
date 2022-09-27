@@ -1,199 +1,97 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
-import com.baidu.tieba.frs.itemtab.FrsItemTabHttpResponseMessage;
-import com.baidu.tieba.frs.itemtab.FrsItemTabNetModel;
-import com.baidu.tieba.frs.itemtab.FrsItemTabRequestData;
-import com.baidu.tieba.frs.itemtab.FrsItemTabSocketResponseMessage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.ss.android.download.api.constant.BaseConstants;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class go6 implements NetModel.k {
+public class go6 extends pw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsItemTabFragment a;
-    public ho6 b;
-    public FrsItemTabNetModel c;
-    public int d;
-    public String e;
+    public nw4 c;
+    public String d;
 
-    public go6(FrsItemTabFragment frsItemTabFragment, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public go6(nw4 nw4Var, String str) {
+        super(nw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsItemTabFragment, Integer.valueOf(i)};
+            Object[] objArr = {nw4Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((nw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (frsItemTabFragment == null) {
-            return;
-        }
-        this.a = frsItemTabFragment;
-        FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
-        frsItemTabRequestData.itemId = i;
-        FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
-        this.c = frsItemTabNetModel;
-        frsItemTabNetModel.b0(this);
-        this.c.setUniqueId(frsItemTabFragment.getUniqueId());
+        this.c = nw4Var;
+        this.d = str;
     }
 
-    public boolean a() {
+    @qw4(isAsync = false, value = "downloadGame")
+    private void downloadGame(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("packageName");
+        String optString2 = jSONObject.optString(TTDownloadField.TT_DOWNLOAD_URL);
+        String optString3 = jSONObject.optString("imageUrl");
+        if (StringUtils.isNull(optString)) {
+            return;
+        }
+        if (!BdNetTypeUtil.isNetWorkAvailable()) {
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c59);
+            return;
+        }
+        if (StringUtils.isNull(optString2)) {
+            g(optString);
+        } else {
+            qe8.n().E(optString, optString2, optString, 0, qe8.o(optString).intValue(), null, true, false, true, optString3, null, null);
+        }
+        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
+    }
+
+    @Override // com.baidu.tieba.pw4
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ho6 ho6Var = this.b;
-            return (ho6Var == null || ho6Var.a == null) ? false : true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_DOWNLOAD_GAME" : (String) invokeV.objValue;
     }
 
-    public final void b() {
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.d);
-            errorData.setError_msg(this.e);
-            if (this.d != 0) {
-                this.a.f(errorData);
-            }
-        }
-    }
-
-    public final boolean c(ho6 ho6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho6Var)) == null) {
-            if (ho6Var == null) {
-                return false;
-            }
-            this.b = ho6Var;
-            ho6Var.c = e(ho6Var.c);
-            this.a.t1(this.b);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c.T()) {
-            return;
-        }
-        this.c.loadData();
-        ku6.a();
-    }
-
-    public final ArrayList<Cdo> e(ArrayList<Cdo> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, arrayList)) == null) {
-            ArrayList<Cdo> arrayList2 = new ArrayList<>();
-            Iterator<Cdo> it = arrayList.iterator();
-            int i = 0;
-            while (it.hasNext()) {
-                Cdo next = it.next();
-                if (next instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) next;
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
-                        ot4 ot4Var = new ot4();
-                        ot4Var.t = threadData;
-                        ot4Var.position = i;
-                        ot4Var.a = true;
-                        ot4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(ot4Var);
-                        ot4 ot4Var2 = new ot4();
-                        ot4Var2.t = threadData;
-                        ot4Var2.position = i;
-                        if (threadData.picCount() == 1) {
-                            ot4Var2.d = true;
-                            ot4Var2.u = imageWidthAndHeight[0];
-                            ot4Var2.v = imageWidthAndHeight[1];
-                        } else if (threadData.picCount() >= 2) {
-                            ot4Var2.e = true;
-                        } else {
-                            ot4Var2.b = true;
-                        }
-                        ot4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(ot4Var2);
-                        ot4 ot4Var3 = new ot4();
-                        ot4Var3.g = true;
-                        ot4Var3.t = threadData;
-                        ot4Var3.position = i;
-                        ot4Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(ot4Var3);
-                        i++;
-                    }
-                    threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                } else {
-                    if (next instanceof BaseCardInfo) {
-                        ((BaseCardInfo) next).position = i;
-                    }
-                    arrayList2.add(next);
-                    i++;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
+            try {
+                if (!(this.c.getContext() instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
+                this.c.getContext().startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                BdLog.e(e.getMessage());
             }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
-            return arrayList2;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
-            return;
-        }
-        ho6 ho6Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof FrsItemTabSocketResponseMessage)) {
-            ho6Var = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (ho6Var == null || !c(ho6Var)) {
-            this.d = mvcSocketResponsedMessage.getError();
-            this.e = mvcSocketResponsedMessage.getErrorString();
-            b();
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
-            return;
-        }
-        ho6 ho6Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof FrsItemTabHttpResponseMessage)) {
-            ho6Var = (ho6) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (ho6Var == null || !c(ho6Var)) {
-            this.d = mvcHttpResponsedMessage.getError();
-            this.e = mvcHttpResponsedMessage.getErrorString();
-            b();
         }
     }
 }

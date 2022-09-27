@@ -1,46 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.support.v4.app.Fragment;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class ug4 {
+public class ug4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onBackStackChanged();
-    }
-
-    public ug4() {
+    public static SharedPreferences a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new vj4("key_pms_sp_name") : (SharedPreferences) invokeV.objValue;
     }
-
-    public abstract wg4 a();
-
-    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
-
-    public abstract boolean c();
-
-    public abstract List<Fragment> d();
-
-    public abstract void e(int i, int i2);
-
-    public abstract boolean f();
 }

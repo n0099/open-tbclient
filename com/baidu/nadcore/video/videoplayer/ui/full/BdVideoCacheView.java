@@ -11,8 +11,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.loading.BdVideoLoadingView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.p31;
-import com.baidu.tieba.qy0;
+import com.baidu.tieba.c41;
+import com.baidu.tieba.dz0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,14 +45,14 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        p31.c(18.0f);
-        p31.c(22.0f);
-        e = p31.d(200.0f);
-        f = p31.d(200.0f);
-        p31.d(10.0f);
-        p31.d(25.0f);
-        p31.d(6.0f);
-        p31.d(8.0f);
+        c41.c(18.0f);
+        c41.c(22.0f);
+        e = c41.d(200.0f);
+        f = c41.d(200.0f);
+        c41.d(10.0f);
+        c41.d(25.0f);
+        c41.d(6.0f);
+        c41.d(8.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class BdVideoCacheView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i != 0) {
-                qy0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+                dz0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
                 setVisibility(4);
             }
             super.onWindowVisibilityChanged(i);

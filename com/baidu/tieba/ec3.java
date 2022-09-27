@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ec3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AshmemFileDescriptor a;
+    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,68 +29,26 @@ public class ec3 {
                 return;
             }
         }
-        a = ij1.a;
+        cc3.f();
     }
 
-    public static synchronized JSONObject a() {
+    public AshmemFileDescriptor a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ec3.class) {
-                if (b != null) {
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
-                    }
-                    return b;
-                }
-                JSONObject rawSwitch = fm2.g0().getRawSwitch();
-                if (rawSwitch == null) {
-                    b = new JSONObject();
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
-                    }
-                    return b;
-                }
-                Iterator<String> keys = rawSwitch.keys();
-                while (keys.hasNext()) {
-                    if (!keys.next().startsWith("swanswitch")) {
-                        keys.remove();
-                    }
-                }
-                b = rawSwitch;
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
-                }
-                return b;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AshmemFileDescriptor) invokeV.objValue;
     }
 
-    public static JSONObject b() {
+    @NonNull
+    public SwanKV b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("abTestSwitch", a());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (SwanKV) invokeV.objValue;
     }
 
-    public static synchronized void c() {
+    public void c(@NonNull SwanKV swanKV) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (ec3.class) {
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
-                }
-                b = null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
+            this.b = swanKV;
         }
     }
 }

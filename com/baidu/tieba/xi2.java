@@ -8,9 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xi2 extends sg2<jj2> {
+public class xi2 extends fh2<wj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,33 +32,48 @@ public class xi2 extends sg2<jj2> {
         }
     }
 
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteUserList" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fh2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.obj = new JSONObject();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull jj2 jj2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wj2 wj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jj2Var) == null) {
-            String str = command.what;
-            d(jj2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.has("status") && jSONObject.has("userId")) {
-                    long optLong = jSONObject.optLong("userId", -1L);
-                    boolean optBoolean = jSONObject.optBoolean("status");
-                    if (hj2.a(optLong)) {
-                        jj2Var.p(optLong, optBoolean);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, wj2Var) == null) {
+            ArrayList<ak2> h = wj2Var.h();
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (h != null) {
+                Iterator<ak2> it = h.iterator();
+                while (it.hasNext()) {
+                    ak2 next = it.next();
+                    JSONObject a = next == null ? null : next.a();
+                    if (a != null) {
+                        jSONArray.put(a);
                     }
                 }
             }
+            try {
+                jSONObject.put("userList", jSONArray);
+            } catch (JSONException unused) {
+            }
+            command.obj = jSONObject;
+            String str = command.what;
+            d(wj2Var, str, "" + command.obj, true);
         }
     }
 }

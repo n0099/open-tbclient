@@ -1,175 +1,119 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class qc6 {
+public class qc6 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ c c;
-
-        public a(qc6 qc6Var, AtomicInteger atomicInteger, List list, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qc6Var, atomicInteger, list, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicInteger;
-            this.b = list;
-            this.c = cVar;
-        }
-
-        @Override // com.baidu.tieba.qc6.d
-        public void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult.picInfo picinfo;
-            ImageUploadResult.PicDetailedInfo picDetailedInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.a.decrementAndGet();
-                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
-                }
-                if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.b)) {
-                        this.c.d0(this.b);
-                    } else {
-                        this.c.B0();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageFileInfo a;
-        public final /* synthetic */ d b;
-
-        public b(qc6 qc6Var, ImageFileInfo imageFileInfo, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qc6Var, imageFileInfo, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageFileInfo;
-            this.b = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.a.getFilePath();
-                ImageUploader imageUploader = new ImageUploader("from_user_collect");
-                if (this.a.isGif()) {
-                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
-                    return;
-                }
-                Bitmap b = dr7.b(this.a);
-                if (b == null) {
-                    this.b.a(null);
-                    return;
-                }
-                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
-                b.recycle();
-                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.b.a(null);
-                    return;
-                }
-                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
-                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.b.a(uploadInBackground);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void B0();
-
-        void d0(List<String> list);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a(ImageUploadResult imageUploadResult);
-    }
-
-    public qc6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qc6(@NonNull Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
+    public final Drawable a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || ListUtils.isEmpty(arrayList)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(arrayList.size());
-        ArrayList arrayList2 = new ArrayList();
-        Iterator<ImageFileInfo> it = arrayList.iterator();
-        while (it.hasNext()) {
-            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i6 = fontMetricsInt.descent;
+            canvas.translate(f, ((i4 + i6) - ((i6 - fontMetricsInt.ascent) / 2)) - ((a.getBounds().bottom - a.getBounds().top) / 2));
+            a.draw(canvas);
+            canvas.restore();
         }
     }
 
-    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            tq7.b().a(new b(this, imageFileInfo, dVar));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.descent;
+                int i4 = fontMetricsInt2.ascent;
+                int i5 = i4 + ((i3 - i4) / 2);
+                int i6 = (bounds.bottom - bounds.top) / 2;
+                int i7 = i5 - i6;
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                int i8 = i5 + i6;
+                fontMetricsInt.bottom = i8;
+                fontMetricsInt.descent = i8;
+            }
+            return bounds.right + this.b;
         }
+        return invokeCommon.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qc6(@NonNull Drawable drawable, int i, int i2) {
+        super(drawable, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = i2;
     }
 }

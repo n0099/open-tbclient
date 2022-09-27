@@ -1,193 +1,155 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class jz0 {
+public class jz0 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SharedPreferences a;
 
-    public static <T> void a(List<T> list, T t, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65536, null, list, t, i) == null) && !f(list) && e(list, i)) {
-            try {
-                list.add(i, t);
-            } catch (Exception e) {
-                n(e);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900457, "Lcom/baidu/tieba/jz0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947900457, "Lcom/baidu/tieba/jz0;");
+                return;
+            }
+        }
+        b = zq0.f();
+    }
+
+    public jz0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (!TextUtils.isEmpty(str) && !"default".equals(str)) {
+            this.a = zq0.b().getSharedPreferences(str, 0);
+        } else {
+            this.a = PreferenceManager.getDefaultSharedPreferences(zq0.b());
         }
     }
 
-    public static <T> boolean b(List<T> list, T t) {
-        InterceptResult invokeLL;
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, t)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.add(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.contains(str) : invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.util.Collection<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void c(Collection<T> collection, Collection<T> collection2) {
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, collection, collection2) == null) || collection2 == 0 || collection == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            e(str, str2);
+            this.a.edit().putString(str, str2).apply();
         }
-        collection.addAll(collection2);
     }
 
-    @Nullable
-    public static <T> T d(List<T> list, int i) {
+    public final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str2 != null && str2.length() > 256 && b) {
+            throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.edit() : (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getAll() : (Map) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) ? this.a.getBoolean(str, z) : invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048582, this, str, f)) == null) ? this.a.getFloat(str, f) : invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
-            if (!g(list) && e(list, i)) {
-                try {
-                    return list.get(i);
-                } catch (Exception e) {
-                    n(e);
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (T) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) ? this.a.getInt(str, i) : invokeLI.intValue;
     }
 
-    public static <T> boolean e(List<T> list, int i) {
-        InterceptResult invokeLI;
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i)) == null) {
-            if (!f(list) && i >= 0) {
-                try {
-                    return i < list.size();
-                } catch (Exception e) {
-                    n(e);
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j)) == null) ? this.a.getLong(str, j) : invokeLJ.longValue;
     }
 
-    public static boolean f(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static <T> boolean g(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) ? f(list) || list.isEmpty() : invokeL.booleanValue;
-    }
-
-    public static <K, V> boolean h(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) ? f(map) || map.isEmpty() : invokeL.booleanValue;
-    }
-
-    @Nullable
-    public static <T> T i(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
-            if (!g(list) && e(list, i)) {
-                try {
-                    return list.remove(i);
-                } catch (Exception e) {
-                    n(e);
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> boolean j(List<T> list, T t) {
+    @Override // android.content.SharedPreferences
+    public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, t)) == null) {
-            if (g(list)) {
-                return false;
-            }
-            try {
-                return list.remove(t);
-            } catch (Exception e) {
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) ? this.a.getString(str, str2) : (String) invokeLL.objValue;
     }
 
-    public static <T> boolean k(List<T> list, Collection<?> collection) {
+    @Override // android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, list, collection)) == null) {
-            if (f(list)) {
-                return false;
-            }
-            try {
-                return list.removeAll(collection);
-            } catch (Exception e) {
-                Log.e("CollectionUtils", "throw exception when List removeAll");
-                n(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) ? this.a.getStringSet(str, set) : (Set) invokeLL.objValue;
     }
 
-    public static <T> int l(List<T> list) {
-        InterceptResult invokeL;
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
-            if (f(list) || list.isEmpty()) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeL.intValue;
-    }
-
-    public static <T> void m(List<T> list, Comparator<? super T> comparator) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, list, comparator) == null) || f(list)) {
-            return;
-        }
-        try {
-            Collections.sort(list, comparator);
-        } catch (Exception e) {
-            Log.e("CollectionUtils", "throw exception when List sort");
-            n(e);
+        if (interceptable == null || interceptable.invokeL(1048587, this, onSharedPreferenceChangeListener) == null) {
+            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 
-    public static void n(Exception exc) {
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, exc) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, onSharedPreferenceChangeListener) == null) {
+            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 }

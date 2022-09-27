@@ -1,199 +1,269 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.tieba.n60;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class j60 {
+public class j60 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @Nullable
-    public Runnable c;
-    @Nullable
-    public Executor d;
-    public final Deque<n60.a> e;
-    public final Deque<n60.a> f;
-    public final Deque<n60> g;
+    public long a;
+    public boolean b;
+    public Set<String> c;
+    public String d;
+    public Context e;
+    public int f;
 
-    public j60(Executor executor) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835109, "Lcom/baidu/tieba/j60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947835109, "Lcom/baidu/tieba/j60;");
                 return;
             }
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
-        this.d = executor;
-    }
-
-    public synchronized void a(n60.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (this.f.size() < this.a && i(aVar) < this.b) {
-                    this.f.add(aVar);
-                    c().execute(aVar);
-                } else {
-                    this.e.add(aVar);
-                }
-            }
-        }
-    }
-
-    public synchronized void b(n60 n60Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n60Var) == null) {
-            synchronized (this) {
-                this.g.add(n60Var);
-            }
-        }
-    }
-
-    public synchronized Executor c() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
-                }
-                executor = this.d;
-            }
-            return executor;
-        }
-        return (Executor) invokeV.objValue;
-    }
-
-    public void d(n60.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            f(this.f, aVar, true);
-        }
-    }
-
-    public void e(n60 n60Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, n60Var) == null) {
-            f(this.g, n60Var, false);
-        }
-    }
-
-    public final <T> void f(Deque<T> deque, T t, boolean z) {
-        int h;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
-            synchronized (this) {
-                if (deque.remove(t)) {
-                    if (z) {
-                        g();
-                    }
-                    h = h();
-                    runnable = this.c;
-                } else {
-                    throw new AssertionError("Call wasn't in-flight!");
-                }
-            }
-            if (h != 0 || runnable == null) {
-                return;
-            }
-            runnable.run();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f.size() >= this.a || this.e.isEmpty()) {
-            return;
-        }
-        Iterator<n60.a> it = this.e.iterator();
-        while (it.hasNext()) {
-            n60.a next = it.next();
-            if (i(next) < this.b) {
-                it.remove();
-                this.f.add(next);
-                c().execute(next);
-            }
-            if (this.f.size() >= this.a) {
-                return;
-            }
-        }
-    }
-
-    public synchronized int h() {
-        InterceptResult invokeV;
-        int size;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.f.size() + this.g.size();
-            }
-            return size;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int i(n60.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
-            int i = 0;
-            for (n60.a aVar2 : this.f) {
-                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
+        g = new byte[]{77, 73, 78, 71};
     }
 
     public j60() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
+    }
+
+    public static String[] b(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signatureArr)) == null) {
+            int length = signatureArr.length;
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = i50.c(signatureArr[i].toByteArray());
+            }
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public static boolean g(String[] strArr, String[] strArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
+            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
+                return false;
+            }
+            HashSet hashSet = new HashSet();
+            for (String str : strArr) {
+                hashSet.add(str);
+            }
+            HashSet hashSet2 = new HashSet();
+            for (String str2 : strArr2) {
+                hashSet2.add(str2);
+            }
+            return hashSet.equals(hashSet2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean j(String str, Context context, JSONObject jSONObject, Set<String> set) throws JSONException, PackageManager.NameNotFoundException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, jSONObject, set)) == null) {
+            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
+            int length = jSONArray.length();
+            String[] strArr = new String[length];
+            for (int i = 0; i < length; i++) {
+                strArr[i] = jSONArray.getString(i);
+            }
+            String[] b = b(context.getPackageManager().getPackageInfo(str, 64).signatures);
+            if (b != null && b.length > 0) {
+                Collections.addAll(set, b);
+            }
+            return g(strArr, b);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public void a(String str, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, context) == null) {
+            this.d = str;
+            this.e = context;
+        }
+    }
+
+    public Set<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Set) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public final void e(Bundle bundle, u40 u40Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, u40Var) == null) {
+            try {
+                if (u40Var == null) {
+                    this.f |= 16;
+                    return;
+                }
+                String string = bundle.getString("helios_data");
+                if (TextUtils.isEmpty(string)) {
+                    this.f |= 1;
+                    return;
+                }
+                String string2 = bundle.getString("helios_sf");
+                if (TextUtils.isEmpty(string2)) {
+                    this.f |= 2;
+                    return;
+                }
+                byte[] decode = Base64.decode(string.getBytes(IMAudioTransRequest.CHARSET), 1);
+                for (int i = 0; i < decode.length; i++) {
+                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
+                }
+                JSONObject jSONObject = new JSONObject(new String(decode));
+                if (i(jSONObject)) {
+                    HashSet hashSet = new HashSet();
+                    this.c = hashSet;
+                    if (!j(this.d, this.e, jSONObject, hashSet)) {
+                        this.f |= 4;
+                    } else if (Arrays.equals(j50.a(Base64.decode(string2, 0), u40Var), i50.b(decode))) {
+                        this.a = jSONObject.getLong("priority");
+                        this.b = true;
+                    } else {
+                        this.f |= 8;
+                    }
+                }
+            } catch (Exception e) {
+                this.f |= 256;
+                Log.getStackTraceString(e);
+            }
+        }
+    }
+
+    public void f(u40 u40Var, boolean z) {
+        PackageInfo packageInfo;
+        ActivityInfo[] activityInfoArr;
+        ActivityInfo activityInfo;
+        Bundle bundle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, u40Var, z) == null) {
+            PackageManager packageManager = this.e.getPackageManager();
+            try {
+                packageInfo = packageManager.getPackageInfo(this.d, 2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                packageInfo = null;
+            }
+            if (packageInfo == null || (activityInfoArr = packageInfo.receivers) == null || activityInfoArr.length <= 0) {
+                return;
+            }
+            for (ActivityInfo activityInfo2 : activityInfoArr) {
+                if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
+                    try {
+                        activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
+                    } catch (PackageManager.NameNotFoundException unused2) {
+                        activityInfo = null;
+                    }
+                    if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
+                        e(bundle, u40Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final boolean i(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            h50 h50Var = new h50();
+            h50Var.b(jSONObject.optLong("flags"));
+            String optString = jSONObject.optString("package", "");
+            long a = h50Var.a(7L);
+            if (optString.equals("") && a != 4) {
+                this.f |= 64;
+                return false;
+            }
+            if (a == 0) {
+                if (!optString.equals(this.d)) {
+                    this.f |= 32;
+                    return false;
+                }
+            } else if (a == 1) {
+                String str = this.d;
+                if (str == null || !str.startsWith(optString)) {
+                    this.f |= 32;
+                    return false;
+                }
+            } else if (a != 2) {
+                if (a == 4) {
+                    return true;
+                }
+                this.f |= 64;
+                return false;
+            } else {
+                try {
+                    if (!Pattern.compile(optString).matcher(this.d).matches()) {
+                        this.f |= 32;
+                        return false;
+                    }
+                } catch (Exception unused) {
+                    this.f |= 128;
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

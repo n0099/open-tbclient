@@ -1,131 +1,199 @@
 package com.baidu.tieba;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class oe1 {
+public final class oe1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, oe1> a;
-    public static final ConcurrentHashMap<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948029262, "Lcom/baidu/tieba/oe1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948029262, "Lcom/baidu/tieba/oe1;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-        b = new ConcurrentHashMap<>();
-    }
-
-    public static void a(String str, IBinder iBinder, boolean z) {
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                if (a.get(str) == null) {
-                    b bVar = new b(null);
-                    bVar.a = iBinder;
-                    bVar.b = z;
-                    b.put(str, bVar);
-                    return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f46);
+                                        case 402:
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f43);
+                                        case 403:
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f44);
+                                        default:
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4b);
+                                    }
+                                }
+                                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f45);
+                            }
+                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f47);
+                        }
+                        return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4a);
+                    }
+                    return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4b);
                 }
-                throw new IllegalArgumentException();
+                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f48);
             }
-            throw new SecurityException();
+            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f49);
         }
+        return (String) invokeI.objValue;
     }
 
-    public static IBinder d(String str) {
+    public static HashMap<String, String> b(String str) {
+        InterceptResult invokeL;
+        String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.isEmpty(str)) {
+                return hashMap;
+            }
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf < 0) {
+                return hashMap;
+            }
+            if (indexOf2 < 0) {
+                substring = str.substring(indexOf + 1);
+            } else {
+                substring = str.substring(indexOf + 1, indexOf2);
+            }
+            String[] split = substring.split("&");
+            if (split == null) {
+                return hashMap;
+            }
+            for (String str2 : split) {
+                int indexOf3 = str2.indexOf("=");
+                if (indexOf3 > 0) {
+                    try {
+                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
+                    } catch (IllegalArgumentException unused) {
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static String[] c(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            oe1 oe1Var = a.get(str);
-            if (oe1Var != null) {
-                oe1Var.b();
-                return oe1Var.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            if (uri == null) {
+                return null;
             }
-            b bVar = b.get(str);
-            if (bVar != null) {
-                if (!bVar.b && Binder.getCallingUid() != Process.myUid()) {
-                    throw new SecurityException();
-                }
-                return bVar.a;
+            ArrayList arrayList = new ArrayList(uri.getPathSegments());
+            if (!d(uri)) {
+                arrayList.add(0, uri.getHost());
             }
-            return null;
+            if (arrayList.size() <= 0) {
+                return null;
+            }
+            return (String[]) arrayList.toArray(new String[0]);
         }
-        return (IBinder) invokeL.objValue;
+        return (String[]) invokeL.objValue;
+    }
+
+    public static boolean d(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String host = uri.getHost();
+            return !TextUtils.isEmpty(host) && host.startsWith("v") && e(host);
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                return b.remove(str) != null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]").matcher(str).find() : invokeL.booleanValue;
+    }
+
+    public static boolean f(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (uri == null) {
+                return false;
             }
-            throw new SecurityException();
+            return TextUtils.equals(ke1.a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
         }
         return invokeL.booleanValue;
     }
 
-    public void b() {
+    public static boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Binder.getCallingUid() != Process.myUid()) {
-            throw new SecurityException();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return f(Uri.parse(str));
         }
+        return invokeL.booleanValue;
     }
 
-    public abstract IBinder c();
+    public static JSONObject h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? j(null, i) : (JSONObject) invokeI.objValue;
+    }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public IBinder a;
-        public boolean b;
+    public static JSONObject i(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("status", String.valueOf(i));
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeIL.objValue;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static JSONObject j(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) ? k(jSONObject, i, a(i)) : (JSONObject) invokeLI.objValue;
+    }
+
+    public static JSONObject k(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
+            JSONObject i2 = i(i, str);
+            if (jSONObject != null) {
+                try {
+                    i2.put("data", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            this.b = false;
+            return i2;
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
+        return (JSONObject) invokeLIL.objValue;
     }
 }

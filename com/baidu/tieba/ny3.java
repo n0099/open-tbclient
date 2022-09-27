@@ -14,7 +14,7 @@ public class ny3 {
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             File b = b();
             if (b.exists()) {
-                cj4.j(b);
+                pj4.j(b);
             }
         }
     }
@@ -22,7 +22,7 @@ public class ny3 {
     public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? oz3.e("aigames_debug_extension_core") : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b04.e("aigames_debug_dashboard") : (File) invokeV.objValue;
     }
 
     public static File c() {
@@ -33,8 +33,14 @@ public class ny3 {
             if (!b.exists()) {
                 b.mkdirs();
             }
-            return new File(b, "debugExtensionCore.zip");
+            return new File(b, "debugDashboard.zip");
         }
         return (File) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "meter.js" : (String) invokeV.objValue;
     }
 }

@@ -1,140 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class pp1 {
+public final class pp1 extends oo2<pp1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public volatile long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069624, "Lcom/baidu/tieba/pp1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948069624, "Lcom/baidu/tieba/pp1;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
+    /* loaded from: classes5.dex */
+    public interface a {
+        public static final String a = oo2.r("SwanFileFetcher.Params", "file_url");
+        public static final String b = oo2.r("SwanFileFetcher.Params", "file_save_path");
+        public static final String c = oo2.r("SwanFileFetcher.Params", "file_head_map");
+        public static final String d = oo2.r("SwanFileFetcher.Params", "image_save_gallery");
+        public static final String e = oo2.r("SwanFileFetcher.Params", "file_cancel_tag");
     }
 
     public pp1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.g = "1";
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        char c;
+    public pp1 E(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.g;
-            switch (str.hashCode()) {
-                case 48:
-                    if (str.equals("0")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 49:
-                    if (str.equals("1")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "unknown" : "fip" : "ftp" : "fcp" : "fmp";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? z(a.e, str) : (pp1) invokeL.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public pp1 F(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.f;
-            if (j > 0) {
-                return j;
-            }
-            long[] jArr = {this.d, this.e, this.b};
-            long j2 = Long.MAX_VALUE;
-            for (int i = 0; i < 3; i++) {
-                long j3 = jArr[i];
-                if (j3 > 0 && j3 < j2) {
-                    j2 = j3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
                 }
             }
-            if (j2 != Long.MAX_VALUE) {
-                this.f = j2;
-            }
-            return this.f;
+            return u(a.c, bundle);
         }
-        return invokeV.longValue;
+        return (pp1) invokeL.objValue;
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    public pp1 G(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? j == this.d ? "2" : j == this.e ? "3" : (j != this.b && j == this.c) ? "0" : "1" : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.b, str) : (pp1) invokeL.objValue;
     }
 
-    public String toString() {
+    public pp1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? z(a.a, str) : (pp1) invokeL.objValue;
+    }
+
+    public pp1 I(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? t(a.d, z) : (pp1) invokeZ.objValue;
+    }
+
+    public pp1 J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (pp1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hi3
+    public /* bridge */ /* synthetic */ hi3 a() {
+        J();
+        return this;
     }
 }

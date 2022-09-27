@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia.exoplayer;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,9 +155,9 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                int b = gg9.b(this.mItems);
+                int b = vg9.b(this.mItems);
                 for (int i = 0; i < b; i++) {
-                    ItemInfo itemInfo = (ItemInfo) gg9.c(this.mItems, i);
+                    ItemInfo itemInfo = (ItemInfo) vg9.c(this.mItems, i);
                     if (itemInfo != null) {
                         destroyPlayer(itemInfo.position, itemInfo.data);
                     }
@@ -171,12 +171,12 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             synchronized (this) {
-                int b = gg9.b(this.mItems);
+                int b = vg9.b(this.mItems);
                 int i2 = -1;
                 int i3 = 0;
                 while (true) {
                     if (i3 < b) {
-                        ItemInfo itemInfo = (ItemInfo) gg9.c(this.mItems, i3);
+                        ItemInfo itemInfo = (ItemInfo) vg9.c(this.mItems, i3);
                         if (itemInfo != null && itemInfo.position == i) {
                             destroyPlayer(itemInfo.position, itemInfo.data);
                             i2 = i3;
@@ -187,7 +187,7 @@ public abstract class MultiMediaAdapter {
                         break;
                     }
                 }
-                gg9.g(this.mItems, i2);
+                vg9.g(this.mItems, i2);
             }
         }
     }
@@ -200,9 +200,9 @@ public abstract class MultiMediaAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int b = gg9.b(this.mItems);
+            int b = vg9.b(this.mItems);
             for (int i2 = 0; i2 < b; i2++) {
-                ItemInfo itemInfo = (ItemInfo) gg9.c(this.mItems, i2);
+                ItemInfo itemInfo = (ItemInfo) vg9.c(this.mItems, i2);
                 if (itemInfo != null && itemInfo.position == i) {
                     return itemInfo;
                 }
@@ -253,15 +253,15 @@ public abstract class MultiMediaAdapter {
                 } else {
                     i3 = -1;
                 }
-                int b = gg9.b(this.mItems);
+                int b = vg9.b(this.mItems);
                 for (int i4 = 0; i4 < b; i4++) {
-                    ItemInfo itemInfo2 = (ItemInfo) gg9.c(this.mItems, i4);
+                    ItemInfo itemInfo2 = (ItemInfo) vg9.c(this.mItems, i4);
                     if (itemInfo2 != null && itemInfo2.position != i2 && itemInfo2.position != i3 && itemInfo2.position != this.mCurItem) {
                         destroyPlayer(itemInfo2.position, itemInfo2.data);
                     }
                 }
                 this.mItems.clear();
-                gg9.a(this.mItems, this.mChangedList);
+                vg9.a(this.mItems, this.mChangedList);
                 this.mChangedList.clear();
                 if (!isPlayerType) {
                     this.mCurItem = -1;
@@ -274,13 +274,13 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, multiMediaData, i) == null) {
             synchronized (this) {
-                int b = gg9.b(this.mItems);
+                int b = vg9.b(this.mItems);
                 for (int i2 = 0; i2 < b; i2++) {
-                    ItemInfo itemInfo = (ItemInfo) gg9.c(this.mItems, i2);
+                    ItemInfo itemInfo = (ItemInfo) vg9.c(this.mItems, i2);
                     if (itemInfo != null) {
                         if (multiMediaData == null || itemInfo.data == null || !TextUtils.equals(multiMediaData.uuid, itemInfo.data.uuid)) {
                             destroyPlayer(itemInfo.position, itemInfo.data);
-                            gg9.g(this.mItems, i2);
+                            vg9.g(this.mItems, i2);
                         } else {
                             itemInfo.position = i;
                         }

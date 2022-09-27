@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class ls5 extends vp3 {
+public class ls5 extends lz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,13 +28,16 @@ public class ls5 extends vp3 {
         }
     }
 
-    @Override // com.baidu.tieba.tp3.b
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lz2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("key_param_url");
+            if (StringUtils.isNull(string)) {
+                c();
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001447, string));
+            }
         }
-        return invokeV.booleanValue;
     }
 }

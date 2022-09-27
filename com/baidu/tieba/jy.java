@@ -32,9 +32,9 @@ public class jy extends az {
     }
 
     @Override // com.baidu.tieba.az
-    public ra8 q() {
+    public fb8 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ua8(this.b, this.i) : (ra8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ib8(this.b, this.i) : (fb8) invokeV.objValue;
     }
 }

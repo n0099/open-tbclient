@@ -1,36 +1,66 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
-import com.baidu.tieba.zu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class mv8 implements uu8, zu8.c, f36 {
+public class mv8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public mu8 b;
-    public yu8 c;
-    public SelectMusicModel d;
-    public String e;
+    public r9 a;
+    public List<MusicData> b;
+    public int c;
+    public String d;
 
-    public mv8(mu8 mu8Var) {
+    /* loaded from: classes5.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public View b;
+        public TextView c;
+
+        public a(mv8 mv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public mv8(r9 r9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mu8Var};
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,149 +70,171 @@ public class mv8 implements uu8, zu8.c, f36 {
                 return;
             }
         }
-        this.b = mu8Var;
-        this.a = mu8Var.a;
+        this.a = r9Var;
     }
 
-    public final void a(String str) {
-        mu8 mu8Var;
+    public void a(TextView textView, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (mu8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, textView, i, str) == null) || i <= 0) {
             return;
         }
-        if (mu8Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
+        float f = ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
+        TextPaint textPaint = new TextPaint();
+        textPaint.setTextSize(f);
+        while (textPaint.measureText(str) > i) {
+            f -= 1.0f;
+            textPaint.setTextSize(f);
         }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        mu8 mu8Var2 = this.b;
-        if (mu8Var2 != null) {
-            mu8Var2.f(videoInfo);
+        textView.setTextSize(0, f);
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public List<MusicData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
+            notifyDataSetChanged();
         }
     }
 
-    public void b() {
-        mu8 mu8Var;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mu8Var = this.b) == null) {
-            return;
-        }
-        if (mu8Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            mu8 mu8Var2 = this.b;
-            if (!mu8Var2.e) {
-                q1(mu8Var2.b, -4399, "");
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
+            if (TextUtils.isEmpty(str) || this.b == null) {
                 return;
             }
-        }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        mu8 mu8Var3 = this.b;
-        selectMusicModel.C(mu8Var3.b, mu8Var3.d, nu8.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !mu8Var3.e);
-    }
-
-    @Override // com.baidu.tieba.f36
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mu8 mu8Var = this.b;
-            if (mu8Var != null) {
-                mu8Var.i(true);
-            }
-            yu8 yu8Var = this.c;
-            if (yu8Var == null || !yu8Var.f()) {
-                return;
-            }
-            this.c.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.zu8.c
-    public void onGenFilterVideoFail(int i, String str) {
-        mu8 mu8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (mu8Var = this.b) == null) {
-            return;
-        }
-        mu8Var.d(i, str);
-    }
-
-    @Override // com.baidu.tieba.zu8.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        mu8 mu8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) || (mu8Var = this.b) == null) {
-            return;
-        }
-        mu8Var.d(i, str);
-    }
-
-    @Override // com.baidu.tieba.zu8.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            mu8 mu8Var = this.b;
-            if (mu8Var != null) {
-                mu8Var.e();
-            }
-            a(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.uu8
-    public void q1(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, str, i, str2) == null) {
-            mu8 mu8Var = this.b;
-            if (mu8Var != null && mu8Var.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0af9);
-                mu8 mu8Var2 = this.b;
-                if (mu8Var2 != null) {
-                    mu8Var2.g(i, str2);
+            int i = -1;
+            for (int i2 = 0; i2 < this.b.size(); i2++) {
+                if (str.equals(this.b.get(i2).id)) {
+                    i = i2;
                 }
+            }
+            if (i == -1) {
+                i = 1;
+            }
+            this.c = i;
+        }
+    }
+
+    public void f(List<MusicData> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null) {
+            return;
+        }
+        this.b = list;
+        e(this.d);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            List<MusicData> list = this.b;
+            if (list == null) {
+                return null;
+            }
+            return list.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04b5, (ViewGroup) null);
+                aVar = new a(this);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915b7);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915bb);
+                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0915b8);
+                aVar.a.setDrawerType(1);
+                aVar.a.setIsRound(true);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080303);
+                aVar.a.setBorderWidth(ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                aVar.a.setConrers(15);
+                view2.setTag(aVar);
             } else {
-                mu8 mu8Var3 = this.b;
-                if (mu8Var3 != null) {
-                    mu8Var3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        yu8 yu8Var = new yu8(this.a.getActivity());
-                        this.c = yu8Var;
-                        yu8Var.i(this);
-                    }
-                    this.c.g(str, this.b.f);
-                    return;
-                }
-                mu8 mu8Var4 = this.b;
-                if (mu8Var4 != null) {
-                    mu8Var4.e();
-                }
-                a(str);
+                aVar = (a) view2.getTag();
             }
+            MusicData musicData = this.b.get(i);
+            if (musicData != null) {
+                int i2 = musicData.editMusicType;
+                if (i2 == 1) {
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b28), 24, false);
+                } else if (i2 != 2) {
+                    aVar.a.K(musicData.img, 10, false);
+                } else {
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b12), 24, false);
+                }
+                aVar.b.setVisibility(4);
+                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
+                aVar.c.setText(musicData.name);
+                a(aVar.c, ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c), musicData.name);
+                if (i == this.c) {
+                    aVar.a.setDrawBorder(true);
+                } else {
+                    aVar.a.setDrawBorder(false);
+                }
+                if (i == 0) {
+                    view2.setPadding(ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
+                } else if (i == this.b.size() - 1) {
+                    view2.setPadding(ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
+                } else {
+                    view2.setPadding(ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
+                }
+                if (this.a.getPageActivity() instanceof BaseActivity) {
+                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
+                }
+            }
+            return view2;
         }
-    }
-
-    @Override // com.baidu.tieba.uu8
-    public void setMusicData(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-        }
+        return (View) invokeILL.objValue;
     }
 }

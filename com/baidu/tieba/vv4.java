@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,176 +12,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class vv4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ TiebaStaticClassesArray b;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Class<?> a;
-        public final Object b;
-        public final Class<?> c;
-        public final Method d;
-        public final Object e;
-        public final Method f;
-        public final c g;
-        public final int h;
-        public final yv4 i;
-        public int j;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.i.a(this.a.f());
-                    this.a.g.c();
-                    this.a.g();
-                }
-            }
-        }
-
-        public /* synthetic */ b(int i, yv4 yv4Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-            this(i, yv4Var);
-        }
-
-        public final List<Long> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList arrayList = new ArrayList(24);
-                List<Long> h = h();
-                int size = h.size();
-                int i = 0;
-                while (i < size - 1) {
-                    long longValue = h.get(i).longValue();
-                    i++;
-                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
-                }
-                return arrayList;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.g.c();
-            }
-        }
-
-        public final List<Long> h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g.a : (List) invokeV.objValue;
-        }
-
-        public final void i() throws InvocationTargetException, IllegalAccessException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f.invoke(this.e, this.b);
-            }
-        }
-
-        public final void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i = this.j;
-                if (i >= this.h) {
-                    gh.a().post(new a(this));
-                    return;
-                }
-                this.j = i + 1;
-                try {
-                    i();
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-
-        public b(int i, yv4 yv4Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), yv4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = 0;
-            this.c = Class.forName("android.view.Choreographer");
-            this.a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.g = new c(this);
-            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
-            Method method = this.c.getMethod("getInstance", new Class[0]);
-            this.d = method;
-            this.e = method.invoke(null, new Object[0]);
-            this.f = this.c.getMethod("postFrameCallback", this.a);
-            this.h = i <= 0 ? 16 : i;
-            this.i = yv4Var;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements InvocationHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Long> a;
-        public final List<Integer> b;
-        public b c;
-
-        public c(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -189,101 +42,100 @@ public class vv4 {
                     return;
                 }
             }
-            this.c = bVar;
-            this.a = new ArrayList(240);
-            this.b = new ArrayList(15);
+            this.a = z;
+            this.b = tiebaStaticClassesArray;
         }
 
-        public final void c() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c = null;
-                this.a.clear();
-                this.b.clear();
-            }
-        }
-
-        public final void d(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.a.add(Long.valueOf(j));
-                this.c.j();
-            }
-        }
-
-        @Override // java.lang.reflect.InvocationHandler
-        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
-                String name = method.getName();
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
-                    d(((Long) objArr[0]).longValue());
-                    return null;
+                try {
+                    if (this.a) {
+                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
+                        return;
+                    }
+                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
+                    if (this.b.loadStaticClasses()) {
+                        return;
+                    }
+                    MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                return null;
             }
-            return invokeLLL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vv4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-333445931, "Lcom/baidu/tieba/vv4$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-333445931, "Lcom/baidu/tieba/vv4$d;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254229, "Lcom/baidu/tieba/vv4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new vv4();
-        }
-    }
-
-    public vv4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948254229, "Lcom/baidu/tieba/vv4;");
                 return;
             }
         }
-        this.a = null;
+        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic"};
     }
 
-    public static vv4 a() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
+                boolean z = true;
+                try {
+                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
+                    Object newInstance = cls.newInstance();
+                    Field declaredField = cls.getDeclaredField("staticClassesArray");
+                    declaredField.setAccessible(true);
+                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
+                if (ox4.k().l("static_opt_open", 0) <= 0) {
+                    z = false;
+                }
+                b = z;
+                long currentTimeMillis = System.currentTimeMillis();
+                if (b) {
+                    gc.b().a("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
+                } else if (!tiebaStaticClassesArray.loadStaticClasses()) {
+                    MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
+                }
+                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d.a : (vv4) invokeV.objValue;
-    }
-
-    public void b(int i, yv4 yv4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, yv4Var) == null) || Build.VERSION.SDK_INT < 16) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String[] strArr = a;
+            try {
+                if (strArr.length <= 0) {
+                    return false;
+                }
+                for (String str : strArr) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Class.forName(str);
+                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                return true;
+            } catch (Throwable th) {
+                BdLog.e(th, true);
+                return false;
+            }
         }
-        try {
-            b bVar = new b(i, yv4Var, null);
-            this.a = bVar;
-            bVar.j();
-        } catch (Throwable th) {
-            BdLog.e(th);
-        }
+        return invokeV.booleanValue;
     }
 }

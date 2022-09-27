@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.e85;
+import com.baidu.tieba.jx4;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.r75;
-import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,17 +79,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    r75.c(scheme);
+                    e85.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.B();
                 } else {
-                    int a = ww4.a();
+                    int a = jx4.a();
                     if (a != 2) {
                         this.a.C(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    r75.c(scheme);
+                    e85.c(scheme);
                 }
             }
         }
@@ -132,7 +132,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 Object invoke = n9.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(n9.g().b(), new Object[0]);
-                r75.b(invoke != null ? (String) invoke : null);
+                e85.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -147,13 +147,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                r75.b("a025");
+                e85.b("a025");
             } else if (i == 22) {
-                r75.b("a088");
+                e85.b("a088");
             } else if (i == 3) {
-                r75.b("a079");
+                e85.b("a079");
             } else if (i == 8) {
-                r75.b("a011");
+                e85.b("a011");
             }
         }
     }

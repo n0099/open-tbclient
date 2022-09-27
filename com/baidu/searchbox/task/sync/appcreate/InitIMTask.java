@@ -2,8 +2,8 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.c77;
-import com.baidu.tieba.fd5;
+import com.baidu.tieba.q77;
+import com.baidu.tieba.sd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,8 +32,8 @@ public class InitIMTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            c77.a();
-            fd5.b().p(System.currentTimeMillis() - currentTimeMillis);
+            q77.a();
+            sd5.b().p(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

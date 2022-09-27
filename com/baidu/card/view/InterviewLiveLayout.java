@@ -30,14 +30,14 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.mt4;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.hq4;
+import com.baidu.tieba.i26;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.up4;
-import com.baidu.tieba.v16;
 import com.baidu.tieba.wx;
+import com.baidu.tieba.yq4;
 import com.baidu.tieba.zg;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements wx<lq4> {
+public class InterviewLiveLayout extends FrameLayout implements wx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public v16<lq4> c;
-    public lq4 d;
+    public i26<yq4> c;
+    public yq4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -179,7 +179,7 @@ public class InterviewLiveLayout extends FrameLayout implements wx<lq4> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            on m = u75.k().m(zg.h().g(tbImageView.getUrl(), this.a.b ? 13 : 14));
+            on m = h85.k().m(zg.h().g(tbImageView.getUrl(), this.a.b ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -264,13 +264,13 @@ public class InterviewLiveLayout extends FrameLayout implements wx<lq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: k */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) {
-            this.d = lq4Var;
-            if (lq4Var != null && this.e != null) {
-                ThreadData threadData = lq4Var.getThreadData();
-                mt4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) {
+            this.d = yq4Var;
+            if (yq4Var != null && this.e != null) {
+                ThreadData threadData = yq4Var.getThreadData();
+                zt4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -278,7 +278,7 @@ public class InterviewLiveLayout extends FrameLayout implements wx<lq4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.f();
-                if (up4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
+                if (hq4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
                     this.i.clear();
                     this.i.add(taskInfoData.i());
                     setVisibility(0);
@@ -327,10 +327,10 @@ public class InterviewLiveLayout extends FrameLayout implements wx<lq4> {
         tbImageView.setPageId(bdUniqueId);
     }
 
-    public void setSubClickListener(v16<lq4> v16Var) {
+    public void setSubClickListener(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, v16Var) == null) {
-            this.c = v16Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, i26Var) == null) {
+            this.c = i26Var;
         }
     }
 

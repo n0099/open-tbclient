@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.List;
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class tf4 extends he4 {
+/* loaded from: classes6.dex */
+public class tf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tf4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public tf4() {
@@ -31,71 +31,87 @@ public class tf4 extends he4 {
         }
     }
 
-    @Override // com.baidu.tieba.he4
-    public JSONArray c() {
+    public static tf4 b() {
         InterceptResult invokeV;
-        List<zb4> w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "bbasp_core");
-                jSONObject.put("version_name", ja4.b().J(0));
-                jSONObject.put("version_code", ja4.b().w(0));
-                jSONArray.put(jSONObject);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (tf4.class) {
+                    if (a == null) {
+                        a = new tf4();
+                    }
+                }
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("type", "bbasp_game");
-                jSONObject2.put("version_name", ja4.b().J(1));
-                jSONObject2.put("version_code", ja4.b().w(1));
-                jSONArray.put(jSONObject2);
-            } catch (JSONException unused2) {
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("type", ETAG.KEY_EXTENSION);
-                jSONObject3.put("version_name", ja4.b().v(0));
-                jSONObject3.put("version_code", ja4.b().j(0));
-                jSONArray.put(jSONObject3);
-            } catch (JSONException unused3) {
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("type", "extension_game");
-                jSONObject4.put("version_name", ja4.b().v(1));
-                jSONObject4.put("version_code", ja4.b().j(1));
-                jSONArray.put(jSONObject4);
-            } catch (JSONException unused4) {
-            }
-            try {
-                w = va4.i().w(f(10));
-            } catch (JSONException unused5) {
-            }
-            if (w == null) {
-                return jSONArray;
-            }
-            for (zb4 zb4Var : w) {
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("type", "ddl");
-                jSONObject5.put("bundle_id", zb4Var.g);
-                jSONObject5.put("version_code", zb4Var.i);
-                jSONObject5.put("version_name", zb4Var.j);
-                jSONArray.put(jSONObject5);
-            }
-            return jSONArray;
+            return a;
         }
-        return (JSONArray) invokeV.objValue;
+        return (tf4) invokeV.objValue;
     }
 
-    public final String f(int i) {
-        InterceptResult invokeI;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? wa4.b().i().getString("web_mode_version", "0") : (String) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? wa4.b().i().getInt("web_mode_switch", 1) == 1 : invokeV.booleanValue;
+    }
+
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = wa4.b().i().getString("web_mode_degrade_list", "");
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException unused) {
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    arrayList.add(jSONArray.optString(i));
+                }
+            }
+            return arrayList;
         }
-        return (String) invokeI.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final String e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
+            return optJSONArray != null ? optJSONArray.toString() : "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
+        String e = e(optJSONObject);
+        ua4 b = wa4.b();
+        if (b == null) {
+            return;
+        }
+        nj4 i = b.i();
+        i.putInt("web_mode_switch", optInt);
+        i.putString("web_mode_degrade_list", e);
+        i.putString("web_mode_version", optString);
     }
 }

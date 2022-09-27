@@ -1,22 +1,35 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ms7 {
+public abstract class ms7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendForumInfo a;
+    public int a;
+    public final Context b;
+    public List<vs7> c;
+    public a d;
 
-    public ms7(RecommendForumInfo recommendForumInfo, boolean z) {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void o1(int i);
+    }
+
+    public ms7(List<vs7> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {recommendForumInfo, Boolean.valueOf(z)};
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +39,81 @@ public class ms7 {
                 return;
             }
         }
-        this.a = recommendForumInfo;
+        this.c = list;
+        this.b = context;
+    }
+
+    public List<vs7> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (vs7 vs7Var : this.c) {
+                if (vs7Var.e()) {
+                    arrayList.add(vs7Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public void c(List<vs7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    public void d(vs7 vs7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vs7Var) == null) {
+            if (vs7Var.e()) {
+                this.a++;
+            } else {
+                this.a--;
+            }
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<vs7> list = this.c;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
     }
 }

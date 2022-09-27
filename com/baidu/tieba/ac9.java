@@ -1,103 +1,91 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes3.dex */
 public final class ac9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static long b = 30000;
+    public static long c;
+    public static long d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && !str.equals("")) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 79) {
-                    switch (hashCode) {
-                        case 2126:
-                            if (str.equals("C1")) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 2127:
-                            if (str.equals("C2")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 2128:
-                            if (str.equals("C3")) {
-                                c = 7;
-                                break;
-                            }
-                            break;
-                        default:
-                            switch (hashCode) {
-                                case 2653:
-                                    if (str.equals("T1")) {
-                                        c = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 2654:
-                                    if (str.equals("T2")) {
-                                        c = 1;
-                                        break;
-                                    }
-                                    break;
-                                case 2655:
-                                    if (str.equals("T3")) {
-                                        c = 2;
-                                        break;
-                                    }
-                                    break;
-                                case 2656:
-                                    if (str.equals("T4")) {
-                                        c = 3;
-                                        break;
-                                    }
-                                    break;
-                                case 2657:
-                                    if (str.equals("T5")) {
-                                        c = 4;
-                                        break;
-                                    }
-                                    break;
-                            }
-                    }
-                } else if (str.equals("O")) {
-                    c = '\b';
-                }
-                switch (c) {
-                    case 0:
-                        return SampleResult.T1;
-                    case 1:
-                        return SampleResult.T2;
-                    case 2:
-                        return SampleResult.T3;
-                    case 3:
-                        return SampleResult.T4;
-                    case 4:
-                        return SampleResult.T5;
-                    case 5:
-                        return SampleResult.C1;
-                    case 6:
-                        return SampleResult.C2;
-                    case 7:
-                        return SampleResult.C3;
-                    case '\b':
-                        return SampleResult.OTHERE;
-                    default:
-                        return SampleResult.OTHERE;
-                }
-            }
-            return SampleResult.OTHERE;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947610514, "Lcom/baidu/tieba/ac9;")) == null) {
+            return;
         }
-        return (SampleResult) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947610514, "Lcom/baidu/tieba/ac9;");
+        }
+    }
+
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : invokeV.longValue;
+    }
+
+    public static void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            b = j;
+        }
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c : invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d : invokeV.longValue;
+    }
+
+    public static void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            c = j;
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            e = z;
+        }
+    }
+
+    public static void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            d = j;
+        }
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? e : invokeV.booleanValue;
     }
 }

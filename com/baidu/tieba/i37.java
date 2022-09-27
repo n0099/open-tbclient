@@ -2,80 +2,106 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i37 extends qn<y37, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements b37 {
+public class i37 extends gb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View.OnClickListener b;
+    public ThreadData Q0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i37(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity(), y37.a);
+    public i37(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, onClickListener};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = onClickListener;
+        m0(true);
     }
 
-    @Override // com.baidu.tieba.b37
-    public void h(String str) {
+    @Override // com.baidu.tieba.ib8
+    public int b0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ib8, com.baidu.tieba.fb8
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.isPlaying() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ib8, com.baidu.tieba.fb8
+    public boolean onBackground(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) ? super.onBackground(z) : invokeZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gb8, com.baidu.tieba.ib8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            startPlay();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public AdapterViewHolder<HomeLocalCompleteInfoLayout> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gb8, com.baidu.tieba.ib8, com.baidu.tieba.fb8
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext())) : (AdapterViewHolder) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null) {
+            return;
+        }
+        super.setData(threadData);
+        ThreadData threadData2 = this.Q0;
+        this.Q0 = threadData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y37 y37Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ib8, com.baidu.tieba.fb8
+    public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y37Var, adapterViewHolder})) == null) {
-            if (y37Var == null || adapterViewHolder == null) {
-                return null;
-            }
-            HomeLocalCompleteInfoLayout a = adapterViewHolder.a();
-            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            a.setCloseClickListener(this.b);
-            a37.o();
-            return adapterViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            super.setUniqueId(bdUniqueId);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.ib8, com.baidu.tieba.fb8
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.ib8, com.baidu.tieba.fb8
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.stopPlay();
+        }
     }
 }

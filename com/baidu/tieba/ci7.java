@@ -1,88 +1,85 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.location.Address;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.permissionhelper.ApiUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.zf;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ci7 implements ag {
+public class ci7 {
     public static /* synthetic */ Interceptable $ic;
-    public static ci7 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public boolean b;
-    public String c;
-    public zf.d d;
-    public b e;
-    public LocationClient f;
-    public LocationClientOption g;
-    public Address h;
-    public long i;
-    public boolean j;
+    public ListViewPager a;
+    public IndicatorView b;
+    public kh7 c;
+    public TextView d;
+    public BdBaseViewPagerAdapter e;
+    public uz4 f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Context j;
+    public List<Cdo> k;
+    public ViewPager.OnPageChangeListener l;
+    public long m;
+    public final Handler.Callback n;
+    public final Handler o;
+    public ViewPager.OnPageChangeListener p;
 
     /* loaded from: classes3.dex */
-    public static class a extends CustomMessageListener {
+    public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ci7 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
+        public a(ci7 ci7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
+                Object[] objArr = {ci7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = ci7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
-                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
-                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        zf.n().r(ci7.j());
-                    } else {
-                        zf.n().v(ci7.j());
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what == 1 && this.a.k()) {
+                    this.a.i();
+                    return false;
                 }
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements BDLocationListener {
+    public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ci7 a;
@@ -105,178 +102,279 @@ public class ci7 implements ag {
             this.a = ci7Var;
         }
 
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
-                    return;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.l != null) {
+                    this.a.l.onPageScrollStateChanged(i);
                 }
-                this.a.c();
-                this.a.h = new Address(Locale.getDefault());
-                this.a.h.setLatitude(bDLocation.getLatitude());
-                this.a.h.setLongitude(bDLocation.getLongitude());
-                bx4 k = bx4.k();
-                k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
-                this.a.h.setLocality(bDLocation.getCity());
-                Bundle bundle = new Bundle();
-                bundle.putFloat("radius", bDLocation.getRadius());
-                bundle.putDouble("altitude", bDLocation.getAltitude());
-                bundle.putFloat("speed", bDLocation.getSpeed());
-                bundle.putString("cityCode", bDLocation.getCityCode());
-                bundle.putString("street", bDLocation.getStreet());
-                bundle.putString("streetNumber", bDLocation.getStreetNumber());
-                bundle.putString("province", bDLocation.getProvince());
-                this.a.h.setExtras(bundle);
-                this.a.i = System.currentTimeMillis();
-                StringBuffer stringBuffer = new StringBuffer();
-                if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
-                    stringBuffer.append(bDLocation.getCity());
-                }
-                stringBuffer.append(bDLocation.getDistrict());
-                stringBuffer.append(bDLocation.getStreet());
-                if (bDLocation.getAddrStr() != null) {
-                    this.a.h.setAddressLine(0, stringBuffer.toString());
-                }
-                if (this.a.d != null) {
-                    this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
-                    ve8.e().i(String.valueOf(this.a.h.getLatitude()));
-                    ve8.e().j(String.valueOf(this.a.h.getLongitude()));
-                    ve8.e().k(System.currentTimeMillis());
+                if (i == 1) {
+                    this.a.s();
+                } else if (i != 0 || (count = this.a.e.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.r();
                 }
             }
         }
 
-        public /* synthetic */ b(ci7 ci7Var, a aVar) {
-            this(ci7Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675800, "Lcom/baidu/tieba/ci7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947675800, "Lcom/baidu/tieba/ci7;");
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.a.l == null) {
                 return;
             }
+            this.a.l.onPageScrolled(i, f, i2);
         }
-        MessageManager.getInstance().registerListener(new a(2001330));
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.f != null && this.a.f.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.f.c(i));
+                    if (this.a.c != null) {
+                        this.a.b.setVisibility(8);
+                        this.a.c.b(this.a.f.c(i));
+                    }
+                }
+                if (this.a.l != null) {
+                    this.a.l.onPageSelected(this.a.f.c(i));
+                }
+            }
+        }
     }
 
-    public ci7() {
+    public ci7(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listViewPager, indicatorView, textView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.c = "";
-        this.d = null;
-        this.i = 0L;
-        this.j = false;
+        this.g = false;
+        this.h = true;
+        this.i = 2;
+        this.k = new ArrayList();
+        this.m = 5000L;
+        this.n = new a(this);
+        this.o = new Handler(this.n);
+        this.p = new b(this);
+        j(context, listViewPager, indicatorView, textView);
     }
 
-    public static ci7 j() {
+    public final void i() {
+        int count;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || this.e == null) {
+            return;
+        }
+        v9 c = w9.c(this.j);
+        if ((c == null || !c.isScroll()) && (count = this.e.getCount()) >= 2) {
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
+            } else {
+                this.a.setCurrentItem(currentItem + 1);
+            }
+        }
+    }
+
+    public final void j(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, listViewPager, indicatorView, textView) == null) {
+            this.a = listViewPager;
+            this.b = indicatorView;
+            this.d = textView;
+            this.j = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.e = bdBaseViewPagerAdapter;
+            ListViewPager listViewPager2 = this.a;
+            if (listViewPager2 != null) {
+                listViewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.p);
+            }
+        }
+    }
+
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (k == null) {
-                synchronized (ci7.class) {
-                    if (k == null) {
-                        k = new ci7();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ListViewPager listViewPager = this.a;
+            if (listViewPager == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            listViewPager.getLocationOnScreen(iArr);
+            int measuredHeight = iArr[1] + (this.a.getMeasuredHeight() / 2);
+            return measuredHeight > 0 && measuredHeight < ej.i(this.j);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l(Context context, tz4<?, ?> tz4Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, tz4Var) == null) || (bdBaseViewPagerAdapter = this.e) == null) {
+            return;
+        }
+        bdBaseViewPagerAdapter.g(context, tz4Var);
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.m = j;
+        }
+    }
+
+    public void n(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.getCount(list) == 0) {
+            return;
+        }
+        this.k = list;
+        uz4 uz4Var = new uz4(list, this.g, this.i);
+        this.f = uz4Var;
+        uz4Var.i(2);
+        boolean z = true;
+        this.f.g(1);
+        this.e.h(this.f.e());
+        this.e.notifyDataSetChanged();
+        this.a.setCurrentItem(this.f.d(), false);
+        if (this.f.b() <= 0) {
+            return;
+        }
+        if (this.f.b() > this.i) {
+            TextView textView = this.d;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.d.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            }
+            if (this.b != null && this.d == null && this.g) {
+                z = false;
+            }
+            if (!z) {
+                this.b.setVisibility(8);
+                int count = this.b.getCount();
+                int i = this.i;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
+            r();
+        }
+        if (this.f.b() >= 2 && this.f.b() <= this.i) {
+            TextView textView2 = this.d;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView2 = this.b;
+            if (indicatorView2 != null) {
+                indicatorView2.setVisibility(0);
+                if (this.b.getCount() != this.f.b()) {
+                    this.b.setCount(this.f.b());
+                    kh7 kh7Var = this.c;
+                    if (kh7Var != null) {
+                        kh7Var.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                } else {
+                    kh7 kh7Var2 = this.c;
+                    if (kh7Var2 != null) {
+                        kh7Var2.a(this.f.b());
+                        this.b.setVisibility(8);
                     }
                 }
             }
-            return k;
+            r();
         }
-        return (ci7) invokeV.objValue;
+        if (this.f.b() < 2) {
+            TextView textView3 = this.d;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null) {
+                indicatorView3.setVisibility(8);
+            }
+            s();
+        }
     }
 
-    @Override // com.baidu.tieba.ag
-    public void a(boolean z) {
+    public void o(kh7 kh7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
-                try {
-                    this.j = z;
-                    if (z) {
-                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
-                    }
-                    this.f.setLocOption(this.g);
-                    if (!this.f.isStarted()) {
-                        this.f.start();
-                    }
-                    this.f.requestLocation();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    c();
-                    zf.d dVar = this.d;
-                    if (dVar != null) {
-                        dVar.a(5, "", this.h, this.i, this.j);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048582, this, kh7Var) == null) {
+            if (kh7Var != null) {
+                this.b.setVisibility(8);
+            } else {
+                this.b.setVisibility(0);
+            }
+            this.c = kh7Var;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            uz4 uz4Var = this.f;
+            if (uz4Var != null) {
+                uz4Var.h(i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ag
-    public void b(zf.d dVar) {
+    public void q(ViewPager.OnPageChangeListener onPageChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            this.a = context;
-            this.d = dVar;
-            this.c = "baidu";
-            if (this.b) {
-                try {
-                    this.f = new LocationClient(context);
-                    LocationClientOption locationClientOption = new LocationClientOption();
-                    this.g = locationClientOption;
-                    locationClientOption.setOpenGps(true);
-                    this.g.setIgnoreKillProcess(true);
-                    this.g.setProdName(this.c);
-                    this.g.setAddrType("all");
-                    this.g.setCoorType("bd09ll");
-                    b bVar = new b(this, null);
-                    this.e = bVar;
-                    this.f.registerLocationListener(bVar);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.l = onPageChangeListener;
         }
     }
 
-    @Override // com.baidu.tieba.ag
-    public void c() {
-        LocationClient locationClient;
+    public void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
-            try {
-                this.f.stop();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.h) {
+                this.o.removeMessages(1);
+                this.o.sendEmptyMessageDelayed(1, this.m);
+                return;
             }
+            this.o.removeMessages(1);
         }
     }
 
-    @Override // com.baidu.tieba.ag
-    public void destroy() {
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.o.removeMessages(1);
         }
     }
 }

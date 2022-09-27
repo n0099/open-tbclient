@@ -1,40 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class gg3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SwanAppActivity swanAppActivity) {
-        Intent intent;
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+
+        public a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + gg3.b;
+                if (gg3.a) {
+                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
+                }
+                om2.b(str, this.a, this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947792918, "Lcom/baidu/tieba/gg3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947792918, "Lcom/baidu/tieba/gg3;");
+                return;
+            }
+        }
+        a = vj1.a;
+        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+    }
+
+    public static void c(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, swanAppActivity) == null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            fg3.k(new a(str, z), "record_feedback_ext_info");
         }
-        if (xy2.D()) {
-            j02.k().s();
-        }
-        Bundle bundle = new Bundle();
-        bundle.putAll(intent.getExtras());
-        bundle.putBoolean("should_ignore_launch_time", true);
-        Bundle bundle2 = bundle.getBundle("mExtraData");
-        if (bundle2 == null) {
-            bundle2 = new Bundle();
-            bundle.putBundle("mExtraData", bundle2);
-        }
-        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-        x23.K().n(new String[0]);
-        bundle.remove("pms_db_info_onload");
-        bundle.remove("pms_db_info_updated");
-        bundle.remove("mPage");
-        bundle.putString("launch_id", SwanLauncher.h());
-        x23.K().l(bundle, "update_tag_by_activity_on_relaunch");
     }
 }

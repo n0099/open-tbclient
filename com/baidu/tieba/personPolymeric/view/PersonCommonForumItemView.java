@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d88;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.r88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public d88 h;
+    public r88 h;
     public View.OnClickListener i;
 
     /* loaded from: classes5.dex */
@@ -133,15 +133,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(d88 d88Var) {
+    public void setData(r88 r88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d88Var) == null) {
-            this.h = d88Var;
-            this.a.K(d88Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, r88Var) == null) {
+            this.h = r88Var;
+            this.a.K(r88Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(d88Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f066e));
-            this.d.setText(StringHelper.numberUniformFormat((long) d88Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e6a), StringHelper.getUserDescByGender(d88Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(r88Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f066e));
+            this.d.setText(StringHelper.numberUniformFormat((long) r88Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e6a), StringHelper.getUserDescByGender(r88Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

@@ -131,8 +131,8 @@ public class StickyAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
-            this.c = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d95);
-            this.d = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090da2);
+            this.c = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d94);
+            this.d = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090da1);
             this.e = findViewById(R.id.divider_line);
             CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -2);
             layoutParams.setBehavior(new StickyAppBarLayoutBehavior());

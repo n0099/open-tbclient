@@ -1,38 +1,48 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.os.Build;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.live.feed.search.LiveFeedSearchActivity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.CodedInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class qa0 {
+public class qa0 implements lb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public qa0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(Activity activity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.lb0
+    public void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? (activity.getWindow().getAttributes().flags & 1024) != 0 : invokeL.booleanValue;
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) ? Build.VERSION.SDK_INT >= 19 && (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 : invokeL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || context == null) {
+            return;
+        }
+        Intent intent = new Intent(context, LiveFeedSearchActivity.class);
+        intent.putExtra("source", str);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        }
+        context.startActivity(intent);
     }
 }

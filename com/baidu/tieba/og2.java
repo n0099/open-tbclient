@@ -1,132 +1,200 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.zip.GZIPInputStream;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class og2 {
+public class og2 extends or1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031215, "Lcom/baidu/tieba/og2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements pg2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ og2 b;
+
+        public /* synthetic */ b(og2 og2Var, String str, a aVar) {
+            this(og2Var, str);
+        }
+
+        @Override // com.baidu.tieba.pg2
+        public void a(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.b.d(this.a, jSONObject == null ? new lv1(0) : new lv1(0, jSONObject));
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948031215, "Lcom/baidu/tieba/og2;");
+        }
+
+        @Override // com.baidu.tieba.pg2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.b.d(this.a, str == null ? new lv1(i) : new lv1(i, str));
+            }
+        }
+
+        public b(og2 og2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = og2Var;
+            this.a = str;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements pg2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(og2 og2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pg2
+        public void a(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.pg2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
+
+        public /* synthetic */ c(og2 og2Var, a aVar) {
+            this(og2Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public og2(@NonNull mr1 mr1Var) {
+        super(mr1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ij1.a;
-        b = new byte[]{31, -117};
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static File a(byte[] bArr, File file) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.or1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
-            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = b;
-                bArr[0] = bArr2[0];
-                bArr[1] = bArr2[1];
-                try {
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    try {
-                        StringBuilder sb = new StringBuilder();
-                        while (true) {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
-                        }
-                        if (a) {
-                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
-                        }
-                        String string = new JSONObject(sb.toString()).getString(qg2.l);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", string);
-                        }
-                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
-                        File file2 = new File(file, qg2.l);
-                        new FileOutputStream(file2).write(doFinal);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
-                        }
-                        bufferedReader.close();
-                        inputStreamReader.close();
-                        gZIPInputStream.close();
-                        byteArrayInputStream.close();
-                        return file2;
-                    } finally {
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return null;
-        }
-        return (File) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GameCenter" : (String) invokeV.objValue;
     }
 
-    public static Cipher b(int i) throws Exception {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.or1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
-            return cipher;
-        }
-        return (Cipher) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GameCenterApi" : (String) invokeV.objValue;
     }
 
-    public static String c(byte[] bArr) {
+    public lv1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return cj4.T(messageDigest.digest(), "", false);
-            } catch (NoSuchAlgorithmException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#postGameCenterMessage", false);
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (!lv1Var.isSuccess()) {
+                l02.c("GameCenterApi", "parse fail");
+                return lv1Var;
             }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                l02.c("GameCenterApi", "empty cb");
+                return new lv1(202, "empty cb");
+            }
+            return z(jSONObject, new b(this, optString, null));
         }
-        return (String) invokeL.objValue;
+        return (lv1) invokeL.objValue;
+    }
+
+    public lv1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (!lv1Var.isSuccess()) {
+                l02.c("GameCenterApi", "parse fail");
+                return lv1Var;
+            }
+            return z((JSONObject) s.second, new c(this, null));
+        }
+        return (lv1) invokeL.objValue;
+    }
+
+    public final lv1 z(@NonNull JSONObject jSONObject, @NonNull pg2 pg2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, jSONObject, pg2Var)) == null) {
+            String optString = jSONObject.optString("api");
+            if (TextUtils.isEmpty(optString)) {
+                return new lv1(202, "empty api name");
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("params");
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
+            }
+            lv1 a2 = sm2.v0().a(optString, optJSONObject, pg2Var);
+            return a2 == null ? new lv1(0) : a2;
+        }
+        return (lv1) invokeLL.objValue;
     }
 }

@@ -1,124 +1,102 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.cookie.CookieManager;
-import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.tieba.y50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.List;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
 /* loaded from: classes3.dex */
-public class a60 implements CookieJar {
+public class a60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
 
-    public a60(CookieManager cookieManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cookieManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Class[] a;
+        public final /* synthetic */ y50.a b;
+        public final /* synthetic */ Context c;
+
+        public a(Class[] clsArr, y50.a aVar, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {clsArr, aVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = clsArr;
+            this.b = aVar;
+            this.c = context;
+        }
+
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE] complete} */
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
                 return;
             }
+            try {
+                try {
+                    Object invoke = this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder);
+                    this.b.a(true, (String) invoke.getClass().getMethod("getOAID", new Class[0]).invoke(invoke, new Object[0]));
+                } finally {
+                    try {
+                        this.c.unbindService(this);
+                    } catch (Throwable unused) {
+                    }
+                }
+            } catch (Throwable unused2) {
+                this.b.a(false, null);
+            }
         }
-        this.a = cookieManager;
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
+    public static void a(Context context, y50.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt <= 31 || charAt >= 127) {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                } else {
-                    sb.append(charAt);
-                }
+            Intent intent = new Intent();
+            intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
+            Class[] clsArr = new Class[1];
+            try {
+                clsArr[0] = Class.forName("com.samsung.android.deviceidservice.IDeviceIdService$Stub");
+            } catch (Throwable unused) {
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final List<Cookie> b(HttpUrl httpUrl, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int length = str.length();
-            int i = 0;
-            while (i < length) {
-                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
-                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
-                String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
-                if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {
-                    trimSubstring2 = trimSubstring2.substring(1, trimSubstring2.length() - 1);
-                }
-                String a = a(trimSubstring);
-                String a2 = a(trimSubstring2);
-                if (!Util.isTextEmpty(a) && this.a.shouldSendCookie(httpUrl.toString(), a)) {
-                    arrayList.add(new Cookie.Builder().name(a).value(a2).domain(httpUrl.host()).build());
-                }
-                i = delimiterOffset + 1;
+            if (clsArr[0] == null) {
+                aVar.a(false, null);
+                return;
             }
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.CookieJar
-    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
-            ArrayList arrayList = new ArrayList();
-            CookieManager cookieManager = this.a;
-            if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(httpUrl.toString());
-                if (!Util.isTextEmpty(cookie)) {
-                    arrayList.addAll(b(httpUrl, cookie));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // okhttp3.CookieJar
-    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, httpUrl, list) == null) || this.a == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        String httpUrl2 = httpUrl.toString();
-        for (Cookie cookie : list) {
-            String cookie2 = cookie.toString();
-            if (!Util.isTextEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
-                arrayList.add(cookie2);
+            try {
+                context.bindService(intent, new a(clsArr, aVar, context), 1);
+            } catch (Throwable unused2) {
+                aVar.a(false, null);
             }
         }
-        this.a.storeCookie(httpUrl.toString(), arrayList);
     }
 }

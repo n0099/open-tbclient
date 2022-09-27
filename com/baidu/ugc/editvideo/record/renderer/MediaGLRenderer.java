@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.bg9;
-import com.baidu.tieba.gg9;
-import com.baidu.tieba.rf0;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.mg9;
+import com.baidu.tieba.qg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,14 +55,14 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     public float mScaleY;
     public int mSurfaceViewHeight;
     public int mSurfaceViewWidth;
-    public xf9 mTextureReader;
+    public mg9 mTextureReader;
     public float mTx;
     public float mTy;
     public float[] mUpdateMatrix;
     public int mUpdateTextureId;
     public int mUpdateTextureMode;
     public float mVideoRatio;
-    public rf0 mVlogEdit;
+    public eg0 mVlogEdit;
     public boolean mWaitingDrawFrame;
 
     /* loaded from: classes6.dex */
@@ -115,13 +115,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     private void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            xf9 xf9Var = this.mTextureReader;
-            if (xf9Var != null) {
-                xf9Var.release();
+            mg9 mg9Var = this.mTextureReader;
+            if (mg9Var != null) {
+                mg9Var.release();
             }
-            rf0 rf0Var = this.mVlogEdit;
-            if (rf0Var != null) {
-                rf0Var.release();
+            eg0 eg0Var = this.mVlogEdit;
+            if (eg0Var != null) {
+                eg0Var.release();
             }
             FullFrameRect fullFrameRect = this.mFullScreenEXT;
             if (fullFrameRect != null) {
@@ -158,7 +158,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (gg9.e(this.mProcessorCostTimeList)) {
+            if (vg9.e(this.mProcessorCostTimeList)) {
                 return 0.0d;
             }
             long j = 0;
@@ -184,20 +184,20 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSurfaceViewWidth : invokeV.intValue;
     }
 
-    public rf0 getVlogEdit() {
+    public eg0 getVlogEdit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVlogEdit : (rf0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVlogEdit : (eg0) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver
     public void onChanged(Map<String, ShaderConfig> map, List<MediaTrack> list) {
-        rf0 rf0Var;
+        eg0 eg0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map, list) == null) || (rf0Var = this.mVlogEdit) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map, list) == null) || (eg0Var = this.mVlogEdit) == null) {
             return;
         }
-        rf0Var.e(list, map);
+        eg0Var.e(list, map);
     }
 
     @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
@@ -209,15 +209,15 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     }
 
     public void onDrawFrame(int i, long j) {
-        rf0 rf0Var;
+        eg0 eg0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || (rf0Var = this.mVlogEdit) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || (eg0Var = this.mVlogEdit) == null) {
             return;
         }
-        rf0Var.g(i, j);
-        rf0 rf0Var2 = this.mVlogEdit;
+        eg0Var.g(i, j);
+        eg0 eg0Var2 = this.mVlogEdit;
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
-        rf0Var2.b(gLViewPortLocation.width, gLViewPortLocation.height);
+        eg0Var2.b(gLViewPortLocation.width, gLViewPortLocation.height);
     }
 
     @Override // com.baidu.ugc.editvideo.record.IMediaLifeCycle
@@ -248,7 +248,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             } catch (Exception e) {
                 OnMediaGLRendererStatusListener onMediaGLRendererStatusListener = this.mOnMediaGLRendererStatusListener;
                 if (onMediaGLRendererStatusListener != null) {
-                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceChanged error:" + bg9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
+                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceChanged error:" + qg9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
                     GlUtil.mGLErrorMsg = "";
                 }
             }
@@ -285,17 +285,17 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             } catch (Exception e) {
                 OnMediaGLRendererStatusListener onMediaGLRendererStatusListener = this.mOnMediaGLRendererStatusListener;
                 if (onMediaGLRendererStatusListener != null) {
-                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceCreated error:" + bg9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
+                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceCreated error:" + qg9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
                     GlUtil.mGLErrorMsg = "";
                 }
             }
         }
     }
 
-    public void setCore(rf0 rf0Var) {
+    public void setCore(eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, rf0Var) == null) {
-            this.mVlogEdit = rf0Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, eg0Var) == null) {
+            this.mVlogEdit = eg0Var;
         }
     }
 
@@ -361,10 +361,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         }
     }
 
-    public void setTextureReader(xf9 xf9Var) {
+    public void setTextureReader(mg9 mg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, xf9Var) == null) {
-            this.mTextureReader = xf9Var;
+        if (interceptable == null || interceptable.invokeL(1048601, this, mg9Var) == null) {
+            this.mTextureReader = mg9Var;
         }
     }
 
@@ -467,12 +467,12 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
 
     @Override // com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver
     public void onChanged(List<MediaTrack> list) {
-        rf0 rf0Var;
+        eg0 eg0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (rf0Var = this.mVlogEdit) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || (eg0Var = this.mVlogEdit) == null) {
             return;
         }
-        rf0Var.n(list);
+        eg0Var.n(list);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -498,7 +498,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                 int i2 = this.mUpdateTextureMode;
                 float[] fArr = this.mUpdateMatrix;
                 if (this.mOnEditStickerListener != null && !this.mOnEditStickerListener.canDoProcessor()) {
-                    if (!gg9.e(this.mIMediaRenderers)) {
+                    if (!vg9.e(this.mIMediaRenderers)) {
                         for (IMediaRenderer iMediaRenderer : this.mIMediaRenderers) {
                             iMediaRenderer.onGLLocation(this.mGLViewPortLocation);
                             iMediaRenderer.setTextureMode(this.mUpdateTextureMode);
@@ -508,7 +508,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                             iMediaRenderer.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
                     }
-                } else if (gg9.e(this.mIEffectProcessors) && gg9.e(this.mIMediaRenderers)) {
+                } else if (vg9.e(this.mIEffectProcessors) && vg9.e(this.mIMediaRenderers)) {
                     GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
                     if (i2 == 0) {
                         this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
@@ -542,7 +542,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                     }
                     this.mUpdateTextureId = i;
                     this.mUpdateTextureMode = i2;
-                    if (!gg9.e(this.mIMediaRenderers)) {
+                    if (!vg9.e(this.mIMediaRenderers)) {
                         for (IMediaRenderer iMediaRenderer2 : this.mIMediaRenderers) {
                             iMediaRenderer2.onGLLocation(this.mGLViewPortLocation);
                             iMediaRenderer2.setTextureMode(i2);
@@ -578,10 +578,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             }
             throw new RuntimeException("update texture fail");
         } catch (Exception e) {
-            bg9.g(e);
+            qg9.g(e);
             OnMediaGLRendererStatusListener onMediaGLRendererStatusListener = this.mOnMediaGLRendererStatusListener;
             if (onMediaGLRendererStatusListener != null) {
-                onMediaGLRendererStatusListener.onError(1251, "onDrawFrame error:" + bg9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
+                onMediaGLRendererStatusListener.onError(1251, "onDrawFrame error:" + qg9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
                 GlUtil.mGLErrorMsg = "";
             }
         }

@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.swan.apps.core.container.NgWebView;
+import androidx.annotation.NonNull;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public interface ro1 {
-    void a(NgWebView ngWebView);
+    void a(@NonNull JSONArray jSONArray);
 
-    void b(NgWebView ngWebView, String str);
+    o72 b(Context context, File file, long j);
 
-    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
-
-    void d(String str, Context context);
-
-    void e(String str, Context context);
+    void c(@NonNull JSONArray jSONArray);
 }

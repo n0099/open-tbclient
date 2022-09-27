@@ -1,40 +1,129 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes3.dex */
-public class ca2 {
+public final class ca2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
 
-    public static void a(SQLiteDatabase sQLiteDatabase) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947667957, "Lcom/baidu/tieba/ca2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947667957, "Lcom/baidu/tieba/ca2;");
+                return;
+            }
+        }
+        n = vj1.a;
+    }
+
+    public ca2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL(c());
-            } catch (Exception e) {
-                e.getStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(SQLiteDatabase sQLiteDatabase) {
+    public static md2 a(ca2 ca2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
-                sQLiteDatabase.execSQL("CREATE TRIGGER delete_old_swan_history AFTER INSERT ON ai_apps_history WHEN (select count(*) from ai_apps_history)>200 BEGIN  DELETE FROM ai_apps_history WHERE _id IN (SELECT _id FROM  ai_apps_history ORDER BY visit_time LIMIT (SELECT count(*) -200 FROM ai_apps_history)); END;");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ca2Var)) == null) {
+            TreeMap treeMap = new TreeMap();
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, ca2Var.a);
+            treeMap.put("pagePath", ca2Var.b);
+            treeMap.put("pageType", ca2Var.c);
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, ca2Var.e);
+            if (!TextUtils.isEmpty(ca2Var.f)) {
+                if (n) {
+                    Log.d("PageReadyEvent", "add initData: " + ca2Var.f);
+                }
+                treeMap.put("initData", ca2Var.f);
             }
+            if (!TextUtils.isEmpty(ca2Var.d)) {
+                treeMap.put("onReachBottomDistance", ca2Var.d);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(ca2Var.g));
+            if (!TextUtils.isEmpty(ca2Var.h)) {
+                treeMap.put("routeId", ca2Var.h);
+            }
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(ca2Var.i));
+            if (!TextUtils.isEmpty(ca2Var.j)) {
+                treeMap.put("slavePreload", ca2Var.j);
+            }
+            treeMap.put("root", ca2Var.k);
+            jz2.a(treeMap, "page ready event");
+            d73.a(ca2Var.b, treeMap);
+            String f = dh3.f(d73.b(ca2Var.b));
+            l02.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
+            String c = v33.c(ca2Var.a, f);
+            ca2Var.l = c;
+            if (!TextUtils.isEmpty(c)) {
+                treeMap.put("pageConfig", ca2Var.l);
+            }
+            h52 W = fa2.U().W();
+            if (W != null) {
+                treeMap.put("masterId", W.a());
+            }
+            if (ca2Var.m) {
+                treeMap.put("isFirstPage", "true");
+            }
+            if (p22.c()) {
+                treeMap.put("offlinePerfTool", String.valueOf(1));
+            }
+            if (j93.d()) {
+                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
+            }
+            if (j93.f()) {
+                treeMap.put("performanceType", "stabilityProfile");
+            }
+            return new md2("PageReady", treeMap);
         }
+        return (md2) invokeL.objValue;
     }
 
-    public static String c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE IF NOT EXISTS ai_apps_history (_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL UNIQUE,app_from TEXT,visit_time INTEGER DEFAULT 0,app_name TEXT,app_icon TEXT,frame_type INTEGER,sync_state INTEGER,pay_protected INTEGER,app_type TEXT,app_key TEXT,version_code TEXT);" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

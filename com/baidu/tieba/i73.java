@@ -2,43 +2,38 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.tieba.d83;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i73 extends v43 {
+public class i73 extends k73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements rh3<b83<d83.e>> {
+    public class a implements ei3<o83<q83.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ j73 b;
+        public final /* synthetic */ rp1 c;
         public final /* synthetic */ i73 d;
 
-        public a(i73 i73Var, CallbackHandler callbackHandler, String str, String str2) {
+        public a(i73 i73Var, CallbackHandler callbackHandler, j73 j73Var, rp1 rp1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i73Var, callbackHandler, str, str2};
+                Object[] objArr = {i73Var, callbackHandler, j73Var, rp1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,133 +45,89 @@ public class i73 extends v43 {
             }
             this.d = i73Var;
             this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.b = j73Var;
+            this.c = rp1Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
+        @Override // com.baidu.tieba.ei3
         /* renamed from: b */
-        public void a(b83<d83.e> b83Var) {
+        public void a(o83<q83.e> o83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
-                this.d.k(this.a, this.b, this.c, b83Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
+                if (!j83.h(o83Var)) {
+                    j83.q(o83Var, this.a, this.b.e);
+                    this.b.k = null;
+                } else {
+                    j73 j73Var = this.b;
+                    j73Var.m = false;
+                    this.d.m(this.a, (SwanAppSlaveManager) this.c, j73Var);
+                }
+                if (this.c.W(this.b)) {
+                    return;
+                }
+                l02.c("updateWebView", "update webview widget fail");
+                this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806372, "Lcom/baidu/tieba/i73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806372, "Lcom/baidu/tieba/i73;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i73(v33 v33Var) {
-        super(v33Var, "/swanAPI/authorize");
+    public i73(i43 i43Var) {
+        super(i43Var, "/swanAPI/updateWebView");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((i43) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (y23Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null").toString());
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (i53.b) {
+                Log.d("UpdateWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty joParams");
-                gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty joParams").toString());
+            j73 h = j73.h(unitedSchemeEntity);
+            if (!h.isValid()) {
+                l02.c("updateWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty cb");
-                gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty cb").toString());
+            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
+                l02.c("updateWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
+            } else {
+                rp1 rp1Var = (rp1) yo2.U().A(h.c);
+                if (rp1Var == null) {
+                    l02.c("updateWebView", "viewManager is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                if (TextUtils.equals(h.l, "quickPass")) {
+                    l33Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, rp1Var));
+                } else if (!rp1Var.W(h)) {
+                    l02.c("updateWebView", "update webview widget fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            String c = y73.c(optParamsAsJo.optString("scope"));
-            if (TextUtils.isEmpty(c)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope");
-                gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
-                return false;
-            }
-            y23Var.e0().c(context, c, false, new a(this, callbackHandler, c, optString));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00a7, code lost:
-        r8 = 10001;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void k(CallbackHandler callbackHandler, String str, String str2, b83<d83.e> b83Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str, str2, b83Var) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("scope", y73.d(str));
-                if (b83Var != null && b83Var.a != null) {
-                    if (!b83Var.c()) {
-                        OAuthException a2 = b83Var.a();
-                        jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, a2 == null ? "" : a2.getMessage());
-                        callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(b83Var.b()).toString());
-                        gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b83Var.b()).toString());
-                        return;
-                    }
-                    jSONObject.put("code", b83Var.a.a);
-                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, b83Var.a.b ? "authorize:ok" : "user deny");
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b83Var.a.b ? 0 : 10003).toString());
-                    if (b83Var.a.b) {
-                        return;
-                    }
-                    gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b83Var.b()).toString());
-                    return;
-                }
-                int b = b83Var.b();
-                w73.k("empty auth result", Boolean.TRUE);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, w73.f(b));
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b).toString());
-                w73.t("AuthorizeAction", "null == result || null == result.mData");
-                gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, b).toString());
-            } catch (JSONException unused) {
-                w73.k("json exception", Boolean.TRUE);
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(10001, "internal error").toString());
-                gm2.j().d(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 10001, "internal error").toString());
-            }
-        }
     }
 }

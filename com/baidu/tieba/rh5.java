@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
@@ -8,15 +10,17 @@ public class rh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Activity activity) {
+    public static final <T extends IntentConfig> void a(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, t) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
         }
     }
 
-    public static void b(Activity activity) {
+    public static final <T extends IntentConfig> void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, t) == null) {
+            a(2002001, t);
         }
     }
 }

@@ -1,10 +1,10 @@
 package rx.internal.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cx9;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.x0a;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.m1a;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.rx9;
+import com.baidu.tieba.vx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class CancellableSubscription extends AtomicReference<gx9> implements xw9 {
+public final class CancellableSubscription extends AtomicReference<vx9> implements mx9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CancellableSubscription(gx9 gx9Var) {
-        super(gx9Var);
+    public CancellableSubscription(vx9 vx9Var) {
+        super(vx9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gx9Var};
+            Object[] objArr = {vx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,16 +37,16 @@ public final class CancellableSubscription extends AtomicReference<gx9> implemen
         }
     }
 
-    @Override // com.baidu.tieba.xw9
+    @Override // com.baidu.tieba.mx9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == null : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xw9
+    @Override // com.baidu.tieba.mx9
     public void unsubscribe() {
-        gx9 andSet;
+        vx9 andSet;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get() == null || (andSet = getAndSet(null)) == null) {
             return;
@@ -54,8 +54,8 @@ public final class CancellableSubscription extends AtomicReference<gx9> implemen
         try {
             andSet.cancel();
         } catch (Exception e) {
-            cx9.e(e);
-            x0a.j(e);
+            rx9.e(e);
+            m1a.j(e);
         }
     }
 }

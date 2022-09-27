@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,9 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class fr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public int c;
+    public nr3 a;
 
     public fr3() {
         Interceptable interceptable = $ic;
@@ -24,21 +22,22 @@ public class fr3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = DownloadState.NOT_START;
-        this.c = Integer.parseInt("0");
     }
 
-    public static fr3 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public nr3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            fr3 fr3Var = new fr3();
-            fr3Var.b = str2;
-            return fr3Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (nr3) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 3;
         }
-        return (fr3) invokeLL.objValue;
+        return invokeV.intValue;
     }
 }

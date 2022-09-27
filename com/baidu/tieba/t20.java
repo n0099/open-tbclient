@@ -48,31 +48,31 @@ public final class t20 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.29" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.36" : (String) invokeV.objValue;
     }
 
-    public void c(Context context, u20<j50> u20Var) {
+    public void c(Context context, u20<l50> u20Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, u20Var) == null) {
             d(context, u20Var, Looper.getMainLooper());
         }
     }
 
-    public void d(Context context, u20<j50> u20Var, Looper looper) {
+    public void d(Context context, u20<l50> u20Var, Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, u20Var, looper) == null) {
             s20.e(context).i(u20Var, looper);
         }
     }
 
-    public void e(Context context, u20<List<k50>> u20Var) {
+    public void e(Context context, u20<List<m50>> u20Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, u20Var) == null) {
             f(context, u20Var, Looper.getMainLooper());
         }
     }
 
-    public void f(Context context, u20<List<k50>> u20Var, Looper looper) {
+    public void f(Context context, u20<List<m50>> u20Var, Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, context, u20Var, looper) == null) {
             s20.e(context).m(u20Var, looper);

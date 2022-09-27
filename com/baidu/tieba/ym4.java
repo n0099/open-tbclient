@@ -1,53 +1,108 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class ym4 extends rm4 {
+public class ym4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public String e;
+    public final Map<String, String> f;
+    public final List<dn4> g;
 
-    public ym4() {
+    public ym4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = new LinkedHashMap();
+        this.g = new ArrayList();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            a();
+            b();
+            c();
+            return;
+        }
+        this.d = false;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.add(new jn4());
+            this.g.add(new hn4());
+            this.g.add(new fn4());
+            this.g.add(new kn4());
+            this.g.add(new in4());
+            this.g.add(new ln4());
+            this.g.add(new gn4());
         }
     }
 
-    @Override // com.baidu.tieba.qm4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
-            }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/usercenter");
-            sb.append("?portrait=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
+            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            this.f.put("@rid", HttpClientWrap.f);
+            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
+            this.f.put("@c", TiebaStatic.Params.QD);
+            this.f.put("@p", "obj_source");
+            this.f.put("@eq", TiebaStatic.Params.EQID);
+            this.f.put("@1p", "obj_param1");
+            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
+            this.f.put("@m", "obj_name");
+            this.f.put("@re", TiebaStatic.Params.REFER);
+            this.f.put("@lo", "obj_locate");
         }
-        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qm4
-    public String b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "u" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || StringUtils.isNull(this.b)) {
+            return;
+        }
+        String valueOf = String.valueOf(this.b.charAt(0));
+        String[] split = this.b.split("@");
+        for (dn4 dn4Var : this.g) {
+            if (valueOf.equals(dn4Var.b())) {
+                String a = dn4Var.a(split, this.f);
+                this.e = a;
+                if (StringUtils.isNull(a)) {
+                    return;
+                }
+                this.d = true;
+                return;
+            }
+        }
     }
 }

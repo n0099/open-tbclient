@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.util.ISwanData;
+import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
+import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
+import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
+import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiPushClient;
 @Singleton
 @Service
 /* loaded from: classes3.dex */
-public class ei8 implements ISwanData {
+public class ei8 implements ICloudControlRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,13 +35,16 @@ public class ei8 implements ISwanData {
         }
     }
 
-    @Override // com.baidu.searchbox.util.ISwanData
-    public String getSwanNativeVersionGroup() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
+    public void registerAllProcessors(DataProcessors dataProcessors) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
+            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
+            dataProcessors.addProcessor(UBCCloudControlProcessor.UBC_KEY, new UBCCloudControlProcessor());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, MiPushClient.COMMAND_REGISTER);
+            if (runTask != null) {
+                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

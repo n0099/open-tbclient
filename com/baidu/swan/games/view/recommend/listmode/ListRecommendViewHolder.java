@@ -37,9 +37,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091ff7);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff8);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff6);
-        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091ff9);
+        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091ff9);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ffa);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff8);
+        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091ffb);
     }
 }

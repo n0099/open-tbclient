@@ -10,8 +10,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dm5;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.qm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class VideoChannelViewPager extends ViewPager {
     public int c;
     public boolean d;
     public boolean e;
-    public dm5.b f;
+    public qm5.b f;
     public List<String> g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,7 +57,7 @@ public class VideoChannelViewPager extends ViewPager {
     public void a(MotionEvent motionEvent) {
         float f;
         float f2;
-        dm5.b bVar;
+        qm5.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && this.e && this.d) {
             int action = motionEvent.getAction();
@@ -145,7 +145,7 @@ public class VideoChannelViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
-    public void setListener(dm5.b bVar) {
+    public void setListener(qm5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
             this.f = bVar;

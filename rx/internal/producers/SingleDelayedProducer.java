@@ -1,16 +1,16 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cx9;
-import com.baidu.tieba.sw9;
-import com.baidu.tieba.ww9;
+import com.baidu.tieba.hx9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.rx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements sw9 {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements hx9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
@@ -18,15 +18,15 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements sw9
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ww9<? super T> child;
+    public final lx9<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(ww9<? super T> ww9Var) {
+    public SingleDelayedProducer(lx9<? super T> lx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ww9Var};
+            Object[] objArr = {lx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,28 +36,28 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements sw9
                 return;
             }
         }
-        this.child = ww9Var;
+        this.child = lx9Var;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(ww9<? super T> ww9Var, T t) {
+    public static <T> void emit(lx9<? super T> lx9Var, T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, ww9Var, t) == null) || ww9Var.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, lx9Var, t) == null) || lx9Var.isUnsubscribed()) {
             return;
         }
         try {
-            ww9Var.onNext(t);
-            if (ww9Var.isUnsubscribed()) {
+            lx9Var.onNext(t);
+            if (lx9Var.isUnsubscribed()) {
                 return;
             }
-            ww9Var.onCompleted();
+            lx9Var.onCompleted();
         } catch (Throwable th) {
-            cx9.g(th, ww9Var, t);
+            rx9.g(th, lx9Var, t);
         }
     }
 
-    @Override // com.baidu.tieba.sw9
+    @Override // com.baidu.tieba.hx9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

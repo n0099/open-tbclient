@@ -1,189 +1,591 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
+import android.graphics.Rect;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.net.OkHttp3Interceptor;
-import com.baidu.turbonet.net.TurbonetConfig;
-import com.baidu.turbonet.net.TurbonetContext;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class qa8 {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static TurbonetContext b;
-    public static long c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public r9 b;
+    public int c;
+    public int d;
+    public fo e;
+    public View f;
+    public boolean g;
+    public ka8 h;
+    public ta8 i;
+    public boolean j;
+    public float k;
+    public boolean l;
+    public CustomMessageListener m;
+    public CustomMessageListener n;
+    public ga8 o;
+    public final CustomMessageListener p;
+    public final CustomMessageListener q;
+    public ha8 r;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948085217, "Lcom/baidu/tieba/qa8;")) == null) {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qa8 qa8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qa8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                return;
+            }
+            gh.a().postDelayed(this.a.r, 500L);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(qa8 qa8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qa8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
+                gh.a().postDelayed(this.a.r, 500L);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(qa8 qa8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qa8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+                this.a.x();
+                if (this.a.l && this.a.l) {
+                    qa8 qa8Var = this.a;
+                    qa8Var.n(qa8Var.i.a(), this.a.i.b(), this.a.i.d(), this.a.i.c());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(qa8 qa8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qa8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921387 && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if (dj.isEmpty(str)) {
+                    return;
+                }
+                gh.a().removeCallbacks(this.a.o);
+                gh.a().removeCallbacks(this.a.r);
+                if (this.a.f != null && (this.a.f.getTag() instanceof ka8)) {
+                    if (str.equals(((ka8) this.a.f.getTag()).getPlayUrl())) {
+                        return;
+                    }
+                    ((ka8) this.a.f.getTag()).stopPlay();
+                }
+                for (int i = 0; i < this.a.e.getListView().getChildCount(); i++) {
+                    View childAt = this.a.e.getListView().getChildAt(i);
+                    if ((childAt.getTag() instanceof ka8) && str.equals(((ka8) childAt.getTag()).getPlayUrl())) {
+                        this.a.f = childAt;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public qa8(r9 r9Var, fo foVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var, foVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.c = 0;
+        this.d = 0;
+        this.g = false;
+        this.j = true;
+        this.k = 0.0f;
+        this.l = true;
+        this.m = new a(this, 2921637);
+        this.n = new b(this, 2921736);
+        this.o = new ga8();
+        this.p = new c(this, 2000994);
+        this.q = new d(this, 2921387);
+        this.r = new ha8(this);
+        this.b = r9Var;
+        this.c = ej.i(r9Var.getPageActivity());
+        this.e = foVar;
+        BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.i = new ta8();
+        r9Var.registerListener(this.p);
+        r9Var.registerListener(this.n);
+        r9Var.registerListener(this.m);
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gh.a().removeCallbacks(this.o);
+            gh.a().removeCallbacks(this.r);
+            i();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
+                View childAt = this.e.getListView().getChildAt(i);
+                if (childAt.getTag() instanceof ka8) {
+                    ((ka8) childAt.getTag()).stopPlay();
+                }
+            }
+        }
+    }
+
+    public View j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    public void k(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || l(view2) || !(view2.getTag() instanceof ka8)) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948085217, "Lcom/baidu/tieba/qa8;");
-        }
+        ((ka8) view2.getTag()).stopPlay();
     }
 
-    public static OkHttpClient a() {
-        InterceptResult invokeV;
+    public boolean l(View view2) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
-            return builder.build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        Context context = TbadkCoreApplication.getInst().getContext();
-        try {
-            String externalStorageState = Environment.getExternalStorageState();
-            equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-            z = (equalsIgnoreCase || Environment.isExternalStorageRemovable() || externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) ? false : true;
-        } catch (Exception unused) {
-            File cacheDir = context.getCacheDir();
-            if (cacheDir == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
             }
-            path = cacheDir.getPath();
-        }
-        if (!equalsIgnoreCase && !z) {
-            path = context.getCacheDir().getPath();
-            return !path.endsWith(File.separator) ? path.substring(0, path.length() - 1) : path;
-        }
-        path = context.getExternalCacheDir().getPath();
-        if (!path.endsWith(File.separator)) {
-        }
-    }
-
-    public static OkHttpClient c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
+            Rect rect = new Rect();
+            view2.getGlobalVisibleRect(rect);
+            int i2 = this.a;
+            if (i2 == 1) {
+                int i3 = ej.i(this.b.getPageActivity()) / 2;
+                int i4 = rect.top;
+                return i4 >= 0 && i4 <= i3 && rect.bottom - i4 >= view2.getMeasuredHeight();
+            } else if (i2 == 2) {
+                int j = ej.j(this.b.getPageActivity(), true);
+                float measuredHeight = (view2.getMeasuredHeight() * 2.0f) / 3.0f;
+                float statusBarHeight = UtilHelper.getStatusBarHeight() + measuredHeight + ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+                int mainTabBottomBarHeight = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+                if (this.j) {
+                    this.k = measuredHeight + mainTabBottomBarHeight;
+                } else {
+                    this.k = measuredHeight;
+                }
+                return ((float) rect.top) <= ((float) j) - this.k && ((float) rect.bottom) >= statusBarHeight;
+            } else {
+                int i5 = rect.top;
+                return i5 >= 0 && (i = rect.bottom) <= this.c - this.d && i - i5 >= view2.getMeasuredHeight();
             }
-            return a;
         }
-        return (OkHttpClient) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static TurbonetConfig d() {
-        InterceptResult invokeV;
+    public void m(int i, int i2, boolean z, int i3) {
+        boolean z2;
+        boolean z3;
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TurbonetConfig turbonetConfig = new TurbonetConfig();
-            turbonetConfig.j(15);
-            turbonetConfig.c(true);
-            turbonetConfig.b(true);
-            turbonetConfig.e(true);
-            turbonetConfig.a("http://tb-video.bdstatic.com|2");
-            turbonetConfig.f(true);
-            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
-            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
-            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
+            this.i.e(i, i2, z);
+            fo foVar = this.e;
+            if (foVar == null || foVar.getListView().getChildCount() == 0 || this.e.getContentViewsCount() == 0) {
+                return;
+            }
+            ka8 ka8Var = this.h;
+            if (ka8Var != null && !l(ka8Var.getVideoContainer())) {
+                this.h.stopPlay();
+            }
+            View view3 = this.f;
+            int i4 = 0;
+            if (view3 != null && (view3.getTag() instanceof ka8) && this.g) {
+                if (l(((ka8) this.f.getTag()).getVideoContainer())) {
+                    w(i3, this.f);
+                    this.g = false;
+                    return;
+                }
+                this.f = null;
+            }
+            int contentViewsCount = this.e.getContentViewsCount() + this.e.getHeaderViewsCount() + this.e.getFooterViewsCount();
+            if (i == 0) {
+                z2 = true;
+            } else {
+                int i5 = contentViewsCount - 1;
+                z2 = false;
+            }
+            int childCount = this.e.getListView().getChildCount();
+            if (i == 0 || i2 == contentViewsCount - 1) {
+                z3 = false;
+                for (int i6 = 0; i6 < childCount; i6++) {
+                    View childAt = this.e.getListView().getChildAt(z2 ? i6 : (childCount - 1) - i6);
+                    if (childAt.getTag() instanceof ka8) {
+                        ka8 ka8Var2 = (ka8) childAt.getTag();
+                        if (!z3 && l(ka8Var2.getVideoContainer())) {
+                            w(i3, childAt);
+                            z3 = true;
+                        } else {
+                            z(i3, childAt);
+                        }
+                    }
                 }
             } else {
-                file.mkdirs();
+                z3 = false;
             }
-            turbonetConfig.k(file.getAbsolutePath());
-            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            turbonetConfig.i("log", "lite_log_in_response_header", Boolean.TRUE);
-            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
-            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
-            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
-            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
-            turbonetConfig.i("nq", "weak_window_sec", 30);
-            turbonetConfig.i("nq", "weak_min_cnt", 10);
-            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return turbonetConfig;
+            if (z3) {
+                return;
+            }
+            int i7 = -1;
+            int i8 = 0;
+            while (true) {
+                if (i8 >= childCount) {
+                    break;
+                }
+                View childAt2 = this.e.getListView().getChildAt(i8);
+                if (childAt2.getTag() instanceof ka8) {
+                    ka8 ka8Var3 = (ka8) childAt2.getTag();
+                    if (ka8Var3.isPlayStarted() && l(ka8Var3.getVideoContainer())) {
+                        i7 = i8;
+                        break;
+                    }
+                }
+                i8++;
+            }
+            if (i7 >= 0) {
+                while (i4 < childCount) {
+                    View childAt3 = this.e.getListView().getChildAt(i4);
+                    if (i4 != i7) {
+                        z(i3, childAt3);
+                    } else {
+                        w(i3, childAt3);
+                    }
+                    i4++;
+                }
+                return;
+            }
+            boolean z4 = false;
+            while (i4 < childCount) {
+                View childAt4 = this.e.getListView().getChildAt(z ? (childCount - 1) - i4 : i4);
+                if (childAt4.getTag() instanceof ka8) {
+                    ka8 ka8Var4 = (ka8) childAt4.getTag();
+                    if (!z4 && (ka8Var4.isFullScreen() || l(ka8Var4.getVideoContainer()))) {
+                        w(i3, childAt4);
+                        z4 = true;
+                    } else {
+                        z(i3, childAt4);
+                    }
+                }
+                i4++;
+            }
+            if (z4 || (view2 = this.f) == null || !(view2.getTag() instanceof ka8)) {
+                return;
+            }
+            ((ka8) this.f.getTag()).stopPlay();
         }
-        return (TurbonetConfig) invokeV.objValue;
     }
 
-    public static long e() {
-        InterceptResult invokeV;
+    public void n(int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            TurbonetContext turbonetContext = b;
-            if (turbonetContext != null && c == 0) {
-                c = turbonetContext.c();
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            gh.a().removeCallbacks(this.r);
+            this.r.a(i);
+            this.r.c(i2);
+            this.r.b(z);
+            this.r.d(z2);
+            this.i.f(z2);
+            gh.a().postDelayed(this.r, 500L);
         }
-        return invokeV.longValue;
     }
 
-    public static void f() {
+    public void o() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || d) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.l) {
+            View view2 = this.f;
+            if (view2 != null && (view2.getTag() instanceof ka8)) {
+                ka8 ka8Var = (ka8) this.f.getTag();
+                if (this.g) {
+                    ka8Var.startPlay();
+                    this.g = false;
+                }
+                if (this.f.getTag() instanceof ja8) {
+                    ((ja8) this.f.getTag()).b();
+                }
+            }
+            this.f = null;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    public void r(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.l = z;
+            if (z || (view2 = this.f) == null || !(view2.getTag() instanceof ka8) || ((ka8) this.f.getTag()).getVideoContainer() == null) {
+                return;
+            }
+            ((ka8) this.f.getTag()).getVideoContainer().setTag(-1001, "1");
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        }
+    }
+
+    public void u(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        d = true;
-        try {
-            c();
-        } catch (Throwable th) {
-            th.printStackTrace();
+        CustomMessageListener customMessageListener = this.p;
+        if (customMessageListener != null) {
+            customMessageListener.setTag(bdUniqueId);
+        }
+        CustomMessageListener customMessageListener2 = this.q;
+        if (customMessageListener2 != null) {
+            customMessageListener2.setSelfListener(true);
+            this.q.setTag(bdUniqueId);
+        }
+        MessageManager.getInstance().registerListener(this.p);
+        MessageManager.getInstance().registerListener(this.q);
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
         }
     }
 
-    public static TurbonetContext g() {
-        InterceptResult invokeV;
+    public final void w(int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = turbonetContext;
-            return turbonetContext;
+        if (!(interceptable == null || interceptable.invokeIL(1048591, this, i, view2) == null) || view2 == null) {
+            return;
         }
-        return (TurbonetContext) invokeV.objValue;
+        View view3 = this.f;
+        if (view3 != null && view3 != view2 && (view3.getTag() instanceof ka8)) {
+            ((ka8) this.f.getTag()).stopPlay();
+        }
+        this.f = view2;
+        if (i == 1 && (view2.getTag() instanceof ka8)) {
+            ka8 ka8Var = (ka8) view2.getTag();
+            if (!this.l || ka8Var.isPlayStarted()) {
+                return;
+            }
+            ka8Var.startPlay();
+        } else if (i == 2 && (view2.getTag() instanceof ja8)) {
+            ((ja8) view2.getTag()).a();
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            gh.a().removeCallbacks(this.o);
+            gh.a().removeCallbacks(this.r);
+            for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
+                View childAt = this.e.getListView().getChildAt(i);
+                if (childAt.getTag() instanceof ka8) {
+                    ka8 ka8Var = (ka8) childAt.getTag();
+                    if (ka8Var.isPlayStarted()) {
+                        ka8Var.stopPlay();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
+                View childAt = this.e.getListView().getChildAt(i);
+                if (childAt.getTag() instanceof ka8) {
+                    ka8 ka8Var = (ka8) childAt.getTag();
+                    if (ka8Var.isPlayStarted()) {
+                        t(ka8Var.getCurrentPosition());
+                        s(ka8Var.getPlayUrl());
+                        this.f = childAt;
+                        this.g = ka8Var.isPlaying();
+                        ka8Var.stopPlay();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public final void z(int i, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, view2) == null) {
+            if (i == 1 && (view2.getTag() instanceof ka8)) {
+                ka8 ka8Var = (ka8) view2.getTag();
+                if (ka8Var.isPlaying()) {
+                    ka8Var.stopPlay();
+                }
+            } else if (i == 2 && (view2.getTag() instanceof ja8)) {
+                ((ja8) view2.getTag()).d();
+            }
+        }
     }
 }

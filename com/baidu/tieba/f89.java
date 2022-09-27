@@ -1,76 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import java.io.IOException;
-import java.io.OutputStream;
 /* loaded from: classes4.dex */
-public abstract class f89 extends OutputStream {
+public class f89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IOException a;
-    public boolean b;
-    public boolean c;
 
-    public f89() {
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || str == null) {
+                return null;
             }
-        }
-    }
-
-    public void a() throws IOException {
-        IOException iOException;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.a) != null) {
-            throw iOException;
-        }
-    }
-
-    public void c() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.c) {
-                if (this.b) {
-                    throw new IOException("Stream has been closed.");
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                Bundle bundle = applicationInfo != null ? applicationInfo.metaData : null;
+                if (bundle != null) {
+                    return bundle.getString(str);
                 }
-                return;
+                return null;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
-            a();
-            throw new IOException("Writing after request completed.");
         }
-    }
-
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public abstract void e() throws IOException;
-
-    public abstract UploadDataProvider f();
-
-    public abstract void g() throws IOException;
-
-    public void h(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-            this.a = iOException;
-            this.c = true;
-        }
+        return (String) invokeLL.objValue;
     }
 }

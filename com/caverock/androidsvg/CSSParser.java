@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.gj9;
+import com.baidu.tieba.vj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -665,7 +665,7 @@ public class CSSParser {
 
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
-            gj9 gj9Var;
+            vj9 vj9Var;
             a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -683,13 +683,13 @@ public class CSSParser {
                             aVar = new a(2, 0);
                         } else {
                             int i3 = (!f('+') && f(SignatureImpl.SEP)) ? -1 : 1;
-                            gj9 c = gj9.c(this.a, this.b, this.c, false);
+                            vj9 c = vj9.c(this.a, this.b, this.c, false);
                             if (c != null) {
                                 this.b = c.a();
                             }
                             if (f('n') || f('N')) {
                                 if (c == null) {
-                                    c = new gj9(1L, this.b);
+                                    c = new vj9(1L, this.b);
                                 }
                                 A();
                                 boolean f = f('+');
@@ -698,24 +698,24 @@ public class CSSParser {
                                 }
                                 if (f) {
                                     A();
-                                    gj9Var = gj9.c(this.a, this.b, this.c, false);
-                                    if (gj9Var != null) {
-                                        this.b = gj9Var.a();
+                                    vj9Var = vj9.c(this.a, this.b, this.c, false);
+                                    if (vj9Var != null) {
+                                        this.b = vj9Var.a();
                                     } else {
                                         this.b = i;
                                         return null;
                                     }
                                 } else {
-                                    gj9Var = null;
+                                    vj9Var = null;
                                 }
                                 int i4 = i2;
                                 i2 = i3;
                                 i3 = i4;
                             } else {
-                                gj9Var = c;
+                                vj9Var = c;
                                 c = null;
                             }
-                            aVar = new a(c == null ? 0 : i2 * c.d(), gj9Var != null ? i3 * gj9Var.d() : 0);
+                            aVar = new a(c == null ? 0 : i2 * c.d(), vj9Var != null ? i3 * vj9Var.d() : 0);
                         }
                     }
                     A();

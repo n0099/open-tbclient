@@ -1,63 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes3.dex */
-public class c48 implements Cdo {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface c48 {
+    Anti GetAntiStat();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624898, "Lcom/baidu/tieba/c48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947624898, "Lcom/baidu/tieba/c48;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    List<PostInfoList> GetPostList();
 
-    public c48() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
+    User GetUser();
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
+    TbBookrack getBookrackData();
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
-    }
+    List<ForumDynamic> getConcernedForumList();
+
+    List<DynamicInfo> getDynamicInfoList();
+
+    int getErrorCode();
+
+    aw6 getGoodsWindowInfo();
+
+    HotUserRankEntry getHotRankEntry();
+
+    AlaLiveInfoCoreData getLiveInfo();
+
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
+    int getMaskType();
+
+    List<ThreadInfo> getNewestThreadList();
+
+    NicknameInfo getNicknameInfo();
+
+    TAInfo getTaInfo();
+
+    UserAgreeInfo getUserAgreeInfo();
+
+    UserGodInfo getUserGodInfo();
 }

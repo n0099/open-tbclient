@@ -68,7 +68,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0131b implements Runnable {
+        public class RunnableC0128b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -76,7 +76,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             public final /* synthetic */ String c;
             public final /* synthetic */ b d;
 
-            public RunnableC0131b(b bVar, String str, String str2, String str3) {
+            public RunnableC0128b(b bVar, String str, String str2, String str3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                         new Handler(Looper.getMainLooper()).post(new a(this));
                         return;
                     }
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0131b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0128b(this, xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 } catch (OperationCanceledException e) {
                     new Handler(Looper.getMainLooper()).post(new c(this));
                     Log.e(e);

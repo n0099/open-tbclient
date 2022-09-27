@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ly extends gx<bt4> {
+public class ly extends gx<ot4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendForumLayout f;
@@ -66,10 +66,10 @@ public class ly extends gx<bt4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: p */
-    public void a(bt4 bt4Var) {
+    public void a(ot4 ot4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bt4Var) == null) {
-            this.f.setData(bt4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, ot4Var) == null) {
+            this.f.setData(ot4Var);
         }
     }
 
@@ -87,10 +87,10 @@ public class ly extends gx<bt4> {
         }
     }
 
-    public void s(dp4<at4> dp4Var) {
+    public void s(qp4<nt4> qp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dp4Var) == null) {
-            this.f.setOnItemCoverListener(dp4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, qp4Var) == null) {
+            this.f.setOnItemCoverListener(qp4Var);
         }
     }
 

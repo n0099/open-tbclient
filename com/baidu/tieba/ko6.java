@@ -1,84 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.sy;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ko6 extends qg6<zo6, ThreadCardViewHolder<zo6>> {
+public class ko6 extends pw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ko6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public ko6(nw4 nw4Var) {
+        super(nw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {nw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((nw4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.mPageId = bdUniqueId2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: E */
-    public ThreadCardViewHolder<zo6> onCreateViewHolder(ViewGroup viewGroup) {
+    @qw4(isAsync = false, value = "isGameInstall")
+    private JSONObject isGameInstall(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            sy.b bVar = new sy.b(this.c.getPageActivity(), true);
-            bVar.n(new so6(this.c.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder<zo6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
-            threadCardViewHolder.i(this.mPageId);
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            String optString = jSONObject.optString("packagename");
+            try {
+                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
+                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
+                    jSONObject2.put("isInstall", true);
+                } else {
+                    jSONObject2.put("isInstall", false);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                try {
+                    jSONObject2.put("isInstall", false);
+                } catch (JSONException unused) {
+                    BdLog.e(e.getMessage());
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+            }
+            return jSONObject2;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
-    /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zo6 zo6Var, ThreadCardViewHolder<zo6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.pw4
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zo6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(zo6Var);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new jy4(13)));
-            return threadCardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
     }
 }

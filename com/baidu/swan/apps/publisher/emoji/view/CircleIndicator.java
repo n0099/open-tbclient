@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k03;
+import com.baidu.tieba.x03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -61,7 +61,7 @@ public class CircleIndicator extends View {
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                k03.g(this.a.getContext().getApplicationContext()).k();
+                x03.g(this.a.getContext().getApplicationContext()).k();
             }
         }
 

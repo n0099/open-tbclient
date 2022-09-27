@@ -1,44 +1,71 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.tieba.e25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class g35 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<e25> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public c b;
-    public b c;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public static class a implements e25.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.e25.j
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean unused = g35.a = false;
+            }
+        }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Void, Boolean> {
+    public static class b implements e25.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Process a;
-        public final /* synthetic */ g35 b;
+        public final /* synthetic */ HotEventData a;
 
-        public b(g35 g35Var) {
+        public b(HotEventData hotEventData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g35Var};
+                Object[] objArr = {hotEventData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,100 +75,31 @@ public class g35 {
                     return;
                 }
             }
-            this.b = g35Var;
-            this.a = null;
+            this.a = hotEventData;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.e25.h
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                boolean z = false;
-                if (strArr != null && strArr.length >= 1) {
-                    try {
-                        try {
-                            try {
-                                Process exec = Runtime.getRuntime().exec(strArr[0]);
-                                this.a = exec;
-                                if (exec.waitFor() == 0) {
-                                    z = true;
-                                }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
-                        }
-                    } finally {
-                        this.a.destroy();
-                    }
-                }
-                return Boolean.valueOf(z);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{this.a.getBtnSchema()});
+                g35.e();
             }
-            return (Boolean) invokeL.objValue;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                super.onCancelled();
-                Process process = this.a;
-                if (process != null) {
-                    try {
-                        process.destroy();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-                if (this.b.b != null) {
-                    this.b.b.a(false);
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                if (this.b.b != null) {
-                    this.b.b.a(bool == null ? false : bool.booleanValue());
-                }
-                if (this.b.a != null) {
-                    this.b.a.removeMessages(0);
-                }
-            }
-        }
-
-        public /* synthetic */ b(g35 g35Var, a aVar) {
-            this(g35Var);
         }
     }
 
     /* loaded from: classes4.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d extends Handler {
+    public static class c implements e25.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<g35> a;
+        public final /* synthetic */ HotEventData a;
 
-        public d(g35 g35Var) {
+        public c(HotEventData hotEventData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g35Var};
+                Object[] objArr = {hotEventData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -151,73 +109,109 @@ public class g35 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(g35Var);
+            this.a = hotEventData;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            g35 g35Var;
+        @Override // com.baidu.tieba.e25.i
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 0 || (g35Var = this.a.get()) == null) {
-                    return;
-                }
-                g35Var.e();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{this.a.getBtnSchema()});
+                g35.e();
             }
         }
     }
 
-    public g35(String str, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        d dVar = new d(this);
-        this.a = dVar;
-        this.b = cVar;
-        dVar.sendEmptyMessageDelayed(0, 50000L);
-        b bVar = new b(this, null);
-        this.c = bVar;
-        bVar.setSelfExecute(true);
-        b bVar2 = this.c;
-        bVar2.execute(d() + str);
-    }
-
-    public final String d() {
+    public static e25 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            return netType != 1 ? netType != 2 ? "ping -c 3 -w 5000 " : "ping -c 3 -w 10000 " : "ping -c 3 -w 3000 ";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            WeakReference<e25> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (e25) invokeV.objValue;
     }
 
-    public final void e() {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b bVar = this.c;
-            if (bVar != null) {
-                bVar.cancel(true);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_CLICK));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOT_EVENT_SHOW));
+        }
+    }
+
+    public static void g(HotEventData hotEventData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, hotEventData) == null) || TextUtils.isEmpty(hotEventData.getBtnSchema()) || TextUtils.isEmpty(hotEventData.getTitle())) {
+            return;
+        }
+        if (hotEventData.getWindowType() == 1 || hotEventData.getWindowType() == 2) {
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (TbadkCoreApplication.getInst().isMainProcess(true) && currentActivity == null) {
+                HotEvent hotEvent = new HotEvent();
+                hotEvent.hotEventData = hotEventData;
+                hotEventData.setSkinType(TbadkCoreApplication.getInst().getSkinType());
+                na5.i(hotEvent);
+                return;
             }
-            d dVar = this.a;
-            if (dVar != null) {
-                dVar.removeMessages(0);
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                TbadkCoreApplication.getInst().setSkinType(hotEventData.getSkinType());
             }
+            if (a) {
+                return;
+            }
+            if (hotEventData.getWindowType() == 1) {
+                if (System.currentTimeMillis() - ox4.k().m("key_hot_event_tip_show_time", 0L) <= 600000) {
+                    return;
+                }
+            }
+            if (g25.c() && g25.b() != null) {
+                g25.b().t();
+            }
+            if (TextUtils.isEmpty(hotEventData.getDesc())) {
+                hotEventData.setDesc(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0881));
+            }
+            if (TextUtils.isEmpty(hotEventData.getBtnText())) {
+                hotEventData.setBtnText(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0880));
+            } else {
+                String btnText = hotEventData.getBtnText();
+                if (StringHelper.getChineseAndEnglishLength(btnText) > 8) {
+                    hotEventData.setBtnText(StringHelper.cutChineseAndEnglishWithEmoji(btnText, 8, null));
+                }
+            }
+            e25.g gVar = new e25.g(currentActivity);
+            gVar.m(hotEventData.getBtnText());
+            gVar.u(hotEventData.getTitle());
+            gVar.o(hotEventData.getDesc());
+            gVar.q(hotEventData.getIcon());
+            gVar.n(R.drawable.obfuscated_res_0x7f0805d8);
+            gVar.p(5000);
+            gVar.s(new c(hotEventData));
+            gVar.r(new b(hotEventData));
+            gVar.t(new a());
+            e25 l = gVar.l();
+            l.p();
+            b = new WeakReference<>(l);
+            f();
+            if (hotEventData.getWindowType() == 1) {
+                ox4.k().x("key_hot_event_tip_show_time", System.currentTimeMillis());
+            }
+            a = true;
         }
     }
 }

@@ -16,12 +16,12 @@ public final class a {
     @Nullable
     public b bA;
     public boolean bB;
-    public InterfaceC0525a bz;
+    public InterfaceC0521a bz;
     public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0525a {
+    public interface InterfaceC0521a {
         void ax();
     }
 
@@ -50,10 +50,10 @@ public final class a {
     }
 
     @MainThread
-    public final void a(InterfaceC0525a interfaceC0525a) {
+    public final void a(InterfaceC0521a interfaceC0521a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0525a) == null) {
-            this.bz = interfaceC0525a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0521a) == null) {
+            this.bz = interfaceC0521a;
         }
     }
 
@@ -66,7 +66,7 @@ public final class a {
     }
 
     public final void aw() {
-        InterfaceC0525a interfaceC0525a;
+        InterfaceC0521a interfaceC0521a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.bB) {
             return;
@@ -76,8 +76,8 @@ public final class a {
             return;
         }
         b bVar = this.bA;
-        if ((bVar == null || !bVar.ay()) && (interfaceC0525a = this.bz) != null) {
-            interfaceC0525a.ax();
+        if ((bVar == null || !bVar.ay()) && (interfaceC0521a = this.bz) != null) {
+            interfaceC0521a.ax();
         }
     }
 }

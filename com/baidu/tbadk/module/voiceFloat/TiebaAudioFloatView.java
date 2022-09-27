@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.module.voiceFloat.TiebaAudioFloatView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -102,17 +102,17 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092486);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092488);
             this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e8);
             this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909f8);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09065d);
             this.d = imageView;
             if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a49, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4b, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             ImageView imageView2 = this.a;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b3b, false));
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b3d, false));
             }
             SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110062);
             TBLottieAnimationView tBLottieAnimationView = this.c;
@@ -127,7 +127,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             if (tBLottieAnimationView3 != null) {
                 tBLottieAnimationView3.playAnimation();
             }
-            uu4 d = uu4.d(this);
+            hv4 d = hv4.d(this);
             d.n(R.string.J_X01);
             d.g(SkinManager.getColor(0, (int) R.color.CAM_X0201));
         }
@@ -154,7 +154,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     if (imageView3 == null) {
                         return;
                     }
-                    imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.q95
+                    imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.da5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

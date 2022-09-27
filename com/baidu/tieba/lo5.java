@@ -1,70 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.TbadkCore;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lo5 {
+public class lo5 extends ff1<TbadkCore> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lo5 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public String i;
-    public String j;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public class a implements TbadkCore {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-626172390, "Lcom/baidu/tieba/lo5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public a(lo5 lo5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lo5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-626172390, "Lcom/baidu/tieba/lo5$a;");
-                    return;
-                }
             }
-            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilCheckReadPhoneState(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? PermissionUtil.checkReadPhoneState(context) : invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilIsAgreePrivacyPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PermissionUtil.isAgreePrivacyPolicy() : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        @NonNull
+        public String tbConfigGetVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String version = TbConfig.getVersion();
+                return version == null ? "" : version;
             }
-            try {
-                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AbsDataRecorder.Scene.PB.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -82,128 +79,12 @@ public class lo5 {
         }
     }
 
-    public static lo5 e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ff1
+    /* renamed from: a */
+    public TbadkCore createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (k == null) {
-                synchronized (lo5.class) {
-                    if (k == null) {
-                        k = new lo5();
-                    }
-                }
-            }
-            return k;
-        }
-        return (lo5) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = 0;
-            this.d = 0;
-            this.e = 0;
-            this.f = 0;
-            this.g = 0;
-            this.h = false;
-            this.i = null;
-            this.j = null;
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int f(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return 0;
-                        }
-                        return this.g;
-                    }
-                    return this.f;
-                }
-                return this.e;
-            }
-            return this.d;
-        }
-        return invokeL.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    public void j(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("slogan")) == null) {
-            return;
-        }
-        this.i = optJSONObject.optString("text");
-        this.j = optJSONObject.optString("color");
-    }
-
-    public void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                this.h = true;
-                JSONObject optJSONObject = jSONObject.optJSONObject("slogan");
-                if (optJSONObject != null) {
-                    this.a = optJSONObject.optString("text");
-                    this.b = optJSONObject.optString("color");
-                }
-                this.c = jSONObject.optInt("display_frequency_control");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("display_after_refresh");
-                if (optJSONObject2 != null) {
-                    this.d = optJSONObject2.optInt(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
-                    this.e = optJSONObject2.optInt("frs_hot");
-                    this.f = optJSONObject2.optInt("frs_new");
-                    this.g = optJSONObject2.optInt("pb");
-                    return;
-                }
-                return;
-            }
-            this.h = false;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (TbadkCore) invokeV.objValue;
     }
 }

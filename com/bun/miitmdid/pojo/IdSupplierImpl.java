@@ -1,20 +1,25 @@
 package com.bun.miitmdid.pojo;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IdSupplier;
+@Keep
 /* loaded from: classes7.dex */
 public class IdSupplierImpl implements IdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public final String AAID;
+    @Keep
     public final String OAID;
+    @Keep
     public final String VAID;
+    @Keep
     public final boolean isLimited;
+    @Keep
     public final boolean isSupported;
 
     public IdSupplierImpl() {
@@ -60,37 +65,22 @@ public class IdSupplierImpl implements IdSupplier {
     }
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    public String getAAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.AAID : (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getAAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    public String getOAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.OAID : (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getOAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    public String getVAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.VAID : (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getVAID();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    public boolean isLimited() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.isLimited : invokeV.booleanValue;
-    }
+    @Keep
+    public native boolean isLimited();
 
     @Override // com.bun.miitmdid.interfaces.IdSupplier
-    public boolean isSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isSupported : invokeV.booleanValue;
-    }
+    @Keep
+    public native boolean isSupported();
 }

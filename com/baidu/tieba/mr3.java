@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes5.dex */
 public interface mr3 {
-    void d(String str, String str2);
+    void a(int i);
 
-    void f(View view2);
+    void b();
+
+    void c(DownloadState downloadState, int i);
+
+    void d(String str);
+
+    String e();
+
+    void f(boolean z);
 }

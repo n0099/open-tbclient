@@ -2,8 +2,10 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.LruCache;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,39 +13,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class r92 {
+public class r92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static LruCache<String, Object> b;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppSlaveManager a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public lt2 e;
+    public volatile boolean f;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ r92 a;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final r92 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-504356960, "Lcom/baidu/tieba/r92$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-504356960, "Lcom/baidu/tieba/r92$b;");
+        public a(r92 r92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new r92(null);
+            this.a = r92Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+            }
         }
     }
 
@@ -60,58 +73,15 @@ public final class r92 {
                 return;
             }
         }
-        a = ij1.a;
+        g = vj1.a;
     }
 
-    public /* synthetic */ r92(a aVar) {
-        this();
-    }
-
-    public static r92 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (r92) invokeV.objValue;
-    }
-
-    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return config;
-                }
-                CONFIG config2 = (CONFIG) b.get(str);
-                if (config2 == null) {
-                    return config;
-                }
-                if (a) {
-                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
-                }
-                return config2;
-            }
-        }
-        return (CONFIG) invokeLL.objValue;
-    }
-
-    public synchronized <CONFIG> void c(String str, CONFIG config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && config != null) {
-                    if (a) {
-                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
-                    }
-                    b.put(str, config);
-                }
-            }
-        }
-    }
-
-    public r92() {
+    public r92(@NonNull SwanAppSlaveManager swanAppSlaveManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {swanAppSlaveManager};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -121,6 +91,113 @@ public final class r92 {
                 return;
             }
         }
-        b = new LruCache<>(10);
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.f = false;
+        this.a = swanAppSlaveManager;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            fg3.c(new a(this), "delayDownloadGuideRes", 3L, TimeUnit.SECONDS);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c || this.f) {
+            return;
+        }
+        this.f = true;
+        sm2.l0().c(k33.K().getAppId());
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c) {
+            SwanAppSlaveManager swanAppSlaveManager = this.a;
+            SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
+            z93.d(this.e, "realsuccess", swanAppWebViewWidget == null ? swanAppSlaveManager.H : swanAppWebViewWidget.M());
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            if (this.a instanceof SwanAppWebViewWidget) {
+                return;
+            }
+            g();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!(this.a instanceof SwanAppWebViewWidget)) {
+                f();
+            }
+            this.b = false;
+            if (this.c) {
+                z93.d(this.e, "success", null);
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = false;
+            boolean b = z93.b();
+            boolean a2 = z93.a();
+            if (b) {
+                this.c = false;
+            } else if (this.b) {
+                this.c = true;
+                if (a2) {
+                    return;
+                }
+                this.e.f = UUID.randomUUID().toString();
+                lt2 lt2Var = this.e;
+                lt2Var.e = "6";
+                z93.h(lt2Var);
+                if (g) {
+                    Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
+                }
+            } else {
+                this.c = !TextUtils.isEmpty(this.a.j0());
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (g) {
+                Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
+            }
+            if (!this.c || this.d) {
+                return;
+            }
+            this.d = true;
+            SwanAppSlaveManager swanAppSlaveManager = this.a;
+            SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
+            cq1 M = swanAppWebViewWidget == null ? swanAppSlaveManager.H : swanAppWebViewWidget.M();
+            if (M != null && M.c > 0) {
+                z93.d(this.e, "arrivesuccess", M);
+            } else {
+                z93.d(this.e, "arrivecancel", M);
+            }
+        }
+    }
+
+    public void h(@NonNull lt2 lt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lt2Var) == null) {
+            this.e = lt2Var;
+        }
     }
 }

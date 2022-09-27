@@ -51,8 +51,8 @@ public class QuestionTagAdapter extends qn<QuestionTagListData.QuestionTag, Ques
                     return;
                 }
             }
-            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e20);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09205c);
+            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e1f);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09205e);
             this.a.setDrawerType(1);
             this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setDrawCorner(true);

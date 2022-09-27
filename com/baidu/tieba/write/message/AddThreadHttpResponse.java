@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.c19;
+import com.baidu.tieba.r19;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -58,7 +58,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, toast) == null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(c19.a(toast));
+        BdToastHelper.toast(r19.a(toast));
     }
 
     public JSONObject getResultData() {
@@ -82,7 +82,7 @@ public class AddThreadHttpResponse extends HttpResponsedMessage {
             addThreadHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addThreadResIdl.data;
             if (dataRes != null) {
-                BdToastData a = c19.a(dataRes.toast);
+                BdToastData a = r19.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addThreadHttpResponse.resultJSON.put(DI.TOAST_NAME, json);
                 }

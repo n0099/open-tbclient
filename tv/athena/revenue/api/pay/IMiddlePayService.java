@@ -2,7 +2,7 @@ package tv.athena.revenue.api.pay;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.p1a;
+import com.baidu.tieba.e2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -161,5 +161,5 @@ public interface IMiddlePayService extends IAppPayService {
         }
     }
 
-    void a(p1a p1aVar);
+    void a(e2a e2aVar);
 }

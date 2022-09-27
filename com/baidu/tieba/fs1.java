@@ -1,114 +1,36 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.s23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fs1 extends es1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ fs1 c;
-
-        public a(fs1 fs1Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fs1Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = fs1Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                yz1.i("CallServiceApi", "Cloud capability request failed: " + this.a + "\n" + Log.getStackTraceString(exc));
-                fs1 fs1Var = this.c;
-                String str2 = this.b;
-                if (TextUtils.isEmpty(exc.getMessage())) {
-                    str = "请求失败";
-                } else {
-                    str = exc.getMessage() + "";
-                }
-                fs1Var.d(str2, new yu1(1001, str));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("statusCode", String.valueOf(i));
-                    jSONObject2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    yz1.b("CallServiceApi", Log.getStackTraceString(e));
-                }
-                yz1.b("CallServiceApi", "Cloud capability '" + this.a + "' request success: data:" + jSONObject2.toString());
-                this.c.d(this.b, new yu1(0, jSONObject2));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                return yf3.d(response.body().string());
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fs1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public fs1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
+            Object[] objArr = {mr1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -116,51 +38,81 @@ public class fs1 extends es1 {
         }
     }
 
-    @Override // com.baidu.tieba.br1
+    @Override // com.baidu.tieba.or1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CallServiceApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
     }
 
-    public yu1 x(String str) {
+    public lv1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#hideLoading", false);
+            Context context = getContext();
+            if (!(context instanceof SwanAppActivity)) {
+                return new lv1(1001, "context not support");
+            }
+            u22 X = ((SwanAppActivity) context).X();
+            if (X == null) {
+                return new lv1(1001, "none fragmentManger");
+            }
+            r22 m = X.m();
+            if (!(m instanceof s23.a)) {
+                return new lv1(1001, "fragment not support");
+            }
+            if (m.getContext() == null) {
+                return new lv1(1001, "fragment has detached");
+            }
+            t23.c(m);
+            l02.i("LoadingViewApi", "hide loading success");
+            return lv1.f();
+        }
+        return (lv1) invokeV.objValue;
+    }
+
+    public lv1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#callService", false);
-            if (y23.b0() == null) {
-                yz1.b("CallServiceApi", "swan app is null");
-                return new yu1(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#showLoading", false);
+            if (n()) {
+                l02.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
+                return new lv1(1001, "LoadingViewApi does not supported when app is invisible.");
             }
-            Pair<yu1, JSONObject> s = s(str);
-            yu1 yu1Var = (yu1) s.first;
-            if (yu1Var.isSuccess()) {
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (lv1Var.isSuccess()) {
                 JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
+                l02.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
+                String optString = jSONObject.optString("title");
                 if (TextUtils.isEmpty(optString)) {
-                    yz1.b("CallServiceApi", "cb is empty");
-                    return new yu1(201, "cb is empty");
+                    return new lv1(202, "none title");
                 }
-                String optString2 = jSONObject.optString("service");
-                if (TextUtils.isEmpty(optString2)) {
-                    yz1.b("CallServiceApi", "service is empty");
-                    return new yu1(201, "service is empty");
+                boolean optBoolean = jSONObject.optBoolean("mask", false);
+                Context context = getContext();
+                if (!(context instanceof SwanAppActivity)) {
+                    return new lv1(1001, "context not support");
                 }
-                y(optString2, jSONObject.optJSONObject("data"), optString);
-                return new yu1(0);
+                u22 X = ((SwanAppActivity) context).X();
+                if (X == null) {
+                    return new lv1(1001, "none fragment");
+                }
+                r22 m = X.m();
+                if (!(m instanceof s23.a)) {
+                    return new lv1(1001, "fragment not support");
+                }
+                s23 d = ((s23.a) m).d();
+                if (d == null) {
+                    return new lv1(1001, "can't get floatLayer");
+                }
+                t23.f(d, context, optString, optBoolean);
+                l02.i("LoadingViewApi", "show loading success");
+                return lv1.f();
             }
-            return yu1Var;
+            return lv1Var;
         }
-        return (yu1) invokeL.objValue;
-    }
-
-    public final void y(String str, JSONObject jSONObject, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject, str2) == null) {
-            gs1 gs1Var = new gs1();
-            gs1Var.g(str);
-            gs1Var.f(jSONObject);
-            gs1Var.c(new a(this, str, str2));
-        }
+        return (lv1) invokeL.objValue;
     }
 }

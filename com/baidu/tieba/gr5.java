@@ -1,80 +1,147 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
+import com.baidu.tieba.advert.sdk.data.SplashHttpResponse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.Charset;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class gr5 implements cn2 {
+public class gr5 {
     public static /* synthetic */ Interceptable $ic;
+    public static gr5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public final HttpMessageListener b;
 
     /* loaded from: classes4.dex */
-    public class a implements DelegateListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bv1 a;
+        public final /* synthetic */ gr5 a;
 
-        public a(gr5 gr5Var, bv1 bv1Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gr5 gr5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gr5Var, bv1Var};
+                Object[] objArr = {gr5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = bv1Var;
+            this.a = gr5Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (httpResponsedMessage instanceof SplashHttpResponse) {
+                    SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
+                    if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
+                        if (this.a.a != null) {
+                            this.a.a.b(splashHttpResponse.getResultMsg());
+                            return;
+                        }
+                        return;
+                    }
+                    BdLog.e("Response of splash has error");
+                    if (this.a.a != null) {
+                        this.a.a.a(splashHttpResponse.getResultMsg());
+                        return;
+                    }
+                    return;
+                }
+                BdLog.e("Not response of splash request");
             }
         }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(String str);
+
+        void b(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803551, "Lcom/baidu/tieba/gr5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803551, "Lcom/baidu/tieba/gr5;");
+                return;
+            }
+        }
+        c = new gr5();
     }
 
     public gr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = new a(this, CmdConfigHttp.CMD_GET_SPLASH_INFO);
     }
 
-    @Override // com.baidu.tieba.cn2
-    public void a(Context context, bv1 bv1Var) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, bv1Var) == null) && (context instanceof Activity)) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, fr5.class, new Bundle(), new a(this, bv1Var));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/downloadstatistics" : (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics" : (String) invokeV.objValue;
+    }
+
+    public static gr5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c : (gr5) invokeV.objValue;
+    }
+
+    public void e(TbPageContext<?> tbPageContext, b bVar, AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tbPageContext, bVar, adInfo) == null) {
+            this.a = bVar;
+            this.b.setTag(tbPageContext.getUniqueId());
+            MessageManager.getInstance().registerListener(this.b);
+            SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
         }
     }
 }

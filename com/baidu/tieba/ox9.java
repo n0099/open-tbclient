@@ -1,77 +1,67 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.operators.NotificationLite;
-import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
 /* loaded from: classes5.dex */
-public final class ox9<T, R> extends ww9<T> {
+public class ox9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ox9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
-    public final int f;
-    public boolean g;
 
-    public ox9(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047769, "Lcom/baidu/tieba/ox9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047769, "Lcom/baidu/tieba/ox9;");
+                return;
+            }
+        }
+        a = new ox9();
+    }
+
+    public ox9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = onSubscribeCombineLatest$LatestCoordinator;
-        this.f = i;
-        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
-    public void g(long j) {
+    public static ox9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            e(j);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ox9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rw9
-    public void onCompleted() {
+    public ix9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        this.g = true;
-        this.e.combine(null, this.f);
+        return (ix9) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rw9
-    public void onError(Throwable th) {
+    public sx9 c(sx9 sx9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.g) {
-                x0a.j(th);
-                return;
-            }
-            this.e.onError(th);
-            this.g = true;
-            this.e.combine(null, this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.rw9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.g) {
-            return;
-        }
-        this.e.combine(NotificationLite.h(t), this.f);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sx9Var)) == null) ? sx9Var : (sx9) invokeL.objValue;
     }
 }

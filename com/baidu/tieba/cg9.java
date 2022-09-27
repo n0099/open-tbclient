@@ -1,226 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.faceunity.encoder.AudioEncoderCore;
+import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class cg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public eg9 a;
+    public MediaCodec b;
+    public MediaCodec.BufferInfo c;
+    public int d;
+    public boolean e;
+    public long f;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public cg9(eg9 eg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (vg9.a(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eg9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] decode = Base64.decode(str, 0);
-            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
         }
-        return (Bitmap) invokeL.objValue;
+        this.f = 0L;
+        this.c = new MediaCodec.BufferInfo();
+        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
+        createAudioFormat.setInteger("aac-profile", 2);
+        createAudioFormat.setInteger("channel-mask", 16);
+        createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
+        createAudioFormat.setInteger("max-input-size", 163840);
+        try {
+            this.b = MediaCodec.createEncoderByType("audio/mp4a-latm");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.b.start();
+        this.d = -1;
+        this.e = false;
+        this.a = eg9Var;
     }
 
-    public static int b(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 > i2 && i7 / i5 > i) {
-                    i5 *= 2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public void b(ByteBuffer byteBuffer, int i, int i2, long j) throws Exception {
+        int dequeueInputBuffer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            ByteBuffer[] inputBuffers = this.b.getInputBuffers();
+            while (true) {
+                dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
+                if (dequeueInputBuffer >= 0) {
+                    break;
+                } else if (dequeueInputBuffer == -1) {
+                    qg9.b("wait for MediaCodec encoder");
                 }
             }
-            return i5;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
-            if (bitmap == null) {
-                return null;
+            ByteBuffer byteBuffer2 = inputBuffers[dequeueInputBuffer];
+            byteBuffer2.clear();
+            if (byteBuffer != null) {
+                byteBuffer2.put(byteBuffer);
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(compressFormat, i, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            this.b.queueInputBuffer(dequeueInputBuffer, i, i2, j, i2 <= 0 ? 4 : 0);
         }
-        return (Bitmap) invokeLLI.objValue;
     }
 
-    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        InterceptResult invokeCommon;
+    public void c() throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return createBitmap;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+            return;
         }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap e(String str, int i, int i2, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
-            if (FileUtils.isExists(str)) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(str, options);
-                options.inSampleSize = b(options, i, i2);
-                options.inJustDecodeBounds = false;
-                Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
-                if (f % 360.0f == 0.0f) {
-                    return decodeFile;
+        while (true) {
+            ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
+                if (dequeueOutputBuffer == -1) {
+                    return;
                 }
-                if (decodeFile == null) {
-                    return null;
+                if (dequeueOutputBuffer == -3) {
+                    break;
+                } else if (dequeueOutputBuffer == -2) {
+                    if (this.e) {
+                        throw new RuntimeException("format changed twice");
+                    }
+                    MediaFormat outputFormat = this.b.getOutputFormat();
+                    qg9.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
+                    this.d = this.a.a(outputFormat);
+                    if (!this.a.c()) {
+                        synchronized (this.a) {
+                            while (!this.a.e()) {
+                                try {
+                                    this.a.wait(100L);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    this.e = true;
+                } else if (dequeueOutputBuffer < 0) {
+                    qg9.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                } else {
+                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                    if (byteBuffer == null) {
+                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    }
+                    MediaCodec.BufferInfo bufferInfo = this.c;
+                    if ((bufferInfo.flags & 2) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    MediaCodec.BufferInfo bufferInfo2 = this.c;
+                    if (bufferInfo2.size != 0) {
+                        if (!this.e) {
+                            throw new RuntimeException("muxer hasn't started");
+                        }
+                        long j = this.f;
+                        if (j != 0 && j > bufferInfo2.presentationTimeUs) {
+                            bufferInfo2.presentationTimeUs = j + 20000;
+                        }
+                        byteBuffer.position(this.c.offset);
+                        MediaCodec.BufferInfo bufferInfo3 = this.c;
+                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                        this.a.b(this.d, byteBuffer, this.c);
+                        this.f = this.c.presentationTimeUs;
+                    }
+                    this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if ((this.c.flags & 4) != 0) {
+                        return;
+                    }
                 }
-                Matrix matrix = new Matrix();
-                matrix.postRotate(f);
-                Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-                decodeFile.recycle();
-                return createBitmap;
             }
-            return null;
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Bitmap f(String str) {
-        FileInputStream fileInputStream;
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                fileInputStream = new FileInputStream(str);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                fileInputStream = null;
-            }
-            return BitmapFactory.decodeStream(fileInputStream);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width == 0 || height == 0 || i == 0 || i2 == 0) {
-                return bitmap;
-            }
-            float f = width;
-            float f2 = height;
-            float f3 = (f * 1.0f) / f2;
-            float f4 = i * 1.0f;
-            float f5 = i2;
-            float f6 = f4 / f5;
-            if (Math.abs(f3 - f6) < 0.01d) {
-                i4 = width;
-            } else if (f3 > f6) {
-                i4 = (i * height) / i2;
-            } else {
-                i3 = (i2 * width) / i;
-                i4 = width;
-                int i5 = width <= i4 ? (width - i4) / 2 : 0;
-                int i6 = height <= i3 ? (height - i3) / 2 : 0;
-                Matrix matrix = new Matrix();
-                matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
-                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                    bitmap.recycle();
+                if (this.b != null) {
+                    this.b.stop();
+                    this.b.release();
+                    this.b = null;
                 }
-                return createBitmap;
+                if (this.a != null) {
+                    this.a.d();
+                    this.a = null;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            i3 = height;
-            if (width <= i4) {
-            }
-            if (height <= i3) {
-            }
-            Matrix matrix2 = new Matrix();
-            matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
-            Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
-            if (z) {
-                bitmap.recycle();
-            }
-            return createBitmap2;
         }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? ec9.c().getContext() : (Context) invokeV.objValue;
-    }
-
-    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i <= 0 || i2 <= 0 || bitmap == null || bitmap.isRecycled()) {
-                return bitmap;
-            }
-            if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
-                i2 = i;
-                i = i2;
-            }
-            return (i == bitmap.getWidth() && i2 == bitmap.getHeight()) ? bitmap : i(bitmap, i, i2, z);
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
     }
 }

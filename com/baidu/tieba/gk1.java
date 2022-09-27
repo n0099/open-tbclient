@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface gk1 {
-    File a(String str, String str2);
+    void a(JSONObject jSONObject, fk1 fk1Var);
 
-    File b();
-
-    String c();
+    void b(JSONObject jSONObject, fk1 fk1Var, hk1 hk1Var);
 }

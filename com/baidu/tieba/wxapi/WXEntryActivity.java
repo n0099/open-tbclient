@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zs7;
+import com.baidu.tieba.nt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -81,7 +81,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
             setContentView(R.layout.obfuscated_res_0x7f0d050a);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091cc9);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091ccb);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a75));
@@ -157,10 +157,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        zs7 zs7Var = new zs7();
-        zs7Var.a = this;
-        zs7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, zs7Var);
+        nt7 nt7Var = new nt7();
+        nt7Var.a = this;
+        nt7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, nt7Var);
         closeActivity();
     }
 

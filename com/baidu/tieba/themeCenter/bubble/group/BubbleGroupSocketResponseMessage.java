@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dt8;
-import com.baidu.tieba.rs8;
+import com.baidu.tieba.gt8;
+import com.baidu.tieba.st8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rs8> mBubbleGroupList;
-    public dt8 mRecommand;
+    public List<gt8> mBubbleGroupList;
+    public st8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupSocketResponseMessage() {
@@ -61,17 +61,17 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    dt8 dt8Var = new dt8();
-                    this.mRecommand = dt8Var;
-                    dt8Var.d(getBubbleByCategoryResIdl.data.recommend);
+                    st8 st8Var = new st8();
+                    this.mRecommand = st8Var;
+                    st8Var.d(getBubbleByCategoryResIdl.data.recommend);
                 }
                 if (getBubbleByCategoryResIdl.data.bubbles != null) {
                     this.mBubbleGroupList = new ArrayList();
                     for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                         if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                            rs8 rs8Var = new rs8();
-                            rs8Var.c(themeBubbleInMain);
-                            this.mBubbleGroupList.add(rs8Var);
+                            gt8 gt8Var = new gt8();
+                            gt8Var.c(themeBubbleInMain);
+                            this.mBubbleGroupList.add(gt8Var);
                         }
                     }
                 }
@@ -81,15 +81,15 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<rs8> getGroupList() {
+    public List<gt8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
     }
 
-    public dt8 getRecommand() {
+    public st8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (dt8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 }

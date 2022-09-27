@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,16 +56,16 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         }
     }
 
-    public final boolean b(lq4 lq4Var) {
+    public final boolean b(yq4 yq4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq4Var)) == null) ? (lq4Var == null || lq4Var.getThreadData() == null || !lq4Var.getThreadData().isVideoThreadType() || lq4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yq4Var)) == null) ? (yq4Var == null || yq4Var.getThreadData() == null || !yq4Var.getThreadData().isVideoThreadType() || yq4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean c(lq4 lq4Var) {
+    public final boolean c(yq4 yq4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var)) == null) ? (lq4Var == null || lq4Var.getThreadData() == null || lq4Var.getThreadData().getPollData() == null || lq4Var.getThreadData().getPollData().getOptions() == null || lq4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var)) == null) ? (yq4Var == null || yq4Var.getThreadData() == null || yq4Var.getThreadData().getPollData() == null || yq4Var.getThreadData().getPollData().getOptions() == null || yq4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     public void d(TbPageContext tbPageContext, int i) {
@@ -75,12 +75,12 @@ public class ForumGoodsEnterLayout extends RelativeLayout {
         }
     }
 
-    public void setData(lq4 lq4Var) {
+    public void setData(yq4 yq4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) {
-            ThreadData threadData = lq4Var.getThreadData();
-            if (c(lq4Var) || b(lq4Var) || lq4Var.getThreadData() == null || !lq4Var.getThreadData().isGoods() || this.d == 3) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) {
+            ThreadData threadData = yq4Var.getThreadData();
+            if (c(yq4Var) || b(yq4Var) || yq4Var.getThreadData() == null || !yq4Var.getThreadData().isGoods() || this.d == 3) {
                 z = false;
             } else {
                 this.b.setVisibility(0);

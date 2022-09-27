@@ -1,124 +1,148 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class r03 implements a13 {
+public class r03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static r03 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public boolean b;
-    public boolean c;
+    public b a;
+    public WeakReference<q03> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067764, "Lcom/baidu/tieba/r03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948067764, "Lcom/baidu/tieba/r03;");
-                return;
-            }
-        }
-        d = ij1.a;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public r03(View view2) {
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<l33> a;
+        public WeakReference<t22> b;
+        public String c;
+        public MediaModel d;
+
+        public b(r03 r03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r03Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(r03 r03Var, a aVar) {
+            this(r03Var);
+        }
+    }
+
+    public r03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = false;
-        this.c = false;
-        this.a = view2;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    public static r03 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                this.b = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (r03.class) {
+                    if (c == null) {
+                        c = new r03();
+                    }
+                }
             }
-            if (i == this.a.getVisibility()) {
-                return true;
-            }
-            return b() && i == 0;
+            return c;
         }
-        return invokeI.booleanValue;
+        return (r03) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public int[] c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            if (this.b) {
-                this.a.setVisibility(8);
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i = makeMeasureSpec;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q03 q03Var = this.b.get();
+            if (q03Var != null) {
+                q03Var.C1();
+                return true;
             }
-            return new int[]{i, i2};
+            return false;
         }
-        return (int[]) invokeII.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(int i) {
+    public void d(String str, MediaModel mediaModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            z03.g(this.a, i);
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.a13
-    public void handleHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, mediaModel) == null) {
+            l33 M = l33.M();
+            t22 H = yo2.U().H();
+            if (M != null && H != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.a = new WeakReference<>(M);
+                this.a.b = new WeakReference<>(H);
+                b bVar2 = this.a;
+                bVar2.c = str;
+                bVar2.d = mediaModel;
+                return;
+            }
+            this.a = null;
         }
     }
 
-    @Override // com.baidu.tieba.a13
-    @SuppressLint({"BDThrowableCheck"})
-    public void handleShow() {
+    public void e(l33 l33Var, ReplyEditorParams replyEditorParams, n03 n03Var) {
+        t22 H;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d) {
-            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, l33Var, replyEditorParams, n03Var) == null) || (H = yo2.U().H()) == null || l33Var == null) {
+            return;
         }
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("params", replyEditorParams);
+        b bVar = this.a;
+        if (bVar != null && l33Var == bVar.a.get() && H == this.a.b.get()) {
+            bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
+            bundle.putString("content", this.a.c);
+            bundle.putParcelable("image", this.a.d);
+        }
+        q03 q03Var = new q03();
+        q03Var.j1(bundle);
+        q03Var.P1(n03Var);
+        q03Var.t1(H.x(), "ReplyEditor");
+        this.b = new WeakReference<>(q03Var);
     }
 }

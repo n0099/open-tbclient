@@ -1,121 +1,99 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h15 {
+public final class h15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<ShareDialogConfig.From, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public String c;
+    public int c;
     public int d;
-    public List<Integer> e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770877, "Lcom/baidu/tieba/h15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947770877, "Lcom/baidu/tieba/h15;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        f = hashMap;
-        hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f.put(ShareDialogConfig.From.Concern, 2);
-        f.put(ShareDialogConfig.From.PB, 3);
-        f.put(ShareDialogConfig.From.FRS, 4);
-        f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f.put(ShareDialogConfig.From.HomeGameTab, 9);
-    }
 
     public h15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = -1;
     }
 
-    public int a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public String b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public boolean c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public boolean d(ShareDialogConfig.From from) {
-        InterceptResult invokeL;
-        Integer num;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.e == null || (num = f.get(from)) == null || !this.e.contains(num)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void e(JSONObject jSONObject) {
+    public final void e(JSONObject jsonObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsonObject) == null) {
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            i(jsonObject.optInt("match_cond_registry", 0));
+            h(jsonObject.optInt("match_cond_login", 0));
+            f(jsonObject.optInt("cond_day_after_close", -1));
+            g(jsonObject.optInt("cond_time_close", 0));
         }
-        this.a = jSONObject.optInt("begin_time");
-        this.b = jSONObject.optInt("end_time");
-        this.c = jSONObject.optString("text");
-        this.d = jSONObject.optInt("icon_exp");
-        f(jSONObject.optString("page_list"));
     }
 
-    public final void f(String str) {
-        String[] split;
+    public final void f(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || dj.isEmpty(str) || (split = str.split(",")) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c = i;
         }
-        for (String str2 : split) {
-            int e = dh.e(str2, -1);
-            if (e != -1) {
-                if (this.e == null) {
-                    this.e = new ArrayList();
-                }
-                this.e.add(Integer.valueOf(e));
-            }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public final void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
         }
     }
 }

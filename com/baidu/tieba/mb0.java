@@ -1,90 +1,91 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class mb0 {
+public class mb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final boolean c;
-    public final String d;
+    public final View a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    public mb0(String str, int i, boolean z, String str2) {
+    public mb0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = z;
-        this.d = str2;
+        this.a = view2;
     }
 
-    public final int a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof mb0) {
-                    mb0 mb0Var = (mb0) obj;
-                    return Intrinsics.areEqual(this.a, mb0Var.a) && this.b == mb0Var.b && this.c == mb0Var.c && Intrinsics.areEqual(this.d, mb0Var.d);
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = this.a.getTop();
+            this.c = this.a.getLeft();
+            e();
+        }
+    }
+
+    public boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.e != i) {
+                this.e = i;
+                e();
+                return true;
             }
-            return true;
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeI.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
+    public boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.d != i) {
+                this.d = i;
+                e();
+                return true;
             }
-            int i2 = (hashCode + i) * 31;
-            String str2 = this.d;
-            return i2 + (str2 != null ? str2.hashCode() : 0);
+            return false;
         }
-        return invokeV.intValue;
+        return invokeI.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "YYPluginBundleInfo { packageName=" + this.a + " versionCode=" + this.b + " needUpdate=" + this.c + " ext=" + this.d + " }";
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            View view2 = this.a;
+            ViewCompat.offsetTopAndBottom(view2, this.d - (view2.getTop() - this.b));
+            View view3 = this.a;
+            ViewCompat.offsetLeftAndRight(view3, this.e - (view3.getLeft() - this.c));
         }
-        return (String) invokeV.objValue;
     }
 }

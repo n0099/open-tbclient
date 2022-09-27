@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ij9;
-import com.baidu.tieba.jj9;
+import com.baidu.tieba.xj9;
+import com.baidu.tieba.yj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class SVGImageView extends ImageView {
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public jj9 b;
+    public yj9 b;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -210,7 +210,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new jj9();
+        this.b = new yj9();
     }
 
     private void setFromString(String str) {
@@ -241,7 +241,7 @@ public class SVGImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) == null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, ij9.SVGImageView, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, xj9.SVGImageView, i, 0);
         try {
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {
@@ -372,7 +372,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new jj9();
+        this.b = new yj9();
         d(attributeSet, 0);
     }
 
@@ -409,7 +409,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new jj9();
+        this.b = new yj9();
         d(attributeSet, i);
     }
 }

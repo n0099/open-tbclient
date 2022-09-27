@@ -1,32 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface i95 {
-    @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final i95 b;
+public class i95 implements c95 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (i95) ServiceManager.getService(serviceReference);
+    public i95() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    boolean a(@NonNull String str);
-
-    @NonNull
-    String b(@NonNull String str);
-
-    @NonNull
-    String c();
-
-    @NonNull
-    String d(@NonNull String str, boolean z);
-
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
+    @Override // com.baidu.tieba.c95
+    public void a(View view2, View view3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            FrameLayout frameLayout = (FrameLayout) view2;
+            if (z) {
+                frameLayout.addView(view3, 0);
+            } else {
+                frameLayout.addView(view3);
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.width = -2;
+            layoutParams.height = -2;
+            layoutParams.gravity = 17;
+            view3.setLayoutParams(layoutParams);
+        }
+    }
 }

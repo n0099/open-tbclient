@@ -1,33 +1,117 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment;
+import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ln6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> a;
-    public List<ThreadData> b;
-    public Object[] c;
+    public FrsGameStrategyMainFragment a;
+    public View b;
+    public NavigationBar c;
+    public NoNetworkView d;
+    public ScrollLabelTabHost e;
+    public ImageView f;
+    public String g;
 
-    public ln6() {
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ln6 a;
+
+        public a(ln6 ln6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ln6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ln6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || StringUtils.isNull(this.a.a.U())) {
+                return;
+            }
+            this.a.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageContext().getPageActivity(), this.a.a.U(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ln6 a;
+
+        public b(ln6 ln6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ln6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ln6Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if ("from_single_act".equals(this.a.g)) {
+                    this.a.a.getActivity().finish();
+                    return;
+                }
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.a.getPageContext().getUniqueId()));
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            }
+        }
+    }
+
+    public ln6(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsGameStrategyMainFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,185 +121,104 @@ public class ln6 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-    }
-
-    public List<Cdo> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < this.b.size(); i++) {
-                ThreadData threadData = this.b.get(i);
-                if (threadData != null) {
-                    if (i % 4 == 0) {
-                        m66 m66Var = new m66();
-                        m66Var.c(threadData);
-                        this.a.add(m66Var);
-                    } else {
-                        n66 n66Var = new n66();
-                        n66Var.c(threadData);
-                        this.a.add(n66Var);
-                    }
-                }
-            }
+        this.a = frsGameStrategyMainFragment;
+        this.b = view2;
+        if (view2 != null) {
+            g();
         }
     }
 
-    public void c(int i, jn6 jn6Var) {
+    public void c(int i, int i2, List<Cdo> list, List<hn6> list2, boolean z, boolean z2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jn6Var) == null) || jn6Var == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
+            this.e.j(i, i2, list, list2, z, z2, i3);
+        }
+    }
+
+    public void d() {
+        ScrollLabelTabHost scrollLabelTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (scrollLabelTabHost = this.e) == null) {
             return;
         }
-        if (1 == i) {
-            this.a.clear();
-            this.b.clear();
-            this.c = new Object[jn6Var.b + 10];
-        }
-        if (!ListUtils.isEmpty(jn6Var.c)) {
-            ArrayList arrayList = new ArrayList(jn6Var.c.size());
-            for (ThreadData threadData : jn6Var.c) {
-                if (threadData != null) {
-                    arrayList.add(threadData);
-                }
-            }
-            this.b.addAll(arrayList);
-        }
-        if (1 == i) {
-            e(jn6Var);
-        }
-        this.a.clear();
-        b();
-        g();
-        f(jn6Var);
+        scrollLabelTabHost.k();
     }
 
-    public final void d(int i) {
+    public NavigationBar e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            Object[] objArr = this.c;
-            if (i >= objArr.length) {
-                this.c = Arrays.copyOf(objArr, i + 1);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (NavigationBar) invokeV.objValue;
     }
 
-    public final void e(jn6 jn6Var) {
+    public View f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jn6Var) == null) {
-            if (!ListUtils.isEmpty(jn6Var.e)) {
-                for (FeatureCardHot featureCardHot : jn6Var.e) {
-                    if (featureCardHot != null && featureCardHot.isValid()) {
-                        d(featureCardHot.floor.intValue());
-                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(jn6Var.f)) {
-                for (FeatureCardTopic featureCardTopic : jn6Var.f) {
-                    if (featureCardTopic != null && featureCardTopic.isValid()) {
-                        d(featureCardTopic.floor.intValue());
-                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(jn6Var.g)) {
-                for (kn6 kn6Var : jn6Var.g) {
-                    if (kn6Var != null && kn6Var.a()) {
-                        d(kn6Var.c.intValue());
-                        this.c[kn6Var.c.intValue()] = kn6Var;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(jn6Var.h)) {
-                for (FeatureCardCompetition featureCardCompetition : jn6Var.h) {
-                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
-                        d(featureCardCompetition.floor.intValue());
-                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
-                    }
-                }
-            }
-            if (!ListUtils.isEmpty(jn6Var.i)) {
-                for (FeatureCardGod featureCardGod : jn6Var.i) {
-                    if (featureCardGod != null && featureCardGod.isValid()) {
-                        d(featureCardGod.floor.intValue());
-                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
-                    }
-                }
-            }
-            if (ListUtils.isEmpty(jn6Var.j)) {
-                return;
-            }
-            for (FeatureCardGame featureCardGame : jn6Var.j) {
-                if (featureCardGame != null && featureCardGame.isValid()) {
-                    d(featureCardGame.floor.intValue());
-                    this.c[featureCardGame.floor.intValue()] = featureCardGame;
-                }
-            }
-        }
-    }
-
-    public final void f(jn6 jn6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jn6Var) == null) {
-            s66 s66Var = new s66();
-            s66Var.f(jn6Var.d);
-            this.a.add(0, s66Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
     public final void g() {
-        Object[] objArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (objArr = this.c) == null || objArr.length <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, ej.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0919, (View.OnClickListener) null);
+            this.f = imageView;
+            imageView.setLayoutParams(layoutParams);
+            this.f.setOnClickListener(new a(this));
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090b35);
+            this.e = scrollLabelTabHost;
+            scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());
         }
-        int i = 0;
-        while (true) {
-            Object[] objArr2 = this.c;
-            if (i >= objArr2.length) {
-                return;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c.onChangeSkinType(this.a.getPageContext(), i);
+            this.d.d(this.a.getPageContext(), i);
+            this.e.m(i);
+            ImageView imageView = this.f;
+            if (imageView != null) {
+                SkinManager.setNavbarIconSrc(imageView, R.drawable.obfuscated_res_0x7f0803ba, R.drawable.btn_more_selector);
             }
-            Object obj = objArr2[i];
-            if (obj != null) {
-                int i2 = i - 1;
-                if (i2 < 0) {
-                    i2 = 0;
-                } else if (i2 >= this.a.size()) {
-                    i2 = this.a.size();
-                }
-                if (obj instanceof FeatureCardHot) {
-                    q66 q66Var = new q66();
-                    q66Var.f((FeatureCardHot) obj);
-                    this.a.add(i2, q66Var);
-                } else if (obj instanceof FeatureCardTopic) {
-                    t66 t66Var = new t66();
-                    t66Var.b((FeatureCardTopic) obj);
-                    this.a.add(i2, t66Var);
-                } else if (obj instanceof kn6) {
-                    p66 p66Var = new p66();
-                    p66Var.f((kn6) obj);
-                    this.a.add(i2, p66Var);
-                } else if (obj instanceof FeatureCardCompetition) {
-                    o66 o66Var = new o66();
-                    o66Var.b((FeatureCardCompetition) obj);
-                    this.a.add(i2, o66Var);
-                } else if (obj instanceof FeatureCardGod) {
-                    dh6 dh6Var = new dh6();
-                    dh6Var.g((FeatureCardGod) obj);
-                    this.a.add(i2, dh6Var);
-                } else if (obj instanceof FeatureCardGame) {
-                    r66 r66Var = new r66();
-                    r66Var.b((FeatureCardGame) obj);
-                    this.a.add(i2, r66Var);
-                }
-            }
-            i++;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.n();
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void k(dn6 dn6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dn6Var) == null) {
+            this.e.setDelegateFrsGameTabDataLoadListener(dn6Var);
+        }
+    }
+
+    public void l(List<hn6> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
+            this.e.setTabData(list, z);
+        }
+    }
+
+    public void m(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048586, this, i, i2, str) == null) {
+            this.e.p(i, i2, str);
         }
     }
 }

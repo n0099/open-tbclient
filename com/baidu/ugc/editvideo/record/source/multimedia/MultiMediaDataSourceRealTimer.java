@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hg9;
+import com.baidu.tieba.wg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -367,7 +367,7 @@ public class MultiMediaDataSourceRealTimer {
                     long currentTimeMillis = System.currentTimeMillis();
                     if (this.this$0.mBeginTime == 0) {
                         String str = MultiMediaDataSourceRealTimer.TAG;
-                        hg9.a(str, "TimerTask thread : " + Thread.currentThread().getName());
+                        wg9.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                         this.this$0.mBeginTime = currentTimeMillis;
                     }
                     long j = currentTimeMillis + this.this$0.mCurrentPlayTime;

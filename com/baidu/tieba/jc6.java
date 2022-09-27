@@ -1,103 +1,133 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.MemeDiyEnableSwitch;
-import com.baidu.tieba.faceshop.DiyEmotionData;
-import com.baidu.tieba.j55;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class jc6 extends j55 {
+public class jc6 {
     public static /* synthetic */ Interceptable $ic;
-    public static jc6 c;
+    public static volatile jc6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<m55> a;
-    public final CustomMessageListener b;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public class a implements c55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jc6 a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ jc6 c;
 
-        /* renamed from: com.baidu.tieba.jc6$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0305a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0305a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(jc6 jc6Var, int i) {
-            super(i);
+        public a(jc6 jc6Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jc6Var, Integer.valueOf(i)};
+                Object[] objArr = {jc6Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = jc6Var;
+            this.c = jc6Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.c55
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.d();
-                new Thread(new RunnableC0305a(this)).start();
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
             }
         }
+
+        @Override // com.baidu.tieba.c55
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
+                return;
+            }
+            if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                this.c.b = null;
+            }
+            if (this.a != null) {
+                this.c.a.put(downloadData.getPath().substring(cv8.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                this.a.c(this.b, downloadData.getPath());
+            }
+        }
+
+        @Override // com.baidu.tieba.c55
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.c55
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c55
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
     }
 
     public jc6() {
@@ -110,17 +140,14 @@ public class jc6 extends j55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public static jc6 e() {
+    public static jc6 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (c == null) {
                 synchronized (jc6.class) {
                     if (c == null) {
@@ -133,98 +160,81 @@ public class jc6 extends j55 {
         return (jc6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j55
-    public void b(j55.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
-            LinkedList<m55> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<m55> it = this.a.iterator();
-                while (it.hasNext()) {
-                    m55 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
-                    }
-                }
-                return;
-            }
-            this.a = new LinkedList<>();
-            ic6 ic6Var = new ic6();
-            this.a.add(ic6Var);
-            if (aVar != null) {
-                aVar.a(ic6Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.j55
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.j55
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == null) {
             return;
         }
-        List<DiyEmotionData> r = mc6.o().r(TbadkCoreApplication.getCurrentAccount());
-        if (r != null && r.size() != 0) {
-            int size = (r == null || r.size() == 0) ? 0 : r.size() - 1;
-            StatisticItem statisticItem = new StatisticItem("c12224");
-            statisticItem.param("obj_param1", size);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            return;
-        }
-        DiyEmotionData diyEmotionData = new DiyEmotionData();
-        diyEmotionData.setPid("setting_icon");
-        diyEmotionData.setOrderId(301);
-        diyEmotionData.setSharpText("#(meme,diysetting)");
-        diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
-        mc6.o().c(diyEmotionData);
+        d55.k().h(this.b.getUrl(), true);
     }
 
-    public boolean f(String str) {
+    public void e() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(cv8.a);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    }
+                }
+            }
+        }
+    }
+
+    public void f(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bVar) == null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
+        }
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
+            }
+            d55.k().h(this.b.getUrl(), true);
+        }
+        File file = new File(cv8.a);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(cv8.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        d55.k().l(downloadData2);
+    }
+
+    public String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<m55> linkedList = this.a;
-            if (linkedList == null) {
-                return false;
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
             }
-            Iterator<m55> it = linkedList.iterator();
-            while (it.hasNext()) {
-                m55 next = it.next();
-                if (next instanceof ic6) {
-                    return ((ic6) next).w(str);
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                e();
+                if (this.a.size() > 0) {
+                    return this.a.get(nameMd5FromUrl);
                 }
+                return null;
             }
-            return false;
+            return hashMap.get(nameMd5FromUrl);
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                Iterator<m55> it = this.a.iterator();
-                while (it.hasNext()) {
-                    m55 next = it.next();
-                    if (next instanceof ic6) {
-                        ((ic6) next).y();
-                    }
-                }
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

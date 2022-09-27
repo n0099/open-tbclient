@@ -1,48 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.view.menu.SwanImageMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class yi3 {
+public class yi3 extends v23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948331078, "Lcom/baidu/tieba/yi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948331078, "Lcom/baidu/tieba/yi3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yi3(View view2) {
+        super(view2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        sz1.b();
-        a = sz1.b();
+        s(-1);
+        p(true);
+        q(true);
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v23
+    public void l(View view2, List<w23> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.format("%s/smtapp/ad/auto", a) : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
+            ((SwanImageMenuView) view2).d(list);
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v23
+    public View m(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.format("%s/smtapp/ad/similar", a) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            SwanImageMenuView swanImageMenuView = new SwanImageMenuView(context);
+            swanImageMenuView.setMenu(this);
+            return swanImageMenuView;
+        }
+        return (View) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v23
+    public void u(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? String.format("%s/searchbox?action=userx&type=attribute", a) : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
+            popupWindow.showAtLocation(this.a, 80, 0, 0);
+        }
     }
 }

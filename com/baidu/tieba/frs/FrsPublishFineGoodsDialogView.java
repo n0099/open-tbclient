@@ -9,10 +9,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv4;
+import com.baidu.tieba.ah6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ng6;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.mv4;
+import com.baidu.tieba.pv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,10 +28,10 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public cv4 g;
+    public pv4 g;
 
     /* loaded from: classes4.dex */
-    public class a implements cv4 {
+    public class a implements pv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
@@ -54,15 +54,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.baidu.tieba.cv4
-        public void a(int i, zu4 zu4Var) {
+        @Override // com.baidu.tieba.pv4
+        public void a(int i, mv4 mv4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, zu4Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, mv4Var) == null) {
                 this.a.c(i);
             }
         }
 
-        @Override // com.baidu.tieba.cv4
+        @Override // com.baidu.tieba.pv4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -97,18 +97,18 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0345, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aff);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090afe);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bf2);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bf1);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bf1);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bf0);
             this.f = (LocalBannerLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090326);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226b);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226d);
             this.e = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f0677);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ng6(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new ng6(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new ng6(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new ah6(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new ah6(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new ah6(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);

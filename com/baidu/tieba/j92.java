@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Environment;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.k92;
-import com.baidu.tieba.ul2;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,50 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import org.json.JSONObject;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.channels.Channels;
 /* loaded from: classes4.dex */
-public class j92 {
+public class j92 extends g92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ep1 a;
-
-        public a(ep1 ep1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ep1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ep1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                j92.i(this.a);
-            }
-        }
-    }
+    public File b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,184 +35,101 @@ public class j92 {
                 return;
             }
         }
-        a = ij1.a;
-        fm2.g0().getSwitch("swan_next_page_res_load", 0);
-        b = false;
-        yz1.k("SwanAppSlaveTopPages", "swan_top_page_res_load - " + b);
-        l();
+        c = vj1.a;
     }
 
-    public static boolean a(@NonNull ep1<?> ep1Var, @NonNull ys2 ys2Var) {
-        InterceptResult invokeLL;
+    public j92() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ep1Var, ys2Var)) == null) {
-            n33 f = lo2.U().f(ys2Var.d);
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "page path - " + ys2Var.a);
-                Log.d("SwanAppSlaveTopPages", "page route path - " + ys2Var.d);
-            }
-            return sg3.S(ep1Var, f.r);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static k92.a b(@NonNull y23 y23Var, @NonNull ep1<?> ep1Var, @NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, y23Var, ep1Var, pMSAppInfo)) == null) {
-            Set<String> m = m(pMSAppInfo);
-            if (m != null && m.size() > 0) {
-                String str = pMSAppInfo.appId;
-                String valueOf = String.valueOf(pMSAppInfo.versionCode);
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                    String str2 = ul2.e.i(str, valueOf).getPath() + File.separator;
-                    k92 k92Var = new k92();
-                    for (String str3 : m) {
-                        if (h(str2, str3)) {
-                            ys2 d = ys2.d(qg3.g(str3), str2);
-                            if (sg3.b(y23Var.Q(), d, true) && a(ep1Var, d)) {
-                                k92Var.a(f(ep1Var, d));
-                            }
-                        }
-                    }
-                    return k92Var.b();
-                }
-            }
-            return null;
-        }
-        return (k92.a) invokeLLL.objValue;
-    }
-
-    public static ys2 c() {
-        InterceptResult invokeV;
-        SwanAppActivity w;
-        g22 H;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            y23 b0 = y23.b0();
-            if (b0 == null || (w = b0.w()) == null || w.isFinishing() || w.isDestroyed() || (H = lo2.U().H()) == null) {
-                return null;
-            }
-            return H.m3();
-        }
-        return (ys2) invokeV.objValue;
-    }
-
-    public static void d(@NonNull PMSAppInfo pMSAppInfo, @Nullable k92.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pMSAppInfo, aVar) == null) {
-        }
-    }
-
-    public static k92.a e(@NonNull PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pMSAppInfo)) == null) {
-            return null;
-        }
-        return (k92.a) invokeL.objValue;
-    }
-
-    public static zc2 f(ep1<?> ep1Var, ys2 ys2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, ep1Var, ys2Var)) == null) ? p92.a(h63.a(ep1Var, ys2Var, "")) : (zc2) invokeLL.objValue;
-    }
-
-    public static JSONObject g(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pMSAppInfo)) == null) ? dt2.g().k(pMSAppInfo) : (JSONObject) invokeL.objValue;
-    }
-
-    public static boolean h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? ul2.C(str, str2) : invokeLL.booleanValue;
-    }
-
-    public static void i(ep1<?> ep1Var) {
-        PMSAppInfo f0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, ep1Var) == null) && b && ep1Var != null) {
-            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            y23 b0 = y23.b0();
-            if (b0 == null || (f0 = b0.W().f0()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            k92.a e = e(f0);
-            if (e == null) {
-                e = b(b0, ep1Var, f0);
-                d(f0, e);
-            }
-            if (e != null) {
-                s92.U().V0(ep1Var.a(), e);
-            }
-            if (a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
         }
+        this.b = o();
     }
 
-    public static void j(ep1<?> ep1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, ep1Var) == null) && b && ep1Var != null) {
-            long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
-            ExecutorUtilsExt.postOnElastic(new a(ep1Var), "SwanAppSlaveTopPages", 2);
-            if (a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanAppSlaveTopPages", "sendTopPageMsg async cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
-        }
-    }
-
-    public static Set<String> k(@NonNull JSONObject jSONObject) {
+    @Override // com.baidu.tieba.g92
+    public boolean e(h92 h92Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            if (jSONObject.length() <= 0) {
-                return null;
-            }
-            LinkedHashSet linkedHashSet = new LinkedHashSet();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    linkedHashSet.add(next);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h92Var)) == null) {
+            if (h92Var != null && this.b.exists()) {
+                File file = this.b;
+                File file2 = new File(file, h92Var.g + File.separator + h92Var.q);
+                if (file2.exists()) {
+                    try {
+                        if (!d(Channels.newChannel(new FileInputStream(file2)), h92Var.m)) {
+                            if (c) {
+                                Log.e("SdCardPresetController", "校验签名失败");
+                            }
+                            return false;
+                        }
+                        File j = j(h92Var.h, h92Var.g, h92Var.i);
+                        if (j == null) {
+                            if (c) {
+                                Log.e("SdCardPresetController", "获取解压路径失败");
+                            }
+                            return false;
+                        }
+                        return n(new BufferedInputStream(new FileInputStream(file2)), j);
+                    } catch (IOException e) {
+                        if (c) {
+                            e.printStackTrace();
+                        }
+                        return false;
+                    }
                 }
+                return false;
             }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "get top pages - " + linkedHashSet);
-            }
-            return linkedHashSet;
+            return false;
         }
-        return (Set) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-        }
-    }
-
-    public static Set<String> m(@NonNull PMSAppInfo pMSAppInfo) {
+    @Override // com.baidu.tieba.g92
+    public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pMSAppInfo)) == null) {
-            if (a) {
-                ys2 c = c();
-                Log.d("SwanAppSlaveTopPages", "current page - " + c);
-            }
-            JSONObject g = g(pMSAppInfo);
-            if (g == null || g.length() <= 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.b.exists()) {
+                File file = this.b;
+                File file2 = new File(file, str + File.separator + "app_info.json");
+                if (file2.exists()) {
+                    return pj4.E(file2);
+                }
                 return null;
             }
-            if (a) {
-                Log.d("SwanAppSlaveTopPages", "pages info - " + g);
-            }
-            return k(g);
+            return null;
         }
-        return (Set) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.g92
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.exists()) {
+                File file = new File(this.b, "preset_list.json");
+                if (file.exists()) {
+                    return pj4.E(file);
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final File o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/") : (File) invokeV.objValue;
     }
 }

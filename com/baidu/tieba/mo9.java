@@ -9,11 +9,8 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.components.core.response.model.AdResultData;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdTemplate;
 import java.lang.reflect.Field;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mo9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
@@ -42,10 +39,11 @@ public class mo9 extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        List<AdTemplate> adTemplateList;
-        AdInfo adInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
             try {
                 Field declaredField = obj.getClass().getDeclaredField("a");
                 declaredField.setAccessible(true);
@@ -53,18 +51,21 @@ public class mo9 extends BaseAdRipper {
                 if (obj2 == null) {
                     return null;
                 }
-                AdResultData adResultData = obj2 instanceof AdResultData ? (AdResultData) obj2 : null;
-                if ((adResultData != null) && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
-                    AdTemplate adTemplate = adTemplateList.get(0);
-                    List<AdInfo> list = adTemplate == null ? null : adTemplate.adInfoList;
-                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
-                        return null;
-                    }
-                    return po9.a(adInfo);
+                Field declaredField2 = obj2.getClass().getDeclaredField("c");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField3 = obj3.getClass().getSuperclass().getDeclaredField("L");
+                declaredField3.setAccessible(true);
+                Object obj4 = declaredField3.get(obj3);
+                if (obj4 instanceof JSONObject) {
+                    return on9.a((JSONObject) obj4);
                 }
                 return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
+            } catch (Exception unused) {
+                LogPrinter.e();
                 return null;
             }
         }

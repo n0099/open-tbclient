@@ -1,260 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.advert.sdk.data.AdType;
-import com.baidu.tieba.advert.sdk.data.RedirectType;
-import com.baidu.tieba.advert.sdk.view.SplashAdView;
-import com.baidu.tieba.advert.sdk.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class zp5 {
     public static /* synthetic */ Interceptable $ic;
+    public static zp5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-    public String b;
-    public WeakReference<SplashAdView> c;
-
-    /* loaded from: classes6.dex */
-    public class a implements CustomMessageTask.CustomRunnable<i05> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp5 a;
-
-        public a(zp5 zp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zp5Var;
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<i05> customMessage) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getCmd() == 2016310) {
-                    try {
-                        return new CustomResponsedMessage<>(2016310, this.a.f(customMessage.getData()));
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements gq5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SplashAdView a;
-        public final /* synthetic */ zp5 b;
-
-        public b(zp5 zp5Var, SplashAdView splashAdView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var, splashAdView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zp5Var;
-            this.a = splashAdView;
-        }
-
-        @Override // com.baidu.tieba.gq5
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str));
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_CLICK);
-                statisticItem.param("obj_source", str);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @Override // com.baidu.tieba.gq5
-        public void b(cq5 cq5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cq5Var) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.gq5
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.gq5
-        public void d() {
-            dq5 entryInfoData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SplashAdView splashAdView = (SplashAdView) this.b.c.get();
-                if (splashAdView != null) {
-                    this.b.b = this.a.g();
-                    zp5 zp5Var = this.b;
-                    zp5Var.h(zp5Var.b);
-                }
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_ADVERTSDK_SHOW);
-                if (splashAdView != null && (entryInfoData = splashAdView.getEntryInfoData()) != null) {
-                    if (entryInfoData.d()) {
-                        statisticItem.param("obj_source", entryInfoData.e);
-                    } else {
-                        statisticItem.param("obj_source", entryInfoData.b);
-                    }
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
-
-        @Override // com.baidu.tieba.gq5
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(zp5 zp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements CountDownTextView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(zp5 zp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.advert.sdk.widget.CountDownTextView.d
-        public void onTimeout(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://timeout"));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<CountDownTextView> a;
-
-        public /* synthetic */ e(CountDownTextView countDownTextView, a aVar) {
-            this(countDownTextView);
-        }
-
-        public void a(String str) {
-            CountDownTextView countDownTextView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (countDownTextView = this.a.get()) == null) {
-                return;
-            }
-            countDownTextView.d(str, 0);
-        }
-
-        public e(CountDownTextView countDownTextView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {countDownTextView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(countDownTextView);
-        }
-    }
 
     public zp5() {
         Interceptable interceptable = $ic;
@@ -266,114 +31,391 @@ public class zp5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
     }
 
-    public final View f(i05 i05Var) {
-        InterceptResult invokeL;
-        boolean z;
+    public static synchronized zp5 f() {
+        InterceptResult invokeV;
+        zp5 zp5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i05Var)) == null) {
-            if (i05Var == null || !i05Var.c()) {
-                return null;
-            }
-            Activity pageActivity = i05Var.getContext().getPageActivity();
-            int a2 = i05Var.a();
-            int b2 = i05Var.b();
-            SplashAdView splashAdView = new SplashAdView(i05Var.getContext(), "1481698145541", AdType.SPLASH, a2, b2, RedirectType.APPMANAGE);
-            splashAdView.setLayoutParams(new RelativeLayout.LayoutParams(b2, a2));
-            this.c = new WeakReference<>(splashAdView);
-            splashAdView.setBCAdCallBack(new b(this, splashAdView));
-            try {
-                z = splashAdView.f();
-            } catch (Throwable unused) {
-                z = false;
-            }
-            if (z) {
-                try {
-                    int dimension = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070279);
-                    int dimension2 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070215);
-                    Activity pageActivity2 = i05Var.getContext().getPageActivity();
-                    if (UtilHelper.isNotchScreen(pageActivity2) || UtilHelper.isCutoutScreen(pageActivity2)) {
-                        dimension2 += ej.s(pageActivity2);
-                    }
-                    int dimension3 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
-                    int dimension4 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070232);
-                    int dimension5 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702d7);
-                    CountDownTextView countDownTextView = new CountDownTextView(pageActivity);
-                    this.a = new e(countDownTextView, null);
-                    String str = this.b;
-                    if (TextUtils.isEmpty(str)) {
-                        str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11c1);
-                    }
-                    if (splashAdView.n) {
-                        countDownTextView.d(str, 6);
-                    } else {
-                        countDownTextView.d(str, 3);
-                    }
-                    splashAdView.setTag(Boolean.valueOf(splashAdView.n));
-                    float f = dimension;
-                    countDownTextView.setTextSize(0, f);
-                    countDownTextView.setTextColor(Color.parseColor("#ffffff"));
-                    countDownTextView.setGravity(17);
-                    countDownTextView.setAlpha(0.5f);
-                    GradientDrawable gradientDrawable = new GradientDrawable();
-                    gradientDrawable.setColor(Color.parseColor("#000000"));
-                    gradientDrawable.setCornerRadius(pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
-                    gradientDrawable.setStroke(1, Color.parseColor("#000000"));
-                    countDownTextView.setBackgroundDrawable(gradientDrawable);
-                    countDownTextView.setOnClickListener(new c(this));
-                    countDownTextView.setTimeoutListener(new d(this));
-                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimension4, dimension5);
-                    layoutParams.addRule(10);
-                    layoutParams.addRule(11);
-                    layoutParams.setMargins(0, dimension2, dimension3, 0);
-                    int f2 = ej.f(pageActivity, R.dimen.obfuscated_res_0x7f070307);
-                    countDownTextView.setPadding(f2, f2, f2, f2);
-                    splashAdView.addView(countDownTextView, layoutParams);
-                    int dimension6 = (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
-                    TextView textView = new TextView(pageActivity);
-                    textView.setText(R.string.obfuscated_res_0x7f0f00df);
-                    textView.setTextSize(0, f);
-                    textView.setAlpha(0.5f);
-                    textView.setIncludeFontPadding(false);
-                    textView.setGravity(17);
-                    textView.setBackgroundDrawable(gradientDrawable.getConstantState().newDrawable());
-                    int f3 = ej.f(pageActivity, R.dimen.obfuscated_res_0x7f0701d4);
-                    textView.setPadding(f3, f3, f3, f3);
-                    SkinManager.setViewTextColor(textView, (int) R.color.common_color_10013);
-                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070261), (int) pageActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070225));
-                    layoutParams2.setMargins(dimension6, 0, 0, dimension6);
-                    layoutParams2.addRule(9);
-                    layoutParams2.addRule(12);
-                    splashAdView.addView(textView, layoutParams2);
-                } catch (Exception unused2) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (zp5.class) {
+                if (a == null) {
+                    a = new zp5();
                 }
-                return splashAdView;
+                zp5Var = a;
             }
-            return null;
+            return zp5Var;
         }
-        return (View) invokeL.objValue;
+        return (zp5) invokeV.objValue;
     }
 
-    public void g() {
+    public final int a(h97 h97Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2016310, new a(this));
-            customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(customMessageTask);
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, h97Var)) != null) {
+            return invokeL.intValue;
+        }
+        SQLiteDatabase c = s97.c();
+        int i = 0;
+        if (c == null) {
+            return 0;
+        }
+        try {
+            if (o(c, h97Var.b())) {
+                ContentValues contentValues = new ContentValues();
+                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(h97Var.b());
+                contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
+                int update = t97.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(h97Var.b())});
+                try {
+                    h97Var.h(correctUserIdAfterOverflowCut);
+                    return update;
+                } catch (Exception e) {
+                    e = e;
+                    i = update;
+                    e.printStackTrace();
+                    return i;
+                }
+            }
+            return 0;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 
-    public final void h(String str) {
+    public boolean b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a == null || TextUtils.isEmpty(str)) {
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(s97.c(), j) : invokeJ.booleanValue;
+    }
+
+    public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
+            try {
+                return t97.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final long d(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = s97.c();
+            }
+            if (sQLiteDatabase != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        try {
+                            cursor = t97.d().e("select * from tb_new_friends", new String[0]);
+                            if (cursor != null && cursor.moveToNext()) {
+                                return cursor.getLong(cursor.getColumnIndex("uid"));
+                            }
+                        } catch (SQLiteException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    return 0L;
+                } finally {
+                    fj.a(cursor);
+                }
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public synchronized h97 e(long j) {
+        InterceptResult invokeJ;
+        h97 h97Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            synchronized (this) {
+                h97Var = new h97();
+                Cursor cursor = null;
+                try {
+                    cursor = t97.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                    if (cursor != null && cursor.moveToNext()) {
+                        h97Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                        h97Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                        h97Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                        h97Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                        h97Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                fj.a(cursor);
+            }
+            return h97Var;
+        }
+        return (h97) invokeJ.objValue;
+    }
+
+    public List<h97> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = t97.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            h97 h97Var = new h97();
+                            h97Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                            h97Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                            h97Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                            h97Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                            h97Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                            h97Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                            arrayList.add(h97Var);
+                        }
+                        p();
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return arrayList;
+            } finally {
+                fj.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = t97.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+                    if (cursor != null && cursor.moveToNext()) {
+                        return cursor.getInt(0);
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return 0;
+            } finally {
+                fj.a(cursor);
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public final int i(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = s97.c();
+            }
+            Cursor cursor = null;
+            try {
+                if (sQLiteDatabase == null) {
+                    return 0;
+                }
+                try {
+                    cursor = t97.d().e("select * from tb_new_friends", new String[0]);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        return cursor.getCount();
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return 0;
+            } finally {
+                fj.a(cursor);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public List<h97> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            SQLiteDatabase c = s97.c();
+            ArrayList arrayList = new ArrayList();
+            if (c != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        try {
+                            cursor = t97.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    h97 h97Var = new h97();
+                                    h97Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                                    if (h97Var.b() < 0) {
+                                        a(h97Var);
+                                    }
+                                    h97Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                                    h97Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                                    h97Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                                    h97Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                                    h97Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                                    arrayList.add(h97Var);
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } catch (SQLiteException e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    fj.a(cursor);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void k(SQLiteDatabase sQLiteDatabase, h97 h97Var) throws Exception {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, h97Var) == null) || h97Var == null || h97Var.b() == 0 || TextUtils.isEmpty(h97Var.d())) {
             return;
         }
-        this.a.a(str);
+        if (sQLiteDatabase == null) {
+            sQLiteDatabase = s97.c();
+        }
+        if (sQLiteDatabase != null) {
+            c(sQLiteDatabase, h97Var.b());
+            if (i(sQLiteDatabase) >= 200) {
+                b(d(sQLiteDatabase));
+            }
+            if (sQLiteDatabase != null) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("uid", Long.valueOf(h97Var.b()));
+                contentValues.put("uname", h97Var.d());
+                contentValues.put("uportrait", h97Var.e());
+                contentValues.put("ucontent", h97Var.a());
+                contentValues.put("ustatus", Integer.valueOf(h97Var.f()));
+                contentValues.put("isread", Integer.valueOf(h97Var.c()));
+                t97.d().insert("tb_new_friends", null, contentValues);
+            }
+        }
+    }
+
+    public void l(h97 h97Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, h97Var) == null) {
+            try {
+                k(s97.c(), h97Var);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void m(List<h97> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
+            try {
+                for (h97 h97Var : list) {
+                    k(s97.c(), h97Var);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public boolean n(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(s97.c(), j) : invokeJ.booleanValue;
+    }
+
+    public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = s97.c();
+            }
+            boolean z = false;
+            if (sQLiteDatabase != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        cursor = t97.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                        if (cursor != null) {
+                            if (cursor.moveToFirst()) {
+                                z = true;
+                            }
+                        }
+                    } catch (SQLiteException e) {
+                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    fj.a(cursor);
+                }
+            }
+            return z;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("isread", (Integer) 1);
+            t97.d().update("tb_new_friends", contentValues, null, null);
+        }
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
+    public int q(h97 h97Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, h97Var)) == null) {
+            SQLiteDatabase c = s97.c();
+            int i = 0;
+            if (c != null) {
+                try {
+                    if (o(c, h97Var.b())) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("ustatus", Integer.valueOf(h97Var.f()));
+                        contentValues.put("isread", Integer.valueOf(h97Var.c()));
+                        i = t97.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(h97Var.b())});
+                    } else {
+                        k(c, h97Var);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

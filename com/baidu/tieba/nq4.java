@@ -1,117 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class nq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends GetTplStokenCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+        public final /* synthetic */ b a;
 
-        public a() {
+        public a(nq4 nq4Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nq4Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             }
-            return (a) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetTplStokenResult getTplStokenResult) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || (bVar = this.a) == null) {
+                return;
+            }
+            bVar.onFailed();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetTplStokenResult getTplStokenResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
+                if (getTplStokenResult == null) {
+                    b bVar = this.a;
+                    if (bVar != null) {
+                        bVar.onFailed();
+                        return;
+                    }
+                    return;
+                }
+                Map<String, String> map = getTplStokenResult.tplStokenMap;
+                if (map != null && map.size() > 0) {
+                    String str = map.get(TbConfig.PassConfig.TPL);
+                    if (StringUtils.isNULL(str)) {
+                        b bVar2 = this.a;
+                        if (bVar2 != null) {
+                            bVar2.onFailed();
+                            return;
+                        }
+                        return;
+                    }
+                    b bVar3 = this.a;
+                    if (bVar3 != null) {
+                        bVar3.onSuccess(str);
+                        return;
+                    }
+                    return;
+                }
+                b bVar4 = this.a;
+                if (bVar4 != null) {
+                    bVar4.onFailed();
+                }
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+    public interface b {
+        void onFailed();
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
+        void onSuccess(String str);
     }
 
     public nq4() {
@@ -124,70 +126,38 @@ public class nq4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = -1.0f;
     }
 
-    public static boolean a(nq4 nq4Var) {
+    public static String a(AccountData accountData) {
         InterceptResult invokeL;
-        b bVar;
-        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nq4Var)) == null) {
-            if (nq4Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
+            if (accountData != null && b()) {
+                return accountData.getStoken();
             }
-            return (TextUtils.isEmpty(nq4Var.f) && TextUtils.isEmpty(nq4Var.d) && ((bVar = nq4Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = nq4Var.h) == null || TextUtils.isEmpty(aVar.a))) ? false : true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static nq4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            nq4 nq4Var = new nq4();
-            nq4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            nq4Var.b = jSONObject.optString("app_icon");
-            nq4Var.c = jSONObject.optString("app_name");
-            nq4Var.d = jSONObject.optString("developer_name");
-            nq4Var.f = jSONObject.optString("version");
-            nq4Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            nq4Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            nq4Var.i = jSONObject.optString("apk_size");
-            nq4Var.j = jSONObject.optString("apk_url");
-            try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    nq4Var.e = parseFloat;
-                } else {
-                    nq4Var.e = -1.0f;
-                }
-            } catch (NumberFormatException unused) {
-                nq4Var.e = -1.0f;
-            }
-            return nq4Var;
-        }
-        return (nq4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1 : invokeV.booleanValue;
     }
 
-    public static boolean c(nq4 nq4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
+    public void c(String str, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, nq4Var)) == null) {
-            if (nq4Var != null && nq4Var.a) {
-                return (TextUtils.isEmpty(nq4Var.f) || TextUtils.isEmpty(nq4Var.d) || (bVar = nq4Var.g) == null || TextUtils.isEmpty(bVar.b) || (aVar = nq4Var.h) == null || TextUtils.isEmpty(aVar.b)) ? false : true;
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        return invokeL.booleanValue;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(TbConfig.PassConfig.TPL);
+        if (SapiAccountManager.getInstance().getAccountService() == null) {
+            return;
+        }
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
     }
 }

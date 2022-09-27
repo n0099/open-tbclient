@@ -1,174 +1,198 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.ms7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class ns7 {
+public class ns7 extends ms7 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948013111, "Lcom/baidu/tieba/ns7;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vs7 a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ ns7 d;
+
+        public a(ns7 ns7Var, vs7 vs7Var, b bVar, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns7Var, vs7Var, bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ns7Var;
+            this.a = vs7Var;
+            this.b = bVar;
+            this.c = i;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948013111, "Lcom/baidu/tieba/ns7;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                vs7 vs7Var = this.a;
+                vs7Var.j(!vs7Var.e());
+                ns7 ns7Var = this.d;
+                b bVar = this.b;
+                ns7Var.f(bVar.d, bVar.e, this.a);
+                this.d.d(this.a);
+                ns7 ns7Var2 = this.d;
+                ms7.a aVar = ns7Var2.d;
+                if (aVar != null) {
+                    aVar.o1(ns7Var2.a);
+                }
+                if (this.a.e()) {
+                    StatisticItem statisticItem = new StatisticItem("c13682");
+                    statisticItem.param("obj_type", 2);
+                    statisticItem.param("obj_locate", 1);
+                    statisticItem.param("obj_source", this.c);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
         }
     }
 
-    public ns7() {
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LinearLayout a;
+        public HeadImageView b;
+        public TextView c;
+        public ImageView d;
+        public View e;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f54);
+            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f4a);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f56);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e53);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f4b);
+            int k = ej.k(TbadkCoreApplication.getInst()) / 5;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
+            this.b.setLayoutParams(layoutParams);
+            this.e.setLayoutParams(layoutParams);
+        }
+
+        public void a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+                hv4 d = hv4.d(this.c);
+                d.v(R.color.CAM_X0105);
+                d.z(R.dimen.T_X06);
+                this.b.setConrers(15);
+                this.b.setIsRound(true);
+                this.b.setDrawBorder(true);
+                this.b.setPlaceHolder(3);
+                this.b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+                this.b.setBorderWidth(ej.f(context, R.dimen.L_X02));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ns7(List<vs7> list, Context context) {
+        super(list, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((List) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(int i, is7 is7Var, int i2, List<Cdo> list, BdTypeRecyclerView bdTypeRecyclerView) {
-        List<gs7> list2;
+    public final void f(ImageView imageView, View view2, vs7 vs7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), is7Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) || is7Var == null || (list2 = is7Var.a) == null || ListUtils.isEmpty(list2)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        c(i, arrayList, list);
-        List<gs7> list3 = is7Var.a;
-        if (list3 == null || list3.size() <= 0) {
-            return;
-        }
-        int i3 = 0;
-        for (gs7 gs7Var : list3) {
-            if (gs7Var != null && i == gs7Var.b.intValue()) {
-                List<ms7> list4 = gs7Var.a;
-                if (list4 == null || list4.size() <= 0) {
-                    return;
-                }
-                for (int i4 = 0; i4 < list4.size(); i4++) {
-                    if (list4.get(i4) != null) {
-                        if (arrayList.size() >= 20) {
-                            d(list.get(i2));
-                            bdTypeRecyclerView.setData(list);
-                            return;
-                        } else if (i3 >= 4) {
-                            bdTypeRecyclerView.setData(list);
-                            return;
-                        } else {
-                            if (i4 == list4.size() - 1) {
-                                d(list.get(i2));
-                            }
-                            RecommendForumInfo recommendForumInfo = list4.get(i4).a;
-                            if (!arrayList.contains(recommendForumInfo.forum_id)) {
-                                js7 js7Var = new js7();
-                                js7Var.n(gs7Var.b.intValue());
-                                js7Var.l(recommendForumInfo.avatar);
-                                js7Var.q(recommendForumInfo.forum_id.longValue());
-                                js7Var.r(recommendForumInfo.forum_name);
-                                js7Var.s(recommendForumInfo.member_count.intValue());
-                                js7Var.w(recommendForumInfo.thread_count.intValue());
-                                js7Var.v(recommendForumInfo.slogan);
-                                js7Var.t(false);
-                                list.add(i2, js7Var);
-                                arrayList.add(recommendForumInfo.forum_id);
-                                i2++;
-                                i3++;
-                            }
-                        }
-                    }
-                }
-                bdTypeRecyclerView.setData(list);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, imageView, view2, vs7Var) == null) {
+            if (vs7Var.e()) {
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_checked);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0608).into(view2);
+                return;
             }
+            SkinManager.setImageResource(imageView, R.drawable.icon_interest_unchecked);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0601).into(view2);
         }
     }
 
-    public List<Cdo> b(List<gs7> list) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            if (list == null || list.size() <= 0) {
-                return null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d052a, viewGroup, false);
+                bVar = new b(view2);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
             }
-            ArrayList arrayList = new ArrayList();
-            for (gs7 gs7Var : list) {
-                if (gs7Var != null) {
-                    ls7 ls7Var = new ls7();
-                    ls7Var.f(gs7Var.b.intValue());
-                    ls7Var.c(gs7Var.d);
-                    ls7Var.g(gs7Var.c);
-                    arrayList.add(ls7Var);
-                    List<ms7> list2 = gs7Var.a;
-                    if (list2 != null && list2.size() > 0) {
-                        a = 0;
-                        for (ms7 ms7Var : list2) {
-                            if (ms7Var != null) {
-                                if (a >= 4) {
-                                    break;
-                                }
-                                js7 js7Var = new js7();
-                                RecommendForumInfo recommendForumInfo = ms7Var.a;
-                                js7Var.n(gs7Var.b.intValue());
-                                js7Var.o(gs7Var.c);
-                                js7Var.l(recommendForumInfo.avatar);
-                                js7Var.q(recommendForumInfo.forum_id.longValue());
-                                js7Var.r(recommendForumInfo.forum_name);
-                                js7Var.s(recommendForumInfo.member_count.intValue());
-                                js7Var.w(recommendForumInfo.thread_count.intValue());
-                                js7Var.v(recommendForumInfo.slogan);
-                                arrayList.add(js7Var);
-                                a++;
-                            }
-                        }
-                        ks7 ks7Var = new ks7();
-                        ks7Var.f(gs7Var.b.intValue());
-                        ks7Var.g(gs7Var.c);
-                        arrayList.add(ks7Var);
-                    }
-                }
+            bVar.a(this.b);
+            vs7 vs7Var = this.c.get(i);
+            if (vs7Var == null) {
+                return view2;
             }
-            return arrayList;
+            bVar.b.K(vs7Var.b(), 25, false);
+            bVar.c.setText(vs7Var.a());
+            f(bVar.d, bVar.e, vs7Var);
+            view2.setOnClickListener(new a(this, vs7Var, bVar, i));
+            return view2;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final void c(int i, List<Long> list, List<Cdo> list2) {
-        js7 js7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
-            for (Cdo cdo : list2) {
-                if ((cdo instanceof js7) && (js7Var = (js7) cdo) != null && js7Var.b() == i) {
-                    list.add(Long.valueOf(js7Var.c()));
-                }
-            }
-        }
-    }
-
-    public final void d(Cdo cdo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, cdo) == null) && (cdo instanceof ks7)) {
-            ((ks7) cdo).h(false);
-        }
+        return (View) invokeILL.objValue;
     }
 }

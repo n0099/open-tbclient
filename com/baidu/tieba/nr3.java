@@ -1,15 +1,15 @@
 package com.baidu.tieba;
+
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes5.dex */
 public interface nr3 {
-    void onCompletion();
+    void a(DownloadInfo downloadInfo);
 
-    boolean onError();
+    void b();
 
-    void onPause();
+    DownloadInfo c(String str);
 
-    void onPrepared();
+    void close();
 
-    void onResume();
-
-    void onStart();
+    void delete(DownloadInfo downloadInfo);
 }

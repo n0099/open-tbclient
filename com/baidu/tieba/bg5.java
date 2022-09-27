@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.rf5;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.eg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bg5 extends wf5 {
+public class bg5 extends ag5<xf5, eg5.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rf5.c a;
-    public TbPageContext b;
-    public BdRecyclerView c;
-    public PbListView d;
+    public TbPageContext<?> e;
 
-    public bg5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, rf5.c cVar) {
+    public bg5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,87 +31,25 @@ public class bg5 extends wf5 {
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = bdRecyclerView;
-        this.a = cVar;
-        PbListView pbListView = new PbListView(getActivity());
-        this.d = pbListView;
-        pbListView.b();
-        this.d.p(R.color.transparent);
-        this.d.t(this.a.a);
-        this.d.M(this.a.b);
-        this.d.y();
-        this.d.H(R.dimen.tbfontsize33);
-        this.d.F(SkinManager.getColor(R.color.CAM_X0107));
-        this.d.B(R.color.CAM_X0110);
-        this.d.s();
+        this.e = tbPageContext;
     }
 
-    private Activity getActivity() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ag5
+    /* renamed from: g */
+    public void d(ViewType viewType, xf5 xf5Var, eg5.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.b.getPageActivity() : (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wf5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.g) {
-                e();
-            } else {
-                d();
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, xf5Var, aVar) == null) {
+            xf5Var.b(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.wf5
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ag5
+    /* renamed from: h */
+    public xf5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.R();
-            this.d.D(this.a.c);
-            this.d.C(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.wf5
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.D(this.a.e);
-            this.d.C(null);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.D(this.a.d);
-            this.d.C(null);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.f();
-            this.d.D(this.a.f);
-            this.d.C(this.a.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.zf5
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.d(i);
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new xf5(this.e.getPageActivity()) : (xf5) invokeLL.objValue;
     }
 }

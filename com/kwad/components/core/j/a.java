@@ -36,7 +36,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C0578a {
+    public static final class C0574a {
         public static /* synthetic */ Interceptable $ic;
         public static final a HH;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public final class a {
     public static a og() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0578a.HH : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? C0574a.HH : (a) invokeV.objValue;
     }
 
     public final void O(@NonNull AdTemplate adTemplate) {

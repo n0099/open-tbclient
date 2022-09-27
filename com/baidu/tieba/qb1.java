@@ -1,147 +1,50 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
+import java.io.FileDescriptor;
 /* loaded from: classes5.dex */
 public class qb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static InetAddress a() {
-        InterceptResult invokeV;
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65536, null)) != null) {
-            return (InetAddress) invokeV.objValue;
-        }
-        InetAddress inetAddress = null;
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            if (networkInterfaces == null) {
-                return null;
-            }
-            InetAddress inetAddress2 = null;
-            do {
-                try {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        return inetAddress2;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (true) {
-                        if (inetAddresses.hasMoreElements()) {
-                            InetAddress nextElement = inetAddresses.nextElement();
-                            try {
-                                if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
-                                    inetAddress2 = nextElement;
-                                    continue;
-                                    break;
-                                }
-                                inetAddress2 = null;
-                            } catch (Exception unused) {
-                                return nextElement;
-                            }
-                        }
-                    }
-                } catch (Exception unused2) {
-                    inetAddress = inetAddress2;
-                    return inetAddress;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
                 }
-            } while (inetAddress2 == null);
-            return inetAddress2;
-        } catch (Exception unused3) {
-        }
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ApiReplaceUtil.getMacAddress(((WifiManager) bc1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo()) : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                d = b();
-            } else {
-                d = d();
             }
-            if (!f(d)) {
-                d = e();
-            }
-            return !TextUtils.isEmpty(d) ? d.toUpperCase() : d;
+            return i5;
         }
-        return (String) invokeV.objValue;
+        return invokeLII.intValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
+    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                NetworkInterface byName = NetworkInterface.getByName("wlan0");
-                if (byName != null && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(byName)) != null) {
-                    StringBuilder sb = new StringBuilder();
-                    int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                    }
-                    if (sb.length() > 0) {
-                        sb.deleteCharAt(sb.length() - 1);
-                    }
-                    return sb.toString();
-                }
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+            int a = a(options, i, i2);
+            options.inSampleSize = a;
+            options.inJustDecodeBounds = false;
+            if (a <= 1) {
+                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
             }
-            return "";
+            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        byte[] hardwareAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                InetAddress a = a();
-                if (a == null || (hardwareAddress = ApiReplaceUtil.getHardwareAddress(NetworkInterface.getByInetAddress(a))) == null) {
-                    return "";
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hardwareAddress.length; i++) {
-                    if (i != 0) {
-                        sb.append(':');
-                    }
-                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
-                    if (hexString.length() == 1) {
-                        hexString = 0 + hexString;
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
+        return (Bitmap) invokeLII.objValue;
     }
 }

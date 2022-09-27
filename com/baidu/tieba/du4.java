@@ -1,102 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.CircleView1080;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.Topic;
 /* loaded from: classes3.dex */
-public class du4 extends AlertDialog {
+public class du4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public TextView b;
-    public TextView c;
-    public CircleView1080 d;
-    public int e;
+    public int a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public du4(Context context) {
-        super(context);
+    public du4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = "";
     }
 
-    public void a(String str) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void b(int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.e) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.e = i;
-        TextView textView = this.b;
-        if (textView != null) {
-            textView.setText(i + "%");
-        }
-        CircleView1080 circleView1080 = this.d;
-        if (circleView1080 != null) {
-            circleView1080.setProgress(i);
+        try {
+            this.a = jSONObject.optInt("is_lpost", 0);
+            jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
+            this.b = jSONObject.optString("link", "");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public void d(Topic topic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setContentView(R.layout.obfuscated_res_0x7f0d0757);
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090ad3);
-                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                    layoutParams.topMargin = ej.f(getContext(), R.dimen.tbds50);
-                    findViewById.setLayoutParams(layoutParams);
-                }
-                TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09212c);
-                this.c = textView;
-                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                    layoutParams2.topMargin = ej.f(getContext(), R.dimen.tbds35);
-                    this.c.setLayoutParams(layoutParams2);
-                }
-                if (!StringUtils.isNull(this.a)) {
-                    this.c.setText(this.a);
-                }
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09212d);
-                this.d = (CircleView1080) window.findViewById(R.id.obfuscated_res_0x7f090640);
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, topic) == null) || topic == null) {
+            return;
         }
+        this.a = topic.is_lpost.intValue();
+        topic.topic_type.intValue();
+        this.b = topic.link;
     }
 }

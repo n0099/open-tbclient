@@ -1,42 +1,18 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public interface s41 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
-    public static final s41 b = new a();
+    public static final a a = t41.a;
 
     /* loaded from: classes5.dex */
-    public static class a implements s41 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        AbsContainer a(y41 y41Var, z41 z41Var, int i);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        boolean b(HashMap<String, String> hashMap, int i);
 
-        @Override // com.baidu.tieba.s41
-        public void a(Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            }
-        }
+        void c(Context context, boolean z, int i);
     }
-
-    void a(Context context, String str);
 }

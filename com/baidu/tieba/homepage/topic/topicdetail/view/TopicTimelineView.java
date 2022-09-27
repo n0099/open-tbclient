@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.f57;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
-import com.baidu.tieba.r47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -118,8 +118,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089c, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09230f);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09230e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092311);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092310);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);
@@ -141,13 +141,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         this.d.notifyDataSetChanged();
     }
 
-    public void setData(r47 r47Var) {
+    public void setData(f57 f57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r47Var) == null) {
-            if (r47Var != null && !ListUtils.isEmpty(r47Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f57Var) == null) {
+            if (f57Var != null && !ListUtils.isEmpty(f57Var.b)) {
                 setVisibility(0);
-                this.b.setText(r47Var.a);
-                this.d.setData(r47Var.b);
+                this.b.setText(f57Var.a);
+                this.d.setData(f57Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

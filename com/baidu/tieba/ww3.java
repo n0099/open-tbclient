@@ -1,86 +1,53 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ww3 {
+public class ww3 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284950, "Lcom/baidu/tieba/ww3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948284950, "Lcom/baidu/tieba/ww3;");
-                return;
-            }
-        }
-        a = ij1.a;
-    }
-
-    public ww3(JsObject jsObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ww3(va2 va2Var) {
+        super(va2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {va2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        fv1 F = fv1.F(jsObject);
-        if (F == null) {
-            return;
-        }
-        y23 M = y23.M();
-        if (M == null) {
-            a(F, false, b("internal error"));
-            return;
-        }
-        try {
-            boolean m = F.m("mixWithOther", false);
-            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
-            if (a) {
-                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
+        yw3.o().w(this);
+    }
+
+    public void x(int i, String str) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("state", i);
+            jSONObject.put("msg", str);
+            JSEvent jSEvent = new JSEvent("antiaddiction");
+            jSEvent.data = jSONObject;
+            if (vj1.a) {
+                Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
             }
-            a(F, true, "setInnerAudioOption:ok");
-        } catch (Exception unused) {
-            yz1.c("InnerAudioOptionApi", "set swanApp global var error");
-            a(F, false, b("internal error"));
+            dispatchEvent(jSEvent);
         }
-    }
-
-    public final void a(fv1 fv1Var, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{fv1Var, Boolean.valueOf(z), str}) == null) {
-            hx3 hx3Var = new hx3();
-            hx3Var.errMsg = str;
-            k54.call(fv1Var, z, hx3Var);
-        }
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? String.format("setInnerAudioOption:fail %s", str) : (String) invokeL.objValue;
     }
 }

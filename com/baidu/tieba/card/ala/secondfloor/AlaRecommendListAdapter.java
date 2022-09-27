@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a26;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.n26;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public List<a26> c;
+    public List<n26> c;
     public HashSet<Long> d;
     public int e;
     public String f;
@@ -103,7 +103,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                     this.g.b = i;
                 }
                 this.c.setSkinType(this.g.b);
-                uu4 d = uu4.d(this.d);
+                hv4 d = hv4.d(this.d);
                 d.n(R.string.J_X01);
                 d.z(R.dimen.T_X10);
                 d.A(R.string.F_X01);
@@ -124,16 +124,16 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a26 a;
+        public final /* synthetic */ n26 a;
         public final /* synthetic */ long b;
         public final /* synthetic */ AlaRecommendListAdapter c;
 
-        public a(AlaRecommendListAdapter alaRecommendListAdapter, a26 a26Var, long j) {
+        public a(AlaRecommendListAdapter alaRecommendListAdapter, n26 n26Var, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaRecommendListAdapter, a26Var, Long.valueOf(j)};
+                Object[] objArr = {alaRecommendListAdapter, n26Var, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -144,7 +144,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                 }
             }
             this.c = alaRecommendListAdapter;
-            this.a = a26Var;
+            this.a = n26Var;
             this.b = j;
         }
 
@@ -153,10 +153,10 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 AlaRecommendListAdapter alaRecommendListAdapter = this.c;
-                a26 a26Var = this.a;
-                alaRecommendListAdapter.i(a26Var.i, a26Var.a);
-                a26 a26Var2 = this.a;
-                y16.a("c13623", a26Var2.i, 0, a26Var2.e(), this.a.b(), this.a.d(), this.b, 5, "", this.c.e);
+                n26 n26Var = this.a;
+                alaRecommendListAdapter.i(n26Var.i, n26Var.a);
+                n26 n26Var2 = this.a;
+                l26.a("c13623", n26Var2.i, 0, n26Var2.e(), this.a.b(), this.a.d(), this.b, 5, "", this.c.e);
             }
         }
     }
@@ -219,7 +219,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a26> list = this.c;
+            List<n26> list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -233,7 +233,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<a26> list = this.c;
+            List<n26> list = this.c;
             if (list == null || list.get(i) == null) {
                 return 0;
             }
@@ -268,32 +268,32 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: j */
     public void onBindViewHolder(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder, int i) {
-        List<a26> list;
-        a26 a26Var;
+        List<n26> list;
+        n26 n26Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, alaUserInfoViewHolder, i) == null) || alaUserInfoViewHolder == null || (list = this.c) == null || list.size() <= i || (a26Var = this.c.get(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, alaUserInfoViewHolder, i) == null) || alaUserInfoViewHolder == null || (list = this.c) == null || list.size() <= i || (n26Var = this.c.get(i)) == null) {
             return;
         }
-        if (a26Var.getType() == 0) {
+        if (n26Var.getType() == 0) {
             alaUserInfoViewHolder.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a27));
             alaUserInfoViewHolder.c.setPlaceHolder(1);
-            alaUserInfoViewHolder.c.setDefaultResource(R.drawable.obfuscated_res_0x7f08123c);
-            if (!StringUtils.isNull(a26Var.c())) {
-                alaUserInfoViewHolder.c.K(a26Var.c(), 10, false);
+            alaUserInfoViewHolder.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+            if (!StringUtils.isNull(n26Var.c())) {
+                alaUserInfoViewHolder.c.K(n26Var.c(), 10, false);
             }
-            if (StringHelper.getChineseAndEnglishLength(a26Var.f()) <= 8) {
-                alaUserInfoViewHolder.e.setText(a26Var.f());
+            if (StringHelper.getChineseAndEnglishLength(n26Var.f()) <= 8) {
+                alaUserInfoViewHolder.e.setText(n26Var.f());
             } else {
-                alaUserInfoViewHolder.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(a26Var.f(), 8, StringHelper.STRING_MORE));
+                alaUserInfoViewHolder.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(n26Var.f(), 8, StringHelper.STRING_MORE));
             }
-            long a2 = a26Var.a();
-            alaUserInfoViewHolder.a.setOnClickListener(new a(this, a26Var, a2));
+            long a2 = n26Var.a();
+            alaUserInfoViewHolder.a.setOnClickListener(new a(this, n26Var, a2));
             if (!this.d.contains(Long.valueOf(a2))) {
-                y16.a("c13622", a26Var.i, 0, a26Var.e(), a26Var.b(), a26Var.d(), a2, 5, "", this.e);
+                l26.a("c13622", n26Var.i, 0, n26Var.e(), n26Var.b(), n26Var.d(), a2, 5, "", this.e);
                 this.d.add(Long.valueOf(a2));
             }
         }
-        alaUserInfoViewHolder.g(TbadkCoreApplication.getInst().getSkinType(), a26Var.getType());
+        alaUserInfoViewHolder.g(TbadkCoreApplication.getInst().getSkinType(), n26Var.getType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -365,21 +365,21 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         }
         for (AlaLiveInfo alaLiveInfo : list) {
             if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && !StringUtils.isNull(alaUserInfo.user_name) && alaLiveInfo.yy_ext != null) {
-                a26 a26Var = new a26();
-                a26Var.l(0);
-                a26Var.i(alaLiveInfo.user_info.portrait);
-                a26Var.m(alaLiveInfo.user_info.user_name);
-                a26Var.g(alaLiveInfo.live_id.longValue());
-                a26Var.k(alaLiveInfo.thread_id.longValue());
-                a26Var.j(alaLiveInfo.user_info.ala_id.longValue());
-                a26Var.h(alaLiveInfo.live_type.intValue());
+                n26 n26Var = new n26();
+                n26Var.l(0);
+                n26Var.i(alaLiveInfo.user_info.portrait);
+                n26Var.m(alaLiveInfo.user_info.user_name);
+                n26Var.g(alaLiveInfo.live_id.longValue());
+                n26Var.k(alaLiveInfo.thread_id.longValue());
+                n26Var.j(alaLiveInfo.user_info.ala_id.longValue());
+                n26Var.h(alaLiveInfo.live_type.intValue());
                 YyExtData yyExtData = new YyExtData();
-                a26Var.i = yyExtData;
+                n26Var.i = yyExtData;
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-                this.c.add(a26Var);
+                this.c.add(n26Var);
             }
         }
         this.f = str;
-        this.e = y16.f(str);
+        this.e = l26.f(str);
     }
 }

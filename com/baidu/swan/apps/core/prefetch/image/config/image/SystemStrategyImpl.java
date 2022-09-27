@@ -4,8 +4,8 @@ import android.webkit.MimeTypeMap;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.e72;
-import com.baidu.tieba.t72;
+import com.baidu.tieba.g82;
+import com.baidu.tieba.r72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SystemStrategyImpl implements e72 {
+public class SystemStrategyImpl implements r72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<String> a;
@@ -63,8 +63,8 @@ public class SystemStrategyImpl implements e72 {
         };
     }
 
-    @Override // com.baidu.tieba.e72
-    public boolean a(@NonNull t72.a aVar) {
+    @Override // com.baidu.tieba.r72
+    public boolean a(@NonNull g82.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {

@@ -1,48 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class th2 extends sg2<ij2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface th2 extends ih2 {
 
-    public th2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(Bundle bundle);
+
+        void onRelease();
     }
 
-    @Override // com.baidu.tieba.sg2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onItemRelease" : (String) invokeV.objValue;
-    }
+    void k(String str, Map<String, String> map);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ij2 ij2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ij2Var) == null) {
-            d(ij2Var, command.what, null, true);
-            ij2Var.onRelease();
-        }
-    }
+    void release();
+
+    void w(a aVar);
 }

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by4;
-import com.baidu.tieba.gg6;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.tg6;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -77,15 +77,15 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         this.c = -1;
         this.d = -1;
         this.a = frsMoveAreaChooseView;
-        this.b = gg6.h().g();
+        this.b = tg6.h().g();
         this.e = new SparseArray<>();
         if (ListUtils.isEmpty(this.b)) {
             return;
         }
         for (int i3 = 0; i3 < this.b.size(); i3++) {
             FrsTabInfo frsTabInfo = this.b.get(i3);
-            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == gg6.h().e() || frsTabInfo.tab_type.intValue() == 3 || frsTabInfo.tab_type.intValue() == 102 || frsTabInfo.tab_type.intValue() == 100)) {
-                if (frsTabInfo.tab_id.intValue() == gg6.h().e()) {
+            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == tg6.h().e() || frsTabInfo.tab_type.intValue() == 3 || frsTabInfo.tab_type.intValue() == 102 || frsTabInfo.tab_type.intValue() == 100)) {
+                if (frsTabInfo.tab_id.intValue() == tg6.h().e()) {
                     this.c = i3;
                 }
                 this.e.append(i3, frsTabInfo);
@@ -124,21 +124,21 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tBSpecificationBtn, i) == null) {
             if (i == this.d) {
-                by4 by4Var = new by4();
-                by4Var.p(R.color.CAM_X0304);
-                tBSpecificationBtn.setConfig(by4Var);
+                oy4 oy4Var = new oy4();
+                oy4Var.p(R.color.CAM_X0304);
+                tBSpecificationBtn.setConfig(oy4Var);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             } else if (this.e.get(i) != null) {
-                by4 by4Var2 = new by4();
-                by4Var2.r(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(by4Var2);
+                oy4 oy4Var2 = new oy4();
+                oy4Var2.r(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(oy4Var2);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(true);
             } else {
-                by4 by4Var3 = new by4();
-                by4Var3.r(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(by4Var3);
+                oy4 oy4Var3 = new oy4();
+                oy4Var3.r(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(oy4Var3);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             }

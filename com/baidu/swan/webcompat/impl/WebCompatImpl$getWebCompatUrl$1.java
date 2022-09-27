@@ -2,7 +2,7 @@ package com.baidu.swan.webcompat.impl;
 
 import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yz1;
+import com.baidu.tieba.l02;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,12 +59,12 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
             if (str != null) {
                 String substring = str.substring(length);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
-                yz1.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
+                l02.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
                 int i = 0;
                 if (substring.length() > 0 && '/' == substring.charAt(0)) {
                     i = 1;
                 }
-                yz1.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
+                l02.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
                 if (i > 0) {
                     if (substring == null) {
                         throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
@@ -72,7 +72,7 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
                     substring = substring.substring(i);
                     Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 }
-                yz1.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);
+                l02.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);
                 Uri.Builder scheme = new Uri.Builder().scheme("http");
                 n = this.this$0.n();
                 String builder = scheme.authority(n).appendPath(compatPath).appendEncodedPath(substring).toString();

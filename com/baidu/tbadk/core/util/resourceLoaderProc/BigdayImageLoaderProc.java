@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.ah;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.kc;
+import com.baidu.tieba.mh5;
 import com.baidu.tieba.oc;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
 import com.baidu.tieba.xg;
 import com.baidu.tieba.zg;
-import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +110,7 @@ public class BigdayImageLoaderProc implements ah<on> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof on)) {
             on onVar = (on) obj;
             if (onVar.u()) {
-                u75.k().d(str, onVar);
+                h85.k().d(str, onVar);
             }
         }
     }
@@ -164,7 +164,7 @@ public class BigdayImageLoaderProc implements ah<on> {
     public on getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? u75.k().m(str) : (on) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? h85.k().m(str) : (on) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -177,7 +177,7 @@ public class BigdayImageLoaderProc implements ah<on> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            zg5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            mh5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (xgVar != null) {
                 xgVar.a = webClient;

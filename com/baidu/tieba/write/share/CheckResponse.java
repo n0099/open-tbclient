@@ -3,8 +3,8 @@ package com.baidu.tieba.write.share;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.c29;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.r29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c29 mCheckResponseData;
+    public r29 mCheckResponseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CheckResponse() {
@@ -44,9 +44,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            c29 c29Var = new c29();
-            this.mCheckResponseData = c29Var;
-            c29Var.a = jSONObject.optString("tbopen_app_key");
+            r29 r29Var = new r29();
+            this.mCheckResponseData = r29Var;
+            r29Var.a = jSONObject.optString("tbopen_app_key");
             this.mCheckResponseData.c = jSONObject.optString("tbopen_app_name");
             this.mCheckResponseData.d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject("config");
@@ -56,9 +56,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public c29 getCheckResponseData() {
+    public r29 getCheckResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckResponseData : (c29) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckResponseData : (r29) invokeV.objValue;
     }
 }

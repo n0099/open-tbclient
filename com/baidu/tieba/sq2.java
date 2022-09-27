@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
 /* loaded from: classes5.dex */
 public interface sq2 {
-    void a(File file);
+    void onGetCurrentSong(String str);
 
-    void b(String str);
+    void onGetDownloadProgress(int i);
+
+    void onGetDuration(int i);
+
+    void onGetPosition(int i, int i2);
+
+    void onInvokeFailed();
+
+    void onStateChanged(BgMusicPlayState bgMusicPlayState);
 }

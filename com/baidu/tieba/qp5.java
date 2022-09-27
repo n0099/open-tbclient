@@ -1,65 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
+import android.view.View;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
 /* loaded from: classes5.dex */
 public class qp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<up5> a;
-    public List<up5> b;
 
-    public qp5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
+
+        public a(AlertDialog alertDialog, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alertDialog;
+            this.b = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                qp5.a(this.a, this.b);
             }
         }
     }
 
-    public List<up5> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean b(List<up5> list, i25 i25Var) {
+    public static final boolean a(Dialog dialog, Activity activity) {
         InterceptResult invokeLL;
-        List<i25> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, i25Var)) == null) {
-            if (list != null && i25Var != null) {
-                for (up5 up5Var : list) {
-                    if (up5Var != null && (a = up5Var.a()) != null) {
-                        for (i25 i25Var2 : a) {
-                            if (i25Var2 != null && i25Var2.d() == i25Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 == null || (windowToken = view2.getWindowToken()) == null) {
+                return false;
+            }
+            try {
+                if (windowToken.isBinderAlive()) {
+                    return windowToken.pingBinder();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean c(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
             return false;
@@ -67,49 +117,27 @@ public class qp5 {
         return invokeLL.booleanValue;
     }
 
-    public boolean c(DataRes dataRes) {
-        InterceptResult invokeL;
-        boolean z;
+    public static Dialog d(@NonNull pp5 pp5Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes == null || dataRes.robots_list == null) {
-                z = false;
-            } else {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        up5 up5Var = new up5();
-                        up5Var.d(robotslist);
-                        this.b.add(up5Var);
-                    }
-                }
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, pp5Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100107).create();
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
+            downloadRectifyView.a(pp5Var);
+            downloadRectifyView.setDownloadView(view2);
+            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
+            c(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(downloadRectifyView);
             }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        up5 up5Var2 = new up5();
-                        up5Var2.c(listdata);
-                        if (up5Var2.a() != null) {
-                            for (i25 i25Var : up5Var2.a()) {
-                                if (b(this.b, i25Var)) {
-                                    i25Var.q(1);
-                                } else {
-                                    i25Var.q(0);
-                                }
-                            }
-                        }
-                        this.a.add(up5Var2);
-                    }
-                }
-            }
-            return z;
+            return create;
         }
-        return invokeL.booleanValue;
+        return (Dialog) invokeLLLLL.objValue;
     }
 }

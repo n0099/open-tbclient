@@ -1,71 +1,122 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ac1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ac1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
-    public static void a(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, bundle) == null) || bundle == null) {
-            return;
-        }
-        try {
-            String string = bundle.getString("zid");
-            if (TextUtils.isEmpty(string)) {
-                return;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ac1 a;
+
+        public a(ac1 ac1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ac1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            bundle.remove("zid");
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("c", bundle.getString("cuid"));
-            jSONObject.put("z", string);
-            jSONObject.put("mac", qb1.c());
-            jSONObject.put("app", "android");
-            jSONObject.put("ver", rb1.a(context));
-            bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
-        } catch (Exception e) {
-            xb1.b(e.getMessage());
+            this.a = ac1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                kc1.g("开始重试");
+                if (bc1.n()) {
+                    kc1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                ac1.c(this.a);
+                if (this.a.c >= 3) {
+                    this.a.c = 0;
+                    kc1.g("重试三次结束重试");
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                kc1.g("重试失败继续重试");
+                this.a.b.postDelayed(this, this.a.d);
+            }
         }
     }
 
-    public static Bundle b(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
+    public ac1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
-            if (bundle == null) {
-                return new Bundle();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ob1.a = bundle.getString("bduss");
-            ob1.b = bundle.getString("tpOrderId");
-            ob1.g = bundle.getString("nativeAppId");
-            ob1.h = bundle.getString("sceneSource");
-            ob1.c = bundle.getString("appKey");
-            ob1.d = bundle.getString("dealId");
-            bundle.putString("deviceType", "ANDROID");
-            bundle.putString("channel", "cashiersdk");
-            bundle.putString(CommandMessage.SDK_VERSION, "2.8.7.9");
-            String[] stringArray = bundle.getStringArray("blockedPayChannels");
-            if (stringArray != null && stringArray.length > 0) {
-                bundle.remove("blockedPayChannels");
-                JSONArray jSONArray = new JSONArray();
-                for (String str : stringArray) {
-                    jSONArray.put(str);
-                }
-                bundle.putString("bannedChannels", jSONArray.toString());
-            }
-            a(context, bundle);
-            return bundle;
         }
-        return (Bundle) invokeLL.objValue;
+        this.d = 10000;
+        this.e = new a(this);
+    }
+
+    public static /* synthetic */ int c(ac1 ac1Var) {
+        int i = ac1Var.c;
+        ac1Var.c = i + 1;
+        return i;
+    }
+
+    public static ac1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (f == null) {
+                synchronized (ac1.class) {
+                    if (f == null) {
+                        f = new ac1();
+                    }
+                }
+            }
+            return f;
+        }
+        return (ac1) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            kc1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
+        }
     }
 }

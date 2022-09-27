@@ -2,13 +2,14 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class kc4 {
+public class kc4 extends jc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int o;
+    public String p;
 
     public kc4() {
         Interceptable interceptable = $ic;
@@ -22,20 +23,5 @@ public abstract class kc4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public abstract ad4 a();
-
-    public abstract boolean b(ad4 ad4Var);
-
-    public abstract void c(boolean z);
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
-        }
-        return (String) invokeV.objValue;
     }
 }

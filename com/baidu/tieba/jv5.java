@@ -1,55 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jv5 extends BaseCardInfo {
+public class jv5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896768, "Lcom/baidu/tieba/jv5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947896768, "Lcom/baidu/tieba/jv5;");
-                return;
-            }
+    public static void a(lt5 lt5Var, String str, String str2) {
+        SdkLiveInfoData sdkLiveInfoData;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        SdkLiveInfoData.YYExt yYExt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, lt5Var, str, str2) == null) || lt5Var == null || (sdkLiveInfoData = lt5Var.a) == null) {
+            return;
         }
-        b = BdUniqueId.gen();
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
+        if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
+            str3 = "";
+            str4 = str3;
+            str5 = str4;
+            str6 = str5;
+        } else {
+            str4 = yYExt.sid;
+            str5 = yYExt.ssid;
+            str6 = yYExt.yyUid;
+            str3 = yYExt.templateId;
+        }
+        TiebaStatic.log(new StatisticItem(str).param("fid", lt5Var.c).param("liveid", lt5Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3).param(TiebaStatic.YYParams.YYLIVEID, TextUtils.isEmpty(str4) ? "" : "1").param(TiebaStatic.Params.VID, lt5Var.a.nid).param("obj_source", TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2) ? 1 : 2));
     }
 
-    public jv5() {
+    public static void b(lt5 lt5Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, lt5Var, str) == null) {
+            a(lt5Var, "c14705", str);
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void c(lt5 lt5Var, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, lt5Var, str) == null) {
+            a(lt5Var, "c14704", str);
+        }
     }
 }

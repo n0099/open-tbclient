@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bp4;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.op4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ClickableHeaderImageView extends HeadImageView {
     public ThreadData S0;
     public boolean T0;
     public View.OnClickListener U0;
-    public bp4 V0;
+    public op4 V0;
     public View.OnClickListener W0;
 
     /* loaded from: classes3.dex */
@@ -57,8 +57,8 @@ public class ClickableHeaderImageView extends HeadImageView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                bp4 bp4Var = this.a.V0;
-                if ((bp4Var == null || !bp4Var.a(view2)) && this.a.S0 != null) {
+                op4 op4Var = this.a.V0;
+                if ((op4Var == null || !op4Var.a(view2)) && this.a.S0 != null) {
                     MetaData s = this.a.T0 ? this.a.S0.getTopAgreePost().s() : this.a.S0.getAuthor();
                     if (s == null || StringUtils.isNull(s.getName_show()) || StringUtils.isNull(s.getUserId())) {
                         return;
@@ -135,10 +135,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         UtilHelper.showHeadImageViewBigV(this, author);
     }
 
-    public void setOnInterceptClickEventListener(bp4 bp4Var) {
+    public void setOnInterceptClickEventListener(op4 op4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bp4Var) == null) {
-            this.V0 = bp4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, op4Var) == null) {
+            this.V0 = op4Var;
         }
     }
 

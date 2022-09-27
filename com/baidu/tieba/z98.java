@@ -1,45 +1,49 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class z98 {
+public class z98 extends i16<y88> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public MediaController.MediaPlayerControl c;
-    public b d;
-    public d e;
-    public c f;
-    public Handler g;
+    public long i;
+    public View j;
+    public TextView k;
+    public HTypeListView l;
+    public q78 m;
+    public View.OnClickListener n;
 
     /* loaded from: classes6.dex */
-    public class a extends Handler {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z98 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z98 z98Var, Looper looper) {
-            super(looper);
+        public a(z98 z98Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z98Var, looper};
+                Object[] objArr = {z98Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,110 +52,115 @@ public class z98 {
             this.a = z98Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
-                int currentPosition = this.a.c.getCurrentPosition();
-                int duration = this.a.c.getDuration();
-                if (currentPosition < this.a.b) {
-                    if (this.a.d != null) {
-                        this.a.d.a();
-                    }
-                } else if (currentPosition == this.a.b && this.a.e != null) {
-                    this.a.e.a();
-                }
-                if (this.a.f != null) {
-                    this.a.f.a(duration, currentPosition);
-                }
-                this.a.b = currentPosition;
-                this.a.h();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.s();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a();
-    }
-
-    public z98() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z98(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 1000;
-        this.b = 0;
-        this.g = new a(this, Looper.getMainLooper());
+        this.n = new a(this);
+        this.h = 4;
+        View h = h();
+        this.j = h;
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09056e);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f09056f);
+        this.l = hTypeListView;
+        this.m = new q78(this.b, hTypeListView);
     }
 
-    public final void h() {
+    @Override // com.baidu.tieba.i16
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.removeMessages(1);
-            Handler handler = this.g;
-            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01af : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || i == this.a) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    public void i(b bVar) {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.c).createNormalCfg(this.i, "personal")));
         }
     }
 
-    public void j(c cVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: t */
+    public void i(y88 y88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f = cVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, y88Var) == null) {
+            if (y88Var != null && !ListUtils.isEmpty(y88Var.b)) {
+                this.i = y88Var.a;
+                this.k.setText(R.string.obfuscated_res_0x7f0f155e);
+                this.l.setData(u(y88Var.b));
+                this.m.b(this.n);
+                return;
+            }
+            this.j.setVisibility(8);
         }
     }
 
-    public void k(d dVar) {
+    public final List<Cdo> u(List<Cdo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.e = dVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count <= 0) {
+                return list;
+            }
+            List<Cdo> arrayList = new ArrayList<>(list);
+            int f = ej.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702ce);
+            int f2 = ej.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            if (count > 3) {
+                arrayList = arrayList.subList(0, 3);
+                t88 t88Var = new t88();
+                t88Var.a = ej.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c);
+                t88Var.b = ej.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0702ba);
+                ListUtils.add(arrayList, t88Var);
+            }
+            d48 d48Var = new d48(f2, f);
+            ListUtils.add(arrayList, 0, d48Var);
+            ListUtils.add(arrayList, d48Var);
+            return arrayList;
         }
-    }
-
-    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
-            this.c = mediaPlayerControl;
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = 0;
-            h();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.removeMessages(1);
-        }
+        return (List) invokeL.objValue;
     }
 }

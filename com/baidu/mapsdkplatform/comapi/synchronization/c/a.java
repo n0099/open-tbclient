@@ -21,11 +21,11 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractRunnableC0112a implements Runnable {
+    public static abstract class AbstractRunnableC0109a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractRunnableC0112a() {
+        public AbstractRunnableC0109a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,7 +39,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ AbstractRunnableC0112a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0109a(b bVar) {
             this();
         }
 

@@ -1,64 +1,57 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.os.Process;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bh4 {
+public abstract class bh4 extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
+    public bh4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (str != null) {
-                return context.checkPermission(str, Process.myPid(), Process.myUid());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            throw new IllegalArgumentException("permission is null");
         }
-        return invokeLL.intValue;
     }
 
-    public static final int b(Context context, int i) {
-        InterceptResult invokeLI;
+    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return dh4.a(context, i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
+                getLayoutInflater().setFactory(this);
             }
-            return context.getResources().getColor(i);
+            super.onCreate(bundle);
         }
-        return invokeLI.intValue;
     }
 
-    public static final ColorStateList c(Context context, int i) {
-        InterceptResult invokeLI;
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return dh4.b(context, i);
-            }
-            return context.getResources().getColorStateList(i);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
+            View h = h(null, str, context, attributeSet);
+            return h == null ? super.onCreateView(str, context, attributeSet) : h;
         }
-        return (ColorStateList) invokeLI.objValue;
-    }
-
-    public static final Drawable d(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return ch4.a(context, i);
-            }
-            return context.getResources().getDrawable(i);
-        }
-        return (Drawable) invokeLI.objValue;
+        return (View) invokeLLL.objValue;
     }
 }

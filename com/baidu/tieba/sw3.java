@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,20 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sw3 {
+public final class sw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public float d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public float i;
-    public String j;
+    public tx3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +30,7 @@ public class sw3 {
                 return;
             }
         }
-        boolean z = ij1.a;
+        b = vj1.a;
     }
 
     public sw3() {
@@ -48,26 +43,60 @@ public class sw3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = true;
-        this.h = 0;
-        this.i = 1.0f;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static sw3 d(sv1 sv1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "url : " + this.c + "; AutoPlay : " + this.e + "; Volume :" + this.i + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sv1Var)) == null) {
+            if (sv1Var == null) {
+                return null;
+            }
+            sw3 sw3Var = new sw3();
+            sw3Var.a = tx3.e(sv1Var);
+            return sw3Var;
         }
-        return (String) invokeV.objValue;
+        return (sw3) invokeL.objValue;
+    }
+
+    public final JSONObject a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", ys3.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            tx3 tx3Var = this.a;
+            if (tx3Var != null) {
+                tx3Var.b(a);
+            }
+        }
+    }
+
+    public void c() {
+        tx3 tx3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tx3Var = this.a) == null) {
+            return;
+        }
+        tx3Var.c();
     }
 }

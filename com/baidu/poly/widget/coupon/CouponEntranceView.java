@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qc1;
+import com.baidu.tieba.dd1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class CouponEntranceView extends FrameLayout {
     public TextView a;
     public TextView b;
     public View c;
-    public qc1 d;
-    public qc1.a e;
+    public dd1 d;
+    public dd1.a e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -66,21 +66,21 @@ public class CouponEntranceView extends FrameLayout {
     }
 
     public void c() {
-        List<qc1.a> list;
+        List<dd1.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = null;
-            qc1 qc1Var = this.d;
-            if (!((qc1Var == null || (list = qc1Var.b) == null || list.size() <= 0) ? false : true)) {
+            dd1 dd1Var = this.d;
+            if (!((dd1Var == null || (list = dd1Var.b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<qc1.a> it = this.d.b.iterator();
+            Iterator<dd1.a> it = this.d.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                qc1.a next = it.next();
+                dd1.a next = it.next();
                 if (next.h == 1) {
                     this.e = next;
                     break;
@@ -92,7 +92,7 @@ public class CouponEntranceView extends FrameLayout {
             }
             setVisibility(0);
             this.a.setText(this.e.c);
-            qc1.a aVar = this.e;
+            dd1.a aVar = this.e;
             if (aVar.b == -1) {
                 String str = aVar.d;
                 this.b.setVisibility(8);
@@ -111,16 +111,16 @@ public class CouponEntranceView extends FrameLayout {
         }
     }
 
-    public qc1.a getSelectedItem() {
+    public dd1.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (qc1.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (dd1.a) invokeV.objValue;
     }
 
-    public void update(qc1 qc1Var) {
+    public void update(dd1 dd1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qc1Var) == null) {
-            this.d = qc1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dd1Var) == null) {
+            this.d = dd1Var;
             c();
         }
     }

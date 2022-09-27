@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ur6;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.is6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -115,7 +115,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a8f);
             this.e = textView;
-            uu4 d = uu4.d(textView);
+            hv4 d = hv4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -136,7 +136,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.h = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
         SkinManager.setViewTextColorWithClickState(this.e, color);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095b, color, WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08095d, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
             this.f.setBounds(0, 0, ej.f(this.b, R.dimen.T_X09), ej.f(this.b, R.dimen.T_X09));
@@ -170,9 +170,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            ur6 ur6Var = new ur6();
-            ur6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, ur6Var));
+            is6 is6Var = new is6();
+            is6Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, is6Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

@@ -1,178 +1,143 @@
 package com.baidu.tieba;
 
-import android.opengl.EGLContext;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ad0 implements Cloneable, Comparable<ad0> {
+public class ad0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLContext a;
-    public xc0 b;
-    public wc0 c;
-    public uc0 d;
-    public yc0 e;
-    public boolean f;
-    public tc0 g;
-    public zc0 h;
-    public int i;
-    public boolean j;
+    public cd0 a;
+    public gd0 b;
+    public nd0 c;
 
-    public ad0(EGLContext eGLContext, int i, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947611196, "Lcom/baidu/tieba/ad0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947611196, "Lcom/baidu/tieba/ad0;");
+        }
+    }
+
+    public ad0(nd0 nd0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {nd0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = eGLContext;
-        this.i = i;
-        this.j = z;
-        this.b = new xc0();
-        this.c = new wc0();
-        this.d = new vc0();
-        this.e = new yc0();
-        this.f = false;
-        this.g = null;
-        this.h = new zc0();
+        this.c = nd0Var;
+        this.a = new cd0(nd0Var.f(), 1);
+        d();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public ad0 clone() {
-        ad0 ad0Var;
-        InterceptResult invokeV;
+    public final void a(gd0 gd0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                ad0Var = (ad0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                ad0Var = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gd0Var) == null) {
+            if (gd0Var == null) {
+                this.b = new fd0();
+            } else {
+                this.b = gd0Var;
             }
-            if (ad0Var != null) {
-                ad0Var.m(this.e.clone());
-                ad0Var.p(this.h.clone());
+            this.b.b(this.c.j(), this.c.i());
+        }
+    }
+
+    public void b(long j) {
+        nd0 nd0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.b == null || (nd0Var = this.c) == null) {
+            return;
+        }
+        if (nd0Var.l()) {
+            d();
+        }
+        if (j != 0) {
+            this.c.h().h(j);
+        }
+        this.b.a(this.c.e(), this.c.h());
+    }
+
+    public cd0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (cd0) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            float[] b = this.c.h().b();
+            pd0.b(b);
+            ld0 c = this.c.c();
+            pd0.e(b, c.g(), c.h());
+            pd0.a(b, c.d());
+            pd0.c(b, c.b());
+            if ((c.f() + 360) % 180 == 0) {
+                pd0.d(b, this.c.j(), this.c.i(), c.e(), c.c());
+                return;
             }
-            return ad0Var;
-        }
-        return (ad0) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: b */
-    public int compareTo(ad0 ad0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad0Var)) == null) ? this.i < ad0Var.d() ? -1 : 1 : invokeL.intValue;
-    }
-
-    public yc0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (yc0) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public uc0 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (uc0) invokeV.objValue;
-    }
-
-    public EGLContext f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (EGLContext) invokeV.objValue;
-    }
-
-    public tc0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (tc0) invokeV.objValue;
-    }
-
-    public zc0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : (zc0) invokeV.objValue;
-    }
-
-    public wc0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : (wc0) invokeV.objValue;
-    }
-
-    public xc0 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (xc0) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void m(yc0 yc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, yc0Var) == null) {
-            this.e = yc0Var;
+            jd0 clone = this.c.i().clone();
+            clone.e(this.c.i().b());
+            clone.d(this.c.i().c());
+            pd0.d(b, this.c.j(), clone, c.e(), c.c());
         }
     }
 
-    public void n(EGLContext eGLContext) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, eGLContext) == null) {
-            this.a = eGLContext;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            gd0 gd0Var = this.b;
+            if (gd0Var != null) {
+                gd0Var.release();
+                this.b = null;
+            }
+            cd0 cd0Var = this.a;
+            if (cd0Var != null) {
+                cd0Var.f();
+                this.a = null;
+            }
         }
     }
 
-    public void o(tc0 tc0Var) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, tc0Var) == null) {
-            this.g = tc0Var;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            gd0 g = this.c.g();
+            this.b = g;
+            a(g);
         }
     }
 
-    public void p(zc0 zc0Var) {
+    public void g(gd0 gd0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, zc0Var) == null) {
-            this.h = zc0Var;
-        }
-    }
-
-    public void q(xc0 xc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, xc0Var) == null) {
-            this.b = xc0Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gd0Var) == null) {
+            nd0 nd0Var = this.c;
+            if (nd0Var != null) {
+                nd0Var.o(gd0Var);
+            }
+            this.b.release();
+            a(gd0Var);
         }
     }
 }

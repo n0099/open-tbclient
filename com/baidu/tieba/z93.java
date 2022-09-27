@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.tieba.io2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class z93 extends ba3 {
+public class z93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
-    public static int y;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static volatile boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public JSONObject w;
 
     static {
         InterceptResult invokeClinit;
@@ -36,177 +33,181 @@ public class z93 extends ba3 {
                 return;
             }
         }
-        x = ij1.a;
-        y = 35;
+        a = vj1.a;
+        b = false;
+        c = false;
+        sm2.g0().getSwitch("swan_app_use_route_statistic", false);
+        d = false;
     }
 
-    public z93() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.v = false;
-        this.c = "NA";
-    }
-
-    @Override // com.baidu.tieba.ba3, com.baidu.tieba.aa3
-    public JSONObject f() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
             }
-            try {
-                if (this.w != null) {
-                    if (this.v) {
-                        String z = sg3.z(y);
-                        if (!TextUtils.isEmpty(z)) {
-                            this.w.put("stacktrace", z);
-                        }
-                    }
-                    if (this.w.length() != 0) {
-                        this.h.put("info", this.w);
-                    }
+            boolean z = c;
+            k(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
+            }
+            boolean z = b;
+            l(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public static void d(lt2 lt2Var, String str, cq1 cq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, lt2Var, str, cq1Var) == null) {
+            e(lt2Var, str, cq1Var, null);
+        }
+    }
+
+    public static void e(lt2 lt2Var, String str, cq1 cq1Var, String str2) {
+        l33 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, lt2Var, str, cq1Var, str2) == null) && d && (b0 = l33.b0()) != null) {
+            io2.a W = b0.W();
+            oa3 oa3Var = new oa3();
+            oa3Var.a = ea3.n(W.G());
+            oa3Var.f = W.H();
+            if (c12.d()) {
+                oa3Var.c = "remote-debug";
+            } else if (kz2.D()) {
+                oa3Var.c = "local-debug";
+            } else {
+                oa3Var.c = W.T();
+            }
+            oa3Var.b = "pageshow";
+            if (!TextUtils.isEmpty(str)) {
+                oa3Var.e = str;
+            }
+            if (lt2Var != null) {
+                oa3Var.a("path", lt2Var.a);
+                oa3Var.a("routeType", lt2Var.e);
+                oa3Var.a("routeid", lt2Var.f);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                oa3Var.a("errcode", str2);
+            }
+            if (cq1Var != null && cq1Var.c > 0) {
+                oa3Var.a("valuetype", cq1Var.g);
+            }
+            Bundle P = W.P();
+            if (P != null) {
+                oa3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+            }
+            oa3Var.b(ea3.k(W.W()));
+            if (a) {
+                Log.d("SwanAppRouteUbc", "onRouteEvent - " + oa3Var.f());
+            }
+            ea3.onEvent(oa3Var);
+        }
+    }
+
+    public static lt2 f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            u22 V = yo2.U().V();
+            lt2 lt2Var = null;
+            if (V == null) {
+                return null;
+            }
+            r22 j = V.j((V.k() - i) - 1);
+            if (j instanceof t22) {
+                lt2Var = ((t22) j).m3();
+                lt2Var.e = "1";
+                lt2Var.f = str;
+            }
+            g(lt2Var);
+            return lt2Var;
+        }
+        return (lt2) invokeLI.objValue;
+    }
+
+    public static void g(lt2 lt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, lt2Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
+            }
+            if (c()) {
+                return;
+            }
+            k(true);
+            d(lt2Var, null, null);
+        }
+    }
+
+    public static void h(lt2 lt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, lt2Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
+            }
+            d(lt2Var, null, null);
+        }
+    }
+
+    public static void i(lt2 lt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, lt2Var) == null) {
+            j(lt2Var, null);
+        }
+    }
+
+    public static void j(lt2 lt2Var, ef3 ef3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, lt2Var, ef3Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + lt2Var + " errCode=" + ef3Var);
+            }
+            if (c) {
+                if (ef3Var == null) {
+                    ef3Var = new ef3();
+                    ef3Var.k(5L);
+                    ef3Var.i(58L);
+                    ef3Var.d("route check fail");
                 }
-                ExtensionCore T = s92.U().T();
-                if (T != null) {
-                    this.h.put("extension_ver", T.extensionCoreVersionName);
-                }
-            } catch (JSONException e) {
-                if (x) {
-                    e.printStackTrace();
-                }
+                e(lt2Var, com.baidu.pass.biometrics.face.liveness.b.a.g0, null, String.valueOf(ef3Var.a()));
             }
-            return super.f();
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public z93 l(String str, String str2) {
-        InterceptResult invokeLL;
+    public static synchronized void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (str != null && str2 != null) {
-                if (this.w == null) {
-                    this.w = new JSONObject();
-                }
-                try {
-                    this.w.put(str, str2);
-                } catch (JSONException e) {
-                    if (x) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            synchronized (z93.class) {
+                c = z;
             }
-            return this;
         }
-        return (z93) invokeLL.objValue;
     }
 
-    public z93 m(String str) {
-        InterceptResult invokeL;
+    public static synchronized void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (z93) invokeL.objValue;
-    }
-
-    public z93 n(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.v = z;
-            return this;
-        }
-        return (z93) invokeZ.objValue;
-    }
-
-    public z93 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.b = String.valueOf(i);
-            return this;
-        }
-        return (z93) invokeI.objValue;
-    }
-
-    public z93 p(@NonNull re3 re3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, re3Var)) == null) {
-            this.b = String.valueOf(re3Var.a());
-            String sb = re3Var.g().toString();
-            if (!TextUtils.isEmpty(sb)) {
-                l("detail", sb);
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            synchronized (z93.class) {
+                b = z;
             }
-            return this;
         }
-        return (z93) invokeL.objValue;
-    }
-
-    public z93 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (z93) invokeL.objValue;
-    }
-
-    public z93 r(yn2 yn2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, yn2Var)) == null) {
-            if (yn2Var == null) {
-                return this;
-            }
-            if (!TextUtils.isEmpty(yn2Var.T())) {
-                this.c = yn2Var.T();
-            }
-            if (!TextUtils.isEmpty(yn2Var.H())) {
-                this.f = yn2Var.H();
-            }
-            if (!TextUtils.isEmpty(yn2Var.W())) {
-                this.p = yn2Var.W();
-            }
-            if (!TextUtils.isEmpty(yn2Var.e0())) {
-                this.s = yn2Var.e0();
-            }
-            return this;
-        }
-        return (z93) invokeL.objValue;
-    }
-
-    public z93 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (z93) invokeL.objValue;
-    }
-
-    public z93 t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (z93) invokeL.objValue;
     }
 }

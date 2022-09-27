@@ -1,102 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class kj0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kj0 {
+    public static final ServiceReference d = new ServiceReference("nad.core", "hostCI");
+    public static final kj0 e = new a();
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public static class a implements kj0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kj0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-659568070, "Lcom/baidu/tieba/kj0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-659568070, "Lcom/baidu/tieba/kj0$b;");
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new kj0(null);
+        }
+
+        @Override // com.baidu.tieba.kj0
+        public String i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.kj0
+        public String j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.kj0
+        @NonNull
+        public String s() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.kj0
+        @NonNull
+        public String v() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.kj0
+        @NonNull
+        public String w() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
         }
     }
 
-    public /* synthetic */ kj0(a aVar) {
-        this();
-    }
+    String i();
 
-    public static kj0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (kj0) invokeV.objValue;
-    }
+    String j();
 
-    public void b(yj0 yj0Var) {
-        ck0 ck0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, yj0Var) == null) || yj0Var == null || (ck0Var = yj0Var.p) == null || yj0Var.q == null || TextUtils.isEmpty(ck0Var.a)) {
-            return;
-        }
-        zj0 zj0Var = yj0Var.q;
-        long j = zj0Var.q;
-        if (j < 0) {
-            return;
-        }
-        String str = yj0Var.d;
-        zj0Var.p = f21.c(j, System.currentTimeMillis());
-        ClogBuilder n = new ClogBuilder().y(ClogBuilder.LogType.DOWNLOAD_KEEP).p(yj0Var.p.a).k(str).n(String.valueOf(yj0Var.q.p));
-        JSONObject jSONObject = new JSONObject();
-        try {
-            PackageInfo packageInfo = mi0.b().getPackageManager().getPackageInfo(str, 0);
-            n.l(packageInfo.versionName).m(String.valueOf(packageInfo.versionCode));
-            kz0.d(jSONObject, "installed", 1);
-        } catch (PackageManager.NameNotFoundException unused) {
-            kz0.d(jSONObject, "installed", 0);
-            yj0Var.q.q = -2L;
-        } catch (Throwable unused2) {
-            return;
-        }
-        n.o(jSONObject.toString());
-        uz0.b(n);
-        pj0.b().e(yj0Var);
-    }
+    @NonNull
+    String s();
 
-    public kj0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    @NonNull
+    String v();
+
+    @NonNull
+    String w();
 }

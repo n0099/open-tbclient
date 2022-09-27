@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ri2 extends sg2<jj2> {
+public class ri2 extends fh2<wj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,25 +27,25 @@ public class ri2 extends sg2<jj2> {
         }
     }
 
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBackgroundMute" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableMicPhone" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull jj2 jj2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wj2 wj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jj2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wj2Var) == null) {
             String str = command.what;
-            d(jj2Var, str, "" + command.obj, true);
+            d(wj2Var, str, "" + command.obj, true);
             Object obj = command.obj;
             if (obj instanceof Boolean) {
-                jj2Var.M(((Boolean) obj).booleanValue());
+                wj2Var.d0(((Boolean) obj).booleanValue());
             }
         }
     }

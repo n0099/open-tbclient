@@ -28,11 +28,11 @@ public class EasterEggStatic {
 
         /* renamed from: com.baidu.tieba.easterEgg.EasterEggStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0243a implements Runnable {
+        public class RunnableC0235a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0243a(a aVar) {
+            public RunnableC0235a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class EasterEggStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                gh.a().postDelayed(new RunnableC0243a(this), 10000L);
+                gh.a().postDelayed(new RunnableC0235a(this), 10000L);
             }
         }
     }

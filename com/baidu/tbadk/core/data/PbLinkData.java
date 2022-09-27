@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tieba.d26;
+import com.baidu.tieba.q26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbLinkInfo;
 /* loaded from: classes3.dex */
-public class PbLinkData extends d26 implements Serializable {
+public class PbLinkData extends q26 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String extTxt;
@@ -69,7 +69,7 @@ public class PbLinkData extends d26 implements Serializable {
         this.urlType = pbLinkInfo.url_type.intValue();
     }
 
-    @Override // com.baidu.tieba.d26
+    @Override // com.baidu.tieba.q26
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

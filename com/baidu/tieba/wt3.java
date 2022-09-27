@@ -1,196 +1,136 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class wt3 {
+public class wt3 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static long b;
-    public static Handler c;
-    public static long d;
-    public static final Handler.Callback e;
-    public static final wt3 f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static final class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-306693706, "Lcom/baidu/tieba/wt3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-306693706, "Lcom/baidu/tieba/wt3$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler.Callback
-        public final boolean handleMessage(Message msg) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
-                Intrinsics.checkNotNullParameter(msg, "msg");
-                if (msg.what == 0 && wt3.f.g()) {
-                    wt3 wt3Var = wt3.f;
-                    if (wt3.b < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                        long elapsedRealtime = SystemClock.elapsedRealtime();
-                        wt3 wt3Var2 = wt3.f;
-                        wt3 wt3Var3 = wt3.f;
-                        wt3.b = (wt3.b + elapsedRealtime) - wt3.d;
-                        wt3 wt3Var4 = wt3.f;
-                        wt3.d = elapsedRealtime;
-                        wt3 wt3Var5 = wt3.f;
-                        Handler handler = wt3.c;
-                        if (handler != null) {
-                            handler.sendEmptyMessageDelayed(0, 1000L);
-                        }
-                        wt3 wt3Var6 = wt3.f;
-                        if ((wt3.b / 1000) % 15 == 0) {
-                            xs3 xs3Var = xs3.o;
-                            wt3 wt3Var7 = wt3.f;
-                            xs3Var.U(wt3.b);
-                            return true;
-                        }
-                        return true;
-                    }
-                }
-                wt3 wt3Var8 = wt3.f;
-                wt3.d = 0L;
-                wt3.f.i(false);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282067, "Lcom/baidu/tieba/wt3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282067, "Lcom/baidu/tieba/wt3;");
-                return;
-            }
-        }
-        f = new wt3();
-        e = a.a;
-    }
+    public volatile HashMap<String, List<eu3>> a;
 
     public wt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : invokeV.longValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long j = b;
-            if (j < 30000) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b = j % 30000;
-            xs3.o.M();
         }
+        this.a = new HashMap<>();
     }
 
-    public final void i(boolean z) {
+    public synchronized void a(String str, eu3 eu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            a = z;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (c == null) {
-                c = new Handler(e);
-            }
-            b = xs3.o.A();
-            a = true;
-            d = SystemClock.elapsedRealtime();
-            Handler handler = c;
-            if (handler != null) {
-                handler.sendEmptyMessageDelayed(0, 1000L);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, eu3Var) == null) {
+            synchronized (this) {
+                if (e(str, eu3Var)) {
+                    return;
+                }
+                List<eu3> c = c(str);
+                if (!c.contains(eu3Var)) {
+                    c.add(eu3Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
+                }
             }
         }
     }
 
-    public final void k() {
+    public synchronized void b(String str, fu3 fu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            a = false;
-            Handler handler = c;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fu3Var) == null) {
+            synchronized (this) {
+                for (eu3 eu3Var : new ArrayList(c(str))) {
+                    if (eu3Var != null) {
+                        eu3Var.a(fu3Var);
+                    }
+                }
             }
-            if (d > 0) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                b = (b + elapsedRealtime) - d;
-                d = elapsedRealtime;
+        }
+    }
+
+    public final List<eu3> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
             }
-            xs3.o.U(b);
+            List<eu3> list = this.a.get(str);
+            return list == null ? new ArrayList() : list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<eu3> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean e(String str, eu3 eu3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, eu3Var)) == null) ? TextUtils.isEmpty(str) || eu3Var == null : invokeLL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
+        }
+    }
+
+    public synchronized void g(String str, eu3 eu3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, eu3Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (eu3Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<eu3> c = c(str);
+                if (c.contains(eu3Var)) {
+                    c.remove(eu3Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
         }
     }
 }

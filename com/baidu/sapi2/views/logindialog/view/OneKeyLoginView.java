@@ -42,13 +42,13 @@ public class OneKeyLoginView extends LinearLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.OneKeyLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0139a extends OneKeyLoginCallback {
+        public class C0136a extends OneKeyLoginCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0139a(a aVar, long j) {
+            public C0136a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class OneKeyLoginView extends LinearLayout {
                         Log.e(QuickLoginDialog.STAG, "onekey login privacy is not agree");
                         return;
                     }
-                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0139a(this, System.currentTimeMillis()));
+                    CoreViewRouter.getInstance().loadOneKeyLogin(this.a.a, new C0136a(this, System.currentTimeMillis()));
                     return;
                 }
                 Log.e(QuickLoginDialog.STAG, "onekey login mContext || mConfirmCallback is null");
@@ -202,8 +202,8 @@ public class OneKeyLoginView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04d8, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9b);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9c);
             this.c = textView;
             textView.setOnClickListener(new a(this));
         }

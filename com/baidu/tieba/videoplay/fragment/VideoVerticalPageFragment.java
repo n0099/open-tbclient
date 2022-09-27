@@ -52,18 +52,19 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.OnActivityFinishListener;
 import com.baidu.tbadk.util.SimpleMessageListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay8;
-import com.baidu.tieba.bp8;
-import com.baidu.tieba.cx8;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.dm5;
-import com.baidu.tieba.dx8;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.el4;
-import com.baidu.tieba.iu6;
+import com.baidu.tieba.ey8;
+import com.baidu.tieba.fa5;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.px8;
-import com.baidu.tieba.s95;
+import com.baidu.tieba.nx8;
+import com.baidu.tieba.oy8;
+import com.baidu.tieba.py8;
+import com.baidu.tieba.qm5;
+import com.baidu.tieba.qp8;
+import com.baidu.tieba.rl4;
+import com.baidu.tieba.rx8;
+import com.baidu.tieba.sx8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.video.VideoItemModel;
@@ -80,8 +81,7 @@ import com.baidu.tieba.videoplay.model.JumpYYLiveHttpResponseMessage;
 import com.baidu.tieba.videoplay.model.VideoChannelModel;
 import com.baidu.tieba.videoplay.model.VideoHotTopicModel;
 import com.baidu.tieba.videoplay.model.VideoPersonalModel;
-import com.baidu.tieba.yw8;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.wu6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,7 +105,7 @@ import tbclient.ThreadInfo;
 import tbclient.VideoRedIcon.RedIcon;
 @Metadata(d1 = {"\u0000ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u001e\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\b\u0004\u0018\u00002\u00020\u00012\u00020\u0002:\u0002£\u0001B1\u0012\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b\u0012\b\b\u0002\u0010\t\u001a\u00020\b¢\u0006\u0002\u0010\nJ\b\u0010W\u001a\u00020?H\u0002J\b\u0010X\u001a\u00020\u0012H\u0016J\r\u0010Y\u001a\u0004\u0018\u00010\u0014¢\u0006\u0002\u0010ZJ\r\u0010[\u001a\u0004\u0018\u00010\u0014¢\u0006\u0002\u0010ZJ\b\u0010\\\u001a\u00020\u0014H\u0016J\u0017\u0010]\u001a\u00020\u00142\n\b\u0002\u0010^\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010_J\b\u0010`\u001a\u0004\u0018\u00010\u0010J\"\u0010a\u001a\u00020?2\u0006\u0010b\u001a\u00020\b2\u0006\u0010c\u001a\u00020\b2\b\u0010d\u001a\u0004\u0018\u00010eH\u0016J\b\u0010f\u001a\u00020\u0019H\u0016J\b\u0010g\u001a\u00020?H\u0016J\b\u0010h\u001a\u00020?H\u0002J\b\u0010i\u001a\u00020\u0019H\u0002J\b\u0010j\u001a\u00020\u0019H\u0002J\b\u0010k\u001a\u00020\u0019H\u0002J\b\u0010l\u001a\u00020\u0019H\u0002J\b\u0010m\u001a\u00020\u0019H\u0002J\b\u0010n\u001a\u00020\u0019H\u0002J\b\u0010o\u001a\u00020\u0019H\u0002J\b\u0010p\u001a\u00020\u0019H\u0002J\b\u0010q\u001a\u00020\u0019H\u0002J\b\u0010r\u001a\u00020\u0019H\u0002J\b\u0010s\u001a\u00020\u0019H\u0002J\b\u0010t\u001a\u00020\u0019H\u0002J\b\u0010u\u001a\u00020\u0019H\u0002J\b\u0010v\u001a\u00020\u0019H\u0002J\b\u0010w\u001a\u00020\u0019H\u0002J\b\u0010x\u001a\u00020\u0019H\u0002J\b\u0010y\u001a\u00020\u0019H\u0002J\b\u0010z\u001a\u00020\u0019H\u0002J\b\u0010{\u001a\u00020\u0019H\u0002J\b\u0010|\u001a\u00020\u0019H\u0002J#\u0010}\u001a\u00020?2\u0006\u0010~\u001a\u00020\u00192\u0006\u0010\u007f\u001a\u00020\u00192\t\u0010\u0080\u0001\u001a\u0004\u0018\u00010\u0012H\u0002J\t\u0010\u0081\u0001\u001a\u00020?H\u0002J\u0015\u0010\u0082\u0001\u001a\u00020?2\n\u0010\u0083\u0001\u001a\u0005\u0018\u00010\u0084\u0001H\u0016J#\u0010\u0085\u0001\u001a\u00020?2\u0006\u0010b\u001a\u00020\b2\u0006\u0010c\u001a\u00020\b2\b\u0010d\u001a\u0004\u0018\u00010eH\u0016J\u0012\u0010\u0086\u0001\u001a\u00020?2\u0007\u0010\u0087\u0001\u001a\u00020\bH\u0016J-\u0010\u0088\u0001\u001a\u0004\u0018\u0001012\b\u0010\u0089\u0001\u001a\u00030\u008a\u00012\n\u0010\u008b\u0001\u001a\u0005\u0018\u00010\u008c\u00012\n\u0010\u0083\u0001\u001a\u0005\u0018\u00010\u0084\u0001H\u0016J\t\u0010\u008d\u0001\u001a\u00020?H\u0016J\t\u0010\u008e\u0001\u001a\u00020?H\u0016J\t\u0010\u008f\u0001\u001a\u00020?H\u0016J\t\u0010\u0090\u0001\u001a\u00020?H\u0016J\t\u0010\u0091\u0001\u001a\u00020?H\u0016J\t\u0010\u0092\u0001\u001a\u00020?H\u0002J\t\u0010\u0093\u0001\u001a\u00020?H\u0002J\t\u0010\u0094\u0001\u001a\u00020?H\u0002J\u0012\u0010\u0095\u0001\u001a\u00020?2\u0007\u0010\u0096\u0001\u001a\u00020\bH\u0002J\u0011\u0010\u0097\u0001\u001a\u00020?2\u0006\u0010\u001b\u001a\u00020\u0019H\u0016J\u0012\u0010\u0098\u0001\u001a\u00020?2\t\u0010\u0099\u0001\u001a\u0004\u0018\u00010\u0010J\t\u0010\u009a\u0001\u001a\u00020?H\u0002J\t\u0010\u009b\u0001\u001a\u00020?H\u0002J$\u0010\u009c\u0001\u001a\u00020?2\b\u0010\u009d\u0001\u001a\u00030\u009e\u00012\u000f\u0010\u009f\u0001\u001a\n\u0012\u0005\u0012\u00030\u009e\u00010 \u0001H\u0002J&\u0010¡\u0001\u001a\u00020?2\n\u0010\u009d\u0001\u001a\u0005\u0018\u00010\u009e\u00012\u000f\u0010\u009f\u0001\u001a\n\u0012\u0005\u0012\u00030\u009e\u00010 \u0001H\u0002J\t\u0010¢\u0001\u001a\u00020?H\u0002R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u0015R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0012\u0010\u001d\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u0015R\u0010\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u0004\u0018\u00010#X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010%\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010*\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010+\u001a\u0004\u0018\u00010,X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010.\u001a\u0004\u0018\u00010/X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00100\u001a\u0004\u0018\u000101X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00102\u001a\u0004\u0018\u00010\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00103\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u00104\u001a\u0004\u0018\u000105X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00106\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00107\u001a\u0004\u0018\u000108X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00109\u001a\u0004\u0018\u00010:X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010;\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010<\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0018\u0010=\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010?\u0018\u00010>X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010@\u001a\u0004\u0018\u00010AX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010B\u001a\u0004\u0018\u00010CX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010D\u001a\u00020\u0006X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bE\u0010F\"\u0004\bG\u0010HR\u0010\u0010I\u001a\u0004\u0018\u00010JX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010K\u001a\u0004\u0018\u00010LX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010M\u001a\u0004\u0018\u00010NX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010O\u001a\u00020PX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bQ\u0010R\"\u0004\bS\u0010TR\u0010\u0010U\u001a\u0004\u0018\u00010VX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006¤\u0001"}, d2 = {"Lcom/baidu/tieba/videoplay/fragment/VideoVerticalPageFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/fragment/IVideoPlayActicityFragment;", "mActivityPageUniqueId", "Lcom/baidu/adp/BdUniqueId;", "progressViewCallback", "Lcom/baidu/adp/widget/refresh/BdSwipeRefreshLayout$OnProgressViewCallback;", "mainPageType", "", "mCurrentType", "(Lcom/baidu/adp/BdUniqueId;Lcom/baidu/adp/widget/refresh/BdSwipeRefreshLayout$OnProgressViewCallback;II)V", "backGroundListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "dataController", "Lcom/baidu/tieba/videoplay/controller/VideoDataController;", "eventListener", "Lcom/baidu/tbadk/widget/viewpager/VerticalViewPagerEventController$EventListener;", "fid", "", "firstVideoTid", "", "Ljava/lang/Long;", "goPbCommentFloatListener", "Lcom/baidu/tieba/videoplay/VideoPlayFragment$GoPbCommentFloatListener;", "isSchemeUp", "", "isVertail", "isVisibleToUser", "keyboardShowHideListener", "lastVideoTid", "mAdCloseListener", "mFeedBackListener", "mFrom", "mFromPage", "mFrsVideoTabModel", "Lcom/baidu/tieba/videoplay/model/FrsVideoTabModel;", "mHasMore", "mLocate", "mMidChannelNum", "mNAdDispatcher", "Lcom/baidu/tieba/videoplay/nad/AdVideoFlowDispatcher;", "mNetworkChangedMessageListener", "mObjId", "mPollingModel", "Lcom/baidu/tbadk/core/leveiconlivepolling/PollingModel;", "mRecommendTabInsertDataListener", "mRect", "Landroid/graphics/Rect;", "mRootView", "Landroid/view/View;", "mStType", "mUEGFeedBackListener", "mVideoChannelModel", "Lcom/baidu/tieba/videoplay/model/VideoChannelModel;", "mVideoIndex", "mVideoPlayModel", "Lcom/baidu/tieba/videoplay/VideoPlayModel;", "mVideoPlayView", "Lcom/baidu/tieba/videoplay/VideoPlayView;", "mVideoShowIndex", "mVideoTabReqFunAd", "onActivityFinishListener", "Lcom/baidu/tbadk/util/OnActivityFinishListener;", "", "onDeleteSelfPostListener", "Lcom/baidu/tieba/videoplay/fragment/VideoVerticalPageFragment$OnDeleteSelfPostListener;", "personalPageParams", "Lcom/baidu/tbadk/core/atomData/VideoRecommentPlayActivityConfig$PersonalPageParams;", "progressViewCallbackFra", "getProgressViewCallbackFra", "()Lcom/baidu/adp/widget/refresh/BdSwipeRefreshLayout$OnProgressViewCallback;", "setProgressViewCallbackFra", "(Lcom/baidu/adp/widget/refresh/BdSwipeRefreshLayout$OnProgressViewCallback;)V", "videoHotTopicModel", "Lcom/baidu/tieba/videoplay/model/VideoHotTopicModel;", "videoHotTopicParams", "Lcom/baidu/tbadk/module/hottopic/VideoHotTopicParams;", "videoPersonalModel", "Lcom/baidu/tieba/videoplay/model/VideoPersonalModel;", "viewPagerBottomScrollMoreCallback", "Lcom/baidu/tieba/videoplay/VideoPlayView$OnViewPagerBottomScrollMoreCallback;", "getViewPagerBottomScrollMoreCallback", "()Lcom/baidu/tieba/videoplay/VideoPlayView$OnViewPagerBottomScrollMoreCallback;", "setViewPagerBottomScrollMoreCallback", "(Lcom/baidu/tieba/videoplay/VideoPlayView$OnViewPagerBottomScrollMoreCallback;)V", "youngsterVerticalLayout", "Landroid/widget/RelativeLayout;", "frsStepStat", "getCurrentPageKey", "getFirstVideoTid", "()Ljava/lang/Long;", "getLastVideoTid", "getMissionTid", "getShowVideoTid", "index", "(Ljava/lang/Integer;)J", "getVEventListener", "handleActivityResult", GroupInfoActivityConfig.REQUEST_CODE, "resultCode", "data", "Landroid/content/Intent;", "handleBackPress", "handleIndexMessage", "initData", "isFromAgreePage", "isFromAtPage", "isFromCollection", "isFromCreateCenterPage", "isFromFrsTop", "isFromHistory", "isFromLink", "isFromMyThread", "isFromOfficalVideo", "isFromPbVideoSchema", "isFromPersonalPage", "isFromReplyPage", "isFromWorkManagement", "isFrsVideoTab", "isHotTopicPlay", "isNoTabPlay", "isPersonalPlay", "isPersonalSharePlay", "isRecommendPlay", "isShareThread", "notifyPersonalPage", "isDelete", "isDeleteSucceed", "deleteErrorMessage", "notifyVideoHotTopicPage", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onActivityResult", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, "onDestroyView", MissionEvent.MESSAGE_PAUSE, "onPrimary", "onResume", "processVideoHotTopicModel", "processVideoPersonalModel", "registerJumpYYLiveHttpTask", "setEmptyHeight", "height", "setUserVisibleHint", "setVideoPlayViewEventListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "showData", "stepStat", "syncFirstVideoFollowState", "originalData", "Lcom/baidu/tieba/video/VideoItemData;", "newList", "", "syncFirstVideoThreadData", "updateYoungsterMode", "OnDeleteSelfPostListener", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
-public final class VideoVerticalPageFragment extends BaseFragment implements zx8 {
+public final class VideoVerticalPageFragment extends BaseFragment implements oy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoHotTopicModel A;
@@ -118,9 +118,9 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     public OnActivityFinishListener<Unit> H;
     public OnDeleteSelfPostListener I;
     public String J;
-    public dm5.b K;
+    public qm5.b K;
     public final CustomMessageListener L;
-    public ay8 M;
+    public py8 M;
     public final CustomMessageListener N;
     public final CustomMessageListener O;
     public final CustomMessageListener P;
@@ -136,7 +136,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     public View e;
     public VideoPlayView f;
     public RelativeLayout g;
-    public final cx8 h;
+    public final rx8 h;
     public int i;
     public int j;
     public Rect k;
@@ -286,10 +286,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                         Intrinsics.checkNotNullExpressionValue(isBackground, "isBackground");
                         if (isBackground.booleanValue()) {
                             boolean z = false;
-                            if (n9.g().b() instanceof bp8) {
+                            if (n9.g().b() instanceof qp8) {
                                 Activity b = n9.g().b();
                                 if (b != null) {
-                                    if (((bp8) b).getCurrentTabType() == 22) {
+                                    if (((qp8) b).getCurrentTabType() == 22) {
                                         z = true;
                                     }
                                 } else {
@@ -310,7 +310,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements dm5.b {
+    public static final class b implements qm5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -333,10 +333,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.baidu.tieba.dm5.b
+        @Override // com.baidu.tieba.qm5.b
         public void j0(float f, float f2) {
             VideoPlayView videoPlayView;
-            dm5.b E;
+            qm5.b E;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (videoPlayView = this.a.f) == null || (E = videoPlayView.E()) == null) {
                 return;
@@ -344,10 +344,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             E.j0(f, f2);
         }
 
-        @Override // com.baidu.tieba.dm5.b
+        @Override // com.baidu.tieba.qm5.b
         public void onViewClick() {
             VideoPlayView videoPlayView;
-            dm5.b E;
+            qm5.b E;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (videoPlayView = this.a.f) == null || (E = videoPlayView.E()) == null) {
                 return;
@@ -355,10 +355,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             E.onViewClick();
         }
 
-        @Override // com.baidu.tieba.dm5.b
+        @Override // com.baidu.tieba.qm5.b
         public void onViewDragToRight() {
             VideoPlayView videoPlayView;
-            dm5.b E;
+            qm5.b E;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoPlayView = this.a.f) == null || (E = videoPlayView.E()) == null) {
                 return;
@@ -368,7 +368,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     }
 
     /* loaded from: classes6.dex */
-    public static final class c implements iu6.h {
+    public static final class c implements wu6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -391,14 +391,14 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && iu6.m().v("6061002332-203360688") && this.a.f != null) {
-                cx8 cx8Var = this.a.h;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && wu6.m().v("6061002332-203360688") && this.a.f != null) {
+                rx8 rx8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
-                cx8Var.a(videoPlayView.n);
+                rx8Var.a(videoPlayView.n);
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 == null) {
                     return;
@@ -407,7 +407,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             }
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -416,7 +416,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     }
 
     /* loaded from: classes6.dex */
-    public static final class d implements iu6.h {
+    public static final class d implements wu6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -439,14 +439,14 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && iu6.m().v(iu6.s()) && this.a.f != null) {
-                cx8 cx8Var = this.a.h;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && wu6.m().v(wu6.s()) && this.a.f != null) {
+                rx8 rx8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
-                cx8Var.a(videoPlayView.n);
+                rx8Var.a(videoPlayView.n);
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 == null) {
                     return;
@@ -455,7 +455,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             }
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -487,7 +487,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             this.a = videoVerticalPageFragment;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r6v27, resolved type: com.baidu.tieba.cx8 */
+        /* JADX DEBUG: Multi-variable search result rejected for r6v27, resolved type: com.baidu.tieba.rx8 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.baidu.tieba.videoplay.VideoPlayModel.c
         public void a(List<? extends VideoItemData> datas, boolean z) {
@@ -510,17 +510,17 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 } else {
                     this.a.h.z(datas);
                 }
-                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestA() && iu6.m().v("6061002332-203360688") && this.a.f != null) {
-                    cx8 cx8Var = this.a.h;
+                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestA() && wu6.m().v("6061002332-203360688") && this.a.f != null) {
+                    rx8 rx8Var = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView);
-                    cx8Var.a(videoPlayView.n - 1);
+                    rx8Var.a(videoPlayView.n - 1);
                 }
-                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestB() && iu6.m().v(iu6.s()) && this.a.f != null) {
-                    cx8 cx8Var2 = this.a.h;
+                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && UbsABTestHelper.isVideoAdDrawABTestB() && wu6.m().v(wu6.s()) && this.a.f != null) {
+                    rx8 rx8Var2 = this.a.h;
                     VideoPlayView videoPlayView2 = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView2);
-                    cx8Var2.a(videoPlayView2.n - 1);
+                    rx8Var2.a(videoPlayView2.n - 1);
                 }
                 VideoPlayView videoPlayView3 = this.a.f;
                 if (videoPlayView3 != null) {
@@ -555,16 +555,16 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 if (ListUtils.isEmpty(datas)) {
                     return;
                 }
-                cx8 cx8Var = this.a.h;
-                if ((cx8Var == null ? null : Boolean.valueOf(cx8Var.v())).booleanValue()) {
+                rx8 rx8Var = this.a.h;
+                if ((rx8Var == null ? null : Boolean.valueOf(rx8Var.v())).booleanValue()) {
                     return;
                 }
                 this.a.h.b(datas);
                 if (this.a.f != null) {
-                    cx8 cx8Var2 = this.a.h;
+                    rx8 rx8Var2 = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView);
-                    cx8Var2.a(videoPlayView.n);
+                    rx8Var2.a(videoPlayView.n);
                 }
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 == null) {
@@ -651,11 +651,11 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                     return;
                 }
                 this.a.h.z(datas);
-                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && (((UbsABTestHelper.isVideoAdDrawABTestA() && iu6.m().v("6061002332-203360688")) || (UbsABTestHelper.isVideoAdDrawABTestB() && iu6.m().v(iu6.s()))) && this.a.f != null)) {
-                    cx8 cx8Var = this.a.h;
+                if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && (((UbsABTestHelper.isVideoAdDrawABTestA() && wu6.m().v("6061002332-203360688")) || (UbsABTestHelper.isVideoAdDrawABTestB() && wu6.m().v(wu6.s()))) && this.a.f != null)) {
+                    rx8 rx8Var = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView);
-                    cx8Var.a(videoPlayView.n);
+                    rx8Var.a(videoPlayView.n);
                 }
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 != null) {
@@ -669,11 +669,11 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 if (videoPlayView4 != null) {
                     videoPlayView4.h0(this.a.isPrimary());
                 }
-                ay8 ay8Var = this.a.M;
-                if (ay8Var == null) {
+                py8 py8Var = this.a.M;
+                if (py8Var == null) {
                     return;
                 }
-                ay8Var.i();
+                py8Var.i();
             }
         }
 
@@ -687,10 +687,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 }
                 this.a.h.b(datas);
                 if (this.a.f != null) {
-                    cx8 cx8Var = this.a.h;
+                    rx8 rx8Var = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
                     Intrinsics.checkNotNull(videoPlayView);
-                    cx8Var.a(videoPlayView.n);
+                    rx8Var.a(videoPlayView.n);
                 }
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 == null) {
@@ -837,8 +837,8 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                     if (TextUtils.isEmpty(str)) {
                         return;
                     }
-                    ay8 ay8Var = this.a.M;
-                    List<VideoItemModel> h = ay8Var == null ? null : ay8Var.h(str);
+                    py8 py8Var = this.a.M;
+                    List<VideoItemModel> h = py8Var == null ? null : py8Var.h(str);
                     if (h != null) {
                         if (!h.isEmpty()) {
                             this.a.h.h().removeAll(h);
@@ -1003,9 +1003,9 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                     VideoItemData videoItemData = new VideoItemData();
                     videoItemData.buildWithThreadData(threadData);
                     VideoItemModel videoItemModel = new VideoItemModel(videoItemData, 1);
-                    cx8 cx8Var = this.a.h;
+                    rx8 rx8Var = this.a.h;
                     VideoPlayView videoPlayView = this.a.f;
-                    if (cx8Var.u(videoItemModel, videoPlayView != null ? videoPlayView.n : 0)) {
+                    if (rx8Var.u(videoItemModel, videoPlayView != null ? videoPlayView.n : 0)) {
                         VideoPlayActivityStatic.a(redIcon);
                         TbSingleton.getInstance().setVideoChannelRecommendRedIcon(null);
                         VideoPlayView videoPlayView2 = this.a.f;
@@ -1095,7 +1095,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     }
 
     /* loaded from: classes6.dex */
-    public static final class o implements iu6.h {
+    public static final class o implements wu6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -1118,14 +1118,14 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && iu6.m().v("6061002332-203360688") && this.a.f != null) {
-                cx8 cx8Var = this.a.h;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && wu6.m().v("6061002332-203360688") && this.a.f != null) {
+                rx8 rx8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
-                cx8Var.a(videoPlayView.n);
+                rx8Var.a(videoPlayView.n);
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 == null) {
                     return;
@@ -1134,7 +1134,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             }
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -1143,7 +1143,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     }
 
     /* loaded from: classes6.dex */
-    public static final class p implements iu6.h {
+    public static final class p implements wu6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoVerticalPageFragment a;
@@ -1166,14 +1166,14 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             this.a = videoVerticalPageFragment;
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && iu6.m().v(iu6.s()) && this.a.f != null) {
-                cx8 cx8Var = this.a.h;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && wu6.m().v(wu6.s()) && this.a.f != null) {
+                rx8 rx8Var = this.a.h;
                 VideoPlayView videoPlayView = this.a.f;
                 Intrinsics.checkNotNull(videoPlayView);
-                cx8Var.a(videoPlayView.n);
+                rx8Var.a(videoPlayView.n);
                 VideoPlayView videoPlayView2 = this.a.f;
                 if (videoPlayView2 == null) {
                     return;
@@ -1182,7 +1182,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             }
         }
 
-        @Override // com.baidu.tieba.iu6.h
+        @Override // com.baidu.tieba.wu6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -1431,10 +1431,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             if (this$0.n) {
                 if (this$0.d2()) {
                     Long l2 = this$0.h.l();
-                    cx8 cx8Var = this$0.h;
+                    rx8 rx8Var = this$0.h;
                     VideoPlayView videoPlayView = this$0.f;
                     Intrinsics.checkNotNull(videoPlayView);
-                    UserItemData i2 = cx8Var.i(videoPlayView.n);
+                    UserItemData i2 = rx8Var.i(videoPlayView.n);
                     if (l2 == null || i2 == null || (videoPersonalModel = this$0.z) == null) {
                         return;
                     }
@@ -1495,7 +1495,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         }
     }
 
-    @Override // com.baidu.tieba.zx8
+    @Override // com.baidu.tieba.oy8
     public long E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1512,7 +1512,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dx8.f("5");
+            sx8.f("5");
         }
     }
 
@@ -1533,7 +1533,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, num)) == null) {
-            cx8 cx8Var = this.h;
+            rx8 rx8Var = this.h;
             if (num == null) {
                 VideoPlayView videoPlayView = this.f;
                 Intrinsics.checkNotNull(videoPlayView);
@@ -1541,7 +1541,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             } else {
                 intValue = num.intValue();
             }
-            VideoItemData s2 = cx8Var.s(intValue);
+            VideoItemData s2 = rx8Var.s(intValue);
             if (s2 == null || TextUtils.isEmpty(s2.thread_id)) {
                 return 0L;
             }
@@ -1550,10 +1550,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         return invokeL.longValue;
     }
 
-    public final dm5.b L1() {
+    public final qm5.b L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.K : (dm5.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.K : (qm5.b) invokeV.objValue;
     }
 
     public final boolean N1() {
@@ -1610,7 +1610,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d == 14 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zx8
+    @Override // com.baidu.tieba.oy8
     public void W0(int i2, int i3, Intent intent) {
         VideoPlayView videoPlayView;
         Interceptable interceptable = $ic;
@@ -1693,14 +1693,14 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.d == 3 ? "a088" : "a023" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zx8
+    @Override // com.baidu.tieba.oy8
     public boolean h1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1718,10 +1718,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         if (!(interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) || (personalPageParams = this.r) == null || (videoPersonalModel = this.z) == null) {
             return;
         }
-        cx8 cx8Var = this.h;
+        rx8 rx8Var = this.h;
         VideoPlayView videoPlayView = this.f;
         Intrinsics.checkNotNull(videoPlayView);
-        String r2 = cx8Var.r(videoPlayView.n);
+        String r2 = rx8Var.r(videoPlayView.n);
         if (r2 == null) {
             return;
         }
@@ -1744,10 +1744,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (videoHotTopicParams = this.s) == null || (videoHotTopicModel = this.A) == null) {
             return;
         }
-        cx8 cx8Var = this.h;
+        rx8 rx8Var = this.h;
         VideoPlayView videoPlayView = this.f;
         Intrinsics.checkNotNull(videoPlayView);
-        String r2 = cx8Var.r(videoPlayView.n);
+        String r2 = rx8Var.r(videoPlayView.n);
         if (r2 == null) {
             return;
         }
@@ -1899,10 +1899,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             } else {
                 if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest()) {
                     if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                        iu6.m().z(getActivity(), new c(this), this.h.o());
+                        wu6.m().z(getActivity(), new c(this), this.h.o());
                     }
                     if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                        iu6.m().y(getActivity(), new d(this), this.h.o());
+                        wu6.m().y(getActivity(), new d(this), this.h.o());
                     }
                 }
                 VideoPlayModel videoPlayModel = new VideoPlayModel(getPageContext(), getUniqueId());
@@ -1931,7 +1931,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                     videoPlayModel5.M(this.h.s(0), this.o, this.p, this.q);
                 }
             }
-            this.M = new ay8(this.h.h(), getPageContext());
+            this.M = new py8(this.h.h(), getPageContext());
             q2();
             if (this.w == null) {
                 PollingModel pollingModel = new PollingModel(getPageContext(), getPageContext().getUniqueId());
@@ -1957,7 +1957,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         if (videoHotTopicModel == null) {
             return;
         }
-        videoHotTopicModel.F(new VideoHotTopicModel.b() { // from class: com.baidu.tieba.nx8
+        videoHotTopicModel.F(new VideoHotTopicModel.b() { // from class: com.baidu.tieba.cy8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1992,7 +1992,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.H = new OnActivityFinishListener<>(getPageContext(), new SimpleMessageListener.b() { // from class: com.baidu.tieba.ux8
+            this.H = new OnActivityFinishListener<>(getPageContext(), new SimpleMessageListener.b() { // from class: com.baidu.tieba.jy8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2006,7 +2006,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             });
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            this.I = new OnDeleteSelfPostListener(pageContext, new SimpleMessageListener.b() { // from class: com.baidu.tieba.wx8
+            this.I = new OnDeleteSelfPostListener(pageContext, new SimpleMessageListener.b() { // from class: com.baidu.tieba.ly8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2076,10 +2076,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 view2.setBackgroundColor(0);
             }
             View view3 = this.e;
-            RelativeLayout relativeLayout = view3 == null ? null : (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f0926e6);
+            RelativeLayout relativeLayout = view3 == null ? null : (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f0926e8);
             this.g = relativeLayout;
             if (relativeLayout != null) {
-                relativeLayout.setOnTouchListener(px8.a);
+                relativeLayout.setOnTouchListener(ey8.a);
             }
             return this.e;
         }
@@ -2127,8 +2127,8 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             super.onDestroyView();
-            iu6.m().d("6061002332-203360688");
-            iu6.m().c(iu6.s());
+            wu6.m().d("6061002332-203360688");
+            wu6.m().c(wu6.s());
         }
     }
 
@@ -2157,11 +2157,11 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 G1();
             }
             if (this.D && this.d == 3) {
-                yw8.a(1);
+                nx8.a(1);
             }
             if (isPrimary()) {
-                s95.b().c();
-                s95.b().l(true);
+                fa5.b().c();
+                fa5.b().l(true);
             }
             this.t = Long.valueOf(E0());
             VideoPlayView videoPlayView = this.f;
@@ -2171,9 +2171,9 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
             if (!this.C && isPrimary() && VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && this.d == 3) {
                 this.C = true;
                 if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                    iu6.m().z(getActivity(), new o(this), this.h.o());
+                    wu6.m().z(getActivity(), new o(this), this.h.o());
                 } else if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                    iu6.m().y(getActivity(), new p(this), this.h.o());
+                    wu6.m().y(getActivity(), new p(this), this.h.o());
                 }
             }
         }
@@ -2225,7 +2225,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         view2.setPadding(paddingLeft, paddingTop, view4.getPaddingRight(), i2);
     }
 
-    public final void s2(dm5.b bVar) {
+    public final void s2(qm5.b bVar) {
         VideoPlayView videoPlayView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048621, this, bVar) == null) || (videoPlayView = this.f) == null) {
@@ -2287,13 +2287,13 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 if ((i2 == 7 || i2 == 20) && (videoPlayView = this.f) != null) {
                     videoPlayView.e0(new s(this));
                 }
-                ay8 ay8Var = this.M;
-                if (ay8Var != null) {
-                    ay8Var.o(this.f);
+                py8 py8Var = this.M;
+                if (py8Var != null) {
+                    py8Var.o(this.f);
                 }
                 VideoPlayView videoPlayView8 = this.f;
                 if (videoPlayView8 != null) {
-                    videoPlayView8.f0(new VideoPlayView.i() { // from class: com.baidu.tieba.vx8
+                    videoPlayView8.f0(new VideoPlayView.i() { // from class: com.baidu.tieba.ky8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -2339,7 +2339,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
     public final void v2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            dx8.g(getActivity() instanceof VideoPlayActivity ? "1" : "3");
+            sx8.g(getActivity() instanceof VideoPlayActivity ? "1" : "3");
         }
     }
 
@@ -2373,7 +2373,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         }
     }
 
-    @Override // com.baidu.tieba.zx8
+    @Override // com.baidu.tieba.oy8
     public void y0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
@@ -2389,10 +2389,10 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                     VideoPlayView videoPlayView4 = this.f;
                     Intrinsics.checkNotNull(videoPlayView4);
                     if (videoPlayView4.n < this.h.k()) {
-                        cx8 cx8Var = this.h;
+                        rx8 rx8Var = this.h;
                         VideoPlayView videoPlayView5 = this.f;
                         Intrinsics.checkNotNull(videoPlayView5);
-                        VideoItemData s2 = cx8Var.s(videoPlayView5.n);
+                        VideoItemData s2 = rx8Var.s(videoPlayView5.n);
                         if (s2 == null || StringUtils.isNull(s2.thread_id)) {
                             return;
                         }
@@ -2432,11 +2432,11 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         this.b = kVar;
         this.c = i2;
         this.d = i3;
-        this.h = new cx8();
+        this.h = new rx8();
         this.n = true;
         this.E = 1;
-        this.F = el4.w().C();
-        this.G = new VideoPlayFragment.GoPbCommentFloatListener(new SimpleMessageListener.b() { // from class: com.baidu.tieba.ox8
+        this.F = rl4.w().C();
+        this.G = new VideoPlayFragment.GoPbCommentFloatListener(new SimpleMessageListener.b() { // from class: com.baidu.tieba.dy8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2454,7 +2454,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
         this.O = new n(this);
         this.P = new j(this);
         this.Q = new l(this);
-        this.R = new BdSwipeRefreshLayout.k() { // from class: com.baidu.tieba.rx8
+        this.R = new BdSwipeRefreshLayout.k() { // from class: com.baidu.tieba.gy8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2466,7 +2466,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements zx8
                 }
             }
         };
-        this.S = new VideoPlayView.k() { // from class: com.baidu.tieba.xx8
+        this.S = new VideoPlayView.k() { // from class: com.baidu.tieba.my8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.sm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,10 +45,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             return;
         }
         this.n = true;
-        this.o = fm2.M().a();
+        this.o = sm2.M().a();
         j();
         setTextSize(1, 11.0f);
-        setCompoundDrawablePadding(pg3.f(getContext(), 5.0f));
+        setCompoundDrawablePadding(ch3.f(getContext(), 5.0f));
         b(0);
     }
 
@@ -57,14 +57,14 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9));
             setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603ea));
-            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ba), 0, pg3.f(getContext(), 11.0f), pg3.f(getContext(), 11.0f));
+            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ba), 0, ch3.f(getContext(), 11.0f), ch3.f(getContext(), 11.0f));
         }
     }
 
     public void k() {
         boolean a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = fm2.M().a())) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = sm2.M().a())) {
             return;
         }
         j();

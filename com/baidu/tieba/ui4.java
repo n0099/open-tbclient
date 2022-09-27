@@ -1,102 +1,78 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ui4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public SparseIntArray b;
-    public ArrayList<String> c;
+    public final String a;
+    public final int b;
+    public final int c;
     public long d;
-    public long e;
-    public String f;
-    public boolean g;
+    public int e;
 
-    public ui4() {
+    public ui4(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
-        this.a = new JSONArray();
-        this.b = new SparseIntArray();
-        this.c = new ArrayList<>();
-        this.d = 0L;
-        this.e = 0L;
-        this.f = "0";
+        this.a = str;
+        this.b = i;
+        this.c = i2;
     }
 
-    public final void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a.put(jSONObject);
-        }
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a.toString().getBytes().length >= i : invokeI.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.clear();
-            this.c.clear();
-            this.a = null;
-        }
-    }
-
-    public boolean d() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public final void e(String str) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.c.contains(str)) {
-            return;
-        }
-        this.c.add(str);
-    }
-
-    public final void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.b.put(i, i2);
-        }
-    }
-
-    public final void g(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.d;
-            if ((j < j3 || j3 == 0) && j != 0) {
-                this.d = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j = this.d;
+                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.b && this.e >= this.c) {
+                    return true;
+                }
+                long j2 = this.d;
+                if (j2 == 0) {
+                    this.d = currentTimeMillis;
+                } else if ((currentTimeMillis - j2) / 1000 > this.b) {
+                    this.d = currentTimeMillis;
+                    this.e = 0;
+                }
+                this.e++;
             }
-            if (j2 > this.e) {
-                this.e = j2;
-            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.e;
+            return i != 0 && i == this.c;
+        }
+        return invokeV.booleanValue;
     }
 }

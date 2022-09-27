@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.e27;
+import com.baidu.tieba.s27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,11 +65,11 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        e27.a = false;
-        if (e27.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-            this.resultData = e27.b();
-            e27.a = true;
-            e27.a();
+        s27.a = false;
+        if (s27.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+            this.resultData = s27.b();
+            s27.a = true;
+            s27.a();
             return;
         }
         this.resultData = personalizedResIdl.data;

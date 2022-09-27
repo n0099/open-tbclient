@@ -44,8 +44,8 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_bg = 0x7f080e84;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080e85;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f080e86;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080e87;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -73,7 +73,7 @@ public final class R {
         public static final int pass_base_ui_dialog_title = 0x7f09179a;
         public static final int pass_base_ui_dialog_vertical_split_line = 0x7f09179b;
         public static final int pass_base_ui_first_btn_layout = 0x7f09179c;
-        public static final int positive_btn = 0x7f091a36;
+        public static final int positive_btn = 0x7f091a38;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

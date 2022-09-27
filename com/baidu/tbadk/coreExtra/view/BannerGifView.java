@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap4;
-import com.baidu.tieba.bp4;
+import com.baidu.tieba.np4;
+import com.baidu.tieba.op4;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public ap4 h;
-    public bp4 i;
-    public final bp4 j;
+    public np4 h;
+    public op4 i;
+    public final op4 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a implements bp4 {
+    public class a implements op4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.baidu.tieba.bp4
+        @Override // com.baidu.tieba.op4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -248,10 +248,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(ap4 ap4Var) {
+    public void setIWindowChangedListener(np4 np4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ap4Var) == null) {
-            this.h = ap4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, np4Var) == null) {
+            this.h = np4Var;
         }
     }
 
@@ -263,10 +263,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(bp4 bp4Var) {
+    public void setOnClickEventListener(op4 op4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bp4Var) == null) {
-            this.i = bp4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, op4Var) == null) {
+            this.i = op4Var;
         }
     }
 

@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -155,7 +155,7 @@ public class LoadingAnimView extends View {
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            int f = pg3.f(getContext(), 6.0f);
+            int f = ch3.f(getContext(), 6.0f);
             this.c.eraseColor(0);
             this.g.setStyle(Paint.Style.FILL);
             this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e7));

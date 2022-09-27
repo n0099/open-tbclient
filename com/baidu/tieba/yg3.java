@@ -1,192 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.GeneralSecurityException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes6.dex */
 public class yg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public go2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
-
-    /* loaded from: classes6.dex */
-    public class a extends go2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yg3 a;
-
-        /* renamed from: com.baidu.tieba.yg3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0481a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0481a(a aVar, Activity activity) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = activity;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean u;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    in1 o = fm2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (yg3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        ef3 m = ef3.m();
-                        if (ff3.a() && ef3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (yg3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
-                    }
-                    if (yg3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
-                    }
-                }
-            }
-        }
-
-        public a(yg3 yg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yg3Var;
-        }
-
-        @Override // com.baidu.tieba.go2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && ef3.j()) {
-                super.onActivityCreated(activity, bundle);
-                if (activity == null || activity.getIntent() == null) {
-                    return;
-                }
-                RunnableC0481a runnableC0481a = new RunnableC0481a(this, activity);
-                if (ff3.a()) {
-                    runnableC0481a.run();
-                } else {
-                    sf3.j(runnableC0481a, "moveTaskToFront");
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.go2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                yg3 yg3Var = this.a;
-                yg3Var.c = yg3Var.c && activity != null && activity.getTaskId() == this.a.e;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yg3 a;
-
-        public b(yg3 yg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yg3Var;
-        }
-
-        @Override // com.baidu.tieba.yg3.c
-        public void a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (z) {
-                    this.a.c = true;
-                    this.a.e = i;
-                } else if (this.a.c && i == 1) {
-                    this.a.c = false;
-                }
-                this.a.d = z;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -201,44 +43,109 @@ public class yg3 {
                 return;
             }
         }
-        f = ij1.a;
+        a = vj1.a;
     }
 
-    public yg3(@NonNull Application application) {
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) ? b(file, str, null) : invokeLL.booleanValue;
+    }
+
+    public static boolean b(File file, String str, sh3 sh3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, sh3Var)) == null) {
+            boolean z = file == null;
+            if (z || !file.exists() || TextUtils.isEmpty(str)) {
+                if (sh3Var != null) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("zipfile: isEmpty=");
+                    sb.append(z);
+                    sb.append("; exists=");
+                    sb.append(z ? "" : Boolean.valueOf(file.exists()));
+                    sh3Var.a = sb.toString();
+                }
+                return false;
+            }
+            ReadableByteChannel readableByteChannel = null;
+            try {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+                return d(readableByteChannel, str, sh3Var);
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return false;
+            } finally {
+                pj4.d(readableByteChannel);
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
+        return invokeLLL.booleanValue;
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (cVar = g) == null) {
-            return;
-        }
-        cVar.a(z, i);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) ? d(readableByteChannel, str, null) : invokeLL.booleanValue;
     }
 
-    public void i() {
+    public static boolean d(ReadableByteChannel readableByteChannel, String str, sh3 sh3Var) throws IOException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, sh3Var)) == null) {
+            boolean z = readableByteChannel == null;
+            if (z || TextUtils.isEmpty(str)) {
+                if (sh3Var != null) {
+                    sh3Var.a = "zipSource isNullIs=" + z;
+                }
+                return false;
+            }
+            String c = rj4.c(false, readableByteChannel);
+            if (sh3Var != null) {
+                sh3Var.a = c;
+            }
+            try {
+                String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
+                if (sh3Var != null) {
+                    sh3Var.b = str2;
+                }
+                return TextUtils.equals(str2, c);
+            } catch (Exception e) {
+                if (a) {
+                    Log.i("SwanAppSignChecker", e.toString());
+                    e.printStackTrace();
+                }
+                if (sh3Var != null) {
+                    sh3Var.b = e.getLocalizedMessage();
+                }
+                return false;
+            }
         }
+        return invokeLLL.booleanValue;
+    }
+
+    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static PublicKey f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+                return null;
+            }
+        }
+        return (PublicKey) invokeL.objValue;
     }
 }

@@ -1,8 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface m04 {
-    void a(@NonNull Activity activity, lz3 lz3Var, p04 p04Var);
+public class m04 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile l04 a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static synchronized l04 a() {
+        InterceptResult invokeV;
+        l04 l04Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (m04.class) {
+                if (a == null) {
+                    a = new l04();
+                }
+                l04Var = a;
+            }
+            return l04Var;
+        }
+        return (l04) invokeV.objValue;
+    }
 }

@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hp4;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.up4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetClientConfig.DataRes;
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hp4 a;
+    public up4 a;
     public final pb b;
 
     /* loaded from: classes3.dex */
@@ -83,13 +83,13 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, hp4 hp4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, up4 up4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, hp4Var};
+            Object[] objArr = {bdBaseFragmentActivity, up4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,7 +102,7 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = hp4Var;
+        this.a = up4Var;
         registerListener(aVar);
     }
 
@@ -122,9 +122,9 @@ public class ClientConfigModel extends BdBaseModel {
                 }
                 return;
             }
-            hp4 hp4Var = this.a;
-            if (hp4Var != null) {
-                hp4Var.a(dataRes);
+            up4 up4Var = this.a;
+            if (up4Var != null) {
+                up4Var.a(dataRes);
             }
         }
     }

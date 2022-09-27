@@ -1,98 +1,57 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class vm0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static an0 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vm0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final vm0 b = new a();
 
-    @Nullable
-    public static ym0 a(an0 an0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, an0Var)) == null) {
-            if (an0Var instanceof ym0) {
-                return (ym0) an0Var;
-            }
-            return null;
-        }
-        return (ym0) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements vm0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static bn0 b(an0 an0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, an0Var)) == null) {
-            if (an0Var instanceof bn0) {
-                return (bn0) an0Var;
-            }
-            return null;
-        }
-        return (bn0) invokeL.objValue;
-    }
-
-    public static void c(@NonNull an0 an0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, an0Var) == null) {
-            synchronized (an0.class) {
-                if (a != null) {
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                a = an0Var;
             }
         }
+
+        @Override // com.baidu.tieba.vm0
+        @NonNull
+        public um0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? um0.a : (um0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.vm0
+        @NonNull
+        public wm0 request() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? wm0.a : (wm0) invokeV.objValue;
+        }
     }
 
-    @Nullable
-    public static Activity d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ym0 a2 = a(a);
-            if (a2 == null) {
-                return null;
-            }
-            return a2.a();
-        }
-        return (Activity) invokeV.objValue;
-    }
+    @NonNull
+    um0 a();
 
-    @Nullable
-    public static Activity e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ym0 a2 = a(a);
-            if (a2 == null) {
-                return null;
-            }
-            return a2.c();
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public static void f(zm0 zm0Var) {
-        bn0 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, zm0Var) == null) || (b = b(a)) == null) {
-            return;
-        }
-        b.b(zm0Var);
-    }
-
-    public static void g(zm0 zm0Var) {
-        bn0 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, zm0Var) == null) || (b = b(a)) == null) {
-            return;
-        }
-        b.d(zm0Var);
-    }
+    @NonNull
+    wm0 request();
 }

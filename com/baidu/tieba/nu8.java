@@ -1,56 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.SevenZipUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class nu8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
-    public static final String h;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015064, "Lcom/baidu/tieba/nu8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015064, "Lcom/baidu/tieba/nu8;");
-                return;
+    public static String a(r9 r9Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r9Var, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0e9a);
             }
         }
-        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
-        StringBuilder sb = new StringBuilder();
-        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb.append("/");
-        sb.append("tieba");
-        sb.append("/videoCover.jpg");
-        b = sb.toString();
-        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
-        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb2.append("/");
-        sb2.append("DCIM/tieba/");
-        g = sb2.toString();
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(r9 r9Var, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String content;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, r9Var, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            if (msgType != 1) {
+                if (msgType == 2) {
+                    content = a(r9Var, chatMessage.getContent());
+                } else if (msgType == 3) {
+                    content = r9Var.getString(R.string.obfuscated_res_0x7f0f159d);
+                } else if (msgType != 30) {
+                    if (msgType != 32) {
+                        content = msgType != 33 ? "" : r9Var.getString(R.string.obfuscated_res_0x7f0f09de);
+                    } else {
+                        content = r9Var.getString(R.string.obfuscated_res_0x7f0f09e3);
+                    }
+                }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f32);
+                    } else {
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f2f);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.obfuscated_res_0x7f0f0f30) + content;
+                }
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0f2f);
+            }
+            content = chatMessage.getContent();
+            if (chatMessage == null) {
+            }
+            return r9Var.getString(R.string.obfuscated_res_0x7f0f0f2f);
+        }
+        return (String) invokeLL.objValue;
     }
 }

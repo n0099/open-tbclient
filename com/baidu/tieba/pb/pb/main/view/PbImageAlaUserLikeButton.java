@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay4;
-import com.baidu.tieba.dz4;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.qz4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements dz4 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements qz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,17 +45,17 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements d
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                ay4 ay4Var = new ay4();
-                ay4Var.t(R.color.CAM_X0109);
-                setConfig(ay4Var);
+                ny4 ny4Var = new ny4();
+                ny4Var.t(R.color.CAM_X0109);
+                setConfig(ny4Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
             } else {
-                ay4 ay4Var2 = new ay4();
-                ay4Var2.r(R.color.CAM_X0302);
-                ay4Var2.i(R.drawable.obfuscated_res_0x7f08091b, 0, TBSpecificationButtonConfig.IconType.SVG);
-                ay4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(ay4Var2);
+                ny4 ny4Var2 = new ny4();
+                ny4Var2.r(R.color.CAM_X0302);
+                ny4Var2.i(R.drawable.obfuscated_res_0x7f08091d, 0, TBSpecificationButtonConfig.IconType.SVG);
+                ny4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(ny4Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0));
             }

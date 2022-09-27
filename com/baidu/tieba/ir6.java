@@ -1,44 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.CardHListViewData;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeElement;
 /* loaded from: classes4.dex */
-public class ir6 {
+public abstract class ir6 implements kr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment a;
+    public Context b;
+    public View c;
 
-    public static boolean a(ArrayList<Cdo> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        InterceptResult invokeLLLI;
+    public ir6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
-            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
-                int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    Cdo cdo = arrayList.get(i2);
-                    if ((cdo instanceof CardHListViewData) && str.equals(((CardHListViewData) cdo).threadId)) {
-                        return false;
-                    }
-                }
-                int i3 = i + 1;
-                if (i3 > 0) {
-                    ListUtils.add(arrayList, i3, cardHListViewData);
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLLLI.booleanValue;
+        ol8.b();
     }
 
-    public static boolean b(FrsRequestData frsRequestData) {
+    @Override // com.baidu.tieba.kr6
+    @Nullable
+    @CallSuper
+    public <T> T a(@NonNull LogicField logicField) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) ? frsRequestData != null && frsRequestData.E() == 1 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kr6
+    public void b(@NonNull ThemeElement themeElement) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kr6
+    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) == null) && this.c == null) {
+            this.a = frsFragment;
+            this.b = view2.getContext();
+            this.c = view2;
+            m();
+        }
+    }
+
+    @Override // com.baidu.tieba.qr6
+    public void d(int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kr6
+    @NonNull
+    public or6 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.j1().g0() : (or6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kr6
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.qr6
+    public void i(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.qr6
+    public void j(@Nullable String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.qr6
+    public void k(@NonNull LogicField logicField, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kr6
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
+            return 8;
+        }
+        return invokeL.intValue;
+    }
+
+    public abstract void m();
+
+    @Override // com.baidu.tieba.qr6
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
     }
 }

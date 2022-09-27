@@ -1,73 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class s56 implements r56 {
+public final class s56 extends a56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public s56() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public s56(v46 context) {
+        super(context, r3, null, 4, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((v46) objArr2[0], (s0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+        s0 b = s0.i(f56.class).b();
+        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    @Override // com.baidu.tieba.r56
-    public void a(d46 item, long j, d66 displayer, x36 config) {
+    @Override // com.baidu.tieba.a56
+    public void l(p0 entity, float f) {
+        f56 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
+        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            c56 b = a66.b(entity);
+            q46 a2 = b == null ? null : b.a();
+            if (a2 == null || (a = a66.a(entity)) == null) {
+                return;
+            }
+            if (z56.b(this) >= a2.e().k()) {
+                a.h(true);
+                a.c(z56.b(this) - a2.e().k());
+                return;
+            }
+            a.h(false);
         }
-    }
-
-    @Override // com.baidu.tieba.r56
-    public void b(d46 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-        }
-    }
-
-    @Override // com.baidu.tieba.r56
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.r56
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.r56
-    public boolean d(d46 item, long j, d66 displayer, x36 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 }

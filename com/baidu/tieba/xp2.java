@@ -1,173 +1,126 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class xp2 {
+public class xp2 extends bz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<wp2> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public eq2 j;
+    public double k;
+    public List<fq2> l;
+    public List<hq2> m;
+    public List<cq2> n;
+    public List<dq2> o;
+    public List<eq2> p;
+    public List<gq2> q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public String y;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307983, "Lcom/baidu/tieba/xp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307983, "Lcom/baidu/tieba/xp2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp2() {
+        super("map", "mapId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
+        this.k = 16.0d;
+        this.r = true;
+        this.y = "";
     }
 
-    public static void a(wp2 wp2Var) {
+    @Override // com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, wp2Var) == null) || wp2Var == null || a.contains(wp2Var)) {
-            return;
-        }
-        a.add(wp2Var);
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                wp2 wp2Var = a.get(size);
-                if (wp2Var != null) {
-                    wp2Var.onDestroy();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            String str = "markers";
+            if (jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            if (jSONObject.has("longitude") && jSONObject.has("latitude")) {
+                eq2 eq2Var = new eq2();
+                this.j = eq2Var;
+                eq2Var.a(jSONObject);
+            }
+            if (jSONObject.has("scale")) {
+                this.k = jSONObject.optDouble("scale", 16.0d);
+            }
+            jSONObject.optString("subkey", "");
+            jSONObject.optString("layerStyle", "");
+            this.y = jSONObject.optString("cb");
+            this.r = jSONObject.optBoolean("showLocation", true);
+            this.s = jSONObject.optBoolean("enableZoom", true);
+            this.t = jSONObject.optBoolean("enableScroll", true);
+            this.u = jSONObject.optBoolean("enableRotate", false);
+            this.v = jSONObject.optBoolean("showCompass", false);
+            this.w = jSONObject.optBoolean("enableOverlooking", false);
+            this.x = jSONObject.optBoolean("enable3D", false);
+            try {
+                if (!jSONObject.has("markers")) {
+                    str = "covers";
                 }
+                this.l = h(jSONObject, str, fq2.class);
+                this.n = h(jSONObject, "circles", cq2.class);
+                this.m = h(jSONObject, "polyline", hq2.class);
+                this.o = h(jSONObject, "controls", dq2.class);
+                this.p = h(jSONObject, "includePoints", eq2.class);
+                this.q = h(jSONObject, "polygons", gq2.class);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            wp2 wp2Var = a.get(size);
-            if (wp2Var != null && TextUtils.equals(str, wp2Var.b())) {
-                wp2Var.onDestroy();
-            }
-        }
-    }
-
-    public static wp2 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                wp2 wp2Var = a.get(size);
-                if (wp2Var != null && TextUtils.equals(str, wp2Var.c())) {
-                    return wp2Var;
-                }
-            }
-            return null;
-        }
-        return (wp2) invokeL.objValue;
-    }
-
-    public static wp2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+    public final <T extends kt2> List<T> h(JSONObject jSONObject, String str, Class<T> cls) throws IllegalAccessException, InstantiationException, JSONException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                wp2 wp2Var = a.get(size);
-                if (wp2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, wp2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, wp2Var.f())) || TextUtils.equals(str3, wp2Var.c())))) {
-                    return wp2Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, cls)) == null) {
+            if (jSONObject.has(str)) {
+                JSONArray optJSONArray = jSONObject.optJSONArray(str);
+                int length = optJSONArray == null ? 0 : optJSONArray.length();
+                if (length > 0) {
+                    ArrayList arrayList = new ArrayList(length);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            T newInstance = cls.newInstance();
+                            newInstance.a(optJSONObject);
+                            if (newInstance.isValid()) {
+                                arrayList.add(newInstance);
+                            }
+                        }
+                    }
+                    return arrayList;
                 }
             }
             return null;
         }
-        return (wp2) invokeLLL.objValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                wp2 wp2Var = a.get(size);
-                if (wp2Var != null && TextUtils.equals(str, wp2Var.b()) && wp2Var.onBackPressed()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                wp2 wp2Var = a.get(size);
-                if (wp2Var != null) {
-                    wp2Var.j(z);
-                }
-            }
-        }
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            wp2 wp2Var = a.get(size);
-            if (wp2Var != null && TextUtils.equals(str, wp2Var.b())) {
-                wp2Var.k(z);
-            }
-        }
-    }
-
-    public static void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                wp2 wp2Var = a.get(size);
-                if (wp2Var != null) {
-                    wp2Var.k(z);
-                }
-            }
-        }
-    }
-
-    public static void k(wp2 wp2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, wp2Var) == null) || wp2Var == null) {
-            return;
-        }
-        a.remove(wp2Var);
+        return (List) invokeLLL.objValue;
     }
 }

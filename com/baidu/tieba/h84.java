@@ -1,18 +1,10 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.sp2;
+import com.baidu.tieba.u84;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,34 +12,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h84 {
+public class h84 extends x74<aq2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public sp2 a;
-    public Marker b;
-    public Marker c;
-    public View d;
-    public ViewGroup e;
-    public Marker f;
-    public ValueAnimator g;
 
     /* loaded from: classes4.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a implements u84.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ i84 b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ h84 d;
+        public final /* synthetic */ aq2 a;
+        public final /* synthetic */ up2 b;
 
-        public a(h84 h84Var, i84 i84Var, b bVar) {
+        public a(h84 h84Var, aq2 aq2Var, up2 up2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h84Var, i84Var, bVar};
+                Object[] objArr = {h84Var, aq2Var, up2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,33 +41,20 @@ public class h84 {
                     return;
                 }
             }
-            this.d = h84Var;
-            this.b = i84Var;
-            this.c = bVar;
-            this.a = false;
+            this.a = aq2Var;
+            this.b = up2Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // com.baidu.tieba.u84.b
+        public void onAnimationEnd() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
-                if (this.a || animatedFraction <= 0.99d) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!TextUtils.isEmpty(this.a.y)) {
+                    this.b.c(this.a.y, null);
                 }
-                this.a = true;
-                b bVar = this.c;
-                if (bVar != null) {
-                    bVar.onAnimationEnd();
-                }
+                l02.i("map", "TranslateMarkerAction animation end");
             }
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onAnimationEnd();
     }
 
     static {
@@ -99,7 +70,7 @@ public class h84 {
                 return;
             }
         }
-        h = Boolean.TRUE;
+        boolean z = vj1.a;
     }
 
     public h84() {
@@ -116,100 +87,60 @@ public class h84 {
         }
     }
 
-    public void a(i84 i84Var, LatLng latLng) {
-        Marker marker;
+    public static h84 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, i84Var, latLng) == null) || (marker = this.b) == null) {
-            return;
-        }
-        marker.setPosition(latLng);
-        rp2 rp2Var = this.a.b;
-        rp2Var.a = latLng.latitude;
-        rp2Var.b = latLng.longitude;
-        Marker marker2 = this.f;
-        if (marker2 != null) {
-            marker2.setPosition(latLng);
-        }
-        if (h.booleanValue()) {
-            Marker marker3 = this.c;
-            if (marker3 != null) {
-                marker3.setPosition(latLng);
-            }
-            ViewGroup viewGroup = this.e;
-            if (viewGroup != null) {
-                i84Var.l.removeView(viewGroup);
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(latLng);
-                i84Var.l.addView(this.e, builder.build());
-                this.e.setAlpha(0.0f);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new h84() : (h84) invokeV.objValue;
     }
 
-    public void b(i84 i84Var) {
-        sp2 sp2Var;
-        sp2.b bVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x74
+    /* renamed from: d */
+    public boolean b(Context context, aq2 aq2Var, up2 up2Var, l33 l33Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i84Var) == null) || (sp2Var = this.a) == null || (bVar = sp2Var.i) == null || !bVar.isValid()) {
-            return;
-        }
-        sp2 sp2Var2 = this.a;
-        if (sp2Var2.k == null || this.d != null || TextUtils.equals(sp2Var2.i.g, "ALWAYS")) {
-            return;
-        }
-        i84Var.l.removeView(this.e);
-        this.e.removeView(this.d);
-        View a2 = w74.a(i84Var, this.a);
-        this.d = a2;
-        this.e.addView(a2, 0);
-        this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-        MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-        builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-        builder.position(this.b.getPosition());
-        Bitmap bitmap = this.b.getIcon().getBitmap();
-        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-        i84Var.l.addView(this.e, builder.build());
-        this.e.setAlpha(0.0f);
-        Marker marker = this.f;
-        if (marker != null) {
-            marker.remove();
-        }
-        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
-        if (fromView == null) {
-            return;
-        }
-        Bitmap bitmap2 = fromView.getBitmap();
-        if (bitmap2.getHeight() <= 0 || bitmap2.getWidth() <= 0) {
-            return;
-        }
-        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
-        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
-        MarkerOptions markerOptions = new MarkerOptions();
-        rp2 rp2Var = this.a.b;
-        this.f = (Marker) i84Var.l.getMap().addOverlay(markerOptions.position(new LatLng(rp2Var.a, rp2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aq2Var, up2Var, l33Var, jSONObject)) == null) ? f(context, aq2Var, up2Var, l33Var) : invokeLLLLL.booleanValue;
     }
 
-    public void c(i84 i84Var, LatLng latLng, np2 np2Var, b bVar) {
-        Marker marker;
+    public final boolean f(Context context, aq2 aq2Var, up2 up2Var, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, i84Var, latLng, np2Var, bVar) == null) {
-            ValueAnimator valueAnimator = this.g;
-            if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.b) != null) {
-                float f = 360.0f - ((float) np2Var.B);
-                if (f >= 0.0f && f <= 360.0f) {
-                    marker.setRotate(f);
-                }
-                int i = np2Var.C;
-                if (i < 0) {
-                    i = -i;
-                }
-                ValueAnimator ofObject = ValueAnimator.ofObject(new v74(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-                this.g = ofObject;
-                ofObject.setDuration(i);
-                this.g.addUpdateListener(new a(this, i84Var, bVar));
-                this.g.start();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, aq2Var, up2Var, l33Var)) == null) {
+            l02.i("map", "TranslateMarkerAction start");
+            tp1 A = yo2.U().A(aq2Var.c);
+            if (!(A instanceof rp1)) {
+                l02.c("map", "WebViewManager is null");
+                return false;
             }
+            v84 d = u74.b().c((rp1) A).d(aq2Var.b);
+            if (d == null) {
+                l02.c("map", "can not find map by id " + aq2Var.b);
+                return false;
+            }
+            return g(aq2Var, d, up2Var);
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean g(aq2 aq2Var, v84 v84Var, up2 up2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, aq2Var, v84Var, up2Var)) == null) {
+            if (aq2Var.isValid()) {
+                eq2 eq2Var = aq2Var.A;
+                LatLng latLng = new LatLng(eq2Var.a, eq2Var.b);
+                List<u84> I = v84Var.I(aq2Var.z);
+                l02.i("map", "TranslateMarkerAction animation start");
+                if (I != null) {
+                    for (u84 u84Var : I) {
+                        u84Var.c(v84Var, latLng, aq2Var, new a(this, aq2Var, up2Var));
+                    }
+                }
+                l02.i("map", "TranslateMarkerAction end");
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

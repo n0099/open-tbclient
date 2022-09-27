@@ -11,7 +11,7 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ca0;
+import com.baidu.tieba.pa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -263,7 +263,7 @@ public class TabTextView extends AppCompatTextView {
         }
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ca0.LiveFeedPageTabTextView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pa0.LiveFeedPageTabTextView);
         this.a = obtainStyledAttributes.getColor(7, 0);
         this.b = obtainStyledAttributes.getColor(1, 0);
         this.d = obtainStyledAttributes.getColor(4, 0);

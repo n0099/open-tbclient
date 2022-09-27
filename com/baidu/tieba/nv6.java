@@ -1,99 +1,105 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Esport;
+import tbclient.EsportRank;
+import tbclient.EsportStatic;
 /* loaded from: classes5.dex */
-public class nv6 {
+public class nv6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<mv6> b;
+    public String c;
+    public String d;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015963, "Lcom/baidu/tieba/nv6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948015963, "Lcom/baidu/tieba/nv6;");
+                return;
             }
         }
+        e = BdUniqueId.gen();
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nv6.e();
+    public nv6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean b(NetWork netWork) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
-            if (netWork == null) {
-                return false;
-            }
-            if ((netWork.isNetSuccess() ? netWork.getServerErrorCode() : netWork.getNetErrorCode()) == 1990055) {
-                d();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public static boolean c(int i) {
-        InterceptResult invokeI;
+    public List<mv6> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 202001:
-                case 205001:
-                case 309456:
-                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return invokeI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public static void d() {
+    public void c(Esport esport) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!ej.C()) {
-                TbadkCoreApplication.getInst().handler.post(new a());
-            } else {
-                e();
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) || esport == null) {
+            return;
+        }
+        this.a = esport.floor_no.intValue();
+        EsportStatic esportStatic = esport._static;
+        if (esportStatic != null) {
+            this.c = esportStatic.img;
+            this.d = esportStatic.url;
+        }
+        this.b = new ArrayList();
+        if (!StringUtils.isNull(this.c)) {
+            mv6 mv6Var = new mv6();
+            mv6Var.i(this.c);
+            mv6Var.j(this.d);
+            this.b.add(mv6Var);
+        }
+        if (ListUtils.isEmpty(esport.billboard)) {
+            return;
+        }
+        for (EsportRank esportRank : esport.billboard) {
+            mv6 mv6Var2 = new mv6();
+            mv6Var2.h(esportRank);
+            this.b.add(mv6Var2);
         }
     }
 
-    public static final void e() {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            lo4.u(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

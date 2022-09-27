@@ -1,37 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public abstract class bc0 {
+public final class bc0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public bc0() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947640026, "Lcom/baidu/tieba/bc0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947640026, "Lcom/baidu/tieba/bc0;");
         }
     }
 
-    public abstract int a(Context context, String str, String str2);
-
-    public void b(String str) {
+    @JvmStatic
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
+                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
+            }
+            String str = Build.MANUFACTURER;
+            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 }

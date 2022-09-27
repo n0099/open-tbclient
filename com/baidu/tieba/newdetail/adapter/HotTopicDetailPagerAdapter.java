@@ -13,13 +13,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bt4;
-import com.baidu.tieba.h67;
-import com.baidu.tieba.ms4;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.newdetail.view.HotTopicDetailFeedView;
+import com.baidu.tieba.ot4;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.v67;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.zs4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +37,8 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<HotTopicDetailActivity> a;
     public List<HotTopicDetailFeedView> b;
-    public List<h67> c;
-    public bt4 d;
+    public List<v67> c;
+    public ot4 d;
     public boolean e;
     public int f;
 
@@ -88,16 +88,16 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         hotTopicDetailFeedView2.m(0);
         this.b.add(hotTopicDetailFeedView);
         this.b.add(hotTopicDetailFeedView2);
-        h67 h67Var = new h67(1);
-        h67 h67Var2 = new h67(0);
-        this.c.add(h67Var);
-        this.c.add(h67Var2);
+        v67 v67Var = new v67(1);
+        v67 v67Var2 = new v67(0);
+        this.c.add(v67Var);
+        this.c.add(v67Var2);
     }
 
-    public h67 b(int i) {
+    public v67 b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (h67) ListUtils.getItem(this.c, f(i) % h) : (h67) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (v67) ListUtils.getItem(this.c, f(i) % h) : (v67) invokeI.objValue;
     }
 
     public int c() {
@@ -233,8 +233,8 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.c.clear();
-            this.c.add(new h67(1));
-            this.c.add(new h67(0));
+            this.c.add(new v67(1));
+            this.c.add(new v67(0));
             for (HotTopicDetailFeedView hotTopicDetailFeedView : this.b) {
                 hotTopicDetailFeedView.setData(new ArrayList());
             }
@@ -251,10 +251,10 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         e.l();
     }
 
-    public void p(bt4 bt4Var) {
+    public void p(ot4 ot4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bt4Var) == null) {
-            this.d = bt4Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, ot4Var) == null) {
+            this.d = ot4Var;
         }
     }
 
@@ -301,11 +301,11 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
                     hotTopicDetailFeedView.k();
                 }
                 HotTopicDetailFeedView hotTopicDetailFeedView2 = (HotTopicDetailFeedView) ListUtils.getItem(this.b, this.f % h);
-                h67 h67Var = (h67) ListUtils.getItem(this.c, this.f);
-                if (hotTopicDetailFeedView2 == null || h67Var == null) {
+                v67 v67Var = (v67) ListUtils.getItem(this.c, this.f);
+                if (hotTopicDetailFeedView2 == null || v67Var == null) {
                     return;
                 }
-                if (ListUtils.isEmpty(h67Var.e)) {
+                if (ListUtils.isEmpty(v67Var.e)) {
                     this.a.getOrignalPage().H1(c());
                 } else {
                     hotTopicDetailFeedView2.l();
@@ -314,30 +314,30 @@ public class HotTopicDetailPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void t(@NonNull h67 h67Var, boolean z, int i) {
-        h67 h67Var2;
+    public void t(@NonNull v67 v67Var, boolean z, int i) {
+        v67 v67Var2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{h67Var, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (h67Var2 = (h67) ListUtils.getItem(this.c, f(i) % h)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{v67Var, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (v67Var2 = (v67) ListUtils.getItem(this.c, f(i) % h)) == null) {
             return;
         }
         if (z) {
-            h67Var2.e = h67Var.e;
-        } else if (!ListUtils.isEmpty(h67Var.e)) {
-            if (h67Var2.e == null) {
-                h67Var2.e = new ArrayList();
+            v67Var2.e = v67Var.e;
+        } else if (!ListUtils.isEmpty(v67Var.e)) {
+            if (v67Var2.e == null) {
+                v67Var2.e = new ArrayList();
             }
-            h67Var2.e.addAll(h67Var.e);
+            v67Var2.e.addAll(v67Var.e);
         }
-        ms4 ms4Var = h67Var.b;
-        h67Var2.b = ms4Var;
-        h67Var2.c = h67Var.c;
-        if ((ms4Var == null || ms4Var.b() == 0) ? false : true) {
+        zs4 zs4Var = v67Var.b;
+        v67Var2.b = zs4Var;
+        v67Var2.c = v67Var.c;
+        if ((zs4Var == null || zs4Var.b() == 0) ? false : true) {
             u(i);
         } else {
             i(i);
             v(i);
         }
-        ((HotTopicDetailFeedView) ListUtils.getItem(this.b, f(i) % h)).setData(h67Var2.f(this.d));
+        ((HotTopicDetailFeedView) ListUtils.getItem(this.b, f(i) % h)).setData(v67Var2.f(this.d));
     }
 
     public final void u(int i) {

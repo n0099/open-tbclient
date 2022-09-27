@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Environment;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.Download;
-import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import org.json.JSONArray;
+import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uu3 extends tu3 {
+public class uu3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
 
     static {
         InterceptResult invokeClinit;
@@ -33,131 +40,146 @@ public class uu3 extends tu3 {
                 return;
             }
         }
-        d = ij1.a;
+        e = vj1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu3(String str) {
-        super("onSuccess", 0, g(null, str));
+    public uu3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static JSONArray e(Collection<Download> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (collection == null) {
-                return jSONArray;
-            }
-            for (Download download : collection) {
-                if (download != null) {
-                    jSONArray.put(f(download));
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public static JSONObject f(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (download == null) {
-                return jSONObject;
-            }
-            try {
-                jSONObject.put("apkId", new hu3(download).c());
-                jSONObject.put("downloadId", download.getId());
-                jSONObject.put("packageName", download.getKeyByUser());
-                jSONObject.put("url", download.getUrl());
-                jSONObject.put("status", download.getState().ordinal());
-                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
-                jSONObject.put("total", download.getTotalbytes());
-                jSONObject.put("fileExist", ju3.j(download) ? "1" : "0");
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String g(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", obj);
-                jSONObject.put("message", str);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu3(Download download) {
-        super("onSuccess", 0, g(f(download), ""));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uu3(Collection<Download> collection) {
-        super("onSuccess", 0, g(e(collection), ""));
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
+                File file = new File(str);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return str;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public uu3 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (uu3) invokeL.objValue;
+    }
+
+    public Download b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Download download = new Download();
+            download.setUrl(this.a);
+            download.setKeyByUser(this.b);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("apk_id", this.c);
+                jSONObject.put("download_time", this.d);
+            } catch (JSONException e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
+            }
+            download.setFromParam(jSONObject.toString());
+            download.setMimetype("application/vnd.android.package-archive");
+            download.setWifiOnly(false);
+            String d = d();
+            if (!TextUtils.isEmpty(d)) {
+                download.setSavedPathForUser(d);
+            }
+            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+            return download;
+        }
+        return (Download) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public uu3 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.b = str;
+            return this;
+        }
+        return (uu3) invokeL.objValue;
+    }
+
+    public uu3 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (uu3) invokeL.objValue;
+    }
+
+    public uu3(@NonNull Download download) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {collection};
-            interceptable.invokeUnInit(65539, newInitContext);
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
+            }
+        }
+        this.a = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
+        this.a = download.getUrl();
+        this.b = download.getKeyByUser();
+        String fromParam = download.getFromParam();
+        if (TextUtils.isEmpty(fromParam)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(fromParam);
+            this.c = jSONObject.optString("apk_id");
+            this.d = jSONObject.optLong("download_time", System.currentTimeMillis());
+        } catch (JSONException e2) {
+            if (e) {
+                e2.printStackTrace();
             }
         }
     }

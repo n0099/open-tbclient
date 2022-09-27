@@ -118,7 +118,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     public void startBenchmark() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
             int i = this.mBenchmarkWhich;
             if (i == 1) {
                 benchmarkInflate(textView);
@@ -135,7 +135,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     private void updatePreview() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6a);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6c);
             View inflate = LayoutInflater.from(this).inflate(R.layout.benchmark_flatten_layout, (ViewGroup) linearLayout, false);
             inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             linearLayout.removeAllViews();

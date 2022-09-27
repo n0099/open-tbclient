@@ -17,8 +17,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hj1;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.uj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -201,17 +201,17 @@ public class SwanAppActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0090, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f092252);
+            this.a = findViewById(R.id.obfuscated_res_0x7f092254);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ce);
             this.b = textView;
             textView.setCompoundDrawables(c(R.drawable.obfuscated_res_0x7f080102), null, null, null);
             this.b.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a50));
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0912d7);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092250);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092252);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912cf);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09224d);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09224f);
             this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0901a4);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092242);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092244);
             float f = this.k;
             if (f != -1.0f) {
                 float f2 = this.l;
@@ -222,11 +222,11 @@ public class SwanAppActionBar extends RelativeLayout {
                     }
                 }
             }
-            this.n = findViewById(R.id.obfuscated_res_0x7f09225a);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225c);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225e);
-            this.q = findViewById(R.id.obfuscated_res_0x7f09225d);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225b);
+            this.n = findViewById(R.id.obfuscated_res_0x7f09225c);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225e);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f092260);
+            this.q = findViewById(R.id.obfuscated_res_0x7f09225f);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225d);
             setTitle(this.i);
             setTitleColor(-16777216);
             setRightMenuImageSrc(R.drawable.obfuscated_res_0x7f08011b);
@@ -239,7 +239,7 @@ public class SwanAppActionBar extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, hj1.SwanAppActionBar, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, uj1.SwanAppActionBar, 0, 0);
         try {
             this.i = obtainStyledAttributes.getString(0);
             this.j = obtainStyledAttributes.getColor(1, -16777216);
@@ -433,7 +433,7 @@ public class SwanAppActionBar extends RelativeLayout {
             }
             this.r.setVisibility(8);
             this.q.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.n.getLayoutParams()).setMargins(0, 0, pg3.f(getContext(), 4.6f), 0);
+            ((RelativeLayout.LayoutParams) this.n.getLayoutParams()).setMargins(0, 0, ch3.f(getContext(), 4.6f), 0);
         }
     }
 

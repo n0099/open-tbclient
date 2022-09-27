@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.os.RemoteException;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,19 +14,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
+@Keep
 /* loaded from: classes8.dex */
 public class OpenDeviceId {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static boolean DBG = false;
+    @Keep
     public static String TAG = "OpenDeviceId library";
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public CallBack mCallerCallBack;
+    @Keep
     public ServiceConnection mConnection;
+    @Keep
     public Context mContext;
+    @Keep
     public IDeviceidInterface mDeviceidInterface;
 
+    @Keep
     /* loaded from: classes8.dex */
     public interface CallBack<T> {
+        @Keep
         void serviceConnected(T t, OpenDeviceId openDeviceId);
     }
 
@@ -64,130 +71,24 @@ public class OpenDeviceId {
         this.mCallerCallBack = null;
     }
 
-    private void logPrintE(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, this, str) == null) && DBG) {
-            Log.e(TAG, str);
-        }
-    }
+    @Keep
+    private native void logPrintE(String str);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void logPrintI(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && DBG) {
-            Log.i(TAG, str);
-        }
-    }
+    @Keep
+    public native void logPrintI(String str);
 
-    public String getAAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Context context = this.mContext;
-            if (context == null) {
-                logPrintI("Context is null.");
-                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-            }
-            String packageName = context.getPackageName();
-            logPrintI("liufeng, getAAID package：" + packageName);
-            if (packageName == null || packageName.equals("")) {
-                logPrintI("input package is null!");
-                return null;
-            }
-            try {
-                IDeviceidInterface iDeviceidInterface = this.mDeviceidInterface;
-                if (iDeviceidInterface != null) {
-                    String aaid = iDeviceidInterface.getAAID(packageName);
-                    return ((aaid == null || "".equals(aaid)) && this.mDeviceidInterface.createAAIDForPackageName(packageName)) ? this.mDeviceidInterface.getAAID(packageName) : aaid;
-                }
-                return null;
-            } catch (RemoteException unused) {
-                logPrintE("getAAID error, RemoteException!");
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getAAID();
 
-    public String getOAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.mContext == null) {
-                logPrintE("Context is null.");
-                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-            }
-            try {
-                IDeviceidInterface iDeviceidInterface = this.mDeviceidInterface;
-                if (iDeviceidInterface != null) {
-                    return iDeviceidInterface.getOAID();
-                }
-                return null;
-            } catch (RemoteException e) {
-                logPrintE("getOAID error, RemoteException!");
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getOAID();
 
-    public String getUDID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mContext == null) {
-                logPrintE("Context is null.");
-                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-            }
-            try {
-                IDeviceidInterface iDeviceidInterface = this.mDeviceidInterface;
-                if (iDeviceidInterface != null) {
-                    return iDeviceidInterface.getUDID();
-                }
-                return null;
-            } catch (RemoteException e) {
-                logPrintE("getUDID error, RemoteException!");
-                e.printStackTrace();
-                return null;
-            } catch (Exception e2) {
-                logPrintE("getUDID error, Exception!");
-                e2.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getUDID();
 
-    public String getVAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Context context = this.mContext;
-            if (context == null) {
-                logPrintI("Context is null.");
-                throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
-            }
-            String packageName = context.getPackageName();
-            logPrintI("liufeng, getVAID package：" + packageName);
-            if (packageName == null || packageName.equals("")) {
-                logPrintI("input package is null!");
-                return null;
-            }
-            try {
-                IDeviceidInterface iDeviceidInterface = this.mDeviceidInterface;
-                if (iDeviceidInterface != null) {
-                    return iDeviceidInterface.getVAID(packageName);
-                }
-                return null;
-            } catch (RemoteException e) {
-                logPrintE("getVAID error, RemoteException!");
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
+    @Keep
+    public native String getVAID();
 
     public int init(Context context, CallBack<String> callBack) {
         InterceptResult invokeLL;
@@ -199,6 +100,7 @@ public class OpenDeviceId {
                 this.mConnection = new ServiceConnection(this) { // from class: com.zui.opendeviceidlibrary.OpenDeviceId.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
+                    @Keep
                     public final /* synthetic */ OpenDeviceId this$0;
 
                     {
@@ -220,27 +122,12 @@ public class OpenDeviceId {
                     }
 
                     @Override // android.content.ServiceConnection
-                    public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
-                            synchronized (this) {
-                                this.this$0.mDeviceidInterface = IDeviceidInterface.Stub.asInterface(iBinder);
-                                if (this.this$0.mCallerCallBack != null) {
-                                    this.this$0.mCallerCallBack.serviceConnected("Deviceid Service Connected", this.this$0);
-                                }
-                                this.this$0.logPrintI("Service onServiceConnected");
-                            }
-                        }
-                    }
+                    @Keep
+                    public native synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
                     @Override // android.content.ServiceConnection
-                    public void onServiceDisconnected(ComponentName componentName) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                            this.this$0.mDeviceidInterface = null;
-                            this.this$0.logPrintI("Service onServiceDisconnected");
-                        }
-                    }
+                    @Keep
+                    public native void onServiceDisconnected(ComponentName componentName);
                 };
                 Intent intent = new Intent();
                 intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
@@ -256,41 +143,12 @@ public class OpenDeviceId {
         return invokeLL.intValue;
     }
 
-    public boolean isSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                if (this.mDeviceidInterface != null) {
-                    logPrintI("Device support opendeviceid");
-                    return this.mDeviceidInterface.isSupport();
-                }
-                return false;
-            } catch (RemoteException unused) {
-                logPrintE("isSupport error, RemoteException!");
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
+    @Keep
+    public native boolean isSupported();
 
-    public void setLogEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            DBG = z;
-        }
-    }
+    @Keep
+    public native void setLogEnable(boolean z);
 
-    public void shutdown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.mContext.unbindService(this.mConnection);
-                logPrintI("unBind Service successful");
-            } catch (IllegalArgumentException unused) {
-                logPrintE("unBind Service exception");
-            }
-            this.mDeviceidInterface = null;
-        }
-    }
+    @Keep
+    public native void shutdown();
 }

@@ -1,70 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipRank;
-import tbclient.GetVipInfo.VipUser;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes5.dex */
-public class pm7 implements Cdo {
+public class pm7 implements mv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public dm7 a;
+    public String a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066927, "Lcom/baidu/tieba/pm7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948066927, "Lcom/baidu/tieba/pm7;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public pm7(VipRank vipRank, VipUser vipUser) {
+    public pm7(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipRank, vipUser};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {vipBannerItem};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipRank == null) {
+        if (vipBannerItem == null) {
             return;
         }
-        String str = vipRank.card_id;
-        dm7 dm7Var = new dm7();
-        this.a = dm7Var;
-        dm7Var.d(vipRank.class_name);
-        this.a.f(vipRank.class_url_name);
-        this.a.g(vipRank.class_url);
-        vipRank.my_score_rank.intValue();
-        String str2 = vipUser.portrait;
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.mv4
+    public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mv4
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

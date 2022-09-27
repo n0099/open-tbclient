@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.PendingIntent;
-import android.content.Intent;
+import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,392 +25,247 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class de8 {
+public class de8 implements zd8 {
     public static /* synthetic */ Interceptable $ic;
-    public static de8 c;
-    public static DownloadData d;
-    public static List<DownloadData> e;
-    public static HashMap<String, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HashMap<String, fe8> b;
+    public List<AdvertAppInfo> a;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ de8 a;
-
-        public b(de8 de8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {de8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-864351435, "Lcom/baidu/tieba/de8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-864351435, "Lcom/baidu/tieba/de8$a;");
                     return;
                 }
             }
-            this.a = de8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public DownloadData doInBackground(DownloadData... downloadDataArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadDataArr)) == null) {
-                DownloadData downloadData = downloadDataArr[0];
-                if (downloadData == null) {
-                    return downloadData;
-                }
-                String id = downloadData.getId();
-                String name = downloadData.getName();
-                if (dj.isEmpty(id) || dj.isEmpty(name)) {
-                    return downloadData;
-                }
-                boolean isForceDownload = downloadData.isForceDownload();
-                String str = id.replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
-                String j = de8.j(str);
-                File GetFile = FileHelper.GetFile(str);
-                if (!isForceDownload && GetFile != null) {
-                    DownloadData downloadData2 = new DownloadData(id);
-                    downloadData2.setName(str);
-                    downloadData2.setPath(j);
-                    downloadData2.setStatus(3);
-                    return downloadData2;
-                }
-                downloadData.setCallback(new l45());
-                downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-                downloadData.setType(12);
-                downloadData.setPath(j);
-                return downloadData;
+            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
+            a = iArr;
+            try {
+                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            return (DownloadData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                super.onPostExecute(downloadData);
-                this.a.a = null;
-                if (downloadData != null) {
-                    if (downloadData.getStatus() == 3) {
-                        this.a.r(downloadData);
-                        if (downloadData.isNeedInvokeApk()) {
-                            Application app = TbadkCoreApplication.getInst().getApp();
-                            UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                        }
-                    } else {
-                        ce8.f().h(downloadData);
-                        if (this.a.i(downloadData.getId(), downloadData.getName()) <= 0) {
-                            if (downloadData.getDownloadStaticsData() != null) {
-                                downloadData.getDownloadStaticsData().setDa_range("0");
-                            }
-                            if (downloadData.isNeedNotify()) {
-                                String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f051f);
-                                fe8 fe8Var = new fe8(downloadData, 0);
-                                this.a.b.put(downloadData.getUrl(), fe8Var);
-                                Application app2 = TbadkCoreApplication.getInst().getApp();
-                                int notifyId = downloadData.getNotifyId();
-                                NotificationHelper.showProgressNotification(app2, notifyId, downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), this.a.h(downloadData.getAction()), false, fe8Var.b(), false);
-                            }
-                        } else if (downloadData.getDownloadStaticsData() != null) {
-                            downloadData.getDownloadStaticsData().setDa_range("1");
-                        }
-                    }
-                    DownloadData unused = de8.d = null;
-                    if (de8.e.isEmpty()) {
-                        return;
-                    }
-                    de8.e.remove(0);
-                    this.a.t();
-                }
+            try {
+                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
-
-        public /* synthetic */ b(de8 de8Var, a aVar) {
-            this(de8Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701778, "Lcom/baidu/tieba/de8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947701778, "Lcom/baidu/tieba/de8;");
-                return;
-            }
-        }
-        e = new LinkedList();
-        f = new HashMap<>();
     }
 
     public de8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.a = null;
-        this.b = new HashMap<>();
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(FileHelper.getCacheDir());
-            File file = new File(sb.toString());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            sb.append("/");
-            sb.append(str);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static de8 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (de8.class) {
-                if (c == null) {
-                    c = new de8();
-                }
-            }
-            return c;
-        }
-        return (de8) invokeV.objValue;
-    }
-
-    public static Integer m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f.containsKey(str)) {
-                return f.get(str);
-            }
-            Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-            f.put(str, valueOf);
-            return valueOf;
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        DownloadData downloadData = null;
-        for (DownloadData downloadData2 : ce8.f().e()) {
-            if (downloadData2.getId() != null && downloadData2.getId().equals(str2)) {
-                downloadData = downloadData2;
-            }
-        }
-        ce8.f().d(str);
-        if (downloadData != null) {
-            int i = i(downloadData.getId(), downloadData.getName());
-            String str3 = i + "%";
-            if (downloadData == null || i < 0) {
-                return;
-            }
-            fe8 fe8Var = this.b.get(downloadData.getUrl());
-            if (fe8Var == null) {
-                fe8Var = new fe8(downloadData, i);
-            }
-            fe8Var.d();
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), h(downloadData.getAction()), false, fe8Var.b(), false);
         }
     }
 
-    public final PendingIntent h(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zd8
+    public qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
                 return null;
             }
-            Intent intent = new Intent(str);
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
+            if (bdUniqueId == AdvertAppInfo.z) {
+                return new je8(baseFragmentActivity, bdUniqueId);
+            }
+            if (bdUniqueId == AdvertAppInfo.x) {
+                return new ie8(baseFragmentActivity, bdUniqueId);
+            }
+            return null;
         }
-        return (PendingIntent) invokeL.objValue;
+        return (qn) invokeLL.objValue;
     }
 
-    public int i(String str, String str2) {
+    @Override // com.baidu.tieba.zd8
+    public ud8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? jd8.t() : (ud8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zd8
+    public pd8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ep5.l() : (pd8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zd8
+    public qn<?, ?> d(yd8 yd8Var, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            long k = k(str, str2);
-            long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L);
-            if (0 == j) {
-                return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, yd8Var, bdUniqueId)) == null) {
+            if (yd8Var == null || bdUniqueId == null) {
+                return null;
             }
-            if (k > j) {
-                return 0;
+            if (bdUniqueId == AdvertAppInfo.w) {
+                return new ge8(yd8Var, bdUniqueId);
             }
-            return (int) ((k * 100) / j);
+            return new he8(yd8Var, bdUniqueId, null);
         }
-        return invokeLL.intValue;
+        return (qn) invokeLL.objValue;
     }
 
-    public long k(String str, String str2) {
+    @Override // com.baidu.tieba.zd8
+    public void e() {
+        List<AdvertAppInfo> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.a) == null) {
+            return;
+        }
+        StringUtils.string(Integer.valueOf(list.size()));
+    }
+
+    @Override // com.baidu.tieba.zd8
+    public List<AdvertAppInfo> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zd8
+    public qn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, bdUniqueId, str)) == null) {
+            if (bdUniqueId == AdvertAppInfo.y) {
+                return new ee8(tbPageContext, bdUniqueId, str);
+            }
+            if (bdUniqueId != null) {
+                return new fe8(tbPageContext, bdUniqueId, str);
+            }
+            return null;
+        }
+        return (qn) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zd8
+    @Nullable
+    public IAdBaseAsyncController h(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = str + "_" + str2 + ".tmp";
-            File GetFile = FileHelper.GetFile(str3);
-            if (GetFile == null) {
-                GetFile = FileHelper.GetFileInCache(str3);
-            }
-            if (GetFile != null && GetFile.exists() && GetFile.isFile()) {
-                return GetFile.length();
-            }
-            return -1L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public boolean n(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L) == 0) {
-                return false;
-            }
-            String str3 = str + "_" + str2 + ".tmp";
-            File GetFile = FileHelper.GetFile(str3);
-            if (GetFile == null) {
-                GetFile = FileHelper.GetFileInCache(str3);
-            }
-            return GetFile != null && GetFile.exists() && GetFile.isFile();
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            for (DownloadData downloadData : ce8.f().e()) {
-                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
-                    return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, type, aVar)) == null) {
+            int i = a.a[type.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return null;
                 }
+                return new vf8(aVar);
             }
-            return false;
+            return new lf8(aVar);
         }
-        return invokeL.booleanValue;
+        return (IAdBaseAsyncController) invokeLL.objValue;
     }
 
-    public boolean p(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zd8
+    public wd8 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(str.replace(".", "_"));
-            sb.append(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return FileHelper.GetFile(sb.toString()) != null;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? jd8.t() : (wd8) invokeV.objValue;
     }
 
-    public boolean q(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zd8
+    public void j(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            for (DownloadData downloadData : ce8.f().e()) {
-                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
-                    return true;
+        if (interceptable == null || interceptable.invokeL(1048585, this, advertAppInfo) == null) {
+            AdWebVideoActivity.f2(advertAppInfo, 0, "DETAIL");
+        }
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    @Override // com.baidu.tieba.zd8
+    public void k(@NonNull HashMap<String, String> hashMap, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, hashMap, context) == null) {
+            Bundle bundle = new Bundle();
+            JSONObject jSONObject = null;
+            try {
+                JSONObject jSONObject2 = hashMap.get(WriteActivityConfig.VIDEO_INFO) != null ? new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO)) : null;
+                if (jSONObject2 != null) {
+                    bundle.putString("video_url", jSONObject2.optString("video_url", ""));
+                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject2.optString("poster_image", ""));
+                    float floatValue = Float.valueOf(jSONObject2.optString("video_aspect_ratio", "1")).floatValue();
+                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
+                    if (floatValue < 1.0f) {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
+                    } else {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+                    }
+                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject2.optInt("duration", 0));
+                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject2.optString("page_url", ""));
+                    String str = hashMap.get("url");
+                    try {
+                        if (TextUtils.isEmpty(str)) {
+                            str = jSONObject2.optString("page_url", "");
+                        }
+                        JSONObject jSONObject3 = jSONObject2.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null ? new JSONObject(jSONObject2.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME)) : null;
+                        JSONObject jSONObject4 = hashMap.get("download") != null ? new JSONObject(hashMap.get("download")) : null;
+                        if (jSONObject4 != null) {
+                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject4.optString("key", ""));
+                            jSONObject = new JSONObject();
+                            jSONObject.put("pkgname", jSONObject4.optString("key", ""));
+                            jSONObject.put("download_url", jSONObject4.optString("download_url", ""));
+                        }
+                        if (jSONObject3 != null) {
+                            jSONObject3.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                            jSONObject3.put("button_scheme", jSONObject3.optString("button_scheme", ""));
+                            jSONObject3.put("scheme", jSONObject2.optString("page_url", ""));
+                            jSONObject3.put("ext_data", jSONObject);
+                            if (jSONObject4 != null) {
+                                jSONObject3.put("pkgname", jSONObject4.optString("key", ""));
+                                jSONObject3.put("style", "apk_download");
+                            }
+                        }
+                        ef8 ef8Var = new ef8();
+                        ef8Var.b(jSONObject3);
+                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, ef8Var.d());
+                        jSONObject = str;
+                    } catch (JSONException e) {
+                        e = e;
+                        jSONObject = str;
+                        e.printStackTrace();
+                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
+                        AdWebVideoActivity.e2(new AdWebVideoActivityConfig(context, "", jSONObject, true, true, true, bundle));
+                    }
                 }
+            } catch (JSONException e2) {
+                e = e2;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void r(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadData) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(downloadData);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-        }
-    }
-
-    public boolean s(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            List<DownloadData> e2 = ce8.f().e();
-            if (e2 != null && e2.size() >= 5) {
-                downloadData.setStatus(2);
-                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0513));
-                r(downloadData);
-                UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f0513);
-                return false;
-            }
-            e.add(downloadData);
-            t();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && d == null && !e.isEmpty()) {
-            DownloadData downloadData = e.get(0);
-            d = downloadData;
-            if (downloadData != null) {
-                b bVar = new b(this, null);
-                this.a = bVar;
-                bVar.setPriority(3);
-                this.a.execute(d);
-            }
+            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
+            AdWebVideoActivity.e2(new AdWebVideoActivityConfig(context, "", jSONObject, true, true, true, bundle));
         }
     }
 }

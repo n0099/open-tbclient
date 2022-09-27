@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,31 +10,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class ku2 {
+public final class ku2 extends ju2<String, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile Set<String> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947925505, "Lcom/baidu/tieba/ku2;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925505, "Lcom/baidu/tieba/ku2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947925505, "Lcom/baidu/tieba/ku2;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947925505, "Lcom/baidu/tieba/ku2;");
-        }
+        b = l33.v;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ku2() {
+        super("swanCookie");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,74 +43,33 @@ public final class ku2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public final synchronized boolean a() {
+    public final boolean b() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                z = (set != null ? set.size() : 0) < 5;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hc3.l().o() : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lu2
+    /* renamed from: c */
+    public boolean a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            boolean z = TextUtils.equals(str, (CharSequence) this.a) && !b();
+            if (b) {
+                l02.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
             }
             return z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void b(WebSocketTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(task, "task");
-                if (this.a == null) {
-                    this.a = new LinkedHashSet();
-                }
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.add(task.getTaskId());
-                }
-            }
-        }
-    }
-
-    public final synchronized void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            synchronized (this) {
-                Intrinsics.checkNotNullParameter(taskId, "taskId");
-                Set<String> set = this.a;
-                if (set != null) {
-                    set.remove(taskId);
-                }
-            }
-        }
-    }
-
-    public final synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                Set<String> set = this.a;
-                if (set != null) {
-                    for (String str : set) {
-                        try {
-                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                Set<String> set2 = this.a;
-                if (set2 != null) {
-                    set2.clear();
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

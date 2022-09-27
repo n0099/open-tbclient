@@ -1,87 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class jo8 extends ho8 {
+public class jo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jo8(String str, int i, int i2, long j, String str2) {
-        super(str, i, i2, j, str2);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947890134, "Lcom/baidu/tieba/jo8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947890134, "Lcom/baidu/tieba/jo8;");
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.ho8
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.ho8
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ho8
-    public ko8 g(ArrayList<Integer> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
-            ko8 ko8Var = new ko8();
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-                int i2 = 0;
-                int size = arrayList.size();
-                Iterator<Integer> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    int i3 = i2 + 1;
-                    ko8 h = h(randomAccessFile, it.next().intValue(), i, str);
-                    if (h == null) {
-                        return null;
-                    }
-                    d((int) (((i3 * 50.0f) / size) + 30.0f));
-                    if (!StringUtils.isNull(h.a) || h.b != 0) {
-                        return h;
-                    }
-                    i2 = i3;
-                    ko8Var = h;
+            for (String str2 : split) {
+                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
+                    int indexOf = str2.indexOf("=") + 1;
+                    return indexOf < str2.length() ? str2.substring(indexOf, str2.length()) : "";
                 }
-            } catch (FileNotFoundException unused) {
             }
-            return ko8Var;
+            return "";
         }
-        return (ko8) invokeLLI.objValue;
+        return (String) invokeL.objValue;
     }
 }

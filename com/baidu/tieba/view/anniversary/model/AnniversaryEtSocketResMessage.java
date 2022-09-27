@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vy8;
+import com.baidu.tieba.kz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vy8 resultData;
+    public kz8 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -50,9 +50,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
                     setErrorString(videoTemplateResIdl.error.usermsg);
                 }
                 if (videoTemplateResIdl.data != null) {
-                    vy8 vy8Var = new vy8();
-                    this.resultData = vy8Var;
-                    vy8Var.g(videoTemplateResIdl.data);
+                    kz8 kz8Var = new kz8();
+                    this.resultData = kz8Var;
+                    kz8Var.g(videoTemplateResIdl.data);
                 }
             }
             return videoTemplateResIdl;
@@ -60,9 +60,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public vy8 getResultData() {
+    public kz8 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (vy8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.resultData : (kz8) invokeV.objValue;
     }
 }

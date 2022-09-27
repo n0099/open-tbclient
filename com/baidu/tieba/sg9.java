@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.text.DecimalFormat;
 /* loaded from: classes5.dex */
 public class sg9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static final boolean b;
+    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,85 +26,30 @@ public class sg9 {
                 return;
             }
         }
-        a();
-        b();
-        a = d();
-        c();
-        e();
-        f();
-        b = g();
-        h();
+        a = new DecimalFormat("0.00");
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static String a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 14 : invokeV.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT >= 16 : invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.SDK_INT >= 17 : invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 18 : invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 19 : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Build.VERSION.SDK_INT >= 23 : invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? Build.VERSION.SDK_INT >= 26 : invokeV.booleanValue;
-    }
-
-    public static float i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? ec9.c().getContext().getResources().getDimension(i) : invokeI.floatValue;
-    }
-
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? ec9.c().getContext().getResources().getDimensionPixelOffset(i) : invokeI.intValue;
-    }
-
-    public static int k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? ec9.c().getContext().getResources().getDimensionPixelSize(i) : invokeI.intValue;
-    }
-
-    public static String l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? ec9.c().getContext().getResources().getString(i) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
+                return Color.parseColor("#" + hexString + str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
     }
 }

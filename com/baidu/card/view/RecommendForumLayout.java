@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar4;
-import com.baidu.tieba.at4;
-import com.baidu.tieba.bt4;
-import com.baidu.tieba.dp4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.nr4;
+import com.baidu.tieba.nt4;
+import com.baidu.tieba.ot4;
+import com.baidu.tieba.qp4;
 import com.baidu.tieba.xx;
-import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -78,12 +78,12 @@ public class RecommendForumLayout extends LinearLayout implements xx {
         }
     }
 
-    public void a(bt4 bt4Var) {
+    public void a(ot4 ot4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bt4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ot4Var) == null) {
             this.g.setOnClickListener(this.o);
-            if (!TextUtils.isEmpty(bt4Var.d) && bt4Var.e != 0) {
-                this.f.setText(bt4Var.d);
+            if (!TextUtils.isEmpty(ot4Var.d) && ot4Var.e != 0) {
+                this.f.setText(ot4Var.d);
             } else {
                 this.f.setText(R.string.obfuscated_res_0x7f0f0fbe);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
@@ -94,12 +94,12 @@ public class RecommendForumLayout extends LinearLayout implements xx {
             if (!this.j) {
                 this.g.setVisibility(8);
             }
-            if (bt4Var != null && bt4Var.h() != null && bt4Var.h().size() > 0) {
-                ArrayList<? extends za5> arrayList = new ArrayList<>();
-                ArrayList<at4> h = bt4Var.h();
+            if (ot4Var != null && ot4Var.h() != null && ot4Var.h().size() > 0) {
+                ArrayList<? extends mb5> arrayList = new ArrayList<>();
+                ArrayList<nt4> h = ot4Var.h();
                 if (this.h) {
                     if (this.i) {
-                        arrayList.add(new ar4());
+                        arrayList.add(new nr4());
                     }
                     if (h != null) {
                         arrayList.addAll(h);
@@ -109,7 +109,7 @@ public class RecommendForumLayout extends LinearLayout implements xx {
                         arrayList.addAll(h);
                     }
                     if (this.i) {
-                        arrayList.add(new ar4());
+                        arrayList.add(new nr4());
                     }
                 }
                 this.d.e(arrayList);
@@ -124,13 +124,13 @@ public class RecommendForumLayout extends LinearLayout implements xx {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0770, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092248);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092417);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09224a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
             this.f = textView;
-            uu4.d(textView).z(R.dimen.T_X07);
+            hv4.d(textView).z(R.dimen.T_X07);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec8);
-            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc0);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb8);
+            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc2);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bba);
             HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.a, this.l);
             this.d = horizontalRecommendForumAdapter;
             int i = this.l;
@@ -154,10 +154,10 @@ public class RecommendForumLayout extends LinearLayout implements xx {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            uu4 d = uu4.d(this);
+            hv4 d = hv4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            uu4.d(this.f).v(R.color.CAM_X0105);
+            hv4.d(this.f).v(R.color.CAM_X0105);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805ff, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.k.d();
             this.d.notifyDataSetChanged();
@@ -172,10 +172,10 @@ public class RecommendForumLayout extends LinearLayout implements xx {
         }
     }
 
-    public void setData(bt4 bt4Var) {
+    public void setData(ot4 ot4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bt4Var) == null) {
-            a(bt4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ot4Var) == null) {
+            a(ot4Var);
         }
     }
 
@@ -207,10 +207,10 @@ public class RecommendForumLayout extends LinearLayout implements xx {
         }
     }
 
-    public void setOnItemCoverListener(dp4<at4> dp4Var) {
+    public void setOnItemCoverListener(qp4<nt4> qp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dp4Var) == null) {
-            this.d.g(dp4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, qp4Var) == null) {
+            this.d.g(qp4Var);
         }
     }
 

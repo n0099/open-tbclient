@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.za5;
+import com.baidu.tieba.mb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes4.dex */
-public class FeedData implements Serializable, za5 {
+public class FeedData implements Serializable, mb5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";

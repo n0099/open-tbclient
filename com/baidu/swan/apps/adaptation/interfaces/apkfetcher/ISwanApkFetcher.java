@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap1;
-import com.baidu.tieba.g33;
+import com.baidu.tieba.np1;
+import com.baidu.tieba.t33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public interface ISwanApkFetcher {
     }
 
     /* loaded from: classes2.dex */
-    public static class b extends g33 implements ISwanApkFetcher {
+    public static class b extends t33 implements ISwanApkFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -133,23 +133,23 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(@NonNull String str, @NonNull ap1 ap1Var) {
+        public void d(@NonNull String str, @NonNull np1 np1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, ap1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, np1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(@NonNull String str, @NonNull ap1 ap1Var) {
+        public void e(@NonNull String str, @NonNull np1 np1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, ap1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, np1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void f(@NonNull String str, @NonNull ap1 ap1Var) {
+        public void f(@NonNull String str, @NonNull np1 np1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, ap1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, str, np1Var) == null) {
             }
         }
 
@@ -161,16 +161,16 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void h(@NonNull String str, @NonNull ap1 ap1Var) {
+        public void h(@NonNull String str, @NonNull np1 np1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, ap1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, np1Var) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void j(@NonNull String str, @NonNull ap1 ap1Var) {
+        public void j(@NonNull String str, @NonNull np1 np1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, str, ap1Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, np1Var) == null) {
             }
         }
 
@@ -186,17 +186,17 @@ public interface ISwanApkFetcher {
 
     void F(@NonNull String str, @Nullable a aVar);
 
-    void d(@NonNull String str, @NonNull ap1 ap1Var);
+    void d(@NonNull String str, @NonNull np1 np1Var);
 
-    void e(@NonNull String str, @NonNull ap1 ap1Var);
+    void e(@NonNull String str, @NonNull np1 np1Var);
 
-    void f(@NonNull String str, @NonNull ap1 ap1Var);
+    void f(@NonNull String str, @NonNull np1 np1Var);
 
     void g(@NonNull String str, @Nullable a aVar);
 
-    void h(@NonNull String str, @NonNull ap1 ap1Var);
+    void h(@NonNull String str, @NonNull np1 np1Var);
 
-    void j(@NonNull String str, @NonNull ap1 ap1Var);
+    void j(@NonNull String str, @NonNull np1 np1Var);
 
     void release();
 }

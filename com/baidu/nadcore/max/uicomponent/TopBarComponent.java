@@ -10,10 +10,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.account.AccountRestoreActivity;
-import com.baidu.tieba.jh0;
-import com.baidu.tieba.qn0;
-import com.baidu.tieba.rn0;
-import com.baidu.tieba.sn0;
+import com.baidu.tieba.do0;
+import com.baidu.tieba.eo0;
+import com.baidu.tieba.fo0;
+import com.baidu.tieba.wh0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,11 +56,11 @@ public final class TopBarComponent extends AbsComponentPlugin {
         public final void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sn0 sn0Var = (sn0) this.a.j().p(sn0.class);
-                if (sn0Var != null) {
+                fo0 fo0Var = (fo0) this.a.j().p(fo0.class);
+                if (fo0Var != null) {
                     String str = ClogBuilder.LogType.FREE_CLICK.type;
                     Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-                    sn0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
+                    fo0Var.a(str, AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT);
                 }
                 this.a.h().finish();
             }
@@ -137,9 +137,9 @@ public final class TopBarComponent extends AbsComponentPlugin {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onRelease();
-            jh0.e(this.d);
+            wh0.e(this.d);
             this.d = null;
-            jh0.e(this.e);
+            wh0.e(this.e);
             this.e = null;
         }
     }
@@ -147,7 +147,7 @@ public final class TopBarComponent extends AbsComponentPlugin {
     public final void p(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) && this.d == null) {
-            qn0 a2 = rn0.a();
+            do0 a2 = eo0.a();
             Intrinsics.checkNotNullExpressionValue(a2, "NadMaxRuntime.getUIProvider()");
             a2.b();
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0600, viewGroup, true);

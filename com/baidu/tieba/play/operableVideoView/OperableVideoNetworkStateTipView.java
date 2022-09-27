@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.su8;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.hv8;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,19 +84,19 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0919e8);
+            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0919ea);
             this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090ad5);
-            by4 by4Var = new by4();
-            by4Var.s();
-            by4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            by4Var.g(ej.f(getContext(), R.dimen.tbds32));
+            oy4 oy4Var = new oy4();
+            oy4Var.s();
+            oy4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            oy4Var.g(ej.f(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1534));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(by4Var);
-            zx4 zx4Var = new zx4();
+            this.a.setConfig(oy4Var);
+            my4 my4Var = new my4();
             this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1547));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(zx4Var);
+            this.b.setConfig(my4Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -107,7 +107,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || su8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            if (b() || hv8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
             }
             return false;
         }
@@ -126,8 +126,8 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             return;
         }
         if (view2.getId() == R.id.obfuscated_res_0x7f090ad5) {
-            lo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919e8) {
+            yo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919ea) {
             setHasAgreeToPlay(true);
             View.OnClickListener onClickListener = this.c;
             if (onClickListener != null) {

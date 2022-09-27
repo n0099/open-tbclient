@@ -1,135 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(9)
 /* loaded from: classes5.dex */
-public class qi1 {
+public abstract class qi1 implements oi1<qi1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public qi1() {
+        this(5);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (wg1.f(context).d()) {
-                    if (Build.VERSION.SDK_INT < 24) {
-                        return -1001;
-                    }
-                    if (ii1.n(context)) {
-                        return SubscriptionManager.getDefaultDataSubscriptionId();
-                    }
-                    return -1002;
-                }
-                return -1000;
-            } catch (Throwable th) {
-                ii1.d(th);
-                return -1001;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
     }
 
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
-    }
-
-    public static Pair<Integer, Integer> c(Context context) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = -1;
-            Pair<Integer, Integer> pair = new Pair<>(-1, -1);
-            try {
-                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
-                if (networkType == null) {
-                    return pair;
-                }
-                if (networkType.has("networktype")) {
-                    i2 = Integer.parseInt(networkType.optString("networktype", "-1"));
-                    i = Integer.parseInt(networkType.optString("operatortype", "-1"));
-                } else if (networkType.has("networkType")) {
-                    i2 = Integer.parseInt(networkType.optString("networkType", "-1"));
-                    i = Integer.parseInt(networkType.optString("operatorType", "-1"));
-                } else {
-                    i = -1;
-                }
-                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
-            } catch (Throwable th) {
-                ii1.d(th);
-                return pair;
-            }
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static Pair<Integer, String[]> d(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(qi1 qi1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (!wg1.f(context).d()) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
-                }
-                if (Build.VERSION.SDK_INT < 22) {
-                    return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!ni1.a(context, com.kuaishou.weapon.p0.h.c)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!ii1.n(context)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
-                }
-                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
-                if (activeSubscriptionInfoList == null) {
-                    return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
-                }
-                String[] strArr = new String[4];
-                int i = 0;
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    int i2 = i * 2;
-                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
-                    int subscriptionId = subscriptionInfo.getSubscriptionId();
-                    String iccId = subscriptionInfo.getIccId();
-                    if (TextUtils.isEmpty(iccId)) {
-                        iccId = String.valueOf(-1003);
-                    }
-                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
-                    CharSequence carrierName = subscriptionInfo.getCarrierName();
-                    if (carrierName != null) {
-                        strArr[i2 + 1] = carrierName.toString();
-                    } else {
-                        strArr[i2 + 1] = String.valueOf(-1003);
-                    }
-                    i++;
-                    if (i >= 2) {
-                        break;
-                    }
-                }
-                for (int i3 = 0; i3 < 4; i3++) {
-                    if (TextUtils.isEmpty(strArr[i3])) {
-                        strArr[i3] = String.valueOf(-1003);
-                    }
-                }
-                return new Pair<>(Integer.valueOf(i), strArr);
-            } catch (Throwable th) {
-                ii1.d(th);
-                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qi1Var)) == null) ? qi1Var.a - this.a : invokeL.intValue;
+    }
+
+    public abstract void b();
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
+        }
+    }
+
+    public qi1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (Pair) invokeL.objValue;
+        this.a = i;
     }
 }

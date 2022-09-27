@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.ie5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public TextView e;
     public LinearLayout f;
     public LinearLayout g;
-    public vd5 h;
+    public ie5 h;
     public boolean i;
     public NoNetworkView.b j;
 
@@ -121,8 +121,8 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vd5 vd5Var = this.h;
-            if (vd5Var == null || vd5Var.G0()) {
+            ie5 ie5Var = this.h;
+            if (ie5Var == null || ie5Var.G0()) {
                 if (this.b != null) {
                     this.a.h();
                 } else {
@@ -132,7 +132,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         }
     }
 
-    public abstract vd5 N0(LinearLayout linearLayout, NavigationBar navigationBar);
+    public abstract ie5 N0(LinearLayout linearLayout, NavigationBar navigationBar);
 
     public int O0() {
         InterceptResult invokeV;
@@ -152,7 +152,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091c81);
+            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091c83);
             W0();
             U0();
             V0();
@@ -169,7 +169,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906f5);
             this.g = linearLayout;
-            vd5 N0 = N0(linearLayout, this.c);
+            ie5 N0 = N0(linearLayout, this.c);
             this.h = N0;
             if (N0 != null) {
                 this.a.setContentViewTop(N0);
@@ -180,7 +180,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.c = navigationBar;
             navigationBar.mCenterText.setTextSize(0, ej.f(getPageContext().getPageActivity(), R.dimen.tbds44));
             TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.dialog_cancel), new b(this));
@@ -197,7 +197,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0925c6);
             this.d = noNetworkView;
             noNetworkView.a(this.j);
         }
@@ -255,9 +255,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                 super.finish();
                 return;
             }
-            vd5 vd5Var = this.h;
-            if (vd5Var != null) {
-                Intent resultIntent = vd5Var.getResultIntent();
+            ie5 ie5Var = this.h;
+            if (ie5Var != null) {
+                Intent resultIntent = ie5Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -283,9 +283,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-            vd5 vd5Var = this.h;
-            if (vd5Var != null) {
-                vd5Var.n(i);
+            ie5 ie5Var = this.h;
+            if (ie5Var != null) {
+                ie5Var.n(i);
             }
         }
     }

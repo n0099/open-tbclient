@@ -1,134 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fg6 extends v06<ag6> {
+public class fg6 extends qn<ng6, CardViewHolder<sg6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BarImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public int m;
-    public ag6 n;
-    public View.OnClickListener o;
+    public TbPageContext a;
+    public View.OnClickListener b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fg6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public fg6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = 3;
-        this.i = (BarImageView) h().findViewById(R.id.obfuscated_res_0x7f090a4b);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a8e);
-        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090a49);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090ab6);
-        h().setOnClickListener(this);
-        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tieba.v06
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02cb : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.m == i) {
-            return;
-        }
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(h(), R.drawable.square_search_item_bg);
-        this.m = i;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || this.n == null) {
-            return;
-        }
-        TiebaStatic.log("c12261");
-        yf6.d(this.n.r());
-        view2.setTag(this.n);
-        View.OnClickListener onClickListener = this.o;
-        if (onClickListener != null) {
-            onClickListener.onClick(view2);
-        }
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: r */
-    public void i(ag6 ag6Var) {
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public CardViewHolder<sg6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ag6Var) == null) || ag6Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            sg6 sg6Var = new sg6(this.a);
+            sg6Var.t(this.b);
+            return new CardViewHolder<>(sg6Var);
         }
-        this.n = ag6Var;
-        this.i.K(ag6Var.c(), 10, false);
-        this.j.setText(s(ag6Var.j(), ag6Var.r()));
-        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0429), ag6Var.f()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10d6), ag6Var.n()));
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public SpannableStringBuilder s(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ng6 ng6Var, CardViewHolder<sg6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-                return null;
-            }
-            String trim = str2.trim();
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            int indexOf = str.indexOf(trim);
-            if (indexOf != -1) {
-                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, trim.length() + indexOf, 33);
-            }
-            return spannableStringBuilder;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ng6Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(ng6Var);
+            return cardViewHolder.getView();
         }
-        return (SpannableStringBuilder) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public void t(View.OnClickListener onClickListener) {
+    public void u(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.o = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.b = onClickListener;
         }
     }
 }

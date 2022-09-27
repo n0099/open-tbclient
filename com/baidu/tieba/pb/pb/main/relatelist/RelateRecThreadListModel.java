@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.kp4;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.xo4;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public xo4 c;
+    public kp4 c;
     public pb d;
 
     /* loaded from: classes5.dex */
@@ -129,8 +129,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dm8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            dm8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            sm8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            sm8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
@@ -159,10 +159,10 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return invokeCommon.booleanValue;
     }
 
-    public void G(xo4 xo4Var) {
+    public void G(kp4 kp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xo4Var) == null) {
-            this.c = xo4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kp4Var) == null) {
+            this.c = kp4Var;
         }
     }
 

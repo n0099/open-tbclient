@@ -1,8 +1,8 @@
 package com.faceunity;
 
 import android.content.Context;
-import com.baidu.tieba.iw8;
 import com.baidu.tieba.um;
+import com.baidu.tieba.xw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class FaceUnityUtils {
                 if (file.exists() && file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(b);
                     fileInputStream.close();
-                    faceunity.fuSetup(new byte[fileInputStream.available()], null, iw8.a());
+                    faceunity.fuSetup(new byte[fileInputStream.available()], null, xw8.a());
                 }
                 String b2 = um.b("face_beautification.mp3");
                 File file2 = new File(b2);

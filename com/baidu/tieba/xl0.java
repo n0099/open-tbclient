@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.tieba.gm0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class xl0 implements hm0 {
+public class xl0 implements em0, Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final wl0 b;
-    public boolean c;
+    public final ConcurrentLinkedQueue<gm0.b<?>> a;
+    public final AtomicBoolean b;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final xl0 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,157 +27,17 @@ public class xl0 implements hm0 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-285542065, "Lcom/baidu/tieba/xl0$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-285542096, "Lcom/baidu/tieba/xl0$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-285542065, "Lcom/baidu/tieba/xl0$b;");
+                    classClinitInterceptable.invokePostClinit(-285542096, "Lcom/baidu/tieba/xl0$a;");
                     return;
                 }
             }
-            a = new xl0(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948304077, "Lcom/baidu/tieba/xl0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948304077, "Lcom/baidu/tieba/xl0;");
-                return;
-            }
-        }
-        d = new Object();
-    }
-
-    public /* synthetic */ xl0(a aVar) {
-        this();
-    }
-
-    public static xl0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (xl0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hm0
-    public int a(String str, int i) {
-        InterceptResult invokeLI;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
-            }
-            g("global");
-            if (lz0.a(this.b.a(), str) && (str2 = (String) lz0.b(this.b.a(), str)) != null) {
-                try {
-                    return Integer.parseInt(str2);
-                } catch (NumberFormatException unused) {
-                }
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.hm0
-    public double b(String str, double d2) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return d2;
-            }
-            g("global");
-            if (lz0.a(this.b.a(), str) && (str2 = (String) lz0.b(this.b.a(), str)) != null) {
-                try {
-                    return Double.parseDouble(str2);
-                } catch (NumberFormatException unused) {
-                }
-            }
-            return d2;
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.d = true;
-        }
-    }
-
-    public void e(@Nullable String str) throws ADConfigError {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                JSONObject c = kz0.c(str);
-                if (c.has("error_code")) {
-                    if (TextUtils.equals(c.optString("error_code"), "0")) {
-                        if (c.has("error_message")) {
-                            if (TextUtils.equals(c.optString("error_message"), "success")) {
-                                String optString = c.optString("data");
-                                if (!TextUtils.isEmpty(optString)) {
-                                    JSONObject c2 = kz0.c(optString);
-                                    String optString2 = c2.optString("sign");
-                                    if (!TextUtils.isEmpty(optString2)) {
-                                        if (TextUtils.equals(optString2, rz0.a().b("nad_app_quick_config").getString("_ad_adc_conf_sign", ""))) {
-                                            return;
-                                        }
-                                        rz0.a().b("nad_app_quick_config").i("_ad_adc_conf_sign", optString2);
-                                        synchronized (d) {
-                                            this.b.update(c2);
-                                        }
-                                        return;
-                                    }
-                                    throw ADConfigError.error("2", ADConfigError.REASON_NULL_SIGN);
-                                }
-                                throw ADConfigError.error("7", ADConfigError.REASON_NULL_DATA);
-                            }
-                            throw ADConfigError.error("5", ADConfigError.REASON_WRONG_MSG);
-                        }
-                        throw ADConfigError.error("6", ADConfigError.REASON_NULL_MSG);
-                    }
-                    throw ADConfigError.error("3", ADConfigError.REASON_WRONG_CODE);
-                }
-                throw ADConfigError.error("4", ADConfigError.REASON_NULL_CODE);
-            }
-            throw ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE_BODY);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.d = false;
-        }
-    }
-
-    public final void g(String str) {
-        Map<String, ?> all;
-        Map<String, ?> all2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            rz0 a2 = rz0.a();
-            oz0 b2 = a2.b("nad.launch.config." + str);
-            if ("global".equals(str)) {
-                if (this.c || (all2 = b2.getAll()) == null) {
-                    return;
-                }
-                lz0.f(this.b.a(), all2);
-                this.c = true;
-            } else if (((Map) lz0.b(this.b.b(), str)) == null && (all = b2.getAll()) != null) {
-                lz0.e(this.b.b(), str, all);
-            }
+            a = new xl0();
         }
     }
 
@@ -196,16 +45,50 @@ public class xl0 implements hm0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new wl0();
-        this.c = false;
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static em0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (em0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.em0
+    public <T extends cm0> void a(hm0 hm0Var, fm0<T> fm0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, hm0Var, fm0Var, t) == null) {
+            this.a.offer(new gm0.b<>(hm0Var, fm0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                i11.c(this, "AsyncDeliver", 3);
+            }
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            gm0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
+            }
+        }
     }
 }

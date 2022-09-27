@@ -2,7 +2,7 @@ package com.baidu.searchbox.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.ui8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,6 +32,6 @@ public class SwanDataRuntime {
     public static ISwanData getISwanData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? fi8.a() : (ISwanData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ui8.a() : (ISwanData) invokeV.objValue;
     }
 }

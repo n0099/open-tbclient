@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dt8;
-import com.baidu.tieba.is8;
-import com.baidu.tieba.kc5;
-import com.baidu.tieba.ks8;
-import com.baidu.tieba.lx4;
+import com.baidu.tieba.st8;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
+import com.baidu.tieba.xc5;
+import com.baidu.tieba.xs8;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundListModel b;
-    public ks8 c;
-    public is8 d;
+    public zs8 c;
+    public xs8 d;
     public BackgroundListModel.c e;
     public BdListView.p f;
-    public final lx4.g g;
+    public final yx4.g g;
 
     /* loaded from: classes6.dex */
     public class a implements BackgroundListModel.c {
@@ -55,14 +55,14 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
-        public void a(int i, String str, dt8 dt8Var, List<DressItemData> list) {
+        public void a(int i, String str, st8 st8Var, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, dt8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, st8Var, list}) == null) {
                 this.a.c.j();
                 BackgroundListActivity backgroundListActivity = this.a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.c.c());
                 if (i == 0) {
-                    this.a.c.i(dt8Var, list, this.a.b.S());
+                    this.a.c.i(st8Var, list, this.a.b.S());
                     return;
                 }
                 this.a.showToast(str);
@@ -106,7 +106,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     }
 
     /* loaded from: classes6.dex */
-    public class c implements lx4.g {
+    public class c implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundListActivity a;
@@ -129,7 +129,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             this.a = backgroundListActivity;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.b == null) {
@@ -163,7 +163,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d.a() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -171,17 +171,17 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public kc5 getPageStayDurationItem() {
+    public xc5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            kc5 pageStayDurationItem = super.getPageStayDurationItem();
+            xc5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (kc5) invokeV.objValue;
+        return (xc5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -189,9 +189,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            ks8 ks8Var = this.c;
-            if (ks8Var != null) {
-                ks8Var.d();
+            zs8 zs8Var = this.c;
+            if (zs8Var != null) {
+                zs8Var.d();
             }
         }
     }
@@ -206,12 +206,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListModel backgroundListModel = new BackgroundListModel(this);
             this.b = backgroundListModel;
             backgroundListModel.U(this.e);
-            is8 is8Var = new is8(this.a, this.b.getUniqueId());
-            this.d = is8Var;
-            is8Var.c(0);
-            ks8 ks8Var = new ks8(this, this.d);
-            this.c = ks8Var;
-            ks8Var.g(this.f, this.g);
+            xs8 xs8Var = new xs8(this.a, this.b.getUniqueId());
+            this.d = xs8Var;
+            xs8Var.c(0);
+            zs8 zs8Var = new zs8(this, this.d);
+            this.c = zs8Var;
+            zs8Var.g(this.f, this.g);
             showLoadingView(this.c.c());
             this.b.loadData();
         }
@@ -231,12 +231,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        ks8 ks8Var;
+        zs8 zs8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b == null || (ks8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b == null || (zs8Var = this.c) == null) {
             return;
         }
-        showLoadingView(ks8Var.c());
+        showLoadingView(zs8Var.c());
         this.b.loadData();
     }
 

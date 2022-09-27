@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
-import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class zj7 extends se1<LiveUserSecurityDeviceInfoService> {
+public class zj7 extends ff1<AccountManagerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public final class zj7 extends se1<LiveUserSecurityDeviceInfoService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
+    @Override // com.baidu.tieba.ff1
     /* renamed from: a */
-    public LiveUserSecurityDeviceInfoService createService() {
+    public AccountManagerService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LiveUserSecurityDeviceInfoServiceImpl() : (LiveUserSecurityDeviceInfoService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ak7() : (AccountManagerService) invokeV.objValue;
     }
 }

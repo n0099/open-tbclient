@@ -1,105 +1,185 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.pb.pb.sub.SubPbModel;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class k18 extends qn<l18, a> {
+public class k18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a extends TypeAdapter.ViewHolder {
+    public static class a implements jk5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public int b;
+        public final /* synthetic */ r18 a;
+        public final /* synthetic */ SubPbModel b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2) {
-            super(view2);
+        public a(r18 r18Var, SubPbModel subPbModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {r18Var, subPbModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e1);
+            this.a = r18Var;
+            this.b = subPbModel;
         }
 
+        @Override // com.baidu.tieba.jk5
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+                this.a.E0(false);
+            }
+        }
+
+        @Override // com.baidu.tieba.jk5
+        public void b(List<String> list) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && (this.a.B() instanceof BdTypeListView)) {
+                List<Cdo> data = ((BdTypeListView) this.a.B()).getData();
+                if (ListUtils.isEmpty(data) || ListUtils.isEmpty(list)) {
+                    return;
                 }
-                this.b = TbadkApplication.getInst().getSkinType();
+                Iterator<Cdo> it = data.iterator();
+                while (true) {
+                    i = 0;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Cdo next = it.next();
+                    if (next instanceof PostData) {
+                        while (true) {
+                            if (i >= list.size()) {
+                                break;
+                            } else if (TextUtils.equals(list.get(i), ((PostData) next).L())) {
+                                it.remove();
+                                if (this.b.m0() != null) {
+                                    this.b.m0().F(this.b.m0().m() - 1);
+                                }
+                            } else {
+                                i++;
+                            }
+                        }
+                    }
+                }
+                while (i < data.size()) {
+                    if (data.get(i) instanceof a28) {
+                        ((a28) data.get(i)).b(this.b.m0().m());
+                    }
+                    i++;
+                }
+                ((BdTypeListView) this.a.B()).setData(data);
+                this.a.T();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k18(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ik5.b().a();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    public static lk5 b(SubPbModel subPbModel, r18 r18Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, subPbModel, r18Var)) == null) {
+            if (subPbModel == null || r18Var == null) {
+                return null;
+            }
+            lk5 lk5Var = new lk5();
+            lk5Var.p(subPbModel.o0());
+            lk5Var.o(subPbModel.n0());
+            lk5Var.n(subPbModel.r0());
+            if (subPbModel.m0() != null && subPbModel.m0().d() != null) {
+                lk5Var.l(subPbModel.m0().d().getId());
+                lk5Var.m(subPbModel.m0().d().getName());
+                lk5Var.k(subPbModel.m0().d().getImage_url());
+                lk5Var.t(subPbModel.m0().d().getUser_level());
+            }
+            UserData userData = new UserData();
+            userData.setIsManager(subPbModel.t0());
+            lk5Var.s(userData);
+            lk5Var.q(new a(r18Var, subPbModel));
+            AntiData k0 = subPbModel.k0();
+            SparseArray<String> sparseArray = new SparseArray<>();
+            if (k0 != null && k0.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = k0.getDelThreadInfoList();
+                for (int i = 0; i < delThreadInfoList.size(); i++) {
+                    if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
+                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
+                    }
+                }
+            }
+            lk5Var.r(sparseArray);
+            return lk5Var;
+        }
+        return (lk5) invokeLL.objValue;
+    }
+
+    public static boolean c(zv7 zv7Var, PostData postData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, zv7Var, postData)) == null) {
+            if (zv7Var == null || postData == null || zv7Var.d() == null || zv7Var.l() == null) {
+                return false;
+            }
+            nk5 nk5Var = new nk5();
+            nk5Var.d(zv7Var.d().getId());
+            nk5Var.f(zv7Var.l().getId());
+            nk5Var.e(postData.L());
+            return ik5.b().c(nk5Var);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(TbPageContext tbPageContext, SubPbModel subPbModel, r18 r18Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, subPbModel, r18Var) == null) || tbPageContext == null || r18Var == null || r18Var.u() == null || subPbModel == null) {
+            return;
+        }
+        ik5.b().e(tbPageContext, (ViewGroup) r18Var.u(), b(subPbModel, r18Var));
+        ik5.b().d(3);
+    }
+
+    public static boolean e(PostData postData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0804, viewGroup, false)) : (a) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, l18 l18Var, a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l18Var, aVar})) == null) {
-            aVar.a();
-            return aVar.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, postData)) == null) {
+            if (postData == null) {
+                return false;
+            }
+            return ik5.b().f(postData.L());
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,73 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BannerImage;
+import org.json.JSONObject;
+import tbclient.ActInfo;
 /* loaded from: classes6.dex */
-public class zq4 extends BaseCardInfo implements Cdo {
+public class zq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yq4> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948368588, "Lcom/baidu/tieba/zq4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948368588, "Lcom/baidu/tieba/zq4;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public int f;
+    public boolean g;
+    public int h;
+    public int i;
+    public vt4 j;
 
     public zq4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.h = 1;
+        this.i = 1;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void parserProtobuf(List<BannerImage> list) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        for (BannerImage bannerImage : list) {
-            yq4 yq4Var = new yq4();
-            yq4Var.d(bannerImage);
-            this.a.add(yq4Var);
+        try {
+            this.a = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.b = jSONObject.optInt("status");
+            this.c = jSONObject.optInt("begin_time");
+            this.d = jSONObject.optInt("end_time");
+            this.e = jSONObject.optString("url");
+            this.f = jSONObject.optInt("total_num");
+            jSONObject.optInt("activity_id");
+            jSONObject.optInt("award_act_id");
+            jSONObject.optInt("component_id");
+            this.g = jSONObject.optBoolean("is_senior");
+            jSONObject.optString("banner_img");
+            jSONObject.optInt("show_total_num");
+            String optString = jSONObject.optString("banner_img_size");
+            if (!dj.isEmpty(optString)) {
+                String[] split = optString.split(",");
+                this.h = dh.e(split[0], 1);
+                this.i = dh.e(split[1], 1);
+            }
+            if (this.h <= 0) {
+                this.h = 1;
+            }
+            if (this.i <= 0) {
+                this.i = 1;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
+    }
+
+    public void i(ActInfo actInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) == null) || actInfo == null) {
+            return;
+        }
+        Integer num = actInfo.activity_type;
+        this.a = num != null ? num.intValue() : -1;
+        Integer num2 = actInfo.status;
+        this.b = num2 != null ? num2.intValue() : -1;
+        Integer num3 = actInfo.begin_time;
+        this.c = num3 != null ? num3.intValue() : -1;
+        Integer num4 = actInfo.end_time;
+        this.d = num4 != null ? num4.intValue() : -1;
+        this.e = actInfo.url;
+        Integer num5 = actInfo.total_num;
+        this.f = num5 != null ? num5.intValue() : -1;
+        actInfo.activity_id.intValue();
+        actInfo.award_act_id.intValue();
+        actInfo.component_id.intValue();
+        this.g = actInfo.is_senior.booleanValue();
+        String str = actInfo.banner_img;
+        actInfo.show_total_num.intValue();
+        String str2 = actInfo.banner_img_size;
+        if (!dj.isEmpty(str2)) {
+            try {
+                String[] split = str2.split(",");
+                this.h = dh.e(split[0], 1);
+                this.i = dh.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+        if (this.h <= 0) {
+            this.h = 1;
+        }
+        if (this.i <= 0) {
+            this.i = 1;
+        }
+        vt4 vt4Var = new vt4();
+        this.j = vt4Var;
+        vt4Var.a(actInfo.lottery_senior);
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cd8;
-import com.baidu.tieba.gd8;
-import com.baidu.tieba.oe8;
-import com.baidu.tieba.qe8;
-import com.baidu.tieba.qq4;
+import com.baidu.tieba.df8;
+import com.baidu.tieba.dr4;
+import com.baidu.tieba.ff8;
+import com.baidu.tieba.rd8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
+import com.baidu.tieba.vd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class AdCardVideoView extends AdCardBaseView implements gd8 {
+public class AdCardVideoView extends AdCardBaseView implements vd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView b0;
@@ -120,10 +120,10 @@ public class AdCardVideoView extends AdCardBaseView implements gd8 {
         if (advertAppInfo != null) {
             int i = -1;
             String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.j) ? getPageTypeByBusiness() : advertAppInfo.j;
-            qq4 qq4Var = advertAppInfo.i;
-            if (qq4Var != null) {
-                i = qq4Var.b;
-                pageTypeByBusiness = qq4Var.a;
+            dr4 dr4Var = advertAppInfo.i;
+            if (dr4Var != null) {
+                i = dr4Var.b;
+                pageTypeByBusiness = dr4Var.a;
             }
             this.b0.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
         }
@@ -157,18 +157,18 @@ public class AdCardVideoView extends AdCardBaseView implements gd8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0177 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gd8
-    public cd8 getVideoOrVrView() {
+    @Override // com.baidu.tieba.vd8
+    public rd8 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b0 : (cd8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b0 : (rd8) invokeV.objValue;
     }
 
     public boolean q0(AdCard adCard) {
         InterceptResult invokeL;
-        oe8 oe8Var;
+        df8 df8Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) ? adCard != null && adCard.goodsStyle == 14 && (oe8Var = adCard.verticalVideoStyle) != null && oe8Var.a() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) ? adCard != null && adCard.goodsStyle == 14 && (df8Var = adCard.verticalVideoStyle) != null && df8Var.a() : invokeL.booleanValue;
     }
 
     public final void r0(AdCard adCard) {
@@ -177,11 +177,11 @@ public class AdCardVideoView extends AdCardBaseView implements gd8 {
             if (adCard.goodsStyle == 14) {
                 int i = this.B / 2;
                 this.d0 = i;
-                this.e0 = qe8.b(i);
+                this.e0 = ff8.b(i);
             } else {
                 int i2 = this.B;
                 this.d0 = i2;
-                this.e0 = qe8.a(i2);
+                this.e0 = ff8.a(i2);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b0.getLayoutParams();
             layoutParams.height = this.e0;
@@ -189,11 +189,11 @@ public class AdCardVideoView extends AdCardBaseView implements gd8 {
             if (adCard.goodsStyle == 14 && !q0(adCard)) {
                 int i3 = this.B / 2;
                 this.f0 = i3;
-                this.g0 = qe8.b(i3);
+                this.g0 = ff8.b(i3);
             } else {
                 int i4 = this.B;
                 this.f0 = i4;
-                this.g0 = qe8.a(i4);
+                this.g0 = ff8.a(i4);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams2.width = this.f0;

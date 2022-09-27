@@ -1132,10 +1132,10 @@ public abstract class FragmentManager {
         if (!(interceptable == null || interceptable.invokeL(65570, this, fragment) == null) || (fragmentContainer = getFragmentContainer(fragment)) == null) {
             return;
         }
-        if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f09260a) == null) {
-            fragmentContainer.setTag(R.id.obfuscated_res_0x7f09260a, fragment);
+        if (fragmentContainer.getTag(R.id.obfuscated_res_0x7f09260c) == null) {
+            fragmentContainer.setTag(R.id.obfuscated_res_0x7f09260c, fragment);
         }
-        ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f09260a)).setNextAnim(fragment.getNextAnim());
+        ((Fragment) fragmentContainer.getTag(R.id.obfuscated_res_0x7f09260c)).setNextAnim(fragment.getNextAnim());
     }
 
     private void startPendingDeferredFragments() {

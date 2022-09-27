@@ -17,20 +17,20 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.ce7;
-import com.baidu.tieba.gd7;
-import com.baidu.tieba.ib5;
-import com.baidu.tieba.jb5;
+import com.baidu.tieba.qe7;
+import com.baidu.tieba.ud7;
+import com.baidu.tieba.vb5;
+import com.baidu.tieba.wb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetworkView.b {
+public class ChatAggregationFragment extends BaseFragment implements vb5, NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gd7 a;
+    public ud7 a;
     public ViewEventCenter b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -135,7 +135,7 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
         this.d = new b(this, 2016321);
     }
 
-    @Override // com.baidu.tieba.ib5
+    @Override // com.baidu.tieba.vb5
     public boolean R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,12 +147,12 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void g(boolean z) {
-        gd7 gd7Var;
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (gd7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (ud7Var = this.a) == null) {
             return;
         }
-        gd7Var.g0(z);
+        ud7Var.g0(z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -160,7 +160,7 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            new ce7(this).c();
+            new qe7(this).c();
         }
     }
 
@@ -189,12 +189,12 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        gd7 gd7Var;
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (gd7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (ud7Var = this.a) == null) {
             return;
         }
-        gd7Var.b0(getPageContext(), i);
+        ud7Var.b0(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -202,9 +202,9 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            gd7 gd7Var = new gd7(this);
-            this.a = gd7Var;
-            gd7Var.Y(bundle);
+            ud7 ud7Var = new ud7(this);
+            this.a = ud7Var;
+            ud7Var.Y(bundle);
             View e0 = this.a.e0();
             this.a.b0(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             r1().addEventDelegate(this);
@@ -222,9 +222,9 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.c);
             MessageManager.getInstance().unRegisterListener(this.d);
-            gd7 gd7Var = this.a;
-            if (gd7Var != null) {
-                gd7Var.Z();
+            ud7 ud7Var = this.a;
+            if (ud7Var != null) {
+                ud7Var.Z();
             }
         }
     }
@@ -234,9 +234,9 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPrimary();
-            gd7 gd7Var = this.a;
-            if (gd7Var != null) {
-                gd7Var.S();
+            ud7 ud7Var = this.a;
+            if (ud7Var != null) {
+                ud7Var.S();
                 this.a.N0(isPrimary());
             }
         }
@@ -263,11 +263,11 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
         }
     }
 
-    @Override // com.baidu.tieba.ib5
-    public boolean r0(jb5 jb5Var) {
+    @Override // com.baidu.tieba.vb5
+    public boolean r0(wb5 wb5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jb5Var)) == null) ? jb5Var == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, wb5Var)) == null) ? wb5Var == null : invokeL.booleanValue;
     }
 
     public ViewEventCenter r1() {
@@ -289,11 +289,11 @@ public class ChatAggregationFragment extends BaseFragment implements ib5, NoNetw
     }
 
     public void t() {
-        gd7 gd7Var;
+        ud7 ud7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (gd7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (ud7Var = this.a) == null) {
             return;
         }
-        gd7Var.w0();
+        ud7Var.w0();
     }
 }

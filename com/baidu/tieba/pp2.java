@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class pp2 implements xs2 {
+public class pp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pp2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public rp2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
+    public final cc3 a;
 
     public pp2() {
         Interceptable interceptable = $ic;
@@ -31,45 +28,69 @@ public class pp2 implements xs2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
+        this.a = new cc3("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
+        }
+        c();
     }
 
-    @Override // com.baidu.tieba.xs2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static pp2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("radius")) {
-            rp2 rp2Var = new rp2();
-            this.a = rp2Var;
-            rp2Var.a(jSONObject);
-            if (this.a.isValid()) {
-                this.b = lp2.a(jSONObject.optString("color"), 0);
-                this.c = lp2.a(jSONObject.optString("fillColor"), -16777216);
-                this.d = jSONObject.optInt("radius", -1);
-                this.e = Math.abs(lp2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (pp2.class) {
+                    if (b == null) {
+                        b = new pp2();
+                    }
+                }
             }
+            return b;
         }
+        return (pp2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xs2
-    public boolean isValid() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            rp2 rp2Var = this.a;
-            return (rp2Var == null || !rp2Var.isValid() || this.d == -1) ? false : true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("sids", "") : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void c() {
+        Object e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<qp2> c = new op2().c();
+            for (qp2 qp2Var : c) {
+                rp2 b2 = qp2Var.b();
+                sp2 c2 = qp2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (qp2 qp2Var2 : c) {
+                rp2 b3 = qp2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            this.a.writeString("sids", sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1));
         }
-        return (String) invokeV.objValue;
     }
 }

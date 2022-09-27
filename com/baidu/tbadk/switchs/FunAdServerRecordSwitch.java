@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ public class FunAdServerRecordSwitch extends qf {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? bx4.k().l("pref_key_fun_ad_server_record_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ox4.k().l("pref_key_fun_ad_server_record_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.qf

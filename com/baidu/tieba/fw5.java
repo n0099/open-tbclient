@@ -1,76 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class fw5 {
+public class fw5 extends i16<bw5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r9 a;
-    public final List<qn> b;
-    public BdTypeMultiColumnListView c;
-    public gw5 d;
-    public jw5 e;
+    public gw5 i;
+    public gw5 j;
 
-    public fw5(r9 r9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fw5(TbPageContext<?> tbPageContext, boolean z) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, bdTypeMultiColumnListView};
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = r9Var;
-        this.c = bdTypeMultiColumnListView;
-        a();
+        this.i = new gw5(g(), z);
+        this.j = new gw5(g(), z);
+        ViewGroup viewGroup = (ViewGroup) h();
+        View view2 = new View(getContext());
+        viewGroup.addView(this.i.h());
+        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
+        viewGroup.addView(this.j.h());
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.i16
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new gw5((TbPageContext) this.a, mw5.b);
-            this.e = new jw5((TbPageContext) this.a, mw5.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.c.addAdapters(this.b);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0101 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.j(tbPageContext, i);
+            this.j.j(tbPageContext, i);
         }
     }
 
-    public void b(ws5 ws5Var) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ws5Var) == null) {
-            gw5 gw5Var = this.d;
-            if (gw5Var != null) {
-                gw5Var.u(ws5Var);
-            }
-            jw5 jw5Var = this.e;
-            if (jw5Var != null) {
-                jw5Var.u(ws5Var);
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    public void c(List<Cdo> list) {
-        BdTypeMultiColumnListView bdTypeMultiColumnListView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: r */
+    public void i(bw5 bw5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeMultiColumnListView = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bw5Var) == null) || bw5Var == null) {
             return;
         }
-        bdTypeMultiColumnListView.setData(list);
+        this.i.i(bw5Var.a);
+        this.j.i(bw5Var.b);
+    }
+
+    public void s(kw5 kw5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, kw5Var) == null) {
+            this.i.y(kw5Var);
+            this.j.y(kw5Var);
+        }
     }
 }

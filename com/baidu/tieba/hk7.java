@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
-import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hk7 implements LiveLikeProxyService {
+public class hk7 implements BrowserProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class hk7 implements LiveLikeProxyService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService
-    public ILiveLikeView buildLikeViewInstance() {
+    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
+    public IBrowserView buildLightBrowserViewInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ik7() : (ILiveLikeView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new fk7() : (IBrowserView) invokeV.objValue;
     }
 }

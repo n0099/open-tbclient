@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64InputStream;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,36 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public abstract class h89 implements b99 {
+public class h89 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public o99 a;
-    public String b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777728, "Lcom/baidu/tieba/h89;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777728, "Lcom/baidu/tieba/h89;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947777728, "Lcom/baidu/tieba/h89;")) == null) {
+            return;
         }
-        c = i99.m();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947777728, "Lcom/baidu/tieba/h89;");
+        }
     }
 
     public h89() {
@@ -55,224 +42,125 @@ public abstract class h89 implements b99 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new o99();
-        this.b = "";
     }
 
-    @Override // com.baidu.tieba.b99
-    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.b, jSONObject, z, z2) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            b(str, str2, new Object[0]);
+        }
     }
 
-    @Override // com.baidu.tieba.b99
-    public boolean b(File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static void b(String str, String str2, Object... objArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.b, file, j, z, z2) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
+            String e = e(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.d(i(str), e, g);
+                }
+            } else if (a) {
+                Log.d(i(str), e);
+            }
+        }
     }
 
-    public final HashMap<String, String> c() {
+    public static void c(String str, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr) == null) {
+            String d = d(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.e(i(str), d, g);
+                }
+            } else if (a) {
+                Log.e(i(str), d);
+            }
+        }
+    }
+
+    public static String d(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, objArr)) == null) ? (objArr == null || objArr.length == 0) ? str : String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
+    }
+
+    public static String e(String str, Object... objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>(2);
-            hashMap.put("Content-type", "application/x-www-form-urlencoded");
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            String name = h89.class.getName();
+            int i = 0;
+            while (true) {
+                if (i >= stackTrace.length) {
+                    break;
+                } else if (stackTrace[i].getClassName().equals(name)) {
+                    i += 4;
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            return stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber();
         }
-        return (HashMap) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = i99.k(z);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public final String e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean isUBCDebug = this.a.isUBCDebug();
-            if (TextUtils.isEmpty(str)) {
-                str = d(isUBCDebug);
-            }
-            if (z2) {
-                c2 = i99.h(str);
-            } else {
-                c2 = i99.c(str);
-            }
-            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
-                c2 = oa9.a(c2, "debug", "1");
-            }
-            if (z) {
-                c2 = oa9.a(c2, "reallog", "1");
-            }
-            return n89.o().E() ? oa9.a(c2, "beta", "1") : c2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final boolean f(l99 l99Var) {
+    public static Throwable g(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, l99Var)) == null) {
-            if (l99Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, objArr)) == null) {
+            if (objArr == null || objArr.length == 0) {
+                return null;
             }
-            if (!l99Var.e()) {
-                if (c) {
-                    Log.d("UploadManager", "postByteRequest, fail: " + l99Var.d());
-                } else {
-                    k99.a().i(l99Var.d(), null);
-                }
-                if (n89.o().M()) {
-                    g(l99Var.c());
-                }
-                l99Var.a();
-                return false;
+            Object obj = objArr[objArr.length - 1];
+            if (obj instanceof Throwable) {
+                return (Throwable) obj;
             }
-            try {
-                int i = new JSONObject(l99Var.b()).getInt("error");
-                if (i != 0) {
-                    if (c) {
-                        Log.d("UploadManager", "server error");
-                    }
-                    if (!c) {
-                        k99.a().k(i);
-                    }
-                }
-            } catch (Exception e) {
-                if (c) {
-                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
-                } else {
-                    k99.a().j(Log.getStackTraceString(e));
-                }
-            }
-            l99Var.a();
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (Throwable) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void g(int i) {
-        long j;
+    public static void h(String str, String str2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(1048582, this, i) != null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        boolean z = true;
-        if (i == 403 || i == 408 || i == 499) {
-            j = 60000;
-        } else if (i < 500 || i >= 600) {
-            z = false;
-            if (z) {
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, objArr) == null) {
+            String d = d(str2, objArr);
+            Throwable g = g(objArr);
+            if (g != null) {
+                if (a) {
+                    Log.i(i(str), d, g);
+                }
+            } else if (a) {
+                Log.i(i(str), d);
             }
-            n89.o().Z(currentTimeMillis);
-            return;
-        } else {
-            j = 300000;
-        }
-        currentTimeMillis += j;
-        if (z) {
         }
     }
 
-    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        InputStream inputStream;
+    public static String i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        if (file == null || !file.exists()) {
-            return false;
-        }
-        String e = e(str, z, z2);
-        HashMap<String, String> c2 = c();
-        if (p99.m().p() && j > 0) {
-            c2.put("Content-Length", String.valueOf(j));
-        }
-        InputStream inputStream2 = null;
-        try {
-            inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
-            try {
-                try {
-                    boolean f = f(j(e, inputStream, c2));
-                    ja9.b(inputStream);
-                    return f;
-                } catch (Exception e2) {
-                    e = e2;
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e);
-                    } else {
-                        k99.a().i(null, Log.getStackTraceString(e));
-                    }
-                    ja9.b(inputStream);
-                    return false;
-                }
-            } catch (Throwable th) {
-                th = th;
-                inputStream2 = inputStream;
-                ja9.b(inputStream2);
-                throw th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (str.startsWith("cr_")) {
+                return str;
             }
-        } catch (Exception e3) {
-            e = e3;
-            inputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
+            int i = str.startsWith("cr.") ? 3 : 0;
+            return "cr_" + str.substring(i, str.length());
         }
+        return (String) invokeL.objValue;
     }
-
-    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (jSONObject != null && (a = la9.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
-                a[0] = 117;
-                a[1] = 123;
-                String e = e(str, z, z2);
-                HashMap<String, String> c2 = c();
-                if (p99.m().p()) {
-                    c2.put("Content-Length", String.valueOf(a.length));
-                }
-                try {
-                    return f(k(e, a, c2));
-                } catch (IOException e2) {
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
-                    } else {
-                        k99.a().i(null, Log.getStackTraceString(e2));
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public abstract l99 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
-
-    public abstract l99 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 }

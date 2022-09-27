@@ -1,66 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import android.webkit.WebResourceResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.webkit.WebViewAssetLoader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class vk4 implements WebViewAssetLoader.PathHandler {
+public final class vk4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final File a;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
 
-    public vk4(@NonNull Context context, @NonNull File file) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948243658, "Lcom/baidu/tieba/vk4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948243658, "Lcom/baidu/tieba/vk4;");
+                return;
+            }
+        }
+        g = vj1.a;
+    }
+
+    public vk4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        try {
-            this.a = new File(uk4.a(file));
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
         }
     }
 
-    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-    @NonNull
-    @WorkerThread
-    public WebResourceResponse handle(@NonNull String str) {
-        InterceptResult invokeL;
-        File b;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                b = uk4.b(this.a, str);
-            } catch (IOException e) {
-                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+                jSONObject.put("videoBitrate", this.a);
+                jSONObject.put("audioBitrate", this.b);
+                jSONObject.put("videoFPS", this.c);
+                jSONObject.put("netSpeed", this.d);
+                jSONObject.put("videoWidth", this.e);
+                jSONObject.put("videoHeight", this.f);
+                jSONObject2.putOpt("info", jSONObject);
+                return jSONObject2.toString();
+            } catch (JSONException e) {
+                if (g) {
+                    Log.e("LiveNetworkStatus", "toJSONObject failed: " + Log.getStackTraceString(e));
+                    return null;
+                }
+                return null;
             }
-            if (b != null) {
-                return new WebResourceResponse(uk4.c(str), null, uk4.e(b));
-            }
-            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
-            return new WebResourceResponse(null, null, null);
         }
-        return (WebResourceResponse) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

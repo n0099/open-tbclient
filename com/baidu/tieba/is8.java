@@ -1,38 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class is8 {
+public class is8 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public BdUniqueId c;
-    public int d;
+    public xp8 m;
+    public MainTabActivity n;
 
-    public is8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    /* loaded from: classes4.dex */
+    public class a implements zk8.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ is8 a;
+
+        public a(is8 is8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {is8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = is8Var;
+        }
+
+        @Override // com.baidu.tieba.zk8.d
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.u();
+            }
+        }
+
+        @Override // com.baidu.tieba.zk8.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.u();
+            }
+        }
+
+        @Override // com.baidu.tieba.zk8.d
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.u();
+            }
+        }
+    }
+
+    public is8(TbPageContext tbPageContext, xp8 xp8Var, MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, xp8Var, mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,66 +85,44 @@ public class is8 {
                 return;
             }
         }
-        this.c = null;
-        this.d = -1;
-        this.a = tbPageContext;
-        this.c = bdUniqueId;
+        this.m = xp8Var;
+        this.n = mainTabActivity;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void b(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) == null) || dressItemData == null || dressItemData.getPropsId() == 0) {
-            return;
-        }
-        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
-        personalBackgroundPreviewActivityConfig.setFrom(this.d);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void d(int i, String str, DressItemData dressItemData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
-            int i2 = dressItemData.getFreeUserLevel() == 101 ? 9 : 0;
-            if (StringUtils.isNull(str)) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (PollingModel.O()) {
+                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+                zk8 zk8Var = new zk8();
+                zk8Var.i(iconPopData);
+                zk8Var.k(new a(this));
                 return;
             }
-            if (i == as8.a) {
-                int i3 = this.d;
-                zr8.d(this.a, z ? 4 : 2, str, i2, i3 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i3 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i == as8.b) {
-                zr8.c(this.a, z ? 4 : 2, str, i2);
-            }
+            u();
         }
     }
 
-    public void e(DressItemData dressItemData, boolean z) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, dressItemData, z) == null) || dressItemData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            xp8 xp8Var = this.m;
+            return (xp8Var == null || xp8Var.B() == null || (this.m.B().getCurrentTabType() != 2 && this.m.B().getCurrentTabType() != 1 && this.m.B().getCurrentTabType() != 3)) ? false : true;
         }
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
-            return;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            return PollingModel.O() && iconPopData.getPic160() != null && iconPopData.getTitle() != null && this.n.d1() && this.n.E && iconPopData.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId();
         }
-        this.b = dressItemData.getPropsId();
-        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-        backgroundSetRequestMessage.setFromDetail(z);
-        backgroundSetRequestMessage.setRequestUniqueId(this.c);
-        backgroundSetRequestMessage.setPropId(this.b);
-        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
+        return invokeV.booleanValue;
     }
 }

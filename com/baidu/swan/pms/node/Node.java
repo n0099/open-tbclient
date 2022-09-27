@@ -3,16 +3,16 @@ package com.baidu.swan.pms.node;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.je4;
-import com.baidu.tieba.ke4;
-import com.baidu.tieba.of4;
-import com.baidu.tieba.pe4;
-import com.baidu.tieba.pf4;
-import com.baidu.tieba.qe4;
-import com.baidu.tieba.te4;
-import com.baidu.tieba.tf4;
-import com.baidu.tieba.ue4;
-import com.baidu.tieba.uf4;
+import com.baidu.tieba.bg4;
+import com.baidu.tieba.cf4;
+import com.baidu.tieba.cg4;
+import com.baidu.tieba.df4;
+import com.baidu.tieba.gf4;
+import com.baidu.tieba.gg4;
+import com.baidu.tieba.hf4;
+import com.baidu.tieba.hg4;
+import com.baidu.tieba.we4;
+import com.baidu.tieba.xe4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,8 +33,8 @@ public final class Node {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends ke4> mParamsProvider;
-    public Class<? extends je4> mProcessor;
+    public Class<? extends xe4> mParamsProvider;
+    public Class<? extends we4> mProcessor;
 
     static {
         InterceptResult invokeClinit;
@@ -49,10 +49,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", of4.class, pf4.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", tf4.class, uf4.class, true);
-        CERES = new Node("CERES", 2, "ceres", pe4.class, qe4.class);
-        Node node = new Node("COMMON", 3, "common", te4.class, ue4.class);
+        HOST = new Node("HOST", 0, "host", bg4.class, cg4.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", gg4.class, hg4.class, true);
+        CERES = new Node("CERES", 2, "ceres", cf4.class, df4.class);
+        Node node = new Node("COMMON", 3, "common", gf4.class, hf4.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -96,9 +96,9 @@ public final class Node {
         return (Node) invokeL.objValue;
     }
 
-    public static ke4 getProvider(Node node) {
+    public static xe4 getProvider(Node node) {
         InterceptResult invokeL;
-        Class<? extends ke4> paramsProvider;
+        Class<? extends xe4> paramsProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, node)) == null) {
             if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
@@ -110,7 +110,7 @@ public final class Node {
                 return null;
             }
         }
-        return (ke4) invokeL.objValue;
+        return (xe4) invokeL.objValue;
     }
 
     public static Node valueOf(String str) {
@@ -131,13 +131,13 @@ public final class Node {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public Class<? extends ke4> getParamsProvider() {
+    public Class<? extends xe4> getParamsProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mParamsProvider : (Class) invokeV.objValue;
     }
 
-    public Class<? extends je4> getProcessor() {
+    public Class<? extends we4> getProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProcessor : (Class) invokeV.objValue;

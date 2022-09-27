@@ -1,16 +1,16 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
+@Keep
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,55 +28,15 @@ public class a {
         }
     }
 
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                return (Context) Class.forName("android.app.ActivityThread").getDeclaredMethod("currentApplication", new Class[0]).invoke(null, new Object[0]);
-            } catch (ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (Context) invokeV.objValue;
-    }
+    @Keep
+    public static native Context a();
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (a.class) {
-                a = context;
-            }
-        }
-    }
+    @Keep
+    public static native void a(Context context);
 
-    public static Context b() {
-        InterceptResult invokeV;
-        Context context;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (a.class) {
-                if (a == null) {
-                    a = a();
-                }
-                context = a;
-            }
-            return context;
-        }
-        return (Context) invokeV.objValue;
-    }
+    @Keep
+    public static native Context b();
 
-    public static Context c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context b = b();
-            if (b != null) {
-                return b.getApplicationContext();
-            }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
+    @Keep
+    public static native Context c();
 }

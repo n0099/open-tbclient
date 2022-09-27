@@ -35,12 +35,12 @@ public final class qv extends pv {
 
         /* renamed from: com.baidu.tieba.qv$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0396a implements Runnable {
+        public class RunnableC0403a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0396a(a aVar) {
+            public RunnableC0403a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public final class qv extends pv {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qv.c.post(new RunnableC0396a(this));
+                qv.c.post(new RunnableC0403a(this));
             }
         }
     }
@@ -117,12 +117,12 @@ public final class qv extends pv {
 
             /* renamed from: com.baidu.tieba.qv$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0397a implements View.OnClickListener {
+            public class View$OnClickListenerC0404a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0397a(a aVar) {
+                public View$OnClickListenerC0404a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public final class qv extends pv {
                     qv.b.setView(this.a.b);
                     qv.b.setGravity(81, 0, this.a.c);
                     yv.m(qv.b, R.style.obfuscated_res_0x7f100418);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0397a(this));
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0404a(this));
                     qv.b.show();
                 }
             }

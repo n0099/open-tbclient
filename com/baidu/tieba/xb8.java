@@ -1,142 +1,313 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PushDialogActivity a;
-    public String b;
-    public long c;
+    public String a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public List<lb8> e;
 
     /* loaded from: classes6.dex */
-    public class a extends pb {
+    public static class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xb8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xb8 xb8Var, int i, int i2) {
-            super(i, i2);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                fp7.a(hp7.b);
+                fp7.a(hp7.c);
+                fp7.a(hp7.d);
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<yb8, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(xb8 xb8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xb8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {xb8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = xb8Var;
         }
 
-        @Override // com.baidu.tieba.pb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(yb8... yb8VarArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof PushDialogHttpResMsg) {
-                    this.a.f((PushDialogHttpResMsg) responsedMessage);
-                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
-                    this.a.g((PushDialogSocketResMsg) responsedMessage);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yb8VarArr)) == null) {
+                if (yb8VarArr == null || yb8VarArr.length != 1 || yb8VarArr[0] == null) {
+                    return null;
                 }
+                yb8 yb8Var = yb8VarArr[0];
+                synchronized ("debug") {
+                    File file = new File(hp7.e + hp7.a + yb8Var.b + hp7.a + "debug");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(yb8Var.a.a().toString());
+                    sb.append("\n");
+                    fp7.g(file, sb.toString(), true);
+                }
+                return null;
             }
+            return (Void) invokeL.objValue;
         }
     }
 
-    public xb8(PushDialogActivity pushDialogActivity) {
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<rb8, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(xb8 xb8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xb8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(rb8... rb8VarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rb8VarArr)) == null) {
+                if (rb8VarArr == null || rb8VarArr.length != 1 || rb8VarArr[0] == null) {
+                    return null;
+                }
+                rb8 rb8Var = rb8VarArr[0];
+                synchronized ("kpi") {
+                    fp7.g(new File(hp7.e + hp7.a + rb8Var.d + hp7.a + "kpi"), xb8.e(rb8Var.a, rb8Var.b, rb8Var.c).toString(), false);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948294715, "Lcom/baidu/tieba/xb8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948294715, "Lcom/baidu/tieba/xb8;");
+                return;
+            }
+        }
+        if (zi.c()) {
+            new a().execute(new Void[0]);
+        }
+    }
+
+    public xb8(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pushDialogActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = pushDialogActivity;
-        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
-        Intent intent = this.a.getIntent();
-        if (intent != null) {
-            this.b = intent.getStringExtra("thread_id");
-            this.c = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.b)) {
-                this.a.finish();
-            }
-        }
+        this.b = true;
+        this.c = 0;
+        this.d = false;
+        this.a = str;
+        this.e = new ArrayList();
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public static final JSONObject e(boolean z, int i, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long g = dh.g(this.b, 0L);
-            if (g == 0) {
-                PushDialogActivity pushDialogActivity = this.a;
-                if (pushDialogActivity != null) {
-                    pushDialogActivity.C1(false, null);
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            int i2 = 1;
+            try {
+                jSONObject.put("postSuccess", (z2 && z) ? 1 : 0);
+                jSONObject.put("errorTimes", i);
+                if (!z2) {
+                    i2 = 0;
                 }
+                jSONObject.put("posted", i2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public void a(lb8 lb8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lb8Var) == null) {
+            this.e.add(lb8Var);
+            c();
+            m(lb8Var);
+            l();
+        }
+    }
+
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                if (!ListUtils.isEmpty(this.e)) {
+                    int size = this.e.size();
+                    for (int i = 0; i < size; i++) {
+                        jSONArray.put(this.e.get(i).a());
+                    }
+                }
+                jSONObject.put("running", jSONArray);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && zi.c()) {
+            File file = new File(hp7.e + hp7.a + this.a + hp7.a);
+            if (file.exists()) {
                 return;
             }
-            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-            pushDialogReqNetMsg.setTask_id(this.c);
-            pushDialogReqNetMsg.setTid(g);
-            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
+            file.mkdir();
         }
     }
 
-    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        PushDialogActivity pushDialogActivity;
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) || (pushDialogActivity = this.a) == null) {
-            return;
-        }
-        pushDialogActivity.C1(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e(this.b, this.c, this.d) : (JSONObject) invokeV.objValue;
     }
 
-    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        PushDialogActivity pushDialogActivity;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) || (pushDialogActivity = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c++;
         }
-        pushDialogActivity.C1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c > 0 : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b = false;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.d = true;
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && zi.c()) {
+            new c(this).execute(new rb8(this.b, this.c, this.d, this.a));
+        }
+    }
+
+    public final void m(lb8 lb8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, lb8Var) == null) && zi.c() && lb8Var != null) {
+            new b(this).execute(new yb8(lb8Var, this.a));
+        }
     }
 }

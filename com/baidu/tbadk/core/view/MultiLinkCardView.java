@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d26;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.zh5;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.mi5;
+import com.baidu.tieba.q26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,9 +94,9 @@ public class MultiLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            zh5 zh5Var = new zh5();
-            List<d26> a = zh5Var.a(list, list2);
-            boolean c = zh5Var.c();
+            mi5 mi5Var = new mi5();
+            List<q26> a = mi5Var.a(list, list2);
+            boolean c = mi5Var.c();
             if (ListUtils.isEmpty(a)) {
                 return;
             }
@@ -189,12 +189,12 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ce, this);
-        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5d);
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5e);
-        this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5f);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce2);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce3);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce4);
+        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5f);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c60);
+        this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c61);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce1);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce2);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce3);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091017);
         this.g = tbImageView;
         tbImageView.setDrawCorner(true);
@@ -219,10 +219,10 @@ public class MultiLinkCardView extends RelativeLayout {
         this.i.setPlaceHolder(1);
         this.i.setConrers(15);
         this.i.setRadius(ej.f(getContext(), R.dimen.tbds10));
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c9);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cb);
         this.j = textView;
-        uu4.d(textView).y(R.array.S_O_X001);
-        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c8);
+        hv4.d(textView).y(R.array.S_O_X001);
+        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ca);
         this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f091018);
         this.o = new ArrayList();
         this.n = new ArrayList();

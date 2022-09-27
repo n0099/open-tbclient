@@ -73,7 +73,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
         }
         this.a = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a28, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        this.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2a, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setBackgroundColor(this.e, R.color.CAM_X0210);

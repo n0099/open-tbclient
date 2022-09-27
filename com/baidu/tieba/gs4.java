@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LotteryTheme;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes4.dex */
 public class gs4 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,12 +24,15 @@ public class gs4 {
         }
     }
 
-    public void a(LotteryTheme lotteryTheme) {
+    public void a(HeadSdk headSdk) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, lotteryTheme) == null) || lotteryTheme == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, headSdk) == null) || headSdk == null) {
             return;
         }
-        String str = lotteryTheme.bgcolor;
-        String str2 = lotteryTheme.bgimage;
+        String str = headSdk.head_pic;
+        String str2 = headSdk.head_text;
+        String str3 = headSdk.sdk_name;
+        String str4 = headSdk.sdk_params;
+        headSdk.head_type.intValue();
     }
 }

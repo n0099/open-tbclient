@@ -1,148 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes5.dex */
-public class r27 {
+public class r27 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
 
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            StringBuilder sb = new StringBuilder();
-            sb.append("key_card_interest_close_click_num_");
-            sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", bx4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            StringBuilder sb = new StringBuilder();
-            sb.append("key_card_interest_close_click_num_");
-            sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", bx4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
-        }
-    }
-
-    public static boolean c(u05 u05Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, u05Var, str)) == null) {
-            long m = bx4.k().m("key_card_interest_close_click_time_" + str, 0L);
-            if (m != 0) {
-                return u05Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= u05Var.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948069810, "Lcom/baidu/tieba/r27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948069810, "Lcom/baidu/tieba/r27;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        e = BdUniqueId.gen();
     }
 
-    public static boolean d(u05 u05Var) {
-        InterceptResult invokeL;
+    public r27() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, u05Var)) == null) ? u05Var.c() == 1 : invokeL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
-    public static boolean e() {
+    public void c(LiveAnswer liveAnswer) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, liveAnswer) == null) || liveAnswer == null) {
+            return;
+        }
+        this.c = liveAnswer.banner_url;
+        this.a = liveAnswer.banner_high.intValue();
+        this.b = liveAnswer.banner_width.intValue();
+        this.d = liveAnswer.jump_url;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (UbsABTestHelper.isRecommendCardInterestABTestA() && h()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                u05 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig == null) {
-                    return false;
-                }
-                if (d(homepageInterestConfig)) {
-                    return true;
-                }
-                if (bx4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
-                    if (c(homepageInterestConfig, currentAccount)) {
-                        return true;
-                    }
-                } else if (g(homepageInterestConfig)) {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 
-    public static boolean f(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            if (h()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                u05 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig != null && i2 > 0) {
-                    if (d(homepageInterestConfig)) {
-                        return true;
-                    }
-                    if (bx4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
-                        if (c(homepageInterestConfig, currentAccount) && i == 0) {
-                            return true;
-                        }
-                    } else if (g(homepageInterestConfig) && i == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public static boolean g(u05 u05Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, u05Var)) == null) ? u05Var.d() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean h() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (TbadkCoreApplication.isLogin()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                u05 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig == null) {
-                    return false;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append("key_card_interest_close_click_num_");
-                sb.append(currentAccount);
-                return bx4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("img_width", this.b);
+                jSONObject.put(BigdayActivityConfig.IMG_URL, this.c);
+                jSONObject.put("img_height", this.a);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.d);
+                return jSONObject.toString();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                return null;
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            bx4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
-            String str = "key_card_interest_close_click_num_" + currentAccount;
-            bx4.k().w(str, bx4.k().l(str, 0) + 1);
-        }
+        return (String) invokeV.objValue;
     }
 }

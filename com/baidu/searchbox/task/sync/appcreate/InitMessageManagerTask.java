@@ -28,24 +28,24 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.gh5;
+import com.baidu.tieba.ae5;
+import com.baidu.tieba.be5;
+import com.baidu.tieba.ce5;
+import com.baidu.tieba.co8;
+import com.baidu.tieba.cw6;
+import com.baidu.tieba.de5;
+import com.baidu.tieba.dw6;
+import com.baidu.tieba.ee5;
+import com.baidu.tieba.fe5;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.tieba.hb;
-import com.baidu.tieba.ks4;
+import com.baidu.tieba.ju8;
+import com.baidu.tieba.le5;
+import com.baidu.tieba.mo4;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.nd5;
-import com.baidu.tieba.nn8;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.od5;
-import com.baidu.tieba.ov6;
-import com.baidu.tieba.pd5;
-import com.baidu.tieba.pv6;
-import com.baidu.tieba.qd5;
-import com.baidu.tieba.rd5;
-import com.baidu.tieba.sd5;
-import com.baidu.tieba.ut8;
-import com.baidu.tieba.yd5;
-import com.baidu.tieba.zn4;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.xs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,10 +101,10 @@ public class InitMessageManagerTask extends LaunchTask {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof nn8)) {
-                    nn8 nn8Var = (nn8) customResponsedMessage.getData();
-                    DescriptionTableInfo.setModuleSet(nn8Var.a);
-                    DescriptionTableInfo.setDescriptionTable(nn8Var.b);
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof co8)) {
+                    co8 co8Var = (co8) customResponsedMessage.getData();
+                    DescriptionTableInfo.setModuleSet(co8Var.a);
+                    DescriptionTableInfo.setDescriptionTable(co8Var.b);
                 }
             }
         };
@@ -159,15 +159,15 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             ReloginManager.g().k();
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.addMessageRule(new sd5(0));
-            messageManager.addMessageRule(new pd5(0));
-            messageManager.addResponsedMessageRule(new rd5(0));
-            messageManager.addRemovedMessageRule(new qd5(0));
-            messageManager.addResponsedMessageRule(new pv6());
-            messageManager.addResponsedMessageRule(new ov6());
-            messageManager.addResponsedMessageRule(new nd5());
-            messageManager.addResponsedMessageRule(new od5());
-            messageManager.addResponsedMessageRule(new ut8());
+            messageManager.addMessageRule(new fe5(0));
+            messageManager.addMessageRule(new ce5(0));
+            messageManager.addResponsedMessageRule(new ee5(0));
+            messageManager.addRemovedMessageRule(new de5(0));
+            messageManager.addResponsedMessageRule(new dw6());
+            messageManager.addResponsedMessageRule(new cw6());
+            messageManager.addResponsedMessageRule(new ae5());
+            messageManager.addResponsedMessageRule(new be5());
+            messageManager.addResponsedMessageRule(new ju8());
         }
     }
 
@@ -260,7 +260,7 @@ public class InitMessageManagerTask extends LaunchTask {
     private void registeDealIntentTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            yd5 yd5Var = new yd5(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
+            le5 le5Var = new le5(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -294,15 +294,15 @@ public class InitMessageManagerTask extends LaunchTask {
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
-            yd5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(yd5Var);
+            le5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(le5Var);
         }
     }
 
     private void registeYYNotificationTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            yd5 yd5Var = new yd5(2012100, new CustomMessageTask.CustomRunnable<ks4>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
+            le5 le5Var = new le5(2012100, new CustomMessageTask.CustomRunnable<xs4>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -326,7 +326,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<?> run(CustomMessage<ks4> customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<xs4> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -336,8 +336,8 @@ public class InitMessageManagerTask extends LaunchTask {
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
             });
-            yd5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-            MessageManager.getInstance().registerTask(yd5Var);
+            le5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+            MessageManager.getInstance().registerTask(le5Var);
         }
     }
 
@@ -405,9 +405,9 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             MessageManager.getInstance().registerListener(this.mDescriptionTableFixListener);
             try {
-                gh5.b().e();
+                th5.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    zn4.d().f();
+                    mo4.d().f();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

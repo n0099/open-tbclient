@@ -1,50 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.forumMember.manito.ManitoMemberItemViewHolder;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ke6 extends qg6<le6, ManitoMemberItemViewHolder> {
+public class ke6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener l;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ke6 a;
 
-        public a(ke6 ke6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ke6 ke6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ke6Var};
+                Object[] objArr = {ke6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -53,20 +51,26 @@ public class ke6 extends qg6<le6, ManitoMemberItemViewHolder> {
             this.a = ke6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                le6 le6Var = (le6) view2.getTag();
-                TiebaStatic.log("c10624");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, le6Var.h(), le6Var.f(), "")));
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getOrginalMessage() == null) {
+                return;
+            }
+            boolean z = httpResponsedMessage.getOrginalMessage().getTag() == this.a.b;
+            if (this.a.c != null) {
+                this.a.c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), z);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ke6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(int i, String str, boolean z);
+    }
+
+    public ke6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,81 +80,45 @@ public class ke6 extends qg6<le6, ManitoMemberItemViewHolder> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
+        a aVar = new a(this, CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        this.a.registerListener(this.d);
+        c();
     }
 
-    public final SpannableStringBuilder F(String str, String[] strArr, int[] iArr) {
-        InterceptResult invokeLLL;
-        int indexOf;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, strArr, iArr)) == null) {
-            if (str == null || strArr == null || iArr == null || strArr.length <= 0 || iArr.length <= 0 || strArr.length != iArr.length) {
-                return null;
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            SpannableString spannableString = new SpannableString(str);
-            for (int i = 0; i < strArr.length; i++) {
-                if (strArr[i] != null && (indexOf = str.indexOf(strArr[i])) >= 0) {
-                    spannableString.setSpan(new ForegroundColorSpan(iArr[i]), indexOf, strArr[i].length() + indexOf, 17);
-                }
-            }
-            spannableStringBuilder.append((CharSequence) spannableString);
-            return spannableStringBuilder;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.REMOVE_MULTI_FANS);
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (SpannableStringBuilder) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: G */
-    public ManitoMemberItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) ? new ManitoMemberItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0575, (ViewGroup) null)) : (ManitoMemberItemViewHolder) invokeL.objValue;
-    }
-
-    public View H(int i, View view2, ViewGroup viewGroup, le6 le6Var, ManitoMemberItemViewHolder manitoMemberItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, le6Var, manitoMemberItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, le6Var, manitoMemberItemViewHolder);
-            if (le6Var != null && manitoMemberItemViewHolder != null) {
-                if (manitoMemberItemViewHolder.f != this.f) {
-                    SkinManager.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.b, R.color.CAM_X0106, 1);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.c, R.color.CAM_X0109, 1);
-                    SkinManager.setBackgroundColor(manitoMemberItemViewHolder.e, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.d, R.color.CAM_X0109, 1);
-                }
-                manitoMemberItemViewHolder.a.e(le6Var.b(), 12, false);
-                manitoMemberItemViewHolder.b.setText(wh5.e(le6Var.g(), 16));
-                if (StringUtils.isNull(le6Var.c())) {
-                    manitoMemberItemViewHolder.c.setText(R.string.obfuscated_res_0x7f0f07f7);
-                } else {
-                    manitoMemberItemViewHolder.c.setText(wh5.e(le6Var.c(), 30));
-                }
-                int color = SkinManager.getColor(R.color.CAM_X0301);
-                String numberUniformFormat = StringHelper.numberUniformFormat(le6Var.a());
-                manitoMemberItemViewHolder.d.setText(F(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0610), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
-                manitoMemberItemViewHolder.getView().setTag(le6Var);
-                manitoMemberItemViewHolder.getView().setOnClickListener(this.l);
-                manitoMemberItemViewHolder.f = this.f;
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (le6) obj, (ManitoMemberItemViewHolder) viewHolder);
-        return view2;
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
+        }
     }
 }

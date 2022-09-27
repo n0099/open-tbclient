@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ff3;
+import com.baidu.tieba.sf3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,7 +84,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && ff3.c()) {
+        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) && sf3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -158,11 +158,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091afd);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afb);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091afe);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b01);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b03);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aff);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afd);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b00);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b03);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b05);
             this.f.setScaleType(ImageView.ScaleType.CENTER);
             this.f.setImageResource(R.drawable.obfuscated_res_0x7f080142);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
@@ -179,7 +179,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.f.clearAnimation();
-            if (ff3.c()) {
+            if (sf3.c()) {
                 this.f.setRotation(0.0f);
             }
         }

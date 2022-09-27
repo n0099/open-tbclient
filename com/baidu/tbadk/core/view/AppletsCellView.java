@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.zq5;
+import com.baidu.tieba.mr5;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -70,14 +70,14 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f81);
+            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f85);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f81);
+                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f85);
             }
         }
     }
@@ -156,11 +156,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || (smartApp = this.h) == null) {
             return;
         }
-        if (!zq5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!mr5.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }
-            lo4.o(getContext(), this.h.h5_url);
+            yo4.o(getContext(), this.h.h5_url);
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.swan_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
     }
@@ -183,7 +183,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 this.d.setText(smartApp._abstract);
             }
             if (StringUtils.isNull(smartApp.pic, true)) {
-                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f81);
+                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f85);
                 return;
             }
             this.e.setEvent(new a(this));

@@ -83,7 +83,7 @@ public abstract class b extends a implements View.OnClickListener {
             this.dh = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
             this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c05);
+            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c07);
             KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
             this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             bf();
@@ -177,7 +177,7 @@ public abstract class b extends a implements View.OnClickListener {
                 i = 101;
             }
             g(false);
-            com.kwad.components.core.c.a.a.a(new a.C0574a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.b.1
+            com.kwad.components.core.c.a.a.a(new a.C0570a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b(this, i) { // from class: com.kwad.components.ad.feed.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int dl;

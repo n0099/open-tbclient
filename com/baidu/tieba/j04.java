@@ -1,17 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface j04 {
-    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull dg2 dg2Var);
+public class j04 implements a14 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, String str2, String str3, String str4, String str5);
+    public j04() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(@NonNull String str);
+    @Override // com.baidu.tieba.a14
+    public void a(z34 z34Var, y34 y34Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, z34Var, y34Var) == null) || y34Var == null) {
+            return;
+        }
+        y34Var.a(z34Var, "Method 'shareVideo' is not implemented.");
+    }
 
-    void d(@NonNull String str, @NonNull String str2);
-
-    void e(@NonNull String str);
-
-    void f(@NonNull String str);
+    @Override // com.baidu.tieba.a14
+    public void b(q34 q34Var, p34 p34Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q34Var, p34Var) == null) || p34Var == null) {
+            return;
+        }
+        p34Var.a(q34Var, "Method 'clipVideo' is not implemented.");
+    }
 }

@@ -27,120 +27,6 @@ public abstract class BaseIPCProvider extends ContentProvider {
     public e a;
     public UriMatcher b;
 
-    /* loaded from: classes2.dex */
-    public class a extends e.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public b30 f;
-        public final /* synthetic */ BaseIPCProvider g;
-
-        /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0096a implements v20.c<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ f a;
-
-            public C0096a(a aVar, f fVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, fVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = fVar;
-            }
-
-            @Override // com.baidu.tieba.v20.c
-            public void a(int i, Exception exc, Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
-                    try {
-                        this.a.a(i, bundle);
-                    } catch (RemoteException unused) {
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.v20.c
-            /* renamed from: b */
-            public void onResult(String str, Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-                    try {
-                        this.a.b(str, bundle);
-                    } catch (RemoteException unused) {
-                    }
-                }
-            }
-        }
-
-        public a(BaseIPCProvider baseIPCProvider) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseIPCProvider};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = baseIPCProvider;
-            this.f = new b30(this.g.getContext().getApplicationContext());
-        }
-
-        @Override // com.baidu.helios.bridge.multiprocess.e
-        public Bundle a(String str, Bundle bundle) throws RemoteException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bundle)) == null) {
-                v20.d g = this.f.a().g(str, bundle);
-                if (g == null) {
-                    return null;
-                }
-                return g.k(g);
-            }
-            return (Bundle) invokeLL.objValue;
-        }
-
-        @Override // com.baidu.helios.bridge.multiprocess.e
-        public void a() throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f.a().d();
-            }
-        }
-
-        @Override // com.baidu.helios.bridge.multiprocess.e
-        public void a(String str, Bundle bundle, f fVar) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, fVar) == null) {
-                this.f.a().a(str, bundle, new C0096a(this, fVar));
-            }
-        }
-
-        @Override // com.baidu.helios.bridge.multiprocess.e
-        public boolean a(String str) throws RemoteException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f.a().e(str) : invokeL.booleanValue;
-        }
-    }
-
     public BaseIPCProvider() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -171,7 +57,118 @@ public abstract class BaseIPCProvider extends ContentProvider {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 if (this.a == null) {
-                    this.a = new a(this);
+                    this.a = new e.b(this) { // from class: com.baidu.helios.bridge.multiprocess.BaseIPCProvider.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ BaseIPCProvider a;
+                        public b30 f;
+
+                        /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$1$a */
+                        /* loaded from: classes2.dex */
+                        public class a implements v20.c<String> {
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ f a;
+
+                            public a(AnonymousClass1 anonymousClass1, f fVar) {
+                                Interceptable interceptable = $ic;
+                                if (interceptable != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {anonymousClass1, fVar};
+                                    interceptable.invokeUnInit(65536, newInitContext);
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.a = fVar;
+                            }
+
+                            @Override // com.baidu.tieba.v20.c
+                            public void a(int i, Exception exc, Bundle bundle) {
+                                Interceptable interceptable = $ic;
+                                if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
+                                    try {
+                                        this.a.a(i, bundle);
+                                    } catch (RemoteException unused) {
+                                    }
+                                }
+                            }
+
+                            /* JADX DEBUG: Method merged with bridge method */
+                            @Override // com.baidu.tieba.v20.c
+                            /* renamed from: b */
+                            public void onResult(String str, Bundle bundle) {
+                                Interceptable interceptable = $ic;
+                                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
+                                    try {
+                                        this.a.a(str, bundle);
+                                    } catch (RemoteException unused) {
+                                    }
+                                }
+                            }
+                        }
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.a = this;
+                            this.f = new b30(this.a.getContext().getApplicationContext());
+                        }
+
+                        @Override // com.baidu.helios.bridge.multiprocess.e
+                        public Bundle a(String str, Bundle bundle) {
+                            InterceptResult invokeLL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, str, bundle)) == null) {
+                                v20.d g = this.f.a().g(str, bundle);
+                                if (g == null) {
+                                    return null;
+                                }
+                                return g.k(g);
+                            }
+                            return (Bundle) invokeLL.objValue;
+                        }
+
+                        @Override // com.baidu.helios.bridge.multiprocess.e
+                        public void a() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                                this.f.a().d();
+                            }
+                        }
+
+                        @Override // com.baidu.helios.bridge.multiprocess.e
+                        public void a(String str, Bundle bundle, f fVar) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, fVar) == null) {
+                                this.f.a().a(str, bundle, new a(this, fVar));
+                            }
+                        }
+
+                        @Override // com.baidu.helios.bridge.multiprocess.e
+                        public boolean a(String str) {
+                            InterceptResult invokeL;
+                            Interceptable interceptable2 = $ic;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048579, this, str)) == null) ? this.f.a().e(str) : invokeL.booleanValue;
+                        }
+                    };
                 }
             }
         }

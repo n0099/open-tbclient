@@ -1,258 +1,110 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class ot4 extends lq4 implements Cdo {
+public class ot4 extends wr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public boolean s;
-    public ThreadData t;
-    public int u;
-    public int v;
+    public String d;
+    public int e;
+    public String f;
+    public ArrayList<nt4> g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043770, "Lcom/baidu/tieba/ot4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948043770, "Lcom/baidu/tieba/ot4;");
+                return;
+            }
+        }
+        BdUniqueId.gen();
+    }
 
     public ot4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.s = false;
-        this.u = 0;
-        this.v = 0;
+        f(9);
+        this.g = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.lq4
-    public is4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        SparseArray<String> sparseArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadData threadData = this.t;
-            if (threadData == null || (sparseArray = threadData.feedBackReasonMap) == null || sparseArray.size() <= 0) {
-                return null;
-            }
-            is4 is4Var = new is4();
-            is4Var.o(getThreadData().getTid());
-            is4Var.k(getThreadData().getFid());
-            is4Var.n(getThreadData().getNid());
-            is4Var.j(this.t.feedBackReasonMap);
-            ThreadData threadData2 = this.t;
-            is4Var.g = threadData2.feedBackExtraMap;
-            is4Var.p = threadData2.mRecomAbTag;
-            is4Var.k = threadData2.mRecomWeight;
-            is4Var.m = threadData2.mRecomExtra;
-            is4Var.l = threadData2.mRecomSource;
-            is4Var.q = threadData2.statFloor;
-            is4Var.o = threadData2.getRecomCardType();
-            return is4Var;
-        }
-        return (is4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lq4
-    public String getRecomReason() {
+    @Override // com.baidu.tieba.wr4, com.baidu.tieba.yq4
+    public vs4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.t.mRecomReason : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new vs4() : (vs4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lq4
+    @Override // com.baidu.tieba.wr4, com.baidu.tieba.yq4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.t : (ThreadData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
-        OriginalThreadInfo originalThreadInfo;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ThreadData threadData = this.t;
-            if (threadData == null) {
-                return null;
-            }
-            if (threadData.getIsDailyThread()) {
-                if (this.t.getThreadVideoInfo() != null) {
-                    return ThreadData.TYPE_VIDEO;
-                }
-                return ThreadData.TYPE_NORMAL;
-            }
-            int is_top = this.t.getIs_top();
-            ThreadData threadData2 = this.t;
-            int i2 = threadData2.threadType;
-            if (i2 == 63) {
-                return ThreadData.TYPE_SMART_APP_IMAGE;
-            }
-            if (i2 == 64) {
-                return ThreadData.TYPE_SMART_APP_VIDEO;
-            }
-            if (i2 == 65) {
-                return ThreadData.TYPE_ARTICLE;
-            }
-            if (threadData2.getThreadAlaInfo() != null && this.t.threadType == 60) {
-                return ThreadData.TYPE_ALA_SHARE_THREAD;
-            }
-            if (this.t.getThreadAlaInfo() != null && ((i = this.t.threadType) == 49 || i == 69)) {
-                return ThreadData.TYPE_VIDEO_ALA_ONLIVE;
-            }
-            if (this.t.getThreadAlaInfo() != null && this.t.threadType == 67) {
-                return ThreadData.TYPE_ALA_FRIEND_ROOM;
-            }
-            ThreadData threadData3 = this.t;
-            if (threadData3.threadType == 51) {
-                return ThreadData.TYPE_ALA_LIVE_EMPTY;
-            }
-            if (is_top != 2 && is_top != 1) {
-                if (threadData3.getThreadVideoInfo() != null && this.t.isInsertThread() && !this.t.isLiveInterviewLiveType()) {
-                    return ThreadData.TYPE_INSERT_VIDEO;
-                }
-                ThreadData threadData4 = this.t;
-                if (threadData4.isShareThread && (originalThreadInfo = threadData4.originalThreadData) != null) {
-                    if (originalThreadInfo.x) {
-                        if (originalThreadInfo.r != null) {
-                            return ThreadData.TYPE_NEW_VIDEO_SHARE_THREAD;
-                        }
-                        if (originalThreadInfo.i()) {
-                            return ThreadData.TYPE_ARTICLE_SHARE_THREAD;
-                        }
-                        return ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD;
-                    }
-                    return ThreadData.TYPE_SHARE_THREAD;
-                } else if (this.t.isInterviewLiveStyle()) {
-                    return ThreadData.isFRSExtraLoaded.get() ? ThreadData.TYPE_STAR_INTERVIEW : ThreadData.TYPE_NORMAL;
-                } else if (this.t.isActInfo() && this.t.getActInfoType() == 1) {
-                    return ThreadData.isFRSExtraLoaded.get() ? ThreadData.TYPE_LOTTERY : ThreadData.TYPE_NORMAL;
-                } else if (this.t.isLinkThread()) {
-                    return ThreadData.TYPE_LINK;
-                } else {
-                    if (this.t.isTopicThread()) {
-                        return this.t.getHotTopicInfo() != null ? ThreadData.TYPE_FRS_HOTTOPIC_VIDEO : ThreadData.TYPE_FRS_HOTTOPIC;
-                    }
-                    tm8 tm8Var = this.t.funAdData;
-                    if (tm8Var != null && tm8Var.h()) {
-                        return this.t.funAdData.i() ? AdvertAppInfo.G : AdvertAppInfo.H;
-                    } else if (this.r) {
-                        return ThreadData.TYPE_FORUM_HEADER;
-                    } else {
-                        if (this.a) {
-                            return ThreadData.TYPE_USER_NORMAL;
-                        }
-                        if (this.b) {
-                            return ThreadData.TYPE_CONTENT_TEXT_NORMAL;
-                        }
-                        if (this.c) {
-                            return ThreadData.TYPE_CONTENT_SINGLE_H_NORMAL;
-                        }
-                        if (this.d) {
-                            return ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL;
-                        }
-                        if (this.e) {
-                            return ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL;
-                        }
-                        if (this.f) {
-                            return ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL;
-                        }
-                        if (this.g) {
-                            return ThreadData.TYPE_BOTTOM_NORMAL;
-                        }
-                        if (this.h) {
-                            return ThreadData.TYPE_GODREPLY_NORMAL;
-                        }
-                        if (this.i) {
-                            return ThreadData.TYPE_VIDEO;
-                        }
-                        if (this.j) {
-                            return ThreadData.TYPE_FAKE_VIDEO;
-                        }
-                        if (this.t.isGodThread()) {
-                            if (this.k) {
-                                return ThreadData.TYPE_VIDEO_GOD;
-                            }
-                            return ThreadData.TYPE_GOD_NORMAL;
-                        } else if (this.l) {
-                            return ThreadData.TYPE_SMART_APP;
-                        } else {
-                            if (this.m) {
-                                return ThreadData.TYPE_ENTER_FORUM;
-                            }
-                            if (this.n) {
-                                return ThreadData.TYPE_ITEM;
-                            }
-                            if (this.o) {
-                                return ThreadData.TYPE_VOTE;
-                            }
-                            if (this.p) {
-                                return ThreadData.TYPE_SINGLE_LINK;
-                            }
-                            if (this.q) {
-                                return ThreadData.TYPE_MULTI_LINK;
-                            }
-                            if (this.s) {
-                                return ThreadData.TYPE_RECOMMEND_INFO;
-                            }
-                            return ThreadData.TYPE_NORMAL;
-                        }
-                    }
-                }
-            }
-            return ThreadData.TYPE_TOP;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? wr4.b : (BdUniqueId) invokeV.objValue;
+    }
+
+    public ArrayList<nt4> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (ArrayList) invokeV.objValue;
+    }
+
+    public void j(List<RecommendForumInfo> list) {
+        Long l;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.size() <= 0) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        ArrayList arrayList = new ArrayList();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            RecommendForumInfo recommendForumInfo = list.get(i);
+            nt4 nt4Var = new nt4();
+            if (recommendForumInfo != null && (l = recommendForumInfo.forum_id) != null && l.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && (num = recommendForumInfo.is_like) != null && num.intValue() != 1) {
+                nt4Var.t(recommendForumInfo);
+                arrayList.add(nt4Var);
+            }
+        }
+        this.g.clear();
+        this.g.addAll(ListUtils.trimToSize(arrayList, 15));
     }
 }

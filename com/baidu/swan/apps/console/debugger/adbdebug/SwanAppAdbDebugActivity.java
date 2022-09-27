@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c23;
-import com.baidu.tieba.gi3;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.q23;
-import com.baidu.tieba.xf3;
+import com.baidu.tieba.d33;
+import com.baidu.tieba.kg3;
+import com.baidu.tieba.p23;
+import com.baidu.tieba.ti3;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
     }
 
     public SwanAppAdbDebugActivity() {
@@ -134,21 +134,21 @@ public class SwanAppAdbDebugActivity extends Activity {
             if (a) {
                 Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
             }
-            if (xf3.a(this)) {
+            if (kg3.a(this)) {
                 return;
             }
             Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                q23.f(this, R.string.obfuscated_res_0x7f0f0102).G();
+                d33.f(this, R.string.obfuscated_res_0x7f0f0102).G();
                 if (a) {
                     Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
                 }
                 finish();
             }
-            c23.a aVar = new c23.a(this);
+            p23.a aVar = new p23.a(this);
             aVar.V(getString(R.string.obfuscated_res_0x7f0f0100));
             aVar.x(getString(R.string.obfuscated_res_0x7f0f0101));
-            aVar.n(new gi3());
+            aVar.n(new ti3());
             aVar.m(false);
             aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this, intent));
             aVar.B(R.string.obfuscated_res_0x7f0f12c0, new a(this));

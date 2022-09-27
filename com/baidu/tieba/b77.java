@@ -1,179 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetSugTopic.TopicList;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes3.dex */
 public class b77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public long c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public long h;
-    public int i;
-    public String j;
+    public String a;
+    public List<f77> b;
+    public e77 c;
+    public List<u67> d;
+    public List<t67> e;
+    public List<TopicList> f;
+    public List<NewTopicList> g;
 
-    public b77(String str, long j, boolean z) {
+    public b77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = j;
-        this.a = z;
     }
 
-    public long a() {
+    public List<TopicList> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public Long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Long.valueOf(this.c) : (Long) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? j() && this.d : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f = z;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = j() && z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public b77(@NonNull TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topicList};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                f77 f77Var = new f77();
+                f77Var.a(tabList);
+                this.b.add(f77Var);
             }
         }
-        this.a = topicList.is_video_topic.intValue() == 1;
-        this.b = topicList.topic_name;
-        this.c = topicList.topic_id.longValue();
-        this.h = topicList.discuss_num.longValue();
-        this.i = topicList.tag.intValue();
-        this.j = topicList.slogan;
-    }
-
-    public b77(@NonNull tbclient.GetRecommendTopic.TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {topicList};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (dataRes.media_topic != null) {
+            e77 e77Var = new e77();
+            this.c = e77Var;
+            e77Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                t67 t67Var = new t67();
+                t67Var.b(dataRes.topic_manual);
+                t67Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(t67Var);
             }
         }
-        this.a = topicList.is_video_topic.intValue() == 1;
-        this.b = topicList.topic_name;
-        this.c = topicList.topic_id.longValue();
-        this.h = topicList.discuss_num.longValue();
-        this.i = topicList.tag.intValue();
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                u67 u67Var = new u67();
+                u67Var.b(dataRes.topic_bang);
+                u67Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(u67Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        this.g = dataRes.topic_list;
     }
 }

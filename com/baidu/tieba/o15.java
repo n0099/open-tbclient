@@ -1,26 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public List<VoiceRoom> c;
+    public String a;
 
     public o15() {
         Interceptable interceptable = $ic;
@@ -32,48 +22,22 @@ public class o15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList();
     }
 
-    public List<VoiceRoom> a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public Long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void d(DataRes dataRes) {
-        VoiceRoom voiceRoom;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
             return;
         }
-        ForumInfo forumInfo = dataRes.forum;
-        if (forumInfo != null) {
-            this.a = forumInfo.id;
-            this.b = forumInfo.name;
-        }
-        if (ListUtils.isEmpty(dataRes.voice_room_list)) {
+        jSONObject.optInt("offline");
+        jSONObject.optString("title");
+        String optString = jSONObject.optString("link");
+        this.a = optString;
+        if (TextUtils.isEmpty(optString)) {
             return;
         }
-        for (ThreadInfo threadInfo : dataRes.voice_room_list) {
-            if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
-                this.c.add(voiceRoom);
-            }
-        }
+        this.a = this.a.replaceFirst("webview:", "http://");
     }
 }

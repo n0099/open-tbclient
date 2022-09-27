@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ok7 implements NetworkAgentService {
+public class ok7 extends ff1<EventDispatcherService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,12 @@ public class ok7 implements NetworkAgentService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.NetworkAgentService
-    public INetWork buildNetworkInstance() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ff1
+    /* renamed from: a */
+    public EventDispatcherService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pk7() : (INetWork) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pk7() : (EventDispatcherService) invokeV.objValue;
     }
 }

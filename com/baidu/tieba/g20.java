@@ -73,7 +73,7 @@ public class g20 {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = he1.b();
+        this.mProcessName = ue1.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         this.mForwardingHandlerSupplier = supplier;
     }
@@ -261,7 +261,7 @@ public class g20 {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = he1.b();
+        this.mProcessName = ue1.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             initKITKAT();

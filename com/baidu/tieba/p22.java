@@ -1,82 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class p22 implements o22 {
-    public static /* synthetic */ Interceptable $ic;
+public class p22 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static yb3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o22> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948010073, "Lcom/baidu/tieba/p22;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948010073, "Lcom/baidu/tieba/p22;");
+        }
+    }
 
     public p22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new CopyOnWriteArrayList();
     }
 
-    @Override // com.baidu.tieba.o22
-    public void a() {
-        List<o22> list;
+    public static yb3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (p22.class) {
+                    if (b == null) {
+                        b = new yb3("swan_about_page_sp", true);
+                    }
+                }
+            }
+            return b;
         }
-        for (o22 o22Var : this.a) {
-            o22Var.a();
-        }
+        return (yb3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o22
-    public void b() {
-        List<o22> list;
+    public static String b() {
+        InterceptResult invokeV;
+        String O;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            l33 b0 = l33.b0();
+            if (b0 == null) {
+                O = nv1.a(k33.K().getAppId());
+            } else {
+                O = b0.O();
+            }
+            return "pref_tool_" + O;
         }
-        for (o22 o22Var : this.a) {
-            o22Var.b();
-        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o22
-    public void c() {
-        List<o22> list;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (a == -1) {
+                a = a().getInt(b(), 0);
+            }
+            return a == 1;
         }
-        for (o22 o22Var : this.a) {
-            o22Var.c();
-        }
-    }
-
-    public void d(@NonNull o22 o22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, o22Var) == null) {
-            this.a.add(o22Var);
-        }
-    }
-
-    public void e(@NonNull o22 o22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, o22Var) == null) {
-            this.a.remove(o22Var);
-        }
+        return invokeV.booleanValue;
     }
 }

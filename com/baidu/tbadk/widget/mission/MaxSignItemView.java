@@ -125,7 +125,7 @@ public class MaxSignItemView extends FrameLayout {
             this.f = view2;
             this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fae);
             this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e39);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091e3b);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -208,7 +208,7 @@ public class MaxSignItemView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0576, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed1);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ed3);
             this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09131a);
             this.e = ej.f(getContext(), R.dimen.tbds3);
             this.f = ej.f(getContext(), R.dimen.tbds0);

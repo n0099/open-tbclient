@@ -1,92 +1,141 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class v84 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public class v84 extends az1<TextureMapView, xp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List<OverlayOptions> b;
-    public List<Overlay> c;
+    public String i;
+    public String j;
+    public boolean k;
+    @NonNull
+    public TextureMapView l;
+    public Context m;
+    public List<u84> n;
+    public List<t84> o;
 
-    public v84(BaiduMap baiduMap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v84(@NonNull Context context, @NonNull xp2 xp2Var) {
+        super(context, xp2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
+            Object[] objArr = {context, xp2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (bz1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
+        this.n = new ArrayList();
+        this.o = new ArrayList();
+        this.i = xp2Var.c;
+        this.j = xp2Var.b;
+        String str = xp2Var.d;
+        this.m = context;
+        this.l = new TextureMapView(context);
+        this.k = xp2Var.r;
     }
 
-    public final void a() {
+    public static v84 K(Context context, xp2 xp2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
-    }
-
-    public abstract List<OverlayOptions> b();
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
-        }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.c.size() <= 0) {
-            return;
-        }
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Overlay overlay : this.c) {
-            if (overlay instanceof Marker) {
-                builder.include(((Marker) overlay).getPosition());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, xp2Var)) == null) {
+            if (context == null || xp2Var == null || !xp2Var.isValid()) {
+                return null;
             }
+            return new v84(context, xp2Var);
         }
-        this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+        return (v84) invokeLL.objValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (u84 u84Var : this.n) {
+                this.l.removeView(u84Var.e);
+            }
+            this.n.clear();
+            for (t84 t84Var : this.o) {
+                this.l.removeView(t84Var.b);
+            }
+            this.o.clear();
+            this.l.getMap().clear();
+        }
+    }
+
+    public t84 G(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            for (t84 t84Var : this.o) {
+                if (t84Var.b == view2) {
+                    return t84Var;
+                }
+            }
+            return null;
+        }
+        return (t84) invokeL.objValue;
+    }
+
+    @Nullable
+    public u84 H(Marker marker) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
+            for (u84 u84Var : this.n) {
+                if (marker == u84Var.b) {
+                    return u84Var;
+                }
+            }
+            return null;
+        }
+        return (u84) invokeL.objValue;
+    }
+
+    public List<u84> I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            for (u84 u84Var : this.n) {
+                fq2 fq2Var = u84Var.a;
+                if (fq2Var != null && TextUtils.equals(str, fq2Var.a)) {
+                    arrayList.add(u84Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.az1
+    @NonNull
+    /* renamed from: J */
+    public TextureMapView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? this.l : (TextureMapView) invokeL.objValue;
     }
 }

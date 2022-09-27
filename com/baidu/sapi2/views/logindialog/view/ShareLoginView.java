@@ -54,13 +54,13 @@ public class ShareLoginView extends RelativeLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.ShareLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0140a extends WebAuthListener {
+        public class C0137a extends WebAuthListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0140a(a aVar, long j) {
+            public C0137a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,7 +145,7 @@ public class ShareLoginView extends RelativeLayout {
                                 Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
                                 return;
                             }
-                            CoreViewRouter.getInstance().invokeV2ShareLogin(this.a.b, this.a.h, new C0140a(this, System.currentTimeMillis()), "quick_login");
+                            CoreViewRouter.getInstance().invokeV2ShareLogin(this.a.b, this.a.h, new C0137a(this, System.currentTimeMillis()), "quick_login");
                             return;
                         }
                         Log.e(QuickLoginDialog.STAG, "sharelogin mWebAuthListener is null");
@@ -244,11 +244,11 @@ public class ShareLoginView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04da, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091da2);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d17);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d16);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d18);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9d);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091da4);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d19);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d18);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091d1a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9f);
             a aVar = new a(this);
             this.c.setOnClickListener(aVar);
             this.g.setOnClickListener(aVar);
@@ -303,7 +303,7 @@ public class ShareLoginView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e9f));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ea1));
         }
     }
 }

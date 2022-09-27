@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.media.AudioManager;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,113 +15,207 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class cy0 {
-    public static /* synthetic */ Interceptable $ic;
+public final class cy0 extends by0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean f = false;
+    public static boolean g = false;
+    public static boolean h = false;
+    public static boolean i = false;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public gt0 a;
+    public boolean d;
+    public boolean e;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final cy0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-874748463, "Lcom/baidu/tieba/cy0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-874748463, "Lcom/baidu/tieba/cy0$b;");
-                    return;
-                }
-            }
-            a = new cy0(null);
-        }
-    }
-
-    public /* synthetic */ cy0(a aVar) {
-        this();
-    }
-
-    public static cy0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (cy0) invokeV.objValue;
-    }
-
-    public void a(@NonNull nq0 nq0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nq0Var) == null) {
-            f();
-            qy0.a("session manager bind player =>" + nq0Var);
-            this.a.b(nq0Var.x());
-        }
-    }
-
-    public by0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new by0() : (by0) invokeV.objValue;
-    }
-
-    public void d(@NonNull ht0 ht0Var) {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ht0Var) == null) || (gt0Var = this.a) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947690959, "Lcom/baidu/tieba/cy0;")) == null) {
             return;
         }
-        gt0Var.c(ht0Var);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gt0 gt0Var = new gt0();
-            this.a = gt0Var;
-            gt0Var.registerReceiver();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947690959, "Lcom/baidu/tieba/cy0;");
         }
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a == null) {
-            e();
-        }
-    }
-
-    public void g(@NonNull nq0 nq0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nq0Var) == null) {
-            qy0.a("session manager unbind player =>" + nq0Var);
-            gt0 gt0Var = this.a;
-            if (gt0Var != null) {
-                gt0Var.d(nq0Var.x());
-            }
-        }
-    }
-
-    public cy0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cy0(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
+    }
+
+    @Override // com.baidu.tieba.by0, com.baidu.tieba.vu0
+    public void d(ut0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                this.e = false;
+                boolean r = r();
+                if (!r) {
+                    j = gz0.c(getContext());
+                }
+                if (r != f) {
+                    f = r;
+                    if (!r && ar0.T() && gz0.c(getContext()) > 0) {
+                        dz0.b("HeadsetPlugin", "恢复操作,静音->非静音");
+                        i = false;
+                        ar0 i2 = i();
+                        if (i2 != null) {
+                            i2.s0(false);
+                        }
+                    }
+                }
+                ar0 i3 = i();
+                this.d = i3 != null ? i3.V() : false;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vu0
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{1, 4} : (int[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.by0, com.baidu.tieba.vu0
+    public void n(ut0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_HEADSET_PLUG)) {
+                boolean d = event.d(3);
+                h = d;
+                if (g) {
+                    return;
+                }
+                p(d);
+            } else if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_BLUETOOTH_HEADSET)) {
+                boolean d2 = event.d(6);
+                g = d2;
+                if (h) {
+                    return;
+                }
+                p(d2);
+            }
+        }
+    }
+
+    public final void p(boolean z) {
+        ar0 i2;
+        ar0 i3;
+        ar0 i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("播放器是否静音isMute= ");
+            ar0 i5 = i();
+            sb.append(i5 != null ? Boolean.valueOf(i5.V()) : null);
+            sb.append(',');
+            sb.append(" 播放器是否全局静音sGlobalMute= ");
+            sb.append(ar0.T());
+            sb.append(',');
+            sb.append(" 播放器静音状态(业务复写的方法)isPlayerMute= ");
+            ar0 i6 = i();
+            sb.append(i6 != null ? Boolean.valueOf(i6.X()) : null);
+            sb.append(',');
+            sb.append(" 播放器耳机连接前的音量大小-> ");
+            sb.append(j);
+            sb.append(',');
+            sb.append(" 播放器音量音量焦点-> ");
+            ar0 i7 = i();
+            sb.append(i7 != null ? Boolean.valueOf(i7.U()) : null);
+            dz0.b("HeadsetPlugin", sb.toString());
+            if (z) {
+                f = true;
+                i = ar0.T();
+                ar0 i8 = i();
+                this.d = i8 != null ? i8.V() : false;
+                dz0.b("HeadsetPlugin", "耳机连接>>> 静音状态,全局=" + i + ", 播放器=" + this.d);
+                boolean z2 = this.d;
+                if (!z2) {
+                    ar0 i9 = i();
+                    z2 = i9 != null && i9.V();
+                }
+                if (z2 && (i4 = i()) != null) {
+                    i4.s0(false);
+                }
+                int c = gz0.c(getContext());
+                if (c == 0) {
+                    c = (int) (gz0.b(getContext()) * 0.35d);
+                }
+                gz0.d(getContext(), c);
+                if (oz0.k() && (i3 = i()) != null && i3.W() && this.e) {
+                    ar0 i10 = i();
+                    int r = i10 != null ? i10.r() : 0;
+                    ar0 i11 = i();
+                    if (r > (i11 != null ? i11.C() : 0)) {
+                        this.e = false;
+                        ar0 i12 = i();
+                        if (i12 != null) {
+                            i12.l0();
+                        }
+                    }
+                }
+            } else if (f) {
+                f = false;
+                if (oz0.k() && (i2 = i()) != null && i2.Y()) {
+                    this.e = true;
+                    ar0 i13 = i();
+                    if (i13 != null) {
+                        i13.f0(4);
+                    }
+                }
+                dz0.b("HeadsetPlugin", "耳机断开>>> 恢复之前静音状态,全局=" + i + ", 播放器=" + this.d + StringUtil.ARRAY_ELEMENT_SEPARATOR + "声音=" + j);
+                if (j == 0) {
+                    gz0.d(getContext(), j);
+                }
+                ar0 i14 = i();
+                if (i14 != null) {
+                    i14.s0(i);
+                }
+                ar0 i15 = i();
+                if (i15 != null) {
+                    i15.w0(this.d);
+                }
+            } else {
+                py0.c().d(kt0.w(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));
+            }
+        }
+    }
+
+    public final boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AudioManager a = gz0.a(getContext());
+            boolean isWiredHeadsetOn = a != null ? a.isWiredHeadsetOn() : false;
+            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
+            boolean z = defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2;
+            dz0.b("HeadsetPlugin", "当前耳机连接状态>>> 有线耳机=" + isWiredHeadsetOn + ", 蓝牙=" + z);
+            return isWiredHeadsetOn || z;
+        }
+        return invokeV.booleanValue;
     }
 }

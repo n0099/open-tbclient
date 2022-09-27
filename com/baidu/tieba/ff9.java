@@ -1,248 +1,1032 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import android.media.MediaCrypto;
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
 import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import android.util.Log;
-import android.view.Surface;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import androidx.media2.session.MediaUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.ng9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer;
+import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
-import java.nio.ByteBuffer;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ff9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaMuxer a;
-    public MediaCodec b;
-    public MediaCodec.BufferInfo c;
-    public boolean d;
-    public long e;
-    public long f;
-    public int g;
-    public int h;
-    public volatile boolean i;
 
-    public ff9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements ng9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng9.a a;
+        public final /* synthetic */ ng9 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+
+        public a(ng9.a aVar, ng9 ng9Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, ng9Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = ng9Var;
+            this.c = str;
+            this.d = str2;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qg9.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.c + ",:dest:" + this.d);
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                qg9.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.e("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                qg9.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.j("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements ng9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng9.a a;
+        public final /* synthetic */ ng9 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+
+        public b(ng9.a aVar, ng9 ng9Var, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, ng9Var, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = ng9Var;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qg9.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.c + "," + this.d + ",:dest:" + this.e);
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                qg9.e("FFmpegCmdExecutor-mixAudio", "release");
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.e("FFmpegCmdExecutor-mixAudio", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                qg9.e("FFmpegCmdExecutor-mixAudio", "release");
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.e("FFmpegCmdExecutor-mixAudio", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements ng9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng9.a a;
+        public final /* synthetic */ ng9 b;
+
+        public c(ng9.a aVar, ng9 ng9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, ng9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = ng9Var;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.e("FFmpegCmdExecutor-mixAudio", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.j("FFmpegCmdExecutor-mixAudio", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d implements ng9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng9.a a;
+        public final /* synthetic */ ng9 b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ String d;
+
+        public d(ng9.a aVar, ng9 ng9Var, List list, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, ng9Var, list, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = ng9Var;
+            this.c = list;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qg9.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.c.size() + ",dest:" + this.d);
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.j("FFmpegCmdExecutor-concat", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.j("FFmpegCmdExecutor-concat", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e implements ng9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng9.a a;
+        public final /* synthetic */ ng9 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+
+        public e(ng9.a aVar, ng9 ng9Var, String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, ng9Var, str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = ng9Var;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qg9.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.c + ",audio" + this.d + ",:dest:" + this.e);
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onCompletion();
+                }
+                qg9.e("FFmpegCmdExecutor-muxAudioVideo", "release");
+                this.b.release();
+            }
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onError(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onError i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onError(i, i2, obj);
+                }
+                qg9.e("FFmpegCmdExecutor-muxAudioVideo", "release");
+                this.b.release();
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ng9.a
+        public boolean onInfo(int i, int i2, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("onInfo i = ");
+                sb.append(i);
+                sb.append(" i1 = ");
+                sb.append(i2);
+                sb.append(" o ");
+                sb.append(obj != null ? obj.toString() : " null ");
+                qg9.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
+                ng9.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onInfo(i, i2, obj);
+                    return false;
+                }
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+        public String d;
+        public int e;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 48000;
+            this.b = 1;
+            this.c = 16;
+            this.e = 0;
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.e;
+                return i == 5 || i == 6 || i == 8 || i == 9;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int i = this.e;
+                return i == 3 || i == 4 || i == 8 || i == 9;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                int i = this.e;
+                return i == 1 || i == 4 || i == 6 || i == 9;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762352, "Lcom/baidu/tieba/ff9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947762352, "Lcom/baidu/tieba/ff9;");
                 return;
             }
         }
-        this.d = false;
+        if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
+            a = true;
+        } else {
+            a = false;
+        }
     }
 
-    public static MediaCodecInfo b(String str) {
-        InterceptResult invokeL;
+    public static byte[] a(byte b2, byte b3, byte b4, byte b5, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int codecCount = MediaCodecList.getCodecCount();
-            for (int i = 0; i < codecCount; i++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
-                if (codecInfoAt.isEncoder()) {
-                    for (String str2 : codecInfoAt.getSupportedTypes()) {
-                        if (str2.equalsIgnoreCase(str)) {
-                            return codecInfoAt;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5), Boolean.valueOf(z)})) == null) ? f((short) ((h(b2, b3, z) / 2) + (h(b4, b5, z) / 2)), z) : (byte[]) invokeCommon.objValue;
+    }
+
+    public static void b(List<String> list, String str, String str2, ng9.a aVar, boolean z, boolean z2) {
+        File file;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{list, str, str2, aVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            ng9 ng9Var = (ng9) gh9.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (vg9.e(list)) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "input list null");
+                }
+            } else if (ng9Var == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                }
+            } else {
+                ng9Var.setListener(new d(aVar, ng9Var, list, str));
+                if (TextUtils.isEmpty(str2)) {
+                    file = new File(FileUtils.removeExtention(str) + System.currentTimeMillis() + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+                } else {
+                    String fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
+                    file = new File(str2 + fileNameWithOutExtention + System.currentTimeMillis() + "concat.txt");
+                }
+                qg9.j("FFmpegCmdExecutor-concat", "inputfilename:" + file.getPath());
+                StringBuilder sb = new StringBuilder();
+                for (String str3 : list) {
+                    sb.append("file '");
+                    sb.append(str3);
+                    sb.append("'\n");
+                }
+                FileUtils.writeFile(file, sb.toString(), false);
+                ArrayList<String> arrayList = new ArrayList<>();
+                arrayList.add("-f");
+                arrayList.add("concat");
+                arrayList.add("-safe");
+                arrayList.add("0");
+                arrayList.add("-i");
+                arrayList.add(file.getPath());
+                if (!z) {
+                    arrayList.add("-vn");
+                }
+                arrayList.add("-c");
+                if (z2) {
+                    arrayList.add("aac");
+                } else {
+                    arrayList.add("copy");
+                }
+                arrayList.add(str);
+                ng9Var.setSource(arrayList);
+                qg9.e("FFmpegCmdExecutor-mixAudio", "start");
+                ng9Var.start();
+            }
+        }
+    }
+
+    public static byte[] c(int i, int i2, byte[] bArr) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i, i2, bArr)) == null) {
+            qg9.b("convertByteWidth sourceByteWidth = " + i + " outputByteWidth = " + i2);
+            if (i == i2) {
+                return bArr;
+            }
+            int length = bArr.length;
+            if (i != 1) {
+                if (i == 2 && i2 == 1) {
+                    int i3 = length / 2;
+                    byte[] bArr2 = new byte[i3];
+                    for (int i4 = 0; i4 < i3; i4++) {
+                        int i5 = i4 * 2;
+                        bArr2[i4] = (byte) (h(bArr[i5], bArr[i5 + 1], a) / 256);
+                    }
+                    return bArr2;
+                }
+            } else if (i2 == 2) {
+                byte[] bArr3 = new byte[length * 2];
+                for (int i6 = 0; i6 < length; i6++) {
+                    byte[] f2 = f((short) (bArr[i6] * 256), a);
+                    int i7 = i6 * 2;
+                    bArr3[i7] = f2[0];
+                    bArr3[i7 + 1] = f2[1];
+                }
+                return bArr3;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeIIL.objValue;
+    }
+
+    public static byte[] d(int i, int i2, int i3, byte[] bArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
+            qg9.b("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
+            if (i == i2) {
+                return bArr;
+            }
+            if (i3 == 1 || i3 == 2) {
+                int length = bArr.length;
+                int i4 = 0;
+                if (i != 1) {
+                    if (i == 2 && i2 == 1) {
+                        int i5 = length / 2;
+                        byte[] bArr2 = new byte[i5];
+                        if (i3 == 1) {
+                            while (i4 < i5) {
+                                int i6 = i4 * 2;
+                                bArr2[i4] = (byte) (((short) (bArr[i6] + bArr[i6 + 1])) >> 1);
+                                i4 += 2;
+                            }
+                        } else if (i3 == 2) {
+                            for (int i7 = 0; i7 < i5; i7 += 2) {
+                                int i8 = i7 * 2;
+                                byte[] a2 = a(bArr[i8], bArr[i8 + 1], bArr[i8 + 2], bArr[i8 + 3], a);
+                                bArr2[i7] = a2[0];
+                                bArr2[i7 + 1] = a2[1];
+                            }
+                        }
+                        return bArr2;
+                    }
+                } else if (i2 == 2) {
+                    byte[] bArr3 = new byte[length * 2];
+                    if (i3 == 1) {
+                        while (i4 < length) {
+                            byte b2 = bArr[i4];
+                            int i9 = i4 * 2;
+                            bArr3[i9] = b2;
+                            bArr3[i9 + 1] = b2;
+                            i4++;
+                        }
+                    } else if (i3 == 2) {
+                        while (i4 < length) {
+                            byte b3 = bArr[i4];
+                            byte b4 = bArr[i4 + 1];
+                            int i10 = i4 * 2;
+                            bArr3[i10] = b3;
+                            bArr3[i10 + 1] = b4;
+                            bArr3[i10 + 2] = b3;
+                            bArr3[i10 + 3] = b4;
+                            i4 += 2;
                         }
                     }
-                    continue;
+                    return bArr3;
                 }
+                return bArr;
             }
-            return null;
+            return bArr;
         }
-        return (MediaCodecInfo) invokeL.objValue;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public final int a(MediaCodec mediaCodec) {
+    @TargetApi(16)
+    public static f e(String str) {
         InterceptResult invokeL;
-        int addTrack;
+        MediaFormat mediaFormat;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaCodec)) == null) {
-            synchronized (this) {
-                MediaFormat outputFormat = mediaCodec.getOutputFormat();
-                if (qe9.g(outputFormat) == 1) {
-                    outputFormat.setString("qlc", "123adb");
-                    outputFormat.setString("adc", "123adb");
-                    addTrack = this.a.addTrack(outputFormat);
-                    this.g = addTrack;
-                } else {
-                    addTrack = this.a.addTrack(outputFormat);
-                    this.h = addTrack;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            try {
+                mediaExtractor.setDataSource(str);
+                int i = 0;
+                while (true) {
+                    if (i >= mediaExtractor.getTrackCount()) {
+                        mediaFormat = null;
+                        break;
+                    }
+                    mediaFormat = mediaExtractor.getTrackFormat(i);
+                    if (mediaFormat.getString("mime").startsWith("audio/")) {
+                        mediaExtractor.selectTrack(i);
+                        break;
+                    }
+                    i++;
                 }
-                if (this.g != -1) {
-                    this.a.start();
-                    this.i = true;
-                    notifyAll();
-                    Log.i("HWRecorder", "MediaMuxer has added all track, notifyAll");
+                if (mediaFormat == null) {
+                    mediaExtractor.release();
+                    return null;
                 }
+                f fVar = new f();
+                fVar.d = mediaFormat.getString("mime");
+                fVar.a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
+                fVar.b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
+                fVar.c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+                mediaExtractor.release();
+                return fVar;
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                return null;
             }
-            return addTrack;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    public static byte[] f(short s, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s), Boolean.valueOf(z)})) == null) {
+            byte[] bArr = new byte[2];
+            if (z) {
+                bArr[1] = (byte) (s & 255);
+                bArr[0] = (byte) (((short) (s >> 8)) & 255);
+            } else {
+                bArr[0] = (byte) (s & 255);
+                bArr[1] = (byte) (((short) (s >> 8)) & 255);
+            }
+            return bArr;
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static int g(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, mediaFormat)) == null) {
+            String string = mediaFormat.getString("mime");
+            if (string.startsWith(com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START)) {
+                return 1;
+            }
+            return string.startsWith("audio/") ? 2 : 0;
         }
         return invokeL.intValue;
     }
 
-    public void c() {
+    public static short h(byte b2, byte b3, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                h();
-            } catch (Exception e) {
-                Log.e("HWRecorder", "stop exception occur: " + e.getLocalizedMessage());
-            }
-            if (this.d) {
-                Log.i("HWRecorder", "Recorder released");
-            }
-            this.d = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Boolean.valueOf(z)})) == null) {
+            return (short) (z ? ((short) (((short) ((b2 & 255) | 0)) << 8)) | (b3 & 255) : (b2 & 255) | ((short) (((short) ((b3 & 255) | 0)) << 8)));
         }
+        return invokeCommon.shortValue;
     }
 
-    public void d(int i, int i2, int i3, int i4, int i5, int i6, String str) throws Exception {
+    public static boolean i(f... fVarArr) {
+        InterceptResult invokeL;
+        f fVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str}) == null) {
-            if (b("video/avc") == null || b("audio/mp4a-latm") == null) {
-                throw new Exception("cannot find suitable codec");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, fVarArr)) == null) {
+            if (fVarArr == null || fVarArr.length < 2 || (fVar = fVarArr[0]) == null) {
+                return false;
             }
-            MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
-            createVideoFormat.setInteger("bitrate", i4);
-            createVideoFormat.setInteger("frame-rate", 30);
-            createVideoFormat.setInteger("i-frame-interval", 5);
-            createVideoFormat.setInteger("color-format", i3);
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
-            this.b = createEncoderByType;
-            createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-            this.b.start();
-            File file = new File(str);
-            if (file.exists() && !file.delete()) {
-                Log.w("HWRecorder", "delete file failed");
-            }
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            this.a = new MediaMuxer(str, 0);
-            this.i = false;
-            this.g = -1;
-            this.h = -1;
-            this.e = -1L;
-            this.f = -1L;
-            this.c = new MediaCodec.BufferInfo();
-            new MediaCodec.BufferInfo();
-            this.d = true;
-            Log.i("HWRecorder", "Recorder initialized");
-        }
-    }
-
-    public final void e(MediaCodec mediaCodec, MediaCodec.BufferInfo bufferInfo) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048579, this, mediaCodec, bufferInfo) != null) {
-            return;
-        }
-        int i = mediaCodec == this.b ? this.g : this.h;
-        while (true) {
-            ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
-                if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    i = a(mediaCodec);
-                } else if (dequeueOutputBuffer == -1) {
-                    return;
-                } else {
-                    if (dequeueOutputBuffer < 0) {
-                        Log.w("HWRecorder", "drainEncoder unexpected result: " + dequeueOutputBuffer);
-                    } else if ((bufferInfo.flags & 2) == 0) {
-                        if (bufferInfo.size != 0) {
-                            ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                            if (byteBuffer == null) {
-                                throw new RuntimeException("drainEncoder get outputBuffer " + dequeueOutputBuffer + " was null");
-                            }
-                            synchronized (this) {
-                                if (!this.i) {
-                                    wait();
-                                }
-                            }
-                            byteBuffer.position(bufferInfo.offset);
-                            byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                            this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                        }
-                        mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    } else {
-                        continue;
-                    }
+            boolean z = true;
+            for (int i = 1; i < fVarArr.length; i++) {
+                if (fVar.a != fVarArr[i].a) {
+                    fVarArr[i].e++;
+                    z = false;
+                }
+                if (fVar.b != fVarArr[i].b) {
+                    fVarArr[i].e += 3;
+                    z = false;
+                }
+                if (fVar.c != fVarArr[i].c) {
+                    fVarArr[i].e += 5;
+                    z = false;
                 }
             }
+            return z;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void f(MediaCodec mediaCodec, MediaCodec.BufferInfo bufferInfo, byte[] bArr, long j) throws Exception {
+    public static void j(String str, String str2, String str3, int i, ng9.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{mediaCodec, bufferInfo, bArr, Long.valueOf(j)}) == null) {
-            if (!this.d) {
-                Log.e("HWRecorder", "Recorder must be initialized!");
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Integer.valueOf(i), aVar}) == null) {
+            ng9 ng9Var = (ng9) gh9.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (ng9Var == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
                 return;
             }
-            int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
-            ByteBuffer byteBuffer = mediaCodec.getInputBuffers()[dequeueInputBuffer];
-            if (dequeueInputBuffer >= 0) {
-                byteBuffer.clear();
-                byteBuffer.put(bArr);
-                mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, j, 0);
+            qg9.e("FFmpegCmdExecutor-mixAudio", "new mixAudio");
+            ng9Var.setListener(new b(aVar, ng9Var, str, str2, str3));
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("-i");
+            arrayList.add(str);
+            arrayList.add("-i");
+            arrayList.add(str2);
+            arrayList.add("-filter_complex");
+            arrayList.add("[0:a] [1:a]amerge=inputs=2[aout]");
+            arrayList.add("-map");
+            arrayList.add("[aout]");
+            if (i > 0) {
+                arrayList.add("-ac");
+                arrayList.add(String.valueOf(i));
             }
-            e(mediaCodec, bufferInfo);
+            arrayList.add(str3);
+            ng9Var.setSource(arrayList);
+            ng9Var.start();
         }
     }
 
-    public void g(byte[] bArr) throws Exception {
-        long j;
+    public static void k(List<String> list, String str, int i, ng9.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            int i = (this.e > (-1L) ? 1 : (this.e == (-1L) ? 0 : -1));
-            long nanoTime = System.nanoTime();
-            if (i == 0) {
-                this.e = nanoTime;
-                j = 0;
+        if (interceptable == null || interceptable.invokeLLIL(65547, null, list, str, i, aVar) == null) {
+            if (vg9.b(list) == 2) {
+                j(list.get(0), list.get(1), str, i, aVar);
+                return;
+            }
+            ng9 ng9Var = (ng9) gh9.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (ng9Var == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
+                return;
+            }
+            ng9Var.setListener(new c(aVar, ng9Var));
+            ArrayList<String> arrayList = new ArrayList<>();
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            int i2 = 0;
+            for (String str2 : list) {
+                arrayList.add("-i");
+                arrayList.add(str2);
+                sb.append(PreferencesUtil.LEFT_MOUNT);
+                sb.append(i2);
+                sb.append(":a]volume=1");
+                sb.append(PreferencesUtil.LEFT_MOUNT);
+                sb.append("a");
+                i2++;
+                sb.append(i2);
+                sb.append("];");
+                sb2.append(PreferencesUtil.LEFT_MOUNT);
+                sb2.append("a");
+                sb2.append(i2);
+                sb2.append(PreferencesUtil.RIGHT_MOUNT);
+            }
+            arrayList.add("-filter_complex");
+            arrayList.add(String.format("%s%samix=inputs=%s[aout]", sb.toString(), sb2.toString(), Integer.valueOf(list.size())));
+            arrayList.add("-map");
+            arrayList.add("[aout]");
+            if (i > 0) {
+                arrayList.add("-ac");
+                arrayList.add(String.valueOf(i));
+            }
+            arrayList.add(str);
+            ng9Var.setSource(arrayList);
+            ng9Var.start();
+        }
+    }
+
+    public static void l(String str, String str2, int i, int i2, float f2, int i3, float f3, float f4, boolean z, ng9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), aVar}) == null) {
+            float f5 = f3 * 1000.0f;
+            if (r9 < (f4 * 1000.0f) + f5 || f4 <= 0.0f) {
+                f4 = (r9 - f5) / 1000.0f;
+            }
+            qg9.c(VLogMultiAudioMixer.TAG, "modifyAudioProperty - duration" + f4);
+            ng9 ng9Var = (ng9) gh9.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            qg9.e("FFmpegCmdExecutor-modifyAudioProperty", "MFFmpegCmdExecutor modifyAudioProperty new");
+            if (ng9Var == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
+                return;
+            }
+            ng9Var.setListener(new a(aVar, ng9Var, str, str2));
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("-i");
+            arrayList.add(str);
+            if (f4 > 0.0f) {
+                arrayList.add("-ss");
+                arrayList.add(String.valueOf(f3));
+                arrayList.add("-t");
+                arrayList.add(String.valueOf(f4));
+            }
+            if (i > 0) {
+                arrayList.add("-ar");
+                arrayList.add(String.valueOf(i));
+            }
+            if (i2 > 0) {
+                arrayList.add("-ac");
+                arrayList.add(String.valueOf(i2));
+            }
+            if (f2 >= 0.0f) {
+                arrayList.add("-af");
+                arrayList.add("volume=" + f2);
+            }
+            arrayList.add("-acodec");
+            arrayList.add("aac");
+            arrayList.add(str2);
+            ng9Var.setSource(arrayList);
+            qg9.e("FFmpegCmdExecutor-modifyAudioProperty", "start");
+            ng9Var.start();
+        }
+    }
+
+    public static void m(String str, String str2, String str3, ng9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65549, null, str, str2, str3, aVar) == null) {
+            ng9 ng9Var = (ng9) gh9.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
+            if (ng9Var == null) {
+                if (aVar != null) {
+                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                    return;
+                }
+                return;
+            }
+            ng9Var.setListener(new e(aVar, ng9Var, str, str2, str3));
+            long b2 = lh9.b(str2);
+            long f2 = lh9.f(str);
+            qg9.j("VideoMuxer", "muxAudioVideo,audioduration:" + b2 + ",videoDuration:" + f2);
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("-i");
+            arrayList.add(str);
+            arrayList.add("-i");
+            arrayList.add(str2);
+            if (Math.abs(f2 - b2) >= 100 && b2 <= f2) {
+                arrayList.add("-filter_complex");
+                arrayList.add("[1:a]aloop=loop=-1:size=2e+09[aout]");
+                arrayList.add("-map");
+                arrayList.add("0:v");
+                arrayList.add("-map");
+                arrayList.add("[aout]");
+                arrayList.add("-c:v");
+                arrayList.add("copy");
             } else {
-                j = (nanoTime - this.e) / 1000;
+                arrayList.add("-c");
+                arrayList.add("copy");
+                arrayList.add("-map");
+                arrayList.add("0:v");
+                arrayList.add("-map");
+                arrayList.add("1:a");
             }
-            long j2 = this.f;
-            if (j <= j2) {
-                j += (j2 - j) + 1000;
-            }
-            long j3 = j;
-            this.f = j3;
-            f(this.b, this.c, bArr, j3);
+            arrayList.add("-shortest");
+            arrayList.add(str3);
+            ng9Var.setSource(arrayList);
+            qg9.e("FFmpegCmdExecutor-muxAudioVideo", "start");
+            ng9Var.start();
         }
     }
 
-    public final void h() throws Exception {
+    public static boolean n(String str, String str2, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MediaCodec mediaCodec = this.b;
-            if (mediaCodec != null) {
-                mediaCodec.stop();
-                this.b.release();
-                this.b = null;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) {
+            if (i2 == i) {
+                return false;
             }
-            MediaMuxer mediaMuxer = this.a;
-            if (mediaMuxer != null) {
-                mediaMuxer.stop();
-                this.a.release();
-                this.a = null;
+            File file = new File(str);
+            File file2 = new File(str2);
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                FileOutputStream fileOutputStream = new FileOutputStream(file2);
+                new hf9(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
+                fileInputStream.close();
+                fileOutputStream.close();
+                return true;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                qg9.e(MediaUtils.TAG, "resamplefail:" + e2.getMessage());
+                return false;
             }
         }
+        return invokeLLII.booleanValue;
     }
 }

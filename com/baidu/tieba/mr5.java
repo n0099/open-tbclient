@@ -1,230 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tieba.iw3;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-@Singleton
-@Service
+import java.net.URLEncoder;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mr5 extends ActivityDelegation implements f04 {
+public class mr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements SapiCallback<CheckUserFaceIdResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iw3.d a;
-        public final /* synthetic */ mr5 b;
-
-        public a(mr5 mr5Var, iw3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mr5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mr5Var;
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
-                this.a.onFail(checkUserFaceIdResult.getResultMsg());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.f(null, null, this.a);
-                } else {
-                    this.a.onSuccess();
-                }
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iw3.d a;
-
-        public b(mr5 mr5Var, iw3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mr5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    this.a.onSuccess();
-                } else {
-                    this.a.onFail(accountRealNameResult.getResultMsg());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements iw3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mr5 a;
-
-        public c(mr5 mr5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mr5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mr5Var;
-        }
-
-        @Override // com.baidu.tieba.iw3.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.mResult.putString("bundle_fail", "real_name_success");
-                this.a.finish();
-            }
-        }
-
-        @Override // com.baidu.tieba.iw3.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("bundle_success", "real_name_success");
-                this.a.finish();
-            }
-        }
-    }
-
-    public mr5() {
+    public static String a(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            sb.append("tiebaclient://");
+            if (num.intValue() > 0) {
+                sb.append("swangame/");
+            } else {
+                sb.append("swan/");
+            }
+            sb.append(str);
+            if (!TextUtils.isEmpty(str2)) {
+                if (!str2.startsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append(str2);
+            } else {
+                sb.append("/");
+            }
+            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
+                sb.append("&");
+            } else {
+                if (!sb.toString().endsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append("?");
+            }
+            sb.append("_baiduboxapp=");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sb.append(URLEncoder.encode(jSONObject.toString()));
+            sb.append("&callback=_bdbox_js_275&upgrade=0");
+            return sb.toString();
         }
+        return (String) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.f04
-    public void b(iw3.d dVar) {
+    public static final boolean b(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        String a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
+            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
+                return false;
             }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, dVar), session.bduss, hashMap);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
+            return true;
         }
-    }
-
-    public final void f(Context context, String str, iw3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(lo2.U().getActivity(), new b(this, dVar), realNameDTO);
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(getAgent(), xf3.g(this.mParams, "swanAppId"), new c(this));
-            return false;
-        }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

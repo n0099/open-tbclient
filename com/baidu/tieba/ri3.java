@@ -1,26 +1,126 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import androidx.room.RoomMasterTable;
-import com.baidu.tieba.l22;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ri3 {
+public class ri3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int[] e;
+    public c f;
+    public long g;
+    public b h;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public MotionEvent a;
+        public rd2 b;
+        public final /* synthetic */ ri3 c;
+
+        public b(ri3 ri3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ri3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ri3Var;
+        }
+
+        public final void b(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+                this.a = motionEvent;
+                this.b = this.c.d(motionEvent, "longtap");
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.g(this.b);
+            }
+        }
+
+        public /* synthetic */ b(ri3 ri3Var, a aVar) {
+            this(ri3Var);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+
+        public c(ri3 ri3Var, double d, double d2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ri3Var, Double.valueOf(d), Double.valueOf(d2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d;
+            this.b = d2;
+        }
+
+        public double a(c cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                if (cVar == null) {
+                    return Double.MAX_VALUE;
+                }
+                double pow = Math.pow(cVar.a - this.a, 2.0d) + Math.pow(cVar.b - this.b, 2.0d);
+                if (pow <= 0.0d) {
+                    return 0.0d;
+                }
+                return Math.sqrt(pow);
+            }
+            return invokeL.doubleValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,123 +135,135 @@ public class ri3 {
                 return;
             }
         }
-        a = ij1.a;
+        i = vj1.a;
     }
 
-    public static String a(String str) {
+    public ri3(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.e = new int[2];
+        this.h = new b(this, null);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        h();
+        i();
+    }
+
+    /* JADX WARN: Type inference failed for: r0v4, types: [org.json.JSONObject, T] */
+    public final rd2 c(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String n = x23.K().q().W().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return str;
-            }
-            try {
-                List<String> c = qg3.c(new URI(n).getRawQuery());
-                if (c.size() > 0) {
-                    for (int i = 0; i < c.size(); i++) {
-                        String str2 = c.get(i);
-                        if (!TextUtils.isEmpty(str2)) {
-                            String[] split = str2.split("=");
-                            if (split.length > 1) {
-                                str = qg3.a(str, split[0], split[1]);
-                            }
-                        }
-                    }
-                }
-                return str;
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                yz1.i("SwanWebModeUtils", "appendWebUrlQuery: " + e.getMessage());
-                return str;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            qi3 qi3Var = new qi3(motionEvent);
+            qi3Var.i(this.e);
+            rd2 rd2Var = new rd2();
+            rd2Var.c = si3.b(this.a, this.b, this.c, qi3Var.e(), qi3Var.c());
+            return rd2Var;
         }
-        return (String) invokeL.objValue;
+        return (rd2) invokeL.objValue;
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    public static String b(String str) {
+    /* JADX WARN: Type inference failed for: r6v2, types: [org.json.JSONObject, T] */
+    public final rd2 d(MotionEvent motionEvent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, str)) == null) {
+            qi3 qi3Var = new qi3(motionEvent, str);
+            qi3Var.i(this.e);
+            rd2 rd2Var = new rd2();
+            rd2Var.c = si3.b(this.a, this.b, this.c, qi3Var.e(), qi3Var.c());
+            return rd2Var;
+        }
+        return (rd2) invokeLL.objValue;
+    }
+
+    public final void e(View view2, MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent) == null) {
+            if (view2 != null && motionEvent != null && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
+                    this.f = new c(this, motionEvent.getX(), motionEvent.getY());
+                    this.g = motionEvent.getEventTime();
+                    this.h.b(motionEvent);
+                    view2.postDelayed(this.h, 350L);
+                    i();
+                } else if (actionMasked == 1 || actionMasked == 3 || !f(new c(this, motionEvent.getX(), motionEvent.getY()))) {
+                    view2.removeCallbacks(this.h);
+                }
+                g(c(motionEvent));
+                if (actionMasked == 1 && f(new c(this, motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.g < 350) {
+                    g(d(motionEvent, "tap"));
+                    return;
+                }
+                return;
+            }
+            l02.c("SwanAppTouchListener", "params is null, slaveId = " + this.a + " ; viewId = " + this.b);
+        }
+    }
+
+    public final boolean f(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (l22.b.a()) {
-                str = d() + "?appKey=" + x23.K().q().getAppId();
-            }
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String e = e();
-            String valueOf = String.valueOf(qi3.c().g());
-            String a2 = a(str);
-            String c = c();
-            yz1.i("SwanWebModeUtils", "appendWebUrlQuery: launchUrl : " + a2 + " rawPath : " + c);
-            return Uri.parse(a2).buildUpon().path(c).appendQueryParameter("_swebfr", e).appendQueryParameter("_swebcode", valueOf).appendQueryParameter("_swebHost", fm2.n().a()).build().toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String n = x23.K().q().W().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return "";
-            }
-            try {
-                return new URI(n).getPath();
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String string = mb3.a().getString("web_mode_host_key", "");
-            return TextUtils.isEmpty(string) ? "http://radar.bcc-szth.baidu.com:8312" : string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sg3.G() ? "41" : RoomMasterTable.DEFAULT_ID : (String) invokeV.objValue;
-    }
-
-    public static boolean f(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String optString = jSONObject.optString("invokeFrom");
-            return !TextUtils.isEmpty(optString) && TextUtils.equals(optString, "swanWeb");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
+            c cVar2 = this.f;
+            return cVar2 != null && cVar2.a(cVar) <= ((double) ch3.g(10.0f));
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean g(re3 re3Var, int i) {
-        InterceptResult invokeLI;
+    public final void g(rd2 rd2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, re3Var, i)) == null) {
-            if (i == 6) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rd2Var) == null) {
+            if (i) {
+                Log.d("SwanAppTouchListener", "sendEventToWebView = " + rd2Var.c);
             }
-            if (re3Var == null) {
-                return false;
+            if (!this.d) {
+                yo2.U().m(this.a, rd2Var);
+            } else {
+                yo2.U().u(rd2Var);
             }
-            return re3Var.h() == 1013 || re3Var.h() == 1015;
         }
-        return invokeLI.booleanValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = ah3.f("1.12.0") && TextUtils.equals("canvas", this.c);
+        }
+    }
+
+    public final void i() {
+        View m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (m = fh3.m(this.a)) == null) {
+            return;
+        }
+        m.getLocationOnScreen(this.e);
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view2, motionEvent)) == null) {
+            e(view2, motionEvent);
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

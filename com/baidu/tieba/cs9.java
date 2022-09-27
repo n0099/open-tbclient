@@ -1,31 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public final class cs9 {
+public final class cs9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ AtomicBoolean a;
+    public final /* synthetic */ bs9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685472, "Lcom/baidu/tieba/cs9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685472, "Lcom/baidu/tieba/cs9;");
+    public cs9(bs9 bs9Var, AtomicBoolean atomicBoolean) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bs9Var, atomicBoolean};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", "V", "C", "S", "Q", "R", "A", "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+        this.b = bs9Var;
+        this.a = atomicBoolean;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
+            return;
+        }
+        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
+        bs9 bs9Var = this.b;
+        wr9 wr9Var = bs9Var.c;
+        wr9.n(bs9Var.a, bs9Var.b);
     }
 }

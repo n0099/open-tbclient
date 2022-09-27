@@ -1,59 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.au4;
-import com.baidu.tieba.write.write.WriteMultiImgsActivity;
-import com.baidu.tieba.write.write.sticker.view.StickerLayout;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class e39 {
+public class e39 implements c39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public au4 b;
-    public u29 c;
-    public t29 d;
-    public BdBaseViewPager e;
-    public StickerLayout f;
-    public TextView g;
-    public FragmentTabWidget h;
-    public TbPageContext<WriteMultiImgsActivity> i;
-    public int j;
-    public LinearLayout k;
-    public List<String> l;
-    public WriteImagesInfo m;
-    public w59 n;
-    public NavigationBar o;
-    public ArrayList<FragmentTabIndicator> p;
+    public final NewVcodeView a;
+    public final NewWriteModel b;
+    public String c;
+    public String d;
+    public boolean e;
+    public String f;
+    public boolean g;
+    public Runnable h;
+    public final NewWriteModel.d i;
+    public NewWriteModel.d j;
 
     /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e39 a;
@@ -76,19 +60,22 @@ public class e39 {
             this.a = e39Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.i == null || this.a.i.getPageActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
                 return;
             }
-            this.a.i.getPageActivity().setResult(0);
-            this.a.i.getPageActivity().finish();
+            if (StringUtils.isNull(this.a.f)) {
+                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0527));
+            } else {
+                this.a.a.showToast(false, this.a.f);
+            }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements z29 {
+    public class b implements NewWriteModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e39 a;
@@ -111,160 +98,62 @@ public class e39 {
             this.a = e39Var;
         }
 
-        @Override // com.baidu.tieba.z29
-        public void a(Bitmap bitmap, boolean z) {
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, y15 y15Var, WriteData writeData, AntiData antiData) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, bitmap, z) == null) {
-                if (this.a.n == null || !this.a.n.c(bitmap)) {
-                    this.a.i(bitmap);
-                }
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, y15Var, writeData, antiData}) == null) || this.a.a == null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements FragmentTabWidget.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e39 a;
-
-        public c(e39 e39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e39Var;
-        }
-
-        @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.b
-        public void onTabSelectionChanged(int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                e39 e39Var = this.a;
-                if (i == e39Var.j) {
-                    return;
-                }
-                if (i == 0) {
-                    e39Var.c.k().setVisibility(0);
-                    this.a.d.k().setVisibility(8);
-                    if (ListUtils.isEmpty(this.a.l)) {
-                        if (this.a.n != null) {
-                            this.a.n.b();
-                        }
+            this.a.a.showPostThreadLoadingView(false);
+            if (z) {
+                this.a.g = true;
+                if (writeData != null && writeData.isAddThread()) {
+                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1130);
+                    String str2 = null;
+                    if (postWriteCallBackData != null) {
+                        str2 = postWriteCallBackData.getPreMsg();
+                        str = postWriteCallBackData.getColorMsg();
+                        string = postWriteCallBackData.getErrorString();
                     } else {
-                        e39 e39Var2 = this.a;
-                        e39Var2.c.m(e39Var2.l);
+                        str = null;
                     }
-                } else if (i == 1) {
-                    StickerLayout stickerLayout = e39Var.f;
-                    if (stickerLayout != null) {
-                        stickerLayout.e();
-                    }
-                    this.a.c.k().setVisibility(8);
-                    this.a.d.k().setVisibility(0);
-                } else if (i == 2) {
-                    StickerLayout stickerLayout2 = e39Var.f;
-                    if (stickerLayout2 != null) {
-                        stickerLayout2.e();
-                    }
-                    this.a.c.k().setVisibility(8);
-                    this.a.d.k().setVisibility(0);
+                    mp8.b(this.a.a.getContext().getActivity(), string, str2, str);
                 }
-                e39 e39Var3 = this.a;
-                e39Var3.j = i;
-                e39Var3.h.setCurrentTab(this.a.j, true, true);
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                intent.putExtras(bundle);
+                np8.a(writeData, postWriteCallBackData.getThreadId());
+                BaseActivity context = this.a.a.getContext();
+                this.a.a.getContext();
+                context.setResult(-1, intent);
+                this.a.a.getContext().finish();
+            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
+                this.a.a.getContext().setVisible(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+            } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.j != null) {
+                if (this.a.j != null) {
+                    this.a.j.callback(z, postWriteCallBackData, y15Var, writeData, antiData);
+                }
+            } else if (postWriteCallBackData == null) {
+            } else {
+                if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
+                    this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0913));
+                } else {
+                    this.a.a.showToast(false, postWriteCallBackData.getErrorString());
+                }
+                this.a.m();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements au4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e39 a;
-
-        public d(e39 e39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e39Var;
-        }
-
-        @Override // com.baidu.tieba.au4.e
-        public void onClick(au4 au4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                if (this.a.b != null) {
-                    this.a.b.dismiss();
-                }
-                this.a.j(true);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements au4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e39 a;
-
-        public e(e39 e39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e39Var;
-        }
-
-        @Override // com.baidu.tieba.au4.e
-        public void onClick(au4 au4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                if (this.a.b != null) {
-                    this.a.b.dismiss();
-                }
-                this.a.j(false);
-            }
-        }
-    }
-
-    public e39(TbPageContext<WriteMultiImgsActivity> tbPageContext, w59 w59Var) {
+    public e39(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, w59Var};
+            Object[] objArr = {newVcodeView, newWriteModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -274,168 +163,146 @@ public class e39 {
                 return;
             }
         }
-        this.a = 3;
-        this.e = null;
-        this.g = null;
-        this.j = 0;
-        this.p = new ArrayList<>();
-        this.i = tbPageContext;
-        this.n = w59Var;
-        this.k = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d093b, (ViewGroup) null);
-        m();
+        this.e = false;
+        this.f = null;
+        this.h = new a(this);
+        b bVar = new b(this);
+        this.i = bVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.b0(bVar);
     }
 
-    public void a(List<String> list) {
+    @Override // com.baidu.tieba.c39
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.l = list;
-            this.c.m(list);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.setRatio(1.2631578f);
+            this.a.showWebView(false);
+            String str = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/captcha";
+            if (z) {
+                str = str + "?feedback=1";
+            }
+            this.a.getWebView().loadUrl(str);
         }
     }
 
-    public void h(int i) {
+    @Override // com.baidu.tieba.c39
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        this.o.onChangeSkinType(this.i, i);
-        SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0302, R.color.s_navbar_title_color);
-        this.f.setRemoveRes(R.drawable.obfuscated_res_0x7f080a9c);
-        this.c.n();
-        this.d.l();
-        Iterator<FragmentTabIndicator> it = this.p.iterator();
-        while (it.hasNext()) {
-            FragmentTabIndicator next = it.next();
-            if (next != null) {
-                next.e(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (str.contains("objc:jsChangeVcode")) {
+                String a2 = vi5.a(str);
+                this.c = a2;
+                if (a2 == null || this.b.S() == null) {
+                    return false;
+                }
+                NewVcodeView newVcodeView = this.a;
+                String str2 = this.c;
+                newVcodeView.runJsMethod(str2, "'" + this.b.S().getVcodeUrl() + "'");
+                return true;
+            } else if (str.equals("objc:jumpToFeedback()")) {
+                NewVcodeView newVcodeView2 = this.a;
+                if (newVcodeView2 != null && newVcodeView2.getContext() != null) {
+                    a39.a(this.a.getContext().getPageContext());
+                }
+                return true;
+            } else if (str.contains("objc:jsSubmit")) {
+                return k(vi5.a(str));
+            } else {
+                return false;
             }
         }
-        this.h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
+        return invokeLL.booleanValue;
     }
 
-    public void i(Bitmap bitmap) {
+    @Override // com.baidu.tieba.c39
+    public void c(NewWriteModel.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-            this.f.setVisibility(0);
-            try {
-                Matrix matrix = new Matrix();
-                matrix.postScale(0.6f, 0.6f);
-                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            } catch (Throwable th) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                th.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.j = dVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+            this.e = z;
+            this.f = str;
+        }
+    }
+
+    public final boolean k(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
+                return false;
             }
-            this.f.b(bitmap, this.n);
+            this.d = split[0];
+            l(split[1]);
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void j(boolean z) {
-        TbPageContext<WriteMultiImgsActivity> tbPageContext;
+    public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (tbPageContext = this.i) == null || tbPageContext.getOrignalPage() == null) {
-            return;
-        }
-        this.i.getOrignalPage().B1(z, this.m);
-    }
-
-    public void k(boolean z, WriteImagesInfo writeImagesInfo) {
-        TbPageContext<WriteMultiImgsActivity> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, writeImagesInfo) == null) || (tbPageContext = this.i) == null || tbPageContext.getOrignalPage() == null) {
-            return;
-        }
-        this.i.getOrignalPage().B1(z, writeImagesInfo);
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f092021);
-            Resources resources = this.i.getResources();
-            String[] stringArray = resources.getStringArray(R.array.obfuscated_res_0x7f03000f);
-            this.p.clear();
-            for (int i = 0; i < stringArray.length; i++) {
-                FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.i.getContext());
-                fragmentTabIndicator.setText(stringArray[i]);
-                fragmentTabIndicator.setTextColorResId(R.color.edit_pic_tab_title_color);
-                fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.obfuscated_res_0x7f07032f));
-                fragmentTabIndicator.e(TbadkCoreApplication.getInst().getSkinType());
-                this.h.addView(fragmentTabIndicator, i);
-                this.p.add(fragmentTabIndicator);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (!ej.D()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
+                this.a.getContext().finish();
+            } else if (!StringUtils.isNull(str)) {
+                this.a.showPostThreadLoadingView(true);
+                this.b.S().setVcode(str);
+                this.b.S().setVcodeType("4");
+                this.b.e0();
+            } else {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
+                this.a.getContext().finish();
             }
-            this.h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
-            this.h.setCurrentTab(this.j, true, false);
-            this.h.setDviderRectWidth(ej.f(this.i.getContext(), R.dimen.obfuscated_res_0x7f070258));
-            this.h.setTabSelectionListener(new c(this));
         }
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f0926b9);
-            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091f89);
-            Resources resources = this.i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.i.getResources();
-            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f0926b8);
-            this.o = navigationBar;
-            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e98));
-            this.o.showBottomLine();
-            this.g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.obfuscated_res_0x7f0f0505));
-            this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            FrameLayout frameLayout = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f09086c);
-            u29 u29Var = new u29(this.i);
-            this.c = u29Var;
-            u29Var.o(new b(this));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
-            layoutParams.setMargins(0, ej.f(this.i.getContext(), R.dimen.obfuscated_res_0x7f070215), 0, 0);
-            this.c.k().setLayoutParams(layoutParams);
-            frameLayout.addView(this.c.k());
-            t29 t29Var = new t29(this.i);
-            this.d = t29Var;
-            frameLayout.addView(t29Var.k());
-            this.d.k().setVisibility(8);
-            l();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.l();
+            NewVcodeView newVcodeView = this.a;
+            String str = this.d;
+            newVcodeView.runJsMethod(str, "'" + this.b.S().getVcodeUrl() + "'");
         }
     }
 
-    public void o() {
-        StickerLayout stickerLayout;
+    @Override // com.baidu.tieba.c39
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (stickerLayout = this.f) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            gh.a().removeCallbacks(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void onPageFinished(WebView webView, String str) {
+        NewVcodeView newVcodeView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) || (newVcodeView = this.a) == null) {
             return;
         }
-        stickerLayout.f(null);
-    }
-
-    public void p(WriteImagesInfo writeImagesInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, writeImagesInfo) == null) {
-            this.m = writeImagesInfo;
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.b == null) {
-                au4 au4Var = new au4(this.i.getPageActivity());
-                this.b = au4Var;
-                au4Var.setMessageId(R.string.obfuscated_res_0x7f0f0d28);
-                this.b.setPositiveButton(R.string.obfuscated_res_0x7f0f026a, new d(this));
-                this.b.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new e(this));
-                this.b.create(this.i);
-            }
-            this.b.show();
+        newVcodeView.showWebViewDelay(500);
+        if (this.e) {
+            gh.a().postDelayed(this.h, 500L);
         }
     }
 }

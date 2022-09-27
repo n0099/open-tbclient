@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.httpNet.WebClient;
-import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nz4 implements ah<lz4> {
+public class nz4 extends iz4<nz4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String i;
 
     public nz4() {
         Interceptable interceptable = $ic;
@@ -33,145 +32,105 @@ public class nz4 implements ah<lz4> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ah
-    /* renamed from: a */
-    public lz4 getFromLocal(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
-        InterceptResult invokeCommon;
+    public static nz4 w(@NonNull nz4 nz4Var, @NonNull Editable editable) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            diskFileOperate.setSubFolder(false);
-            diskFileOperate.setIsFormatData(false);
-            if (xgVar != null) {
-                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                diskCancelWorker.setOperate(diskFileOperate);
-                xgVar.a = diskCancelWorker;
-            }
-            diskFileOperate.call();
-            if (diskFileOperate.isSuccess()) {
-                String desPath = diskFileOperate.getDesPath();
-                lz4 lz4Var = new lz4();
-                lz4Var.a = str;
-                lz4Var.b = desPath;
-                return lz4Var;
-            }
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, nz4Var, editable)) == null) {
+            nz4 nz4Var2 = new nz4();
+            nz4Var2.b(nz4Var);
+            nz4Var2.p(editable);
+            return nz4Var2;
         }
-        return (lz4) invokeCommon.objValue;
+        return (nz4) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ah
-    /* renamed from: b */
-    public lz4 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.iz4
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
         }
-        return (lz4) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ah
-    /* renamed from: c */
-    public lz4 getFromRemote(String str, String str2, int i, int i2, xg xgVar, Object... objArr) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.iz4
+    public void r(Editable editable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
-            int i3 = 1;
-            String str3 = null;
-            String valueOf = objArr.length == 1 ? String.valueOf(objArr[0]) : null;
-            lz4 lz4Var = new lz4();
-            WebClient webClient = new WebClient();
-            if (xgVar != null) {
-                xgVar.a = webClient;
-            }
-            String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-            if (!TextUtils.isEmpty(valueOf)) {
-                str4 = str4 + "&play_from=" + valueOf;
-            }
-            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
-            if (!webClient.IsRequestSuccess()) {
-                lz4Var.c = 3;
-                lz4Var.d = wj.a(R.string.obfuscated_res_0x7f0f0c59);
-                return lz4Var;
-            } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
-                lz4Var.c = 4;
-                lz4Var.d = wj.a(R.string.obfuscated_res_0x7f0f1580);
-                return lz4Var;
-            } else {
-                if (str == null) {
-                    i3 = 5;
-                } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
-                    i3 = 6;
-                } else {
-                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
-                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                    diskFileOperate.setSubFolder(false);
-                    diskFileOperate.setData(downloadCommonBytes);
-                    if (xgVar != null) {
-                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                        diskCancelWorker.setOperate(diskFileOperate);
-                        xgVar.a = diskCancelWorker;
-                    }
-                    diskFileOperate.call();
-                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
-                        str3 = diskFileOperate.getFileInfo().getAbsolutePath();
-                        i3 = 0;
-                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
-                        i3 = 2;
-                    }
-                }
-                if (i3 == 0) {
-                    lz4Var.b = str3;
-                    lz4Var.a = str;
-                } else {
-                    lz4Var.c = i3;
-                    lz4Var.d = lz4.a(i3);
-                }
-                return lz4Var;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
         }
-        return (lz4) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.ah
-    public BdAsyncTaskParallel getAsyncTaskParallel() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.iz4
+    public void s(Editable editable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
         }
-        return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ah
-    public int getAsyncTaskPriority() {
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            q(true);
+            x();
+        }
+    }
+
+    public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 2;
+            return "#[视频]" + this.i + "#";
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ah
-    public boolean isNeedLoad() {
+    public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ah
-    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            k(u());
+            if (hh5.g(this.c, f())) {
+                return;
+            }
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a47, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+            eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+            n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
+            n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
         }
+    }
+
+    public nz4(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = str;
     }
 }

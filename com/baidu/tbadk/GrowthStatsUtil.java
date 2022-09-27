@@ -9,7 +9,7 @@ import com.baidu.searchbox.datacollector.growth.model.ChannelData;
 import com.baidu.searchbox.datacollector.growth.model.ClipBoardData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.q75;
+import com.baidu.tieba.d85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -157,7 +157,7 @@ public class GrowthStatsUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             GrowthCollectManager.statisticActiveData(new ActiveData.Builder(TbadkCoreApplication.getFrom()).build(), TbadkCoreApplication.getInst());
-            q75.b();
+            d85.b();
         }
     }
 

@@ -6,12 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final class og0 {
+public class og0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
+        boolean z;
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031153, "Lcom/baidu/tieba/og0;")) != null) {
@@ -24,6 +25,11 @@ public final class og0 {
                 return;
             }
         }
-        a = pg0.c();
+        try {
+            z = op8.a;
+        } catch (Throwable unused) {
+            z = false;
+        }
+        a = z;
     }
 }

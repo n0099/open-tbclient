@@ -1,25 +1,42 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface t72 {
+public class t72 implements s72 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str);
-
-        WebResourceResponse b(String str, Map<String, String> map, boolean z);
-
-        boolean c();
-
-        String d();
-
-        String getMimeType();
-
-        Map<String, String> getRequestHeaders();
+    public t72() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    WebResourceResponse a(@NonNull a aVar);
+    @Override // com.baidu.tieba.s72
+    public String a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? rj4.d(str.getBytes(), false) : (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "MD5KeyProvider" : (String) invokeV.objValue;
+    }
 }

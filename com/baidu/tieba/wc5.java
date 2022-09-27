@@ -1,78 +1,49 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wc5 extends bd5 {
+public class wc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vc5 b;
-    public boolean c;
-    public boolean d;
 
-    public wc5() {
+    public static String a(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return null;
             }
-        }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vc5 vc5Var = this.b;
-            if (vc5Var != null) {
-                return vc5Var.b();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c() {
-        vc5 vc5Var;
-        gd5 gd5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d || (vc5Var = this.b) == null || vc5Var.b() < 0 || (gd5Var = (gd5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
-            return;
-        }
-        gd5Var.e(this);
-        this.d = true;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            this.c = true;
-            if (Build.VERSION.SDK_INT >= 16) {
-                if (this.b == null) {
-                    this.b = new vc5();
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            for (String str : list) {
+                if (!StringUtils.isNull(str)) {
+                    if (!z && !StringUtils.isNull(sb.toString())) {
+                        z = true;
+                    }
+                    if (z) {
+                        sb.append("_");
+                    }
+                    sb.append(str);
                 }
-                this.b.c();
             }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void e() {
-        vc5 vc5Var;
+    public static List<String> b(List<String> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 16 || (vc5Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            int count = ListUtils.getCount(list);
+            return (count <= 0 || i < 0 || count <= i) ? list : new ArrayList(ListUtils.subList(list, count - i, count));
         }
-        vc5Var.d();
+        return (List) invokeLI.objValue;
     }
 }

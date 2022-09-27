@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.qp5;
+import com.baidu.tieba.dq5;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetAddressList.GetAddressListResIdl;
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qp5 mAddressListData;
+    public dq5 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -47,10 +47,10 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
             if (getAddressListResIdl != null) {
                 if (getAddressListResIdl.data != null) {
-                    qp5 qp5Var = new qp5();
-                    this.mAddressListData = qp5Var;
-                    if (qp5Var.c(getAddressListResIdl.data)) {
-                        bx4 k = bx4.k();
+                    dq5 dq5Var = new dq5();
+                    this.mAddressListData = dq5Var;
+                    if (dq5Var.c(getAddressListResIdl.data)) {
+                        ox4 k = ox4.k();
                         k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                     }
                 }
@@ -65,16 +65,16 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public qp5 getAddressListData() {
+    public dq5 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAddressListData : (qp5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAddressListData : (dq5) invokeV.objValue;
     }
 
-    public void setAddressListData(qp5 qp5Var) {
+    public void setAddressListData(dq5 dq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qp5Var) == null) {
-            this.mAddressListData = qp5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dq5Var) == null) {
+            this.mAddressListData = dq5Var;
         }
     }
 }

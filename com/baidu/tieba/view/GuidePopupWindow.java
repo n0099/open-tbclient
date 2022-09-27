@@ -32,10 +32,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au8;
-import com.baidu.tieba.by4;
+import com.baidu.tieba.b85;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.o75;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.pu8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.GuideScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -227,8 +227,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("swipeback", Boolean.FALSE);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "BarBroadcastEditPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (o75.d() != null && o75.d().e() != null) {
-                    statisticItem.param("uid", o75.d().e().getUserId());
+                if (b85.d() != null && b85.d().e() != null) {
+                    statisticItem.param("uid", b85.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 1);
@@ -269,8 +269,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "RecommendHistoryPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (o75.d() != null && o75.d().e() != null) {
-                    statisticItem.param("uid", o75.d().e().getUserId());
+                if (b85.d() != null && b85.d().e() != null) {
+                    statisticItem.param("uid", b85.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 4);
@@ -311,8 +311,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "DataCenterPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (o75.d() != null && o75.d().e() != null) {
-                    statisticItem.param("uid", o75.d().e().getUserId());
+                if (b85.d() != null && b85.d().e() != null) {
+                    statisticItem.param("uid", b85.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 3);
@@ -353,8 +353,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "ForumSectionPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (o75.d() != null && o75.d().e() != null) {
-                    statisticItem.param("uid", o75.d().e().getUserId());
+                if (b85.d() != null && b85.d().e() != null) {
+                    statisticItem.param("uid", b85.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 2);
@@ -395,8 +395,8 @@ public class GuidePopupWindow extends Dialog {
                 hashMap.put("forum_id", this.a.C);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.a, "ForumDetailPage", hashMap)));
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (o75.d() != null && o75.d().e() != null) {
-                    statisticItem.param("uid", o75.d().e().getUserId());
+                if (b85.d() != null && b85.d().e() != null) {
+                    statisticItem.param("uid", b85.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 6);
@@ -435,8 +435,8 @@ public class GuidePopupWindow extends Dialog {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.dismiss();
                 StatisticItem statisticItem = new StatisticItem("c13887");
-                if (o75.d() != null && o75.d().e() != null) {
-                    statisticItem.param("uid", o75.d().e().getUserId());
+                if (b85.d() != null && b85.d().e() != null) {
+                    statisticItem.param("uid", b85.d().e().getUserId());
                 }
                 statisticItem.param("fid", this.a.C);
                 statisticItem.param("obj_locate", 5);
@@ -570,13 +570,13 @@ public class GuidePopupWindow extends Dialog {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            GuideScrollView guideScrollView = (GuideScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f090d08);
+            GuideScrollView guideScrollView = (GuideScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f090d07);
             this.x = guideScrollView;
             guideScrollView.setScrollChangedListener(this.L);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(1000L);
             this.b.startAnimation(alphaAnimation);
-            HeadPendantView headPendantView = (HeadPendantView) this.b.findViewById(R.id.obfuscated_res_0x7f09249d);
+            HeadPendantView headPendantView = (HeadPendantView) this.b.findViewById(R.id.obfuscated_res_0x7f09249f);
             this.c = headPendantView;
             headPendantView.setHasPendantStyle();
             this.c.setDefalutResid(R.drawable.obfuscated_res_0x7f080480);
@@ -584,41 +584,41 @@ public class GuidePopupWindow extends Dialog {
             this.c.getHeadView().setDrawBorder(true);
             this.c.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setShowSimpleIcon(true);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b0);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b4);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d1);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d0);
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f090d09);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c55);
-            this.r = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919a1);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a4);
-            this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a2);
-            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919ad);
-            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919b0);
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919ae);
-            this.t = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919a5);
-            this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a8);
-            this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a6);
-            this.u = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919a9);
-            this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919ac);
-            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919aa);
+            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b2);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d3);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d2);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f090d08);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c54);
+            this.r = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919a3);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a6);
+            this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a4);
+            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919af);
+            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919b2);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919b0);
+            this.t = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919a7);
+            this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919aa);
+            this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919a8);
+            this.u = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919ab);
+            this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919ae);
+            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919ac);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090438);
             this.v = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            by4 by4Var = new by4();
-            by4Var.p(R.color.CAM_X0302);
-            this.v.setConfig(by4Var);
+            oy4 oy4Var = new oy4();
+            oy4Var.p(R.color.CAM_X0302);
+            this.v.setConfig(oy4Var);
             this.v.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0824));
             this.w = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09043d);
-            by4 by4Var2 = new by4();
-            by4Var2.p(R.color.CAM_X0618);
-            this.w.setConfig(by4Var2);
+            oy4 oy4Var2 = new oy4();
+            oy4Var2.p(R.color.CAM_X0618);
+            this.w.setConfig(oy4Var2);
             this.w.setTextSize(R.dimen.tbds42);
             this.w.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0828));
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f091e79);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f091e7b);
             this.y = findViewById;
             findViewById.setAlpha(0.0f);
-            HeadBorder headBorder = (HeadBorder) this.b.findViewById(R.id.obfuscated_res_0x7f090d29);
+            HeadBorder headBorder = (HeadBorder) this.b.findViewById(R.id.obfuscated_res_0x7f090d28);
             this.z = headBorder;
             headBorder.setBorderColor(SkinManager.getColor(R.color.CAM_X0614));
             this.z.setBorderWidth(this.a.getResources().getDimensionPixelSize(R.dimen.tbds10));
@@ -710,7 +710,7 @@ public class GuidePopupWindow extends Dialog {
             super.onCreate(bundle);
             setContentView(this.b);
             getWindow().setLayout(-1, -1);
-            au8.b(1, getWindow().getAttributes(), getWindow());
+            pu8.b(1, getWindow().getAttributes(), getWindow());
         }
     }
 
@@ -734,10 +734,10 @@ public class GuidePopupWindow extends Dialog {
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || o75.d() == null || o75.d().e() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || b85.d() == null || b85.d().e() == null) {
             return;
         }
-        this.c.n(o75.d().e());
+        this.c.n(b85.d().e());
     }
 
     public void r(UserData userData) {
@@ -758,10 +758,10 @@ public class GuidePopupWindow extends Dialog {
 
     public void t() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || o75.d() == null || o75.d().e() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || b85.d() == null || b85.d().e() == null) {
             return;
         }
-        this.e.setText(o75.d().e().getName_show());
+        this.e.setText(b85.d().e().getName_show());
     }
 
     public void u(String str) {

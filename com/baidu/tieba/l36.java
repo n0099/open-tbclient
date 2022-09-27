@@ -1,254 +1,129 @@
 package com.baidu.tieba;
 
-import android.location.Location;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.g36;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class l36 implements g36.a {
+public class l36 {
     public static /* synthetic */ Interceptable $ic;
-    public static l36 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public g36 a;
-    public g36 b;
-    public ArrayList<TransmitForumData> c;
-    public ArrayList<TransmitForumData> d;
-    public boolean e;
-    public ArrayList<TransmitForumData> f;
-    public boolean g;
-    public int h;
-    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891994, "Lcom/baidu/tieba/l36;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947891994, "Lcom/baidu/tieba/l36;");
-        }
-    }
-
-    public l36() {
+    @Nullable
+    public static Intent a(Context context, String str, String str2, boolean z, k36 k36Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), k36Var})) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            int i = 0;
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            while (true) {
+                if (i >= queryIntentActivities.size()) {
+                    break;
+                }
+                String str3 = queryIntentActivities.get(i).activityInfo.packageName;
+                if (TextUtils.equals(str3, str2)) {
+                    intent.setPackage(str3);
+                    break;
+                }
+                i++;
             }
+            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
+                if (k36Var != null) {
+                    k36Var.onFailed(-104);
+                    return null;
+                }
+                return null;
+            }
+            return intent;
         }
-        this.c = new ArrayList<>();
-        this.e = false;
-        this.g = false;
-        this.i = false;
-        e();
+        return (Intent) invokeCommon.objValue;
     }
 
-    public static Location b() {
-        InterceptResult invokeV;
+    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable k36 k36Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), k36Var})) == null) {
+            if (!d(str) && !e(str)) {
+                return a(context, str, str2, z, k36Var);
+            }
+            return c(context, str, str2, k36Var);
         }
-        return (Location) invokeV.objValue;
+        return (Intent) invokeCommon.objValue;
     }
 
-    public static l36 c() {
-        InterceptResult invokeV;
+    @Nullable
+    public static Intent c(Context context, String str, String str2, k36 k36Var) {
+        InterceptResult invokeLLLL;
+        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (j == null) {
-                synchronized (l36.class) {
-                    if (j == null) {
-                        j = new l36();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, k36Var)) == null) {
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (parseUri == null) {
+                    if (k36Var != null) {
+                        k36Var.onFailed(-103);
                     }
+                    return null;
                 }
-            }
-            return j;
-        }
-        return (l36) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g36.a
-    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (i == 1) {
-                if (z) {
-                    this.f = arrayList;
+                String str3 = parseUri.getPackage();
+                if (str3 != null && !TextUtils.isEmpty(str3)) {
+                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    Set<String> categories = parseUri.getCategories();
+                    if (categories == null || categories.isEmpty()) {
+                        parseUri.addCategory("android.intent.category.LAUNCHER");
+                    }
+                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
+                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
+                    }
+                    return parseUri;
                 }
-                this.g = true;
-            } else if (i == 2) {
-                if (z) {
-                    this.d = arrayList;
-                    this.h = i2;
+                return context.getPackageManager().getLaunchIntentForPackage(str2);
+            } catch (URISyntaxException unused) {
+                Intent launchIntentForPackage = TextUtils.isEmpty(str2) ? null : context.getPackageManager().getLaunchIntentForPackage(str2);
+                if (launchIntentForPackage == null && k36Var != null) {
+                    k36Var.onFailed(-102);
                 }
-                this.e = true;
-            }
-            j();
-        }
-    }
-
-    public final Location d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() : (Location) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
-            f();
-            this.i = false;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), g36.class);
-            if (runTask != null) {
-                this.b = (g36) runTask.getData();
-            }
-            g36 g36Var = this.b;
-            if (g36Var != null) {
-                g36Var.a(this);
+                return launchIntentForPackage;
             }
         }
+        return (Intent) invokeLLLL.objValue;
     }
 
-    public final void g() {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), g36.class);
-            if (runTask != null) {
-                this.a = (g36) runTask.getData();
-            }
-            g36 g36Var = this.a;
-            if (g36Var != null) {
-                g36Var.a(this);
-            }
-        }
-    }
-
-    public final boolean h(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            ArrayList<TransmitForumData> arrayList = this.c;
-            if (arrayList == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            Iterator<TransmitForumData> it = arrayList.iterator();
-            while (it.hasNext()) {
-                TransmitForumData next = it.next();
-                if (next != null && next.forumId == j2) {
-                    return true;
-                }
-            }
-            return false;
+            return str.startsWith("android-app:");
         }
-        return invokeJ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void i() {
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.i = true;
-            g36 g36Var = this.a;
-            if (g36Var != null) {
-                g36Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            g36 g36Var2 = this.b;
-            if (g36Var2 != null) {
-                g36Var2.b();
-            }
+            return str.startsWith("intent:") || str.startsWith("#Intent;");
         }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null || this.e) {
-                if (this.b == null || this.g) {
-                    this.e = false;
-                    this.g = false;
-                    this.i = false;
-                    this.c.clear();
-                    if (!ListUtils.isEmpty(this.d)) {
-                        Iterator<TransmitForumData> it = this.d.iterator();
-                        while (it.hasNext()) {
-                            TransmitForumData next = it.next();
-                            if (!h(next.forumId)) {
-                                this.c.add(next);
-                            }
-                        }
-                    }
-                    if (!ListUtils.isEmpty(this.f)) {
-                        Iterator<TransmitForumData> it2 = this.f.iterator();
-                        while (it2.hasNext()) {
-                            TransmitForumData next2 = it2.next();
-                            if (!h(next2.forumId)) {
-                                this.c.add(next2);
-                            }
-                        }
-                    }
-                    this.d = null;
-                    this.f = null;
-                    k();
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.c));
-        }
-    }
-
-    public void l(ShareDialogConfig shareDialogConfig) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || sg5.a()) {
-            return;
-        }
-        if (shareDialogConfig.showLocation) {
-            shareDialogConfig.shareItem.F = d();
-        }
-        if (ej.D() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.i && !shareDialogConfig.shareItem.f()) {
-            i();
-        }
-        shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.c);
-        shareDialogConfig.setPrivateThread(this.h);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        return invokeL.booleanValue;
     }
 }

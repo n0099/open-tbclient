@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Build;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.swan.apps.view.SwanAppNARootViewScrollView;
-import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
-import com.baidu.tieba.fp1;
+import com.baidu.tieba.li3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,17 +21,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.CodedInputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class mi3<T extends fp1> implements l42, ci3, PullToRefreshBaseWebView.a {
+public class mi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean i;
+    public static int j;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
-    public FrameLayout b;
-    public T c;
-    public PullToRefreshBaseWebView d;
-    public Context e;
-    public ep1 f;
+    @NonNull
+    public Activity a;
+    @NonNull
+    public ViewGroup b;
+    @Nullable
+    public View c;
+    @Nullable
+    public View d;
+    public int e;
+    public boolean f;
+    public li3 g;
+    public View.OnSystemUiVisibilityChangeListener h;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnSystemUiVisibilityChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(mi3 mi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnSystemUiVisibilityChangeListener
+        public void onSystemUiVisibilityChange(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,209 +85,347 @@ public class mi3<T extends fp1> implements l42, ci3, PullToRefreshBaseWebView.a 
                 return;
             }
         }
-        g = ij1.a;
+        i = j();
+        j = 0;
+        if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
+            j = 1;
+        } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
+            j = 2;
+        }
     }
 
-    public mi3(Context context, @NonNull ep1<T> ep1Var, @NonNull FrameLayout frameLayout) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public mi3(@NonNull Activity activity) {
+        this(activity, (ViewGroup) activity.findViewById(16908290));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ep1Var, frameLayout};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = context;
-        this.a = frameLayout;
-        this.f = ep1Var;
-        e(ep1Var);
     }
 
-    @Override // com.baidu.tieba.ci3
-    public boolean a(View view2, et2 et2Var) {
-        InterceptResult invokeLL;
+    public static int a(int i2, int i3) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, et2Var)) == null) {
-            if (view2 == null || this.b == null || et2Var == null) {
-                return false;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
+            if (i3 == 0) {
+                return i2;
             }
-            if (g) {
-                Log.d("NAParentViewManager", "updateView pos: " + et2Var);
-            }
-            if (d(view2, this.b)) {
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f0901a3);
-                if (tag instanceof ni3) {
-                    ni3 ni3Var = (ni3) tag;
-                    oi3.a(ni3Var, et2Var);
-                    view2.setTag(R.id.obfuscated_res_0x7f0901a3, ni3Var);
-                }
-                this.b.updateViewLayout(view2, oi3.b(this.c, et2Var));
-            } else if (!g(view2)) {
-                return false;
-            } else {
-                Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f0901a3);
-                if (tag2 instanceof ni3) {
-                    ni3 ni3Var2 = (ni3) tag2;
-                    oi3.a(ni3Var2, et2Var);
-                    view2.setTag(R.id.obfuscated_res_0x7f0901a3, ni3Var2);
-                }
-                ((ViewGroup) view2.getParent()).updateViewLayout(view2, oi3.b(this.c, et2Var));
-            }
-            return true;
+            float f = 1.0f - (i3 / 255.0f);
+            return ((int) (((i2 & 255) * f) + 0.5d)) | (((int) ((((i2 >> 16) & 255) * f) + 0.5d)) << 16) | (-16777216) | (((int) ((((i2 >> 8) & 255) * f) + 0.5d)) << 8);
         }
-        return invokeLL.booleanValue;
+        return invokeII.intValue;
     }
 
-    @Override // com.baidu.swan.apps.core.container.PullToRefreshBaseWebView.a
-    public void b(int i, int i2, int i3, int i4) {
+    public static boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            this.b.scrollTo(i, i2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
+    }
+
+    public final li3 b(int i2, int i3, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            li3.b b = li3.b.b();
+            b.i(z);
+            b.h(true);
+            b.g(false);
+            b.f(i3);
+            b.e(i2);
+            b.c(z2);
+            b.d(z3);
+            return b.a();
+        }
+        return (li3) invokeCommon.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int f = f();
+            this.g = b(f, g(f), false, false, true);
         }
     }
 
-    @Override // com.baidu.tieba.ci3
-    public boolean c(View view2, et2 et2Var) {
-        InterceptResult invokeLL;
+    @NonNull
+    public li3 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, et2Var)) == null) {
-            if (this.e != null && et2Var != null) {
-                ni3 ni3Var = new ni3();
-                oi3.a(ni3Var, et2Var);
-                view2.setTag(R.id.obfuscated_res_0x7f0901a3, ni3Var);
-                if (this.b.indexOfChild(view2) >= 0) {
-                    rz1.a("NAParentViewManager", "repeat insert view!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.g == null) {
+                c();
+            }
+            return this.g;
+        }
+        return (li3) invokeV.objValue;
+    }
+
+    @Nullable
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603f3);
+            }
+            return this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603f4);
+        }
+        return invokeV.intValue;
+    }
+
+    public final int g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return 0;
+            }
+            return a(i2, 45);
+        }
+        return invokeI.intValue;
+    }
+
+    public final View h(@NonNull li3 li3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, li3Var)) == null) {
+            if (li3Var.g) {
+                View view2 = this.d;
+                if (view2 != null) {
+                    if (li3Var.e) {
+                        return view2;
+                    }
                     this.b.removeView(view2);
+                    this.d = null;
+                    return null;
+                } else if (!li3Var.e) {
+                    this.d = null;
+                    return null;
+                } else {
+                    int t = ch3.t();
+                    View view3 = new View(this.a);
+                    view3.setTag("IMMERSION_VIEW");
+                    view3.setId(R.id.obfuscated_res_0x7f090f19);
+                    this.b.addView(view3, new ViewGroup.LayoutParams(-1, t));
+                    this.d = view3;
+                    return view3;
                 }
-                this.b.addView(view2, oi3.b(this.c, et2Var));
-                return true;
-            } else if (g) {
-                Log.d("NAParentViewManager", "insertView failed");
-                return false;
+            }
+            return null;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.g = null;
+            this.e = 1;
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            o(d());
+        }
+    }
+
+    public void m(int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            n(i2, z, true, z2);
+        }
+    }
+
+    public void n(int i2, boolean z, boolean z2, boolean z3) {
+        li3 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && i) {
+            if (i2 == 1) {
+                if (this.e != 1) {
+                    k();
+                }
+                this.e = i2;
+                b = d();
             } else {
-                return false;
+                this.e = i2;
+                b = b(i2, g(i2), z3, z, z2);
+                this.g = b;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean d(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, viewGroup)) == null) ? view2 != null && viewGroup != null && view2.getParent() == viewGroup && viewGroup.indexOfChild(view2) >= 0 : invokeLL.booleanValue;
-    }
-
-    public final boolean e(ep1<T> ep1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ep1Var)) == null) {
-            if (g) {
-                Log.d("NAParentViewManager", "createViewAndListener");
-            }
-            ep1Var.t(this);
-            T r = ep1Var.r();
-            this.c = r;
-            if (r == null) {
-                return false;
-            }
-            SwanAppNARootViewScrollView swanAppNARootViewScrollView = new SwanAppNARootViewScrollView(this.e);
-            this.a.addView(swanAppNARootViewScrollView, new FrameLayout.LayoutParams(-1, -1));
-            this.b = new FrameLayout(this.e);
-            swanAppNARootViewScrollView.addView(this.b, new FrameLayout.LayoutParams(-1, -1));
-            swanAppNARootViewScrollView.setFillViewport(true);
-            PullToRefreshBaseWebView h0 = ep1Var.h0();
-            this.d = h0;
-            if (h0 != null) {
-                h0.setOnPullToRefreshScrollChangeListener(this);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f.U(this);
+            this.f = z;
+            o(b);
         }
     }
 
-    public final boolean g(View view2) {
-        InterceptResult invokeL;
+    public final void o(@NonNull li3 li3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            return view2.getParent() instanceof SwanAppInlineFullScreenContainer;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.l42
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
-            marginLayoutParams.leftMargin = -i;
-            marginLayoutParams.topMargin = -i2;
-            this.b.setLayoutParams(marginLayoutParams);
-            for (int i5 = 0; i5 < this.b.getChildCount(); i5++) {
-                View childAt = this.b.getChildAt(i5);
-                if (childAt != null) {
-                    Object tag = childAt.getTag(R.id.obfuscated_res_0x7f0901a3);
-                    ni3 ni3Var = tag instanceof ni3 ? (ni3) tag : null;
-                    if (ni3Var != null && ni3Var.d()) {
-                        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
-                        marginLayoutParams2.leftMargin = ni3Var.b() + i;
-                        marginLayoutParams2.topMargin = ni3Var.c() + i2;
-                        childAt.setLayoutParams(marginLayoutParams2);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ci3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
-            if (d(view2, this.b)) {
-                try {
-                    this.b.removeView(view2);
-                } catch (Exception e) {
-                    if (g) {
-                        e.printStackTrace();
-                    }
-                }
-                return true;
-            } else if (g(view2)) {
-                try {
-                    ((ViewGroup) view2.getParent()).removeView(view2);
-                } catch (Exception e2) {
-                    if (g) {
-                        e2.printStackTrace();
-                    }
-                }
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048588, this, li3Var) == null) {
+            if (j == 2) {
+                p(li3Var);
             } else {
-                return false;
+                r();
+                s(li3Var);
+            }
+            View view2 = this.c;
+            if (view2 != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+                if (li3Var.f) {
+                    layoutParams.topMargin = 0;
+                } else {
+                    layoutParams.topMargin = ch3.t();
+                }
+                this.c.setLayoutParams(layoutParams);
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void p(li3 li3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, li3Var) == null) {
+            try {
+                Window window = this.a.getWindow();
+                window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+                Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+                declaredField.setAccessible(true);
+                declaredField2.setAccessible(true);
+                int i2 = declaredField.getInt(null);
+                int i3 = declaredField2.getInt(attributes);
+                declaredField2.setInt(attributes, li3Var.d ? i2 | i3 : (~i2) & i3);
+                window.setAttributes(attributes);
+                int i4 = li3Var.b;
+                if (i4 == 1) {
+                    i4 = f();
+                }
+                View h = h(li3Var);
+                if (h != null) {
+                    h.setBackgroundColor(i4);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public final boolean q(Window window, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, window, z)) == null) {
+            if (window != null) {
+                Class<?> cls = window.getClass();
+                try {
+                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                    int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                    if (z) {
+                        method.invoke(window, Integer.valueOf(i2), Integer.valueOf(i2));
+                    } else {
+                        method.invoke(window, 0, Integer.valueOf(i2));
+                    }
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            Window window = this.a.getWindow();
+            window.clearFlags(1024);
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 < 21) {
+                if (i2 >= 19) {
+                    window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    return;
+                }
+                return;
+            }
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.addFlags(Integer.MIN_VALUE);
+            if (j != 1) {
+                return;
+            }
+            q(window, d().d);
+        }
+    }
+
+    @SuppressLint({"InlinedApi"})
+    public final void s(li3 li3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, li3Var) == null) {
+            Window window = this.a.getWindow();
+            boolean z = li3Var.c;
+            int i2 = li3Var.d ? 13312 : 5120;
+            int i3 = !li3Var.e ? i2 & (-257) : i2 | 256;
+            int i4 = li3Var.b;
+            if (i4 == 1) {
+                i4 = f();
+            }
+            window.getDecorView().setSystemUiVisibility(i3);
+            if (Build.VERSION.SDK_INT >= 21) {
+                window.setStatusBarColor(li3Var.a);
+            }
+            View h = h(li3Var);
+            if (h != null) {
+                h.setBackgroundColor(i4);
+            }
+            if (this.h == null) {
+                this.h = new a(this);
+                window.getDecorView().setOnSystemUiVisibilityChangeListener(this.h);
+            }
+        }
+    }
+
+    public mi3(@NonNull Activity activity, @NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, viewGroup};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = 1;
+        this.a = activity;
+        this.b = viewGroup;
+        this.c = viewGroup.getChildAt(0);
     }
 }

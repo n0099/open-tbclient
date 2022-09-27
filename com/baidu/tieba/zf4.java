@@ -1,59 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialOperation;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final String g;
+    public final Set<String> h;
+    public final String i;
+    public final Long j;
+    public int k;
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public zf4(String str, int i, int i2, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            SharedPreferences a = hg4.a();
-            return a.getLong("latest_update_time" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            SharedPreferences a = hg4.a();
-            return a.getLong("max_age" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return (System.currentTimeMillis() - a(i)) / 1000 > b(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            SharedPreferences.Editor edit = hg4.a().edit();
-            edit.putLong("latest_update_time" + i, j).apply();
-        }
-    }
-
-    public static void e(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j <= 0 || j >= 259200) {
-                j = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, set, str6, l};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            hg4.a().edit().putLong("max_age" + i, j).apply();
         }
+        this.a = str;
+        this.c = i2;
+        this.b = i;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = str5;
+        this.h = set;
+        this.i = str6;
+        this.j = l;
+    }
+
+    public static zf4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                String optString = jSONObject.optString("version");
+                if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                    return null;
+                }
+                String optString2 = optJSONObject.optString("content_type");
+                int optInt = optJSONObject.optInt("official_no");
+                int optInt2 = optJSONObject.optInt("container_no");
+                String optString3 = optJSONObject.optString("host_name");
+                String optString4 = optJSONObject.optString("share_callback_url");
+                JSONArray optJSONArray = optJSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
+                String optString5 = optJSONObject.optString("scheme_head");
+                String optString6 = optJSONObject.optString("failure_url");
+                HashSet hashSet = new HashSet();
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        String optString7 = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString7)) {
+                            hashSet.add(optString7);
+                        }
+                    }
+                }
+                zf4 zf4Var = new zf4(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet.size() > 0 ? hashSet : null, optString5, null);
+                zf4Var.k = optJSONObject.optInt("use_openbundleid", -1);
+                return zf4Var;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (zf4) invokeL.objValue;
     }
 }

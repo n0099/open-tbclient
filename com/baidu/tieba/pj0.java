@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class pj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, yj0> a;
+    public ij0 a;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -49,107 +46,168 @@ public class pj0 {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948063827, "Lcom/baidu/tieba/pj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948063827, "Lcom/baidu/tieba/pj0;");
-                return;
-            }
-        }
-        b = TimeUnit.DAYS.toMillis(10L);
-    }
-
     public /* synthetic */ pj0(a aVar) {
         this();
     }
 
-    public static pj0 b() {
+    public static pj0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (pj0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (pj0) invokeV.objValue;
     }
 
-    @NonNull
-    public HashMap<String, yj0> a() {
-        InterceptResult invokeV;
+    public String a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (HashMap) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            List<yj0> a2 = qj0.e().a();
-            if (jz0.g(a2)) {
-                return;
-            }
-            int l = jz0.l(a2);
-            for (int i = 0; i != l; i++) {
-                yj0 yj0Var = (yj0) jz0.d(a2, i);
-                if (yj0Var != null) {
-                    if (yj0Var.c == AdDownloadStatus.DOWNLOADING) {
-                        yj0Var.c = AdDownloadStatus.PAUSE;
-                    }
-                    lz0.e(this.a, yj0Var.e(), yj0Var);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            pp0 a2 = this.a.a();
+            if (z) {
+                if (a2 != null && !TextUtils.isEmpty(a2.a)) {
+                    return a2.a;
                 }
+                return zi0.d().a();
+            } else if (this.a.h()) {
+                return (a2 == null || a2.b == 3) ? "" : a2.a;
+            } else {
+                return zi0.d().a();
             }
         }
+        return (String) invokeZ.objValue;
     }
 
-    public void d() {
+    public String b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qj0.e().b(this.a);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            pp0 e = this.a.e();
+            if (z) {
+                if (e != null && !TextUtils.isEmpty(e.a)) {
+                    return e.a;
+                }
+                return zi0.d().e();
+            } else if (this.a.h()) {
+                return (e == null || e.b == 3) ? "" : e.a;
+            } else {
+                return zi0.d().e();
+            }
         }
+        return (String) invokeZ.objValue;
     }
 
-    public void e(@NonNull yj0 yj0Var) {
+    public String d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yj0Var) == null) {
-            qj0.e().c(rj0.a(yj0Var));
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            pp0 f = this.a.f();
+            if (z) {
+                if (f != null && !TextUtils.isEmpty(f.a)) {
+                    return f.a;
+                }
+                return zi0.d().f();
+            } else if (this.a.h()) {
+                return (f == null || f.b == 3) ? "" : f.a;
+            } else {
+                return zi0.d().f();
+            }
         }
+        return (String) invokeZ.objValue;
     }
 
-    public void f(@NonNull sz0 sz0Var) {
+    public String e(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sz0Var) == null) {
-            qj0.e().update(sz0Var);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            pp0 d = this.a.d();
+            if (z) {
+                if (d != null && !TextUtils.isEmpty(d.a)) {
+                    return d.a;
+                }
+                return zi0.d().d();
+            } else if (this.a.h()) {
+                return (d == null || d.b == 3) ? "" : d.a;
+            } else {
+                return zi0.d().d();
+            }
         }
+        return (String) invokeZ.objValue;
     }
 
-    public yj0 query(String str) {
-        InterceptResult invokeL;
+    public String f(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? (yj0) lz0.b(this.a, str) : (yj0) invokeL.objValue;
-    }
-
-    public void update(yj0 yj0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, yj0Var) == null) || yj0Var == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            pp0 c = this.a.c();
+            if (z) {
+                if (c != null && !TextUtils.isEmpty(c.a)) {
+                    return c.a;
+                }
+                return zi0.d().c();
+            } else if (this.a.h()) {
+                return (c == null || c.b == 3) ? "" : c.a;
+            } else {
+                return zi0.d().c();
+            }
         }
-        lz0.e(this.a, yj0Var.e(), yj0Var);
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            pp0 g = this.a.g();
+            if (z) {
+                if (g != null && !TextUtils.isEmpty(g.a)) {
+                    return g.a;
+                }
+                return Build.MANUFACTURER;
+            } else if (this.a.h()) {
+                return (g == null || g.b == 3) ? "" : g.a;
+            } else {
+                return Build.MANUFACTURER;
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            pp0 b2 = this.a.b();
+            if (z) {
+                if (b2 != null && !TextUtils.isEmpty(b2.a)) {
+                    return b2.a;
+                }
+                return zi0.d().b();
+            } else if (this.a.h()) {
+                return (b2 == null || b2.b == 3) ? "" : b2.a;
+            } else {
+                return zi0.d().b();
+            }
+        }
+        return (String) invokeZ.objValue;
     }
 
     public pj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        synchronized (pj0.class) {
+            ij0 ij0Var = (ij0) ServiceManager.getService(ij0.a);
+            this.a = ij0Var;
+            if (ij0Var == null) {
+                this.a = ij0.b;
+            }
+        }
     }
 }

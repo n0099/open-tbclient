@@ -3,7 +3,7 @@ package com.baidu.tbadk.ala;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tieba.br4;
+import com.baidu.tieba.or4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
 /* loaded from: classes3.dex */
-public class AlaLiveInfoCoreData extends br4 implements Serializable {
+public class AlaLiveInfoCoreData extends or4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5768965545624138312L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class AlaLiveInfoCoreData extends br4 implements Serializable {
         this.threadId = alaInfoData.thread_id;
     }
 
-    @Override // com.baidu.tieba.br4
+    @Override // com.baidu.tieba.or4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

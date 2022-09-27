@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ct8;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.ot8;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.zs8;
+import com.baidu.tieba.rt8;
+import com.baidu.tieba.sm8;
+import com.baidu.tieba.st8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ct8> a;
-    public dt8 b;
-    public List<zs8> c;
+    public List<rt8> a;
+    public st8 b;
+    public List<ot8> c;
     public b d;
     public boolean e;
     public pb f;
@@ -92,7 +92,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, List<zs8> list, dt8 dt8Var, List<ct8> list2);
+        void a(int i, String str, List<ot8> list, st8 st8Var, List<rt8> list2);
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
@@ -160,8 +160,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dm8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            dm8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            sm8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            sm8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

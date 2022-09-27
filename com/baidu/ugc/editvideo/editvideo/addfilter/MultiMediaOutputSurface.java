@@ -5,8 +5,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.gg9;
-import com.baidu.tieba.rf0;
+import com.baidu.tieba.eg0;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public GLViewPortLocation mGLViewPortLocation;
     public MultiMediaPreGlRenderer mInnerRenderer;
     public List<IMediaRenderer> mMediaRenderers;
-    public rf0 mVlogEdit;
+    public eg0 mVlogEdit;
 
     public MultiMediaOutputSurface(IMultiMediaDataSource iMultiMediaDataSource) {
         Interceptable interceptable = $ic;
@@ -82,10 +82,10 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public rf0 getVlogCore() {
+    public eg0 getVlogCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVlogEdit : (rf0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mVlogEdit : (eg0) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
@@ -116,9 +116,9 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     public void onDrawFrame(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            rf0 rf0Var = this.mVlogEdit;
-            if (rf0Var != null) {
-                rf0Var.g(i, j);
+            eg0 eg0Var = this.mVlogEdit;
+            if (eg0Var != null) {
+                eg0Var.g(i, j);
                 this.mVlogEdit.b(this.mVideoWidth, this.mVideoHeight);
             }
             List<IEffectProcessor> list = this.mEffectProcessors;
@@ -218,7 +218,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
                 }
                 i2 = i4;
             }
-            if (this.mVlogEdit == null || gg9.e(this.mMediaRenderers)) {
+            if (this.mVlogEdit == null || vg9.e(this.mMediaRenderers)) {
                 this.mFullScreen2D.drawFrame(i, fArr);
                 return;
             }
@@ -243,11 +243,11 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setVlogCore(rf0 rf0Var) {
+    public void setVlogCore(eg0 eg0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, rf0Var) == null) {
-            this.mVlogEdit = rf0Var;
-            this.mInnerRenderer.setCompat(rf0Var != null);
+        if (interceptable == null || interceptable.invokeL(1048591, this, eg0Var) == null) {
+            this.mVlogEdit = eg0Var;
+            this.mInnerRenderer.setCompat(eg0Var != null);
         }
     }
 

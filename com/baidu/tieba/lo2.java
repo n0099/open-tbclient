@@ -1,22 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Pair;
-import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.ko2;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.lo2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,65 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class lo2 implements ko2.b {
+public abstract class lo2<SelfT extends lo2<SelfT>> extends oo2<SelfT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static AtomicLong c;
-    public static final Lock d;
-    public static volatile lo2 e;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo2 a;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends ho2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(lo2 lo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ho2
-        public void Q() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.Q();
-            }
-        }
-
-        @Override // com.baidu.tieba.jo2
-        public boolean k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(lo2 lo2Var, a aVar) {
-            this(lo2Var);
-        }
-    }
+    public Pair<String, JSONObject> b;
 
     static {
         InterceptResult invokeClinit;
@@ -97,9 +40,7 @@ public final class lo2 implements ko2.b {
                 return;
             }
         }
-        b = ij1.a;
-        c = new AtomicLong(0L);
-        d = new ReentrantLock();
+        c = vj1.a;
     }
 
     public lo2() {
@@ -112,416 +53,571 @@ public final class lo2 implements ko2.b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new b(this, null);
     }
 
-    public static lo2 U() {
-        InterceptResult invokeV;
+    public SelfT A0(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            d.lock();
-            try {
-                if (e == null) {
-                    e = new lo2();
-                }
-                return e;
-            } finally {
-                d.unlock();
-            }
-        }
-        return (lo2) invokeV.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? (SelfT) t("mIsDebug", z) : (SelfT) invokeZ.objValue;
     }
 
-    public static void b0() {
+    public SelfT B0(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            d.lock();
-            try {
-                if (e == null) {
-                    return;
-                }
-                if (e.a != null) {
-                    e.a.O();
-                }
-                e = null;
-            } finally {
-                d.unlock();
-            }
-        }
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? (SelfT) x("last_start_timestamp", j) : (SelfT) invokeJ.objValue;
     }
 
-    public gp1 A(String str) {
+    public SelfT C0(ExtensionCore extensionCore) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.A(str) : (gp1) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extensionCore)) == null) ? (SelfT) y("extensionCore", extensionCore) : (SelfT) invokeL.objValue;
     }
 
-    public View B(String str) {
+    public SelfT D0(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.B(str) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) ? (SelfT) u("mExtraData", bundle) : (SelfT) invokeL.objValue;
     }
 
-    public String C() {
-        InterceptResult invokeV;
+    public SelfT E(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.C() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? H0(i | S()) : (SelfT) invokeI.objValue;
     }
 
-    @Nullable
-    public y23 D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.D() : (y23) invokeV.objValue;
-    }
-
-    public void E(vn2 vn2Var, sl2 sl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, vn2Var, sl2Var) == null) {
-            this.a.E(vn2Var, sl2Var);
-        }
-    }
-
-    public mk1 F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.F() : (mk1) invokeV.objValue;
-    }
-
-    public bb3 G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.G() : (bb3) invokeV.objValue;
-    }
-
-    public g22 H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.H() : (g22) invokeV.objValue;
-    }
-
-    public SwanAppPropertyWindow J(Activity activity) {
+    public SelfT E0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? this.a.J(activity) : (SwanAppPropertyWindow) invokeL.objValue;
-    }
-
-    public void K(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a.K(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            z("app_icon_url", str);
+            return (SelfT) a();
         }
+        return (SelfT) invokeL.objValue;
     }
 
-    public SwanCoreVersion M() {
+    public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.M() : (SwanCoreVersion) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? n("launch_app_download_url") : (String) invokeV.objValue;
     }
 
-    public boolean N() {
+    public SelfT F0(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? (SelfT) t("swan_app_independent", z) : (SelfT) invokeZ.objValue;
+    }
+
+    public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.N() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? i("appFrameType") : invokeV.intValue;
     }
 
-    public void Q(int i) {
+    public SelfT G0(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || Z()) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            t("cts_launch_mode", z);
+            return (SelfT) a();
         }
-        if (i == 0) {
-            this.a = new io2();
-        } else if (i != 1) {
-        } else {
-            this.a = gm2.a();
-        }
+        return (SelfT) invokeZ.objValue;
     }
 
-    public void R() {
+    public String H() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            long decrementAndGet = c.decrementAndGet();
-            SwanAppActivity w = x23.K().w();
-            if (decrementAndGet <= 0 && w != null && w.e0()) {
-                this.a.I();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? o("mAppId", "") : (String) invokeV.objValue;
+    }
+
+    public SelfT H0(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? (SelfT) w("launchFlags", i) : (SelfT) invokeI.objValue;
+    }
+
+    public String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? n("mAppKey") : (String) invokeV.objValue;
+    }
+
+    public SelfT I0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            z("mFromLast", T());
+            return (SelfT) z("mFrom", str);
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public String J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? n("launch_app_open_url") : (String) invokeV.objValue;
+    }
+
+    public SelfT J0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? (SelfT) z("launch_id", str) : (SelfT) invokeL.objValue;
+    }
+
+    public String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? n("mAppTitle") : (String) invokeV.objValue;
+    }
+
+    public SelfT K0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? (SelfT) z("launchScheme", str) : (SelfT) invokeL.objValue;
+    }
+
+    public String L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? n("mClickId") : (String) invokeV.objValue;
+    }
+
+    public SelfT L0(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) ? (SelfT) t("local_debug_switch", z) : (SelfT) invokeZ.objValue;
+    }
+
+    public JSONObject M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            String W = W();
+            Pair<String, JSONObject> pair = this.b;
+            if (pair != null && TextUtils.equals((CharSequence) pair.first, W)) {
+                return (JSONObject) this.b.second;
             }
-            if (b) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("decrementBgThreadAliveCount: count = ");
-                sb.append(decrementAndGet);
-                sb.append("isBackground = ");
-                sb.append(w != null && w.e0());
-                Log.i("SwanAppController", sb.toString());
+            this.b = null;
+            if (TextUtils.isEmpty(W)) {
+                this.b = null;
+                return null;
             }
+            String queryParameter = Uri.parse(W).getQueryParameter("_baiduboxapp");
+            if (!TextUtils.isEmpty(queryParameter)) {
+                try {
+                    this.b = new Pair<>(W, new JSONObject(queryParameter).optJSONObject("ext"));
+                } catch (JSONException e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            Pair<String, JSONObject> pair2 = this.b;
+            if (pair2 == null) {
+                return null;
+            }
+            return (JSONObject) pair2.second;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public long S() {
+    public SelfT M0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) ? (SelfT) z("local_debug_ws_host", str) : (SelfT) invokeL.objValue;
+    }
+
+    public long N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? c.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? k("last_start_timestamp") : invokeV.longValue;
+    }
+
+    public SelfT N0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? (SelfT) z("local_debug_ws_port", str) : (SelfT) invokeL.objValue;
+    }
+
+    public ExtensionCore O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? (ExtensionCore) m("extensionCore") : (ExtensionCore) invokeV.objValue;
+    }
+
+    public SelfT O0(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) {
+            if (2147483648L != j) {
+                x("navigate_bar_color_key", j);
+            }
+            return (SelfT) a();
+        }
+        return (SelfT) invokeJ.objValue;
+    }
+
+    public Bundle P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? f("mExtraData") : (Bundle) invokeV.objValue;
+    }
+
+    public SelfT P0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) ? (SelfT) z("notInHistory", str) : (SelfT) invokeL.objValue;
+    }
+
+    public String Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? n("app_icon_url") : (String) invokeV.objValue;
+    }
+
+    public SelfT Q0(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) ? (SelfT) w("appFrameOrientation", i) : (SelfT) invokeI.objValue;
+    }
+
+    public boolean R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? e("cts_launch_mode", false) : invokeV.booleanValue;
+    }
+
+    public SelfT R0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) ? (SelfT) z("mPage", str) : (SelfT) invokeL.objValue;
+    }
+
+    public int S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? j("launchFlags", 0) : invokeV.intValue;
+    }
+
+    public SelfT S0(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, pMSAppInfo)) == null) ? (SelfT) y("pms_db_info_onload", pMSAppInfo) : (SelfT) invokeL.objValue;
     }
 
     public String T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? sg3.n().e() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? n("mFrom") : (String) invokeV.objValue;
     }
 
-    @Nullable
-    public h22 V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            SwanAppActivity activity = U().getActivity();
-            if (activity == null) {
-                return null;
-            }
-            return activity.X();
-        }
-        return (h22) invokeV.objValue;
-    }
-
-    public pk1 W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a.P() : (pk1) invokeV.objValue;
-    }
-
-    public pk1 X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.a.L() : (pk1) invokeV.objValue;
-    }
-
-    public boolean Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? Z() && this.a.getActivity() != null : invokeV.booleanValue;
-    }
-
-    public boolean Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            jo2 jo2Var = this.a;
-            return (jo2Var == null || (jo2Var instanceof b)) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.a.a();
-        }
-    }
-
-    public void a0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            long incrementAndGet = c.incrementAndGet();
-            if (b) {
-                Log.i("SwanAppController", "incrementBgThreadAliveCount: " + incrementAndGet);
-            }
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.a.b() : (String) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.a.c();
-        }
-    }
-
-    public void d(vn2 vn2Var, sl2 sl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, vn2Var, sl2Var) == null) {
-            this.a.d(vn2Var, sl2Var);
-        }
-    }
-
-    @NonNull
-    public n33 e(String str, SwanAppConfigData swanAppConfigData, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048602, this, str, swanAppConfigData, str2)) == null) ? this.a.e(str, swanAppConfigData, str2) : (n33) invokeLLL.objValue;
-    }
-
-    public void exit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.a.exit();
-        }
-    }
-
-    @NonNull
-    public n33 f(String str) {
+    public SelfT T0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) ? this.a.f(str) : (n33) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) ? (SelfT) z("remoteDebugUrl", str) : (SelfT) invokeL.objValue;
     }
 
-    public String g() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.a.g() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? n("mFromLast") : (String) invokeV.objValue;
     }
 
-    public SwanAppActivity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.a.getActivity() : (SwanAppActivity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ko2.b
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
-            this.a.h(i);
-        }
-    }
-
-    public fp1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.a.i() : (fp1) invokeV.objValue;
-    }
-
-    public n33 j(String str) {
+    public SelfT U0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) ? this.a.j(str) : (n33) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) ? (SelfT) a() : (SelfT) invokeL.objValue;
     }
 
-    public void l(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, swanAppActivity) == null) {
-            if (swanAppActivity != null && !Z()) {
-                Q(swanAppActivity.R());
-            }
-            if (Z()) {
-                this.a.l(swanAppActivity);
-            }
-        }
-    }
-
-    public void m(String str, yc2 yc2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, str, yc2Var) == null) {
-            this.a.m(str, yc2Var);
-        }
-    }
-
-    public FullScreenFloatView n(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, activity)) == null) ? this.a.n(activity) : (FullScreenFloatView) invokeL.objValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.a.o();
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            this.a.p();
-        }
-    }
-
-    @DebugTrace
-    public dp1 q() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.a.q() : (dp1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? n("launch_id") : (String) invokeV.objValue;
+    }
+
+    public SelfT V0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) ? (SelfT) z("swan_app_sub_root_path", str) : (SelfT) invokeL.objValue;
+    }
+
+    public String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? n("launchScheme") : (String) invokeV.objValue;
+    }
+
+    public SelfT W0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) ? (SelfT) a() : (SelfT) invokeL.objValue;
+    }
+
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? n("local_debug_ws_host") : (String) invokeV.objValue;
+    }
+
+    public SelfT X0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) ? (SelfT) z("mSubscribeWithoutClick", str) : (SelfT) invokeL.objValue;
+    }
+
+    public String Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? n("local_debug_ws_port") : (String) invokeV.objValue;
+    }
+
+    public SelfT Y0(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) ? (SelfT) a() : (SelfT) invokeJ.objValue;
+    }
+
+    public String Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? n("max_swan_version") : (String) invokeV.objValue;
+    }
+
+    public SelfT Z0(SwanCoreVersion swanCoreVersion) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, swanCoreVersion)) == null) ? (SelfT) y("swanCoreVersion", swanCoreVersion) : (SelfT) invokeL.objValue;
+    }
+
+    public String a0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? n("min_swan_version") : (String) invokeV.objValue;
+    }
+
+    public SelfT a1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) ? (SelfT) z("targetSwanVersion", str) : (SelfT) invokeL.objValue;
+    }
+
+    public long b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? l("navigate_bar_color_key", 2147483648L) : invokeV.longValue;
+    }
+
+    public SelfT b1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) ? (SelfT) a() : (SelfT) invokeL.objValue;
+    }
+
+    public String c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? n("notInHistory") : (String) invokeV.objValue;
+    }
+
+    public SelfT c1(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo != null) {
+                y("pms_db_info_updated", pMSAppInfo);
+                if (!l0()) {
+                    S0(pMSAppInfo);
+                }
+            }
+            return (SelfT) a();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public int d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            int j = j("appFrameOrientation", -1);
+            if (-1 < j) {
+                return j;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? n("mPage") : (String) invokeV.objValue;
+    }
+
+    public PMSAppInfo f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? (PMSAppInfo) m("pms_db_info_onload") : (PMSAppInfo) invokeV.objValue;
+    }
+
+    public String g0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? n("remoteDebugUrl") : (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? n("swan_app_sub_root_path") : (String) invokeV.objValue;
+    }
+
+    public String i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? n("mSubscribeWithoutClick") : (String) invokeV.objValue;
+    }
+
+    public SwanCoreVersion j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? (SwanCoreVersion) m("swanCoreVersion") : (SwanCoreVersion) invokeV.objValue;
+    }
+
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? n("targetSwanVersion") : (String) invokeV.objValue;
+    }
+
+    public boolean l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? c("pms_db_info_onload") && f0() != null : invokeV.booleanValue;
+    }
+
+    public boolean m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? e("console_switch", false) : invokeV.booleanValue;
+    }
+
+    public boolean n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? e("mIsDebug", false) : invokeV.booleanValue;
+    }
+
+    public boolean o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) ? e("swan_app_independent", false) : invokeV.booleanValue;
+    }
+
+    public boolean p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? e("local_debug_switch", false) : invokeV.booleanValue;
+    }
+
+    public SelfT q0(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048644, this, str, j)) == null) {
+            s0().putLong(str, j);
+            return (SelfT) a();
+        }
+        return (SelfT) invokeLJ.objValue;
+    }
+
+    public SelfT r0(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                s0().putString(str, str2);
+            }
+            return (SelfT) a();
+        }
+        return (SelfT) invokeLL.objValue;
     }
 
     @NonNull
-    public Pair<Integer, Integer> r() {
+    public Bundle s0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.a.r() : (Pair) invokeV.objValue;
-    }
-
-    public void registerReceiver(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, context) == null) {
-            this.a.registerReceiver(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+            Bundle P = P();
+            if (P == null) {
+                Bundle bundle = new Bundle();
+                D0(bundle);
+                return bundle;
+            }
+            return P;
         }
+        return (Bundle) invokeV.objValue;
     }
 
-    public SwanAppConfigData s() {
-        InterceptResult invokeV;
+    public SelfT t0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.a.s() : (SwanAppConfigData) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, str)) == null) ? (SelfT) a() : (SelfT) invokeL.objValue;
     }
 
-    public void t(Intent intent) {
+    public SelfT u0(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, intent) == null) {
-            this.a.t(intent);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048648, this, i)) == null) ? (SelfT) w("appFrameType", i) : (SelfT) invokeI.objValue;
+    }
+
+    public SelfT v0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, str)) == null) {
+            z("mAppId", str);
+            return (SelfT) a();
         }
+        return (SelfT) invokeL.objValue;
     }
 
-    public void u(yc2 yc2Var) {
+    public SelfT w0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, yc2Var) == null) {
-            this.a.u(yc2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, str)) == null) {
+            z("mAppKey", str);
+            return (SelfT) a();
         }
+        return (SelfT) invokeL.objValue;
     }
 
-    public void unregisterReceiver(Context context) {
+    public SelfT x0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, context) == null) {
-            this.a.unregisterReceiver(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, str)) == null) {
+            z("mAppTitle", str);
+            return (SelfT) a();
         }
+        return (SelfT) invokeL.objValue;
     }
 
-    public void v() {
+    public SelfT y0(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.a.v();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, str)) == null) ? (SelfT) z("mClickId", str) : (SelfT) invokeL.objValue;
     }
 
-    public void w() {
+    public SelfT z0(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            this.a.w();
-        }
-    }
-
-    @NonNull
-    public Pair<Integer, Integer> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.a.x() : (Pair) invokeV.objValue;
-    }
-
-    public void y(bd2 bd2Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048625, this, bd2Var, z) == null) {
-            this.a.y(bd2Var, z);
-        }
-    }
-
-    public String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.a.z() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048653, this, z)) == null) ? (SelfT) t("console_switch", z) : (SelfT) invokeZ.objValue;
     }
 }

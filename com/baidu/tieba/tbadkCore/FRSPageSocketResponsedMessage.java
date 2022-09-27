@@ -9,9 +9,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.bl8;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.kl8;
+import com.baidu.tieba.ql8;
+import com.baidu.tieba.zl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes5.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kl8, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<zl8, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public kl8 responseData;
+    public zl8 responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,9 +55,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kl8
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, bArr)) == null) {
-            kl8 kl8Var = new kl8();
-            this.responseData = kl8Var;
-            FrsPageResIdl parserProtobuf = kl8Var.parserProtobuf(bArr, true);
+            zl8 zl8Var = new zl8();
+            this.responseData = zl8Var;
+            FrsPageResIdl parserProtobuf = zl8Var.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -66,9 +66,9 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kl8
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            kl8 kl8Var2 = this.responseData;
-            kl8Var2.isFromCache = false;
-            setData(kl8Var2);
+            zl8 zl8Var2 = this.responseData;
+            zl8Var2.isFromCache = false;
+            setData(zl8Var2);
             return parserProtobuf;
         }
         return invokeIL.objValue;
@@ -81,10 +81,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kl8
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? FrsPageResIdl.class : (Class) invokeV.objValue;
     }
 
-    public kl8 getResponseData() {
+    public zl8 getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.responseData : (kl8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.responseData : (zl8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -116,10 +116,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kl8
         }
     }
 
-    public void setResponseData(kl8 kl8Var) {
+    public void setResponseData(zl8 zl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, kl8Var) == null) {
-            this.responseData = kl8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, zl8Var) == null) {
+            this.responseData = zl8Var;
         }
     }
 
@@ -133,18 +133,18 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<kl8
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        kl8 kl8Var;
+        zl8 zl8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (kl8Var = this.responseData) == null || !this.needCache || kl8Var.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (zl8Var = this.responseData) == null || !this.needCache || zl8Var.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        bl8 i2 = bl8.i();
+        ql8 i2 = ql8.i();
         String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
-            bl8.i().m(g, bArr);
+            ql8.i().m(g, bArr);
         } else {
-            bl8.i().a(g, bArr, true);
+            ql8.i().a(g, bArr, true);
         }
     }
 

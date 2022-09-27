@@ -1,36 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.tieba.rp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class gp0 implements qp0 {
+public final class gp0 extends kp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(Exception exc, int i);
-
-        void b(Headers headers, InputStream inputStream, int i) throws Exception;
-
-        void c(Headers headers, String str, int i) throws Exception;
-    }
-
-    public gp0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gp0(cp0 common2, JSONObject root) {
+        super(common2, root, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {common2, root};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((cp0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(common2, "common");
+        Intrinsics.checkNotNullParameter(root, "root");
+        rp0.a aVar = rp0.p;
+        JSONObject optJSONObject = root.optJSONObject("reward");
+        aVar.a(optJSONObject == null ? new JSONObject() : optJSONObject);
+        op0.f.a(root.optJSONObject("cmd_policy"));
+        Intrinsics.areEqual(root.optString("type"), "detail");
+        Intrinsics.checkNotNullExpressionValue(root.optString("panel_cmd"), "root.optString(\"panel_cmd\")");
     }
 }

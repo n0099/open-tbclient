@@ -1,31 +1,80 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public class x76 extends se1<i95> {
+public class x76 extends w76 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScaleGestureDetector h;
+    public b i;
 
     /* loaded from: classes6.dex */
-    public class a implements i95 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(x76 x76Var) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    public x76(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = new ScaleGestureDetector(context, new c(this, null));
+    }
+
+    @Override // com.baidu.tieba.w76
+    public boolean c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            try {
+                this.h.onTouchEvent(motionEvent);
+                return super.c(motionEvent);
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ x76 b;
+
+        public c(x76 x76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,101 +86,54 @@ public class x76 extends se1<i95> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = x76Var;
+            this.a = false;
         }
 
-        @Override // com.baidu.tieba.i95
-        public boolean a(@NonNull String str) {
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? e86.k().m(str) : invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.i95
-        @NonNull
-        public String b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? e86.k().j(str) : (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.i95
-        @NonNull
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x76.c : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.i95
-        @NonNull
-        public String d(@NonNull String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-                e86 k = e86.k();
-                boolean q = k.q(str);
-                boolean r = k.r(str);
-                String g = k.g(str, z);
-                if (g == null) {
-                    g = "";
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
+                if (scaleGestureDetector != null && this.b.i != null) {
+                    float scaleFactor = scaleGestureDetector.getScaleFactor();
+                    if (!this.a && scaleFactor > 1.0f) {
+                        this.a = true;
+                        this.b.i.a(true);
+                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                        this.a = true;
+                        this.b.i.a(false);
+                    }
                 }
-                return (q || r) ? g : e(k.h(str), g);
+                return true;
             }
-            return (String) invokeLZ.objValue;
+            return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.i95
-        @NonNull
-        public String e(@NonNull String str, @NonNull String str2) {
-            InterceptResult invokeLL;
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                return x76.b + File.separator + str + File.separator + str2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
+                this.a = false;
+                return true;
             }
-            return (String) invokeLL.objValue;
+            return invokeL.booleanValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253330, "Lcom/baidu/tieba/x76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948253330, "Lcom/baidu/tieba/x76;");
-                return;
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
+                this.a = true;
             }
         }
-        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-        b = a + File.separator + ".emotions";
-        c = a + File.separator + ".collect";
-    }
 
-    public x76() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        public /* synthetic */ c(x76 x76Var, a aVar) {
+            this(x76Var);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
-    /* renamed from: c */
-    public i95 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (i95) invokeV.objValue;
     }
 }

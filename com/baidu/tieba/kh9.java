@@ -1,127 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rr9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.text.SimpleDateFormat;
+import java.util.Formatter;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class kh9 extends jh9 {
+public class kh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements rr9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ kh9 c;
-
-        public a(kh9 kh9Var, AtomicBoolean atomicBoolean, Object obj) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947913229, "Lcom/baidu/tieba/kh9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kh9Var, atomicBoolean, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = kh9Var;
-            this.a = atomicBoolean;
-            this.b = obj;
-        }
-
-        @Override // com.baidu.tieba.rr9.c
-        public void a(int i, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-                this.c.g = i;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rr9.c
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.c.d = str;
-                this.c.b = z;
-                this.c.c = true;
-                this.c.g = 0;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kh9(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947913229, "Lcom/baidu/tieba/kh9;");
                 return;
             }
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -200;
+        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     }
 
-    @Override // com.baidu.tieba.ih9
-    public ih9 d() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n();
-            return this;
-        }
-        return (ih9) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str == null || str.trim().length() == 0 : invokeL.booleanValue;
     }
 
-    public ih9 n() {
-        InterceptResult invokeV;
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Object obj = new Object();
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            rr9.d(this.a, new a(this, atomicBoolean, obj));
-            synchronized (obj) {
-                if (!atomicBoolean.get()) {
-                    try {
-                        obj.wait(4000L);
-                    } catch (InterruptedException unused) {
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i < 1000) {
+                i = 1000;
             }
-            return this;
+            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
         }
-        return (ih9) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 }

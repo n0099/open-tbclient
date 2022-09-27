@@ -11,8 +11,8 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.k13;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.x13;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public boolean t;
     public float u;
     public boolean v;
-    public k13<T> w;
+    public x13<T> w;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -337,7 +337,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
                 return;
             }
         }
-        x = ij1.a;
+        x = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -541,10 +541,10 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (LoadingLayout) invokeV.objValue;
     }
 
-    public k13<T> getRefreshableFactory() {
+    public x13<T> getRefreshableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (k13) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : (x13) invokeV.objValue;
     }
 
     public T getRefreshableView() {

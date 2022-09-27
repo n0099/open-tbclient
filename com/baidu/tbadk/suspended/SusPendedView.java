@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ud5;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.he5;
+import com.baidu.tieba.ie5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public vd5 d;
+    public ie5 d;
     public float e;
     public float f;
     public boolean g;
@@ -108,11 +108,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vd5 vd5Var = this.d;
-            if (vd5Var == null) {
+            ie5 ie5Var = this.d;
+            if (ie5Var == null) {
                 return false;
             }
-            return vd5Var.s();
+            return ie5Var.s();
         }
         return invokeV.booleanValue;
     }
@@ -281,9 +281,9 @@ public class SusPendedView extends LinearLayout {
                 if (f <= f2 || !this.g) {
                     return;
                 }
-                vd5 vd5Var = this.d;
-                if (vd5Var instanceof ud5) {
-                    ((ud5) vd5Var).E(f - f2);
+                ie5 ie5Var = this.d;
+                if (ie5Var instanceof he5) {
+                    ((he5) ie5Var).E(f - f2);
                 }
                 LinearLayout linearLayout = this.a;
                 float f3 = this.f;
@@ -312,10 +312,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(vd5 vd5Var) {
+    public void setContentViewTop(ie5 ie5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, vd5Var) == null) {
-            this.d = vd5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, ie5Var) == null) {
+            this.d = ie5Var;
         }
     }
 

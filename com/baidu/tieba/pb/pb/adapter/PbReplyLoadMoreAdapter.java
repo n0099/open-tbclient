@@ -10,8 +10,8 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f28;
-import com.baidu.tieba.mx7;
+import com.baidu.tieba.ay7;
+import com.baidu.tieba.t28;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbReplyLoadMoreAdapter extends mx7<PostData, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends ay7<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
@@ -48,7 +48,7 @@ public class PbReplyLoadMoreAdapter extends mx7<PostData, ReplyLoadMoreViewHolde
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923db);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923dd);
         }
 
         public void a() {
@@ -63,7 +63,7 @@ public class PbReplyLoadMoreAdapter extends mx7<PostData, ReplyLoadMoreViewHolde
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postData) == null) || postData == null) {
                 return;
             }
-            if (postData.B) {
+            if (postData.C) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.setCompoundDrawables(null, null, drawable, null);
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends mx7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(f28 f28Var, BdUniqueId bdUniqueId) {
-        super(f28Var, bdUniqueId);
+    public PbReplyLoadMoreAdapter(t28 t28Var, BdUniqueId bdUniqueId) {
+        super(t28Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f28Var, bdUniqueId};
+            Object[] objArr = {t28Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((f28) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((t28) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,7 +104,7 @@ public class PbReplyLoadMoreAdapter extends mx7<PostData, ReplyLoadMoreViewHolde
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06e6, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0923db).setOnClickListener(this.g);
+            inflate.findViewById(R.id.obfuscated_res_0x7f0923dd).setOnClickListener(this.g);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.a();
             return replyLoadMoreViewHolder;
@@ -113,7 +113,7 @@ public class PbReplyLoadMoreAdapter extends mx7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mx7, com.baidu.tieba.qn
+    @Override // com.baidu.tieba.ay7, com.baidu.tieba.qn
     /* renamed from: v */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

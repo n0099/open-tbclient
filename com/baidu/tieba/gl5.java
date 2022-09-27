@@ -1,209 +1,145 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
 /* loaded from: classes4.dex */
-public class gl5 {
+public class gl5 extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hl5 a;
+    public int a;
+    public Context b;
+    public Rect c;
+    public String d;
+    public Matrix e;
+    public int f;
+    public int g;
+    public float h;
+    public float i;
 
-    public gl5(Context context, nl5 nl5Var) {
+    public gl5(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, nl5Var};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        hl5 hl5Var = new hl5(2);
-        this.a = hl5Var;
-        hl5Var.A = context;
-        hl5Var.a = nl5Var;
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0.9f;
+        this.i = 0.75f;
+        this.b = context;
+        this.a = i;
+        this.d = String.valueOf(i);
     }
 
-    public sl5 a() {
-        InterceptResult invokeV;
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new sl5(this.a) : (sl5) invokeV.objValue;
-    }
-
-    public gl5 b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.a.T = z;
-            return this;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a <= 0 || this.b == null) {
+            return;
         }
-        return (gl5) invokeZ.objValue;
+        Paint paint = new Paint();
+        ColorMatrix colorMatrix = new ColorMatrix();
+        h85 k = h85.k();
+        on m = (k == null || (str2 = this.d) == null) ? null : k.m(str2);
+        if (m == null) {
+            Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
+            if (resBitmap != null) {
+                m = new on(resBitmap, false, (String) null);
+            }
+            if (k != null && m != null && (str = this.d) != null) {
+                k.d(str, m);
+            }
+        }
+        if (m != null) {
+            int r = m.r();
+            int m2 = m.m();
+            if (r <= 0 || m2 <= 0 || this.c == null) {
+                return;
+            }
+            canvas.save();
+            canvas.clipRect(super.getBounds());
+            if (m2 <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
+                m.e(canvas, 0.0f, 0.0f, null);
+            } else {
+                if (this.e == null) {
+                    Matrix matrix = new Matrix();
+                    this.e = matrix;
+                    matrix.postTranslate(this.f, this.g);
+                    Rect rect = this.c;
+                    float f = (rect.right - rect.left) / r;
+                    float f2 = (rect.bottom - rect.top) / m2;
+                    if (f >= f2) {
+                        f = f2;
+                    }
+                    if (f < 1.0f) {
+                        this.e.postScale(f, f);
+                    }
+                }
+                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                    float f3 = this.i;
+                    colorMatrix.setScale(f3, f3, f3, 1.0f);
+                    paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                    m.f(canvas, this.e, paint);
+                } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    float f4 = this.h;
+                    colorMatrix.setScale(f4, f4, f4, 1.0f);
+                    paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                    m.f(canvas, this.e, paint);
+                } else {
+                    m.f(canvas, this.e, null);
+                }
+            }
+            canvas.restore();
+        }
     }
 
-    public gl5 c(boolean z) {
-        InterceptResult invokeZ;
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.a.R = z;
-            return this;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            this.c = new Rect(i, i2, i3, i4);
+            this.e = null;
+            super.setBounds(i, i2, i3, i4);
         }
-        return (gl5) invokeZ.objValue;
     }
 
-    public gl5 d(int i) {
-        InterceptResult invokeI;
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.P = i;
-            return this;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
+            this.c = new Rect(rect);
+            this.e = null;
+            super.setBounds(rect);
         }
-        return (gl5) invokeI.objValue;
-    }
-
-    public gl5 e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.H = i;
-            return this;
-        }
-        return (gl5) invokeI.objValue;
-    }
-
-    public gl5 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.L = i;
-            return this;
-        }
-        return (gl5) invokeI.objValue;
-    }
-
-    public gl5 g(Calendar calendar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.a.e = calendar;
-            return this;
-        }
-        return (gl5) invokeL.objValue;
-    }
-
-    public gl5 h(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            this.a.y = viewGroup;
-            return this;
-        }
-        return (gl5) invokeL.objValue;
-    }
-
-    public gl5 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.a.O = i;
-            return this;
-        }
-        return (gl5) invokeI.objValue;
-    }
-
-    public gl5 j(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            hl5 hl5Var = this.a;
-            hl5Var.l = str;
-            hl5Var.m = str2;
-            hl5Var.n = str3;
-            hl5Var.o = str4;
-            hl5Var.p = str5;
-            hl5Var.q = str6;
-            return this;
-        }
-        return (gl5) invokeCommon.objValue;
-    }
-
-    public gl5 k(int i, il5 il5Var) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, il5Var)) == null) {
-            hl5 hl5Var = this.a;
-            hl5Var.x = i;
-            hl5Var.c = il5Var;
-            return this;
-        }
-        return (gl5) invokeIL.objValue;
-    }
-
-    public gl5 l(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            this.a.Q = f;
-            return this;
-        }
-        return (gl5) invokeF.objValue;
-    }
-
-    public gl5 m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.a.N = i;
-            return this;
-        }
-        return (gl5) invokeI.objValue;
-    }
-
-    public gl5 n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.a.M = i;
-            return this;
-        }
-        return (gl5) invokeI.objValue;
-    }
-
-    public gl5 o(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            hl5 hl5Var = this.a;
-            hl5Var.r = i;
-            hl5Var.s = i2;
-            hl5Var.t = i3;
-            hl5Var.u = i4;
-            hl5Var.v = i5;
-            hl5Var.w = i6;
-            return this;
-        }
-        return (gl5) invokeCommon.objValue;
-    }
-
-    public gl5 p(boolean[] zArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.a.d = zArr;
-            return this;
-        }
-        return (gl5) invokeL.objValue;
     }
 }

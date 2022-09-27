@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.ux4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.hy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,31 +60,31 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = f;
             layoutParams2.rightMargin = f;
             addView(this.b, layoutParams2);
-            uu4 d = uu4.d(this.a);
+            hv4 d = hv4.d(this.a);
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X02);
-            uu4 d2 = uu4.d(this.b);
+            hv4 d2 = hv4.d(this.b);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
         }
     }
 
-    public void setData(ux4 ux4Var) {
+    public void setData(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ux4Var) == null) {
-            int i = ux4Var.g;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy4Var) == null) {
+            int i = hy4Var.g;
             if (i < 0) {
                 i = -2;
             }
-            int i2 = ux4Var.h;
+            int i2 = hy4Var.h;
             setLayoutParams(new LinearLayout.LayoutParams(i, i2 >= 0 ? i2 : -2));
-            this.a.setText(ux4Var.a);
-            SkinManager.setViewTextColor(this.a, ux4Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ux4Var.f;
-            this.b.setText(ux4Var.b);
-            SkinManager.setViewTextColor(this.b, ux4Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = ux4Var.f + ej.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, ux4Var.e);
+            this.a.setText(hy4Var.a);
+            SkinManager.setViewTextColor(this.a, hy4Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = hy4Var.f;
+            this.b.setText(hy4Var.b);
+            SkinManager.setViewTextColor(this.b, hy4Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = hy4Var.f + ej.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, hy4Var.e);
         }
     }
 

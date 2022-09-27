@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.rn;
-import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class PbListView extends rn {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int new_pic_emotion_03 = 2131234384;
+    public static final int new_pic_emotion_03 = 2131234386;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -382,22 +382,22 @@ public class PbListView extends rn {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0646, (ViewGroup) null);
             this.i = inflate;
-            this.p = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091848);
+            this.p = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09184a);
             this.q = (RelativeLayout) this.i.findViewById(R.id.obfuscated_res_0x7f0917e1);
             this.r = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f0917e3);
             this.q.setVisibility(8);
-            this.f = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091845);
+            this.f = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091847);
             this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f0916cc);
             if (this.y) {
                 this.p.setVisibility(0);
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091aba);
-            this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091857);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091859);
             this.j = this.i.findViewById(R.id.obfuscated_res_0x7f0908e5);
-            this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091847);
-            uu4 d = uu4.d(this.r);
+            this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091849);
+            hv4 d = hv4.d(this.r);
             d.z(R.dimen.T_X12);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0107);

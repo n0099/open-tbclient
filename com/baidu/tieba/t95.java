@@ -1,13 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
+@Deprecated
 /* loaded from: classes5.dex */
 public interface t95 {
-    int getPid();
-
-    int getTag();
-
-    int getType();
-
-    void setTag(BdUniqueId bdUniqueId);
 }

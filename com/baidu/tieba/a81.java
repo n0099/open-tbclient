@@ -1,137 +1,153 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISharePrefsWrapper;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.mp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes3.dex */
-public class a81 implements ISharePrefsWrapper {
+public class a81 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final b a;
 
-    public a81() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a81 a;
+
+        public a(a81 a81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a81Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.a.a(false);
             }
         }
     }
 
-    public final SharedPreferences a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0) : (SharedPreferences) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z);
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a81(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+        super(context);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) ? a().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) ? a().getFloat(str, f) : invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? a().getInt(str, i) : invokeLI.intValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) ? a().getLong(str, j) : invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) ? a().getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
-            return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Set) invokeLL.objValue;
+        c(adBaseModel);
+        this.a = bVar;
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putBoolean(String str, boolean z) {
+    public final void b(AdBaseModel adBaseModel) {
+        mp0 mp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            a().edit().putBoolean(str, z).commit();
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            mp0.b bVar = (adBaseModel == null || (mp0Var = adBaseModel.p) == null) ? null : mp0Var.f;
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0611, (ViewGroup) null);
+            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bfa) : bVar.a;
+            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bf9) : bVar.b;
+            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bf8) : bVar.c;
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091611)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091612);
+            textView.setText(string2);
+            textView.setOnClickListener(this);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091610);
+            textView2.setText(string3);
+            textView2.setOnClickListener(this);
+            setContentView(inflate);
+            setOnDismissListener(new a(this));
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putFloat(String str, float f) {
+    public final void c(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
-            a().edit().putFloat(str, f).commit();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            Window window = getWindow();
+            window.requestFeature(1);
+            b(adBaseModel);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003c2;
+            attributes.gravity = 17;
+            window.setAttributes(attributes);
+            window.setBackgroundDrawableResource(17170445);
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putInt(String str, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            a().edit().putInt(str, i).commit();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091612) {
+                this.a.a(false);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091610) {
+                this.a.a(true);
+            }
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putLong(String str, long j) {
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            a().edit().putLong(str, j).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putString(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            a().edit().putString(str, str2).commit();
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putStringSet(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                super.show();
+                return;
+            }
+            window.setFlags(8, 8);
+            super.show();
+            k31.a(window);
+            window.clearFlags(8);
         }
     }
 }

@@ -1,122 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.lb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mb8 {
+public class mb8 extends lb8.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w68 a;
-    public x68 b;
-    public p78 c;
-    public List<qn> d;
-    public ArrayList<Cdo> e;
-    public BdTypeListView f;
+    public final int d;
+    public final String e;
 
-    public mb8(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mb8(int i, String str, int i2, String str2) {
+        super(i, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = new ArrayList<>();
-        this.f = bdTypeListView;
-        a(tbPageContext);
+        this.d = i2;
+        this.e = str2;
     }
 
-    public final void a(TbPageContext<?> tbPageContext) {
+    @Override // com.baidu.tieba.lb8.b, com.baidu.tieba.lb8
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.a = new w68(tbPageContext);
-            this.b = new x68(tbPageContext, h88.b);
-            h68 h68Var = new h68(tbPageContext, this, tbPageContext.getUniqueId());
-            this.c = h68Var;
-            this.b.u(h68Var);
-            this.d.add(this.a);
-            this.d.add(this.b);
-            this.f.a(this.d);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof un)) {
-            this.f.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        ArrayList<Cdo> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = false;
-            if (dj.isEmpty(str)) {
-                return false;
-            }
-            if (this.f != null && (arrayList = this.e) != null) {
-                Iterator<Cdo> it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Cdo next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
-                        z = true;
-                        it.remove();
-                        break;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject a = super.a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (this.d != -4399) {
+                    jSONObject.put("code", this.d);
                 }
-                if (z) {
-                    ArrayList<Cdo> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
-                    this.e = mergeDynamicThreadByTime;
-                    this.f.setData(mergeDynamicThreadByTime);
-                    b();
+                if (!StringUtils.isNull(this.e)) {
+                    jSONObject.put("msg", this.e);
                 }
+                a.put("ext", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return z;
+            return a;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void d(ArrayList<Cdo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f == null) {
-            return;
-        }
-        this.e.clear();
-        this.e.addAll(arrayList);
-        this.f.setData(this.e);
-    }
-
-    public void e() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f) == null) {
-            return;
-        }
-        bdTypeListView.F();
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -24,16 +24,16 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e28;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.l28;
+import com.baidu.tieba.jn8;
+import com.baidu.tieba.jv7;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbViewModel;
-import com.baidu.tieba.um8;
-import com.baidu.tieba.vu7;
+import com.baidu.tieba.s28;
+import com.baidu.tieba.z28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class DetailInfoFragment extends BaseFragment implements e28 {
+public class DetailInfoFragment extends BaseFragment implements s28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsPbActivity a;
@@ -49,7 +49,7 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
     public BdTypeRecyclerView c;
     public PbListView d;
     public VideoPbViewModel e;
-    public l28 f;
+    public z28 f;
     public int g;
     public String h;
     public String i;
@@ -279,7 +279,7 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
             this.d.t(ej.f(getContext(), R.dimen.tbds182));
             this.d.s();
             this.c.setNextPage(this.d);
-            this.f = new l28(this, this.c);
+            this.f = new z28(this, this.c);
             if (K() == null || K().D2()) {
                 return;
             }
@@ -288,7 +288,7 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
     }
 
     public void C1() {
-        vu7 S1;
+        jv7 S1;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (S1 = K().S1()) == null) {
             return;
@@ -297,14 +297,14 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
         this.f.l();
     }
 
-    public final void E1(vu7 vu7Var) {
+    public final void E1(jv7 jv7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, vu7Var) == null) || vu7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jv7Var) == null) || jv7Var == null) {
             return;
         }
         if (TbSingleton.getInstance().isBrowseMode()) {
             A1();
-        } else if (ListUtils.isEmpty(vu7Var.f())) {
+        } else if (ListUtils.isEmpty(jv7Var.f())) {
             L1();
         } else {
             A1();
@@ -315,7 +315,7 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            vu7 c2 = this.e.c();
+            jv7 c2 = this.e.c();
             if (c2 == null) {
                 c2 = this.e.d();
             }
@@ -323,15 +323,15 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
         }
     }
 
-    public final void G1(vu7 vu7Var) {
+    public final void G1(jv7 jv7Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, vu7Var) == null) || vu7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jv7Var) == null) || jv7Var == null) {
             return;
         }
-        if (vu7Var.O() != null) {
-            String Q = vu7Var.Q();
-            str = vu7Var.O().getBaijiahaoData() != null ? vu7Var.O().getBaijiahaoData().oriUgcNid : null;
+        if (jv7Var.O() != null) {
+            String Q = jv7Var.Q();
+            str = jv7Var.O().getBaijiahaoData() != null ? jv7Var.O().getBaijiahaoData().oriUgcNid : null;
             r1 = Q;
         } else {
             str = null;
@@ -361,12 +361,12 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
     }
 
     public void J1() {
-        l28 l28Var;
+        z28 z28Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (l28Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (z28Var = this.f) == null) {
             return;
         }
-        l28Var.m();
+        z28Var.m();
     }
 
     public PbModel K() {
@@ -405,13 +405,13 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
         return (AbsPbActivity) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e28
-    public void f1(boolean z, int i, int i2, int i3, vu7 vu7Var, String str, int i4) {
+    @Override // com.baidu.tieba.s28
+    public void f1(boolean z, int i, int i2, int i3, jv7 jv7Var, String str, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), vu7Var, str, Integer.valueOf(i4)}) == null) || vu7Var == null || getActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), jv7Var, str, Integer.valueOf(i4)}) == null) || jv7Var == null || getActivity() == null) {
             return;
         }
-        w1(vu7Var);
+        w1(jv7Var);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -442,9 +442,9 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             super.onChangeSkinType(i);
-            l28 l28Var = this.f;
-            if (l28Var != null) {
-                l28Var.l();
+            z28 z28Var = this.f;
+            if (z28Var != null) {
+                z28Var.l();
             }
             PbListView pbListView = this.d;
             if (pbListView != null) {
@@ -497,17 +497,17 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
         }
     }
 
-    public final void w1(vu7 vu7Var) {
+    public final void w1(jv7 jv7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, vu7Var) == null) || this.e == null || vu7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, jv7Var) == null) || this.e == null || jv7Var == null) {
             return;
         }
-        G1(vu7Var);
-        E1(vu7Var);
-        this.f.n(vu7Var);
+        G1(jv7Var);
+        E1(jv7Var);
+        this.f.n(jv7Var);
         if (this.a instanceof PbActivity) {
             this.e.v(false);
-            ((PbActivity) this.a).A1(vu7Var.g(), this.c);
+            ((PbActivity) this.a).A1(jv7Var.g(), this.c);
         }
     }
 
@@ -516,10 +516,10 @@ public class DetailInfoFragment extends BaseFragment implements e28 {
         if (!(interceptable == null || interceptable.invokeL(1048598, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        List<um8> Z = K().S1().Z();
-        for (um8 um8Var : Z) {
-            if (TextUtils.equals(str, um8Var.k1())) {
-                Z.remove(um8Var);
+        List<jn8> Z = K().S1().Z();
+        for (jn8 jn8Var : Z) {
+            if (TextUtils.equals(str, jn8Var.k1())) {
+                Z.remove(jn8Var);
                 return;
             }
         }

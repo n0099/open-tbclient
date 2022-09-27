@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hg3;
-import com.baidu.tieba.qt3;
-import com.baidu.tieba.sg3;
-import com.baidu.tieba.yf3;
+import com.baidu.tieba.du3;
+import com.baidu.tieba.fh3;
+import com.baidu.tieba.lg3;
+import com.baidu.tieba.ug3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -78,16 +78,16 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = sg3.c0(this);
+            int c0 = fh3.c0(this);
             super.onCreate(bundle);
-            sg3.g(this, c0);
-            qt3.q();
+            fh3.g(this, c0);
+            du3.q();
             setContentView(R.layout.obfuscated_res_0x7f0d00b1);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("type");
                 intent.getStringExtra("packageName");
-                yf3.d(intent.getStringExtra("ubc_params"));
+                lg3.d(intent.getStringExtra("ubc_params"));
             }
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f3d);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090f3f);
@@ -98,23 +98,23 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                 findViewById(R.id.obfuscated_res_0x7f090f3e).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
                 findViewById(R.id.obfuscated_res_0x7f090f3b).setBackgroundResource(R.color.obfuscated_res_0x7f0603c9);
-                qt3.n();
+                du3.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
                 findViewById(R.id.obfuscated_res_0x7f090f3e).setVisibility(8);
-                if (hg3.m()) {
+                if (ug3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (hg3.n()) {
+                } else if (ug3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                } else if (hg3.r()) {
+                } else if (ug3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
                 findViewById(R.id.obfuscated_res_0x7f090f3b).setBackgroundResource(R.color.obfuscated_res_0x7f060398);
-                qt3.o();
+                du3.o();
             }
             findViewById.setOnClickListener(new a(this));
         }

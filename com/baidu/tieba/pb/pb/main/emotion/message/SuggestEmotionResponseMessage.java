@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.yz7;
+import com.baidu.tieba.m08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yz7 mData;
+    public m08 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SuggestEmotionResponseMessage(int i) {
@@ -115,17 +115,17 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
                 return;
             }
-            yz7 yz7Var = new yz7();
-            this.mData = yz7Var;
-            yz7Var.d(parseImageData(jSONObject.optJSONArray("memes")));
+            m08 m08Var = new m08();
+            this.mData = m08Var;
+            m08Var.d(parseImageData(jSONObject.optJSONArray("memes")));
             this.mData.e(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.f(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
-    public yz7 getData() {
+    public m08 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (yz7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (m08) invokeV.objValue;
     }
 }

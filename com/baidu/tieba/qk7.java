@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.YYPayService;
+import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qk7 extends se1<YYPayService> {
+public class qk7 extends ff1<FollowStatusService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,11 +27,11 @@ public class qk7 extends se1<YYPayService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
+    @Override // com.baidu.tieba.ff1
     /* renamed from: a */
-    public YYPayService createService() throws ServiceNotFoundException {
+    public FollowStatusService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rk7() : (YYPayService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rk7() : (FollowStatusService) invokeV.objValue;
     }
 }

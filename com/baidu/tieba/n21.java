@@ -1,39 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
+import android.widget.Toast;
+import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class n21 {
+public final class n21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950460, "Lcom/baidu/tieba/n21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    if (TextUtils.isEmpty(zi0.a().t())) {
+                        return false;
+                    }
+                    Uri uriForFile = FileProvider.getUriForFile(context, zi0.a().t(), file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        ActivityInfo activityInfo = resolveInfo.activityInfo;
+                        if (activityInfo != null && !TextUtils.isEmpty(activityInfo.packageName)) {
+                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException unused) {
+                    return false;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947950460, "Lcom/baidu/tieba/n21;");
-                return;
-            }
+            return true;
         }
-        TimeUnit.DAYS.toMillis(1L);
-        TimeUnit.HOURS.toMillis(1L);
-        a = TimeUnit.MINUTES.toMillis(1L);
-        TimeUnit.SECONDS.toMillis(1L);
+        return invokeLLL.booleanValue;
     }
 
-    public static boolean a(long j, long j2, int i) {
+    public static void b(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, dialog) == null) || dialog == null) {
+            return;
+        }
+        try {
+            dialog.show();
+        } catch (Exception unused) {
+        }
+    }
+
+    public static void c(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
+            e(activity, intent, true);
+        }
+    }
+
+    public static boolean d(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) ? e(context, intent, false) : invokeLL.booleanValue;
+    }
+
+    public static boolean e(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) ? f(context, intent, z, false) : invokeLLZ.booleanValue;
+    }
+
+    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? j - j2 > ((long) i) * a : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b7a, 0).show();
+                    return false;
+                }
+                return false;
+            } catch (SecurityException unused2) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0b7a, 0).show();
+                    return false;
+                }
+                return false;
+            } catch (Exception unused3) {
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

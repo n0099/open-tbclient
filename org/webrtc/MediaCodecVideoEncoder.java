@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.iw9;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1055,7 +1055,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = iw9.b(context);
+            staticEglBase = xw9.b(context);
         }
     }
 

@@ -1,45 +1,123 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.SubBundleInfo;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y71 {
+public class y71 extends v71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TextView f;
+    public final TextView g;
 
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ y71 b;
+
+        public a(y71 y71Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y71Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y71Var;
+            this.a = adBaseModel;
         }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ii0.c(this.a.h.d, this.b.getContext());
+                h01.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).i(ClogBuilder.Area.BUTTON).p(this.a.f.d));
+                n71 n71Var = this.b.d;
+                if (n71Var != null) {
+                    n71Var.b(this.a);
+                }
+            }
         }
     }
 
-    public static boolean b(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
-        InterceptResult invokeLL;
-        List<SubBundleInfo> subBundle;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y71(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundleInfo, bundleInfo2)) == null) {
-            if (bundleInfo == null || bundleInfo2 == null || (subBundle = bundleInfo.getSubBundle()) == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (SubBundleInfo subBundleInfo : subBundle) {
-                if (TextUtils.equals(subBundleInfo.getPackageName(), bundleInfo2.getPackageName())) {
-                    return subBundleInfo.getMaxVersion() >= bundleInfo2.getVersionCode() && subBundleInfo.getMinVersion() <= bundleInfo2.getVersionCode();
-                }
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.g = (TextView) a(R.id.obfuscated_res_0x7f0909a7);
+        this.f = (TextView) a(R.id.obfuscated_res_0x7f0915ed);
+        k();
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b() instanceof AdBaseModel)) {
+            this.g.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060266));
+            this.f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060274));
+            if (this.f.getBackground() instanceof GradientDrawable) {
+                ((GradientDrawable) this.f.getBackground()).setColor(getResources().getColor(R.color.obfuscated_res_0x7f0602f0));
+                ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.obfuscated_res_0x7f0602f1));
+                return;
+            }
+            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df4));
+        }
+    }
+
+    @Override // com.baidu.tieba.v71
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            v71.d(adBaseModel);
+            k();
+            String str = adBaseModel.h.b.a;
+            if (!TextUtils.isEmpty(str)) {
+                this.g.setText(str);
+                this.g.setVisibility(0);
+            } else {
+                this.g.setVisibility(8);
+            }
+            this.f.setText(adBaseModel.h.c);
+            if (!TextUtils.isEmpty(adBaseModel.h.d)) {
+                this.f.setVisibility(0);
+                this.f.setOnClickListener(new a(this, adBaseModel));
+                return;
+            }
+            this.f.setVisibility(8);
+        }
     }
 }

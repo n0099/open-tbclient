@@ -1,33 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.res.ColorStateList;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.auth.NTLMEngineImpl;
 /* loaded from: classes5.dex */
 public class mc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ColorStateList a(int i) {
-        InterceptResult invokeI;
+    public static NetworkInfo a() {
+        InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            int i2 = i - (-805306368);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = oc1.a();
+            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
         }
-        return (ColorStateList) invokeI.objValue;
+        return (NetworkInfo) invokeV.objValue;
     }
 
-    public static ColorStateList b(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = i - (-1728053248);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "1";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "2";
+                case 13:
+                case 18:
+                case 19:
+                    break;
+                default:
+                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
+                        return "unknown";
+                    }
+                    break;
+            }
+            return "3";
         }
-        return (ColorStateList) invokeI.objValue;
+        return (String) invokeIL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a();
+            return (a == null || !a.isConnected()) ? "0" : a.getType() == 1 ? "4" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            NetworkInfo a = a();
+            return a != null && a.isConnected();
+        }
+        return invokeV.booleanValue;
     }
 }

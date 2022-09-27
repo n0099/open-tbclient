@@ -25,7 +25,7 @@ import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm2;
+import com.baidu.tieba.sm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -244,7 +244,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            boolean a2 = fm2.M().a();
+            boolean a2 = sm2.M().a();
             if (a2 != this.c) {
                 u1(a2);
             }

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class rd6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumEmotionPackageData a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +27,7 @@ public class rd6 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public rd6() {
@@ -50,6 +48,6 @@ public class rd6 implements Cdo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

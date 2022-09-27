@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.q40;
+import com.baidu.tieba.s40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -114,11 +114,34 @@ public class d {
         return (Class) invokeL.objValue;
     }
 
-    public static Object b(Class<?> cls, Object[] objArr) throws Exception {
+    public static Object b(Class<?> cls, Object[] objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, objArr)) == null) ? (objArr == null || objArr.length <= 0) ? cls.newInstance() : e(cls, objArr) : invokeLL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? new String(new s40().a(bArr), "UTF-8") : (String) invokeL.objValue;
+    }
+
+    public static Method d(Class<?> cls, String str, Class<?>[] clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
+            Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
+            declaredMethod.setAccessible(true);
+            return declaredMethod;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object e(Class<?> cls, Object[] objArr) {
         InterceptResult invokeLL;
         Constructor<?>[] constructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, objArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, objArr)) == null) {
             Constructor<?> constructor = null;
             for (Constructor<?> constructor2 : cls.getConstructors()) {
                 Class<?>[] parameterTypes = constructor2.getParameterTypes();
@@ -158,28 +181,5 @@ public class d {
             return null;
         }
         return invokeLL.objValue;
-    }
-
-    public static String c(byte[] bArr) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? new String(new q40().a(bArr), "UTF-8") : (String) invokeL.objValue;
-    }
-
-    public static Method d(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
-            Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
-            declaredMethod.setAccessible(true);
-            return declaredMethod;
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Object e(Class<?> cls, Object[] objArr) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, objArr)) == null) ? (objArr == null || objArr.length <= 0) ? cls.newInstance() : b(cls, objArr) : invokeLL.objValue;
     }
 }

@@ -1,42 +1,68 @@
 package com.baidu.tieba;
 
-import android.media.AudioTrack;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes4.dex */
-public class fd9 extends AudioTrack implements ed9 {
+public class fd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioPlayData a;
+    public gd9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fd9(int i, int i2, int i3, int i4, int i5, int i6) throws IllegalArgumentException {
-        super(i, i2, i3, i4, i5, i6);
+    public fd9(AudioPlayData audioPlayData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = audioPlayData;
+        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
+            return;
+        }
+        this.b = new gd9(audioPlayData.audioPath);
     }
 
-    @Override // com.baidu.tieba.ed9
-    public void close() {
+    public gd9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getState() == 1) {
-            flush();
-            release();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (gd9) invokeV.objValue;
+    }
+
+    public AudioPlayData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            gd9 gd9Var = this.b;
+            return gd9Var != null && gd9Var.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(gd9 gd9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, gd9Var) == null) {
+            this.b = gd9Var;
         }
     }
 }

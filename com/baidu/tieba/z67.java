@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetSugTopic.TopicList;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Hottopic.JoinUser;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes6.dex */
 public class z67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Integer b;
+    public List<c77> a;
 
     public z67() {
         Interceptable interceptable = $ic;
@@ -28,35 +28,18 @@ public class z67 {
         }
     }
 
-    public Integer a() {
-        InterceptResult invokeV;
+    public void a(JoinUser joinUser) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Integer) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topicList) == null) || topicList == null) {
-            return;
-        }
-        Long l = topicList.topic_id;
-        this.a = topicList.topic_name;
-        String str = topicList.topic_pic;
-        String str2 = topicList.topic_desc;
-        Long l2 = topicList.discuss_num;
-        this.b = topicList.tag;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
+            joinUser.join_user_num.longValue();
+            this.a = new ArrayList();
+            for (UserInfo userInfo : joinUser.join_user) {
+                if (userInfo != null) {
+                    c77 c77Var = new c77();
+                    c77Var.a(userInfo);
+                    this.a.add(c77Var);
+                }
+            }
         }
     }
 }

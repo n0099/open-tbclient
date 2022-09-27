@@ -5,17 +5,17 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca7;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.m77;
+import com.baidu.tieba.qa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class MsgMultiImageTextView extends m77 {
+public class MsgMultiImageTextView extends a87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView F;
@@ -45,7 +45,7 @@ public class MsgMultiImageTextView extends m77 {
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fa);
+            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fc);
             this.F = (MultiContentView) j(R.id.obfuscated_res_0x7f09157d);
         }
     }
@@ -56,7 +56,7 @@ public class MsgMultiImageTextView extends m77 {
             return;
         }
         N(chatMessage);
-        List<ca7.a> b = ca7.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        List<qa7.a> b = qa7.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.F.setPosition(this.f);
         this.F.setOnItemViewLongClickListener(this.c);
         this.F.setNeedNightMode(true);

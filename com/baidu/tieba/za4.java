@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class za4 {
+public abstract class za4<T> implements cb4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Class<?>, ya4> a;
-    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public za4() {
         Interceptable interceptable = $ic;
@@ -26,43 +27,77 @@ public class za4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        c();
     }
 
-    public <T> ya4<T> a(Class<T> cls) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cb4
+    public void a(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? this.a.get(cls) : (ya4) invokeL.objValue;
-    }
-
-    public <T> Uri b(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? this.b.get(cls) : (Uri) invokeL.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = new ConcurrentHashMap<>();
-            this.b = new ConcurrentHashMap<>();
-            this.a.put(xb4.class, new cb4());
-            this.a.put(yb4.class, new db4());
-            this.a.put(vb4.class, new bb4());
-            this.a.put(tb4.class, new ab4());
-            this.a.put(PMSAppInfo.class, new xa4());
-            this.a.put(zb4.class, new eb4());
-            this.a.put(ac4.class, new fb4());
-            this.b.put(xb4.class, pb4.f);
-            this.b.put(yb4.class, pb4.g);
-            this.b.put(vb4.class, pb4.d);
-            this.b.put(tb4.class, pb4.h);
-            this.b.put(PMSAppInfo.class, pb4.e);
-            this.b.put(zb4.class, pb4.i);
-            this.b.put(ac4.class, pb4.j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
         }
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public void e(T t, fc4 fc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, fc4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public fc4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) ? new fc4(2302, "业务层默认不处理下载流") : (fc4) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cb4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 }

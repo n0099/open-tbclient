@@ -1,56 +1,49 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
 /* loaded from: classes4.dex */
 public class l80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m80 a;
-    public n80 b;
 
-    public l80() {
+    public static void a(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, context, str, str2, i) == null) {
+            n80.e().b(context, str, str2, i, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE);
         }
-        this.a = new m80();
-        this.b = new n80();
     }
 
-    public e80 a(e80 e80Var, boolean z) {
-        InterceptResult invokeLZ;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, e80Var, z)) == null) {
-            this.a.b(e80Var, z);
-            return e80Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? n80.f() : invokeV.intValue;
+    }
+
+    public static void c(@NonNull BLCPRequest bLCPRequest, @Nullable p80 p80Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, bLCPRequest, p80Var) == null) {
+            n80.e().g(bLCPRequest, p80Var);
         }
-        return (e80) invokeLZ.objValue;
     }
 
-    public e80 b(Context context, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) ? this.a.c(context, j) : (e80) invokeLJ.objValue;
-    }
-
-    public e80 c(InputStream inputStream) throws Exception {
+    public static boolean d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.b.b(inputStream) : (e80) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? m90.m(context) : invokeL.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            n80.e().h();
+        }
     }
 }

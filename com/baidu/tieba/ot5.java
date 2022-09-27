@@ -1,87 +1,54 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class ot5 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
 
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ot5 ot5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043801, "Lcom/baidu/tieba/ot5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ot5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948043801, "Lcom/baidu/tieba/ot5;");
                 return;
             }
-            jSONObject.optString("user_id");
-            jSONObject.optString("portrait");
         }
+        a = new HashMap<>();
     }
 
-    public ot5() {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
+            } else {
+                a.put(Integer.valueOf(i), 2);
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("has_follow_live");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.a = new ArrayList<>(optJSONArray.length());
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null) {
-                        a aVar = new a(this);
-                        aVar.a(optJSONObject2);
-                        this.a.add(aVar);
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                return a.get(Integer.valueOf(i)).intValue();
             }
+            a.put(Integer.valueOf(i), 1);
+            return 1;
         }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
-        if (optJSONObject3 != null) {
-            optJSONObject3.optString("url");
-        }
+        return invokeI.intValue;
     }
 }

@@ -1,77 +1,89 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.Unit;
 /* loaded from: classes4.dex */
-public class jp2 extends kp2 {
+public final class jp2 implements ip2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jp2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public ArrayList<rp2> z;
+    public final /* synthetic */ ip2 a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890909, "Lcom/baidu/tieba/jp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947890909, "Lcom/baidu/tieba/jp2;");
+                return;
+            }
+        }
+        b = new jp2();
+    }
 
     public jp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.A = new int[]{0, 0, 0, 0};
+        ip2 e = QuotaSaver.l.c() ? QuotaSaver.l.e() : new hp2();
+        l02.i("OptSwitcher", "by " + e);
+        Unit unit = Unit.INSTANCE;
+        this.a = e;
     }
 
-    @Override // com.baidu.tieba.kp2, com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray jSONArray;
-        JSONArray jSONArray2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
-            int length = jSONArray2.length();
-            this.z = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    rp2 rp2Var = new rp2();
-                    rp2Var.a(jSONObject2);
-                    if (rp2Var.isValid()) {
-                        this.z.add(rp2Var);
-                    }
-                }
-            }
-        }
-        if (!jSONObject.has(CriusAttrConstants.PADDING) || (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) == null || jSONArray.length() <= 0) {
-            return;
-        }
-        int min = Math.min(jSONArray.length(), 4);
-        for (int i2 = 0; i2 < min; i2++) {
-            this.A[i2] = pg3.g(jSONArray.optInt(i2));
-        }
-    }
-
-    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public boolean isValid() {
+    @Override // com.baidu.tieba.ip2
+    public int a() {
         InterceptResult invokeV;
-        ArrayList<rp2> arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || (arrayList = this.z) == null || arrayList.size() <= 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ip2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ip2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ip2
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ip2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
     }
 }

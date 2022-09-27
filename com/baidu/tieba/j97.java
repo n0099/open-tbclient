@@ -1,14 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,181 +9,65 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class j97 extends y87 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static y87 d = null;
-    public static String e = "tb_oficial_msg_";
+public class j97 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public List<i97> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947838209, "Lcom/baidu/tieba/j97;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947838209, "Lcom/baidu/tieba/j97;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j97() {
-        super("tb_oficial_msg_", OfficialChatMessage.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new ArrayList();
     }
 
-    public static synchronized j97 w() {
-        InterceptResult invokeV;
-        j97 j97Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (j97.class) {
-                if (d == null) {
-                    d = new j97();
-                }
-                j97Var = (j97) d;
-            }
-            return j97Var;
-        }
-        return (j97) invokeV.objValue;
-    }
-
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
-    public static List<n97> x() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Exception e2;
-        Cursor cursor;
-        Cursor cursor2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65539, null)) != null) {
-            return (List) invokeV.objValue;
-        }
-        Cursor cursor3 = null;
-        ArrayList arrayList2 = null;
-        try {
-            try {
-                cursor = f97.d().e("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                if (cursor != null) {
-                    try {
-                        arrayList = new ArrayList(cursor.getCount());
-                        while (cursor.moveToNext()) {
-                            try {
-                                n97 n97Var = new n97();
-                                n97Var.h(cursor.getString(cursor.getColumnIndex("gid")));
-                                n97Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                n97Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
-                                n97Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
-                                n97Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                int columnIndex = cursor.getColumnIndex("visit_time");
-                                if (columnIndex >= 0) {
-                                    n97Var.l(cursor.getLong(columnIndex));
-                                }
-                                arrayList.add(n97Var);
-                            } catch (Exception e3) {
-                                e2 = e3;
-                                e2.printStackTrace();
-                                TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                                fj.a(cursor);
-                                return arrayList;
-                            }
-                        }
-                        arrayList2 = arrayList;
-                    } catch (Exception e4) {
-                        arrayList = null;
-                        e2 = e4;
-                    }
-                }
-                fj.a(cursor);
-                return arrayList2;
-            } catch (Throwable th) {
-                th = th;
-                cursor3 = cursor2;
-                fj.a(cursor3);
-                throw th;
-            }
-        } catch (Exception e5) {
-            arrayList = null;
-            e2 = e5;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fj.a(cursor3);
-            throw th;
-        }
-    }
-
-    public static List<String> y() {
+    public List<i97> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    f97 d2 = f97.d();
-                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                }
-                return arrayList;
-            } finally {
-                fj.a(cursor);
-            }
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public void A(long j, long j2, int i) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("read_count", Integer.valueOf(i));
-                f97 d2 = f97.d();
-                int update = d2.update(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b == 1 : invokeV.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public void z(long j, long j2) {
+    public void e(List<i97> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("visit_time", Long.valueOf(j2));
-                contentValues.put("unread_count", (Integer) 0);
-                int update = f97.d().update("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.a = j;
         }
     }
 }

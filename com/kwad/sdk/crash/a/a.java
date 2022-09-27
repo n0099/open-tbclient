@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static boolean a(StackTraceElement[] stackTraceElementArr) {
         if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {

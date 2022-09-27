@@ -18,12 +18,12 @@ import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.uz0;
-import com.baidu.tieba.xs0;
-import com.baidu.tieba.yo0;
-import com.baidu.tieba.ys0;
-import com.baidu.tieba.yv0;
+import com.baidu.tieba.h01;
+import com.baidu.tieba.kt0;
+import com.baidu.tieba.lp0;
+import com.baidu.tieba.lt0;
+import com.baidu.tieba.lw0;
+import com.baidu.tieba.t21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.lang.ref.WeakReference;
 public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yo0 m;
+    public lp0 m;
     public int n;
     public int o;
     public boolean p;
@@ -47,7 +47,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public TextView v;
     public TextView w;
     public View x;
-    public yv0 y;
+    public lw0 y;
 
     /* loaded from: classes2.dex */
     public class a implements AdBaseTailFrameView.d {
@@ -139,13 +139,13 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdVideoTailFrameView(Context context, yv0 yv0Var, boolean z) {
+    public AdVideoTailFrameView(Context context, lw0 lw0Var, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, yv0Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, lw0Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -158,7 +158,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         }
         this.n = 5;
         this.o = 0;
-        this.y = yv0Var;
+        this.y = lw0Var;
         p();
     }
 
@@ -168,9 +168,9 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             t();
             this.o = 0;
-            yv0 yv0Var = this.y;
-            if (yv0Var != null) {
-                yv0Var.N();
+            lw0 lw0Var = this.y;
+            if (lw0Var != null) {
+                lw0Var.N();
                 this.y.P(8);
             }
         }
@@ -179,8 +179,8 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            yo0 yo0Var = this.m;
-            if (yo0Var != null && TextUtils.equals(yo0Var.n, "ad_full_video")) {
+            lp0 lp0Var = this.m;
+            if (lp0Var != null && TextUtils.equals(lp0Var.n, "ad_full_video")) {
                 x(z);
             }
             r(z);
@@ -208,14 +208,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        yv0 yv0Var;
+        lw0 lw0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092505 && (yv0Var = this.y) != null) {
-            yv0Var.P(8);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092507 && (lw0Var = this.y) != null) {
+            lw0Var.P(8);
             this.y.N();
-            this.y.F(xs0.w("layer_event_ad_finish"));
+            this.y.F(kt0.w("layer_event_ad_finish"));
             if (!this.y.u().a0()) {
-                this.y.F(ys0.w(PlayerEvent.ACTION_ON_COMPLETE));
+                this.y.F(lt0.w(PlayerEvent.ACTION_ON_COMPLETE));
             }
             u(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BUTTON.type, "");
         }
@@ -226,14 +226,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             s(false);
             setAlsHandler(new a(this));
-            this.x = findViewById(R.id.obfuscated_res_0x7f092505);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092504);
-            this.s = findViewById(R.id.obfuscated_res_0x7f092506);
-            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f092501);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092502);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092503);
-            this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e35));
-            this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e34));
+            this.x = findViewById(R.id.obfuscated_res_0x7f092507);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092506);
+            this.s = findViewById(R.id.obfuscated_res_0x7f092508);
+            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f092503);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092504);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092505);
+            this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e37));
+            this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e36));
             this.x.setOnClickListener(this);
         }
     }
@@ -242,8 +242,8 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            yo0 yo0Var = this.m;
-            return yo0Var != null && yo0Var.i();
+            lp0 lp0Var = this.m;
+            return lp0Var != null && lp0Var.i();
         }
         return invokeV.booleanValue;
     }
@@ -263,7 +263,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
                 layoutParams3.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07057e);
                 this.c.setTextSize(14.0f);
                 this.d.setTextSize(13.0f);
-                this.e.setTextSize(g21.c.a(getContext(), 13.0f));
+                this.e.setTextSize(t21.c.a(getContext(), 13.0f));
             } else {
                 layoutParams.width = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070579);
                 layoutParams.height = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070579);
@@ -297,8 +297,8 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
 
     public void setData(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, obj) == null) && (obj instanceof yo0)) {
-            this.m = (yo0) obj;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, obj) == null) && (obj instanceof lp0)) {
+            this.m = (lp0) obj;
         }
     }
 
@@ -326,18 +326,18 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             if (!TextUtils.isEmpty(str3)) {
                 clogBuilder.m(str3);
             }
-            uz0.b(clogBuilder);
+            h01.b(clogBuilder);
         }
     }
 
     public void v() {
-        yo0 yo0Var;
+        lp0 lp0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (yo0Var = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (lp0Var = this.m) == null) {
             return;
         }
-        this.n = yo0Var.f;
-        k(yo0Var);
+        this.n = lp0Var.f;
+        k(lp0Var);
         if (this.m.q) {
             w();
         } else {

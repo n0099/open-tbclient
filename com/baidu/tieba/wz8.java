@@ -1,30 +1,71 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes6.dex */
-public class wz8 {
+public class wz8 implements xz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Handler b;
-    public final HandlerThread c;
+    public final CloudMusicModel a;
+    public final yz8 b;
 
-    public wz8(String str) {
+    /* loaded from: classes6.dex */
+    public class a implements e09<CloudMusicData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wz8 a;
+
+        public a(wz8 wz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wz8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.e09
+        /* renamed from: b */
+        public void a(CloudMusicData cloudMusicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
+                this.a.b.l0(false);
+                if (cloudMusicData != null) {
+                    this.a.b.l(false);
+                    if (cloudMusicData.tag_list.isEmpty()) {
+                        this.a.b.l(true);
+                        return;
+                    } else {
+                        this.a.b.B(cloudMusicData);
+                        return;
+                    }
+                }
+                this.a.b.l(true);
+            }
+        }
+    }
+
+    public wz8(CloudMusicModel cloudMusicModel, yz8 yz8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {cloudMusicModel, yz8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,52 +75,25 @@ public class wz8 {
                 return;
             }
         }
-        this.a = str;
-        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
-        this.c = handlerThread;
-        handlerThread.start();
+        this.a = cloudMusicModel;
+        this.b = yz8Var;
+        yz8Var.A0(this);
     }
 
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xz8
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String c = vz8.c(this.a, str);
-            if (FileUtils.isExists(c)) {
-                Bitmap f = cg9.f(c);
-                if (f != null) {
-                    d09.f().g().b(str, f);
-                }
-                return f;
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
-            if (this.b == null) {
-                this.b = new Handler(this.c.getLooper());
-            }
-            this.b.post(new e09(this.a, str, bitmap));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
         }
     }
 
-    public void d(String str) {
+    @Override // com.baidu.tieba.xz8
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.l0(true);
+            this.a.A(new a(this));
         }
     }
 }

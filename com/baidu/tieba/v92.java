@@ -1,70 +1,161 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.hm2;
+import com.baidu.tieba.io2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class v92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public long B;
-    public long C;
-    public boolean D;
-    public int E;
-    public String F;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public String t;
-    public String u;
-    public String v;
-    public long w;
-    public int x;
-    public int y;
-    public int z;
 
-    public v92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195546, "Lcom/baidu/tieba/v92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948195546, "Lcom/baidu/tieba/v92;");
                 return;
             }
         }
-        this.B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
+        a = vj1.a;
+        sm2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    public String a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppDbInfo{appId='" + this.a + "', appKey='" + this.b + "', errorCode=" + this.d + ", errorDetail='" + this.e + "', errorMsg='" + this.f + "', resumeDate='" + this.g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!fa2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (sm2.F0().j(1)) {
+                String c0 = fa2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && kz2.Y()) {
+                    return true;
+                } else {
+                    boolean z = c != 0;
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
+            } else {
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static int b(@Nullable a43 a43Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, a43Var)) == null) {
+            if (a43Var == null || !d()) {
+                return 0;
+            }
+            return "na".equals(a43Var.r) ? 1 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(yo2.U().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c == 2 : invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c == 1 : invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c == 3 : invokeV.booleanValue;
+    }
+
+    public static boolean h(l33 l33Var) {
+        InterceptResult invokeL;
+        io2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, l33Var)) == null) {
+            if (l33Var == null || !l33Var.E()) {
+                return false;
+            }
+            if (kz2.B(l33Var.W())) {
+                str = hm2.b.g().getPath() + File.separator;
+            } else {
+                str = hm2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            yo2.U().K(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

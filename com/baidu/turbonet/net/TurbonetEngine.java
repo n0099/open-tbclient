@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.x79;
+import com.baidu.tieba.m89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +179,7 @@ public abstract class TurbonetEngine {
                 }
                 r(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
                 if (i() == null) {
-                    u(x79.a(this.a));
+                    u(m89.a(this.a));
                 }
                 return TurbonetEngine.c(this);
             }

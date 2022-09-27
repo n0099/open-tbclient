@@ -1,23 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class o54 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile n54 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static synchronized n54 a() {
+        InterceptResult invokeV;
+        n54 n54Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) ? (int) ((f * AppRuntime.getAppContext().getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
-    }
-
-    public static float b(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f / AppRuntime.getAppContext().getResources().getDisplayMetrics().density : invokeF.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (o54.class) {
+                if (a == null) {
+                    a = new n54();
+                }
+                n54Var = a;
+            }
+            return n54Var;
+        }
+        return (n54) invokeV.objValue;
     }
 }

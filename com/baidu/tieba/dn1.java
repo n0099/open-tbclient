@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import android.content.Context;
 /* loaded from: classes3.dex */
 public interface dn1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    ef3 a(Context context, String str, String str2, String str3, String str4, String str5);
 }

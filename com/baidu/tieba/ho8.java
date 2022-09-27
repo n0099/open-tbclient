@@ -1,171 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class ho8 {
+public class ho8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ho8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public go8 a;
-    public final String b;
-    public final int c;
-    public final long d;
-    public final String e;
-    public final int f;
+    public LocationData a;
+    public boolean b;
 
-    public ho8(String str, int i, int i2, long j, String str2) {
+    public ho8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = str;
-        this.c = i2;
-        this.d = j;
-        this.e = str2;
-        this.f = i;
+        this.b = ox4.k().h("no_longer_show_address", false);
     }
 
-    public abstract void a();
-
-    public byte[] b(RandomAccessFile randomAccessFile, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    public static ho8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
-            if (randomAccessFile != null && i >= 0) {
-                if (i == this.c) {
-                    i2 = (int) (this.d - ((i - 1) * this.f));
-                } else {
-                    i2 = this.f;
-                }
-                byte[] bArr = new byte[i2];
-                try {
-                    synchronized (randomAccessFile) {
-                        randomAccessFile.seek((i - 1) * this.f);
-                        r3 = randomAccessFile.read(bArr, 0, i2) != -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ho8.class) {
+                    if (c == null) {
+                        c = new ho8();
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (r3) {
-                    return bArr;
                 }
             }
-            return null;
+            return c;
         }
-        return (byte[]) invokeLI.objValue;
+        return (ho8) invokeV.objValue;
     }
 
-    public abstract boolean c();
-
-    public void d(int i) {
-        go8 go8Var;
+    public LocationData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (go8Var = this.a) == null) {
-            return;
-        }
-        go8Var.onProgressUpdate(i / 100.0f);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (LocationData) invokeV.objValue;
     }
 
-    public final String e(String str) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                if (optJSONObject != null) {
-                    return optJSONObject.optString("video_url");
-                }
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public void f(go8 go8Var) {
+    public void d(LocationData locationData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, go8Var) == null) {
-            this.a = go8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationData) == null) {
+            this.a = locationData;
         }
     }
 
-    public abstract ko8 g(ArrayList<Integer> arrayList, String str, int i);
-
-    public ko8 h(RandomAccessFile randomAccessFile, int i, long j, String str) {
-        InterceptResult invokeCommon;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
-            byte[] b = b(randomAccessFile, i);
-            if (b == null) {
-                ko8 ko8Var = new ko8();
-                ko8Var.b = -1;
-                ko8Var.c = "上传文件不存在";
-                return ko8Var;
-            } else if (c()) {
-                return null;
-            } else {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-                netWork.addPostData("chunk_no", String.valueOf(i));
-                netWork.addPostData("chunk_sum", String.valueOf(this.c));
-                netWork.addPostData("chunk_size", String.valueOf(b.length));
-                netWork.addPostData("video_size", String.valueOf(this.d));
-                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
-                netWork.addPostData("video_len", String.valueOf(j));
-                netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
-                netWork.addPostData("video_chunk", b);
-                netWork.addPostData("upload_id", str);
-                if (c()) {
-                    return null;
-                }
-                String postMultiNetData = netWork.postMultiNetData();
-                if (c()) {
-                    return null;
-                }
-                ko8 ko8Var2 = new ko8();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    ko8Var2.a = e(postMultiNetData);
-                } else {
-                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                        ko8Var2.b = netWork.getNetContext().getResponse().mServerErrorCode;
-                    } else {
-                        ko8Var2.b = netWork.getNetContext().getResponse().mNetErrorCode;
-                    }
-                    ko8Var2.c = netWork.getNetContext().getResponse().mErrorString;
-                }
-                return ko8Var2;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
-        return (ko8) invokeCommon.objValue;
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+        }
     }
 }

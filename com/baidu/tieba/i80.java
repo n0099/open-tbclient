@@ -1,230 +1,134 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.SSLCertificateSocketFactory;
-import android.net.SSLSessionCache;
+import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.action.CommonUtils;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.baidu.android.imsdk.upload.action.track.Connection;
+import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.TimeoutException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLSocket;
+import com.yy.gslbsdk.db.ProbeTB;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i80 extends f80 {
+public final class i80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
-    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i80(Context context, String str) {
-        super(context);
+    public i80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = str;
     }
 
-    @Override // com.baidu.tieba.f80
-    public InputStream b() throws EOFException, IOException {
-        InterceptResult invokeV;
+    public static IMPushPb.Action b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.d) : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWCONNECTION).setNewConnection(IMPushPb.NewConnection.newBuilder().setAliasId(601110L).setConnectErrorCode(jSONObject.optString("con_err_code", "")).setTokenBegin(jSONObject.optLong("token_begin", 0L)).setTokenEnd(jSONObject.optLong("token_end", 0L)).setDnsBegin(jSONObject.optLong("dns_begin", 0L)).setDnsEnd(jSONObject.optLong("dns_end", 0L)).setSocketBegin(jSONObject.optLong("socket_begin", 0L)).setSocketEnd(jSONObject.optLong("socket_end", 0L)).setLcpLoginBegin(jSONObject.optLong("login_begin", 0L)).setLcpLoginEnd(jSONObject.optLong("login_end", 0L)).setConnectSource(jSONObject.optString("source", "")).setConnectState(jSONObject.optLong("connect_state", -1L)).setEndTime(jSONObject.optLong("flow_end_time", 0L)).setStartTime(jSONObject.optLong("flow_start_time", 0L)).setRetry(jSONObject.optInt("retry_cout", 0)).setExt(jSONObject.toString()).setNetInfo(IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build()).build()).build() : (IMPushPb.Action) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.f80
-    public void c(g80 g80Var) {
+    public static IMPushPb.Action d(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g80Var) == null) {
-            this.b = g80Var;
-            if (g80Var != null) {
-                this.d = g80Var.d;
-                this.e = g80Var.e;
-                return;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
+    }
+
+    public static IMPushPb.Action e(long j, long j2, String str, long j3, long j4, String str2, long j5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
+    }
+
+    public static void f(Context context, Connection connection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, connection) == null) {
+            try {
+                HashSet hashSet = new HashSet(j80.b(context));
+                hashSet.add(Base64.encodeToString(e(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
+                j80.k(context, hashSet);
+            } catch (Exception e) {
+                l90.c("TrackPbGenerator", "putIMConnectionToActions :", e);
             }
-            this.d = null;
-            this.e = null;
         }
     }
 
-    @Override // com.baidu.tieba.f80
-    public boolean d() {
-        InterceptResult invokeV;
+    public static void g(Context context, Request request) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.b) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f80
-    public g80 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? g(str, i) : (g80) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.f80
-    public void f(e80 e80Var) throws IOException {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, e80Var) == null) || this.c == null || (outputStream = this.e) == null) {
-            return;
-        }
-        outputStream.write(e80Var.a);
-        this.e.flush();
-    }
-
-    public final g80 g(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            y80.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
-            this.c = h(str, i);
-            g80 g80Var = new g80();
-            Socket socket = this.c;
-            if (socket == null) {
-                return g80Var;
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, request) == null) {
+            try {
+                HashSet hashSet = new HashSet(j80.d(context));
+                hashSet.add(Base64.encodeToString(d(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
+                j80.o(context, hashSet);
+            } catch (Exception e) {
+                l90.c("TrackPbGenerator", "putIMRequestToActions :", e);
             }
-            g80Var.c = socket;
-            g80Var.d = socket.getInputStream();
-            g80Var.e = this.c.getOutputStream();
-            Boolean bool = Boolean.TRUE;
-            g80Var.a = bool;
-            g80Var.b = bool;
-            return g80Var;
         }
-        return (g80) invokeLI.objValue;
     }
 
-    public final Socket h(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
+    public final List<String> a(String str, List<k80> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
-            if (this.f.equals("tcp")) {
-                return j(str, i);
-            }
-            return i(str, i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x003c, code lost:
-        r9 = r6.getHostAddress();
-     */
-    @SuppressLint({"NewApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Socket i(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
-        InterceptResult invokeLI;
-        SSLCertificateSocketFactory sSLCertificateSocketFactory;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
-            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.a);
-            if (str.contains("baidu.com")) {
-                y80.a("TcpMessageHandler", "localdns begin...,domain:" + str);
-                try {
-                    InetAddress[] allByName = InetAddress.getAllByName(str);
-                    if (allByName != null && allByName.length > 0) {
-                        int length = allByName.length;
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 >= length) {
-                                break;
-                            }
-                            InetAddress inetAddress = allByName[i2];
-                            if (inetAddress instanceof Inet4Address) {
-                                break;
-                            }
-                            i2++;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
+                l90.a("TrackPbGenerator", "flow upload details list");
+                for (k80 k80Var : list) {
+                    if (k80Var != null) {
+                        String a = k80Var.a();
+                        if (!TextUtils.isEmpty(a) && a.length() > 0) {
+                            arrayList.add(a);
                         }
                     }
-                } catch (Exception e) {
-                    y80.c("TcpMessageHandler", "createSocketOnLine", e);
                 }
+                l90.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
             }
-            if (str.contains("baidu.com")) {
-                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
-            } else {
-                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache);
-            }
-            if (sSLCertificateSocketFactory != null) {
-                SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
-                sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
-                sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
-                sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket, true);
-                sSLSocket.startHandshake();
-                return sSLSocket;
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public byte[] c(Context context, String str, List<k80> list, int i) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
+            list.addAll(w80.j(context).g(str, i));
+            List<String> a = a(str, list);
+            if (a != null) {
+                try {
+                    if (a.size() > 0) {
+                        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
+                        if (a.size() > 0) {
+                            for (String str2 : a) {
+                                copyOnWriteArrayList.add(b(new JSONObject(str2)));
+                            }
+                        }
+                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, m90.e(context))).setSdkName("lcp").setSdkVersion(2280016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             return null;
         }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public final Socket j(String str, int i) throws UnknownHostException, IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
-    }
-
-    public boolean k(g80 g80Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, g80Var)) == null) {
-            if (g80Var != null && g80Var.a.booleanValue()) {
-                try {
-                    if (g80Var.c != null) {
-                        g80Var.c.close();
-                        g80Var.c = null;
-                    }
-                    if (g80Var.d != null) {
-                        g80Var.d.close();
-                        g80Var.d = null;
-                    }
-                    if (g80Var.e != null) {
-                        g80Var.e.close();
-                        g80Var.e = null;
-                        return true;
-                    }
-                    return true;
-                } catch (IOException e) {
-                    y80.c("TcpMessageHandler", "destroy:", e);
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (byte[]) invokeLLLI.objValue;
     }
 }

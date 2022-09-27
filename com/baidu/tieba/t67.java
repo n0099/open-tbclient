@@ -1,59 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
-public class t67 {
+public class t67 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qn> a;
 
-    public t67(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        qg6 qg6Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133236, "Lcom/baidu/tieba/t67;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948133236, "Lcom/baidu/tieba/t67;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
+
+    public t67() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ArrayList();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, qg6.class, tbPageContext);
-        if (runTask != null && (qg6Var = (qg6) runTask.getData()) != null) {
-            this.a.add(qg6Var);
-        }
-        this.a.add(new u67(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
-        this.a.add(new s67(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
-        bdTypeRecyclerView.a(this.a);
     }
 
-    public void a(TbPageTag tbPageTag) {
+    public void a(TopicList topicList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) || topicList == null) {
             return;
         }
-        for (qn qnVar : this.a) {
-            if (qnVar instanceof qg6) {
-                ((qg6) qnVar).C(tbPageTag);
+        topicList.topic_id.longValue();
+        String str = topicList.topic_name;
+        topicList.tag.intValue();
+        topicList.discuss_num.longValue();
+        String str2 = topicList.topic_desc;
+        String str3 = topicList.topic_pic;
+    }
+
+    public void b(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
+            try {
+                String str = topicListModule.module_title;
+                String str2 = topicListModule.tips;
+                String str3 = topicListModule.rule_jump_url;
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,125 +1,187 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class pt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public boolean d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public pt2(int i) {
-        this(i, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? file.isDirectory() && TextUtils.isDigitsOnly(file.getName()) : invokeL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073499, "Lcom/baidu/tieba/pt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948073499, "Lcom/baidu/tieba/pt2;");
                 return;
+            }
+        }
+        a = vj1.a;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(hm2.g(), str);
+        if (file.exists()) {
+            if (a) {
+                Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
+            }
+            File[] listFiles = file.listFiles(new a());
+            if (listFiles == null || listFiles.length <= 0) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                b(str, file2.getName());
             }
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public pt2(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            String e = e(str, str2);
+            if (TextUtils.isEmpty(e)) {
                 return;
             }
-        }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-    }
-
-    public pt2(int i, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            zb3.a().edit().remove(e).apply();
+            if (a) {
+                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
             }
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-        this.c = j;
     }
 
-    public pt2(int i, String str, long j, boolean z) {
+    public static String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) ? d(pMSAppInfo.appId, pMSAppInfo.versionCode) : (String) invokeL.objValue;
+    }
+
+    public static String d(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) ? e(str, String.valueOf(j)) : (String) invokeLJ.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return str + "_" + str2 + "_pkg_info_ext";
+            } else if (a) {
+                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
+                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
+                return null;
+            } else {
+                return null;
             }
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-        this.c = j;
-        this.d = z;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                return "";
+            }
+            String c = c(pMSAppInfo);
+            if (TextUtils.isEmpty(c)) {
+                return "";
+            }
+            String string = zb3.a().getString(c, "");
+            if (a) {
+                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(String str, JSONObject jSONObject, kc4 kc4Var, List<lc4> list) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, kc4Var, list) == null) {
+            if (jSONObject == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkgObject from pms is null");
+                }
+            } else if (kc4Var == null && list == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
+                }
+            } else {
+                String str2 = null;
+                if (kc4Var != null) {
+                    str = kc4Var.g;
+                    j = kc4Var.i;
+                    str2 = kc4Var.p;
+                } else if (list.size() > 0) {
+                    lc4 lc4Var = list.get(0);
+                    j = lc4Var.i;
+                    str2 = lc4Var.s;
+                } else {
+                    j = -1;
+                }
+                if (str2 == null) {
+                    if (a) {
+                        Log.e("PkgInfoExt", "can not get ext from pkg ");
+                    }
+                } else if (!TextUtils.isEmpty(str) && j != -1) {
+                    zb3.a().edit().putString(d(str, j), str2).apply();
+                } else if (a) {
+                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
+                }
+            }
+        }
     }
 }

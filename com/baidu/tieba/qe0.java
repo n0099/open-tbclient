@@ -1,161 +1,162 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Process;
+import android.telephony.TelephonyManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qe0 extends xe0 {
+public class qe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    a aVar = new a();
-                    aVar.a = jSONObject.optString("name");
-                    aVar.b = jSONObject.optString("path");
-                    aVar.c = jSONObject.optString(PackageTable.MD5);
-                    return aVar;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qe0(re0 re0Var) {
-        super(re0Var.b, re0Var.g);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {re0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static boolean t(File file) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
-        File file2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            me0.c("DpNetworkUtils", "getNetWorkInfo()");
+            if (context == null) {
+                return null;
+            }
             try {
-                file2 = new File(file, "files.json");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (file2.exists()) {
-                FileInputStream fileInputStream = new FileInputStream(file2);
-                byte[] bArr = new byte[fileInputStream.available()];
-                fileInputStream.read(bArr);
-                String str = new String(bArr);
-                fileInputStream.close();
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray("files");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        arrayList.add(a.a(optJSONArray.getString(i)));
-                    }
-                    return u(file, arrayList);
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager != null) {
+                    return connectivityManager.getActiveNetworkInfo();
                 }
-                return false;
+            } catch (Exception unused) {
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    public static boolean u(File file, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
-        File file2;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() <= 0) {
-                return false;
-            }
-            try {
-                Iterator<a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    a next = it.next();
-                    String str = next.b;
-                    if (TextUtils.isEmpty(str)) {
-                        file2 = new File(file, next.a);
-                    } else {
-                        file2 = new File(file, str + File.separator + next.a);
-                    }
-                    if (!file2.exists()) {
-                        return false;
-                    }
-                    String a2 = te0.a(file2.getAbsolutePath());
-                    boolean equals = TextUtils.equals(a2, next.c);
-                    if (!equals) {
-                        xe0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
-                        return false;
-                    }
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            me0.c("DpNetworkUtils", "shouldCheckPermission()");
+            return Build.VERSION.SDK_INT >= 23;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            me0.c("DpNetworkUtils", "checkPermissionGranted()");
+            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xe0
-    public boolean i(File file) {
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean d(Context context) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? t(file) : invokeL.booleanValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
+            return invokeL.booleanValue;
+        }
+        me0.c("DpNetworkUtils", "checkPhonePermission()");
+        boolean z2 = true;
+        if (!b()) {
+            return true;
+        }
+        if (context == null) {
+            return false;
+        }
+        try {
+            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, com.kuaishou.weapon.p0.h.c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+                z = false;
+                if (Build.VERSION.SDK_INT < 16) {
+                    if (!z) {
+                        if (!c(context, "android.permission.READ_CALL_LOG")) {
+                            z2 = false;
+                        }
+                    }
+                    return z2;
+                }
+                return z;
+            }
+            z = true;
+            if (Build.VERSION.SDK_INT < 16) {
+            }
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        int i;
+        TelephonyManager telephonyManager;
+        String subscriberId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            me0.c("DpNetworkUtils", "getNetworkStatisticsData()");
+            NetworkInfo a = a(context);
+            int i2 = 3;
+            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
+                i = 0;
+            } else if (a.getType() == 0) {
+                switch (a.getSubtype()) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        i = 2;
+                        break;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        i = 3;
+                        break;
+                    case 13:
+                        i = 4;
+                        break;
+                    default:
+                        i = 1;
+                        break;
+                }
+            } else {
+                i = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
+            }
+            int i3 = 99;
+            try {
+                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager)) == null) {
+                    i2 = 0;
+                } else {
+                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
+                        if (!subscriberId.startsWith("46001")) {
+                            i2 = subscriberId.startsWith("46003") ? 2 : 99;
+                        }
+                    }
+                    i2 = 1;
+                }
+                i3 = i2;
+            } catch (Throwable th) {
+                me0.e("DpNetworkUtils", "network changed: " + th);
+            }
+            return i + "_" + i3;
+        }
+        return (String) invokeL.objValue;
     }
 }

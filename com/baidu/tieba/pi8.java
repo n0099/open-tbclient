@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class pi8 {
+public class pi8 implements ILokiIdentityNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public pi8() {
         Interceptable interceptable = $ic;
@@ -29,20 +29,10 @@ public class pi8 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
+    public String getAppName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
-                return;
-            }
-            try {
-                this.a = jSONObject.optString("banner_pic");
-                this.b = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
-                BdLog.e(e.getMessage());
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
     }
 }

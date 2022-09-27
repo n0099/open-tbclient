@@ -1,14 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Serializable;
 /* loaded from: classes4.dex */
-public interface lu6 {
-    qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public final class lu6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    qn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+    public static final long d(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) ? bundle.getLong("extra_fid") : invokeL.longValue;
+    }
 
-    qn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+    public static final String e(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) ? bundle.getString("extra_forum_name") : (String) invokeL.objValue;
+    }
 
-    qn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str);
+    public static final Frs$From f(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
+            Serializable serializable = bundle.getSerializable("extra_from");
+            if (serializable != null) {
+                return (Frs$From) serializable;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
+        }
+        return (Frs$From) invokeL.objValue;
+    }
 }

@@ -12,15 +12,15 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.bs7;
+import com.baidu.tieba.es7;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.lr7;
+import com.baidu.tieba.hr7;
+import com.baidu.tieba.is7;
+import com.baidu.tieba.kr7;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel;
-import com.baidu.tieba.nr7;
-import com.baidu.tieba.qr7;
-import com.baidu.tieba.tq7;
-import com.baidu.tieba.ur7;
-import com.baidu.tieba.wq7;
+import com.baidu.tieba.zr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<List<EmotionPackageData>, Integer>> {
+public class MyEmotionManagerFragment extends BaseFragment implements es7<Pair<List<EmotionPackageData>, Integer>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ur7 a;
+    public is7 a;
     public MyEmotionManagerModel b;
-    public nr7 c;
+    public bs7 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0349a implements Runnable {
+        public class RunnableC0347a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0349a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0347a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
                     String valueOf = String.valueOf(this.a.getData());
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(valueOf);
-                    if (!wq7.i().c(arrayList, true) || !BdNetTypeUtil.isNetWorkAvailable()) {
+                    if (!kr7.i().c(arrayList, true) || !BdNetTypeUtil.isNetWorkAvailable()) {
                         if (this.b.a.b != null) {
                             this.b.a.b.L();
                         }
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                tq7.b().a(new RunnableC0349a(this, customResponsedMessage));
+                hr7.b().a(new RunnableC0347a(this, customResponsedMessage));
             }
         }
     }
@@ -298,14 +298,14 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
         this.f = new c(this, 2921310);
     }
 
-    @Override // com.baidu.tieba.qr7
+    @Override // com.baidu.tieba.es7
     public void K0() {
-        ur7 ur7Var;
+        is7 is7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ur7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (is7Var = this.a) == null) {
             return;
         }
-        ur7Var.h();
+        is7Var.h();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -313,9 +313,9 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            ur7 ur7Var = this.a;
-            if (ur7Var != null) {
-                ur7Var.f(i);
+            is7 is7Var = this.a;
+            if (is7Var != null) {
+                is7Var.f(i);
             }
         }
     }
@@ -325,11 +325,11 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            lr7.b().c();
+            zr7.b().c();
             registerListener(this.e);
             registerListener(this.f);
             registerListener(this.d);
-            this.a = new ur7(getPageContext());
+            this.a = new is7(getPageContext());
             MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
             this.b = myEmotionManagerModel;
             myEmotionManagerModel.R(this);
@@ -359,7 +359,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
         }
     }
 
-    @Override // com.baidu.tieba.qr7
+    @Override // com.baidu.tieba.es7
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -384,16 +384,16 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
     }
 
     public void u1(boolean z) {
-        nr7 nr7Var;
+        bs7 bs7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (nr7Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (bs7Var = this.c) == null) {
             return;
         }
-        nr7Var.onUpdate(Boolean.valueOf(z));
+        bs7Var.onUpdate(Boolean.valueOf(z));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qr7
+    @Override // com.baidu.tieba.es7
     /* renamed from: v1 */
     public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         Interceptable interceptable = $ic;
@@ -402,11 +402,11 @@ public class MyEmotionManagerFragment extends BaseFragment implements qr7<Pair<L
         }
     }
 
-    public void w1(nr7 nr7Var) {
+    public void w1(bs7 bs7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, nr7Var) == null) || nr7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, bs7Var) == null) || bs7Var == null) {
             return;
         }
-        this.c = nr7Var;
+        this.c = bs7Var;
     }
 }

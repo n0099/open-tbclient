@@ -1,89 +1,134 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatusbarColorUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes5.dex */
 public class sh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Activity a;
-    @Nullable
-    public Boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948151433, "Lcom/baidu/tieba/sh5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948151433, "Lcom/baidu/tieba/sh5;");
+    public static void a(Object obj, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
         }
     }
 
-    public sh5(@NonNull Activity activity) {
+    public static void b(Object obj, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
+        }
+    }
+
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || obj == null) {
+            return;
+        }
+        try {
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
             }
-        }
-        this.a = activity;
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.b = Boolean.valueOf(z);
-            StatusbarColorUtils.setStatusBarDarkIcon(this.a, z);
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || c) {
-            return;
-        }
-        if (z) {
-            Boolean bool = this.b;
-            if (bool != null) {
-                a(bool.booleanValue());
-                return;
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
             }
-            return;
-        }
-        StatusbarColorUtils.setStatusBarDarkIcon(this.a, !UtilHelper.isNightOrDarkMode());
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            c = z;
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = "sw";
+            }
+            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.model = gj.g();
+            builder._os_version = gj.k();
+            builder.brand = Build.BRAND;
+            builder.user_agent = si5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = la5.b();
+                    if (!StringUtils.isNull(la5.e())) {
+                        builder.stoken = la5.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = nq4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
+                }
+            }
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = la5.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+            }
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+            }
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (ox4.k().l("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
+            }
+            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
+            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
+            builder.q_type = Integer.valueOf(hq4.c().e());
+            builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(ej.h(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
+            }
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(wv4.f);
+            builder.start_scheme = wv4.e();
+            builder.extra = ox4.k().q("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
+            field.set(obj, builder.build(false));
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
+            }
         }
     }
 }

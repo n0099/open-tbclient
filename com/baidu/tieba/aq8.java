@@ -1,78 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class aq8 {
+public class aq8 extends zp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public PollingModel b;
-    public final Runnable c;
+    public final WeakReference<View> b;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aq8 a;
-
-        public a(aq8 aq8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aq8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.Q(PollingModel.POLLING_TYPE_LOOP);
-            gh.a().postDelayed(this.a.c, 300000L);
-        }
-    }
-
-    public aq8(MainTabActivity mainTabActivity) {
+    public aq8(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = mainTabActivity;
-        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+        this.b = new WeakReference<>(view2);
+        this.a = i;
     }
 
+    @Override // com.baidu.tieba.zp8
     public void b() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gh.a().removeCallbacks(this.c);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.b.get()) == null) {
+            return;
         }
+        view2.setVisibility(0);
+    }
+
+    @Override // com.baidu.tieba.zp8
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            tp8.a = Math.max(tp8.a, this.a + 1);
+        }
+    }
+
+    @Override // com.baidu.tieba.zp8
+    public void d() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view2 = this.b.get()) == null) {
+            return;
+        }
+        view2.setVisibility(8);
     }
 }

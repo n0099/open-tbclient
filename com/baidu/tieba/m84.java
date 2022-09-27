@@ -1,169 +1,131 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.constraintlayout.motion.widget.Key;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.py2;
+import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class m84 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public boolean d;
-    public b e;
 
     /* loaded from: classes5.dex */
-    public class a extends AnimatorListenerAdapter {
+    public static class a implements ei3<o83<q83.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ m84 c;
+        public final /* synthetic */ c a;
 
-        public a(m84 m84Var, boolean z, int i) {
+        public a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m84Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = m84Var;
-            this.a = z;
-            this.b = i;
+            this.a = cVar;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(o83<q83.e> o83Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                animator.removeAllListeners();
-                if (!this.a) {
-                    this.c.c(this.b);
-                }
-                if (this.c.e != null) {
-                    this.c.e.a(this.a);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
+                if (j83.h(o83Var)) {
+                    m84.c(this.a);
+                } else {
+                    this.a.onFail();
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
+    public static class b implements py2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
 
-        void b(boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926528, "Lcom/baidu/tieba/m84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947926528, "Lcom/baidu/tieba/m84;");
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.py2.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+                if (i != 0) {
+                    this.a.onFail();
+                    return;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        this.a.onFail();
+                        return;
+                    }
+                }
+                this.a.onSuccess();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    public static void b(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
+            if (!(context instanceof Activity)) {
+                cVar.onFail();
                 return;
             }
-        }
-        f = pg3.g(58.0f);
-    }
-
-    public m84(View view2, FrameLayout frameLayout, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, frameLayout, view3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            l33 M = l33.M();
+            if (M != null) {
+                M.e0().g((Activity) context, "mapp_location", new a(cVar));
             }
         }
-        this.a = view2;
-        this.b = frameLayout;
-        this.c = view3;
     }
 
-    public final void c(int i) {
+    public static void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.height = this.a.getHeight() - (i * 2);
-            this.a.setLayoutParams(layoutParams);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.b(z);
-            }
-            this.d = z;
-            int i = f;
-            if (z) {
-                i = -i;
-            }
-            float[] fArr = new float[2];
-            if (z) {
-                fArr[0] = 0.0f;
-                fArr[1] = i;
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            l33 b0 = l33.b0();
+            if (fh3.M() && b0 != null) {
+                cVar.onSuccess();
             } else {
-                fArr[0] = -i;
-                fArr[1] = 0.0f;
-            }
-            float[] fArr2 = new float[2];
-            if (z) {
-                fArr2[0] = 0.0f;
-                fArr2[1] = i * 2;
-            } else {
-                fArr2[0] = (-i) * 2;
-                fArr2[1] = 0.0f;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
-            animatorSet.setDuration(200L);
-            animatorSet.start();
-            animatorSet.addListener(new a(this, z, i));
-            if (z) {
-                c(i);
+                b0.w().y(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
             }
         }
     }

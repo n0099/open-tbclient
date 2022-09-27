@@ -1,29 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.security.cert.CertificateException;
-import javax.security.cert.X509Certificate;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class zp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetWork a;
+    public NewErrorData b;
 
     public zp4() {
         Interceptable interceptable = $ic;
@@ -35,54 +25,73 @@ public class zp4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.b = null;
+        this.a = new NetWork();
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.a.addPostData(str, str2);
         }
     }
 
-    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        int length;
+    public void b() {
+        NetWork netWork;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
-            JSONArray jSONArray = new JSONArray();
-            byte[] bytes = str2.getBytes("UTF-8");
-            if (bytes.length % 116 == 0) {
-                length = bytes.length / 116;
-            } else {
-                length = (bytes.length / 116) + 1;
-            }
-            for (int i = 0; i < length; i++) {
-                if (1 == length) {
-                    jSONArray.put(wi.j(b(publicKey, bytes)));
-                } else if (i != length - 1) {
-                    byte[] bArr = new byte[116];
-                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                    jSONArray.put(wi.j(b(publicKey, bArr)));
-                } else {
-                    int i2 = i * 116;
-                    int length2 = bytes.length - i2;
-                    byte[] bArr2 = new byte[length2];
-                    System.arraycopy(bytes, i2, bArr2, 0, length2);
-                    jSONArray.put(wi.j(b(publicKey, bArr2)));
-                }
-            }
-            return wi.j(jSONArray.toString().getBytes("UTF-8"));
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (netWork = this.a) == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        netWork.cancelNetConnect();
     }
 
-    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, key);
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getErrorString();
+            }
+            return null;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String postNetData = this.a.postNetData();
+            NewErrorData newErrorData = new NewErrorData();
+            this.b = newErrorData;
+            newErrorData.parserJson(postNetData);
+            return postNetData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getResponse().isRequestSuccess();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setUrl(str);
+        }
     }
 }

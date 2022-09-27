@@ -1,199 +1,28 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.g21;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class az0 {
+public final class az0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632338, "Lcom/baidu/tieba/az0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947632338, "Lcom/baidu/tieba/az0;");
-                return;
-            }
-        }
-        a = mq0.f();
-        b = -1;
-        c = p31.a(15.0f);
-    }
-
-    public static int a(Context context) {
+    public static final String a(String[] array) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String c2 = t21.c();
-            if (TextUtils.equals(c2, "EMUI") && b(context)) {
-                return 1;
-            }
-            if (TextUtils.equals(c2, "MIUI") && e(context)) {
-                return 1;
-            }
-            if (TextUtils.equals(c2, "OPPO") && c(context)) {
-                return 1;
-            }
-            return ((TextUtils.equals(c2, "VIVO") && d(context)) || "ONEPLUS A6000".equals(Build.MODEL)) ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean b(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism") : invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
-                return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i = 0; i < 6; i++) {
-                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
+            Intrinsics.checkNotNullParameter(array, "array");
+            int length = array.length;
+            for (int i = 0; i < length; i++) {
+                String str = array[i];
+                if (!(str == null || str.length() == 0)) {
+                    return str;
                 }
             }
-            return false;
+            return "";
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (a) {
-                jj0.e("VideoNotchUtils", "isNotch start");
-            }
-            if (b == -1) {
-                if (Build.VERSION.SDK_INT < 24) {
-                    b = 0;
-                } else if (b == -1) {
-                    b = a(context);
-                    jj0.e("VideoNotchUtils", "isNotch from getNotchState");
-                }
-            }
-            if (a) {
-                jj0.e("VideoNotchUtils", "isNotch end");
-            }
-            return b == 1;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(@NonNull hw0 hw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, hw0Var) == null) && hw0Var.getContentView() != null && (hw0Var.getContentView() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) hw0Var.getContentView();
-            viewGroup.setPadding(0, 0, 0, 0);
-            viewGroup.setLayoutParams(viewGroup.getLayoutParams());
-        }
-    }
-
-    public static void i(@NonNull hw0 hw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, hw0Var) == null) && g(mi0.b())) {
-            h(hw0Var);
-        }
-    }
-
-    public static void j(@NonNull hw0 hw0Var, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65546, null, hw0Var, i, i2) == null) {
-            int max = Math.max(i, c);
-            int max2 = Math.max(i2, c);
-            if (hw0Var.getContentView() == null || !(hw0Var.getContentView() instanceof ViewGroup)) {
-                return;
-            }
-            ViewGroup viewGroup = (ViewGroup) hw0Var.getContentView();
-            viewGroup.setPadding(max, 0, max2, 0);
-            viewGroup.setLayoutParams(viewGroup.getLayoutParams());
-        }
-    }
-
-    public static void k(@NonNull hw0 hw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, hw0Var) == null) && g(mi0.b())) {
-            j(hw0Var, g21.c.g(), g21.c.g());
-        }
+        return (String) invokeL.objValue;
     }
 }

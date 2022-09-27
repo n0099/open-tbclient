@@ -1,46 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class im6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BarImageView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public EntelechyUserLikeButton f;
-    public View g;
+public interface im6 {
+    void a(km6 km6Var);
 
-    public im6(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b13);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b16);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b14);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b15);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090b11);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b12);
-    }
+    void b(List<mm6> list);
+
+    void c(boolean z, String str);
+
+    void d(lm6 lm6Var);
+
+    void e(String str);
+
+    void f();
+
+    void finish();
 }

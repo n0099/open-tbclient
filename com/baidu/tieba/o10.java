@@ -47,7 +47,7 @@ public class o10 {
     public static p10 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? sh8.a() : (p10) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? hi8.a() : (p10) invokeV.objValue;
     }
 
     @Inject(force = false)

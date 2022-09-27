@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.eg;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.hg;
 import com.baidu.tieba.ig;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -334,7 +334,7 @@ public class WebClient implements xg.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (bx4.k().l("image_no_cache_switch", 0) == 1) {
+            if (ox4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;

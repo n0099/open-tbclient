@@ -1,191 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.d83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.URI;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes5.dex */
-public class t43 extends v43 {
+public class t43 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements rh3<b83<d83.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ File d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ t43 f;
-
-        /* renamed from: com.baidu.tieba.t43$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0417a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0417a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.a;
-                    aVar.f.p(aVar.c, aVar.d, aVar.e, aVar.a, aVar.b);
-                }
-            }
-        }
-
-        public a(t43 t43Var, CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t43Var, callbackHandler, str, context, file, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = t43Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = file;
-            this.e = unitedSchemeEntity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(b83<d83.e> b83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
-                if (!w73.h(b83Var)) {
-                    yz1.i("SaveImage", "Permission denied");
-                    w73.q(b83Var, this.a, this.b);
-                    return;
-                }
-                sf3.k(new RunnableC0417a(this), "SaveImageAction");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements by2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ t43 f;
-
-        public b(t43 t43Var, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t43Var, context, file, callbackHandler, str, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = t43Var;
-            this.a = context;
-            this.b = file;
-            this.c = callbackHandler;
-            this.d = str;
-            this.e = unitedSchemeEntity;
-        }
-
-        @Override // com.baidu.tieba.by2
-        public void a(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                boolean q = ff3.a() ? this.f.q(this.a, this.b) : this.f.r(this.a, this.b);
-                int i = q ? 0 : 1001;
-                if (q) {
-                    str2 = "save success";
-                } else {
-                    str2 = "can not save to album : " + this.b;
-                }
-                yz1.i("SaveImage", str2);
-                this.c.handleSchemeDispatchCallback(this.d, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString());
-            }
-        }
-
-        @Override // com.baidu.tieba.by2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                yz1.i("SaveImage", str + "");
-                UnitedSchemeUtility.safeCallback(this.c, this.e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.d);
-            }
-        }
-    }
+    public rp1 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t43(v33 v33Var) {
-        super(v33Var, "/swanAPI/saveImageToPhotosAlbum");
+    public t43(i43 i43Var) {
+        super(i43Var, "/swanAPI/getSlaveIdSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -199,186 +42,38 @@ public class t43 extends v43 {
         }
     }
 
-    public static String o(Uri uri, Context context) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri, context)) == null) {
-            Cursor cursor2 = null;
-            r7 = null;
-            r7 = null;
-            String str = null;
-            try {
-                cursor = context.getContentResolver().query(uri, new String[]{"_data"}, null, null, null);
-                if (cursor != null) {
-                    try {
-                        try {
-                            int columnIndexOrThrow = cursor.getColumnIndexOrThrow("_data");
-                            cursor.moveToFirst();
-                            str = cursor.getString(columnIndexOrThrow);
-                        } catch (SQLException e) {
-                            e = e;
-                            if (v43.b) {
-                                e.printStackTrace();
-                            }
-                            cj4.d(cursor);
-                            return str;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor2 = cursor;
-                        cj4.d(cursor2);
-                        throw th;
-                    }
-                }
-            } catch (SQLException e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                cj4.d(cursor2);
-                throw th;
-            }
-            cj4.d(cursor);
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (y23Var == null) {
-                yz1.c("SaveImage", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (i53.b) {
+                Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (this.c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            JSONObject a2 = v43.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                yz1.c("SaveImage", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
-                return false;
-            }
-            String optString = a2.optString("filePath");
             try {
-                File n = n(y23Var, optString, URI.create(optString));
-                if (n != null && n.exists() && n.isFile()) {
-                    String optString2 = a2.optString("cb");
-                    if (TextUtils.isEmpty(optString2)) {
-                        yz1.c("SaveImage", "empty cb");
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                        return false;
-                    }
-                    y23Var.e0().g(context, "mapp_images", new a(this, callbackHandler, optString2, context, n, unitedSchemeEntity));
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("slaveId", this.c.a());
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                return true;
+            } catch (JSONException e) {
+                if (i53.b) {
+                    Log.d("GetSlaveIdSyncAction", Log.getStackTraceString(e));
                 }
-                yz1.c("SaveImage", "can not find such file");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + n);
-                return false;
-            } catch (Exception e) {
-                if (v43.b) {
-                    e.printStackTrace();
-                }
-                yz1.c("SaveImage", "Illegal file_path");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final String m(File file) {
-        InterceptResult invokeL;
+    public void j(rp1 rp1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-            String t = cj4.t(file.getPath());
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            if (TextUtils.isEmpty(t)) {
-                return valueOf;
-            }
-            return valueOf + "." + t;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rp1Var) == null) {
+            this.c = rp1Var;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final File n(y23 y23Var, String str, URI uri) {
-        InterceptResult invokeLLL;
-        String e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, y23Var, str, uri)) == null) {
-            bb3 G = lo2.U().G();
-            if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-                e = G.i(str);
-            } else if (xy2.B(y23Var.Y())) {
-                e = G.m(str);
-            } else {
-                e = G.e(str);
-            }
-            if (TextUtils.isEmpty(e)) {
-                return null;
-            }
-            return new File(e);
-        }
-        return (File) invokeLLL.objValue;
-    }
-
-    public final void p(@NonNull Context context, File file, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, file, unitedSchemeEntity, callbackHandler, str) == null) {
-            ay2.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new b(this, context, file, callbackHandler, str, unitedSchemeEntity));
-        }
-    }
-
-    public final boolean q(Context context, File file) {
-        String str;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, file)) == null) {
-            try {
-                str = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
-            } catch (FileNotFoundException e) {
-                if (v43.b) {
-                    e.printStackTrace();
-                }
-                str = null;
-            }
-            if (!TextUtils.isEmpty(str)) {
-                String o = o(Uri.parse(str), context);
-                if (!TextUtils.isEmpty(o)) {
-                    wf3.r(context, o);
-                }
-            }
-            if (v43.b) {
-                Log.i("SaveImageAction", "saveToAlbum : file = " + file);
-                Log.i("SaveImageAction", "saveToAlbum : image = " + str);
-            }
-            yz1.i("SaveImage", "save success");
-            return !TextUtils.isEmpty(str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean r(Context context, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, file)) == null) {
-            Bitmap decodeFile = BitmapFactory.decodeFile(file.getPath());
-            if (decodeFile == null) {
-                return false;
-            }
-            decodeFile.recycle();
-            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            cj4.l(externalStoragePublicDirectory);
-            File file2 = new File(externalStoragePublicDirectory, m(file));
-            if (cj4.f(file, file2) != 0) {
-                wf3.r(context, file2.getAbsolutePath());
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

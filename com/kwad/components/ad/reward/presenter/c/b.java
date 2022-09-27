@@ -252,7 +252,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
             this.tp = ig();
             this.nM.a(this.mt);
             hVar.c(this.tp);
-            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0587a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0583a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b tq;
@@ -275,7 +275,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
                     this.tq = this;
                 }
 
-                @Override // com.kwad.components.core.webview.b.a.InterfaceC0587a
+                @Override // com.kwad.components.core.webview.b.a.InterfaceC0583a
                 public final void ii() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {

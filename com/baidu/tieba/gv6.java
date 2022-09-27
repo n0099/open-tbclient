@@ -1,103 +1,128 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StrikethroughSpan;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.wallet.CurrencyHelper;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gv6 {
+public class gv6 implements zu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SpannableString a(long j, int i, int i2) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
+    public gv6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
-            String str = "[icon]" + formatOverBaiwanNum;
-            SpannableString spannableString = new SpannableString(str);
-            if (TbadkApplication.getInst().getSkinType() == 1) {
-                moneyIcon.setAlpha(179);
-            } else {
-                moneyIcon.setAlpha(255);
-            }
-            int f = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, f, f);
-            ni5 ni5Var = new ni5(moneyIcon);
-            ni5Var.b(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            ni5Var.c(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            UtilHelper.setSpan(spannableString, str, "[icon]", ni5Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            return spannableString;
         }
-        return (SpannableString) invokeCommon.objValue;
     }
 
-    public static SpannableString b(long j, boolean z, int i) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
-        String str;
+    @Override // com.baidu.tieba.zu6
+    public qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.F) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(cv6.e().d("pb_banner"));
+                funAdNativeNewAdapter.setPageType("pb");
+                funAdNativeNewAdapter.setSceneKey("pb_banner");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter2.setSid(wu6.f());
+                funAdNativeNewAdapter2.setPageType("pb");
+                return funAdNativeNewAdapter2;
+            } else if (bdUniqueId == AdvertAppInfo.G) {
+                return new hv6(baseFragmentActivity, bdUniqueId);
             } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
+                return null;
             }
-            if (z) {
-                str = "=[icon]" + formatOverBaiwanNum;
-            } else {
-                str = "[icon]" + formatOverBaiwanNum;
-            }
-            SpannableString spannableString = new SpannableString(str);
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
-            int f = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, f, f);
-            ni5 ni5Var = new ni5(moneyIcon);
-            ni5Var.b(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            ni5Var.c(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            UtilHelper.setSpan(spannableString, str, "[icon]", ni5Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (z) {
-                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            }
-            return spannableString;
         }
-        return (SpannableString) invokeCommon.objValue;
+        return (qn) invokeLL.objValue;
     }
 
-    public static SpannableString c(String str, String str2, String str3) {
+    @Override // com.baidu.tieba.zu6
+    public qn<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(wu6.g());
+                funAdNativeNewAdapter.setPageType("personalize");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.G) {
+                return new hv6(baseFragmentActivity, bdUniqueId);
+            } else {
+                return null;
+            }
+        }
+        return (qn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zu6
+    public qn<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(cv6.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.G) {
+                return new hv6(baseFragmentActivity, bdUniqueId);
+            } else {
+                return null;
+            }
+        }
+        return (qn) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zu6
+    public qn<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (StringUtils.isNull(str)) {
-                return new SpannableString("");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
             }
-            SpannableString spannableString = new SpannableString(str);
-            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
-            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (!StringUtils.isNull(str3)) {
-                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(cv6.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setPageTab(str);
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.G) {
+                return new hv6(baseFragmentActivity, bdUniqueId);
+            } else {
+                return null;
             }
-            return spannableString;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (qn) invokeLLL.objValue;
     }
 }

@@ -1,40 +1,36 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Rect;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.DisplayCutout;
-import android.view.View;
-import android.view.WindowInsets;
-import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
+import com.bumptech.glide.load.resource.bitmap.Downsampler;
+import com.fun.ad.sdk.FunAdSdk;
+import com.google.android.exoplayer2.util.ColorParser;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public class hg3 {
+public final class hg3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final String b;
-    public static final String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
+    public static final Pattern b;
+    public static HashMap<String, Integer> c;
+    public static HashMap<String, Integer> d;
+    public static HashMap<String, String> e;
+    public static HashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,379 +46,396 @@ public class hg3 {
                 return;
             }
         }
-        a = ij1.a;
-        b = gh3.b;
-        c = gh3.c;
-        d = false;
+        a = vj1.a;
+        b = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+        c = new HashMap<>();
+        d = new HashMap<>();
+        e = new HashMap<>();
+        f = new HashMap<>();
+        a("application/andrew-inset", "ez", 5);
+        a("application/dsptype", "tsp", 5);
+        a("application/futuresplash", "spl", 5);
+        a("application/hta", "hta", 5);
+        a("application/mac-binhex40", "hqx", 5);
+        a("application/mac-compactpro", "cpt", 5);
+        a("application/mathematica", BaseContentUploader.NB, 5);
+        a("application/msaccess", "mdb", 5);
+        a("application/oda", "oda", 5);
+        a("application/ogg", "ogg", 1);
+        a(DocumentOpenUtil.PDF_TYPE, DocumentOpenUtil.PDF, 4);
+        a("application/pgp-keys", "key", 5);
+        a("application/pgp-signature", "pgp", 5);
+        a("application/pics-rules", "prf", 5);
+        a("application/rar", "rar", 8);
+        a("application/rdf+xml", "rdf", 5);
+        a("application/rss+xml", "rss", 5);
+        a("application/zip", StatConstants.VALUE_TYPE_ZIP, 8);
+        a("application/vnd.android.package-archive", "apk", 3);
+        a("application/vnd.cinderella", "cdy", 5);
+        a("application/vnd.ms-pki.stl", "stl", 5);
+        a("application/vnd.oasis.opendocument.database", "odb", 5);
+        a("application/vnd.oasis.opendocument.formula", "odf", 5);
+        a("application/vnd.oasis.opendocument.graphics", "odg", 5);
+        a("application/vnd.oasis.opendocument.graphics-template", "otg", 5);
+        a("application/vnd.oasis.opendocument.image", "odi", 5);
+        a("application/vnd.oasis.opendocument.spreadsheet", "ods", 5);
+        a("application/vnd.oasis.opendocument.spreadsheet-template", "ots", 5);
+        a("application/vnd.oasis.opendocument.text", "odt", 5);
+        a("application/vnd.oasis.opendocument.text-master", "odm", 5);
+        a("application/vnd.oasis.opendocument.text-template", "ott", 5);
+        a("application/vnd.oasis.opendocument.text-web", "oth", 5);
+        a("application/vnd.google-earth.kml+xml", "kml", 5);
+        a("application/vnd.google-earth.kmz", "kmz", 5);
+        a(DocumentOpenUtil.WORD_TYPE, DocumentOpenUtil.DOC, 4);
+        a(DocumentOpenUtil.WORD_TYPE, "dot", 4);
+        a(DocumentOpenUtil.DOCUMENT_TYPE, DocumentOpenUtil.DOCX, 4);
+        a("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx", 4);
+        a(DocumentOpenUtil.EXCEL_TYPE, DocumentOpenUtil.XLS, 4);
+        a(DocumentOpenUtil.EXCEL_TYPE, "xlt", 4);
+        a(DocumentOpenUtil.SHEET_TYPE, DocumentOpenUtil.XLSX, 4);
+        a("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx", 4);
+        a(DocumentOpenUtil.PPT_TYPE, DocumentOpenUtil.PPT, 4);
+        a(DocumentOpenUtil.PPT_TYPE, "pot", 4);
+        a(DocumentOpenUtil.PPT_TYPE, "pps", 4);
+        a(DocumentOpenUtil.PRESENT_TYPE, DocumentOpenUtil.PPTX, 4);
+        a("application/vnd.openxmlformats-officedocument.presentationml.template", "potx", 4);
+        a("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
+        a("application/vnd.rim.cod", "cod", 5);
+        a("application/vnd.smaf", "mmf", 5);
+        a("application/vnd.stardivision.calc", "sdc", 5);
+        a("application/vnd.stardivision.draw", "sda", 5);
+        a("application/vnd.stardivision.impress", "sdd", 5);
+        a("application/vnd.stardivision.impress", "sdp", 5);
+        a("application/vnd.stardivision.math", "smf", 5);
+        a("application/vnd.stardivision.writer", "sdw", 5);
+        a("application/vnd.stardivision.writer", "vor", 5);
+        a("application/vnd.stardivision.writer-global", "sgl", 5);
+        a("application/vnd.sun.xml.calc", "sxc", 5);
+        a("application/vnd.sun.xml.calc.template", "stc", 5);
+        a("application/vnd.sun.xml.draw", "sxd", 5);
+        a("application/vnd.sun.xml.draw.template", "std", 5);
+        a("application/vnd.sun.xml.impress", "sxi", 5);
+        a("application/vnd.sun.xml.impress.template", "sti", 5);
+        a("application/vnd.sun.xml.math", "sxm", 5);
+        a("application/vnd.sun.xml.writer", "sxw", 5);
+        a("application/vnd.sun.xml.writer.global", "sxg", 5);
+        a("application/vnd.sun.xml.writer.template", "stw", 5);
+        a("application/vnd.visio", "vsd", 5);
+        a("application/x-abiword", "abw", 5);
+        a("application/x-apple-diskimage", "dmg", 5);
+        a("application/x-bcpio", "bcpio", 5);
+        a("application/x-bittorrent", "torrent", 5);
+        a("application/x-cdf", "cdf", 5);
+        a("application/x-cdlink", "vcd", 5);
+        a("application/x-chess-pgn", "pgn", 5);
+        a("application/x-cpio", "cpio", 5);
+        a("application/x-debian-package", "deb", 5);
+        a("application/x-debian-package", "udeb", 5);
+        a("application/x-director", "dcr", 5);
+        a("application/x-director", "dir", 5);
+        a("application/x-director", "dxr", 5);
+        a("application/x-dms", "dms", 5);
+        a("application/x-doom", "wad", 5);
+        a("application/x-dvi", "dvi", 5);
+        a("application/x-flac", "flac", 1);
+        a("application/x-font", "pfa", 5);
+        a("application/x-font", "pfb", 5);
+        a("application/x-font", "gsf", 5);
+        a("application/x-font", "pcf", 5);
+        a("application/x-font", "pcf.Z", 5);
+        a("application/x-freemind", FunAdSdk.PLATFORM_MM, 5);
+        a("application/x-futuresplash", "spl", 5);
+        a("application/x-gnumeric", "gnumeric", 5);
+        a("application/x-go-sgf", "sgf", 5);
+        a("application/x-graphing-calculator", "gcf", 5);
+        a("application/x-gtar", "gtar", 5);
+        a("application/x-gtar", "tgz", 5);
+        a("application/x-gtar", "taz", 5);
+        a("application/x-hdf", "hdf", 5);
+        a("application/x-ica", "ica", 5);
+        a("application/x-internet-signup", "ins", 5);
+        a("application/x-internet-signup", "isp", 5);
+        a("application/x-iphone", "iii", 5);
+        a("application/x-iso9660-image", "iso", 5);
+        a("application/x-jmol", "jmz", 5);
+        a("application/x-kchart", "chrt", 5);
+        a("application/x-killustrator", "kil", 5);
+        a("application/x-koan", "skp", 5);
+        a("application/x-koan", "skd", 5);
+        a("application/x-koan", "skt", 5);
+        a("application/x-koan", "skm", 5);
+        a("application/x-kpresenter", "kpr", 5);
+        a("application/x-kpresenter", "kpt", 5);
+        a("application/x-kspread", "ksp", 5);
+        a("application/x-kword", "kwd", 5);
+        a("application/x-kword", "kwt", 5);
+        a("application/x-latex", "latex", 5);
+        a("application/x-lha", "lha", 5);
+        a("application/x-lzh", "lzh", 5);
+        a("application/x-lzx", "lzx", 5);
+        a("application/x-maker", "frm", 5);
+        a("application/x-maker", "maker", 5);
+        a("application/x-maker", "frame", 5);
+        a("application/x-maker", "fb", 5);
+        a("application/x-maker", "book", 5);
+        a("application/x-maker", "fbdoc", 5);
+        a("application/x-mif", "mif", 5);
+        a("application/x-ms-wmd", "wmd", 5);
+        a("application/x-ms-wmz", "wmz", 5);
+        a("application/x-msi", "msi", 5);
+        a("application/x-ns-proxy-autoconfig", "pac", 5);
+        a("application/x-nwc", "nwc", 5);
+        a("application/x-object", "o", 5);
+        a("application/x-oz-application", "oza", 5);
+        a("application/x-pkcs12", "p12", 5);
+        a("application/x-pkcs12", "pfx", 5);
+        a("application/x-pkcs7-certreqresp", "p7r", 5);
+        a("application/x-pkcs7-crl", "crl", 5);
+        a("application/x-quicktimeplayer", "qtl", 5);
+        a("application/x-shar", "shar", 5);
+        a("application/x-shockwave-flash", "swf", 5);
+        a("application/x-stuffit", "sit", 5);
+        a("application/x-sv4cpio", "sv4cpio", 5);
+        a("application/x-sv4crc", "sv4crc", 5);
+        a("application/x-tar", "tar", 8);
+        a("application/x-texinfo", "texinfo", 5);
+        a("application/x-texinfo", "texi", 5);
+        a("application/x-troff", "t", 5);
+        a("application/x-troff", "roff", 5);
+        a("application/x-troff-man", "man", 5);
+        a("application/x-ustar", "ustar", 5);
+        a("application/x-wais-source", "src", 5);
+        a("application/x-wingz", "wz", 5);
+        a("application/x-webarchive", "webarchive", 5);
+        a("application/x-webarchive-xml", "webarchivexml", 5);
+        a("application/x-x509-ca-cert", "crt", 5);
+        a("application/x-x509-user-cert", "crt", 5);
+        a("application/x-xcf", "xcf", 5);
+        a("application/x-xfig", "fig", 5);
+        a("application/xhtml+xml", "xhtml", 5);
+        a("application/font-sfnt", "ttf", 5);
+        a(MimeTypes.AUDIO_AMR_NB, "3gpp", 1);
+        a("audio/amr", "amr", 1);
+        a("audio/basic", "snd", 1);
+        a("audio/midi", "mid", 1);
+        a("audio/midi", "midi", 1);
+        a("audio/midi", "kar", 1);
+        a("audio/midi", "xmf", 1);
+        a("audio/mobile-xmf", "mxmf", 1);
+        a(MimeTypes.AUDIO_MPEG, "mp3", 1);
+        a(MimeTypes.AUDIO_MPEG, "mpga", 1);
+        a(MimeTypes.AUDIO_MPEG, "mpega", 1);
+        a(MimeTypes.AUDIO_MPEG, "mp2", 1);
+        a(MimeTypes.AUDIO_MPEG, "m4a", 1);
+        a("audio/mpegurl", "m3u", 1);
+        a("audio/prs.sid", "sid", 1);
+        a("audio/x-aiff", "aif", 1);
+        a("audio/x-aiff", "aiff", 1);
+        a("audio/x-aiff", "aifc", 1);
+        a("audio/x-gsm", "gsm", 1);
+        a("audio/x-mpegurl", "m3u", 1);
+        a("audio/x-ms-wma", "wma", 1);
+        a("audio/x-ms-wax", "wax", 1);
+        a("audio/x-pn-realaudio", "ra", 1);
+        a("audio/x-pn-realaudio", com.kuaishou.weapon.p0.u.B, 1);
+        a("audio/x-pn-realaudio", "ram", 1);
+        a("audio/x-realaudio", "ra", 1);
+        a("audio/x-scpls", "pls", 1);
+        a("audio/x-sd2", "sd2", 1);
+        a("audio/x-wav", "wav", 1);
+        a("image/bmp", "bmp", 2);
+        a("image/gif", NativeConstants.TYPE_GIF, 2);
+        a("image/ico", "cur", 5);
+        a("image/ico", "ico", 2);
+        a("image/ief", "ief", 5);
+        a("image/jpeg", "jpeg", 2);
+        a("image/jpeg", "jpg", 2);
+        a("image/jpeg", "jpe", 2);
+        a("image/pcx", "pcx", 5);
+        a("image/png", "png", 2);
+        a("image/svg+xml", "svg", 5);
+        a("image/svg+xml", "svgz", 5);
+        a("image/tiff", "tiff", 5);
+        a("image/tiff", "tif", 5);
+        a("image/vnd.djvu", "djvu", 5);
+        a("image/vnd.djvu", "djv", 5);
+        a(Downsampler.WBMP_MIME_TYPE, "wbmp", 2);
+        a("image/x-cmu-raster", "ras", 5);
+        a("image/x-coreldraw", "cdr", 5);
+        a("image/x-coreldrawpattern", "pat", 5);
+        a("image/x-coreldrawtemplate", "cdt", 5);
+        a("image/x-corelphotopaint", "cpt", 5);
+        a("image/x-icon", "ico", 2);
+        a("image/x-jg", "art", 5);
+        a("image/x-jng", "jng", 5);
+        a("image/x-ms-bmp", "bmp", 2);
+        a("image/x-photoshop", "psd", 5);
+        a("image/x-portable-anymap", "pnm", 5);
+        a("image/x-portable-bitmap", "pbm", 5);
+        a("image/x-portable-graymap", "pgm", 5);
+        a("image/x-portable-pixmap", "ppm", 5);
+        a("image/x-rgb", ColorParser.RGB, 5);
+        a("image/x-xbitmap", "xbm", 5);
+        a("image/x-xpixmap", "xpm", 5);
+        a("image/x-xwindowdump", "xwd", 5);
+        a("model/iges", "igs", 5);
+        a("model/iges", "iges", 5);
+        a("model/mesh", "msh", 5);
+        a("model/mesh", "mesh", 5);
+        a("model/mesh", "silo", 5);
+        a("text/calendar", "ics", 5);
+        a("text/calendar", "icz", 5);
+        a("text/comma-separated-values", "csv", 5);
+        a("text/css", "css", 5);
+        a(SapiWebView.DATA_MIME_TYPE, "htm", 11);
+        a(SapiWebView.DATA_MIME_TYPE, "html", 11);
+        a("text/h323", "323", 5);
+        a("text/iuls", "uls", 5);
+        a("text/mathml", "mml", 5);
+        a("text/plain-story", "txt", 6);
+        a("text/plain", "dat", 5);
+        a("text/plain", "txt", 4);
+        a("text/plain", "asc", 4);
+        a("text/plain", "text", 4);
+        a("text/plain", "diff", 4);
+        a("text/plain", "po", 4);
+        a("text/richtext", "rtx", 4);
+        a("text/rtf", "rtf", 4);
+        a("text/texmacs", "ts", 5);
+        a("text/text", "phps", 5);
+        a("text/tab-separated-values", "tsv", 5);
+        a("text/xml", "xml", 4);
+        a("text/x-bibtex", "bib", 5);
+        a("text/x-boo", "boo", 5);
+        a("text/x-c++hdr", "h++", 5);
+        a("text/x-c++hdr", "hpp", 5);
+        a("text/x-c++hdr", "hxx", 5);
+        a("text/x-c++hdr", "hh", 5);
+        a("text/x-c++src", "c++", 5);
+        a("text/x-c++src", "cpp", 5);
+        a("text/x-c++src", "cxx", 5);
+        a("text/x-chdr", "h", 5);
+        a("text/x-component", "htc", 5);
+        a("text/x-csh", "csh", 5);
+        a("text/x-csrc", "c", 5);
+        a("text/x-dsrc", "d", 5);
+        a("text/x-haskell", "hs", 5);
+        a("text/x-java", ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA, 5);
+        a("text/x-literate-haskell", "lhs", 5);
+        a("text/x-moc", "moc", 5);
+        a("text/x-pascal", "p", 5);
+        a("text/x-pascal", "pas", 5);
+        a("text/x-pcs-gcd", "gcd", 5);
+        a("text/x-setext", "etx", 5);
+        a("text/x-tcl", "tcl", 5);
+        a("text/x-tex", "tex", 5);
+        a("text/x-tex", "ltx", 5);
+        a("text/x-tex", "sty", 5);
+        a("text/x-tex", "cls", 5);
+        a("text/x-vcalendar", "vcs", 5);
+        a("text/x-vcard", "vcf", 5);
+        a("video/mkv", "mkv", 0);
+        a(MimeTypes.VIDEO_H263, "3gpp", 0);
+        a(MimeTypes.VIDEO_H263, "3gp", 0);
+        a(MimeTypes.VIDEO_H263, "3g2", 0);
+        a("video/dl", "dl", 0);
+        a("video/dv", "dif", 0);
+        a("video/dv", "dv", 0);
+        a("video/fli", "fli", 0);
+        a("video/m4v", "m4v", 0);
+        a("video/mpeg", "mpeg", 0);
+        a("video/mpeg", "mpg", 0);
+        a("video/mpeg", "mpe", 0);
+        a(MimeTypes.VIDEO_MP4, "mp4", 0);
+        a("video/mpeg", "vob", 0);
+        a("video/quicktime", "qt", 0);
+        a("video/quicktime", "mov", 0);
+        a("video/vnd.mpegurl", "mxu", 0);
+        a("video/x-la-asf", "lsf", 0);
+        a("video/x-la-asf", "lsx", 0);
+        a("video/x-mng", "mng", 0);
+        a("video/x-ms-asf", "asf", 0);
+        a("video/x-ms-asf", "asx", 0);
+        a("video/x-ms-wm", "wm", 0);
+        a("video/x-ms-wmv", "wmv", 0);
+        a("video/x-ms-wmx", "wmx", 0);
+        a("video/x-ms-wvx", "wvx", 0);
+        a("video/x-msvideo", "avi", 0);
+        a("video/x-sgi-movie", "movie", 0);
+        a("video/x-webex", "wrf", 0);
+        a("x-conference/x-cooltalk", "ice", 5);
+        a("x-epoc/x-sisx-app", "sisx", 5);
+        a("video/vnd.rn-realvideo", "rmvb", 0);
+        a("video/x-flv", BdVideoSeries.FORMAT_FLV, 0);
+        a("audio/aac", "aac", 1);
+        a("application/vnd.rn-realmedia", com.kuaishou.weapon.p0.u.B, 0);
+        a("message/rfc822", "mht", 11);
+        Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = e;
-            if (str2 != null) {
-                return str2.equals(str);
+        if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i) == null) {
+            c.put(str2, Integer.valueOf(i));
+            d.put(str, Integer.valueOf(i));
+            e.put(str2, str);
+            if (f.containsKey(str)) {
+                return;
             }
-            String g = g("ro.miui.ui.version.name");
-            f = g;
-            if (!TextUtils.isEmpty(g)) {
-                e = "MIUI";
-            } else {
-                String g2 = g("ro.build.version.emui");
-                f = g2;
-                if (!TextUtils.isEmpty(g2)) {
-                    e = "EMUI";
-                } else {
-                    String g3 = g(c);
-                    f = g3;
-                    if (!TextUtils.isEmpty(g3)) {
-                        e = b;
-                    } else {
-                        String g4 = g("ro.vivo.os.version");
-                        f = g4;
-                        if (!TextUtils.isEmpty(g4)) {
-                            e = "VIVO";
-                        } else {
-                            String g5 = g("ro.smartisan.version");
-                            f = g5;
-                            if (!TextUtils.isEmpty(g5)) {
-                                e = "SMARTISAN";
-                            } else {
-                                String g6 = g(RomUtils.KEY_VERSION_GIONEE);
-                                f = g6;
-                                if (!TextUtils.isEmpty(g6)) {
-                                    e = "SMARTISAN";
-                                } else {
-                                    String g7 = g(RomUtils.KEY_VERSION_NUBIA);
-                                    f = g7;
-                                    if (!TextUtils.isEmpty(g7)) {
-                                        e = RomUtils.ROM_NUBIA;
-                                    } else {
-                                        String str3 = Build.DISPLAY;
-                                        f = str3;
-                                        if (str3.toUpperCase().contains("FLYME")) {
-                                            e = "FLYME";
-                                        } else {
-                                            f = "unknown";
-                                            e = Build.MANUFACTURER.toUpperCase();
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return e.equals(str);
+            f.put(str, str2);
         }
-        return invokeL.booleanValue;
     }
 
-    public static int b(Activity activity) {
+    public static String b(String str) {
         InterceptResult invokeL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 == null || Build.VERSION.SDK_INT < 28) {
-                return 0;
-            }
-            List<Rect> boundingRects = c2.getBoundingRects();
-            return boundingRects.get(0).right - boundingRects.get(0).left;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) ? "" : str.substring(lastIndexOf + 1) : (String) invokeL.objValue;
     }
 
-    public static DisplayCutout c(Activity activity) {
+    @Nullable
+    public static String c(String str) {
         InterceptResult invokeL;
-        View decorView;
-        WindowInsets rootWindowInsets;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (activity == null || activity.getWindow() == null || Build.VERSION.SDK_INT < 28 || (decorView = activity.getWindow().getDecorView()) == null || (rootWindowInsets = decorView.getRootWindowInsets()) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
                 return null;
             }
-            return rootWindowInsets.getDisplayCutout();
+            return f.get(str);
         }
-        return (DisplayCutout) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d : invokeV.booleanValue;
-    }
-
-    public static int e(Context context) {
+    public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i < 26) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str == null || TextUtils.isEmpty(str)) {
+                return null;
             }
-            if (i >= 28) {
-                return f();
-            }
-            if (h(context)) {
-                if (n()) {
-                    Resources resources = context.getResources();
-                    try {
-                        int identifier = resources.getIdentifier("notch_height", EMABTest.TYPE_DIMEN, "android");
-                        if (identifier > 0) {
-                            return resources.getDimensionPixelSize(identifier);
-                        }
-                    } catch (Exception unused) {
-                        return 0;
-                    }
-                }
-                if (m()) {
-                    try {
-                        Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                        return ((int[]) loadClass.getMethod("getNotchSize", new Class[0]).invoke(loadClass, new Object[0]))[1];
-                    } catch (Exception unused2) {
-                        return 0;
-                    }
-                } else if (o()) {
-                    return 80;
-                } else {
-                    if (r()) {
-                        return pg3.g(32.0f);
-                    }
-                    return 0;
-                }
-            }
-            return 0;
+            return e.get(str);
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    @RequiresApi(28)
-    public static int f() {
-        InterceptResult invokeV;
-        DisplayCutout displayCutout;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i = 0;
-            if (y23.M() != null && y23.M().getActivity() != null) {
-                try {
-                    WindowInsets rootWindowInsets = y23.M().getActivity().getWindow().getDecorView().getRootWindowInsets();
-                    if (rootWindowInsets == null || (displayCutout = rootWindowInsets.getDisplayCutout()) == null) {
-                        return 0;
-                    }
-                    i = displayCutout.getSafeInsetTop();
-                    if (a) {
-                        Log.d("SwanAppRomUtils", "刘海屏高度:" + i);
-                    }
-                } catch (Exception e2) {
-                    if (a) {
-                        Log.w("SwanAppRomUtils", e2);
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static String g(String str) {
+    public static String e(String str) {
         InterceptResult invokeL;
-        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
-                try {
-                    String readLine = bufferedReader.readLine();
-                    cj4.d(bufferedReader);
-                    return readLine;
-                } catch (IOException e2) {
-                    e = e2;
-                    if (a) {
-                        Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
-                    }
-                    cj4.d(bufferedReader);
-                    cj4.d(bufferedReader);
+                Matcher matcher = b.matcher(str);
+                if (matcher.find()) {
+                    return matcher.group(1);
+                }
+                return null;
+            } catch (IllegalStateException e2) {
+                if (a) {
+                    e2.printStackTrace();
                     return null;
                 }
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader2 = bufferedReader;
-                cj4.d(bufferedReader2);
-                throw th;
-            }
-        } catch (IOException e3) {
-            e = e3;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cj4.d(bufferedReader2);
-            throw th;
-        }
-    }
-
-    public static boolean h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            if (m()) {
-                return i(context);
-            }
-            if (r()) {
-                return l(context);
-            }
-            if (o()) {
-                return k(context);
-            }
-            if (n()) {
-                return j(context);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                    return false;
-                }
-                return false;
+                return null;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean j(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
-                return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getPackageManager().hasSystemFeature(gh3.d) : invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean l(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                    return false;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a("EMUI") : invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a("MIUI") : invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? a(b) : invokeV.booleanValue;
-    }
-
-    public static boolean p(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, activity)) == null) ? c(activity) != null : invokeL.booleanValue;
-    }
-
-    public static boolean q(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, activity, view2)) == null) {
-            DisplayCutout c2 = c(activity);
-            if (c2 != null && Build.VERSION.SDK_INT >= 28) {
-                List<Rect> boundingRects = c2.getBoundingRects();
-                int i = boundingRects.get(0).left;
-                int i2 = boundingRects.get(0).right;
-                int i3 = boundingRects.get(0).top;
-                int i4 = boundingRects.get(0).bottom;
-                int[] iArr = new int[2];
-                view2.getLocationOnScreen(iArr);
-                int width = view2.getWidth();
-                int height = view2.getHeight();
-                int i5 = iArr[0];
-                int i6 = iArr[0] + width;
-                int i7 = iArr[1];
-                int i8 = iArr[1] + height;
-                if (((i8 <= i4 && i8 > i3) || (i7 < i4 && i7 >= i3)) && ((i6 > i && i6 <= i2) || ((i5 >= i && i6 <= i2) || ((i5 >= i && i5 < i2) || (i5 < i && i6 > i2))))) {
-                    d = true;
-                    return true;
-                } else if (((i5 >= i && i5 < i2) || (i6 > i && i6 <= i2)) && ((i8 > i3 && i8 <= i4) || ((i7 >= i3 && i8 <= i4) || ((i7 >= i3 && i7 < i4) || (i7 < i3 && i8 > i4))))) {
-                    d = true;
-                    return true;
-                } else if (i5 <= i && i6 >= i2 && i7 <= i3 && i8 >= i4) {
-                    d = true;
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? a("VIVO") : invokeV.booleanValue;
-    }
-
-    public static void s(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65555, null, activity) == null) || Build.VERSION.SDK_INT < 28) {
-            return;
-        }
-        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-        attributes.layoutInDisplayCutoutMode = 1;
-        activity.getWindow().setAttributes(attributes);
+        return (String) invokeL.objValue;
     }
 }

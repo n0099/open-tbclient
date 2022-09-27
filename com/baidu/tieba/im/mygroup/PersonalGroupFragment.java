@@ -30,16 +30,16 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ia7;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.mx4;
 import com.baidu.tieba.rb;
+import com.baidu.tieba.wa7;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,8 +53,8 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public mx4 b;
-    public ia7 c;
+    public zx4 b;
+    public wa7 c;
     public NoDataView d;
     public View e;
     public boolean f;
@@ -103,7 +103,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     }
 
     /* loaded from: classes4.dex */
-    public class b implements lx4.g {
+    public class b implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -126,7 +126,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.a = personalGroupFragment;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             PersonGroupActivity u1;
             Interceptable interceptable = $ic;
@@ -437,9 +437,9 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            ia7 ia7Var = this.c;
-            if (ia7Var != null) {
-                ia7Var.notifyDataSetChanged();
+            wa7 wa7Var = this.c;
+            if (wa7Var != null) {
+                wa7Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.d;
             if (noDataView != null) {
@@ -488,16 +488,16 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                 d2 = (u1 == null || !u1.Z0()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f0819), getString(R.string.obfuscated_res_0x7f0f081a));
             }
             this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070231)), d2, null);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09193e);
-            this.b = new mx4(getPageContext());
-            this.c = new ia7(this);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091940);
+            this.b = new zx4(getPageContext());
+            this.c = new wa7(this);
             this.b.f(new b(this));
             this.a.setPullRefresh(this.b);
             this.a.setAdapter((ListAdapter) this.c);
             this.a.setOnItemClickListener(this);
             this.d.setVisibility(8);
             this.a.removeHeaderView(this.d);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cfc);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cfb);
             if (u1() != null && this.g == u1().W0()) {
                 this.a.F();
             }

@@ -1,82 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.util.io.AssetUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class jf3 {
+public class jf3 implements ei3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public jf3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                cj4.d(context.getAssets().open(str, 0));
-                return true;
-            } catch (IOException unused) {
-                cj4.d(null);
-                return false;
-            } catch (Throwable th) {
-                cj4.d(null);
-                throw th;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ei3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            InputStream inputStream2 = null;
-            r0 = null;
-            String str2 = null;
-            try {
-                inputStream = context.getAssets().open(str);
-            } catch (IOException e) {
-                e = e;
-                inputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                cj4.d(inputStream2);
-                throw th;
-            }
-            if (inputStream == null) {
-                cj4.d(inputStream);
-                return null;
-            }
-            try {
-                try {
-                    str2 = fj4.b(inputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    if (ij1.a) {
-                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
-                    }
-                    cj4.d(inputStream);
-                    return str2;
-                }
-                cj4.d(inputStream);
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream2 = inputStream;
-                cj4.d(inputStream2);
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            sm2.x0().a(hybridUbcFlow);
         }
-        return (String) invokeLL.objValue;
     }
 }

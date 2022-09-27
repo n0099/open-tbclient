@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.graphics.SurfaceTexture;
-import com.baidu.tieba.rf0;
+import com.baidu.tieba.eg0;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
@@ -11,7 +11,7 @@ public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvail
 
     FullFrameRect getFullFrameRectEXT();
 
-    rf0 getVlogCore();
+    eg0 getVlogCore();
 
     void onDrawFrame(int i, long j);
 
@@ -21,5 +21,5 @@ public interface OnDrawUpdateTextureListener extends SurfaceTexture.OnFrameAvail
 
     void setVideoRatio(float f);
 
-    void setVlogCore(rf0 rf0Var);
+    void setVlogCore(eg0 eg0Var);
 }

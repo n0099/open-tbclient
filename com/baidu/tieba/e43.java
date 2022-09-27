@@ -1,172 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class e43 extends v43 {
+public final class e43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e43(v33 v33Var) {
-        super(v33Var, "/swanAPI/getImageInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684325, "Lcom/baidu/tieba/e43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947684325, "Lcom/baidu/tieba/e43;");
                 return;
             }
         }
+        a = vj1.a;
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (y23Var == null) {
-                yz1.c("getImageInfo", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            String optString = yf3.d(unitedSchemeEntity.getParam("params")).optString("src");
-            if (TextUtils.isEmpty(optString)) {
-                yz1.c("getImageInfo", "path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject jSONObject = null;
-            if (ga3.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(ga3.M(optString, y23Var.b), optString);
-            } else if (ga3.s(optString) == PathType.RELATIVE) {
-                jSONObject = k(ga3.L(optString, y23Var, y23Var.k0()), optString);
-            }
-            if (jSONObject != null) {
-                yz1.i("getImageInfo", "getImgInfo success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final ExifInterface j(String str) {
+    public static i43 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
+            i43 i43Var = new i43();
+            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", i43Var);
+            sm2.s().a(i43Var);
+            i43Var.b(new y63(i43Var));
+            i43Var.b(new x63(i43Var));
+            i43Var.b(new e73(i43Var));
+            i43Var.b(new c73(i43Var));
+            i43Var.b(new b73(i43Var));
+            i43Var.b(new v63(i43Var));
+            i43Var.b(new o63(i43Var));
+            i43Var.b(new n63(i43Var));
+            i43Var.b(new m63(i43Var));
+            i43Var.b(new p63(i43Var));
+            i43Var.b(new t63(i43Var));
+            i43Var.b(new s63(i43Var));
+            i43Var.b(new g73(i43Var));
+            i43Var.b(new i73(i43Var));
+            i43Var.b(new h73(i43Var));
+            i43Var.b(new q43(i43Var));
+            i43Var.b(new j63(i43Var));
+            i43Var.b(new lw1(i43Var));
+            i43Var.b(new ow1(i43Var));
+            i43Var.b(new qw1(i43Var));
+            i43Var.b(new jw1(i43Var));
+            i43Var.b(new mw1(i43Var));
+            i43Var.b(new pw1(i43Var));
+            i43Var.b(new qq2(i43Var));
+            i43Var.b(new pq2(i43Var));
+            i43Var.b(new ms2(i43Var));
+            i43Var.b(new f22(i43Var));
+            i43Var.b(new z02(i43Var));
+            i43Var.b(new gb3(i43Var));
+            i43Var.b(new za3(i43Var));
+            i43Var.b(new ab3(i43Var));
+            i43Var.b(new db3(i43Var));
+            i43Var.b(new tu2(i43Var));
+            i43Var.b(new am2(i43Var));
+            i43Var.b(new xl2(i43Var));
+            i43Var.b(new bm2(i43Var));
+            i43Var.b(new pe3(i43Var));
+            i43Var.b(new qe3(i43Var));
+            i43Var.b(new re3(i43Var));
+            i43Var.b(new se3(i43Var));
+            i43Var.b(new te3(i43Var));
+            i43Var.b(new ue3(i43Var));
+            i43Var.b(new ve3(i43Var));
+            i43Var.b(new we3(i43Var));
+            i43Var.b(new tp2(i43Var));
+            i43Var.b(new wv1(i43Var));
+            i43Var.b(new bw1(i43Var));
+            i43Var.b(new xv1(i43Var));
+            i43Var.b(new aw1(i43Var));
+            i43Var.b(new yv1(i43Var));
+            i43Var.b(new zv1(i43Var));
+            i43Var.b(new nz1(i43Var));
+            i43Var.b(new oz1(i43Var));
+            i43Var.b(new eg2(i43Var));
+            i43Var.b(new dk1(i43Var));
+            i43Var.b(new ak1(i43Var));
+            i43Var.b(new yd3(i43Var));
+            i43Var.b(new zd3(i43Var));
+            i43Var.b(new id3(i43Var));
+            i43Var.b(new wi3(i43Var));
+            i43Var.b(new pv1(i43Var));
+            i43Var.b(new uq2(i43Var));
+            i43Var.b(new vq2(i43Var));
+            i43Var.b(new tq2(i43Var));
+            i43Var.b(new ya3(i43Var));
+            i43Var.b(new u12(i43Var));
+            i43Var.b(new cf3(i43Var));
+            i43Var.b(new bf3(i43Var));
+            i43Var.b(new df3(i43Var));
+            i43Var.b(new sd3(i43Var));
+            i43Var.b(new h63(i43Var));
+            i43Var.b(new e63(i43Var));
+            i43Var.b(new a53(i43Var));
+            if (a) {
+                i43Var.b(new f73(i43Var));
+                i43Var.b(new j12(i43Var));
             }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
+            i43Var.b(new d53(i43Var));
+            i43Var.b(new u43(i43Var));
+            i43Var.b(new l43(i43Var));
+            i43Var.b(new w43(i43Var));
+            i43Var.b(new kw1(i43Var));
+            i43Var.b(new nw1(i43Var));
+            i43Var.b(new iz1(i43Var));
+            i43Var.b(new o53(i43Var));
+            i43Var.b(new r53(i43Var));
+            i43Var.b(new s53(i43Var));
+            i43Var.b(new q53(i43Var));
+            i43Var.b(new t53(i43Var));
+            i43Var.b(new z63(i43Var));
+            i43Var.b(new fq1(i43Var));
+            i43Var.b(new vd2(i43Var));
+            i43Var.b(new m53(i43Var));
+            i43Var.b(new n53(i43Var));
+            i43Var.b(new l63(i43Var));
+            i43Var.b(new u53(i43Var));
+            i43Var.b(new h53(i43Var));
+            i43Var.b(new n43(i43Var));
+            i43Var.b(new dt2(i43Var));
+            i43Var.b(new v43(i43Var));
+            i43Var.b(new bk2(i43Var));
+            i43Var.b(new dk2(i43Var));
+            i43Var.b(new z53(i43Var));
+            i43Var.b(new a63(i43Var));
+            i43Var.b(new xs2(i43Var));
+            i43Var.b(new ik1(i43Var));
+            i43Var.b(new vv2(i43Var));
+            i43Var.b(new mq1(i43Var));
+            i43Var.b(new qq1(i43Var));
+            i43Var.b(new oq1(i43Var));
+            i43Var.b(new rq1(i43Var));
+            i43Var.b(new pq1(i43Var));
+            i43Var.b(new a83(i43Var));
+            i43Var.b(new dq1(i43Var));
+            i43Var.b(new eq1(i43Var));
+            i43Var.b(new kq1(i43Var));
+            sm2.Y().a(i43Var);
+            return i43Var;
         }
-        return (ExifInterface) invokeL.objValue;
-    }
-
-    public final JSONObject k(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            yz1.i("getImageInfo", "getImgInfo start");
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            String str4 = options.outMimeType;
-            if (TextUtils.isEmpty(str4)) {
-                str3 = "";
-            } else {
-                String[] split = str4.split("/");
-                str3 = split[split.length - 1];
-            }
-            if (!TextUtils.equals("png", str3)) {
-                ExifInterface j = j(str);
-                if (j == null) {
-                    return null;
-                }
-                i = j.getAttributeInt("Orientation", 1);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i3);
-                jSONObject.put("path", str2);
-                jSONObject.put("orientation", l(i));
-                jSONObject.put("type", str3);
-            } catch (JSONException e) {
-                yz1.c("getImageInfo", "getImgInfo failed by json exception");
-                if (v43.b) {
-                    e.printStackTrace();
-                }
-            }
-            yz1.i("getImageInfo", "getImgInfo end");
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final String l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            switch (i) {
-                case 0:
-                case 1:
-                    return "up";
-                case 2:
-                    return "up-mirrored";
-                case 3:
-                    return "down";
-                case 4:
-                    return "down-mirrored";
-                case 5:
-                    return "left-mirrored";
-                case 6:
-                    return "left";
-                case 7:
-                    return "right-mirrored";
-                case 8:
-                    return "right";
-                default:
-                    return "";
-            }
-        }
-        return (String) invokeI.objValue;
+        return (i43) invokeL.objValue;
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.forumMember.tbtitle.model.res;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.df6;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
+import com.baidu.tieba.qf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,8 +72,8 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
             if (getLevelInfoRequestMessage != null) {
-                df6 df6Var = new df6();
-                df6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                qf6 qf6Var = new qf6();
+                qf6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

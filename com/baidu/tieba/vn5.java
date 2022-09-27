@@ -1,46 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.design.TbTabLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackReasonCheckBox;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class vn5 implements mm5, View.OnClickListener, TbTabLayout.c {
+public class vn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<SelectForumActivity> a;
-    public String b;
-    public NavigationBar c;
-    public ImageView d;
-    public LinearLayout e;
-    public TbTabLayout f;
-    public BdBaseViewPager g;
-    public SelectForumPagerAdapter h;
-    public Intent i;
-    public boolean j;
+    public boolean a;
+    public TbPageContext b;
+    public SparseArray<String> c;
+    public SparseArray<String> d;
+    public String[] e;
+    public LinearLayout f;
+    public CompoundButton.OnCheckedChangeListener g;
+    public CompoundButton.OnCheckedChangeListener h;
+    public HashMap<NEGFeedBackReasonCheckBox, Boolean> i;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public int m;
 
     /* loaded from: classes6.dex */
-    public class a implements ViewPager.OnPageChangeListener {
+    public class a implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vn5 a;
@@ -63,35 +64,91 @@ public class vn5 implements mm5, View.OnClickListener, TbTabLayout.c {
             this.a = vn5Var;
         }
 
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
+        @Override // android.widget.CompoundButton.OnCheckedChangeListener
+        public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+            Map.Entry entry;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.j = i == 0;
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) || compoundButton == null || this.a.i == null || this.a.i.isEmpty()) {
+                return;
             }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            boolean z2 = false;
+            if (z && this.a.k) {
+                for (Map.Entry entry2 : this.a.i.entrySet()) {
+                    if (entry2 != null) {
+                        if (entry2.getKey() == compoundButton) {
+                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(true);
+                            entry2.setValue(Boolean.TRUE);
+                        } else {
+                            ((NEGFeedBackReasonCheckBox) entry2.getKey()).setChecked(false);
+                            entry2.setValue(Boolean.FALSE);
+                        }
+                    }
+                }
             }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.a.k && !z && !this.a.l) {
+                Iterator it = this.a.i.entrySet().iterator();
+                while (it.hasNext() && ((entry = (Map.Entry) it.next()) == null || entry.getKey() == null || !(z2 = ((NEGFeedBackReasonCheckBox) entry.getKey()).isChecked()))) {
+                }
+                if (!z2) {
+                    for (Map.Entry entry3 : this.a.i.entrySet()) {
+                        if (entry3 != null && entry3.getKey() == compoundButton) {
+                            ((NEGFeedBackReasonCheckBox) entry3.getKey()).setChecked(true);
+                            entry3.setValue(Boolean.TRUE);
+                            return;
+                        }
+                    }
+                }
+            }
+            if (this.a.g != null) {
+                this.a.g.onCheckedChanged(compoundButton, z);
             }
         }
     }
 
-    public vn5(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+
+        public b(vn5 vn5Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vn5Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i2;
+            if (str != null && str.contains("%")) {
+                String[] split = str.split("%");
+                this.c = split[0];
+                if (split.length > 1) {
+                    this.d = split[1];
+                }
+            } else {
+                this.c = str;
+            }
+            this.a = i;
+        }
+    }
+
+    public vn5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,167 +158,378 @@ public class vn5 implements mm5, View.OnClickListener, TbTabLayout.c {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.e = linearLayout;
-        this.c = navigationBar;
-        this.b = "key_select_forum_tab_index";
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (!StringUtils.isNull(currentAccount)) {
-            this.b += currentAccount;
-        }
-        f();
-        d();
-        g();
-        h();
+        this.a = false;
+        this.c = null;
+        this.d = null;
+        this.k = false;
+        this.l = true;
+        this.m = -1;
+        this.b = tbPageContext;
+        this.j = ej.f(tbPageContext.getPageActivity(), R.dimen.M_H_X003);
+        this.h = new a(this);
     }
 
-    @Override // com.baidu.tieba.vd5
-    public boolean G0() {
+    public final View e(List<b> list, boolean z, View view2) {
+        InterceptResult invokeCommon;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                linearLayout = (LinearLayout) view2;
+            } else {
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0635, (ViewGroup) this.f, false);
+            }
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912d6);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c40);
+            nEGFeedBackReasonCheckBox.a();
+            nEGFeedBackReasonCheckBox2.a();
+            nEGFeedBackReasonCheckBox.setChecked(false);
+            nEGFeedBackReasonCheckBox2.setChecked(false);
+            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
+            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
+            b bVar = list.get(0);
+            if (bVar != null) {
+                nEGFeedBackReasonCheckBox.setText(bVar.c);
+                nEGFeedBackReasonCheckBox.setTag(bVar);
+                if (bVar.a == this.m) {
+                    nEGFeedBackReasonCheckBox.setEnabled(false);
+                }
+            }
+            if (list.size() > 1 && list.get(1) != null) {
+                b bVar2 = list.get(1);
+                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
+                nEGFeedBackReasonCheckBox2.setVisibility(0);
+                nEGFeedBackReasonCheckBox2.setTag(bVar2);
+                if (bVar2.a == this.m) {
+                    nEGFeedBackReasonCheckBox2.setEnabled(false);
+                }
+            } else {
+                nEGFeedBackReasonCheckBox2.setVisibility(4);
+            }
+            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
+            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
+            int i = z ? 0 : this.j;
+            if (linearLayout.getLayoutParams() != null) {
+                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
+            }
+            return linearLayout;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final View f(List<b> list, boolean z, View view2) {
+        InterceptResult invokeCommon;
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), view2})) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                linearLayout = (LinearLayout) view2;
+            } else {
+                linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0635, (ViewGroup) this.f, false);
+            }
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912d6);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c40);
+            nEGFeedBackReasonCheckBox.a();
+            nEGFeedBackReasonCheckBox2.a();
+            nEGFeedBackReasonCheckBox.setChecked(false);
+            nEGFeedBackReasonCheckBox2.setChecked(false);
+            this.i.put(nEGFeedBackReasonCheckBox, Boolean.FALSE);
+            this.i.put(nEGFeedBackReasonCheckBox2, Boolean.FALSE);
+            b bVar = list.get(0);
+            if (bVar != null) {
+                nEGFeedBackReasonCheckBox.setText(bVar.c);
+                nEGFeedBackReasonCheckBox.setTag(bVar);
+            }
+            if (list.size() > 1 && list.get(1) != null) {
+                b bVar2 = list.get(1);
+                nEGFeedBackReasonCheckBox2.setText(bVar2.c);
+                nEGFeedBackReasonCheckBox2.setVisibility(0);
+                nEGFeedBackReasonCheckBox2.setTag(bVar2);
+            } else {
+                nEGFeedBackReasonCheckBox2.setVisibility(8);
+            }
+            nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.h);
+            nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.h);
+            int i = z ? 0 : this.j;
+            if (linearLayout.getLayoutParams() != null) {
+                ((ViewGroup.MarginLayoutParams) linearLayout.getLayoutParams()).bottomMargin = i;
+            }
+            return linearLayout;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
+                this.f = linearLayout;
+                linearLayout.setOrientation(1);
+            }
+            List<List<b>> p = p();
+            if (ListUtils.isEmpty(p)) {
+                return null;
+            }
+            int size = p.size();
+            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
+            if (hashMap == null) {
+                this.i = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            int i = 0;
+            while (i < size) {
+                View e = e(p.get(i), i == size + (-1), this.f.getChildAt(i));
+                if (e != null && e.getParent() == null) {
+                    this.f.addView(e);
+                }
+                i++;
+            }
+            if (this.f.getChildCount() > size) {
+                LinearLayout linearLayout2 = this.f;
+                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
+            }
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.widget.design.TbTabLayout.c
-    public void a(TbTabLayout.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.widget.design.TbTabLayout.c
-    public void c(TbTabLayout.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0050, (ViewGroup) this.e, true);
-            this.f = (TbTabLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09007b);
-            this.g = (BdBaseViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09007c);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.design.TbTabLayout.c
-    public void e(TbTabLayout.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
-            bx4.k().w(this.b, fVar.e());
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0093));
-            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0926, (View.OnClickListener) null);
-            this.d = imageView;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230), 0);
-            this.d.setLayoutParams(layoutParams);
-            this.d.setOnClickListener(this);
-            this.d.setVisibility(8);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f.setSelectedTabTextBlod(true);
-            this.f.setSelectedTabIndicatorColor(0);
-            TbTabLayout.f z = this.f.z();
-            z.s(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0092));
-            TbTabLayout.f z2 = this.f.z();
-            z2.s(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0091));
-            this.f.f(z, false);
-            this.f.f(z2, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public Intent getResultIntent() {
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (Intent) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.a);
-            this.h = selectForumPagerAdapter;
-            this.g.setAdapter(selectForumPagerAdapter);
-            this.f.setupWithViewPager(this.g);
-            i(bx4.k().l(this.b, 0));
-            this.f.setOnTabSelectedListener(this);
-            this.g.addOnPageChangeListener(new a(this));
-        }
-    }
-
-    public boolean i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (i < 0 || i > 1) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.b.getPageActivity());
+                this.f = linearLayout;
+                linearLayout.setOrientation(1);
             }
-            TbTabLayout.f w = this.f.w(i);
-            if (w != null && !w.h()) {
-                w.l();
+            List<List<b>> s = s();
+            if (ListUtils.isEmpty(s)) {
+                return null;
             }
-            return true;
+            int size = s.size();
+            HashMap<NEGFeedBackReasonCheckBox, Boolean> hashMap = this.i;
+            if (hashMap == null) {
+                this.i = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            int i = 0;
+            while (i < size) {
+                View f = f(s.get(i), i == size + (-1), this.f.getChildAt(i));
+                if (f != null && f.getParent() == null) {
+                    this.f.addView(f);
+                }
+                i++;
+            }
+            if (this.f.getChildCount() > size) {
+                LinearLayout linearLayout2 = this.f;
+                linearLayout2.removeViews(size, linearLayout2.getChildCount() - size);
+            }
+            return this.f;
         }
-        return invokeI.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vd5
-    public void n(int i) {
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.f.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
-            this.h.c();
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.l = z;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void j(vs4 vs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mm5
-    public void onDestroy() {
-        SelectForumPagerAdapter selectForumPagerAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (selectForumPagerAdapter = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, vs4Var) == null) || vs4Var == null) {
             return;
         }
-        selectForumPagerAdapter.onDestroy();
+        this.c = vs4Var.b();
+        this.d = vs4Var.g;
     }
 
-    @Override // com.baidu.tieba.mm5
-    public void onResume() {
+    public void k(String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, strArr) == null) {
+            this.e = strArr;
         }
     }
 
-    @Override // com.baidu.tieba.vd5
-    public boolean s() {
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void o(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onCheckedChangeListener) == null) {
+            this.g = onCheckedChangeListener;
+        }
+    }
+
+    public final List<List<b>> p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            SparseArray<String> sparseArray = this.c;
+            if (sparseArray != null && sparseArray.size() != 0) {
+                int size = this.c.size();
+                ArrayList arrayList = new ArrayList();
+                int i = 0;
+                while (i < size) {
+                    int i2 = i + 1;
+                    int i3 = i + 2;
+                    ArrayList arrayList2 = new ArrayList();
+                    b bVar = new b(this, i, this.c.keyAt(i), this.c.valueAt(i));
+                    SparseArray<String> sparseArray2 = this.d;
+                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i)))) {
+                        bVar.d = this.d.get(this.c.keyAt(i));
+                    }
+                    arrayList2.add(bVar);
+                    if (i2 > i && i2 < size) {
+                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
+                        SparseArray<String> sparseArray3 = this.d;
+                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i)))) {
+                            bVar2.d = this.d.get(this.c.keyAt(i2));
+                        }
+                        arrayList2.add(bVar2);
+                    }
+                    arrayList.add(arrayList2);
+                    i = i3;
+                }
+                return arrayList;
+            }
+            return q();
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final List<List<b>> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            String[] strArr = this.e;
+            if (strArr == null || strArr.length <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < this.e.length; i += 2) {
+                ArrayList arrayList2 = new ArrayList();
+                if (!StringUtils.isNull(this.e[i])) {
+                    arrayList2.add(new b(this, i, i + 1, this.e[i]));
+                }
+                int i2 = i + 1;
+                String[] strArr2 = this.e;
+                if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
+                    arrayList2.add(new b(this, i2, i + 2, this.e[i2]));
+                }
+                if (arrayList2.size() > 0) {
+                    arrayList.add(arrayList2);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<List<b>> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String[] strArr = this.e;
+            if (strArr == null || strArr.length <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < this.e.length; i += 2) {
+                ArrayList arrayList2 = new ArrayList();
+                if (!StringUtils.isNull(this.e[i])) {
+                    arrayList2.add(new b(this, i, 0, this.e[i]));
+                }
+                int i2 = i + 1;
+                String[] strArr2 = this.e;
+                if (i2 < strArr2.length && !StringUtils.isNull(strArr2[i2])) {
+                    arrayList2.add(new b(this, i2, 0, this.e[i2]));
+                }
+                if (arrayList2.size() > 0) {
+                    arrayList.add(arrayList2);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<List<b>> s() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            SparseArray<String> sparseArray = this.c;
+            if (sparseArray != null && sparseArray.size() != 0) {
+                int size = this.c.size();
+                int i3 = 0;
+                int i4 = -1;
+                int i5 = this.a ? 0 : -1;
+                int i6 = this.a ? size - 1 : size;
+                if (i6 > 1 && i6 % 2 == 1) {
+                    i4 = i5 + 1;
+                }
+                ArrayList arrayList = new ArrayList();
+                while (i3 < size) {
+                    if (i3 == i5 || i3 == i4) {
+                        i = i3 + 1;
+                        i2 = i3;
+                    } else {
+                        i2 = i3 + 1;
+                        i = i3 + 2;
+                    }
+                    ArrayList arrayList2 = new ArrayList();
+                    b bVar = new b(this, i3, this.c.keyAt(i3), this.c.valueAt(i3));
+                    SparseArray<String> sparseArray2 = this.d;
+                    if (sparseArray2 != null && !StringUtils.isNull(sparseArray2.get(this.c.keyAt(i3)))) {
+                        bVar.d = this.d.get(this.c.keyAt(i3));
+                    }
+                    arrayList2.add(bVar);
+                    if (i2 > i3 && i2 < size) {
+                        b bVar2 = new b(this, i2, this.c.keyAt(i2), this.c.valueAt(i2));
+                        SparseArray<String> sparseArray3 = this.d;
+                        if (sparseArray3 != null && !StringUtils.isNull(sparseArray3.get(this.c.keyAt(i3)))) {
+                            bVar2.d = this.d.get(this.c.keyAt(i2));
+                        }
+                        arrayList2.add(bVar2);
+                    }
+                    arrayList.add(arrayList2);
+                    i3 = i;
+                }
+                return arrayList;
+            }
+            return r();
+        }
+        return (List) invokeV.objValue;
     }
 }

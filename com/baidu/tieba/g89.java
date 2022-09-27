@@ -1,148 +1,86 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.net.SocketTimeoutException;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g89 implements Executor {
+public class g89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue<Runnable> a;
-    public boolean b;
-    public boolean c;
-    public long d;
-    public final String e;
+    public List<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747937, "Lcom/baidu/tieba/g89;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947747937, "Lcom/baidu/tieba/g89;");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public g89(String str) {
+    public g89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = -1L;
-        this.e = str;
-        this.a = new LinkedBlockingQueue();
+        this.a = new ArrayList();
     }
 
-    public void a() throws IOException {
+    public final void a(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(0);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null) {
+            return;
         }
-    }
-
-    public void b(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            long nanoTime = System.nanoTime();
-            long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-            if (!this.c) {
-                if (!this.b) {
-                    this.b = true;
-                    while (this.b) {
-                        if (i == 0) {
-                            try {
-                                c(false, 0L).run();
-                            } catch (InterruptedIOException | RuntimeException e) {
-                                this.b = false;
-                                this.c = true;
-                                throw e;
-                            }
-                        } else {
-                            c(true, (convert - System.nanoTime()) + nanoTime).run();
-                        }
-                    }
-                    return;
+        try {
+            if (jSONArray.length() > 0) {
+                if (this.a == null) {
+                    this.a = new ArrayList();
                 }
-                throw new IllegalStateException("Cannot run loop when it is already running.");
-            }
-            throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
-        }
-    }
-
-    public final Runnable c(boolean z, long j) throws InterruptedIOException {
-        Runnable poll;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-            try {
-                if (!z) {
-                    poll = this.a.take();
-                } else {
-                    poll = this.a.poll(j, TimeUnit.NANOSECONDS);
-                }
-                if (poll != null) {
-                    return poll;
-                }
-                s79.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.e);
-                throw new SocketTimeoutException();
-            } catch (InterruptedException e) {
-                InterruptedIOException interruptedIOException = new InterruptedIOException();
-                interruptedIOException.initCause(e);
-                throw interruptedIOException;
-            }
-        }
-        return (Runnable) invokeCommon.objValue;
-    }
-
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) throws RejectedExecutionException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-            if (runnable != null) {
-                try {
-                    this.a.put(runnable);
-                    return;
-                } catch (InterruptedException e) {
-                    throw new RejectedExecutionException(e);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    a aVar = new a();
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    optJSONObject.optInt("tab_id");
+                    optJSONObject.optString("tab_name");
+                    optJSONObject.optInt("obj_type");
+                    this.a.add(aVar);
                 }
             }
-            throw new IllegalArgumentException();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void quit() {
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray == null) {
+            return;
         }
+        a(jSONArray);
     }
 }

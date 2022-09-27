@@ -1,91 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Environment;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.hm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class p02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008151, "Lcom/baidu/tieba/p02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948008151, "Lcom/baidu/tieba/p02;");
-                return;
-            }
+    public static hm2.g a(io2 io2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, io2Var)) == null) {
+            File file = new File(Environment.getExternalStorageDirectory() + "/" + q02.d());
+            hm2.M(file, b(), io2Var);
+            pj4.j(file);
+            hm2.g gVar = new hm2.g();
+            File file2 = new File(b(), "app.json");
+            SwanAppConfigData c = SwanAppConfigData.c(pj4.E(file2), b());
+            gVar.a = b().getPath() + File.separator;
+            gVar.b = c;
+            l02.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
-        a = ij1.a;
+        return (hm2.g) invokeL.objValue;
     }
 
-    public static String a() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b + "/swan-core/master/master.html";
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public static String b() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + "/swan-core/slaves/slaves.html";
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
         }
         return (String) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TextUtils.equals(c, "update_tag_by_remote_debug") : invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? !TextUtils.isEmpty(b) : invokeV.booleanValue;
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            if (a) {
-                Log.d("RemoteDebugger", "Current launch mode is " + str);
-            }
-            c = str;
-            if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
-                o02.g().o();
-            }
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            c = "update_tag_by_remote_debug";
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            b = str;
-        }
     }
 }

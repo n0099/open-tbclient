@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.ao5;
+import com.baidu.tieba.no5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class AsInstallService extends BdBaseService {
                 if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || this.this$0.mVersionData == null) {
                     return;
                 }
-                ao5.b(context, this.this$0.mVersionData);
+                no5.b(context, this.this$0.mVersionData);
                 TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
             }
         }

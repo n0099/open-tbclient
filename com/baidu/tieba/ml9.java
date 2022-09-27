@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cq9;
+import com.baidu.tieba.fl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ml9 implements TTAdDislike.DislikeInteractionCallback {
+public class ml9 implements cq9.a<el9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ zl9 b;
-    public final /* synthetic */ hl9 c;
+    public final /* synthetic */ cq9 a;
 
-    public ml9(hl9 hl9Var, View view2, zl9 zl9Var) {
+    public ml9(cq9 cq9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hl9Var, view2, zl9Var};
+            Object[] objArr = {cq9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,35 +30,32 @@ public class ml9 implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.c = hl9Var;
-        this.a = view2;
-        this.b = zl9Var;
+        this.a = cq9Var;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.cq9.a
+    public void a(el9 el9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
+        if (interceptable == null || interceptable.invokeL(1048576, this, el9Var) == null) {
+            LogPrinter.v("SlotId:%s is totally same with oldOne", el9Var.a);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.cq9.a
+    public void b(el9 el9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            if (this.a.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, el9Var) == null) {
+            el9 el9Var2 = el9Var;
+            LogPrinter.v("Update SlotId:%s", el9Var2.a);
+            HashMap<String, hl9> hashMap = this.a.c;
+            String str = el9Var2.a;
+            hashMap.put(str, new hl9(str, new kl9(this, el9Var2)));
+            fl9 fl9Var = this.a.b;
+            synchronized (fl9Var.a) {
+                fl9Var.a(el9Var2.a).add(new fl9.a(el9Var2));
             }
-            this.c.onAdClose(this.b);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

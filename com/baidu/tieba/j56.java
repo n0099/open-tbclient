@@ -1,265 +1,141 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
-import com.baidu.tieba.danmu.data.ItemState;
-import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class j56 extends n46 {
+public final class j56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int i;
-    public int j;
-    public a k;
-    public final CacheManager l;
-    public r56 m;
+    public List<? extends h56> a;
+    public List<? extends Object> b;
 
     /* loaded from: classes4.dex */
-    public final class a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
+        public final boolean a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(j56 this$0) {
+        public a(boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {this$0};
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this.a = -1;
-            CollectionsKt__CollectionsKt.emptyList();
+            this.a = z;
         }
 
-        public final int a() {
+        public final boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-        }
-
-        public final void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a = i;
-            }
-        }
-
-        public final void c(List<? extends Object> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                Intrinsics.checkNotNullParameter(list, "<set-?>");
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
         }
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public j56(i46 context) {
-        super(context, r3, null, 4, null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947834334, "Lcom/baidu/tieba/j56;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947834334, "Lcom/baidu/tieba/j56;");
+        }
+    }
+
+    public j56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((i46) objArr2[0], (s0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Class<? extends k46>[] b = i66.a.b();
-        s0 b2 = s0.d((Class[]) Arrays.copyOf(b, b.length)).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(*Families.layoutComponentTypes).get()");
-        this.i = -1;
-        this.j = -1;
-        this.k = new a(this);
-        this.l = context.b();
-        this.m = new s56();
+        this.a = CollectionsKt__CollectionsKt.emptyList();
+        this.b = CollectionsKt__CollectionsKt.emptyList();
     }
 
-    @Override // com.baidu.tieba.n46, com.baidu.tieba.q0
-    public void a(p0 entity) {
+    public final a a(q46 item, t66 timer, k46 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            super.a(entity);
-            r56 r56Var = this.m;
-            p46 b = n56.b(entity);
-            d46 a2 = b == null ? null : b.a();
-            if (a2 == null) {
-                return;
-            }
-            r56Var.b(a2);
-        }
-    }
-
-    @Override // com.baidu.tieba.n46
-    public void l(p0 entity, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-        }
-    }
-
-    public final d66 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m56.c(this) : (d66) invokeV.objValue;
-    }
-
-    public final r56 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : (r56) invokeV.objValue;
-    }
-
-    public final void p(r56 r56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, r56Var) == null) {
-            Intrinsics.checkNotNullParameter(r56Var, "<set-?>");
-            this.m = r56Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.n46, com.baidu.tieba.r0
-    public void update(float f) {
-        q46 q46Var;
-        DrawState drawState;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            o56.b("LayoutSystem_update");
-            x36 c = i().c();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            Iterator<? extends h56> it = this.a.iterator();
+            int i = 0;
             boolean z = false;
-            boolean z2 = (this.i == c.r() && this.j == c.o()) ? false : true;
-            if (m56.e(this) && !z2) {
-                o56.a();
-                return;
-            }
-            if (this.i != c.r()) {
-                BdLog.v("DanmakuEngine [Layout] RetainerGeneration change, clear retainer.");
-                this.m.c(0, (int) (n().getHeight() * c.u()));
-                this.m.clear();
-                this.i = c.r();
-            }
-            if (this.k.a() != c.l()) {
-                this.k.b(c.l());
-                this.k.c(CollectionsKt___CollectionsKt.toList(c.n()));
-            }
-            long b = m56.b(this);
-            List<p0> k = k();
-            ArrayList arrayList = new ArrayList();
-            for (Object obj : k) {
-                o46 d = n56.d((p0) obj);
-                if ((d == null || d.d()) ? false : true) {
-                    arrayList.add(obj);
-                }
-            }
-            Iterator it = arrayList.iterator();
-            boolean z3 = false;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                p46 b2 = n56.b((p0) it.next());
-                d46 a2 = b2 != null ? b2.a() : null;
-                if (a2 != null && a2.i() != ItemState.Measuring) {
-                    boolean z4 = !a2.f().r(c.p());
-                    if (a2.i().compareTo(ItemState.Measuring) < 0 || z4) {
-                        if (z4 && a2.i().compareTo(ItemState.Measuring) >= 0) {
-                            BdLog.v(Intrinsics.stringPlus("DanmakuEngine [Layout] re-measure ", a2.e()));
-                        }
-                        a2.o(ItemState.Measuring);
-                        this.l.o(a2, n(), c);
-                        z3 = true;
-                    }
+                h56 next = it.next();
+                boolean b = next.b(item, timer, config);
+                if (b) {
+                    i = next.a();
+                    z = b;
+                    break;
                 }
+                z = b;
             }
-            ArrayList<p0> arrayList2 = new ArrayList();
-            for (Object obj2 : arrayList) {
-                p46 b3 = n56.b((p0) obj2);
-                d46 a3 = b3 == null ? null : b3.a();
-                if (a3 != null && a3.i().compareTo(ItemState.Measured) >= 0) {
-                    arrayList2.add(obj2);
-                }
-            }
-            boolean z5 = z3;
-            for (p0 p0Var : arrayList2) {
-                p46 b4 = n56.b(p0Var);
-                d46 a4 = b4 == null ? null : b4.a();
-                if (a4 != null) {
-                    DrawState f2 = a4.f();
-                    q46 e = n56.e(p0Var);
-                    if (e != null || (e = (q46) m56.a(this, q46.class, p0Var, a4)) != null) {
-                        q46 q46Var2 = e;
-                        if (f2.e() != c.o()) {
-                            f2.H(z);
-                            q46Var = q46Var2;
-                            drawState = f2;
-                            q46Var.e(o().d(a4, b, n(), c));
-                        } else {
-                            q46Var = q46Var2;
-                            drawState = f2;
-                        }
-                        if (q46Var.d()) {
-                            synchronized (a4.i()) {
-                                if (a4.i().compareTo(ItemState.Rendering) < 0) {
-                                    a4.o(ItemState.Rendering);
-                                    this.l.m(a4, n(), c);
-                                    z5 = true;
-                                }
-                                Unit unit = Unit.INSTANCE;
-                            }
-                            o().a(a4, b, n(), c);
-                            drawState.y(c.o());
-                        }
-                        q46Var.c().set(drawState.g(), drawState.h());
-                        z = false;
-                    }
-                }
-            }
-            if (m56.e(this)) {
-                if (z5) {
-                    this.l.n();
-                } else {
-                    c.H();
-                    this.j = c.o();
-                }
-            }
-            o56.a();
+            return new a(z, i);
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.h56>, java.util.List<com.baidu.tieba.h56> */
+    public final List<h56> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public final List<Object> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public final void d(List<? extends h56> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.a = list;
+        }
+    }
+
+    public final void e(List<? extends Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.b = list;
         }
     }
 }

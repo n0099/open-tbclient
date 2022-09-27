@@ -16,9 +16,9 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc6;
+import com.baidu.tieba.jh5;
 import com.baidu.tieba.on;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.sc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -165,14 +165,14 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             this.a = navigationBar;
             navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0567));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090cc8);
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090cc7);
             if (this.l != 0 && this.m != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = wg5.c();
+            boolean c = jh5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -188,7 +188,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.K(this.h, 10, false);
             } else {
-                Bitmap f = fc6.f(this.f, "panel.png");
+                Bitmap f = sc6.f(this.f, "panel.png");
                 if (f != null) {
                     new on(f, false).h(this.c);
                 }

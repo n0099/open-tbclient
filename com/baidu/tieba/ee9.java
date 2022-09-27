@@ -1,36 +1,146 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yd9;
+import com.baidu.tieba.fe9;
+import com.baidu.tieba.me9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
+import java.io.File;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
-public class ee9 implements yd9 {
+public class ee9 implements me9.a {
     public static /* synthetic */ Interceptable $ic;
+    public static ee9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final yd9.a b;
-    public volatile int c;
-    public volatile long d;
+    public Map<String, me9> a;
+    public de9 b;
+    public ExecutorService c;
+    public ke9 d;
+    public Handler e;
 
-    public ee9(String str, yd9.a aVar) {
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ee9 b;
+
+        public a(ee9 ee9Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ee9Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ee9Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
+                this.b.a.remove(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ee9 a;
+
+        public b(ee9 ee9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ee9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ee9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (me9 me9Var : this.a.a.values()) {
+                    if (me9Var != null && me9Var.isRunning()) {
+                        me9Var.pause();
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ee9 a;
+
+        public c(ee9 ee9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ee9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ee9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (me9 me9Var : this.a.a.values()) {
+                    if (me9Var != null && me9Var.isRunning()) {
+                        me9Var.cancel();
+                    }
+                }
+            }
+        }
+    }
+
+    public ee9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,189 +150,157 @@ public class ee9 implements yd9 {
                 return;
             }
         }
-        this.a = str;
-        this.b = aVar;
+        this.e = new Handler(Looper.getMainLooper());
+        this.a = new LinkedHashMap();
+        i(new de9());
     }
 
-    public final void a() throws DownloadException {
+    public static ee9 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!isCanceled()) {
-                if (isPaused()) {
-                    throw new DownloadException(106, "Connection Paused!");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (ee9.class) {
+                    if (f == null) {
+                        f = new ee9();
+                    }
                 }
+            }
+            return f;
+        }
+        return (ee9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.me9.a
+    public void a(String str, me9 me9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, me9Var) == null) {
+            this.e.post(new a(this, str));
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            String e = e(str);
+            if (this.a.containsKey(e)) {
+                me9 me9Var = this.a.get(e);
+                if (me9Var != null) {
+                    me9Var.cancel();
+                }
+                this.a.remove(e);
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.post(new c(this));
+        }
+    }
+
+    public void delete(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str != null) {
+                return String.valueOf(str.hashCode());
+            }
+            throw new IllegalArgumentException("Tag can't be null!");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(fe9 fe9Var, String str, he9 he9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, fe9Var, str, he9Var) == null) {
+            String e = e(str);
+            if (j(e)) {
                 return;
             }
-            throw new DownloadException(107, "Connection Canceled!");
+            se9 se9Var = new se9(fe9Var, new pe9(this.d, he9Var), this.c, e, this.b, this);
+            this.a.put(e, se9Var);
+            se9Var.start();
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b() throws DownloadException {
-        IOException e;
-        ProtocolException e2;
+    public void g(String str, String str2, String str3, he9 he9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, he9Var) == null) {
+            fe9.b bVar = new fe9.b();
+            bVar.d(str);
+            bVar.b(new File(str2));
+            bVar.c(str3);
+            f(bVar.a(), str, he9Var);
         }
-        this.d = System.currentTimeMillis();
-        try {
-            URL url = new URL(this.a);
-            ?? r2 = 0;
-            try {
-                try {
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                    try {
-                        httpURLConnection.setConnectTimeout(4000);
-                        httpURLConnection.setReadTimeout(4000);
-                        httpURLConnection.setRequestMethod("GET");
-                        httpURLConnection.setRequestProperty("Range", "bytes=0-");
-                        int responseCode = httpURLConnection.getResponseCode();
-                        if (responseCode == 200) {
-                            d(httpURLConnection, false);
-                        } else if (responseCode == 206) {
-                            d(httpURLConnection, true);
-                        } else {
-                            throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                        }
-                        if (httpURLConnection != null) {
-                            httpURLConnection.disconnect();
-                        }
-                    } catch (ProtocolException e3) {
-                        e2 = e3;
-                        throw new DownloadException(108, "Protocol error", e2);
-                    } catch (IOException e4) {
-                        e = e4;
-                        throw new DownloadException(108, "IO error", e);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    r2 = url;
-                    if (r2 != 0) {
-                        r2.disconnect();
-                    }
-                    throw th;
+    }
+
+    public final void i(@NonNull de9 de9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, de9Var) == null) {
+            if (de9Var.b() <= de9Var.a()) {
+                this.b = de9Var;
+                this.c = Executors.newFixedThreadPool(de9Var.a());
+                this.d = new qe9(this.e);
+                return;
+            }
+            throw new IllegalArgumentException("thread num must < max thread num");
+        }
+    }
+
+    public final boolean j(String str) {
+        InterceptResult invokeL;
+        me9 me9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (this.a.containsKey(str) && (me9Var = this.a.get(str)) != null && me9Var.isRunning()) {
+                wg9.d("DownloadInfo has been started!");
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean k(String str) {
+        InterceptResult invokeL;
+        me9 me9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            String e = e(str);
+            if (!this.a.containsKey(e) || (me9Var = this.a.get(e)) == null) {
+                return false;
+            }
+            return me9Var.isRunning();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            String e = e(str);
+            if (this.a.containsKey(e)) {
+                me9 me9Var = this.a.get(e);
+                if (me9Var != null && me9Var.isRunning()) {
+                    me9Var.pause();
                 }
-            } catch (ProtocolException e5) {
-                e2 = e5;
-            } catch (IOException e6) {
-                e = e6;
-            } catch (Throwable th2) {
-                th = th2;
-                if (r2 != 0) {
-                }
-                throw th;
-            }
-        } catch (MalformedURLException e7) {
-            throw new DownloadException(108, "Bad url.", e7);
-        }
-    }
-
-    public final void c(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
-            switch (downloadException.getErrorCode()) {
-                case 106:
-                    synchronized (this.b) {
-                        this.c = 106;
-                        this.b.onConnectPaused();
-                    }
-                    return;
-                case 107:
-                    synchronized (this.b) {
-                        this.c = 107;
-                        this.b.onConnectCanceled();
-                    }
-                    return;
-                case 108:
-                    synchronized (this.b) {
-                        this.c = 108;
-                        this.b.b(downloadException);
-                    }
-                    return;
-                default:
-                    throw new IllegalArgumentException("Unknown state");
+                this.a.remove(e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yd9
-    public void cancel() {
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = 107;
-        }
-    }
-
-    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
-        long contentLength;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
-            String headerField = httpURLConnection.getHeaderField("Content-Length");
-            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
-                contentLength = Long.parseLong(headerField);
-            } else {
-                contentLength = httpURLConnection.getContentLength();
-            }
-            if (contentLength <= 0) {
-                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
-                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
-                    contentLength = Long.parseLong(headerField2);
-                } else {
-                    contentLength = httpURLConnection.getContentLength();
-                }
-                if (contentLength <= 0) {
-                    throw new DownloadException(108, "length <= 0");
-                }
-            }
-            a();
-            this.c = 103;
-            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
-        }
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c == 107 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public boolean isPaused() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c == 106 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yd9
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = 106;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Process.setThreadPriority(10);
-            this.c = 102;
-            this.b.onConnecting();
-            try {
-                b();
-            } catch (DownloadException e) {
-                c(e);
-            }
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.e.post(new b(this));
         }
     }
 }

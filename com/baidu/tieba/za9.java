@@ -1,44 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class za9 {
+public class za9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ya9 a;
 
-    public za9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948353367, "Lcom/baidu/tieba/za9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948353367, "Lcom/baidu/tieba/za9;");
                 return;
             }
         }
-        this.a = new ya9();
+        a = x99.m();
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
-        InterceptResult invokeV;
+    public static boolean a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (a) {
+                Log.d("UBCFileUtils", "delete file:" + file);
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    return true & file.delete();
+                }
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= a(file2);
+                        }
+                    }
+                    return z & file.delete();
+                } else if (a) {
+                    Log.d("UBCFileUtils", "a special file:" + file);
+                    return true;
+                } else {
+                    return true;
+                }
+            } else if (a) {
+                Log.d("UBCFileUtils", "not found the file to delete:" + file);
+                return true;
+            } else {
+                return true;
+            }
         }
+        return invokeL.booleanValue;
     }
 }

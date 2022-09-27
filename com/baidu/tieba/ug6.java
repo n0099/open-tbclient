@@ -1,114 +1,252 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
-import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ug6 {
     public static /* synthetic */ Interceptable $ic;
-    public static ug6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsLinkHashMap<String, Long> a;
+    public final ArrayList<ThreadData> a;
+    public boolean b;
+    public ri6 c;
+    public AntiData d;
+    public String e;
+    public String f;
+    public boolean g;
+    public boolean h;
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug6 a;
-
-        public a(ug6 ug6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ug6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            FrsHotTopicListData frsHotTopicListData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                zt4.f();
-                jf<String> h = zt4.h("tb.frs_hottopic", "");
-                if (h != null) {
-                    String str = h.get("hot_topic_key");
-                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.a.a = frsHotTopicListData.mSceneMap;
-                    }
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static ug6 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug6 a;
 
-        public b(ug6 ug6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-375868377, "Lcom/baidu/tieba/ug6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-375868377, "Lcom/baidu/tieba/ug6$b;");
                     return;
                 }
             }
-            this.a = ug6Var;
+            a = new ug6(null);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                zt4.f();
-                jf<String> h = zt4.h("tb.frs_hottopic", "");
-                if (h == null) {
-                    return null;
-                }
-                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.a.a;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
-                if (!StringUtils.isNull(jsonStrWithObject)) {
-                    h.g("hot_topic_key", jsonStrWithObject);
-                }
-                return null;
+    public /* synthetic */ ug6(a aVar) {
+        this();
+    }
+
+    public static ug6 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ug6) invokeV.objValue;
+    }
+
+    public boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
+            if (threadData == null) {
+                return false;
             }
-            return (Void) invokeL.objValue;
+            if (this.a.size() > 29) {
+                ri6 ri6Var = this.c;
+                if (ri6Var != null) {
+                    ri6Var.b(1);
+                }
+                return false;
+            }
+            this.a.add(threadData);
+            ri6 ri6Var2 = this.c;
+            if (ri6Var2 != null) {
+                ri6Var2.c(this.a.size(), 1);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Iterator<ThreadData> it = this.a.iterator();
+            while (it.hasNext()) {
+                ThreadData next = it.next();
+                if (next != null) {
+                    next.setMarkToDel(false);
+                }
+            }
+            this.a.clear();
+            ri6 ri6Var = this.c;
+            if (ri6Var != null) {
+                ri6Var.c(0, 1);
+            }
+        }
+    }
+
+    public AntiData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (AntiData) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public List<ThreadData> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public void k(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || ListUtils.isEmpty(list) || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        Iterator<ThreadData> it = this.a.iterator();
+        while (it.hasNext()) {
+            ThreadData next = it.next();
+            int i = 0;
+            while (true) {
+                if (i >= list.size()) {
+                    break;
+                } else if (StringHelper.equals(list.get(i), next.getId())) {
+                    it.remove();
+                    break;
+                } else {
+                    i++;
+                }
+            }
+        }
+        ri6 ri6Var = this.c;
+        if (ri6Var != null) {
+            ri6Var.c(this.a.size(), 1);
+        }
+    }
+
+    public void l(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
+            this.a.remove(threadData);
+            ri6 ri6Var = this.c;
+            if (ri6Var != null) {
+                ri6Var.c(this.a.size(), 1);
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            p(false, false);
+            b();
+        }
+    }
+
+    public void n(AntiData antiData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, antiData) == null) {
+            this.d = antiData;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void p(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.b = z;
+            ri6 ri6Var = this.c;
+            if (ri6Var != null) {
+                ri6Var.a(z, z2, 1);
+            }
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void s(ri6 ri6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, ri6Var) == null) {
+            this.c = ri6Var;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.g = z;
         }
     }
 
@@ -122,75 +260,10 @@ public class ug6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static ug6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (ug6.class) {
-                    if (b == null) {
-                        b = new ug6();
-                    }
-                }
-            }
-            return b;
-        }
-        return (ug6) invokeV.objValue;
-    }
-
-    public boolean c(String str, long j) {
-        InterceptResult invokeLJ;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.a == null) {
-                this.a = new FrsLinkHashMap<>();
-                e(str, j);
-            }
-            if (StringUtils.isNull(str) || this.a.isEmpty()) {
-                return false;
-            }
-            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                Map.Entry<String, Long> next = it.next();
-                if (next != null && str.equals(next.getKey())) {
-                    z = true;
-                    break;
-                }
-            }
-            if (z && this.a.get(str).longValue() == j) {
-                return false;
-            }
-            this.a.put(str, Long.valueOf(j));
-            f();
-            return true;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            a aVar = new a(this);
-            aVar.setPriority(3);
-            aVar.execute(new Void[0]);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b bVar = new b(this);
-            bVar.setPriority(3);
-            bVar.execute(new Void[0]);
-        }
+        this.b = false;
+        this.a = new ArrayList<>();
     }
 }

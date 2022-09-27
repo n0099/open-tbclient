@@ -1,81 +1,201 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class xo8 {
+public class xo8 extends wo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile zo8 g;
+    public volatile boolean h;
+    public int i;
 
-    public static void a(NetWork netWork, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = zf.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+    /* loaded from: classes6.dex */
+    public class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        public a(xo8 xo8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xo8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            LocationData b = sn8.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData("sn", b.getSn());
+            this.a = 0;
+        }
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable);
+                thread.setName("VideoUploadThread@" + this.a);
+                this.a = this.a + 1;
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ RandomAccessFile a;
+        public final /* synthetic */ ArrayList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ CountDownLatch g;
+        public final /* synthetic */ xo8 h;
+
+        public b(xo8 xo8Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xo8Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = xo8Var;
+            this.a = randomAccessFile;
+            this.b = arrayList;
+            this.c = i;
+            this.d = i2;
+            this.e = str;
+            this.f = i3;
+            this.g = countDownLatch;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zo8 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
+                if (h != null) {
+                    if (h.b != 0) {
+                        this.h.g.b = h.b;
+                        this.h.g.c = h.c;
+                    }
+                    if (!StringUtils.isNull(h.a)) {
+                        this.h.g.a = h.a;
+                    }
+                    synchronized (this.h) {
+                        xo8.k(this.h);
+                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
+                    }
+                }
+                this.g.countDown();
             }
         }
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xo8(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090962);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fae);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a61);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090675);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fac);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809ff, R.color.CAM_X0101, null));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f1130);
-            }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
-            }
-            c(context, inflate);
+        }
+        this.g = new zo8();
+    }
+
+    public static /* synthetic */ int k(xo8 xo8Var) {
+        int i = xo8Var.i;
+        xo8Var.i = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.wo8
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
         }
     }
 
-    public static void c(Context context, View view2) {
+    @Override // com.baidu.tieba.wo8
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            toast.show();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) ? false : true : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wo8
+    public zo8 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            int size = arrayList.size();
+            CountDownLatch countDownLatch = new CountDownLatch(size);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                for (int i2 = 0; i2 < size; i2++) {
+                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
+                }
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                threadPoolExecutor.shutdown();
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return this.g;
+            } catch (FileNotFoundException unused) {
+                return this.g;
+            }
         }
+        return (zo8) invokeLLI.objValue;
     }
 }

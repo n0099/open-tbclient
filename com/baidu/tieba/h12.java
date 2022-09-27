@@ -1,180 +1,192 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h12 extends v43 {
+public class h12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public final String a;
+    public int b;
+    public Map<String, Object> c;
+    public b d;
+    public BufferedWriter e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h12(v33 v33Var) {
-        super(v33Var, "/swanAPI/setPhoneContact");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes4.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h12 a;
+
+        public b(h12 h12Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h12Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.a.c == null) {
+                return;
+            }
+            this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry entry : this.a.c.entrySet()) {
+                try {
+                    jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            this.a.e(jSONObject.toString());
+            l02.i("PropertyLogcat", jSONObject.toString());
+            if (this.a.d != null) {
+                this.a.d.sendEmptyMessageDelayed(100, this.a.b);
+            }
+        }
+
+        public /* synthetic */ b(h12 h12Var, a aVar) {
+            this(h12Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770784, "Lcom/baidu/tieba/h12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770784, "Lcom/baidu/tieba/h12;");
                 return;
             }
         }
+        boolean z = vj1.a;
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    private void insert(Context context, g12 g12Var, CallbackHandler callbackHandler) {
+    public h12() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, context, g12Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
-            intent.putExtra("name", g12Var.d());
-            intent.putExtra("email", g12Var.r);
-            intent.putParcelableArrayListExtra("data", k(g12Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (context != null && callbackHandler != null && y23Var != null) {
-                if (y23Var.n0()) {
-                    if (v43.b) {
-                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (v43.b) {
-                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
-                }
-                String optString = optParamsAsJo.optString("action");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                g12 a = g12.a(optParamsAsJo);
-                if (!a.t()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                this.c = optParamsAsJo.optString("cb");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -1183792455) {
-                    if (hashCode == 3108362 && optString.equals("edit")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("insert")) {
-                    c = 0;
-                }
-                if (c == 0) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    insert(context, a, callbackHandler);
-                    return true;
-                } else if (c != 1) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    j(context, a, callbackHandler);
-                    return true;
-                }
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j(Context context, g12 g12Var, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, g12Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
-            intent.setType("vnd.android.cursor.item/contact");
-            intent.putExtra("name", g12Var.d());
-            intent.putExtra("email", g12Var.r);
-            intent.putParcelableArrayListExtra("data", k(g12Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    public final ArrayList<ContentValues> k(g12 g12Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g12Var)) == null) {
-            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-            arrayList.add(g12Var.j());
-            arrayList.add(g12Var.h());
-            arrayList.add(g12Var.s());
-            arrayList.add(g12Var.i());
-            arrayList.add(g12Var.g());
-            arrayList.add(g12Var.r());
-            arrayList.add(g12Var.k());
-            arrayList.add(g12Var.o());
-            arrayList.add(g12Var.n());
-            arrayList.add(g12Var.m());
-            arrayList.add(g12Var.l());
-            arrayList.add(g12Var.b());
-            arrayList.add(g12Var.p());
-            arrayList.add(g12Var.e());
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
-            try {
-                context.startActivity(intent);
-                if (TextUtils.isEmpty(this.c)) {
-                    return;
-                }
-                callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, "ok").toString());
-            } catch (Exception e) {
-                if (v43.b) {
-                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
-                }
-                if (TextUtils.isEmpty(this.c)) {
-                    return;
-                }
-                callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "performance_" + System.currentTimeMillis();
+        this.b = 3000;
+    }
+
+    public final void e(String str) {
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.e) == null) {
+            return;
+        }
+        try {
+            bufferedWriter.write(str);
+            this.e.write(10);
+            l02.i("PropertyLogcat", "Export logcat success");
+        } catch (IOException e) {
+            l02.d("PropertyLogcat", "Logcat write fail", e);
+        }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ta3.n(l33.g0(), this.a, "log") : (String) invokeV.objValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i < 1000) {
+            return;
+        }
+        this.b = i;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.c == null) {
+                this.c = i12.g().h();
+                l02.i("PropertyLogcat", "Start monitor logcat");
+            }
+            if (this.d == null) {
+                this.d = new b(this, null);
+            }
+            if (this.e == null) {
+                File file = new File(f());
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    this.e = new BufferedWriter(new FileWriter(file, true));
+                } catch (IOException e) {
+                    l02.d("PropertyLogcat", "Create log file fail", e);
+                }
+            }
+            this.d.removeMessages(100);
+            this.d.sendEmptyMessage(100);
+        }
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c != null) {
+                i12.g().i();
+                this.c = null;
+                l02.i("PropertyLogcat", "Stop monitor logcat");
+            }
+            pj4.d(this.e);
+            this.e = null;
+            return ta3.I(f(), l33.g0());
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,113 +1,115 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ix9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public abstract class dz9<E> extends AbstractQueue<E> {
+public final class dz9 extends ix9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final dz9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<LinkedQueueNode<E>> a;
-    public final AtomicReference<LinkedQueueNode<E>> b;
+
+    /* loaded from: classes3.dex */
+    public final class a extends ix9.a implements mx9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final y1a a;
+        public final /* synthetic */ dz9 b;
+
+        public a(dz9 dz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dz9Var;
+            this.a = new y1a();
+        }
+
+        @Override // com.baidu.tieba.ix9.a
+        public mx9 b(sx9 sx9Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sx9Var)) == null) {
+                sx9Var.call();
+                return c2a.c();
+            }
+            return (mx9) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ix9.a
+        public mx9 c(sx9 sx9Var, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{sx9Var, Long.valueOf(j), timeUnit})) == null) ? b(new hz9(sx9Var, this, this.b.now() + timeUnit.toMillis(j))) : (mx9) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.mx9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.mx9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.unsubscribe();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721990, "Lcom/baidu/tieba/dz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947721990, "Lcom/baidu/tieba/dz9;");
+                return;
+            }
+        }
+        a = new dz9();
+    }
 
     public dz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
     }
 
-    public final LinkedQueueNode<E> a() {
+    @Override // com.baidu.tieba.ix9
+    public ix9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final LinkedQueueNode<E> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final LinkedQueueNode<E> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final LinkedQueueNode<E> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final void e(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
-            this.b.lazySet(linkedQueueNode);
-        }
-    }
-
-    public final void f(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
-            this.a.lazySet(linkedQueueNode);
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c() == d() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public final Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final int size() {
-        InterceptResult invokeV;
-        LinkedQueueNode<E> lvNext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            LinkedQueueNode<E> c = c();
-            LinkedQueueNode<E> d = d();
-            int i = 0;
-            while (c != d && i < Integer.MAX_VALUE) {
-                do {
-                    lvNext = c.lvNext();
-                } while (lvNext == null);
-                i++;
-                c = lvNext;
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (ix9.a) invokeV.objValue;
     }
 }

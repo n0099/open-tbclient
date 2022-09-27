@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.OneKeyLoginCallback;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,95 +24,58 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
 
     /* loaded from: classes4.dex */
-    public static class a extends OneKeyLoginCallback {
+    public class a implements rl3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ el3 a;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ xj1 b;
+        public final /* synthetic */ hl3 c;
 
-        public a(el3 el3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {el3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = el3Var;
-        }
+        /* renamed from: com.baidu.tieba.hl3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0273a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void available(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                if (oneKeyLoginResult == null) {
-                    this.a.a(null);
-                    return;
-                }
-                boolean z = oneKeyLoginResult.enable;
-                String str = oneKeyLoginResult.operator;
-                String str2 = oneKeyLoginResult.encryptPhoneNum;
-                boolean z2 = oneKeyLoginResult.hasHistory;
-                cl3 cl3Var = new cl3();
-                cl3Var.j(z);
-                cl3Var.k(str);
-                cl3Var.g(str2);
-                cl3Var.h(z2);
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 2154) {
-                    if (hashCode != 2161) {
-                        if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                            c = 1;
-                        }
-                    } else if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                        c = 2;
+            public RunnableC0273a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                } else if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c = 0;
                 }
-                if (c == 0) {
-                    cl3Var.i(12);
-                } else if (c == 1) {
-                    cl3Var.i(13);
-                } else if (c == 2) {
-                    cl3Var.i(14);
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    t23.d(this.a.a);
                 }
-                this.a.a(QuickLoginInfo.parseQuickLoginInfo(cl3Var));
             }
         }
 
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                super.unAvailable(oneKeyLoginResult);
-                this.a.a(null);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends ez2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ el3 c;
-
-        public b(el3 el3Var) {
+        public a(hl3 hl3Var, ViewGroup viewGroup, xj1 xj1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {el3Var};
+                Object[] objArr = {hl3Var, viewGroup, xj1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -123,43 +85,48 @@ public class hl3 {
                     return;
                 }
             }
-            this.c = el3Var;
+            this.c = hl3Var;
+            this.a = viewGroup;
+            this.b = xj1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ez2, com.baidu.tieba.fz2, com.baidu.tieba.dz2
-        public void onEvent(@NonNull bz2 bz2Var) {
+        @Override // com.baidu.tieba.rl3
+        public void a(QuickLoginInfo quickLoginInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bz2Var) == null) {
-                Bundle a = bz2Var.a();
-                if (a == null) {
-                    this.c.a(null);
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                ViewGroup viewGroup = this.a;
+                if (viewGroup != null) {
+                    viewGroup.post(new RunnableC0273a(this));
                 }
-                a.setClassLoader(QuickLoginInfo.class.getClassLoader());
-                QuickLoginInfo quickLoginInfo = (QuickLoginInfo) a.getParcelable("quick_login_info_result");
-                if (quickLoginInfo == null) {
-                    this.c.a(null);
-                } else {
-                    this.c.a(quickLoginInfo);
+                if (this.c.i(quickLoginInfo)) {
+                    this.c.a.putParcelable("quick_login_info", quickLoginInfo);
                 }
+                String T = k33.K().q().W().T();
+                String appId = k33.K().getAppId();
+                this.c.a.putString("app_name", k33.K().q().Z());
+                this.c.a.putString("appid", appId);
+                this.c.a.putString("launch_from", T);
+                if (hl3.b) {
+                    Log.d("LoginAndGetMobile", "onQueryResult: mParams: " + this.c.a.toString());
+                }
+                kl3.a("show", "login", null, T, appId);
+                this.c.f(this.b);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class c extends OneKeyLoginCallback {
+    public class b implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ gl3 b;
+        public final /* synthetic */ xj1 a;
 
-        public c(Activity activity, gl3 gl3Var) {
+        public b(hl3 hl3Var, xj1 xj1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activity, gl3Var};
+                Object[] objArr = {hl3Var, xj1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -169,59 +136,18 @@ public class hl3 {
                     return;
                 }
             }
-            this.a = activity;
-            this.b = gl3Var;
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void available(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                uj3.a().m(this.a, oneKeyLoginResult.sign, this.b);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void unAvailable(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-                this.b.onResult(-1);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gl3 a;
-
-        public d(gl3 gl3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gl3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gl3Var;
+            this.a = xj1Var;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (this.a != null) {
-                    this.a.onResult(xf3.f(bundle, "quick_login", -1));
+                if (delegateResult.isOk()) {
+                    this.a.onResult(delegateResult.mResult.getInt("loginStatusCode"));
+                    return;
                 }
+                this.a.onResult(-2);
             }
         }
     }
@@ -239,68 +165,74 @@ public class hl3 {
                 return;
             }
         }
-        boolean z = ij1.a;
+        b = vj1.a;
     }
 
-    public static void a(el3 el3Var) {
+    public hl3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, el3Var) == null) {
-            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new a(el3Var));
-        }
-    }
-
-    public static void b(el3 el3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, el3Var) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                a(el3Var);
-            } else {
-                c(el3Var);
-            }
-        }
-    }
-
-    public static void c(el3 el3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, el3Var) == null) {
-            y23 b0 = y23.b0();
-            if (b0 == null) {
-                el3Var.a(null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            tz2 y = b0.y();
-            if (y == null) {
-                el3Var.a(null);
-            } else {
-                y.X(null, dl3.class, new b(el3Var));
-            }
         }
+        this.a = new Bundle();
     }
 
-    public static void d(Activity activity, int i, gl3 gl3Var) {
+    public final void e(xj1 xj1Var) {
+        SwanAppActivity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i, gl3Var) == null) {
-            SapiAccountManager.getInstance().getOneKeyLoginIsAvailable(new c(activity, gl3Var));
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, xj1Var) == null) || (activity = yo2.U().getActivity()) == null) {
+            return;
         }
+        Intent intent = new Intent(activity, LoginAndGetMobileActivity.class);
+        intent.putExtras(this.a);
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.obfuscated_res_0x7f010099, 0);
+        jl3.c(xj1Var);
     }
 
-    public static void e(Activity activity, int i, gl3 gl3Var) {
+    public final void f(xj1 xj1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, activity, i, gl3Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xj1Var) == null) {
             if (ProcessUtils.isMainProcess()) {
-                d(activity, i, gl3Var);
+                e(xj1Var);
             } else {
-                f(activity, i, gl3Var);
+                g(xj1Var);
             }
         }
     }
 
-    public static void f(Activity activity, int i, gl3 gl3Var) {
+    public final void g(xj1 xj1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65542, null, activity, i, gl3Var) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("quick_login_mode", i);
-            DelegateUtils.callOnMainWithActivity(activity, PluginDelegateActivity.class, fl3.class, bundle, new d(gl3Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xj1Var) == null) {
+            DelegateUtils.callOnMainWithActivity(yo2.U().getActivity(), PluginDelegateActivity.class, il3.class, this.a, new b(this, xj1Var));
         }
+    }
+
+    public void h(xj1 xj1Var) {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, xj1Var) == null) {
+            SwanAppActivity w = k33.K().w();
+            if (w == null || w.isFinishing()) {
+                viewGroup = null;
+            } else {
+                viewGroup = (ViewGroup) w.findViewById(16908290);
+                t23.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f12e8));
+            }
+            ul3.b(new a(this, viewGroup, xj1Var));
+        }
+    }
+
+    public final boolean i(QuickLoginInfo quickLoginInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, quickLoginInfo)) == null) ? quickLoginInfo != null && quickLoginInfo.supportQuickLogin : invokeL.booleanValue;
     }
 }

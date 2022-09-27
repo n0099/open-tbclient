@@ -45,7 +45,7 @@ public class GhostViewHolder extends FrameLayout {
         }
         setClipChildren(false);
         this.mParent = viewGroup;
-        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9e, this);
+        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9d, this);
         ViewGroupUtils.getOverlay(this.mParent).add(this);
         this.mAttached = true;
     }
@@ -53,7 +53,7 @@ public class GhostViewHolder extends FrameLayout {
     public static GhostViewHolder getHolder(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) ? (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9e) : (GhostViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, viewGroup)) == null) ? (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9d) : (GhostViewHolder) invokeL.objValue;
     }
 
     private int getInsertIndex(ArrayList<View> arrayList) {
@@ -141,7 +141,7 @@ public class GhostViewHolder extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onViewRemoved(view2);
             if ((getChildCount() == 1 && getChildAt(0) == view2) || getChildCount() == 0) {
-                this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9e, null);
+                this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9d, null);
                 ViewGroupUtils.getOverlay(this.mParent).remove(this);
                 this.mAttached = false;
             }

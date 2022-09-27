@@ -1,79 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
-import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
-import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class iu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public iu7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String a = "c12585";
+        public static String b = "c12586";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-706459135, "Lcom/baidu/tieba/iu7$a;")) == null) {
                 return;
             }
-        }
-        b();
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, dm8.a(TbConfig.FINE_PB_PAGE, 309093));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-706459135, "Lcom/baidu/tieba/iu7$a;");
+            }
         }
     }
 
-    public final void b() {
+    public static CustomDialogData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zd5 zd5Var = new zd5(309093);
-            zd5Var.setResponsedClass(ChosenPbSocketResponse.class);
-            zd5Var.g(true);
-            zd5Var.h(false);
-            MessageManager.getInstance().registerTask(zd5Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
+                try {
+                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
         }
-    }
-
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-            int k = ej.k(pbChosenActivity.getPageContext().getPageActivity());
-            int i = ej.i(pbChosenActivity.getPageContext().getPageActivity());
-            float h = ej.h(pbChosenActivity.getPageContext().getPageActivity());
-            chosenPbNetMessage.setQ_type(45L);
-            chosenPbNetMessage.setScrH(i);
-            chosenPbNetMessage.setScrW(k);
-            chosenPbNetMessage.setScr_dip(h);
-            chosenPbNetMessage.setExcId(j);
-            chosenPbNetMessage.setTagCode(j2);
-            chosenPbNetMessage.setThreadId(j3);
-            pbChosenActivity.sendMessage(chosenPbNetMessage);
-        }
+        return (CustomDialogData) invokeL.objValue;
     }
 }

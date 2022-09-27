@@ -1,26 +1,11 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.behavior.record.BehaviorServiceFetcher;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.abtest.ioc.AbTestServiceFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreCollectFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreConfigFetcher;
-import com.baidu.searchbox.devicescore.DeviceScoreFetcher;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.MultiPluginManagerServiceFetcher;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.YYPluginManageServiceFetcher;
-import com.baidu.searchbox.live.service.Media2YYServiceFetcher;
-import com.baidu.searchbox.live.service.PluginInvokeServiceFetcher;
-import com.baidu.searchbox.live.service.YY2MediaServiceFetcher;
-import com.baidu.searchbox.live.service.YYPluginProgressInvokeServiceFetcher;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerServiceFetcher;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.tbadk.abtest.helper.HttpsExperimentFetcher;
-import com.baidu.tbadk.abtest.helper.NetExperimentFetcher;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,29 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ue1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<ServiceReference, te1<?>> a;
+    public static volatile String a;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948208008, "Lcom/baidu/tieba/ue1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948208008, "Lcom/baidu/tieba/ue1;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948208008, "Lcom/baidu/tieba/ue1;")) == null) {
+            return;
         }
-        a = new ConcurrentHashMap<>();
-        d();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948208008, "Lcom/baidu/tieba/ue1;");
+        }
     }
 
     public ue1() {
@@ -67,110 +55,170 @@ public class ue1 {
         }
     }
 
-    public static <T> T a(ServiceReference serviceReference) {
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context a2 = ye1.a();
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) a2.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return -1;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.importance;
+                }
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = a;
+            if (str == null) {
+                synchronized (ue1.class) {
+                    str = a;
+                    if (str == null) {
+                        Context a2 = ye1.a();
+                        String d = d();
+                        if (d == null && (d = c(a2)) == null) {
+                            d = a2.getPackageName();
+                        }
+                        a = d;
+                        str = d;
+                    }
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, serviceReference)) == null) {
-            te1<?> te1Var = a.get(serviceReference);
-            if (te1Var != null) {
-                return (T) te1Var.getService();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return null;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
             }
             return null;
         }
-        return (T) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <T> void b(ServiceReference serviceReference, te1<T> te1Var) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    public static String d() {
+        InterceptResult invokeV;
+        ?? r2;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, serviceReference, te1Var) == null) {
-            a.put(serviceReference, te1Var);
-        }
-    }
-
-    public static <T> void c(String str, String str2, Class<? extends te1<T>> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, cls) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            BufferedReader bufferedReader2 = 0;
+            BufferedReader bufferedReader3 = null;
             try {
-                b(new ServiceReference(str, str2), cls.newInstance());
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+                r2 = null;
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                    return readLine;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return readLine;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                r2 = null;
+                bufferedReader3 = bufferedReader;
+                h("MultiProcess", e);
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                bufferedReader2 = r2;
+                return bufferedReader2;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != 0) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void d() {
+    public static int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            c("Frs", "FrsService", fh6.class);
-            c("HotTopic", "HotTopicRequest", lm5.class);
-            c("abtest", "service", AbTestServiceFetcher.class);
-            c("behavior-api", "behavior-api", BehaviorServiceFetcher.class);
-            c("device_score", "DEVICE_SCORE", DeviceScoreFetcher.class);
-            c("device_score", "DEVICE_SCORE_COLLECT", DeviceScoreCollectFetcher.class);
-            c("device_score", "DEVICE_SCORE_CONFIG", DeviceScoreConfigFetcher.class);
-            c("live", "ab", wj7.class);
-            c("live", DI.ACCOUNT, lj7.class);
-            c("live", DI.APP_INFO_NAME, nj7.class);
-            c("live", DI.EXT.EXT_LIVE_JUMP_PAGE, ek7.class);
-            c("live", DI.EXT.EXT_LIVE_LOG, lk7.class);
-            c("live", DI.FOLLOW_STATUS, ck7.class);
-            c("live", DI.LIGHTBROWSER_VIEW, sj7.class);
-            c("live", DI.LIVE_CUSTOM_SETTINGS, hl7.class);
-            c("live", DI.LIVE_EVENT_DISPATCHER, ak7.class);
-            c("live", DI.LIVE_LIKE, gk7.class);
-            c("live", DI.LIVE_LOCATION, jk7.class);
-            c("live", DI.LIVE_REAL_AUTH, pj7.class);
-            c("live", DI.LIVE_SHOW_VIDEO_PLAYER, tk7.class);
-            c("live", DI.LIVE_USER_SECURITY_BEHAVIOR, yj7.class);
-            c("live", DI.LIVE_USER_SECURITY_DEVICE_INFO, zj7.class);
-            c("live", DI.MINI_SHELL.MEDIA_2_YY, Media2YYServiceFetcher.class);
-            c("live", "multi_plugin", MultiPluginManagerServiceFetcher.class);
-            c("live", "net", nk7.class);
-            c("live", DI.PAY_CHANNEL, uj7.class);
-            c("live", DI.LIVE_PLAYER, al7.class);
-            c("live", DI.MINI_SHELL.PLUGIN_MANAGER, PluginInvokeServiceFetcher.class);
-            c("live", DI.LIVE_PRE_START_PLAYER, LivePreStartPlayServiceFetcher.class);
-            c("live", DI.ROUTER_NAME, fl7.class);
-            c("live", "share", ll7.class);
-            c("live", DI.TB.SHARE_CHANNEL, jl7.class);
-            c("live", DI.THIRD_PART_ACCOUNT, nl7.class);
-            c("live", DI.YY.THIRD_PART_ALI_RECHARGE, ol7.class);
-            c("live", DI.YY.THIRD_PART_WX_RECHARGE, ql7.class);
-            c("live", DI.TOAST_NAME, sl7.class);
-            c("live", DI.MINI_SHELL.YY_2_MEDIA, YY2MediaServiceFetcher.class);
-            c("live", DI.YY.YY_MULTI_PLUGIN_PROGRESS, YYPluginProgressInvokeServiceFetcher.class);
-            c("live", DI.YYPAY.YY_PAY, qk7.class);
-            c("live", DI.YY.YY_PLUGIN, YYPluginManageServiceFetcher.class);
-            c("logsystem", "exceptionhandler", ExceptionHandlerServiceFetcher.class);
-            c("nad.core", "adRequester", hz0.class);
-            c("nad.core", "browserDownload", wj0.class);
-            c("nad.core", "cmd", hq5.class);
-            c("nad.core", "config", iq5.class);
-            c("nad.core", "crius", ij0.class);
-            c("nad.core", "deviceInfo.bag", b.class);
-            c("nad.core", "deviceInfoInner", tg0.class);
-            c("nad.core", "eventbus", nl0.class);
-            c("nad.core", "exp", cm0.class);
-            c("nad.core", "ipdx", wg0.class);
-            c("nad.core", "loadImage", dg0.class);
-            c("nad.core", "loadVideo", ev0.class);
-            c("nad.core", "maxUI", kq5.class);
-            c("nad.core", "navBarTool", mq5.class);
-            c("nad.core", "splash.config", nq5.class);
-            c("nad.core", "splash.host", oq5.class);
-            c("nad.core", "thirdService", lq5.class);
-            c("nad.core", "uad", pq5.class);
-            c("speed", "runtime", SpeedRuntimeProvider.class);
-            c("tbBaseEmotion", "EmotionService", x76.class);
-            c("tbadkcore", "IHttpsExperiment", HttpsExperimentFetcher.class);
-            c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
-            c("tbadkcore", "ISoProcess", ua5.class);
-            c("tbadkcore", "tbadkcore", yn5.class);
-            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, n99.class);
-            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, ei9.class);
-            c("yaLog", "yaLogConfig", bj9.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = b;
+            if (i == 0) {
+                String b2 = b();
+                String packageName = ye1.a().getPackageName();
+                i = (TextUtils.equals(b2, packageName) || (b2.startsWith(packageName) && !b2.contains(":"))) ? i | 1 | 2 : i | 4;
+                b = i;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (e() & 1) != 0 : invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (e() & 2) != 0 : invokeV.booleanValue;
+    }
+
+    public static void h(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, exc) == null) {
         }
     }
 }

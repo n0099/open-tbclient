@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.d30;
-import com.baidu.tieba.m50;
+import com.baidu.tieba.o50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public abstract class v20 {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public m50.a a;
+        public o50.a a;
         public d30.a b;
         public Context c;
         public ExecutorService d;

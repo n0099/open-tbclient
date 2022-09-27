@@ -1,95 +1,35 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dp0 {
+public class dp0 extends kp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Map<String, b> a;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public /* synthetic */ b(JSONObject jSONObject, a aVar) {
-            this(jSONObject);
-        }
-
-        public b(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject.optString("type");
-            jSONObject.optString("zip_url");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-        }
-    }
-
-    public dp0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dp0(@NonNull cp0 cp0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(cp0Var, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cp0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((cp0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-    }
-
-    @Nullable
-    public static dp0 a(@Nullable JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
-            }
-            dp0 dp0Var = new dp0();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    b bVar = new b(optJSONObject, null);
-                    lz0.e(dp0Var.a, bVar.a, bVar);
-                }
-            }
-            return dp0Var;
-        }
-        return (dp0) invokeL.objValue;
     }
 }

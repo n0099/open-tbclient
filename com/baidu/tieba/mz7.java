@@ -1,155 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbVideoDetailBrowseModeEmotionHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class mz7 {
+public final class mz7 extends ay7<yv7, PbVideoDetailBrowseModeEmotionHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public View a;
-    public ViewGroup b;
-    public EMTextView c;
-    @NonNull
-    public mh5<String> d;
-    public boolean e;
+    public View.OnClickListener g;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(boolean z);
-    }
-
-    public mz7(@NonNull Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mz7(t28 activity, BdUniqueId mType) {
+        super(activity, mType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {activity, mType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t28) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = mh5.b();
-        this.e = false;
-        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0647, (ViewGroup) null);
-        b();
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(mType, "mType");
     }
 
-    public void a(@NonNull BdTypeListView bdTypeListView) {
+    public final View.OnClickListener u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) || this.e) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View.OnClickListener) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: v */
+    public PbVideoDetailBrowseModeEmotionHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            View view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d08cd, viewGroup, false);
+            Intrinsics.checkNotNullExpressionValue(view2, "view");
+            return new PbVideoDetailBrowseModeEmotionHolder(view2);
         }
-        this.e = true;
-        this.a.setVisibility(0);
-        bdTypeListView.x(this.a, 1);
+        return (PbVideoDetailBrowseModeEmotionHolder) invokeL.objValue;
     }
 
-    public final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public void onFillViewHolder(int i, ViewGroup viewGroup, PbVideoDetailBrowseModeEmotionHolder pbVideoDetailBrowseModeEmotionHolder, yv7 yv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906d3);
-            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923da);
-            this.c = eMTextView;
-            uu4 d = uu4.d(eMTextView);
-            d.w(R.dimen.M_H_X003);
-            d.v(R.color.CAM_X0109);
-            d.A(R.string.F_X01);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            uu4 d = uu4.d(this.b);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-        }
-    }
-
-    public void d(@NonNull BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.e) {
-            this.e = false;
-            this.a.setVisibility(8);
-            bdTypeListView.removeHeaderView(this.a);
-        }
-    }
-
-    public void e(@NonNull vu7 vu7Var, int i, @Nullable a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, vu7Var, i, aVar) == null) {
-            boolean z = true;
-            boolean z2 = i == 4;
-            boolean z3 = i == 25;
-            if (!z2 && !z3) {
-                z = false;
-            }
-            boolean r0 = vu7Var.r0(z);
-            if (r0) {
-                this.c.setText(vu7Var.x());
-                this.a.setVisibility(0);
-                f(vu7Var.Q(), vu7Var.m(), vu7Var.n(), z2, z3);
-            } else {
-                this.a.setVisibility(8);
-            }
-            if (aVar != null) {
-                aVar.a(r0);
-            }
-        }
-    }
-
-    public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
-            int i = z ? 1 : 2;
-            if (z2) {
-                i = 3;
-            }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", i));
-        }
-    }
-
-    public mz7(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), viewGroup, pbVideoDetailBrowseModeEmotionHolder, yv7Var}) == null) {
+            super.onFillViewHolder(i, viewGroup, pbVideoDetailBrowseModeEmotionHolder, yv7Var);
+            if (pbVideoDetailBrowseModeEmotionHolder == null) {
                 return;
             }
+            pbVideoDetailBrowseModeEmotionHolder.a();
+            pbVideoDetailBrowseModeEmotionHolder.b(u());
         }
-        this.d = mh5.b();
-        this.e = false;
-        this.a = view2;
-        b();
+    }
+
+    public final void x(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
     }
 }

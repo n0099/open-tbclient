@@ -1,132 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class bh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, boolean z, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) == null) || threadData == null) {
-            return;
-        }
-        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
-    }
-
-    public static void b(int i, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) == null) || threadData == null) {
-            return;
-        }
-        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
-    }
-
-    public static void c(boolean z, Context context, ThreadData threadData, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
-        BaijiahaoData baijiahaoData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, threadData, Integer.valueOf(i), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) || threadData == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        VideoItemData videoItemData = new VideoItemData();
-        if (z) {
-            videoItemData.buildWithOriginThreadData(threadData.originalThreadData);
-        } else {
-            videoItemData.buildWithThreadData(threadData);
-        }
-        arrayList.add(videoItemData);
-        OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-        boolean z3 = true;
-        if (originalThreadInfo != null && originalThreadInfo.r != null && threadData.getThreadData().originalThreadData.r.is_vertical.intValue() != 1) {
-            z3 = false;
-        }
-        String str6 = null;
-        OriginalThreadInfo originalThreadInfo2 = threadData.originalThreadData;
-        if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
-            str6 = baijiahaoData.oriUgcNid;
-        }
-        e(context, arrayList, str6, z3, i, rect, str, str2, str3, str4, str5, false, z2, true, threadData.getFid());
-    }
-
-    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(j)}) == null) {
-            e(context, list, str, z, i, rect, str2, str3, str4, str5, str6, z2, z3, false, j);
-        }
-    }
-
-    public static void e(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, boolean z4, long j) {
-        String str7;
-        String str8;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Long.valueOf(j)}) == null) {
-            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i, rect, str2, str3, str4, str5, str6);
-            if (z4) {
-                videoPlayActivityConfig.setForceUseBigDataList(list);
-            }
-            videoPlayActivityConfig.setParamIsVertail(z);
-            videoPlayActivityConfig.setFid(String.valueOf(j));
-            TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z2);
-            if (str != null) {
-                videoPlayActivityConfig.setNid(str);
-            }
-            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(true);
-            }
-            if (z3) {
-                if (ListUtils.getCount(list) <= 0 || list.get(0) == null || TextUtils.isEmpty(list.get(0).thread_id)) {
-                    str7 = "";
-                } else {
-                    String str9 = list.get(0).thread_id;
-                    str7 = list.get(0).forum_id;
-                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str7);
-                    int size = videoTabListByFid.size();
-                    for (int i3 = 0; i3 < size; i3++) {
-                        if (videoTabListByFid.get(i3) != null && str9.equals(videoTabListByFid.get(i3).thread_id)) {
-                            str8 = str7;
-                            i2 = i3;
-                            break;
-                        }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 > i2 || i4 > i) {
+                int round = Math.round(i3 / i2);
+                int round2 = Math.round(i4 / i);
+                if (round >= round2) {
+                    round = round2;
+                }
+                if (round >= 3) {
+                    if (round < 6.5d) {
+                        return 4;
+                    }
+                    if (round < 8) {
+                        return 8;
                     }
                 }
-                str8 = str7;
-                i2 = 0;
-                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i2, rect, str2, str3, str4, str5, str6);
-                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
-                frsVideoTabPlayActivityConfig.setFid(str8);
-                if ("frs".equals(str5)) {
-                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_FROM, FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE, "tran");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
-                return;
+                return round;
             }
-            if ("frs".equals(str5)) {
-                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_FRS, "video", "tran");
-            } else if ("index".equals(str5)) {
-                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_HOME, "video", "tran");
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
+            return 1;
         }
+        return invokeLII.intValue;
+    }
+
+    public static Bitmap b(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            options.inSampleSize = a(options, i, i2);
+            options.inJustDecodeBounds = false;
+            return BitmapFactory.decodeFile(str, options);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static Bitmap c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            Bitmap bitmap = null;
+            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
+                return null;
+            }
+            try {
+                try {
+                    Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
+                    view2.draw(new Canvas(createBitmap));
+                    return createBitmap;
+                } catch (OutOfMemoryError e) {
+                    BdLog.e(e);
+                    return bitmap;
+                }
+            } catch (OutOfMemoryError unused) {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.RGB_565);
+                view2.draw(new Canvas(bitmap));
+                return bitmap;
+            }
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static float[] d(Bitmap bitmap, Matrix matrix) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bitmap, matrix)) == null) {
+            float[] fArr = new float[8];
+            matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
+            return fArr;
+        }
+        return (float[]) invokeLL.objValue;
+    }
+
+    public static int[] e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            return new int[]{options.outWidth, options.outHeight};
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static Bitmap f(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
+        InterceptResult invokeLLII;
+        Bitmap bitmap3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmap, bitmap2, i, i2)) == null) {
+            if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
+                return null;
+            }
+            try {
+                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+            } catch (OutOfMemoryError unused) {
+                bitmap3 = null;
+            }
+            try {
+                Canvas canvas = new Canvas(bitmap3);
+                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+                return bitmap3;
+            } catch (OutOfMemoryError unused2) {
+                try {
+                    TbadkCoreApplication.getInst().onAppMemoryLow();
+                    bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    Canvas canvas2 = new Canvas(bitmap3);
+                    canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                    canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
+                    return bitmap3;
+                } catch (OutOfMemoryError e) {
+                    BdLog.e(e);
+                    return bitmap3;
+                }
+            }
+        }
+        return (Bitmap) invokeLLII.objValue;
     }
 }

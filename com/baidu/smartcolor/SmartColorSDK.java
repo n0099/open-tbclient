@@ -6,7 +6,7 @@ import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.smartcolor.utils.Tri;
-import com.baidu.tieba.ug1;
+import com.baidu.tieba.hh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,17 +118,17 @@ public class SmartColorSDK {
         return (byte[]) invokeLLI.objValue;
     }
 
-    public String e(ug1 ug1Var, Bitmap bitmap) {
+    public String e(hh1 hh1Var, Bitmap bitmap) {
         InterceptResult invokeLL;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug1Var, bitmap)) == null) {
-            if (bitmap == null || ug1Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hh1Var, bitmap)) == null) {
+            if (bitmap == null || hh1Var == null) {
                 return null;
             }
-            if (ug1Var.h()) {
-                int s = ug1Var.s();
-                int p = ug1Var.p();
+            if (hh1Var.h()) {
+                int s = hh1Var.s();
+                int p = hh1Var.p();
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
                 if (width == 0 || height == 0) {
@@ -163,19 +163,19 @@ public class SmartColorSDK {
             if (b == null) {
                 return null;
             }
-            return f(ug1Var, b, b.length);
+            return f(hh1Var, b, b.length);
         }
         return (String) invokeLL.objValue;
     }
 
-    public final String f(ug1 ug1Var, byte[] bArr, int i) {
+    public final String f(hh1 hh1Var, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, ug1Var, bArr, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, hh1Var, bArr, i)) == null) {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            return getNativeSmartColor(bArr, i, ug1Var.j(), ug1Var.k(), ug1Var.o(), ug1Var.v(), ug1Var.l(), c(ug1Var.m()), c(ug1Var.n()), c(ug1Var.i()), c(ug1Var.g()), ug1Var.t(), ug1Var.q(), ug1Var.u(), ug1Var.r());
+            return getNativeSmartColor(bArr, i, hh1Var.j(), hh1Var.k(), hh1Var.o(), hh1Var.v(), hh1Var.l(), c(hh1Var.m()), c(hh1Var.n()), c(hh1Var.i()), c(hh1Var.g()), hh1Var.t(), hh1Var.q(), hh1Var.u(), hh1Var.r());
         }
         return (String) invokeLLI.objValue;
     }

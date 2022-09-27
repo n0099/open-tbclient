@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.ds4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g16;
+import com.baidu.tieba.qs4;
+import com.baidu.tieba.t16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -60,7 +60,7 @@ public class ThreadLinkView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0524, (ViewGroup) this, true);
-            this.f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091c79);
+            this.f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091c7b);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091321);
             this.b = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.icon_card_url_n);
@@ -87,9 +87,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            g16.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            g16.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            g16.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            t16.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            t16.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            t16.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
@@ -112,8 +112,8 @@ public class ThreadLinkView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             if (threadData != null && threadData.getLinkThreadData() != null && !dj.isEmpty(threadData.getLinkThreadData().e())) {
-                ds4 linkThreadData = threadData.getLinkThreadData();
-                if (!linkThreadData.f() && linkThreadData.c() != ds4.g) {
+                qs4 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != qs4.g) {
                     setVisibility(8);
                     return;
                 }

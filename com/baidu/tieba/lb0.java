@@ -1,25 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
 /* loaded from: classes4.dex */
-public class lb0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static INetWork a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static INetWork a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (INetWork) invokeV.objValue;
-    }
-
-    public static void b(INetWork iNetWork) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
-            a = iNetWork;
-        }
-    }
+public interface lb0 {
+    void a(Context context, String str);
 }

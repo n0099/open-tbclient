@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.feed.search.recmore.ILiveRecSearchPanel;
 import com.baidu.live.feed.search.view.LiveSearchPanel;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ia0;
+import com.baidu.tieba.va0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -306,7 +306,7 @@ public final class LiveRecSearchPanel implements ILiveRecSearchPanel {
             if (liveSearchPanel2 == null || (editText = liveSearchPanel2.getEditText()) == null) {
                 return;
             }
-            ia0.a(editText, i);
+            va0.a(editText, i);
         }
     }
 

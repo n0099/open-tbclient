@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,17 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public final class eo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public rh3<eo2> b;
-    public final List<b> c;
-    public String d;
+    public final LruCache<String, Object> a;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -30,166 +25,25 @@ public final class eo2 {
     }
 
     /* loaded from: classes3.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final eo2 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final List<String> b;
-        public String c;
-        public final List<StackTraceElement> d;
-        public final /* synthetic */ eo2 e;
 
-        public /* synthetic */ b(eo2 eo2Var, a aVar) {
-            this(eo2Var);
-        }
-
-        public synchronized b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                synchronized (this) {
-                    List<String> list = this.a;
-                    if (TextUtils.isEmpty(str)) {
-                        str = "";
-                    }
-                    list.add(str);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-826665789, "Lcom/baidu/tieba/eo2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public synchronized b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                synchronized (this) {
-                    d(this.d.size());
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public synchronized b d(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                synchronized (this) {
-                    if (i < 1) {
-                        i = 1;
-                    }
-                    if (i > this.d.size()) {
-                        i = this.d.size();
-                    }
-                    for (int i2 = 0; i2 < i; i2++) {
-                        eo2 eo2Var = this.e;
-                        eo2Var.e("[Trace]==> " + this.d.get(i2).toString());
-                    }
-                }
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public synchronized b e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                synchronized (this) {
-                    d(1);
-                }
-                return this;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public b(eo2 eo2Var) {
-            StackTraceElement[] stackTrace;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-826665789, "Lcom/baidu/tieba/eo2$b;");
                     return;
                 }
             }
-            this.e = eo2Var;
-            this.a = new ArrayList();
-            this.b = new ArrayList();
-            this.d = new ArrayList();
-            int i3 = 0;
-            for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                i3++;
-                if (i3 > 2 && !stackTraceElement.getClassName().startsWith(eo2Var.d)) {
-                    this.d.add(stackTraceElement);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements rh3<eo2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(eo2 eo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && eo2.e) {
-                Log.i(str, str2);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: c */
-        public void a(eo2 eo2Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eo2Var) == null) && eo2.e) {
-                for (b bVar : eo2Var.c) {
-                    for (String str : bVar.a) {
-                        String h = eo2Var.h();
-                        String str2 = TextUtils.isEmpty(bVar.c) ? h : bVar.c;
-                        b(str2, h + " >>> " + str);
-                    }
-                }
-            }
-        }
-
-        public /* synthetic */ c(eo2 eo2Var, a aVar) {
-            this(eo2Var);
+            a = new eo2(null);
         }
     }
 
@@ -206,7 +60,88 @@ public final class eo2 {
                 return;
             }
         }
-        e = ij1.a;
+        b = vj1.a;
+    }
+
+    public /* synthetic */ eo2(a aVar) {
+        this();
+    }
+
+    public static eo2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (eo2) invokeV.objValue;
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.evictAll();
+                }
+            }
+        }
+    }
+
+    public synchronized <RESULT> RESULT b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                RESULT result = (RESULT) this.a.get(str);
+                if (result == null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+                    }
+                    return null;
+                }
+                try {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                    }
+                    return result;
+                } catch (Exception e) {
+                    if (b) {
+                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    }
+                    return null;
+                }
+            }
+        }
+        return (RESULT) invokeL.objValue;
+    }
+
+    public synchronized <RESULT> void d(String str, RESULT result) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && result != null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
+                    }
+                    this.a.put(str, result);
+                }
+            }
+        }
+    }
+
+    public synchronized void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (b) {
+                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
+                }
+                this.a.remove(str);
+            }
+        }
     }
 
     public eo2() {
@@ -222,119 +157,6 @@ public final class eo2 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = eo2.class.getPackage().getName();
-    }
-
-    public synchronized b d() {
-        InterceptResult invokeV;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                bVar = new b(this, null);
-                this.c.add(bVar);
-            }
-            return bVar;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public synchronized b e(String str) {
-        InterceptResult invokeL;
-        b d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                d = d();
-                d.a(str);
-            }
-            return d;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public synchronized b f(String str, String str2) {
-        InterceptResult invokeLL;
-        b e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this) {
-                e2 = e(str2);
-                e2.b(str);
-            }
-            return e2;
-        }
-        return (b) invokeLL.objValue;
-    }
-
-    public eo2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (eo2) invokeL.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public synchronized List<b> i() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList(this.c);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized eo2 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                k(this.b);
-            }
-            return this;
-        }
-        return (eo2) invokeV.objValue;
-    }
-
-    public synchronized eo2 k(rh3<eo2> rh3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, rh3Var)) == null) {
-            synchronized (this) {
-                if (rh3Var == null) {
-                    try {
-                        rh3Var = new c(this, null);
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                rh3Var.a(this);
-            }
-            return this;
-        }
-        return (eo2) invokeL.objValue;
-    }
-
-    public eo2 l(rh3<eo2> rh3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rh3Var)) == null) {
-            this.b = rh3Var;
-            return this;
-        }
-        return (eo2) invokeL.objValue;
+        this.a = new LruCache<>(10);
     }
 }

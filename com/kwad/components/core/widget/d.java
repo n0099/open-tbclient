@@ -279,7 +279,7 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                     com.kwad.components.core.j.a.og().a(this.Pn.mAdTemplate, System.currentTimeMillis(), 1);
                 }
             });
-            this.Pc.setAdClickListener(new a.InterfaceC0585a(this) { // from class: com.kwad.components.core.widget.d.4
+            this.Pc.setAdClickListener(new a.InterfaceC0581a(this) { // from class: com.kwad.components.core.widget.d.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d Pn;
@@ -302,7 +302,7 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                     this.Pn = this;
                 }
 
-                @Override // com.kwad.components.core.video.a.InterfaceC0585a
+                @Override // com.kwad.components.core.video.a.InterfaceC0581a
                 public final void a(int i, aa.a aVar3) {
                     int i2;
                     Interceptable interceptable2 = $ic;
@@ -323,7 +323,7 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                         u.b bVar = new u.b();
                         bVar.gL = aVar3;
                         bVar.gJ = i2;
-                        com.kwad.components.core.c.a.a.a(new a.C0574a(com.kwad.sdk.b.kwai.a.x(this.Pn.Pa)).L(this.Pn.mAdTemplate).b(this.Pn.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.core.widget.d.4.1
+                        com.kwad.components.core.c.a.a.a(new a.C0570a(com.kwad.sdk.b.kwai.a.x(this.Pn.Pa)).L(this.Pn.mAdTemplate).b(this.Pn.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.core.widget.d.4.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass4 Pp;
@@ -460,10 +460,10 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                         if (this.Po.isPlaying()) {
                             this.Pn.Pc.pc();
                             this.Pn.OW.setVisibility(0);
-                            this.Pn.OW.setImageDrawable(this.Pn.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c9d));
+                            this.Pn.OW.setImageDrawable(this.Pn.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c9f));
                             imageView = this.Pn.OU;
                             resources = this.Pn.getContext().getResources();
-                            i = R.drawable.obfuscated_res_0x7f080ca3;
+                            i = R.drawable.obfuscated_res_0x7f080ca5;
                         }
                         if (this.Pn.getHandler() == null) {
                             this.Pn.getHandler().removeCallbacks(this.Pn.Pm);
@@ -473,10 +473,10 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
                         return;
                     }
                     this.Pn.Pc.pd();
-                    this.Pn.OU.setImageDrawable(this.Pn.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca1));
+                    this.Pn.OU.setImageDrawable(this.Pn.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca3));
                     imageView = this.Pn.OW;
                     resources = this.Pn.getResources();
-                    i = R.drawable.obfuscated_res_0x7f080ca2;
+                    i = R.drawable.obfuscated_res_0x7f080ca4;
                     imageView.setImageDrawable(resources.getDrawable(i));
                     if (this.Pn.getHandler() == null) {
                     }
@@ -616,8 +616,8 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             this.Pc.pc();
             this.OW.setVisibility(0);
-            this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c9d));
-            this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca3));
+            this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c9f));
+            this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca5));
         }
     }
 
@@ -626,8 +626,8 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             this.Pc.pd();
-            this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca1));
-            this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca2));
+            this.OU.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca3));
+            this.OW.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca4));
         }
     }
 
@@ -955,11 +955,11 @@ public final class d extends b<AdTemplate> implements NestedScrollingChild {
             if (i == 101) {
                 imageView = this.OV;
                 resources = getContext().getResources();
-                i2 = R.drawable.obfuscated_res_0x7f080c9f;
+                i2 = R.drawable.obfuscated_res_0x7f080ca1;
             } else {
                 imageView = this.OV;
                 resources = getContext().getResources();
-                i2 = R.drawable.obfuscated_res_0x7f080ca0;
+                i2 = R.drawable.obfuscated_res_0x7f080ca2;
             }
             imageView.setImageDrawable(resources.getDrawable(i2));
             this.Pd = i;

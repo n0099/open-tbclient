@@ -1,76 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.dz;
-import com.baidu.tieba.sy;
+import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.ImagesContract;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class n37 extends qn<ot4, ThreadCardViewHolder<ThreadData>> {
+public class n37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public TbPageContext<?> c;
-    public jo d;
-    public v16<ThreadData> e;
+    public HomePageTabFeedFragment a;
+    public BdTypeRecyclerView b;
+    public j47 c;
+    public c47 d;
+    public x37 e;
+    public z37 f;
+    public y37 g;
+    public a47 h;
+    public k47 i;
+    public b47 j;
+    public e47 k;
+    public g47 l;
+    public f47 m;
+    public i47 n;
+    public v37 o;
+    public t37 p;
+    public s37 q;
+    public u37 r;
+    public d47 s;
+    public h47 t;
+    public w37 u;
+    public l47 v;
+    public List<qn> w;
 
     /* loaded from: classes5.dex */
-    public class a extends v16<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n37 b;
-
-        public a(n37 n37Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n37Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n37Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v16
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                o16.b().d(true);
-                a37.k(view2, threadData, this.b.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements no {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n37 a;
 
-        public b(n37 n37Var) {
+        public a(n37 n37Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,92 +67,162 @@ public class n37 extends qn<ot4, ThreadCardViewHolder<ThreadData>> {
             this.a = n37Var;
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof ot4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((ot4) cdo).t;
-                threadData.objType = 1;
-                if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), threadData);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TbSingleton.getInstance().setShouldShowHomeLocalCompleteInfoCard(false);
+                if (this.a.b.getCount() != 0 && (this.a.b.B(0) instanceof m47)) {
+                    this.a.b.D(0);
                 }
-                ThreadCardUtils.jumpToPB((lq4) threadData, view2.getContext(), 0, false);
-                threadCardViewHolder.a().o(new dz.a(1));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n37(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public n37(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
+            Object[] objArr = {homePageTabFeedFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.c = tbPageContext;
-        this.a = bdUniqueId2;
-        this.b = str;
+        this.w = new LinkedList();
+        this.a = homePageTabFeedFragment;
+        this.b = bdTypeRecyclerView;
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final View.OnClickListener b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            sy.b bVar = new sy.b(this.c.getPageActivity(), false);
-            bVar.h(new qx(this.c.getPageActivity()));
-            sy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
-            k.r(2);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (View.OnClickListener) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ot4 ot4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ot4Var, threadCardViewHolder})) == null) {
-            if (ot4Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (threadData = ot4Var.t) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j47 j47Var = new j47(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.E1(), this.a.D1());
+            this.c = j47Var;
+            j47Var.w(this.b);
+            this.w.add(this.c);
+            c47 c47Var = new c47(this.a.getPageContext());
+            this.d = c47Var;
+            c47Var.v(this.b);
+            this.w.add(this.d);
+            x37 x37Var = new x37(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.E1());
+            this.e = x37Var;
+            x37Var.x(this.b);
+            this.w.add(this.e);
+            z37 z37Var = new z37(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.E1());
+            this.f = z37Var;
+            z37Var.w(this.b);
+            this.w.add(this.f);
+            y37 y37Var = new y37(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.E1());
+            this.g = y37Var;
+            y37Var.w(this.b);
+            this.w.add(this.g);
+            a47 a47Var = new a47(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.E1());
+            this.h = a47Var;
+            a47Var.w(this.b);
+            this.w.add(this.h);
+            k47 k47Var = new k47(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.E1());
+            this.i = k47Var;
+            k47Var.z(this.b);
+            this.w.add(this.i);
+            b47 b47Var = new b47(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.E1());
+            this.j = b47Var;
+            b47Var.w(this.b);
+            if ("fashion".equals(this.a.D1()) || ImagesContract.LOCAL.equals(this.a.D1())) {
+                this.w.add(this.j);
             }
-            threadData.statFloor = getPositionByType(i) + 1;
-            threadCardViewHolder.a().q(i);
-            threadCardViewHolder.e(ot4Var.t);
-            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().p(this.e);
-            a37.r(ot4Var, this.b);
-            return threadCardViewHolder.getView();
+            e47 e47Var = new e47(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.E1());
+            this.k = e47Var;
+            e47Var.u(this.b);
+            this.w.add(this.k);
+            g47 g47Var = new g47(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.E1());
+            this.l = g47Var;
+            g47Var.v(this.b);
+            this.w.add(this.l);
+            f47 f47Var = new f47(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.E1());
+            this.m = f47Var;
+            f47Var.u(this.b);
+            this.w.add(this.m);
+            i47 i47Var = new i47(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.E1());
+            this.n = i47Var;
+            i47Var.v(this.b);
+            this.w.add(this.n);
+            v37 v37Var = new v37(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.E1());
+            this.o = v37Var;
+            v37Var.x(this.b);
+            this.w.add(this.o);
+            u37 u37Var = new u37(this.a.getPageContext(), w26.N0, this.a.E1());
+            this.r = u37Var;
+            this.w.add(u37Var);
+            t37 t37Var = new t37(this.a.getPageContext(), st4.e);
+            this.p = t37Var;
+            t37Var.v(this.b);
+            this.w.add(this.p);
+            s37 s37Var = new s37(this.a.getPageContext(), wr4.b);
+            this.q = s37Var;
+            s37Var.y(this.b);
+            this.w.add(this.q);
+            d47 d47Var = new d47(this.a.getPageContext());
+            this.s = d47Var;
+            d47Var.u(this.b);
+            this.w.add(this.s);
+            h47 h47Var = new h47(this.a.getPageContext());
+            this.t = h47Var;
+            h47Var.u(this.b);
+            this.w.add(this.t);
+            w37 w37Var = new w37(this.a.getPageContext(), b());
+            this.u = w37Var;
+            this.w.add(w37Var);
+            l47 l47Var = new l47(this.a.getPageContext());
+            this.v = l47Var;
+            this.w.add(l47Var);
+            this.b.a(this.w);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void w(jo joVar) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, joVar) == null) {
-            this.d = joVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void e(ArrayList<Cdo> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b.setData(arrayList);
+        }
+    }
+
+    public void f(boolean z) {
+        l47 l47Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (l47Var = this.v) == null) {
+            return;
+        }
+        l47Var.u(z);
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            for (qn qnVar : this.w) {
+                if (qnVar instanceof p37) {
+                    ((p37) qnVar).h(str);
+                }
+            }
         }
     }
 }

@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface b71 {
-    void a(AdBaseModel adBaseModel);
-
-    void b(AdBaseModel adBaseModel);
-
-    void c(AdBaseModel adBaseModel);
-
-    void d(AdBaseModel adBaseModel);
-
-    void e(AdBaseModel adBaseModel, String str);
-
-    void f(AdBaseModel adBaseModel);
+public class b71 extends d71 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

@@ -1,57 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class lr9 extends BroadcastReceiver {
+public class lr9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final lr9 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ir9 a;
-    public final /* synthetic */ hr9 b;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
 
-    public lr9(hr9 hr9Var, ir9 ir9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952630, "Lcom/baidu/tieba/lr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952630, "Lcom/baidu/tieba/lr9;");
+                return;
+            }
+        }
+        e = new lr9();
+    }
+
+    public lr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hr9Var, ir9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = hr9Var;
-        this.a = ir9Var;
+        this.a = 0.0f;
+        this.b = 0.0f;
+        this.c = 0.0f;
+        this.d = 1.0f;
+        b(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    public final float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.b.p();
-                int i = extras.getInt("install.status");
-                if (i == 1 || i == 2 || i == 3) {
-                    this.a.a(com.google.ar.core.p.a);
-                } else if (i == 4) {
-                    this.a.a(com.google.ar.core.p.c);
-                } else if (i != 6) {
-                } else {
-                    this.a.a(com.google.ar.core.p.b);
-                }
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
+    }
+
+    public final void b(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = f4;
         }
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.floatValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.b), Float.valueOf(this.c), Float.valueOf(this.d)) : (String) invokeV.objValue;
     }
 }

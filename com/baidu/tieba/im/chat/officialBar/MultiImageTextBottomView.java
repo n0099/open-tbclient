@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca7;
-import com.baidu.tieba.fc7;
-import com.baidu.tieba.ib7;
-import com.baidu.tieba.x87;
+import com.baidu.tieba.l97;
+import com.baidu.tieba.qa7;
+import com.baidu.tieba.tc7;
+import com.baidu.tieba.wb7;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -83,12 +83,12 @@ public class MultiImageTextBottomView extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca7.a a;
+        public final /* synthetic */ qa7.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextBottomView d;
 
-        public b(MultiImageTextBottomView multiImageTextBottomView, ca7.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextBottomView multiImageTextBottomView, qa7.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class MultiImageTextBottomView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ca7.a aVar;
+            qa7.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a) == null || StringUtils.isNull(aVar.d)) {
                 return;
@@ -119,13 +119,13 @@ public class MultiImageTextBottomView extends LinearLayout {
             UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
             if (this.c == 1) {
                 TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                x87 m = fc7.m(this.d.g);
+                l97 m = tc7.m(this.d.g);
                 if (m != null) {
                     Context context = this.d.a;
                     TiebaStatic.eventStat(context, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "" + this.d.f);
                     int i = this.a.g;
                     if ((i == 1 || i == 3) && !"0".equals(m.b)) {
-                        ib7.c().a(m.b);
+                        wb7.c().a(m.b);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -194,7 +194,7 @@ public class MultiImageTextBottomView extends LinearLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, ca7.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, qa7.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) || aVar == null) {
             return;

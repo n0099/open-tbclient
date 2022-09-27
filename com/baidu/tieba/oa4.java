@@ -1,27 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hc4;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONObject;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 /* loaded from: classes5.dex */
-public class oa4 implements hc4.a {
+public class oa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final na4 a;
+    public String a;
+    public String b;
+    public Map<String, String> c;
+    public RequestBody d;
+    public ResponseCallback e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public Object i;
+    public int j;
+    public int k;
+    public a l;
 
-    public oa4(@Nullable na4 na4Var) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+    }
+
+    public oa4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {na4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,56 +49,80 @@ public class oa4 implements hc4.a {
                 return;
             }
         }
-        this.a = na4Var;
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
     }
 
-    @Override // com.baidu.tieba.hc4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
+    public oa4 a(MediaType mediaType, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
+            if (mediaType != null && str != null) {
+                this.d = RequestBody.create(mediaType, str);
+            }
+            return this;
         }
+        return (oa4) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hc4.a
-    public void c(String str, int i) {
+    public a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
-                    if (optJSONObject2 != null) {
-                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
-                    }
-                }
-                if (this.a != null) {
-                    this.a.a(hashMap);
-                }
-            } catch (Exception e) {
-                na4 na4Var = this.a;
-                if (na4Var != null) {
-                    na4Var.onFail(e);
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (a) invokeV.objValue;
+    }
+
+    public oa4(String str, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, responseCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.e = responseCallback;
     }
 
-    @Override // com.baidu.tieba.hc4.a
-    public void onFail(Exception exc) {
-        na4 na4Var;
+    public oa4(String str, RequestBody requestBody, ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (na4Var = this.a) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, requestBody, responseCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        na4Var.onFail(exc);
-    }
-
-    @Override // com.baidu.tieba.hc4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.d = requestBody;
+        this.e = responseCallback;
     }
 }

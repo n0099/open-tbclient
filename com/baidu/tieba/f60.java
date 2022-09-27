@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.helios.channels.csc.QuantumChannel;
+import com.baidu.tieba.d30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.internal.Version;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class f60 implements Interceptor {
+public class f60 implements d30.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,18 +28,19 @@ public class f60 implements Interceptor {
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d30.a
+    public List<c30> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            String str = request.headers().get("User-Agent");
-            if (!str.contains(Version.userAgent())) {
-                return chain.proceed(request);
-            }
-            return chain.proceed(request.newBuilder().header("User-Agent", "outback/1.0.0-" + str).build());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new l30());
+            arrayList.add(new QuantumChannel());
+            arrayList.add(new g30());
+            arrayList.add(new h30());
+            arrayList.add(new i30());
+            return arrayList;
         }
-        return (Response) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

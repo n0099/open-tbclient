@@ -4,24 +4,35 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes3.dex */
 public class cn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cn7(int i) {
+    public cn7(VipSpecialItem vipSpecialItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {vipSpecialItem};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        String str = vipSpecialItem.title;
+        String str2 = vipSpecialItem.desc;
+        String str3 = vipSpecialItem.img_url;
+        String str4 = vipSpecialItem.link;
+        String str5 = vipSpecialItem.update_time;
+        vipSpecialItem.id.intValue();
+        vipSpecialItem.type.intValue();
+        vipSpecialItem.task_id.intValue();
+        vipSpecialItem.is_finish.intValue();
     }
 }

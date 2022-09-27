@@ -16,9 +16,9 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.pg3;
-import com.baidu.tieba.v02;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.i12;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -144,11 +144,11 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        e = ij1.a;
+        e = vj1.a;
         HashMap hashMap = new HashMap();
         f = hashMap;
-        hashMap.put(v02.q, "api_info_expend");
-        f.put(v02.r, "prelink_info_expend");
+        hashMap.put(i12.q, "api_info_expend");
+        f.put(i12.r, "prelink_info_expend");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -169,7 +169,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, v02.m, "上屏时长：%s ms"), new b(this, v02.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, v02.l, "下载耗时：%s ms"), new b(this, v02.j, "页面切换耗时：%s ms"), new b(this, v02.n, "初次渲染耗时：%s ms"), new b(this, v02.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, v02.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, v02.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, v02.q, "%s")};
+        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, i12.m, "上屏时长：%s ms"), new b(this, i12.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, i12.l, "下载耗时：%s ms"), new b(this, i12.j, "页面切换耗时：%s ms"), new b(this, i12.n, "初次渲染耗时：%s ms"), new b(this, i12.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, i12.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, i12.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, i12.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
@@ -192,7 +192,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 } else {
                     textView.setTextAppearance(context, R.style.obfuscated_res_0x7f1001ab);
                     textView.setText(bVar.b);
-                    int g = pg3.g(5.0f);
+                    int g = ch3.g(5.0f);
                     textView.setPadding(0, g, 0, g);
                 }
                 linearLayout.addView(textView);
@@ -209,7 +209,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, context, str, str2) == null) {
             ScrollView scrollView = new ScrollView(context);
-            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, pg3.g(200.0f));
+            ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ch3.g(200.0f));
             View view2 = (TextView) this.b.get(str2);
             if (view2 != null) {
                 linearLayout.removeView(view2);
@@ -247,7 +247,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 Log.d("SwanAppPropertyWindow", "Start system monitor");
             }
             if (this.d == null) {
-                this.d = v02.g().h();
+                this.d = i12.g().h();
             }
             if (this.c == null) {
                 c cVar = new c(this, null);
@@ -264,7 +264,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 Log.d("SwanAppPropertyWindow", "Stop system monitor");
             }
             if (this.d != null) {
-                v02.g().i();
+                i12.g().i();
                 this.d = null;
             }
             c cVar = this.c;
@@ -374,7 +374,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, v02.m, "上屏时长：%s ms"), new b(this, v02.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, v02.l, "下载耗时：%s ms"), new b(this, v02.j, "页面切换耗时：%s ms"), new b(this, v02.n, "初次渲染耗时：%s ms"), new b(this, v02.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, v02.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, v02.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, v02.q, "%s")};
+        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, i12.m, "上屏时长：%s ms"), new b(this, i12.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, i12.l, "下载耗时：%s ms"), new b(this, i12.j, "页面切换耗时：%s ms"), new b(this, i12.n, "初次渲染耗时：%s ms"), new b(this, i12.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, i12.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, i12.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, i12.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }
@@ -398,7 +398,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 return;
             }
         }
-        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, v02.m, "上屏时长：%s ms"), new b(this, v02.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, v02.l, "下载耗时：%s ms"), new b(this, v02.j, "页面切换耗时：%s ms"), new b(this, v02.n, "初次渲染耗时：%s ms"), new b(this, v02.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, v02.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, v02.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, v02.q, "%s")};
+        this.a = new b[]{new b(this, "对应开发者平台指标"), new b(this, i12.m, "上屏时长：%s ms"), new b(this, i12.k, "加载总时长(老指标)：%s ms"), new b(this, "中间指标"), new b(this, i12.l, "下载耗时：%s ms"), new b(this, i12.j, "页面切换耗时：%s ms"), new b(this, i12.n, "初次渲染耗时：%s ms"), new b(this, i12.o, "再次渲染耗时：%s ms"), new b(this, "frame", "帧率：%s fps"), new b(this, "其他"), new b(this, "cpu", "CPU：%s"), new b(this, "mem", "内存：%sm"), new b(this, i12.p, "数据缓存：%s B"), new b(this, "prelink_info_expend", "预连接调用情况"), new b(this, i12.r, "%s"), new b(this, "api_info_expend", "启动过程API调用"), new b(this, i12.q, "%s")};
         this.b = new HashMap(this.a.length);
         d(context);
     }

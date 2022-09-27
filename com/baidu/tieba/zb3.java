@@ -1,11 +1,5 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,57 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class zb3 {
+public final class zb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final Map<String, tb3> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public xb3 a;
-    public ub3 b;
-    public volatile boolean c;
-    public HandlerThread d;
-    public Handler e;
-
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zb3 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zb3 zb3Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zb3Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zb3Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.a.f();
-                if (!this.a.c) {
-                    this.a.e.removeMessages(101);
-                } else {
-                    this.a.a.c();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -78,77 +28,46 @@ public abstract class zb3 {
                 return;
             }
         }
-        f = ij1.a;
+        boolean z = vj1.a;
+        a = new HashMap();
     }
 
-    public zb3(ub3 ub3Var) {
+    public zb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ub3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new xb3();
-        this.b = ub3Var;
     }
 
-    public synchronized void c() {
+    public static tb3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b("searchbox_webapps_sp") : (tb3) invokeV.objValue;
+    }
+
+    public static tb3 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            tb3 tb3Var = a.get(str);
+            if (tb3Var == null) {
+                synchronized (zb3.class) {
+                    tb3Var = a.get(str);
+                    if (tb3Var == null) {
+                        tb3Var = new tb3(str);
+                        a.put(str, tb3Var);
+                    }
                 }
-                d();
-                this.e.sendMessage(this.e.obtainMessage(101));
             }
+            return tb3Var;
         }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
-            HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new a(this, this.d.getLooper());
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c = true;
-                if (this.d != null) {
-                    this.d.quitSafely();
-                }
-                this.e = null;
-                this.d = null;
-            }
-        }
-    }
-
-    public abstract void f();
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
-            }
-        }
+        return (tb3) invokeL.objValue;
     }
 }

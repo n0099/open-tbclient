@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
-public final class c32 {
+public class c32 implements b32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<b32> a;
+    public List<b32> a;
 
     public c32() {
         Interceptable interceptable = $ic;
@@ -28,64 +27,56 @@ public final class c32 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new CopyOnWriteArrayList();
     }
 
-    public synchronized boolean a(b32 b32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b32Var)) == null) {
-            synchronized (this) {
-                if (b32Var != null) {
-                    return this.a.add(b32Var);
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
-        }
-    }
-
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = false;
-                Iterator<b32> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (it.next().c()) {
-                        z = true;
-                        break;
-                    }
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized List<b32> d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b32
+    public void a() {
         List<b32> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                list = this.a;
-            }
-            return list;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
+            return;
         }
-        return (List) invokeV.objValue;
+        for (b32 b32Var : this.a) {
+            b32Var.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.b32
+    public void b() {
+        List<b32> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.a) == null || list.size() <= 0) {
+            return;
+        }
+        for (b32 b32Var : this.a) {
+            b32Var.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.b32
+    public void c() {
+        List<b32> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.a) == null || list.size() <= 0) {
+            return;
+        }
+        for (b32 b32Var : this.a) {
+            b32Var.c();
+        }
+    }
+
+    public void d(@NonNull b32 b32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, b32Var) == null) {
+            this.a.add(b32Var);
+        }
+    }
+
+    public void e(@NonNull b32 b32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b32Var) == null) {
+            this.a.remove(b32Var);
+        }
     }
 }

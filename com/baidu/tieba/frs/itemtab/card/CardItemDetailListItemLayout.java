@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.dp6;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.rp6;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -180,7 +180,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             }
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03ec, this);
             this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091620);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0924e6);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0924e8);
             this.c = findViewById(R.id.obfuscated_res_0x7f0907f9);
             this.b.setOnClickListener(new a(this));
         }
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            uu4.d(this.a).v(R.color.CAM_X0108);
+            hv4.d(this.a).v(R.color.CAM_X0108);
             if (dj.isEmpty(this.d)) {
-                uu4 d = uu4.d(this.b);
+                hv4 d = hv4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                uu4 d2 = uu4.d(this.b);
+                hv4 d2 = hv4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }
@@ -203,12 +203,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    public void setData(dp6 dp6Var) {
+    public void setData(rp6 rp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dp6Var) == null) {
-            this.a.setText(dp6Var.a);
-            this.b.setText(dp6Var.b);
-            this.d = dp6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rp6Var) == null) {
+            this.a.setText(rp6Var.a);
+            this.b.setText(rp6Var.b);
+            this.d = rp6Var.c;
         }
     }
 

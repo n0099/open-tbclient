@@ -1,55 +1,53 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
+import android.text.method.LinkMovementMethod;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.GroupImageView;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.mygroup.PersonalGroupFragment;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.im.data.JsonMsgItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ia7 extends BaseAdapter {
+public class ia7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ia7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public PersonalGroupFragment a;
-    public List<GroupInfoData> b;
+    public Context a;
+    public ArrayList<JsonMsgItem> b;
+    public c c;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a extends TypeToken<List<JsonMsgItem>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public LinearLayout a;
-        public GroupImageView b;
-        public TextView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public ImageView g;
-        public ImageView h;
-        public ImageView i;
-        public ImageView j;
-        public ImageView k;
-        public ImageView l;
-        public ImageView[] m;
 
-        public a() {
+        public a(ia7 ia7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ia7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,149 +59,190 @@ public class ia7 extends BaseAdapter {
         }
     }
 
-    public ia7(PersonalGroupFragment personalGroupFragment) {
+    /* loaded from: classes4.dex */
+    public class b extends ClickableSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JsonMsgItem a;
+        public final /* synthetic */ ia7 b;
+
+        public b(ia7 ia7Var, JsonMsgItem jsonMsgItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ia7Var, jsonMsgItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ia7Var;
+            this.a = jsonMsgItem;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.c.a(this.a.getUrl());
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(this.b.a.getResources().getColor(this.b.d(this.a.getColor())));
+                textPaint.setUnderlineText(false);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
+        void a(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947846858, "Lcom/baidu/tieba/ia7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947846858, "Lcom/baidu/tieba/ia7;");
+        }
+    }
+
+    public ia7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {personalGroupFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = personalGroupFragment;
+        this.b = new ArrayList<>();
+        this.a = context;
     }
 
-    public final void a(ImageView[] imageViewArr, int i) {
+    public static ia7 f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, imageViewArr, i) == null) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                d = new ia7(context);
             }
-            if (i > 3) {
-                i = 3;
-            }
-            for (int i2 = 1; i2 <= 3; i2++) {
-                if (i2 <= i) {
-                    imageViewArr[i2].setVisibility(0);
-                } else {
-                    imageViewArr[i2].setVisibility(8);
-                }
-            }
+            return d;
         }
+        return (ia7) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public GroupInfoData getItem(int i) {
+    public int c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int itemId = (int) getItemId(i);
-            if (itemId < 0 || itemId >= this.b.size()) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                return 0;
             }
-            return this.b.get(itemId);
-        }
-        return (GroupInfoData) invokeI.objValue;
-    }
-
-    public void c(List<GroupInfoData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d084a, viewGroup, false);
-                aVar = new a();
-                aVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09064a);
-                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ef);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ee);
-                aVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907f0);
-                aVar.b = (GroupImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa8);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa5);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa6);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb1);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f87);
-                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa1);
-                aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa2);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa3);
-                aVar.l = imageView;
-                ImageView[] imageViewArr = new ImageView[4];
-                aVar.m = imageViewArr;
-                imageViewArr[1] = aVar.j;
-                imageViewArr[2] = aVar.k;
-                imageViewArr[3] = imageView;
-                view2.setTag(aVar);
-            }
-            GroupInfoData groupInfoData = this.b.get(i);
-            aVar.b.setTag(null);
-            aVar.b.setDrawBorder(true);
-            aVar.b.setPlaceHolder(1);
-            if (groupInfoData != null) {
-                String portrait = groupInfoData.getPortrait();
-                if (!TextUtils.isEmpty(portrait)) {
-                    aVar.b.K(portrait, 10, false);
-                } else {
-                    aVar.b.K("", 10, false);
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                if (this.b.get(i3) != null) {
+                    i2 += this.b.get(i3).getText().length();
                 }
-                aVar.a.setOnClickListener(this.a);
-                aVar.a.setTag(groupInfoData);
-                aVar.g.setVisibility(8);
-                aVar.i.setVisibility(8);
-                aVar.h.setVisibility(0);
-                aVar.c.setText(groupInfoData.getName());
-                TextView textView = aVar.d;
-                textView.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-                aVar.e.setText(groupInfoData.getIntro());
-                if (groupInfoData.getIsGroupManager() == 1) {
-                    aVar.f.setVisibility(0);
-                } else {
-                    aVar.f.setVisibility(8);
-                }
-                a(aVar.m, groupInfoData.getGrade());
             }
-            this.a.getBaseFragmentActivity().getLayoutMode().l(TbadkApplication.getInst().getSkinType() == 1);
-            this.a.getBaseFragmentActivity().getLayoutMode().k(view2);
-            if (groupInfoData != null && groupInfoData.isMemGroup()) {
-                SkinManager.setViewTextColor(aVar.c, R.color.common_color_10009, 1);
-                SkinManager.setImageResource(aVar.j, R.drawable.icon_vip_grade_big_small_s);
-                SkinManager.setImageResource(aVar.k, R.drawable.icon_vip_grade_big_small_s);
-                SkinManager.setImageResource(aVar.l, R.drawable.icon_vip_grade_big_small_s);
-            }
-            return view2;
+            return i2;
         }
-        return (View) invokeILL.objValue;
+        return invokeI.intValue;
+    }
+
+    public final int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            int identifier = this.a.getResources().getIdentifier(str, "color", this.a.getPackageName());
+            return identifier == 0 ? this.a.getResources().getIdentifier("CAM_X0101", "color", this.a.getPackageName()) : identifier;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int identifier = this.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, this.a.getPackageName());
+            return identifier == 0 ? this.a.getResources().getIdentifier("T_X09", EMABTest.TYPE_DIMEN, this.a.getPackageName()) : identifier;
+        }
+        return invokeL.intValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = (ArrayList) new Gson().fromJson(str, new a(this).getType());
+        }
+    }
+
+    public void h(TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, textView) == null) {
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            textView.setHighlightColor(0);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            for (int i = 0; i < this.b.size(); i++) {
+                JsonMsgItem jsonMsgItem = this.b.get(i);
+                if (jsonMsgItem != null && !TextUtils.isEmpty(jsonMsgItem.getText())) {
+                    SpannableString spannableString = new SpannableString(jsonMsgItem.getText());
+                    spannableString.setSpan(new ForegroundColorSpan(this.a.getResources().getColor(d(jsonMsgItem.getColor()))), 0, jsonMsgItem.getText().length(), 33);
+                    spannableString.setSpan(new AbsoluteSizeSpan((int) this.a.getResources().getDimension(e(jsonMsgItem.getFont()))), 0, jsonMsgItem.getText().length(), 0);
+                    spannableStringBuilder.append((CharSequence) spannableString);
+                    if (jsonMsgItem.getType().intValue() == 1) {
+                        spannableStringBuilder.setSpan(new b(this, jsonMsgItem), c(i), c(i) + jsonMsgItem.getText().length(), 17);
+                    }
+                }
+            }
+            textView.setText(spannableStringBuilder);
+        }
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (!kh9.a(str)) {
+                if (str.startsWith("{") && str.endsWith("}")) {
+                    return true;
+                }
+                if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.c = cVar;
+        }
     }
 }

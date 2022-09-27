@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.ImageChangeCacheKeySwitch;
-import com.baidu.tieba.md5;
+import com.baidu.tieba.zd5;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +42,7 @@ public class ApplicationAsyncTask extends LaunchTask {
     private void trackPushSwitchOpen() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (md5.a(TbadkCoreApplication.getInst())) {
+            if (zd5.a(TbadkCoreApplication.getInst())) {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
             } else {
                 TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));

@@ -1,347 +1,205 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.aperf.bosuploader.FileUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialOperation;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes3.dex */
-public class e91 {
+public class e91 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        FileOutputStream fileOutputStream;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e91(Context context) {
+        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, str2)) == null) {
-            if (context == null) {
-                if (d91.a()) {
-                    Log.e(FileUtil.TAG, "copyAssetsTo: context is null");
-                }
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+    }
+
+    public final void a(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
             try {
-                InputStream open = context.getAssets().open(str);
-                if (open == null) {
-                }
-                File file = new File(str2);
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (IOException e) {
-                    e = e;
-                }
-                try {
-                    byte[] bArr = new byte[4096];
-                    if (open == null) {
-                        if (open != null) {
-                            try {
-                                open.close();
-                            } catch (IOException unused) {
-                            }
-                        }
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException unused2) {
-                        }
-                        return false;
-                    }
-                    while (true) {
-                        int read = open.read(bArr);
-                        if (read < 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    fileOutputStream.flush();
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    try {
-                        fileOutputStream.close();
-                        return true;
-                    } catch (IOException unused4) {
-                        return true;
-                    }
-                } catch (IOException e2) {
-                    e = e2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (d91.a()) {
-                        Log.e(FileUtil.TAG, "copyAssetsTo: destOutputStream e=" + e.toString());
-                    }
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused6) {
-                        }
-                    }
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (open != null) {
-                        try {
-                            open.close();
-                        } catch (IOException unused7) {
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused8) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (IOException e3) {
-                if (d91.a()) {
-                    Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream e=" + e3.toString());
-                }
-                return false;
-            } finally {
-                Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream is null");
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static boolean b(File file, File file2) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
+    public final void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, file, file2)) != null) {
-            return invokeLL.booleanValue;
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(file);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
             try {
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                fileOutputStream2 = new FileOutputStream(file2);
-                try {
-                    byte[] bArr = new byte[4096];
-                    while (true) {
-                        int read = fileInputStream2.read(bArr);
-                        if (read >= 0) {
-                            fileOutputStream2.write(bArr, 0, read);
-                        } else {
-                            fileOutputStream2.flush();
-                            try {
-                                fileInputStream2.close();
-                                fileOutputStream2.close();
-                                return true;
-                            } catch (IOException unused) {
-                                return true;
-                            }
-                        }
-                    }
-                } catch (FileNotFoundException unused2) {
-                    fileInputStream = fileInputStream2;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused3) {
-                            return false;
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        fileOutputStream2.close();
-                    }
-                    return false;
-                } catch (IOException unused4) {
-                    fileInputStream = fileInputStream2;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused5) {
-                            return false;
-                        }
-                    }
-                    if (fileOutputStream2 != null) {
-                        fileOutputStream2.close();
-                    }
-                    return false;
-                } catch (Throwable th) {
-                    fileInputStream = fileInputStream2;
-                    fileOutputStream = fileOutputStream2;
-                    th = th;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException unused6) {
-                            throw th;
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    throw th;
-                }
-            } catch (FileNotFoundException unused7) {
-                fileOutputStream2 = null;
-            } catch (IOException unused8) {
-                fileOutputStream2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream = null;
-                fileInputStream = fileInputStream2;
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException unused9) {
-            fileOutputStream2 = null;
-        } catch (IOException unused10) {
-            fileOutputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            fileOutputStream = null;
         }
     }
 
-    public static boolean c(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    public final void c(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, file)) == null) {
-            if (inputStream != null && file != null) {
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (IOException unused) {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    byte[] bArr = new byte[4096];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read < 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    fileOutputStream.flush();
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException unused2) {
-                    }
-                    return true;
-                } catch (IOException unused3) {
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused4) {
-                        }
-                    }
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException unused5) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("sub_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("dependency");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("main_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
-        return invokeLL.booleanValue;
     }
 
-    public static File d(Context context, String str) {
-        InterceptResult invokeLL;
+    public final void d(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) ? new File(i(context), str) : (File) invokeLL.objValue;
-    }
-
-    public static File e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            File file = new File(f(context, str), "lib");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("patch_url");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("patch_md5");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
-        return (File) invokeLL.objValue;
     }
 
-    public static File f(Context context, String str) {
-        InterceptResult invokeLL;
+    public final void e(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            File file = new File(i(context), str);
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("silence_update");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return file;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File g(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? new File(h(context), str) : (File) invokeLL.objValue;
-    }
-
-    public static File h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            File dir = context.getDir("nps_download", 0);
-            if (!dir.exists()) {
-                dir.mkdirs();
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("wifionly");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            try {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            return dir;
         }
-        return (File) invokeL.objValue;
     }
 
-    public static File i(Context context) {
-        InterceptResult invokeL;
+    public final void f(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            File dir = context.getDir("nps", 0);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            return dir;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(g());
         }
-        return (File) invokeL.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY," + EmotionResourceInfo.JSON_KEY_PKG_NAME + " TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT,visible INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0," + PackageTable.ABI + " INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1,patch_url TEXT,patch_md5 TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
+            f(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
+            onCreate(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            if (i == 1) {
+                b(sQLiteDatabase);
+                e(sQLiteDatabase);
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+            } else if (i == 2) {
+                e(sQLiteDatabase);
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+            } else if (i == 3) {
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+            } else if (i == 4) {
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+            } else if (i != 5) {
+            } else {
+                c(sQLiteDatabase);
+            }
+        }
     }
 }

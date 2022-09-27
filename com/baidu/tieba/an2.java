@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface an2 {
-    void a(Activity activity, String str, String str2);
+public class an2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile zm2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context);
-
-    void c(Activity activity, String str, t91 t91Var);
-
-    void d(Context context, JSONObject jSONObject, t91 t91Var);
-
-    void e(Activity activity, String str, t91 t91Var);
-
-    void f(Activity activity, String str, fa1<JSONObject> fa1Var);
+    public static synchronized zm2 a() {
+        InterceptResult invokeV;
+        zm2 zm2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (an2.class) {
+                if (a == null) {
+                    a = new zm2();
+                }
+                zm2Var = a;
+            }
+            return zm2Var;
+        }
+        return (zm2) invokeV.objValue;
+    }
 }

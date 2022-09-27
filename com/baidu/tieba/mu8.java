@@ -1,99 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
-public abstract class mu8 {
+public class mu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
 
-    public mu8(BaseActivity baseActivity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation.AnimationListener a;
+        public final /* synthetic */ View b;
+
+        public a(Animation.AnimationListener animationListener, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {animationListener, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = animationListener;
+            this.b = view2;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                Animation.AnimationListener animationListener = this.a;
+                if (animationListener != null) {
+                    animationListener.onAnimationEnd(animation);
+                }
+                View view2 = this.b;
+                if (view2 != null) {
+                    view2.clearAnimation();
+                    this.b.setVisibility(0);
+                }
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = baseActivity;
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.a) == null) {
+                return;
+            }
+            animationListener.onAnimationRepeat(animation);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.a) == null) {
+                return;
+            }
+            animationListener.onAnimationStart(animation);
+        }
     }
 
-    public final void a() {
+    /* loaded from: classes5.dex */
+    public static class b implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation.AnimationListener a;
+        public final /* synthetic */ View b;
+
+        public b(Animation.AnimationListener animationListener, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {animationListener, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = animationListener;
+            this.b = view2;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                Animation.AnimationListener animationListener = this.a;
+                if (animationListener != null) {
+                    animationListener.onAnimationEnd(animation);
+                }
+                View view2 = this.b;
+                if (view2 != null) {
+                    view2.clearAnimation();
+                    this.b.setVisibility(8);
+                }
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.a) == null) {
+                return;
+            }
+            animationListener.onAnimationRepeat(animation);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.a) == null) {
+                return;
+            }
+            animationListener.onAnimationStart(animation);
+        }
+    }
+
+    public static void a(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || dj.isEmpty(this.g)) {
+        if (interceptable == null || interceptable.invokeLI(65536, null, view2, i) == null) {
+            b(view2, i, null);
+        }
+    }
+
+    public static void b(View view2, int i, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65537, null, view2, i, animationListener) == null) || view2 == null || i < 0) {
             return;
         }
-        FileHelper.deleteFile(new File(this.g));
+        view2.clearAnimation();
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+        alphaAnimation.setDuration(i);
+        alphaAnimation.setFillAfter(true);
+        alphaAnimation.setAnimationListener(new b(animationListener, view2));
+        view2.setVisibility(8);
+        view2.startAnimation(alphaAnimation);
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void c(View view2, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            d(view2, i, null);
         }
     }
 
-    public void d(int i, String str) {
+    public static void d(View view2, int i, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            a();
+        if (!(interceptable == null || interceptable.invokeLIL(65539, null, view2, i, animationListener) == null) || view2 == null || i < 0) {
+            return;
         }
-    }
-
-    public abstract void e();
-
-    public void f(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
-            a();
-        }
-    }
-
-    public void g(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            a();
-        }
-    }
-
-    public abstract void h();
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
-        }
+        view2.clearAnimation();
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+        alphaAnimation.setDuration(i);
+        alphaAnimation.setFillAfter(true);
+        alphaAnimation.setAnimationListener(new a(animationListener, view2));
+        view2.setVisibility(0);
+        view2.startAnimation(alphaAnimation);
     }
 }

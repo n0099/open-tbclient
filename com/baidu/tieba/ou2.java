@@ -1,111 +1,66 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ou2 implements Interceptor {
+public class ou2 extends nu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    @SuppressLint({"BDThrowableCheck"})
-    public final eu2 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements eu2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ou2 a;
-
-        public a(ou2 ou2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ou2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ou2Var;
-        }
-
-        @Override // com.baidu.tieba.eu2
-        public void a(long j, long j2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-                if (this.a.a == null) {
-                    if (ij1.a) {
-                        throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
-                    }
-                } else if (j2 == -1 && j != 0) {
-                    this.a.a.b(0, j, j2);
-                } else if (j2 > 52428800) {
-                    this.a.a.a(j2);
-                } else if (j2 <= 0 || j > j2 || j == 0) {
-                    this.a.a.c(j, j2);
-                } else {
-                    int floor = (int) Math.floor((100 * j) / j2);
-                    if (floor <= 100) {
-                        this.a.a.b(floor, j, j2);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(long j);
-
-        void b(int i, long j, long j2);
-
-        void c(long j, long j2);
-    }
-
-    public ou2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ou2(i43 i43Var) {
+        super(i43Var, "/swanAPI/cancelRequest");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((i43) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
     }
 
-    public void b(b bVar) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (l33Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
+            }
+            JSONObject a = i53.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                return false;
+            }
+            String optString = a.optString("cancelTag");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
+                return false;
+            }
+            SwanAppNetworkUtils.a(pa4.g().getOkHttpClient(), optString);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new hu2(proceed.body(), this.b)).build();
-        }
-        return (Response) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

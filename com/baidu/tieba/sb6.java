@@ -1,24 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.rb6;
+import androidx.annotation.Nullable;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface sb6 {
-    boolean a(QmFilterItem qmFilterItem);
+    void c();
 
-    QmFilterItem b();
+    void d(tb6 tb6Var);
 
-    void c(QmFilterItem qmFilterItem);
+    void e(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter);
 
-    void d(rb6.b bVar);
+    void f();
 
-    void e();
+    void i(float f);
 
-    String f(String str);
+    @Nullable
+    List<MultiMediaData> j();
 
-    void g();
+    void l();
 
-    void h();
+    void m(String str);
+
+    boolean o();
+
+    void onDestroy();
+
+    float p();
+
+    void q(@Nullable List<MultiMediaData> list);
 
     void reset();
 }

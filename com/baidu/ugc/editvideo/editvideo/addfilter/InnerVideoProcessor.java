@@ -9,10 +9,10 @@ import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fg9;
-import com.baidu.tieba.lg9;
-import com.baidu.tieba.sg9;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.ah9;
+import com.baidu.tieba.hh9;
+import com.baidu.tieba.kh9;
+import com.baidu.tieba.ug9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -375,7 +375,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String e2 = "video/avc";
-            MediaCodecInfo m = lg9.m("video/avc");
+            MediaCodecInfo m = ah9.m("video/avc");
             if (m == null) {
                 return;
             }
@@ -385,16 +385,16 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             MediaExtractor mediaExtractor = null;
             try {
                 try {
-                    e = lg9.b(this.mSourcePath);
+                    e = ah9.b(this.mSourcePath);
                     try {
                         try {
-                            trackFormat = e.getTrackFormat(lg9.f(e));
+                            trackFormat = e.getTrackFormat(ah9.f(e));
                             integer = this.mOutWidth == 0 ? trackFormat.getInteger("width") : this.mOutWidth;
                             integer2 = this.mOutHeight == 0 ? trackFormat.getInteger("height") : this.mOutHeight;
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                            int b = ((int) (fg9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (sg9.b) {
+                            int b = ((int) (ug9.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                            if (hh9.b) {
                                 trackFormat.setInteger("rotation-degrees", b);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", b);
@@ -405,13 +405,13 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 integer = i;
                             }
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (!vg9.a(extractMetadata)) {
-                                this.mSourceVideoDuration = fg9.c(extractMetadata, 0L);
+                            if (!kh9.a(extractMetadata)) {
+                                this.mSourceVideoDuration = ug9.c(extractMetadata, 0L);
                             }
                             this.mLastProgressPercent = 0;
                             String str = e2;
                             if (this.mEncodeHevcVideo) {
-                                MediaCodecInfo m2 = lg9.m(MimeTypes.VIDEO_H265);
+                                MediaCodecInfo m2 = ah9.m(MimeTypes.VIDEO_H265);
                                 str = e2;
                                 if (m2 != null) {
                                     m = m2;
@@ -420,12 +420,12 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             }
                             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, integer, integer2);
                             createVideoFormat.setInteger("color-format", 2130708361);
-                            lg9.n(trackFormat, createVideoFormat, "bitrate", this.mOutBitRate == 0 ? RecordConstants.DEFAULT_BIT_RATE_GTE_API18 : this.mOutBitRate);
-                            lg9.n(trackFormat, createVideoFormat, "frame-rate", this.mFrameRate == 0 ? 30 : this.mFrameRate);
-                            lg9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
+                            ah9.n(trackFormat, createVideoFormat, "bitrate", this.mOutBitRate == 0 ? RecordConstants.DEFAULT_BIT_RATE_GTE_API18 : this.mOutBitRate);
+                            ah9.n(trackFormat, createVideoFormat, "frame-rate", this.mFrameRate == 0 ? 30 : this.mFrameRate);
+                            ah9.n(trackFormat, createVideoFormat, "i-frame-interval", 5);
                             AtomicReference atomicReference = new AtomicReference();
                             try {
-                                e2 = lg9.d(m, createVideoFormat, atomicReference);
+                                e2 = ah9.d(m, createVideoFormat, atomicReference);
                             } catch (Exception unused) {
                                 if (integer % 16 != 0) {
                                     integer += 16 - (integer % 16);
@@ -435,7 +435,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 }
                                 createVideoFormat.setInteger("width", integer);
                                 createVideoFormat.setInteger("height", integer2);
-                                e2 = lg9.d(m, createVideoFormat, atomicReference);
+                                e2 = ah9.d(m, createVideoFormat, atomicReference);
                             }
                             try {
                                 m = new InputSurface((Surface) atomicReference.get());
@@ -519,7 +519,7 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                     } else {
                         surface = null;
                     }
-                    mediaCodec2 = lg9.c(trackFormat, surface);
+                    mediaCodec2 = ah9.c(trackFormat, surface);
                     try {
                         doExtractDecodeEditEncodeMux(e, mediaCodec2, e2, m, this.mOutputSurface);
                         if (e != 0) {

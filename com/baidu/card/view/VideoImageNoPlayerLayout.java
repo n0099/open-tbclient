@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ez;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.i26;
 import com.baidu.tieba.wx;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,8 +44,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public v16<lq4> m;
-    public lq4 n;
+    public i26<yq4> m;
+    public yq4 n;
     public View.OnClickListener o;
     public ez p;
 
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    v16 v16Var = this.a.m;
+                    i26 i26Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    v16Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    i26Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -152,15 +152,15 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d3, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091746);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092513);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092515);
             new WeakReference(TbadkCoreApplication.getInst());
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092586);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092587);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092554);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092547);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092556);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092558);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09251b);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092588);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092589);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092556);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092549);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092558);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09251d);
             this.c.setConrers(15);
             this.c.setRadiusById(R.string.J_X05);
             this.c.setDrawCorner(true);
@@ -173,12 +173,12 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: g */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) || lq4Var == null || lq4Var.getThreadData() == null || lq4Var.getThreadData().originalThreadData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) || yq4Var == null || yq4Var.getThreadData() == null || yq4Var.getThreadData().originalThreadData == null) {
             return;
         }
-        OriginalThreadInfo originalThreadInfo = lq4Var.getThreadData().originalThreadData;
+        OriginalThreadInfo originalThreadInfo = yq4Var.getThreadData().originalThreadData;
         originalThreadInfo.r.is_vertical.intValue();
         String str = originalThreadInfo.f;
         originalThreadInfo.r.video_length.intValue();
@@ -201,13 +201,13 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (this.b != i) {
-                uu4.d(this.d).s(R.array.Mask_X003);
-                uu4.d(this.d).n(R.string.J_X05);
+                hv4.d(this.d).s(R.array.Mask_X003);
+                hv4.d(this.d).n(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
                 this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a40, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a42, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             }
             this.b = i;
         }
@@ -229,10 +229,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
         }
     }
 
-    public void setData(lq4 lq4Var) {
+    public void setData(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lq4Var) == null) {
-            this.n = lq4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, yq4Var) == null) {
+            this.n = yq4Var;
         }
     }
 
@@ -243,10 +243,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<lq4> 
         }
     }
 
-    public void setOnCardSubClickListener(v16<lq4> v16Var) {
+    public void setOnCardSubClickListener(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, v16Var) == null) {
-            this.m = v16Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, i26Var) == null) {
+            this.m = i26Var;
         }
     }
 

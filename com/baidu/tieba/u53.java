@@ -1,34 +1,158 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.AnyThread;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.f23;
+import com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi;
+import com.baidu.tieba.yr1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class u53 extends v43 {
+public class u53 extends i53 implements yr1.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+    public CallbackHandler d;
+    public long e;
+    public long f;
+    public long g;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ JSONObject c;
+        public final /* synthetic */ l33 d;
+        public final /* synthetic */ u53 e;
+
+        /* renamed from: com.baidu.tieba.u53$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0436a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
+            public final /* synthetic */ String b;
+            public final /* synthetic */ a c;
+
+            public RunnableC0436a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, guideType, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = guideType;
+                this.b = str;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    yr1 l = yr1.l();
+                    a aVar = this.c;
+                    l33 l33Var = aVar.d;
+                    l.p(aVar.e, (Activity) aVar.b, l33Var, this.a, this.b, l33Var.W().Q(), this.c.e.e);
+                }
+            }
+        }
+
+        public a(u53 u53Var, String str, Context context, JSONObject jSONObject, l33 l33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u53Var, str, context, jSONObject, l33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = u53Var;
+            this.a = str;
+            this.b = context;
+            this.c = jSONObject;
+            this.d = l33Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                tb3 a = zb3.a();
+                ShowFavoriteGuideApi.GuideType parse = ShowFavoriteGuideApi.GuideType.parse(this.a);
+                String string = this.b.getString(parse.defaultText);
+                this.e.c = this.c.optString("cb");
+                String str = this.d.b;
+                String str2 = "favorite_guide_count_" + str;
+                if (ja2.n(str)) {
+                    l02.i("ShowFavoriteGuideAction", "favorite already");
+                    zb3.a().putString(str2, "-1");
+                    return;
+                }
+                String string2 = zb3.a().getString(str2, "");
+                if (TextUtils.equals("-1", string2)) {
+                    l02.i("ShowFavoriteGuideAction", "favorite at one time");
+                    return;
+                }
+                String[] split = string2.split("#");
+                long j = 0;
+                int i = 0;
+                if (split.length == 2 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1])) {
+                    i = Integer.parseInt(split[0]);
+                    j = Long.parseLong(split[1]);
+                }
+                long currentTimeMillis = System.currentTimeMillis();
+                int i2 = i;
+                this.e.e = a.getLong("swan_favorite_guide_duration", 3L);
+                this.e.f = a.getLong("swan_favorite_guide_intervalDays", 3L);
+                this.e.g = a.getLong("swan_favorite_guide_maxTimes", 3L);
+                l02.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
+                if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
+                    zb3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
+                    fh3.e0(new RunnableC0436a(this, parse, string));
+                    return;
+                }
+                l02.i("ShowFavoriteGuideAction", "Not satisfying display conditions");
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u53(v33 v33Var) {
-        super(v33Var, "/swanAPI/showLoading");
+    public u53(i43 i43Var) {
+        super(i43Var, "/swanAPI/showFavoriteGuide");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,63 +166,51 @@ public class u53 extends v43 {
         }
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (v43.b) {
-                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            l02.i("ShowFavoriteGuideAction", "call ShowFavoriteGuideAction pid=" + Process.myPid() + ", Thread=" + Thread.currentThread().getName());
+            if (!fh3.G()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support outside baiduboxapp");
+                l02.i("ShowFavoriteGuideAction", "not support outside baiduboxapp");
+                return false;
             }
-            if (y23Var != null && y23Var.n0()) {
-                if (v43.b) {
-                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            } else if (!(context instanceof SwanAppActivity)) {
-                yz1.c("showLoading", "context not support");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    yz1.c("showLoading", "none params");
+            this.d = callbackHandler;
+            JSONObject a2 = i53.a(unitedSchemeEntity, "params");
+            if (a2 != null && l33Var != null && (context instanceof Activity)) {
+                String optString = a2.optString("type");
+                if (yr1.l().n(optString)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                yz1.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
-                String optString = optParamsAsJo.optString("title");
-                if (TextUtils.isEmpty(optString)) {
-                    yz1.c("showLoading", "none title");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-                h22 X = ((SwanAppActivity) context).X();
-                if (X == null) {
-                    yz1.c("showLoading", "none fragment");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
-                    return false;
-                }
-                e22 m = X.m();
-                if (!(m instanceof f23.a)) {
-                    yz1.c("showLoading", "fragment not support");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
-                    return false;
-                }
-                f23 d = ((f23.a) m).d();
-                if (d == null) {
-                    yz1.c("showLoading", "can't get floatLayer");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
-                    return false;
-                }
-                g23.f(d, context, optString, optBoolean);
-                yz1.i("showLoading", "show loading success");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                fg3.g().execute(new a(this, optString, context, a2, l33Var), "ShowFavoriteGuideAction");
+                JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
+                unitedSchemeEntity.result = wrapCallbackParams;
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
                 return true;
             }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+            l02.i("ShowFavoriteGuideAction", "params parse error");
+            return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yr1.j
+    @AnyThread
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.c == null || this.d == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("action", z ? 1 : 0);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        this.d.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
     }
 }

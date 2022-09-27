@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bp7;
+import com.baidu.tieba.pp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -368,13 +368,13 @@ public class ConcernSelectView extends FrameLayout {
         if (childCount < 0) {
             childCount = 0;
         }
-        bp7 bp7Var = new bp7(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
+        pp7 pp7Var = new pp7(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
         if (i == 0 && view2.getVisibility() != 0) {
             view2.setVisibility(0);
         }
-        bp7Var.setDuration(260L);
-        bp7Var.setAnimationListener(new d(this, i, view2));
-        view2.startAnimation(bp7Var);
+        pp7Var.setDuration(260L);
+        pp7Var.setAnimationListener(new d(this, i, view2));
+        view2.startAnimation(pp7Var);
         ImageView imageView = this.c;
         if (imageView != null) {
             if (imageView.getAnimation() == null || this.c.getAnimation().hasEnded()) {

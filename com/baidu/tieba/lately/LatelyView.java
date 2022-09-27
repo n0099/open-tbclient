@@ -17,11 +17,11 @@ import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
+import com.baidu.tieba.an5;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.nm5;
-import com.baidu.tieba.s85;
-import com.baidu.tieba.t85;
-import com.baidu.tieba.y86;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.g95;
+import com.baidu.tieba.l96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,15 +31,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class LatelyView extends FrameLayout implements nm5<String> {
+public class LatelyView extends FrameLayout implements an5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public s85 e;
-    public t85 f;
+    public f95 e;
+    public g95 f;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -95,7 +95,7 @@ public class LatelyView extends FrameLayout implements nm5<String> {
         }
     }
 
-    @Override // com.baidu.tieba.nm5
+    @Override // com.baidu.tieba.an5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -103,18 +103,18 @@ public class LatelyView extends FrameLayout implements nm5<String> {
             return;
         }
         this.a = skinType;
-        s85 s85Var = this.e;
-        if (s85Var != null) {
-            s85Var.onChangeSkinType();
+        f95 f95Var = this.e;
+        if (f95Var != null) {
+            f95Var.onChangeSkinType();
         }
-        t85 t85Var = this.f;
-        if (t85Var != null) {
-            t85Var.onChangeSkinType();
+        g95 g95Var = this.f;
+        if (g95Var != null) {
+            g95Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.nm5
+    @Override // com.baidu.tieba.an5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -122,21 +122,21 @@ public class LatelyView extends FrameLayout implements nm5<String> {
     }
 
     public void d() {
-        s85 s85Var;
+        f95 f95Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (s85Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (f95Var = this.e) == null) {
             return;
         }
-        s85Var.dettachView(this);
+        f95Var.dettachView(this);
         this.e = null;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            t85 t85Var = this.f;
-            if (t85Var != null) {
-                t85Var.dettachView(this);
+            g95 g95Var = this.f;
+            if (g95Var != null) {
+                g95Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -147,7 +147,7 @@ public class LatelyView extends FrameLayout implements nm5<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07ac, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091e3d);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091e3f);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(1);
@@ -162,16 +162,16 @@ public class LatelyView extends FrameLayout implements nm5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            t85 t85Var = this.f;
-            if (t85Var != null) {
-                return t85Var.isViewAttached();
+            g95 g95Var = this.f;
+            if (g95Var != null) {
+                return g95Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nm5
+    @Override // com.baidu.tieba.an5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -179,12 +179,12 @@ public class LatelyView extends FrameLayout implements nm5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nm5
+    @Override // com.baidu.tieba.an5
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = y86.l().j();
+            RecentlyVisitedForumData j = l96.l().j();
             if (j == null) {
                 i(false, false);
                 return;
@@ -233,7 +233,7 @@ public class LatelyView extends FrameLayout implements nm5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new t85(getContext(), new a(this));
+            this.f = new g95(getContext(), new a(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);
@@ -247,7 +247,7 @@ public class LatelyView extends FrameLayout implements nm5<String> {
         this.b.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.nm5
+    @Override // com.baidu.tieba.an5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

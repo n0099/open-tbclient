@@ -1,192 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.uc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class xo3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "xo3";
-    public static final boolean c;
-    public static SharedPreferences d;
+public class xo3 implements vd4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307053, "Lcom/baidu/tieba/xo3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307053, "Lcom/baidu/tieba/xo3;");
-                return;
-            }
-        }
-        c = ij1.a;
-        d = null;
-    }
-
-    public xo3(Context context) {
+    public xo3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
-        this.a = context;
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.uc4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, uc4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (PackageManager.NameNotFoundException e) {
-                if (c) {
-                    String str = b;
-                    Log.e(str, "error:" + e.getMessage());
-                    return -1;
-                }
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                d = context.getSharedPreferences("downgradefile", 0);
-            }
-            return d;
-        }
-        return (SharedPreferences) invokeL.objValue;
-    }
-
-    public static xo3 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? new xo3(context) : (xo3) invokeL.objValue;
-    }
-
-    public static void j(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
-            if (c) {
-                String str = b;
-                Log.d(str, "set last version code:" + i);
-            }
-            SharedPreferences.Editor edit = c(context).edit();
-            edit.putInt("last_versioncode_key", i);
-            edit.apply();
-        }
-    }
-
-    public final int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            int i = c(context).getInt("old_versioncode_key", 0);
-            if (c) {
-                String str = b;
-                Log.d(str, "get old versioncode:" + i);
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ze3.d(0, i);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && c) {
-            String str = b;
-            Log.d(str, "新旧版本一样:" + b(this.a));
-        }
-    }
-
-    public final void h(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            ze3.d(i2, i);
-            nc2.d.u();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int a = a(this.a);
-            int b2 = b(this.a);
-            if (c) {
-                String str = b;
-                Log.d(str, "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2);
-            }
-            if (b2 == 0) {
-                f(a);
-                k(this.a, a);
-                j(this.a, b2);
-            } else if (a > b2) {
-                h(a, b2);
-                k(this.a, a);
-                j(this.a, b2);
-            } else if (a < b2) {
-                e(a, b2);
-                k(this.a, a);
-                j(this.a, b2);
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            if (PMSConstants.a(wa4.b())) {
+                oc4.b(str, map, map2, jSONObject, new om3(aVar));
             } else {
-                g();
+                oc4.b(str, map, map2, jSONObject, new vc4(aVar));
             }
         }
     }
 
-    public final void k(Context context, int i) {
+    @Override // com.baidu.tieba.vd4
+    public hd4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
-            if (c) {
-                String str = b;
-                Log.d(str, "set new versioncode:" + i);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? fd4.a(str, i) : (hd4) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.uc4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, uc4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
+            if (PMSConstants.a(wa4.b())) {
+                oc4.a(str, map, map2, new om3(aVar));
+            } else {
+                oc4.a(str, map, map2, new vc4(aVar));
             }
-            SharedPreferences.Editor edit = c(context).edit();
-            edit.putInt("old_versioncode_key", i);
-            edit.apply();
         }
     }
 }

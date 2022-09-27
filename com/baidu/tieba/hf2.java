@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hf2 extends ya3 {
+public class hf2 extends lz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,21 +27,13 @@ public class hf2 extends ya3 {
         }
     }
 
-    @Override // com.baidu.tieba.ya3
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lz2
+    public void b(@NonNull Bundle bundle) {
+        l33 b0;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? if2.p() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cb3
-    public long getMaxSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 52428800L;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (b0 = l33.b0()) == null || TextUtils.equals(b0.O(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+            return;
         }
-        return invokeV.longValue;
+        SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
     }
 }

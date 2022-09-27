@@ -1,17 +1,21 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.flyme.openidsdk.OpenIdHelper;
+import com.zui.opendeviceidlibrary.OpenDeviceId;
+@Keep
 /* loaded from: classes7.dex */
-public class q extends m {
+public class q extends m implements OpenDeviceId.CallBack<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context i;
+    @Keep
+    public Context n;
+    @Keep
+    public OpenDeviceId o;
 
     public q(Context context) {
         Interceptable interceptable = $ic;
@@ -28,23 +32,24 @@ public class q extends m {
                 return;
             }
         }
-        this.i = context;
+        this.n = context;
     }
 
-    @Override // com.bun.miitmdid.m
-    public g a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g gVar = new g();
-            this.i = a(this.i);
-            gVar.e(new h(OpenIdHelper.class, null, "isSupported", null, null));
-            gVar.d(null);
-            gVar.b(new h(OpenIdHelper.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.i}));
-            gVar.c(new h(OpenIdHelper.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.i}));
-            gVar.a(new h(OpenIdHelper.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.i}));
-            return gVar;
-        }
-        return (g) invokeV.objValue;
-    }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.zui.opendeviceidlibrary.OpenDeviceId.CallBack
+    @Keep
+    /* renamed from: a */
+    public native void serviceConnected(String str, OpenDeviceId openDeviceId);
+
+    @Override // com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
+    public native void doStart();
+
+    @Override // com.bun.miitmdid.m, com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
+    public native boolean isSync();
+
+    @Override // com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
+    public native void shutDown();
 }

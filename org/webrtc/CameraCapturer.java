@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hw9;
+import com.baidu.tieba.ww9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -576,7 +576,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        hw9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
+        ww9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer
@@ -656,7 +656,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        hw9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
+        ww9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer

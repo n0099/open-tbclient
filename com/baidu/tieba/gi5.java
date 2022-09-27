@@ -1,211 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.graphics.PointF;
+import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class gi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(Wire wire, Class<? extends Message> cls) {
-        File[] listFiles;
-        String name;
+    public static float a(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) || wire == null || cls == null) {
-            return;
-        }
-        String str = "wire_" + cls.getName();
-        File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
-        byte[] bArr = null;
-        try {
-            if (file.exists() && (bArr = b(file)) != null) {
-                wire.parseFrom(bArr, cls);
-            }
-            if (bArr == null) {
-                byte[] bArr2 = (byte[]) rc.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
-                wire.parseFrom(bArr2, cls);
-                d(file, bArr2);
-            }
-        } catch (Throwable th) {
-            BdLog.detailException(th);
-            try {
-                file.delete();
-            } catch (Throwable unused) {
-            }
-        }
-        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-        if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
-                try {
-                    file2.delete();
-                } catch (Throwable unused2) {
-                }
-            }
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d)) : invokeCommon.floatValue;
     }
 
-    public static byte[] b(File file) {
+    public static PointF b(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            byte[] bArr = null;
-            if (file == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
+            if (motionEvent == null) {
                 return null;
             }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr2, 0, 1024);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        bArr = byteArrayOutputStream.toByteArray();
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return bArr;
-                        } finally {
-                            fj.e(fileInputStream);
-                            fj.f(byteArrayOutputStream);
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream = null;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
-            }
-            return bArr;
+            PointF pointF = new PointF();
+            pointF.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
+            return pointF;
         }
-        return (byte[]) invokeL.objValue;
+        return (PointF) invokeL.objValue;
     }
 
-    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
-        Type[] actualTypeArguments;
+    public static float c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
-            if (hashSet != null && !hashSet.contains(cls)) {
-                hashSet.add(cls);
-                try {
-                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
-                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
-                    Object newInstance = cls2.newInstance();
-                    for (Field field : cls2.getDeclaredFields()) {
-                        Class<?> type = field.getType();
-                        if (type != null) {
-                            if (rc.e(type, Message.class)) {
-                                Object c = c(type, hashSet);
-                                if (c != null) {
-                                    if (rc.e(c.getClass(), Message.class)) {
-                                        field.setAccessible(true);
-                                        field.set(newInstance, c);
-                                    } else {
-                                        BdLog.e("");
-                                    }
-                                }
-                            } else if (rc.e(type, List.class)) {
-                                Type genericType = field.getGenericType();
-                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
-                                    try {
-                                        Class cls3 = (Class) actualTypeArguments[0];
-                                        if (rc.e(cls3, Message.class)) {
-                                            ArrayList arrayList = new ArrayList();
-                                            Object c2 = c(cls3, hashSet);
-                                            if (c2 != null) {
-                                                if (rc.e(c2.getClass(), Message.class)) {
-                                                    arrayList.add(c2);
-                                                } else {
-                                                    BdLog.e("");
-                                                }
-                                                field.setAccessible(true);
-                                                field.set(newInstance, arrayList);
-                                            }
-                                        }
-                                    } catch (Throwable unused) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
             }
-            return null;
+            return (float) Math.toDegrees(Math.atan2(motionEvent.getY(0) - motionEvent.getY(1), motionEvent.getX(0) - motionEvent.getX(1)));
         }
-        return invokeLL.objValue;
+        return invokeL.floatValue;
     }
 
-    public static final boolean d(File file, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static float d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) != null) {
-            return invokeLL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            float x = motionEvent.getX(0) - motionEvent.getX(1);
+            float y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
         }
-        if (file == null || bArr == null) {
-            return false;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            if (!file.exists() || file.delete()) {
-                if (file.createNewFile()) {
-                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                    try {
-                        fileOutputStream2.write(bArr, 0, bArr.length);
-                        fileOutputStream2.flush();
-                        fj.f(fileOutputStream2);
-                        return true;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return false;
-                        } finally {
-                            fj.f(fileOutputStream);
-                        }
-                    }
+        return invokeL.floatValue;
+    }
+
+    public static boolean e(float[] fArr, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (fArr != null && fArr.length == 8) {
+                float f3 = fArr[0];
+                float f4 = fArr[1];
+                float f5 = fArr[2];
+                float f6 = fArr[3];
+                float f7 = fArr[4];
+                float f8 = fArr[5];
+                float f9 = fArr[6];
+                float f10 = fArr[7];
+                float a = a(f3, f4, f5, f6);
+                float f11 = f(f3, f4, f5, f6, f, f2);
+                float a2 = a(f5, f6, f9, f10);
+                float f12 = f(f5, f6, f9, f10, f, f2);
+                float f13 = f(f9, f10, f7, f8, f, f2);
+                float f14 = f(f7, f8, f3, f4, f, f2);
+                if (a > 0.0f && a2 > 0.0f && f11 <= a2 && f13 <= a2 && f12 <= a && f14 <= a) {
+                    return true;
                 }
-                return false;
             }
             return false;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return invokeCommon.booleanValue;
+    }
+
+    public static float f(float f, float f2, float f3, float f4, float f5, float f6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            float a = a(f, f2, f3, f4);
+            float a2 = a(f, f2, f5, f6);
+            float a3 = a(f3, f4, f5, f6);
+            if (a == 0.0f) {
+                return a2;
+            }
+            if (a2 == 0.0f || a3 == 0.0f) {
+                return 0.0f;
+            }
+            float f7 = ((a + a2) + a3) / 2.0f;
+            return (((float) Math.sqrt((((f7 - a) * f7) * (f7 - a2)) * (f7 - a3))) * 2.0f) / a;
+        }
+        return invokeCommon.floatValue;
     }
 }

@@ -55,7 +55,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ff, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090afd);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090afc);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
             this.c = relationBarAdapter;
             this.b.setAdapter(relationBarAdapter);

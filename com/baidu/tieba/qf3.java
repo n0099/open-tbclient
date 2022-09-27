@@ -1,29 +1,20 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import android.util.Log;
-import androidx.annotation.CheckResult;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.view.View;
+import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.KeyFactory;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class qf3 {
     public static /* synthetic */ Interceptable $ic;
@@ -43,156 +34,51 @@ public class qf3 {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
     }
 
-    @NonNull
-    @CheckResult
-    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
-        InterceptResult invokeLLLL;
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, new SecretKeySpec(str.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str4.getBytes(IMAudioTransRequest.CHARSET)));
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
-                    return "";
-                }
-                return "";
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = oh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081146);
+            Drawable d2 = oh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081145);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
             }
+            if (Build.VERSION.SDK_INT >= 29) {
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
+                return;
+            }
+            b(webView, d, d2);
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    public static String b(String str, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        FileInputStream fileInputStream;
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) != null) {
-            return (String) invokeLLZ.objValue;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, drawable, drawable2) == null) || view2 == null) {
+            return;
         }
-        ?? r0 = 0;
         try {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(str);
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String e = e(messageDigest.digest(), "", z);
-                            cj4.d(fileInputStream);
-                            return e;
-                        }
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    cj4.d(fileInputStream);
-                    return null;
-                } catch (IOException e3) {
-                    e = e3;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    cj4.d(fileInputStream);
-                    return null;
-                } catch (NoSuchAlgorithmException e4) {
-                    e = e4;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    cj4.d(fileInputStream);
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                r0 = interceptable;
-                cj4.d(r0);
-                throw th;
-            }
-        } catch (FileNotFoundException e5) {
-            e = e5;
-            fileInputStream = null;
-        } catch (IOException e6) {
-            e = e6;
-            fileInputStream = null;
-        } catch (NoSuchAlgorithmException e7) {
-            e = e7;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cj4.d(r0);
-            throw th;
-        }
-    }
-
-    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance(str);
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return e(messageDigest.digest(), "", z);
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    @NonNull
-    @CheckResult
-    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-                Cipher cipher = Cipher.getInstance(str3);
-                cipher.init(1, generatePublic);
-                return Base64.encodeToString(cipher.doFinal(str2.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
-                    return "";
-                }
-                return "";
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
             }
         }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String e(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
     }
 }

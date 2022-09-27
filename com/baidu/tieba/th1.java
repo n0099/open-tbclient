@@ -2,22 +2,103 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class th1 {
+public class th1 extends sh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
+    /* loaded from: classes6.dex */
+    public class a extends qi1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ th1 c;
+
+        public a(th1 th1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {th1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = th1Var;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.qi1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.b(this.b);
+                } catch (Throwable th) {
+                    vi1.d(th);
+                    th1 th1Var = this.c;
+                    th1Var.d(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, th1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends qi1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ th1 c;
+
+        public b(th1 th1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {th1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = th1Var;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.qi1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.g(this.b, this.c.c, this.c.h);
+                } catch (Throwable th) {
+                    vi1.d(th);
+                    th1 th1Var = this.c;
+                    th1Var.n(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, th1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public th1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,111 +108,69 @@ public class th1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xg1.a;
     }
 
-    public static synchronized th1 a(Context context) {
-        InterceptResult invokeL;
-        th1 th1Var;
+    @Override // com.baidu.tieba.sh1
+    public void j(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            synchronized (th1.class) {
-                th1Var = new th1(context);
-            }
-            return th1Var;
-        }
-        return (th1) invokeL.objValue;
-    }
-
-    public String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = vg1.b;
-            String str4 = vg1.c;
-            String str5 = "";
-            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-                return "";
-            }
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            StringBuilder sb = new StringBuilder();
-            try {
-                str5 = c(str3, str4, currentTimeMillis);
-            } catch (Throwable th) {
-                ii1.d(th);
-            }
-            sb.append(f());
-            sb.append(str);
-            sb.append("/");
-            sb.append("100");
-            sb.append("/");
-            sb.append(str3);
-            sb.append("/");
-            sb.append(currentTimeMillis);
-            sb.append("/");
-            sb.append(str5);
-            sb.append("?skey=");
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public String c(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            try {
-                return mi1.b(str + j + str2);
-            } catch (Throwable th) {
-                ii1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                b = new String(ki1.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes(IMAudioTransRequest.CHARSET)));
-            } catch (Throwable th) {
-                ii1.d(th);
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.j(context, i, j);
+            c(i, 2);
+            si1.c().b(new a(this, i));
         }
     }
 
-    public byte[] e(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        byte[] bArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
-            try {
-                bArr2 = li1.b(str.getBytes(IMAudioTransRequest.CHARSET));
-            } catch (Throwable th) {
-                ii1.d(th);
-                bArr2 = null;
-            }
-            return ki1.f(bArr2, bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public final String f() {
+    @Override // com.baidu.tieba.sh1
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else if (this.f - System.currentTimeMillis() < ui1.a) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else {
+                return false;
             }
-            return b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sh1
+    public void p(Context context, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+            c(i, 4);
+            si1.c().b(new b(this, i));
+        }
+    }
+
+    @Override // com.baidu.tieba.sh1
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.h)) {
+                this.i = 0L;
+                return true;
+            } else if (this.i - System.currentTimeMillis() < ui1.a) {
+                this.i = 0L;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

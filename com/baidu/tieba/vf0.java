@@ -1,105 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.Rotation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.zxing.client.result.ResultParser;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 /* loaded from: classes6.dex */
 public class vf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
-    public static final float[] c;
-    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-348341524, "Lcom/baidu/tieba/vf0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-348341524, "Lcom/baidu/tieba/vf0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Rotation.values().length];
-            a = iArr;
-            try {
-                iArr[Rotation.ROTATION_90.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Rotation.ROTATION_180.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Rotation.ROTATION_270.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Rotation.NORMAL.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948238729, "Lcom/baidu/tieba/vf0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948238729, "Lcom/baidu/tieba/vf0;");
-                return;
-            }
-        }
-        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
-        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
-        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
-        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
-    }
-
-    public static float a(float f) {
-        InterceptResult invokeF;
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static float[] b(Rotation rotation, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        float[] fArr;
+    public static String b(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i = a.a[rotation.ordinal()];
-            if (i == 1) {
-                fArr = b;
-            } else if (i == 2) {
-                fArr = c;
-            } else if (i != 3) {
-                fArr = a;
-            } else {
-                fArr = d;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? c(inputStream, null) : (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream != null) {
+                if (TextUtils.isEmpty(str)) {
+                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
+                }
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+                StringWriter stringWriter = new StringWriter();
+                char[] cArr = new char[4096];
+                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
+                    stringWriter.write(cArr, 0, read);
+                }
+                String stringWriter2 = stringWriter.toString();
+                inputStreamReader.close();
+                stringWriter.close();
+                return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
             }
-            if (z) {
-                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
-            }
-            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
+            throw new IllegalArgumentException("stream may not be null.");
         }
-        return (float[]) invokeCommon.objValue;
+        return (String) invokeLL.objValue;
     }
 }

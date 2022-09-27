@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.as8;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.os8;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.zr8;
+import com.baidu.tieba.ps8;
+import com.baidu.tieba.sm8;
+import com.baidu.tieba.st8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundListActivity a;
-    public dt8 b;
+    public st8 b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public DressItemData e;
@@ -159,15 +159,15 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
                     if (propId == this.a.a.B1() && (Q = this.a.Q(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", Q.getFreeUserLevel()));
                     }
-                    bx4 k = bx4.k();
+                    ox4 k = ox4.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
                     this.a.W(propId);
                     this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.d);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i = as8.b;
-                    if (responsedMessage.getError() == as8.c) {
-                        i = as8.a;
+                    int i = ps8.b;
+                    if (responsedMessage.getError() == ps8.c) {
+                        i = ps8.a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
@@ -183,7 +183,7 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, dt8 dt8Var, List<DressItemData> list);
+        void a(int i, String str, st8 st8Var, List<DressItemData> list);
     }
 
     public BackgroundListModel(BackgroundListActivity backgroundListActivity) {
@@ -261,8 +261,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            dm8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            dm8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            sm8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            sm8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -280,10 +280,10 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i == as8.a) {
-                zr8.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i == as8.b) {
-                zr8.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
+            if (i == ps8.a) {
+                os8.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i == ps8.b) {
+                os8.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
             }
         }
     }
@@ -341,8 +341,8 @@ public class BackgroundListModel extends BdBaseModel<BackgroundListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            dm8.h(309021, BackgroundListSocketResponseMessage.class, false, false);
-            dm8.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
+            sm8.h(309021, BackgroundListSocketResponseMessage.class, false, false);
+            sm8.c(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

@@ -1,22 +1,37 @@
 package com.baidu.tieba;
 
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface hc4 {
+public abstract class hc4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void b(String str, String str2, JSONObject jSONObject);
-
-        void c(String str, int i);
-
-        void onFail(Exception exc);
-
-        void onStart();
+    public hc4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
     }
-
-    void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
-
-    void z(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

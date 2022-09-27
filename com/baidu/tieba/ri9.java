@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.LoggerManager;
 /* loaded from: classes5.dex */
 public class ri9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public fe1<LoggerManager.c> a;
+    public te1<xi9> a;
 
     public ri9() {
         Interceptable interceptable = $ic;
@@ -28,21 +25,15 @@ public class ri9 {
                 return;
             }
         }
-        b();
+        a();
     }
 
-    public LoggerManager.c a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (LoggerManager.c) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            de1 b = de1.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            re1 b = re1.b();
             this.a = b;
-            b.a(new si9());
+            b.a(new yi9());
         }
     }
 }

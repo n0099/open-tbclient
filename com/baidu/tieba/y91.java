@@ -1,30 +1,58 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import org.json.JSONObject;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.provider.BundleOpProvider;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface y91 {
-    void a(Activity activity, String str, String str2);
+public class y91 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void aLiAuth(Activity activity, String str, fa1<JSONObject> fa1Var);
+    public static v91 a(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            v91 v91Var = new v91();
+            if (uri != null) {
+                String queryParameter = uri.getQueryParameter("downloaded_size");
+                long longValue = !TextUtils.isEmpty(queryParameter) ? Long.valueOf(queryParameter).longValue() : 0L;
+                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
+                long longValue2 = TextUtils.isEmpty(queryParameter2) ? 0L : Long.valueOf(queryParameter2).longValue();
+                v91Var.a = longValue;
+                v91Var.b = longValue2;
+            }
+            return v91Var;
+        }
+        return (v91) invokeL.objValue;
+    }
 
-    boolean b(Context context);
+    public static Uri b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build() : (Uri) invokeV.objValue;
+    }
 
-    void c(Activity activity, String str, t91 t91Var);
+    public static Uri c(String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build() : (Uri) invokeCommon.objValue;
+    }
 
-    void d(Context context, JSONObject jSONObject, t91 t91Var);
+    public static Uri d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build() : (Uri) invokeL.objValue;
+    }
 
-    void e(Activity activity, String str, t91 t91Var);
-
-    void f(Context context, JSONObject jSONObject);
-
-    void g(Bundle bundle);
-
-    void h(String str);
-
-    void i(Activity activity, JSONObject jSONObject, t91 t91Var);
-
-    String j(Context context);
+    public static Uri e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build() : (Uri) invokeL.objValue;
+    }
 }

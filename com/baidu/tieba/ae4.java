@@ -2,175 +2,137 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ae4 extends ee4 {
+public class ae4 extends rc4<ge4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public long e;
-    public String f;
-    public long g;
-    public String h;
-    public String i;
-    public long j;
-    public long k;
-    public long l;
+    public final String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae4(String str, int i) {
-        super(i);
+    public ae4(String str, gb4 gb4Var, re4 re4Var) {
+        super(gb4Var, re4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
+            Object[] objArr = {str, gb4Var, re4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gb4) objArr2[0], (re4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = -1L;
-        this.g = -1L;
-        this.j = -1L;
-        this.k = 0L;
         this.d = str;
     }
 
-    public long f() {
+    @Override // com.baidu.tieba.rc4
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: v */
+    public boolean f(ge4 ge4Var) {
+        InterceptResult invokeL;
+        List<lc4> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.longValue;
-    }
-
-    public ae4 o(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            this.g = j;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ge4Var)) == null) {
+            if (ge4Var == null) {
+                return false;
+            }
+            if (ge4Var.a == null && (((list = ge4Var.b) == null || list.isEmpty()) && ge4Var.d == null && ge4Var.f == null && ge4Var.e == null)) {
+                return false;
+            }
+            kc4 kc4Var = ge4Var.a;
+            if (kc4Var == null || kc4Var.a()) {
+                List<lc4> list2 = ge4Var.b;
+                if (list2 != null) {
+                    for (lc4 lc4Var : list2) {
+                        if (!lc4Var.a()) {
+                            return false;
+                        }
+                    }
+                }
+                ic4 ic4Var = ge4Var.d;
+                if (ic4Var == null || ic4Var.a()) {
+                    gc4 gc4Var = ge4Var.f;
+                    if (gc4Var == null || gc4Var.a()) {
+                        PMSAppInfo pMSAppInfo = ge4Var.e;
+                        return pMSAppInfo == null || pMSAppInfo.checkValid();
+                    }
+                    return false;
+                }
+                return false;
+            }
+            return false;
         }
-        return (ae4) invokeJ.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void p(long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: w */
+    public boolean s(ge4 ge4Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.l = j;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, ge4Var, i)) == null) {
+            if (ge4Var != null) {
+                r(ge4Var.e);
+                return false;
+            }
+            return false;
         }
+        return invokeLI.booleanValue;
     }
 
-    public ae4 q(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            this.j = j;
-            return this;
-        }
-        return (ae4) invokeJ.objValue;
-    }
-
-    public ae4 r(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: x */
+    public fc4 t(ge4 ge4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.h = str;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ge4Var)) == null) {
+            this.a.E();
+            tg4 tg4Var = new tg4();
+            o(ge4Var.a, tg4Var);
+            p(ge4Var.b, tg4Var);
+            n(g(ge4Var.c), tg4Var);
+            m(ge4Var.d, tg4Var);
+            l(ge4Var.f, tg4Var);
+            r(ge4Var.e);
+            if (tg4Var.n() == 0) {
+                this.a.F();
+                return null;
+            }
+            this.a.G(tg4Var);
+            wc4.b(ge4Var, this.a);
+            return null;
         }
-        return (ae4) invokeL.objValue;
+        return (fc4) invokeL.objValue;
     }
 
-    public ae4 s(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: y */
+    public ge4 u(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (ae4) invokeL.objValue;
-    }
-
-    public ae4 t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (ae4) invokeL.objValue;
-    }
-
-    public ae4 u(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-            this.e = j;
-            return this;
-        }
-        return (ae4) invokeJ.objValue;
-    }
-
-    public void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.k = j;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? sg4.g(this.d, jSONObject) : (ge4) invokeL.objValue;
     }
 }

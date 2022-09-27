@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
-public class vb5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vb5 {
+    boolean R0();
 
-    public static void a(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65536, null, j, str) == null) {
-            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
-            requestPassFriendMessage.setFriendId(j, str);
-            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
-        }
-    }
+    BdUniqueId getUniqueId();
+
+    boolean r0(wb5 wb5Var);
 }

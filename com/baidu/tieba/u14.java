@@ -13,9 +13,9 @@ public class u14 {
     @V8JavascriptField
     public int progress;
     @V8JavascriptField
-    public long totalBytesExpectedToSend;
+    public long totalBytesExpectedToWrite;
     @V8JavascriptField
-    public long totalBytesSent;
+    public long totalBytesWritten;
 
     public u14(int i, long j, long j2) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class u14 {
             }
         }
         this.progress = i;
-        this.totalBytesExpectedToSend = j;
-        this.totalBytesSent = j2;
+        this.totalBytesExpectedToWrite = j;
+        this.totalBytesWritten = j2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TaskProgressData{progress=" + this.progress + ", fileTotalBytes=" + this.totalBytesExpectedToSend + ", totalBytesExpectedToSend=" + this.totalBytesSent + '}';
+            return "TaskProgressData{progress=" + this.progress + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + ", totalBytesWritten=" + this.totalBytesWritten + '}';
         }
         return (String) invokeV.objValue;
     }

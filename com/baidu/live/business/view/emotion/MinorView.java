@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.q90;
-import com.baidu.tieba.y90;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.la0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class MinorView extends LinearLayout {
     public AppCompatTextView b;
     public AppCompatTextView c;
     public AppCompatTextView d;
-    public y90 e;
+    public la0 e;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -56,7 +56,7 @@ public class MinorView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (q90.f(this.a.getContext())) {
+                if (da0.f(this.a.getContext())) {
                     if (this.a.e != null) {
                         this.a.e.a(view2);
                         return;
@@ -100,20 +100,20 @@ public class MinorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = q90.b(getContext(), EmotionStrategy.getInstance().minorWidth);
-            layoutParams.height = q90.b(getContext(), EmotionStrategy.getInstance().minorHeight);
+            layoutParams.width = da0.b(getContext(), EmotionStrategy.getInstance().minorWidth);
+            layoutParams.height = da0.b(getContext(), EmotionStrategy.getInstance().minorHeight);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(hc0.f().i(str));
-            this.b.setTextColor(hc0.f().a(getContext(), str, "color_8585853"));
-            this.c.setTextColor(hc0.f().a(getContext(), str, "color_B8B8B8"));
-            this.d.setTextColor(hc0.f().a(getContext(), str, "color_4367B4"));
+            setImageResource(uc0.f().i(str));
+            this.b.setTextColor(uc0.f().a(getContext(), str, "color_8585853"));
+            this.c.setTextColor(uc0.f().a(getContext(), str, "color_B8B8B8"));
+            this.d.setTextColor(uc0.f().a(getContext(), str, "color_4367B4"));
         }
     }
 
-    public void setActionCallback(y90 y90Var) {
+    public void setActionCallback(la0 la0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y90Var) == null) {
-            this.e = y90Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, la0Var) == null) {
+            this.e = la0Var;
         }
     }
 

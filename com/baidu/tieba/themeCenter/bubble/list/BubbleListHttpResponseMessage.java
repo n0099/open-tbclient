@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.bubble.list;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.st8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
     public boolean isDefault;
     public List<DressItemData> mDressItemList;
-    public dt8 mRecommand;
+    public st8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListHttpResponseMessage(int i) {
@@ -54,10 +54,10 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDressItemList : (List) invokeV.objValue;
     }
 
-    public dt8 getRecommand() {
+    public st8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (dt8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 
     public boolean hasMore() {
@@ -89,9 +89,9 @@ public class BubbleListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    dt8 dt8Var = new dt8();
-                    this.mRecommand = dt8Var;
-                    dt8Var.d(getBubbleListResIdl.data.recommend);
+                    st8 st8Var = new st8();
+                    this.mRecommand = st8Var;
+                    st8Var.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();

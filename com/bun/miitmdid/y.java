@@ -1,27 +1,25 @@
 package com.bun.miitmdid;
 
-import android.os.AsyncTask;
-import android.os.RemoteException;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bun.lib.MsaIdInterface;
+@Keep
 /* loaded from: classes7.dex */
-public class y extends AsyncTask<Void, Void, Boolean> {
+public class y extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a0 a;
-    public MsaIdInterface b;
+    @Keep
+    public Context l;
 
-    public y(MsaIdInterface msaIdInterface, a0 a0Var) {
+    public y(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {msaIdInterface, a0Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,52 +29,10 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        this.b = msaIdInterface;
-        this.a = a0Var;
+        this.l = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        boolean isDataArrived;
-        a0 a0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            if (this.b == null) {
-                return Boolean.FALSE;
-            }
-            int i = 0;
-            while (true) {
-                try {
-                    isDataArrived = this.b.isDataArrived();
-                } catch (RemoteException | InterruptedException unused) {
-                }
-                if (isDataArrived) {
-                    break;
-                }
-                Thread.sleep(10L);
-                i++;
-                if (i >= 30) {
-                    break;
-                }
-            }
-            if (isDataArrived && (a0Var = this.a) != null) {
-                a0Var.a(this.b);
-            }
-            return Boolean.valueOf(isDataArrived);
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onPostExecute(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            super.onPostExecute(bool);
-        }
-    }
+    @Override // com.bun.miitmdid.n
+    @Keep
+    public native g d();
 }

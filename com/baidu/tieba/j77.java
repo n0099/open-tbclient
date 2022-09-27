@@ -1,5 +1,160 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface j77 {
-    void E0();
+public class j77 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final h77 a;
+    public View b;
+    public BdTypeRecyclerView c;
+    public PbListView d;
+
+    /* loaded from: classes4.dex */
+    public interface a {
+    }
+
+    public j77(a aVar, View view2, TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, view2, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = view2;
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b5f);
+        this.c = bdTypeRecyclerView;
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
+        this.c.setFadingEdgeLength(0);
+        this.c.setOverScrollMode(2);
+        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
+        this.d = pbListView;
+        pbListView.a();
+        this.d.p(R.color.CAM_X0205);
+        this.d.t(ej.f(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.d.y();
+        this.d.H(R.dimen.tbfontsize33);
+        this.d.B(R.color.CAM_X0110);
+        this.c.setNextPage(this.d);
+        this.d.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.d.f();
+        this.d.D(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0a01));
+        c();
+        this.a = new h77(tbPageContext, this.c);
+    }
+
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.c;
+            if (bdTypeRecyclerView == null) {
+                return false;
+            }
+            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            PbListView pbListView = this.d;
+            if (pbListView != null) {
+                pbListView.F(SkinManager.getColor(R.color.CAM_X0107));
+                this.d.d(skinType);
+            }
+            BdTypeRecyclerView bdTypeRecyclerView = this.c;
+            if (bdTypeRecyclerView == null || bdTypeRecyclerView.getAdapter() == null) {
+                return;
+            }
+            this.c.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.scrollToPosition(0);
+        }
+    }
+
+    public void e(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.c.setData(list);
+    }
+
+    public void f(TbPageTag tbPageTag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
+            this.a.a(tbPageTag);
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.c.setVisibility(0);
+            } else {
+                this.c.setVisibility(8);
+            }
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            nh6 nh6Var = new nh6();
+            nh6Var.a = 401;
+            nh6Var.b = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, nh6Var));
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new lh6());
+            this.c.setData(arrayList);
+        }
+    }
 }

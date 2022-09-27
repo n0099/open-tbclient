@@ -1,49 +1,90 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import androidx.annotation.Nullable;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class s13 extends Handler {
+public class s13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView3d a;
+    public List<a> a;
+    public String b;
 
-    public s13(WheelView3d wheelView3d) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public s13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = wheelView3d;
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
+    @Nullable
+    public static s13 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i == 1000) {
-                this.a.invalidate();
-            } else if (i == 2000) {
-                this.a.r(WheelView3d.ACTION.FLING);
-            } else if (i != 3000) {
-            } else {
-                this.a.n();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            s13 s13Var = new s13();
+            s13Var.b = jSONObject.optString("more");
+            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
+            if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        a aVar = new a();
+                        optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                        aVar.b = optJSONObject.optString("app_name");
+                        aVar.a = optJSONObject.optString("photo_addr");
+                        aVar.c = optJSONObject.optString("scheme");
+                        arrayList.add(aVar);
+                    }
+                }
+                s13Var.a = arrayList;
+                return s13Var;
+            }
+            return null;
         }
+        return (s13) invokeL.objValue;
     }
 }

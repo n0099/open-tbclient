@@ -18,8 +18,8 @@ import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.ku6;
-import com.baidu.tieba.qc8;
+import com.baidu.tieba.fd8;
+import com.baidu.tieba.yu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -173,7 +173,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
             String str = i < this.c.size() ? this.c.get(i) : null;
-            if (StringUtils.isNull(str) || qc8.j(str) || ku6.d(str)) {
+            if (StringUtils.isNull(str) || fd8.j(str) || yu6.d(str)) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);
@@ -205,7 +205,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             if (this.n && i == getCount() - 1 && i != 0) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0159, (ViewGroup) null);
                 ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e94)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09219f)).setText(this.o);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a1)).setText(this.o);
                 viewGroup.addView(inflate);
                 inflate.setOnClickListener(this.d);
                 return inflate;

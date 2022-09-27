@@ -1,30 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import android.util.Pair;
+import com.baidu.tieba.km9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class lm9 extends vl9<TTRewardVideoAd> {
+public class lm9<A extends km9> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lm9(TTRewardVideoAd tTRewardVideoAd) {
-        super(tTRewardVideoAd);
+    public lm9(String str, String str2, String str3) {
+        super(str, str2, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTRewardVideoAd};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,16 +36,19 @@ public class lm9 extends vl9<TTRewardVideoAd> {
         }
     }
 
-    @Override // com.baidu.tieba.vl9
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.isEmpty()) {
-                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            km9 km9Var = (km9) obj;
+            if (km9Var == null) {
+                return null;
             }
-            return this.b;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(Pair.create("csj_rq_id", km9Var.a()));
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeLL.objValue;
     }
 }

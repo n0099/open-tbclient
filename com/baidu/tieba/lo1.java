@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import android.os.Message;
 /* loaded from: classes4.dex */
 public interface lo1 {
-    void a();
+    boolean a(Message message);
 }

@@ -7,7 +7,7 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tieba.ff7;
+import com.baidu.tieba.tf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.io.Serializable;
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ff7 mLcUpdateAsyncTask;
+    public tf7 mLcUpdateAsyncTask;
 
     public TiebaLcUpdateService() {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public class TiebaLcUpdateService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65537, this, clientUpdateInfo) == null) || clientUpdateInfo == null) {
             return;
         }
-        ff7 ff7Var = this.mLcUpdateAsyncTask;
-        if (ff7Var != null) {
-            ff7Var.cancel();
+        tf7 tf7Var = this.mLcUpdateAsyncTask;
+        if (tf7Var != null) {
+            tf7Var.cancel();
             this.mLcUpdateAsyncTask = null;
         }
-        ff7 ff7Var2 = new ff7(clientUpdateInfo);
-        this.mLcUpdateAsyncTask = ff7Var2;
-        ff7Var2.execute(new String[0]);
+        tf7 tf7Var2 = new tf7(clientUpdateInfo);
+        this.mLcUpdateAsyncTask = tf7Var2;
+        tf7Var2.execute(new String[0]);
     }
 
     @Override // android.app.Service
@@ -72,9 +72,9 @@ public class TiebaLcUpdateService extends BdBaseService {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ff7 ff7Var = this.mLcUpdateAsyncTask;
-            if (ff7Var != null) {
-                ff7Var.cancel();
+            tf7 tf7Var = this.mLcUpdateAsyncTask;
+            if (tf7Var != null) {
+                tf7Var.cancel();
                 this.mLcUpdateAsyncTask = null;
             }
             super.onDestroy();

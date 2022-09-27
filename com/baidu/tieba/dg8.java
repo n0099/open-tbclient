@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dg8 extends qf {
+public class dg8 extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,54 +26,19 @@ public class dg8 extends qf {
         }
     }
 
-    @Override // com.baidu.tieba.qf
-    public void changeSettingByType(int i) {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            if (action.equals("android.intent.action.SCREEN_ON")) {
+                cg8.j().e = 1;
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                cg8.j().e = 1;
+                cg8.j().d.d();
+            } else if (action.equals("android.intent.action.USER_PRESENT")) {
+                cg8.j().e = 0;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.qf
-    public String[] getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qf
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.qf
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.qf
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "reply_private_setting_switch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qf
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

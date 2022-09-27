@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArrayMap;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class fc3 {
+public class fc3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final Map<String, ec3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,70 +32,57 @@ public final class fc3 {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
+        b = new ArrayMap();
     }
 
-    public static void a() {
+    @Nullable
+    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File c = c();
-            if (c.exists()) {
-                cj4.j(c);
-            }
-        }
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mb3.a().getLong("aiapps_cur_debug_ver_key", 0L) : invokeV.longValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new File(qn2.d().get(0).a, "/aiapps_debug_swan_core/") : (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (!c.exists()) {
-                c.mkdirs();
-            }
-            return new File(c, "debugSwanCore.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            File file = new File(c().getPath(), "pkginfo.json");
-            if (file.exists()) {
-                JSONObject jSONObject = null;
-                try {
-                    jSONObject = new JSONObject(cj4.E(file));
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            try {
+                if (ProcessUtils.isMainProcess()) {
+                    synchronized (b) {
+                        ec3 ec3Var = b.get(str);
+                        if (ec3Var != null && ec3Var.a() != null) {
+                            return ec3Var.a();
+                        }
+                        int ashmemFD = SwanKV.getAshmemFD(str, i);
+                        if (ashmemFD >= 0) {
+                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
+                            bc3.e(ashmemFileDescriptor);
+                            return ashmemFileDescriptor;
+                        }
+                        return null;
                     }
                 }
-                if (jSONObject == null) {
-                    return false;
+                return ac3.c(str, i);
+            } catch (Throwable th) {
+                if (a) {
+                    th.printStackTrace();
+                    return null;
                 }
-                String optString = jSONObject.optString("version_name");
-                if (TextUtils.isEmpty(optString)) {
-                    return true;
-                }
-                mb3.a().putLong("aiapps_cur_debug_ver_key", ng3.b(optString));
-                return true;
+                return null;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return (AshmemFileDescriptor) invokeLI.objValue;
+    }
+
+    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
+            synchronized (fc3.class) {
+                if (ProcessUtils.isMainProcess()) {
+                    return;
+                }
+                ec3 ec3Var = b.get(ashmemFileDescriptor.getName());
+                if (ec3Var != null && ec3Var.a() != null && ec3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
+                    SwanKV b2 = ec3Var.b();
+                    ec3Var.c(new SwanKV(ashmemFileDescriptor));
+                    b2.release();
+                }
+            }
+        }
     }
 }

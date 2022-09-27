@@ -1,59 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f88 extends BaseCardInfo {
+public abstract class f88 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947718115, "Lcom/baidu/tieba/f88;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947718115, "Lcom/baidu/tieba/f88;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    public f88() {
+    public f88(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public PersonStatus g(UserData userData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
+            if (userData == null) {
+                if (this.a) {
+                    return PersonStatus.HOST_DEFAULT;
+                }
+                return PersonStatus.GUEST_DEFAULT;
+            } else if (userData.isBaijiahaoUser()) {
+                if (this.a) {
+                    return PersonStatus.HOST_BJH;
+                }
+                return PersonStatus.GUEST_BJH;
+            } else if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            } else {
+                return PersonStatus.GUEST_DEFAULT;
+            }
+        }
+        return (PersonStatus) invokeL.objValue;
+    }
+
+    public PersonStatus h(m88 m88Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m88Var)) == null) {
+            if (m88Var != null && m88Var.j() != null) {
+                return g(m88Var.j());
+            }
+            if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            }
+            return PersonStatus.GUEST_DEFAULT;
+        }
+        return (PersonStatus) invokeL.objValue;
     }
 }

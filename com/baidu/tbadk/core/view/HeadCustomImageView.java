@@ -16,8 +16,8 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.ol8;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -109,10 +109,10 @@ public class HeadCustomImageView extends RelativeLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038a, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
-            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d31);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d30);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d2e);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d2f);
+            this.c = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d30);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d2f);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d2d);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f090d2e);
             int f = ej.f(context, R.dimen.tbds90);
             this.e = f;
             this.d.setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
@@ -253,7 +253,7 @@ public class HeadCustomImageView extends RelativeLayout {
             return;
         }
         this.a.setDefaultBgResource(R.color.transparent);
-        this.a.setBackgroundColor(zk8.a(zk8.f(str), 0.3f));
+        this.a.setBackgroundColor(ol8.a(ol8.f(str), 0.3f));
     }
 
     public void setHeadImageBackgroundResource(String str) {

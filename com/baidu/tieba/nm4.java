@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class nm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
+    public long a;
+    public long b;
 
     public nm4() {
         Interceptable interceptable = $ic;
@@ -24,28 +25,27 @@ public class nm4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.put("@@ya", "_");
-        this.a.put("@@yb", "-");
-        this.a.put("@@yc", ".");
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                str = str.replaceAll(entry.getKey(), entry.getValue());
-            }
-            return str;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b + UtilHelper.getTimesMorning() : invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a + UtilHelper.getTimesMorning() : invokeV.longValue;
+    }
+
+    public void c(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
+            this.a = jSONArray.optLong(0, 0L) * 1000;
+            this.b = jSONArray.optLong(1, 0L) * 1000;
         }
-        return (String) invokeL.objValue;
     }
 }

@@ -1,81 +1,219 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.nadcore.net.request.RequestMethod;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 /* loaded from: classes5.dex */
-public abstract class pq0 extends oq0 {
+public class pq0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final MediaType a;
+    public static final MediaType b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pq0(@NonNull gu0 gu0Var, @Nullable Context context) {
-        super(gu0Var, context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gu0Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((gu0) objArr2[0], (Context) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-509957699, "Lcom/baidu/tieba/pq0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-509957699, "Lcom/baidu/tieba/pq0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[BodyStyle.values().length];
+            b = iArr;
+            try {
+                iArr[BodyStyle.BYTE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[BodyStyle.STRING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[BodyStyle.FILE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[BodyStyle.FORM.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            int[] iArr2 = new int[RequestMethod.values().length];
+            a = iArr2;
+            try {
+                iArr2[RequestMethod.HEAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RequestMethod.GET.ordinal()] = 2;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[RequestMethod.POST.ordinal()] = 3;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[RequestMethod.PUT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[RequestMethod.DELETE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[RequestMethod.PATCH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[RequestMethod.OPTIONS.ordinal()] = 7;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[RequestMethod.TRACE.ordinal()] = 8;
+            } catch (NoSuchFieldError unused12) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070554, "Lcom/baidu/tieba/pq0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948070554, "Lcom/baidu/tieba/pq0;");
                 return;
             }
         }
+        a = MediaType.parse("text/plain");
+        b = MediaType.parse("application/octet-stream");
+        MediaType.parse("application/x-www-form-urlencoded");
     }
 
-    @Override // com.baidu.tieba.nq0
-    @NonNull
-    public hu0 E() {
-        InterceptResult invokeV;
+    public static RequestBody a(@NonNull rq0 rq0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.v == null) {
-                this.v = this.y.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rq0Var)) == null) {
+            byte[] bArr = rq0Var.d;
+            if (bArr != null && bArr.length > 0) {
+                return RequestBody.create(d(rq0Var.b, b), rq0Var.d);
             }
-            return this.v;
+            return RequestBody.create((MediaType) null, new byte[0]);
         }
-        return (hu0) invokeV.objValue;
+        return (RequestBody) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nq0
-    public void F0(@Nullable bw0 bw0Var) {
+    public static RequestBody b(@NonNull rq0 rq0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw0Var) == null) {
-            super.F0(E().b(this, bw0Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, rq0Var)) == null) {
+            if (rq0Var.e != null) {
+                return RequestBody.create(d(rq0Var.b, b), rq0Var.e);
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
         }
+        return (RequestBody) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.oq0
-    @CallSuper
-    public void F1(boolean z) {
+    public static RequestBody c(@NonNull rq0 rq0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            E().c(this, z);
-            ht0 w = vs0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
-            w.n(9, Boolean.valueOf(z));
-            q0(w);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rq0Var)) == null) {
+            if (!wz0.h(rq0Var.f)) {
+                FormBody.Builder builder = new FormBody.Builder();
+                for (Map.Entry<String, String> entry : rq0Var.f.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
+                        builder.add(entry.getKey(), entry.getValue());
+                    }
+                }
+                return builder.build();
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
         }
+        return (RequestBody) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nq0
-    public void h0() {
+    public static MediaType d(@NonNull String str, MediaType mediaType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E().a(this);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, mediaType)) == null) {
+            MediaType parse = !TextUtils.isEmpty(str) ? MediaType.parse(str) : null;
+            return (parse != null || mediaType == null) ? parse : mediaType;
         }
+        return (MediaType) invokeLL.objValue;
+    }
+
+    public static RequestBody e(@NonNull rq0 rq0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, rq0Var)) == null) {
+            int i = a.b[rq0Var.a.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return RequestBody.create((MediaType) null, new byte[0]);
+                        }
+                        return c(rq0Var);
+                    }
+                    return b(rq0Var);
+                }
+                return f(rq0Var);
+            }
+            return a(rq0Var);
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static RequestBody f(@NonNull rq0 rq0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rq0Var)) == null) {
+            if (!TextUtils.isEmpty(rq0Var.c)) {
+                return RequestBody.create(d(rq0Var.b, a), rq0Var.c);
+            }
+            return RequestBody.create((MediaType) null, new byte[0]);
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static RequestBody g(@NonNull String str, rq0 rq0Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, rq0Var)) == null) {
+            if (rq0Var == null) {
+                return null;
+            }
+            int i = a.a[RequestMethod.reverse(str).ordinal()];
+            if (i == 3 || i == 4 || i == 5 || i == 6) {
+                return e(rq0Var);
+            }
+            return null;
+        }
+        return (RequestBody) invokeLL.objValue;
     }
 }

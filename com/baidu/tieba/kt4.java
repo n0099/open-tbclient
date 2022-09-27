@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONObject;
-import tbclient.SimpleForum;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
-public class kt4 implements gy4 {
+public class kt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public boolean d;
-    public boolean e;
-    public int f;
-    public qr4 g;
-    public int h;
-    public int i;
-    public String j;
-    public ThemeColorInfo k;
+    public String d;
 
     public kt4() {
         Interceptable interceptable = $ic;
@@ -41,136 +31,47 @@ public class kt4 implements gy4 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.gy4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gy4
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gy4
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public ArrayList<Integer> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ThemeColorInfo themeColorInfo = this.k;
-            if (themeColorInfo == null || themeColorInfo.day == null || themeColorInfo.night == null || themeColorInfo.dark == null) {
-                return null;
-            }
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(ng7.b(this.k.day.light_color)));
-            arrayList.add(Integer.valueOf(ng7.b(this.k.day.dark_color)));
-            arrayList.add(Integer.valueOf(ng7.b(this.k.night.light_color)));
-            arrayList.add(Integer.valueOf(ng7.b(this.k.night.dark_color)));
-            arrayList.add(Integer.valueOf(ng7.b(this.k.dark.light_color)));
-            arrayList.add(Integer.valueOf(ng7.b(this.k.dark.dark_color)));
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dy4
-    public boolean getIsLike() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public ThemeColorInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
         }
-        this.a = String.valueOf(jSONObject.optLong("id", 0L));
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("avatar");
-        this.f = jSONObject.optInt("level_id");
-        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
-        if (optJSONObject != null) {
-            qr4 qr4Var = new qr4();
-            this.g = qr4Var;
-            qr4Var.a(optJSONObject);
-        }
-        int optInt = jSONObject.optInt("memberNum", 0);
-        this.i = optInt;
-        if (optInt == 0) {
-            this.i = jSONObject.optInt("member_num", 0);
-        }
-        this.h = jSONObject.optInt("post_num", 0);
+        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.b = intent.getStringExtra("recom_source");
+        this.c = intent.getStringExtra("recom_abtag");
+        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
-    public void j(SimpleForum simpleForum) {
+    public void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, simpleForum) == null) || simpleForum == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null) {
             return;
         }
-        this.a = String.valueOf(simpleForum.id);
-        this.b = simpleForum.name;
-        this.c = simpleForum.avatar;
-        this.d = simpleForum.is_liked.intValue() == 1;
-        this.f = simpleForum.level_id.intValue();
-        if (simpleForum.multi_forum_perm != null) {
-            qr4 qr4Var = new qr4();
-            this.g = qr4Var;
-            qr4Var.b(simpleForum.multi_forum_perm);
-        }
-        simpleForum.is_brand_forum.intValue();
-        this.i = simpleForum.member_num.intValue();
-        this.h = simpleForum.post_num.intValue();
-        this.j = simpleForum.first_class;
-        this.k = simpleForum.theme_color;
+        this.a = threadData.mRecomWeight;
+        this.b = threadData.mRecomSource;
+        this.c = threadData.mRecomAbTag;
+        this.d = threadData.mRecomExtra;
     }
 
-    public void k(String str) {
+    public void c(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
+            return;
         }
+        intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
+        intent.putExtra("recom_source", this.b);
+        intent.putExtra("recom_abtag", this.c);
+        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
     }
 
-    @Override // com.baidu.tieba.dy4
-    public void setIsLike(boolean z) {
+    public void d(ab8 ab8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, ab8Var) == null) || ab8Var == null) {
+            return;
         }
+        ab8Var.g = this.a;
+        ab8Var.f = this.b;
+        ab8Var.l = this.c;
+        ab8Var.o = this.d;
     }
 }

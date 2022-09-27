@@ -1,37 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.lego.LegoItemHolder;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class fp6 extends qg6<ICardInfo, LegoItemHolder> {
+public class fp6 extends gx<mp6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ICardInfo l;
+    public View f;
+    public EMTextView g;
+    public ArrayList<rp6> h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fp6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public fp6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,50 +43,82 @@ public class fp6 extends qg6<ICardInfo, LegoItemHolder> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: E */
-    public View getView(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.gx
+    public View h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
-            this.l = iCardInfo;
-            return super.getView(i, view2, viewGroup, iCardInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a2, (ViewGroup) null, true);
+                this.f = inflate;
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f9b);
+            }
+            return this.f;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            hv4 d = hv4.d(this.f);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            hv4 d2 = hv4.d(this.g);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
+                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
+                }
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: F */
-    public LegoItemHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wx
+    /* renamed from: p */
+    public void a(mp6 mp6Var) {
+        boolean z;
+        View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            vg7 a = ag7.h().a(this.c, this.l, 1);
-            if (a == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mp6Var) == null) && mp6Var != null && mp6Var.f()) {
+            ArrayList<rp6> c = mp6Var.c();
+            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
+                if (ListUtils.getCount(this.h) > 0) {
+                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
+                }
+                z = true;
+            } else {
+                z = false;
             }
-            a.c(this.mPageId);
-            return new LegoItemHolder(a);
-        }
-        return (LegoItemHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
-    /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, iCardInfo, legoItemHolder);
-            View view3 = legoItemHolder.getView();
-            if (view3 != null && iCardInfo != null) {
-                ((vg7) view3).update(iCardInfo);
+            if (c != null) {
+                for (int i = 0; i < c.size(); i++) {
+                    if (z) {
+                        childAt = new CardItemDetailListItemLayout(this.b);
+                        ((ViewGroup) this.f).addView(childAt, -1, -2);
+                    } else {
+                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                    }
+                    if (childAt instanceof CardItemDetailListItemLayout) {
+                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
+                    }
+                }
             }
-            return view3;
+            ViewGroup viewGroup = (ViewGroup) this.f;
+            int childCount = viewGroup.getChildCount() - 1;
+            while (true) {
+                if (childCount <= 0) {
+                    break;
+                }
+                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
+                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
+                    break;
+                }
+                childCount--;
+            }
+            this.h = c;
         }
-        return (View) invokeCommon.objValue;
     }
 }

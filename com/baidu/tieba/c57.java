@@ -1,158 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkItem;
-import tbclient.NewHottopic.PkModule;
+import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes3.dex */
-public class c57 {
+public class c57 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public long b;
+    public ThreadData b;
     public long c;
-    public a d;
-    public a e;
-    public int f;
+    public int d;
+    public int e;
+    public boolean f;
 
-    /* loaded from: classes3.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public long f;
-        public String g;
-
-        public a(c57 c57Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625828, "Lcom/baidu/tieba/c57;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947625828, "Lcom/baidu/tieba/c57;");
+                return;
             }
         }
+        g = BdUniqueId.gen();
     }
 
     public c57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(PkModule pkModule) {
+    public void c(TopicThread topicThread) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.b = pkModule.pk_id.longValue();
-        this.c = pkModule.user_pk_id.longValue();
-        a aVar = new a(this);
-        this.d = aVar;
-        aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.agree.pk_desc;
-        a aVar2 = this.d;
-        PkItem pkItem = pkModule.agree;
-        aVar2.c = pkItem.last_username;
-        aVar2.d = pkItem.pk_icon;
-        aVar2.e = pkItem.has_clicked.longValue() == 1;
-        this.d.f = pkModule.agree.pk_index.longValue();
-        this.d.g = pkModule.agree.pk_icon_after;
-        a aVar3 = new a(this);
-        this.e = aVar3;
-        aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c) : pkModule.disagree.pk_desc;
-        a aVar4 = this.e;
-        PkItem pkItem2 = pkModule.disagree;
-        aVar4.c = pkItem2.last_username;
-        aVar4.d = pkItem2.pk_icon;
-        aVar4.e = pkItem2.has_clicked.longValue() == 1;
-        this.e.f = pkModule.disagree.pk_index.longValue();
-        this.e.g = pkModule.disagree.pk_icon_after;
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = topicThread.user_agree.intValue();
+        this.e = topicThread.source.intValue();
     }
 
-    public void b(tbclient.NewTopicList.PkModule pkModule) {
+    public void f(tbclient.NewTopicThread.TopicThread topicThread) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.b = pkModule.pk_id.longValue();
-        this.c = pkModule.user_pk_id.longValue();
-        a aVar = new a(this);
-        this.d = aVar;
-        aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.agree.pk_desc;
-        a aVar2 = this.d;
-        tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
-        aVar2.c = pkItem.last_username;
-        aVar2.d = pkItem.pk_icon;
-        aVar2.e = pkItem.has_clicked.longValue() == 1;
-        this.d.f = pkModule.agree.pk_index.longValue();
-        this.d.g = pkModule.agree.pk_icon_after;
-        a aVar3 = new a(this);
-        this.e = aVar3;
-        aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c) : pkModule.disagree.pk_desc;
-        a aVar4 = this.e;
-        tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
-        aVar4.c = pkItem2.last_username;
-        aVar4.d = pkItem2.pk_icon;
-        aVar4.e = pkItem2.has_clicked.longValue() == 1;
-        this.e.f = pkModule.disagree.pk_index.longValue();
-        this.e.g = pkModule.disagree.pk_icon_after;
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = Integer.parseInt(topicThread.user_agree);
+        this.e = topicThread.source.intValue();
     }
 
-    public void c(tbclient.PkModule pkModule) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
-            return;
-        }
-        this.b = pkModule.pk_id.longValue();
-        this.c = pkModule.user_pk_id.longValue();
-        a aVar = new a(this);
-        this.d = aVar;
-        aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.agree.pk_desc;
-        a aVar2 = this.d;
-        tbclient.PkItem pkItem = pkModule.agree;
-        aVar2.c = pkItem.last_username;
-        aVar2.d = pkItem.pk_icon;
-        aVar2.e = pkItem.has_clicked.longValue() == 1;
-        this.d.f = pkModule.agree.pk_index.longValue();
-        this.d.g = pkModule.agree.pk_icon_after;
-        a aVar3 = new a(this);
-        this.e = aVar3;
-        aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c) : pkModule.disagree.pk_desc;
-        a aVar4 = this.e;
-        tbclient.PkItem pkItem2 = pkModule.disagree;
-        aVar4.c = pkItem2.last_username;
-        aVar4.d = pkItem2.pk_icon;
-        aVar4.e = pkItem2.has_clicked.longValue() == 1;
-        this.e.f = pkModule.disagree.pk_index.longValue();
-        this.e.g = pkModule.disagree.pk_icon_after;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
     }
 }

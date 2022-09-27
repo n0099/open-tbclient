@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -197,7 +197,7 @@ public class InterestForumTagLayout extends LinearLayout implements xx {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.e) == null) {
             return;
         }
-        uu4 d = uu4.d(eMTextView);
+        hv4 d = hv4.d(eMTextView);
         d.v(R.color.CAM_X0110);
         d.z(R.dimen.T_X06);
     }
@@ -241,7 +241,7 @@ public class InterestForumTagLayout extends LinearLayout implements xx {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                uu4 d = uu4.d(textView);
+                hv4 d = hv4.d(textView);
                 d.v(R.color.CAM_X0109);
                 d.z(R.dimen.T_X06);
             }
@@ -277,7 +277,7 @@ public class InterestForumTagLayout extends LinearLayout implements xx {
             return;
         }
         if (z) {
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080976, SkinManager.getColor(R.color.CAM_X0301), null);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080978, SkinManager.getColor(R.color.CAM_X0301), null);
             if (pureDrawable != null) {
                 this.c.setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X002));
                 this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);

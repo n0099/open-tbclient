@@ -1,57 +1,69 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xn3 {
+public class xn3 implements wn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public yn3 a;
+    public boolean b;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public xn3(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "HUAWEI");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String upperCase = Build.BRAND.toUpperCase();
-            if (!TextUtils.equals("HUAWEI", upperCase) && !TextUtils.equals("HONOR", upperCase)) {
-                String upperCase2 = Build.MANUFACTURER.toUpperCase();
-                if (upperCase2.contains("HUAWEI") || upperCase2.contains("HONOR")) {
-                    a = "HUAWEI";
-                    return true;
-                }
-                return false;
-            }
-            a = "HUAWEI";
-            return true;
         }
-        return invokeV.booleanValue;
+        this.b = false;
+        c(context);
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wn3
+    public void a() {
+        yn3 yn3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "OPPO");
-            }
-            if (TextUtils.equals("OPPO", Build.BRAND.toUpperCase())) {
-                a = "OPPO";
-                return true;
-            } else if (Build.MANUFACTURER.toUpperCase().contains("OPPO")) {
-                a = "OPPO";
-                return true;
-            } else {
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (yn3Var = this.a) != null && yn3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wn3
+    public void b(int i) {
+        yn3 yn3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (yn3Var = this.a) != null && yn3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = yn3.a(context);
+        }
     }
 }

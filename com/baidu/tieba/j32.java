@@ -1,14 +1,40 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.i32;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface j32<T extends i32> {
-    void a(@NonNull Handler handler);
+public class j32 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(T t);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832288, "Lcom/baidu/tieba/j32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832288, "Lcom/baidu/tieba/j32;");
+                return;
+            }
+        }
+        a = "检测到白屏区域超过" + a(0.7d) + "；";
+        b = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
+    }
 
-    Looper getLooper();
+    public static String a(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            return ((int) (d * 100.0d)) + "%";
+        }
+        return (String) invokeCommon.objValue;
+    }
 }

@@ -1,44 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes5.dex */
 public class mu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
-    public lu7 d;
-    public lu7 e;
-    public lu7 f;
-    public View g;
+    public ov7 a;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public mu7(Context context, a aVar) {
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final mu7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-591942500, "Lcom/baidu/tieba/mu7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-591942500, "Lcom/baidu/tieba/mu7$b;");
+                    return;
+                }
+            }
+            a = new mu7(null);
+        }
+    }
+
+    public /* synthetic */ mu7(a aVar) {
+        this();
+    }
+
+    public static mu7 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (mu7) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            ox4.k().y("key_pb_guide_enter_forum", "");
+        }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e()) {
+                return this.a.b;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(ov7 ov7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ov7Var) == null) {
+            this.a = ov7Var;
+            ox4.k().y("key_pb_guide_enter_forum", ov7Var.toString());
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ov7 ov7Var = this.a;
+            return ov7Var != null && ov7Var.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public mu7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,103 +104,6 @@ public class mu7 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d6, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09062c);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f090629);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f090687);
-        this.d = new lu7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09062d), aVar);
-        this.e = new lu7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09062e), aVar);
-        this.f = new lu7((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09062f), aVar);
-    }
-
-    public final User a(Post post, List<User> list) {
-        InterceptResult invokeLL;
-        Long l;
-        Long l2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
-            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
-                return null;
-            }
-            long longValue = l.longValue();
-            for (User user : list) {
-                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
-                    return user;
-                }
-            }
-            return null;
-        }
-        return (User) invokeLL.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.d.c();
-            this.e.c();
-            this.f.c();
-        }
-    }
-
-    public void d(List<Post> list, List<User> list2) {
-        boolean z;
-        boolean update;
-        boolean update2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                this.g.setVisibility(0);
-                int size = list.size();
-                if (size != 1) {
-                    if (size == 2) {
-                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
-                        this.f.d(false);
-                        update = update4;
-                        z = update3;
-                        update2 = false;
-                    } else if (size >= 3) {
-                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
-                        update = this.e.update(list.get(1), a(list.get(1), list2));
-                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
-                        z = update5;
-                    } else {
-                        z = false;
-                    }
-                    if (z && !update && !update2) {
-                        this.c.setVisibility(8);
-                        return;
-                    } else {
-                        this.c.setVisibility(0);
-                        return;
-                    }
-                }
-                z = this.d.update(list.get(0), a(list.get(0), list2));
-                this.e.d(false);
-                this.f.d(false);
-                update2 = false;
-                update = false;
-                if (z) {
-                }
-                this.c.setVisibility(0);
-                return;
-            }
-            this.c.setVisibility(8);
-            this.d.d(false);
-            this.e.d(false);
-            this.f.d(false);
-            this.g.setVisibility(8);
-        }
+        this.a = ov7.a(ox4.k().q("key_pb_guide_enter_forum", ""));
     }
 }

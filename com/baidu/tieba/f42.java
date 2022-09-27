@@ -1,18 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class f42 extends z32<JSONObject, yu1> {
+public final class f42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<b42> a;
+    public final List<b42> b;
+    public final List<b42> c;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-852524408, "Lcom/baidu/tieba/f42$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-852524408, "Lcom/baidu/tieba/f42$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[RequestStatus.values().length];
+            a = iArr;
+            try {
+                iArr[RequestStatus.STATUS_SEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[RequestStatus.STATUS_FAILED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public f42() {
         Interceptable interceptable = $ic;
@@ -24,35 +67,162 @@ public class f42 extends z32<JSONObject, yu1> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+    }
+
+    public synchronized void a(b42 b42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, b42Var) == null) {
+            synchronized (this) {
+                if (b42Var == null) {
+                    return;
+                }
+                int i = a.a[b42Var.e.ordinal()];
+                if (i == 1) {
+                    this.a.add(b42Var);
+                } else if (i == 2) {
+                    this.b.add(b42Var);
+                    c(this.a, b42Var);
+                } else if (i == 3) {
+                    this.c.add(b42Var);
+                    c(this.a, b42Var);
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d42
-    @NonNull
-    /* renamed from: c */
-    public yu1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new yu1(202);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+                this.a.clear();
+                this.b.clear();
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new yu1(202, "data is required");
-            }
-            String optString = optJSONObject.optString("content");
-            String optString2 = optJSONObject.optString("type");
-            String optString3 = optJSONObject.optString("source");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
-                yz1.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
-                d32.d().e(b32.a(optString2, optString, optString3));
-                return new yu1(0);
-            }
-            return new yu1(202);
         }
-        return (yu1) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
+        r5.remove();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final synchronized void c(List<b42> list, b42 b42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, b42Var) == null) {
+            synchronized (this) {
+                if (list != null) {
+                    if (!list.isEmpty() && b42Var != null) {
+                        Iterator<b42> it = list.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            } else if (b42Var.equals(it.next())) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized List<b42> d() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (b42 b42Var : this.c) {
+                    if (b42Var != null && b42Var.g(true)) {
+                        arrayList.add(b42Var);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized int e() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                size = this.c.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized List<b42> f() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (b42 b42Var : this.c) {
+                    if (b42Var != null && b42Var.f()) {
+                        arrayList.add(b42Var);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized List<b42> g() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (b42 b42Var : this.b) {
+                    if (b42Var != null && b42Var.h()) {
+                        arrayList.add(b42Var);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized int h() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.b.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int i() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                size = this.a.size() + h() + e();
+            }
+            return size;
+        }
+        return invokeV.intValue;
     }
 }

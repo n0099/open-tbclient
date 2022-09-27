@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cb5;
-import com.baidu.tieba.db5;
-import com.baidu.tieba.gb5;
 import com.baidu.tieba.hg;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.mu4;
+import com.baidu.tieba.pb5;
+import com.baidu.tieba.qb5;
+import com.baidu.tieba.tb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MvcJsonHttpResponsedMessage<D extends gb5> extends MvcHttpResponsedMessage<D> {
+public class MvcJsonHttpResponsedMessage<D extends tb5> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,7 +83,7 @@ public class MvcJsonHttpResponsedMessage<D extends gb5> extends MvcHttpResponsed
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof gb5) {
+            if (createData instanceof tb5) {
                 D d = (D) createData;
                 this.data = d;
                 d.initByJson(jSONObject);
@@ -135,24 +135,24 @@ public class MvcJsonHttpResponsedMessage<D extends gb5> extends MvcHttpResponsed
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof cb5)) {
-                    cb5 cb5Var = (cb5) mvcHttpMessage.getRequestData();
-                    String cacheKey = cb5Var.getCacheKey();
-                    String y = cb5Var.y();
-                    String currentAccount = cb5Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof pb5)) {
+                    pb5 pb5Var = (pb5) mvcHttpMessage.getRequestData();
+                    String cacheKey = pb5Var.getCacheKey();
+                    String y = pb5Var.y();
+                    String currentAccount = pb5Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                     if (cacheKey == null || TextUtils.isEmpty(y) || bArr == null) {
                         return;
                     }
-                    if (cb5Var.o()) {
-                        zt4.f();
-                        jf<byte[]> e = zt4.e(y, currentAccount);
+                    if (pb5Var.o()) {
+                        mu4.f();
+                        jf<byte[]> e = mu4.e(y, currentAccount);
                         if (e == null) {
                             return;
                         }
                         e.g(cacheKey, bArr);
-                    } else if (mvcHttpMessage.getRequestData() instanceof db5) {
-                        zt4.f();
-                        jf<String> h = zt4.h(y, currentAccount);
+                    } else if (mvcHttpMessage.getRequestData() instanceof qb5) {
+                        mu4.f();
+                        jf<String> h = mu4.h(y, currentAccount);
                         if (h == null) {
                             return;
                         }

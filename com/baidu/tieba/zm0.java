@@ -1,24 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.app.Application;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface zm0 extends an0 {
-    void onActivityCreated(Activity activity, Bundle bundle);
+public interface zm0 {
 
-    void onActivityDestroyed(Activity activity);
+    @Autowired
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void onActivityPaused(Activity activity);
+        @NonNull
+        @Singleton
+        @Inject(force = false)
+        public static zm0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? mv0.a() : (zm0) invokeV.objValue;
+        }
+    }
 
-    void onActivityResumed(Activity activity);
+    void a(@NonNull Application application);
 
-    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
-
-    void onActivityStarted(Activity activity);
-
-    void onActivityStopped(Activity activity);
-
-    void onBackgroundToForeground(Activity activity);
-
-    void onForegroundToBackground(Activity activity);
+    void b();
 }

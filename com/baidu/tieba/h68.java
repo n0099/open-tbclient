@@ -1,168 +1,225 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.viewpager.widget.PagerAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+import com.baidu.tieba.personCenter.view.PersonCenterSmartAppPageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class h68 implements p78 {
+public class h68 extends i16<y58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mb8 a;
-    public TbPageContext b;
-    public BdUniqueId c;
-    public HttpMessageListener d;
-    public int e;
+    public List<o58> i;
+    public List<PersonCenterSmartAppPageView> j;
+    public BdBaseViewPager k;
+    public View l;
+    public a m;
+    public PersonCenterSmartAppPageView n;
+    public LinearLayout o;
+    public TextView p;
+    public LinearLayout q;
 
     /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
+    public class a extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h68 a;
+        public List<PersonCenterSmartAppPageView> a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(h68 h68Var, int i) {
-            super(i);
+        public a(h68 h68Var, List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h68Var, Integer.valueOf(i)};
+                Object[] objArr = {h68Var, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = h68Var;
+            this.a = list;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        public void b(List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.c) {
-                if (!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
-                    if (this.a.b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        return;
-                    }
-                    this.a.b.showToast(httpResponsedMessage.getErrorString());
-                    return;
-                }
-                if (this.a.b != null) {
-                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0f2b);
-                }
-                this.a.e = 1;
-                this.a.a.e();
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                this.a = list;
+                notifyDataSetChanged();
             }
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
+                viewGroup.removeView((View) obj);
+            }
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.size() : invokeV.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getItemPosition(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                int indexOf = this.a.indexOf(obj);
+                if (indexOf == -1) {
+                    return -2;
+                }
+                return indexOf;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = this.a.get(i);
+                viewGroup.addView(personCenterSmartAppPageView);
+                return personCenterSmartAppPageView;
+            }
+            return invokeLI.objValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public boolean isViewFromObject(View view2, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h68 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(h68 h68Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h68Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h68Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int intValue;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.a.e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
-                return;
-            }
-            this.a.e = intValue;
-            if (intValue != 1) {
-                return;
-            }
-            this.a.a.e();
-        }
-    }
-
-    public h68(TbPageContext tbPageContext, mb8 mb8Var, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h68(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, mb8Var, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0;
-        this.b = tbPageContext;
-        this.a = mb8Var;
-        this.c = bdUniqueId;
-        this.d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
-        b bVar = new b(this, 2921065);
-        this.d.setTag(this.c);
-        bVar.setTag(this.c);
-        MessageManager.getInstance().registerListener(this.d);
-        MessageManager.getInstance().registerListener(bVar);
+        View h = h();
+        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091471);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091f0c);
+        this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f09264e);
+        this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f0903aa);
+        ArrayList arrayList = new ArrayList();
+        this.j = arrayList;
+        a aVar = new a(this, arrayList);
+        this.m = aVar;
+        this.k.setAdapter(aVar);
+        j(g(), this.a);
     }
 
-    @Override // com.baidu.tieba.p78
-    public void a() {
+    @Override // com.baidu.tieba.i16
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                TbPageContext tbPageContext = this.b;
-                if (tbPageContext != null) {
-                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0c59);
-                    return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0701 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.j) {
+                if (personCenterSmartAppPageView != null) {
+                    personCenterSmartAppPageView.c();
                 }
+            }
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
+            hv4 d = hv4.d(this.k);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            hv4 d2 = hv4.d(this.o);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0205);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    public final void r(o58 o58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, o58Var) == null) {
+            if (this.n.b()) {
+                this.n.a(o58Var);
                 return;
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
-            httpMessage.addParam("opt", "post");
-            httpMessage.addParam("val", String.valueOf(1));
-            httpMessage.setTag(this.c);
-            MessageManager.getInstance().sendMessage(httpMessage);
-            TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
+            PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(getContext());
+            this.n = personCenterSmartAppPageView;
+            this.j.add(personCenterSmartAppPageView);
+            this.n.a(o58Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: s */
+    public void i(y58 y58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, y58Var) == null) {
+            if (y58Var != null && y58Var.c() != null && !ListUtils.isEmpty(y58Var.c())) {
+                q(0);
+                this.j.clear();
+                this.i = y58Var.c();
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(getContext());
+                this.n = personCenterSmartAppPageView;
+                this.j.add(personCenterSmartAppPageView);
+                int min = Math.min(7, this.i.size());
+                for (int i = 0; i < min; i++) {
+                    r((o58) ListUtils.getItem(this.i, i));
+                }
+                if (this.i.isEmpty()) {
+                    q(8);
+                } else {
+                    r(new z58());
+                }
+                this.m.b(this.j);
+                j(g(), this.a);
+                return;
+            }
+            q(8);
         }
     }
 }

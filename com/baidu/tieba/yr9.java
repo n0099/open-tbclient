@@ -1,68 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class yr9 {
+public final class yr9 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ls9 a;
-    public final SVGAVideoEntity b;
+    public final /* synthetic */ wr9 a;
 
-    /* loaded from: classes6.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final gs9 b;
-
-        public a(yr9 yr9Var, String str, gs9 gs9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yr9Var, str, gs9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = gs9Var;
-        }
-
-        public final gs9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (gs9) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-    }
-
-    public yr9(SVGAVideoEntity sVGAVideoEntity) {
+    public yr9(wr9 wr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
+            Object[] objArr = {wr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,46 +29,22 @@ public class yr9 {
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new ls9();
+        this.a = wr9Var;
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+    @Override // android.content.ServiceConnection
+    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.a.f(iBinder);
         }
     }
 
-    public final ls9 b() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ls9) invokeV.objValue;
-    }
-
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<fs9> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (fs9 fs9Var : g) {
-                a aVar = null;
-                if (i >= 0 && i < fs9Var.a().size() && fs9Var.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, fs9Var.b(), fs9Var.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            this.a.q();
         }
-        return (List) invokeI.objValue;
     }
 }

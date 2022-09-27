@@ -1,19 +1,43 @@
 package com.baidu.tieba;
+
+import android.graphics.Rect;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface r06 {
 
     /* loaded from: classes5.dex */
     public interface a {
-        boolean a(int i);
+        int a(byte[] bArr, int i);
     }
 
-    int a();
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(byte[] bArr);
+    }
 
-    void b(int i);
+    View a();
 
-    boolean c();
+    void b(b bVar);
 
-    float getSpeed();
+    void c(int i);
 
-    void reset();
+    int d();
+
+    void e();
+
+    Rect f();
+
+    void g();
+
+    void h(int i);
+
+    void i(s06 s06Var);
+
+    void pause();
+
+    void resume();
+
+    void start();
+
+    void stop();
 }

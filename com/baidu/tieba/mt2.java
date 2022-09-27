@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bdeventbus.Action;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,28 +10,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mt2 implements l42, n42 {
+public final class mt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile mt2 e;
+    public static final boolean g;
+    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public ft2 c;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public String e;
+    public String f;
 
     /* loaded from: classes5.dex */
-    public class a implements Action<v13> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt2 a;
+        public mt2 a;
 
-        public a(mt2 mt2Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mt2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,16 +44,73 @@ public class mt2 implements l42, n42 {
                     return;
                 }
             }
-            this.a = mt2Var;
+            this.a = new mt2();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.bdeventbus.Action
-        public void call(v13 v13Var) {
+        public mt2 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, v13Var) == null) {
-                this.a.f(new nt2(v13Var));
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (mt2) invokeV.objValue;
+        }
+
+        public a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a.b = str;
+                return this;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public a c(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.a.d = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.a.a = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a e(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.a.c = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.a.f = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.a.e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
@@ -74,7 +127,8 @@ public class mt2 implements l42, n42 {
                 return;
             }
         }
-        d = y23.v;
+        g = vj1.a;
+        h = "SwanAppParam";
     }
 
     public mt2() {
@@ -87,207 +141,95 @@ public class mt2 implements l42, n42 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.c = new gt2();
-        BdEventBus.Companion.getDefault().lazyRegister("dialog_event_tag", v13.class, 0, new a(this));
     }
 
-    public static void d() {
+    public static mt2 g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ht2.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                mt2 mt2Var = new mt2();
+                JSONObject jSONObject = new JSONObject(str);
+                mt2Var.a = jSONObject.optString("page");
+                mt2Var.c = jSONObject.optString("params");
+                mt2Var.b = jSONObject.optString("baseUrl");
+                mt2Var.d = jSONObject.optBoolean("isFirstPage");
+                mt2Var.e = jSONObject.optString("routeType");
+                mt2Var.f = jSONObject.optString("routeId");
+                return mt2Var;
+            } catch (JSONException e) {
+                if (g) {
+                    String str2 = h;
+                    Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e));
+                }
+                return null;
+            }
         }
+        return (mt2) invokeL.objValue;
     }
 
-    @NonNull
-    public static mt2 e() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (mt2.class) {
-                    if (e == null) {
-                        e = new mt2();
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("page", this.a);
+                jSONObject.put("params", this.c);
+                jSONObject.put("baseUrl", this.b);
+                jSONObject.put("isFirstPage", this.d);
+                jSONObject.put("routeType", this.e);
+                jSONObject.put("routeId", this.f);
+            } catch (JSONException e) {
+                if (g) {
+                    String str = h;
+                    Log.e(str, "toJSONString error: " + Log.getStackTraceString(e));
                 }
             }
-            return e;
+            return jSONObject.toString();
         }
-        return (mt2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.n42
-    public void a(hp1 hp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hp1Var) == null) {
-            if (d) {
-                Log.d("SwanAppPageMonitor", "webview insert event");
-            }
-            f(new rt2(hp1Var, true));
-        }
-    }
-
-    @Override // com.baidu.tieba.n42
-    public void b(hp1 hp1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hp1Var) == null) {
-            if (d) {
-                Log.d("SwanAppPageMonitor", "webview remove event");
-            }
-            f(new rt2(hp1Var, false));
-        }
-    }
-
-    public final void f(pt2 pt2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pt2Var) == null) {
-            this.c.a(pt2Var);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f(new pt2(11));
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (d) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("change to ");
-                sb.append(z ? NotificationCompat.WearableExtender.KEY_BACKGROUND : Constant.FOREGROUND);
-                Log.d("SwanAppPageMonitor", sb.toString());
-            }
-            f(new ot2(z));
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && m93.d) {
-            if (z) {
-                k();
-            } else {
-                j();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            f(new pt2(12, null, 0L, false));
-            if (d) {
-                Log.d("SwanAPPPageMonitor-Route", "**************** page onPause cancel route monitor");
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b) {
-            f(new pt2(13, null, 4000L, false));
-            if (d) {
-                Log.d("SwanAPPPageMonitor-Route", "**************** page onResume start route monitor, time=4000");
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
-            if (z) {
-                lt2.k();
-                i93.z();
-                this.b = false;
-            }
-        }
-    }
-
-    public void m() {
-        pt2 pt2Var;
-        vn2.a W;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            long n = fm2.g0().n();
-            if (d) {
-                Log.d("SwanAppPageMonitor", "start page monitoring, delay: " + n);
-            }
-            if (this.a) {
-                if (lo2.U().getActivity() != null && (W = x23.K().q().W()) != null) {
-                    long currentTimeMillis = System.currentTimeMillis() - W.N();
-                    n -= currentTimeMillis;
-                    if (n < 0) {
-                        if (d) {
-                            Log.d("SwanAppPageMonitor", "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
-                        }
-                        re3 re3Var = new re3();
-                        re3Var.k(5L);
-                        re3Var.i(40L);
-                        re3Var.f("whitescreen monitor out of time: time=" + currentTimeMillis);
-                        z93 z93Var = new z93();
-                        z93Var.q(r93.n(W.G()));
-                        z93Var.p(re3Var);
-                        z93Var.r(W);
-                        r93.R(z93Var);
-                    }
-                }
-                pt2Var = new pt2(1, null, n, true);
-                this.a = false;
-                n32.b().e(n);
-                this.b = false;
-                if (m93.d) {
-                    f(pt2Var);
-                }
-            } else {
-                pt2Var = null;
-            }
-            if (d) {
-                Log.d("SwanAppPageMonitor", "WhiteScreenMonitor monitortime: " + n);
-            }
-            if (m93.d) {
-                return;
-            }
-            if (pt2Var == null) {
-                pt2Var = new pt2(1, null, n);
-            }
-            f(pt2Var);
-        }
+        return (String) invokeV.objValue;
     }
 
     public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            f(new pt2(9, null, LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION));
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (d) {
-                Log.d("SwanAppPageMonitor", "stop page monitoring");
-            }
-            f(new pt2(7));
-        }
-    }
-
-    @Override // com.baidu.tieba.l42
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
-            if (i3 == 0 && i4 == 0 && i == 0 && i2 == 1) {
-                return;
-            }
-            f(new pt2(3));
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = false;
         }
     }
 }

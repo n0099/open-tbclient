@@ -137,12 +137,12 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06d9, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09185e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091861);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091860);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09185d);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09185f);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08093b, R.color.CAM_X0622, null);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091860);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091863);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091862);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09185f);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091861);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08093d, R.color.CAM_X0622, null);
         }
     }
 

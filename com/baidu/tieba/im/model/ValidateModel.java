@@ -8,7 +8,7 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.y97;
+import com.baidu.tieba.ma7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class ValidateModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, validateItemData, str) == null) {
             if (!BdBaseApplication.getInst().isDebugMode() || ej.C()) {
-                ImMessageCenterPojo i = y97.o().i(str, 1);
+                ImMessageCenterPojo i = ma7.o().i(str, 1);
                 validateItemData.setGroupName(i != null ? i.getGroup_name() : "");
             }
         }

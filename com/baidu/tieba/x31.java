@@ -1,75 +1,132 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.Build;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public interface x31 {
-    public static final x31 a = new a();
+public final class x31 {
+    public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static String[] b;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements x31 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void onEvent(String str, String str2);
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249331, "Lcom/baidu/tieba/x31;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948249331, "Lcom/baidu/tieba/x31;");
+                return;
             }
         }
+        b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
+    }
 
-        @Override // com.baidu.tieba.x31
-        public boolean a(Context context, String str, String str2, @Nullable ei0 ei0Var) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, ei0Var)) == null) {
-                if (str != null) {
-                    if (str.startsWith(ai0.f) || str.startsWith("nadcorevendor://")) {
-                        HashMap hashMap = new HashMap();
-                        hashMap.put(TiebaStatic.Params.REFER, str2);
-                        hashMap.put("from_web_view", Boolean.TRUE);
-                        vh0.e(str, context, hashMap, ei0Var);
-                        return true;
+    public static long a(InputStream inputStream, OutputStream outputStream, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, inputStream, outputStream, i)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[i * 1024];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
                     }
-                    return false;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return 0L;
+        }
+        return invokeLLI.longValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str.startsWith("lib")) {
+                str2 = str;
+            } else {
+                str2 = "lib" + str;
+            }
+            if (str.endsWith(".so")) {
+                return str2;
+            }
+            return str2 + ".so";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) ? split[0].substring(3) : str : (String) invokeL.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                return Process.is64Bit();
+            }
+            if (i >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr.length > 0) {
+                    return Build.CPU_ABI.equals(strArr[0]);
                 }
                 return false;
             }
-            return invokeLLLL.booleanValue;
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Autowired
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @NonNull
-        @Inject(force = false)
-        public static x31 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? x31.a : (x31) invokeV.objValue;
+    public static void e(String str, String str2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (aVar = a) == null) {
+            return;
         }
+        aVar.onEvent(str, str2);
     }
 
-    boolean a(Context context, String str, String str2, @Nullable ei0 ei0Var);
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        e("24", str);
+    }
 }

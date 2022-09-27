@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by4;
-import com.baidu.tieba.ep4;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.rp4;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public View i;
     public String j;
     public View.OnClickListener k;
-    public final ep4 l;
+    public final rp4 l;
     public NavigationBarCoverTip.e m;
 
     /* loaded from: classes6.dex */
@@ -74,7 +74,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends ep4 {
+    public class b extends rp4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultNavigationBarCoverTip a;
@@ -97,7 +97,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.a = defaultNavigationBarCoverTip;
         }
 
-        @Override // com.baidu.tieba.ep4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.baidu.tieba.rp4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.a.h) {
@@ -198,12 +198,12 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.j = str2;
             View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d093c, null);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c6);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091e85);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c8);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091e87);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            by4 by4Var = new by4();
-            by4Var.s();
-            tBSpecificationBtn.setConfig(by4Var);
+            oy4 oy4Var = new oy4();
+            oy4Var.s();
+            tBSpecificationBtn.setConfig(oy4Var);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);

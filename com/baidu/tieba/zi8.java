@@ -1,47 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
+    public zi8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
-            if (intent == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
         }
-        return invokeL.booleanValue;
+        this.a = -1;
+        this.b = null;
     }
 
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent == null) {
-                return false;
-            }
-            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
-            if (booleanExtra) {
-                String stringExtra = intent.getStringExtra("fname");
-                if (!StringUtils.isNull(stringExtra)) {
-                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
-                }
-            }
-            return booleanExtra;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        try {
+            this.a = jSONObject.optInt("errno");
+            jSONObject.optString("errmsg");
+            this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

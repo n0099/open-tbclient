@@ -1,292 +1,191 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
+import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
+import com.baidu.lcp.sdk.pb.LcmPb$RpcData;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcMeta;
+import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes6.dex */
 public class z80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SharedPreferences a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Object c;
-
-        public a(SharedPreferences sharedPreferences, String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sharedPreferences, str, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sharedPreferences;
-            this.b = str;
-            this.c = obj;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                z80.D(this.a, this.b, this.c);
+    public z80() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void A(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65536, null, context, str, z) == null) {
-            E(context, str, Boolean.valueOf(z));
-        }
-    }
-
-    public static void B(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, context, i) == null) {
-            C(context, "conn_type", i);
-        }
-    }
-
-    public static void C(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i) == null) {
-            E(context, str, Integer.valueOf(i));
-        }
-    }
-
-    public static void D(SharedPreferences sharedPreferences, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, sharedPreferences, str, obj) == null) {
-            if (obj instanceof Boolean) {
-                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
-            } else if (obj instanceof Integer) {
-                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
-            } else if (obj instanceof Long) {
-                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
-            } else if (obj instanceof Float) {
-                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
-            } else if (obj instanceof String) {
-                sharedPreferences.edit().putString(str, (String) obj).apply();
-            }
-        }
-    }
-
-    public static void E(Context context, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, obj) == null) || context == null) {
-            return;
-        }
-        try {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("blcp_sp", 0);
-            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                t80.a(context).b(new a(sharedPreferences, str, obj));
-            } else {
-                D(sharedPreferences, str, obj);
-            }
-        } catch (Throwable th) {
-            y80.b("SpUtils", th.getMessage());
-        }
-    }
-
-    public static void F(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
-            E(context, str, str2);
-        }
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? p(context, "blcp_app_id", "") : (String) invokeL.objValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? n(context, "bddns_enable", false) : invokeL.booleanValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? o(context, "conn_type", 1) : invokeL.intValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? p(context, "blcp_cuid", "") : (String) invokeL.objValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? o(context, "key_vip_connect_type", 3) : invokeL.intValue;
-    }
-
-    public static int g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? o(context, "lcp_env_debug", 0) : invokeL.intValue;
-    }
-
-    public static String h(Context context, int i) {
+    public final byte[] a(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
-            return p(context, "protocol_priority" + i, " : : ");
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) ? i == 1 ? g(bArr) : bArr : (byte[]) invokeLI.objValue;
+    }
+
+    public r80 b(r80 r80Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r80Var, z)) == null) {
+            r80Var.o = z;
+            h(r80Var, f(r80Var.h, r80Var.i, r80Var.n, d(false)), a(r80Var.a, d(false)));
+            return r80Var;
         }
-        return (String) invokeLI.objValue;
+        return (r80) invokeLZ.objValue;
     }
 
-    public static int i(Context context) {
-        InterceptResult invokeL;
+    public r80 c(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) ? o(context, "protocols_size", 1) : invokeL.intValue;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j)) == null) {
+            long random = (long) ((Math.random() * 1000000.0d) + 10000.0d);
+            r80 r80Var = new r80();
+            r80Var.n = random;
+            r80Var.o = true;
+            r80Var.h = 1L;
+            r80Var.i = j;
+            r80Var.l = j == 1;
+            r80Var.k = j == 3;
+            h(r80Var, f(1L, j, random, d(false)), a(e(context, random, j), d(false)));
+            return r80Var;
+        }
+        return (r80) invokeLJ.objValue;
     }
 
-    public static String j(Context context) {
-        InterceptResult invokeL;
+    public final int d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) ? p(context, "blcp_token", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
     }
 
-    public static boolean k(Context context) {
-        InterceptResult invokeL;
+    public final byte[] e(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
+        LcmPb$LcmRequest build;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? !TextUtils.isEmpty(j(context)) : invokeL.booleanValue;
-    }
-
-    public static boolean l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) ? n(context, "lcp_debug", false) : invokeL.booleanValue;
-    }
-
-    public static boolean m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) ? u80.a().b() || n(context, "small_flow", true) : invokeL.booleanValue;
-    }
-
-    public static boolean n(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65555, null, context, str, z)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j2 == 4) {
+                LcmPb$LcmNotify.b newBuilder = LcmPb$LcmNotify.newBuilder();
+                newBuilder.w(j);
+                newBuilder.v(2);
+                LcmPb$LcmNotify build2 = newBuilder.build();
+                LcmPb$RpcData.b newBuilder2 = LcmPb$RpcData.newBuilder();
+                newBuilder2.D(build2);
+                return newBuilder2.build().toByteArray();
             }
-            return context.getSharedPreferences("blcp_sp", 0).getBoolean(str, z);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static int o(Context context, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65556, null, context, str, i)) == null) {
-            if (context == null) {
-                return -1;
+            if (j2 == 1) {
+                try {
+                    LcmPb$Common lcmPb$Common = (LcmPb$Common) i90.c(context, false);
+                    LcmPb$LcmRequest.b newBuilder3 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder3.z(j);
+                    newBuilder3.x(lcmPb$Common);
+                    newBuilder3.C(m90.j(context));
+                    newBuilder3.B(System.currentTimeMillis());
+                    newBuilder3.A(j80.c(context));
+                    newBuilder3.y(m90.d(context));
+                    build = newBuilder3.build();
+                    l90.a("PbProcessor", "cuid :" + lcmPb$Common.getCuid() + ", device :" + lcmPb$Common.getDeviceType() + ", os:" + lcmPb$Common.getOsVersion() + ", man :" + lcmPb$Common.getManufacture() + ", model :" + lcmPb$Common.getModelType() + ", appId :" + lcmPb$Common.getAppId() + ", app :" + lcmPb$Common.getAppVersion() + ", sdk :" + lcmPb$Common.getSdkVersion() + ", token :" + build.getToken() + ", net :" + lcmPb$Common.getNetwork() + ", rom :" + lcmPb$Common.getRomVersion() + ", start :" + build.getStartType() + "，connType :" + build.getConnType());
+                } catch (Exception unused) {
+                    LcmPb$LcmRequest.b newBuilder4 = LcmPb$LcmRequest.newBuilder();
+                    newBuilder4.z(j);
+                    newBuilder4.C(m90.j(context));
+                    newBuilder4.B(System.currentTimeMillis());
+                    newBuilder4.A(j80.c(context));
+                    newBuilder4.y(m90.d(context));
+                    build = newBuilder4.build();
+                }
+            } else if (j2 == 2) {
+                LcmPb$LcmRequest.b newBuilder5 = LcmPb$LcmRequest.newBuilder();
+                newBuilder5.z(j);
+                newBuilder5.B(System.currentTimeMillis());
+                build = newBuilder5.build();
+            } else {
+                LcmPb$LcmRequest.b newBuilder6 = LcmPb$LcmRequest.newBuilder();
+                newBuilder6.z(j);
+                newBuilder6.B(System.currentTimeMillis());
+                build = newBuilder6.build();
             }
-            return context.getSharedPreferences("blcp_sp", 0).getInt(str, i);
+            l90.f("PbProcessor", "logId :" + j + ", requestTime :" + build.getTimestamp() + "，methodId :" + j2);
+            LcmPb$RpcData.b newBuilder7 = LcmPb$RpcData.newBuilder();
+            newBuilder7.E(build);
+            return newBuilder7.build().toByteArray();
         }
-        return invokeLLI.intValue;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static String p(Context context, String str, String str2) {
+    public final byte[] f(long j, long j2, long j3, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)})) == null) {
+            RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder();
+            newBuilder.u(j3);
+            newBuilder.x(j);
+            newBuilder.v(j2);
+            newBuilder.w(1);
+            RpcMetaPb$RpcRequestMeta build = newBuilder.build();
+            RpcMetaPb$RpcMeta.b newBuilder2 = RpcMetaPb$RpcMeta.newBuilder();
+            newBuilder2.F(build);
+            newBuilder2.E(j3);
+            newBuilder2.D(i);
+            newBuilder2.A(1);
+            return newBuilder2.build().toByteArray();
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public final byte[] g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final r80 h(r80 r80Var, byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, context, str, str2)) == null) ? context == null ? "" : context.getSharedPreferences("blcp_sp", 0).getString(str, str2) : (String) invokeLLL.objValue;
-    }
-
-    public static void q(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, null, context, str) == null) {
-            F(context, "blcp_app_id", str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, r80Var, bArr, bArr2)) == null) {
+            try {
+                ByteBuffer allocate = ByteBuffer.allocate(bArr.length + 12 + bArr2.length);
+                allocate.put((byte) 108);
+                allocate.put((byte) 99);
+                allocate.put((byte) 112);
+                allocate.put((byte) 1);
+                allocate.putInt(bArr.length + bArr2.length);
+                allocate.putInt(bArr.length);
+                allocate.put(bArr);
+                allocate.put(bArr2);
+                r80Var.a = allocate.array();
+            } catch (Exception unused) {
+            }
+            return r80Var;
         }
-    }
-
-    public static void r(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65559, null, context, z) == null) {
-            A(context, "bddns_enable", z);
-        }
-    }
-
-    public static void s(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) {
-            F(context, "blcp_cuid", str);
-        }
-    }
-
-    public static void t(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65561, null, context, i) == null) {
-            C(context, "key_vip_connect_type", i);
-        }
-    }
-
-    public static void u(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65562, null, context, i) == null) {
-            C(context, "lcp_env_debug", i);
-        }
-    }
-
-    public static void v(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65563, null, context, z) == null) {
-            A(context, "lcp_debug", z);
-        }
-    }
-
-    public static void w(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65564, null, context, str, i) == null) {
-            F(context, "protocol_priority" + i, str);
-        }
-    }
-
-    public static void x(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65565, null, context, i) == null) {
-            C(context, "protocols_size", i);
-        }
-    }
-
-    public static void y(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65566, null, context, z) == null) {
-            u80.a().c(z);
-            A(context, "small_flow", z);
-        }
-    }
-
-    public static void z(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65567, null, context, str) == null) {
-            F(context, "blcp_token", str);
-        }
+        return (r80) invokeLLL.objValue;
     }
 }

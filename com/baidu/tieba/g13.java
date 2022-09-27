@@ -1,99 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import okhttp3.Response;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g13 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a extends ResponseCallback<f13> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(f13 f13Var, int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, f13Var, i) == null) || (bVar = this.a) == null) {
-                return;
-            }
-            if (f13Var == null) {
-                bVar.a(null);
-            } else {
-                bVar.a(f13Var);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public f13 parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            JSONObject optJSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                if (response == null || response.body() == null || (optJSONObject = new JSONObject(response.body().string()).optJSONObject("data")) == null) {
-                    return null;
-                }
-                if (g13.a) {
-                    Log.d("SwanAppRelatedSwanHelper", "parseResponse: RelateSwanData" + optJSONObject.toString());
-                }
-                return f13.a(optJSONObject);
-            }
-            return (f13) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (bVar = this.a) == null) {
-                return;
-            }
-            bVar.a(null);
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(f13 f13Var);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -108,34 +33,77 @@ public class g13 {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static JSONObject a(List<String> list, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            SwanCoreVersion M = lo2.U().M();
-            String i = gc4.i(fm2.o().L());
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("appkey", x23.K().getAppId());
-            hashMap.put("swan_core_ver", dc3.i(M, x23.K().k()));
-            hashMap.put("swan_game_ver", dc3.h(1));
-            hashMap.put("uid", fm2.h0().i(fm2.c()));
-            return qg3.b(i, hashMap);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
-            ba4 ba4Var = new ba4(b(), new a(bVar));
-            if (ca4.g().c()) {
-                ba4Var.f = true;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
+            if (a) {
+                Log.d("PublisherCompress", "start compress");
             }
-            ba4Var.g = true;
-            ca4.g().d(ba4Var);
+            ArrayList arrayList = new ArrayList();
+            l33 M = l33.M();
+            if (M == null) {
+                return null;
+            }
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    File file = new File(str);
+                    File k = jg3.k(file.getName());
+                    if (jg3.b(file, k, (int) (100.0f * f))) {
+                        arrayList.add(k);
+                    }
+                }
+            }
+            return b(arrayList, M);
         }
+        return (JSONObject) invokeLF.objValue;
+    }
+
+    public static JSONObject b(ArrayList<File> arrayList, l33 l33Var) {
+        InterceptResult invokeLL;
+        String J;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, l33Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            boolean w0 = l33Var.w0();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray();
+                Iterator<File> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    File next = it.next();
+                    if (next != null) {
+                        if (w0) {
+                            J = vf2.Z(next.getAbsolutePath());
+                        } else {
+                            J = ta3.J(next.getAbsolutePath(), l33Var.b);
+                        }
+                        if (a) {
+                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
+                        }
+                        jSONArray.put(J);
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("path", J);
+                        jSONObject2.put("size", next.length());
+                        jSONArray2.put(jSONObject2);
+                    }
+                }
+                jSONObject.put("tempFilePaths", jSONArray);
+                jSONObject.put("tempFiles", jSONArray2);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("PublisherCompress", "wrapParams failed");
+                    e.printStackTrace();
+                }
+            }
+            if (a) {
+                Log.e("PublisherCompress", jSONObject.toString());
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

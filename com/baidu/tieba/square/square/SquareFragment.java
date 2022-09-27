@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak8;
-import com.baidu.tieba.ck8;
-import com.baidu.tieba.lx4;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.rk8;
 import com.baidu.tieba.square.square.SquareModel;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public ck8 a;
+    public rk8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -40,7 +40,7 @@ public class SquareFragment extends BaseFragment {
     public final SquareModel.a h;
     public final NoNetworkView.b i;
     public final View.OnKeyListener j;
-    public final lx4.g k;
+    public final yx4.g k;
 
     /* loaded from: classes5.dex */
     public class a implements SquareModel.a {
@@ -67,13 +67,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, ak8 ak8Var) {
+        public void a(boolean z, String str, pk8 pk8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, ak8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, pk8Var}) == null) {
                 this.a.a.m(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.n());
-                if (z && ak8Var != null && !ak8Var.g()) {
+                if (z && pk8Var != null && !pk8Var.g()) {
                     this.a.a.q(this.a.b.I());
                     this.a.c = true;
                     this.a.a.o();
@@ -199,7 +199,7 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements lx4.g {
+    public class d implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareFragment a;
@@ -222,7 +222,7 @@ public class SquareFragment extends BaseFragment {
             this.a = squareFragment;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -287,9 +287,9 @@ public class SquareFragment extends BaseFragment {
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ck8 ck8Var = new ck8(this.f, getUniqueId(), this.g, this.j);
-            this.a = ck8Var;
-            ck8Var.s(this.k);
+            rk8 rk8Var = new rk8(this.f, getUniqueId(), this.g, this.j);
+            this.a = rk8Var;
+            rk8Var.s(this.k);
         }
     }
 
@@ -356,9 +356,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            ck8 ck8Var = this.a;
-            if (ck8Var != null) {
-                ck8Var.onChangeSkinType(i);
+            rk8 rk8Var = this.a;
+            if (rk8Var != null) {
+                rk8Var.onChangeSkinType(i);
             }
         }
     }

@@ -1,56 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 /* loaded from: classes6.dex */
-public class v35 implements bj5 {
+public class v35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v35 a;
-
-        public a(v35 v35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v35Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zg.h().m(this.a.b, 10, null, null);
-                zg.h().m(this.a.c, 10, null, null);
-            }
-        }
-    }
+    public boolean a;
+    public int b;
 
     public v35() {
         Interceptable interceptable = $ic;
@@ -62,77 +28,102 @@ public class v35 implements bj5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = 0;
+    }
+
+    public void a(String str) {
+        int lastIndexOf;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = false;
+            this.b = 0;
+            if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+                String str3 = null;
+                try {
+                    str2 = str.substring(5, lastIndexOf);
+                } catch (Exception e) {
+                    e = e;
+                    str2 = null;
+                }
+                try {
+                    str3 = str.substring(lastIndexOf + 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    if (TextUtils.isEmpty(str2)) {
+                        return;
+                    }
+                    return;
+                }
+                if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                    return;
+                }
+                int i = 0;
+                int i2 = 0;
+                for (int i3 = 0; i3 < 3; i3++) {
+                    Socket socket = new Socket();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        try {
+                            socket.connect(new InetSocketAddress(str2, dh.e(String.valueOf(str3), 8000)), c());
+                            if (socket.isConnected()) {
+                                i++;
+                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
+                                this.a = true;
+                            }
+                            try {
+                                socket.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.getMessage());
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                socket.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.getMessage());
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e5) {
+                        BdLog.e(e5.getMessage());
+                        socket.close();
+                    }
+                }
+                if (!this.a || i <= 0) {
+                    return;
+                }
+                this.b = i2 / i;
             }
         }
     }
 
-    @Override // com.baidu.tieba.bj5
-    public String a() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bj5
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (!this.d) {
-            this.d = str.equals(this.b);
-        }
-        if (this.e) {
-            return;
-        }
-        this.e = str.equals(this.c);
-    }
-
-    @Override // com.baidu.tieba.bj5
-    public String c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bj5
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bj5
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d && this.e : invokeV.booleanValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                return netType != 2 ? 5000 : 10000;
+            }
+            return 3000;
         }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("fold_lottie");
-        jSONObject.optString("fold_name");
-        this.c = jSONObject.optString("unfold_lottie");
-        jSONObject.optString("unfold_name");
-        g();
+        return invokeV.intValue;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
-            gh.a().post(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.bj5
-    public boolean isValid() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (StringUtils.isNull(this.a) || StringUtils.isNull(this.b) || StringUtils.isNull(this.c)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

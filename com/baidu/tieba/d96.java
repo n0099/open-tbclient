@@ -1,139 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import tbclient.ForumGuide.LikeForum;
+import tbclient.PrivateForumInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
-public class d96 {
+public class d96 extends wr4 implements mb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public PopupWindow c;
-    public Handler d;
-    public Runnable e;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public int j;
+    public int k;
+    public int l;
+    public PrivateForumInfo m;
+    public int n;
+    public long o;
+    public ThemeColorInfo p;
+    public boolean q;
+    public long r;
+    public ArrayList<FrsTabItemData> s;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d96 a;
-
-        public a(d96 d96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d96Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null) {
-                return;
-            }
-            ih.c(this.a.c);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ d96 c;
-
-        public b(d96 d96Var, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d96Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = d96Var;
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.g(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d96 a;
-
-        public c(d96 d96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d96Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.e();
-            }
-        }
-    }
-
-    public d96(TbPageContext<?> tbPageContext) {
+    public d96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -143,81 +48,180 @@ public class d96 {
                 return;
             }
         }
-        this.d = new Handler();
-        this.e = new a(this);
-        this.a = tbPageContext;
+        f(1);
     }
 
-    public void c(LinkedList<VisitedForumData> linkedList, int i) {
+    public int A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, linkedList, i) == null) {
-            if (linkedList != null && linkedList.size() >= 1) {
-                int d = d(linkedList);
-                if (d < 0) {
-                    bx4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
-                    return;
-                } else if (bx4.k().h("key_enter_forum_ufan_recent_visit_tip_show", false)) {
-                    return;
-                } else {
-                    this.d.postDelayed(new b(this, i, d), 100L);
-                    return;
-                }
-            }
-            bx4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public final int d(LinkedList<VisitedForumData> linkedList) {
-        InterceptResult invokeL;
+    public ThemeColorInfo B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList)) == null) {
-            int size = linkedList.size();
-            for (int i = 0; i < 3 && i < size; i++) {
-                VisitedForumData visitedForumData = linkedList.get(i);
-                if (visitedForumData != null && visitedForumData.isAlaForum()) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (ThemeColorInfo) invokeV.objValue;
     }
 
-    public void e() {
-        PopupWindow popupWindow;
+    public int C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.c) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public boolean D() {
+        InterceptResult invokeV;
+        PrivateForumInfo privateForumInfo;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k == 1 && this.l == 1 && (privateForumInfo = this.m) != null && privateForumInfo.private_forum_status.intValue() == 1 && this.m.private_forum_audit_status.intValue() == 2 : invokeV.booleanValue;
+    }
+
+    public int E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public int G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public boolean H() {
+        InterceptResult invokeV;
+        PrivateForumInfo privateForumInfo;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k == 1 && this.l == 1 && (privateForumInfo = this.m) != null && privateForumInfo.private_forum_status.intValue() == 1 : invokeV.booleanValue;
+    }
+
+    public void I(LikeForum likeForum) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, likeForum) == null) || likeForum == null) {
             return;
         }
-        ih.c(popupWindow);
+        J(likeForum, null);
     }
 
-    public void f() {
+    public void J(LikeForum likeForum, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.removeCallbacksAndMessages(null);
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, likeForum, context) == null) || likeForum == null) {
+            return;
+        }
+        try {
+            this.d = String.valueOf(likeForum.forum_id);
+            this.e = likeForum.forum_name;
+            this.g = likeForum.is_sign.intValue();
+            this.f = likeForum.level_id.intValue();
+            this.i = likeForum.avatar;
+            this.o = likeForum.sort_value.longValue();
+            this.h = likeForum.hot_num.intValue();
+            this.p = likeForum.theme_color;
+            this.q = likeForum.need_trans.booleanValue();
+            this.s = new ArrayList<>();
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public final void g(int i, int i2) {
+    public void K(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            bx4.k().u("key_enter_forum_ufan_recent_visit_tip_show", true);
-            PopupWindow popupWindow = this.c;
-            if (popupWindow == null || !popupWindow.isShowing()) {
-                if (this.b == null) {
-                    View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0278, (ViewGroup) null);
-                    this.b = inflate;
-                    inflate.setOnClickListener(new c(this));
-                }
-                if (this.c == null) {
-                    PopupWindow popupWindow2 = new PopupWindow(this.b, -2, -2);
-                    this.c = popupWindow2;
-                    popupWindow2.setOutsideTouchable(true);
-                }
-                ih.m(this.c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i2 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i);
-                this.d.postDelayed(this.e, 5000L);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.r = j;
+        }
+    }
+
+    public void L(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void M(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public String getId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.r : invokeV.longValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.n : invokeV.intValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.q : invokeV.booleanValue;
+    }
+
+    public long t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.o : invokeV.longValue;
+    }
+
+    public ArrayList<FrsTabItemData> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.s : (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<Integer> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            ThemeColorInfo themeColorInfo = this.p;
+            if (themeColorInfo == null || themeColorInfo.day == null || themeColorInfo.night == null || themeColorInfo.dark == null) {
+                return null;
             }
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            arrayList.add(Integer.valueOf(bh7.b(this.p.day.light_color)));
+            arrayList.add(Integer.valueOf(bh7.b(this.p.day.dark_color)));
+            arrayList.add(Integer.valueOf(bh7.b(this.p.night.light_color)));
+            arrayList.add(Integer.valueOf(bh7.b(this.p.night.dark_color)));
+            arrayList.add(Integer.valueOf(bh7.b(this.p.dark.light_color)));
+            arrayList.add(Integer.valueOf(bh7.b(this.p.dark.dark_color)));
+            return arrayList;
         }
+        return (ArrayList) invokeV.objValue;
     }
 }

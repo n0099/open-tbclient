@@ -1,31 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface ar6 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public class ar6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull ThemeElement themeElement);
+    public abstract void a();
 
-    void c(float f);
+    public abstract void b(yl8 yl8Var);
 
-    void d(int i, boolean z);
+    public abstract void c(yl8 yl8Var, int i, cr6 cr6Var);
 
-    @NonNull
-    NavigationBar e();
-
-    void f(boolean z);
-
-    int g();
-
-    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
-
-    void onChangeSkinType(int i);
+    public abstract void d();
 }

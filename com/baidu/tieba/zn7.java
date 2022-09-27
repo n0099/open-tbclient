@@ -1,78 +1,92 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class zn7 {
+public class zn7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public Context c;
-    public TextView d;
+    public TbPageContext<?> a;
+    public bo7 b;
+    public View.OnClickListener c;
+    public List<String> d;
 
-    public zn7() {
+    public zn7(TbPageContext<?> tbPageContext, bo7 bo7Var, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bo7Var, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.d = new ArrayList();
+        this.b = bo7Var;
+        this.d = bo7Var.a();
+        this.c = onClickListener;
     }
 
-    public View a(Context context) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public String getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d085f, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920bb);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920ba);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.d.get(i) : (String) invokeI.objValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setImageResource(this.b, R.drawable.icon_tail_post_add);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.size() : invokeV.intValue;
     }
 
-    public void c(View.OnClickListener onClickListener) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    public void d(int i) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        ao7 ao7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1384), Integer.valueOf(i)));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                ao7Var = new ao7();
+                view3 = ao7Var.a(this.a.getPageActivity());
+                ao7Var.e(this.c);
+                ao7Var.c(this.a);
+            } else {
+                view3 = view2;
+                ao7Var = (ao7) view2.getTag();
+            }
+            String str = this.d.get(i);
+            ao7Var.d(str);
+            ao7Var.f(this.b.b().equals(str));
+            return view3;
         }
+        return (View) invokeILL.objValue;
     }
 }

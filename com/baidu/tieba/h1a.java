@@ -1,96 +1,192 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorThrowable;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes4.dex */
-public class h1a<T, R> extends i1a<T, R> {
+public class h1a<T> implements gx9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s0a<T> b;
+    public final gx9<? super T> a;
+    public boolean b;
+    public volatile boolean c;
+    public a d;
 
     /* loaded from: classes4.dex */
-    public class a implements qw9.a<R> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i1a a;
+        public Object[] a;
+        public int b;
 
-        public a(i1a i1aVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = i1aVar;
         }
 
-        @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((ww9) ((ww9) obj));
-        }
-
-        public void call(ww9<? super R> ww9Var) {
+        public void a(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
-                this.a.B(ww9Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                int i = this.b;
+                Object[] objArr = this.a;
+                if (objArr == null) {
+                    objArr = new Object[16];
+                    this.a = objArr;
+                } else if (i == objArr.length) {
+                    Object[] objArr2 = new Object[(i >> 2) + i];
+                    System.arraycopy(objArr, 0, objArr2, 0, i);
+                    this.a = objArr2;
+                    objArr = objArr2;
+                }
+                objArr[i] = obj;
+                this.b = i + 1;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h1a(i1a<T, R> i1aVar) {
-        super(new a(i1aVar));
+    public h1a(gx9<? super T> gx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i1aVar};
+            Object[] objArr = {gx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qw9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new s0a<>(i1aVar);
+        this.a = gx9Var;
     }
 
-    @Override // com.baidu.tieba.rw9
+    @Override // com.baidu.tieba.gx9
     public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.onCompleted();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.b());
+                return;
+            }
+            this.b = true;
+            this.a.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.rw9
+    @Override // com.baidu.tieba.gx9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.onError(th);
+            rx9.e(th);
+            if (this.c) {
+                return;
+            }
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                if (this.b) {
+                    a aVar = this.d;
+                    if (aVar == null) {
+                        aVar = new a();
+                        this.d = aVar;
+                    }
+                    aVar.a(NotificationLite.c(th));
+                    return;
+                }
+                this.b = true;
+                this.a.onError(th);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.rw9
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
+        continue;
+     */
+    @Override // com.baidu.tieba.gx9
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onNext(T t) {
+        Object[] objArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.b.onNext(t);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.h(t));
+                return;
+            }
+            this.b = true;
+            try {
+                this.a.onNext(t);
+                while (true) {
+                    synchronized (this) {
+                        a aVar2 = this.d;
+                        if (aVar2 == null) {
+                            this.b = false;
+                            return;
+                        }
+                        this.d = null;
+                        for (Object obj : aVar2.a) {
+                            if (obj == null) {
+                                break;
+                            }
+                            try {
+                                if (NotificationLite.a(this.a, obj)) {
+                                    this.c = true;
+                                    return;
+                                }
+                            } catch (Throwable th) {
+                                this.c = true;
+                                rx9.e(th);
+                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                return;
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                this.c = true;
+                rx9.g(th2, this.a, t);
+            }
         }
     }
 }

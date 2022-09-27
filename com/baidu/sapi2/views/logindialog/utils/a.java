@@ -45,12 +45,12 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.views.logindialog.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0137a extends HttpHandlerWrap {
+    public static class C0134a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0137a(boolean z) {
+        public C0134a(boolean z) {
             super(z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -153,7 +153,7 @@ public class a {
                         httpHashMapWrap.put(str, c.get(str));
                     }
                 }
-                new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0137a(true));
+                new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0134a(true));
                 b();
             } catch (Exception e2) {
                 Log.e(Log.TAG, e2.getMessage());

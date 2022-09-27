@@ -1,114 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oe4 {
+public class oe4 extends re4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oe4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public String d;
+    public String e;
+    public long f;
 
-    /* loaded from: classes5.dex */
-    public static class a extends ij4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_ceres");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public oe4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oe4(String str, String str2, long j, int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a();
+        this.d = str;
+        this.e = str2;
+        this.f = j;
     }
 
-    public static oe4 c() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (oe4.class) {
-                    if (b == null) {
-                        b = new oe4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (oe4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public String a() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("ceres_info", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.longValue;
     }
 
-    public String b() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("global_info", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public ne4 d(JSONObject jSONObject) {
+    public oe4 i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
-            if (optJSONObject == null || optJSONObject2 == null) {
-                return null;
-            }
-            String optString = optJSONObject.optString("version");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
-                return null;
-            }
-            String optString2 = optJSONObject2.optString("version");
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
-                return null;
-            }
-            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
-            return new ne4(optJSONArray, optJSONObject3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.e = str;
+            return this;
         }
-        return (ne4) invokeL.objValue;
+        return (oe4) invokeL.objValue;
     }
 }

@@ -1,172 +1,158 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Base64;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ki1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
+    public ki1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    return new String(gi1.b(ii1.h(context).getBytes(), Base64.decode(str, 0), true));
-                } catch (Throwable th) {
-                    ii1.d(th);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(Context context, byte[] bArr) {
-        InterceptResult invokeLL;
-        byte[] a;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bArr)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length != 0 && (a = gi1.a(ii1.h(context).getBytes(), bArr)) != null && a.length > 0) {
-                        return Base64.encodeToString(a, 0);
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    ii1.d(th);
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                RSAPublicKey d = d(str);
-                if (d == null) {
-                    return "";
+                if (TextUtils.isEmpty(a)) {
+                    a = vi1.e(context);
                 }
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, d);
-                return Base64.encodeToString(cipher.doFinal(bArr), 0);
+                return TextUtils.isEmpty(a) ? "" : a;
             } catch (Throwable th) {
-                ii1.d(th);
+                vi1.d(th);
                 return "";
             }
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static RSAPublicKey d(String str) {
-        InterceptResult invokeL;
+    public static JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             try {
-                return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("1", b(context));
+                jSONObject.put("3", d(context));
+                jSONObject.put("2", e(context));
+                jSONObject.put("4", f(context));
+                jSONObject.put("5", str);
+                jSONObject.put("6", System.currentTimeMillis());
+                jSONObject.put("7", "0");
+                jSONObject.put("8", ih1.b);
+                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+                jSONObject.put("10", "1.1.4");
+                jSONObject.put("14", vi1.i(context));
+                jSONObject.put("23", hi1.a(context));
+                jSONObject.put("26", "");
+                jSONObject.put("31", jh1.f(context).J());
+                return jSONObject;
             } catch (Throwable th) {
-                ii1.d(th);
+                vi1.d(th);
                 return null;
             }
         }
-        return (RSAPublicKey) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public static byte[] e(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static String d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = gi1.b(bArr2, bArr, true)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    ii1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    b = vi1.g(context);
                 }
+                return TextUtils.isEmpty(b) ? "" : b;
+            } catch (Throwable th) {
+                vi1.d(th);
+                return "";
             }
-            return bArr3;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] f(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static String e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = gi1.a(bArr2, bArr)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    ii1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                if (TextUtils.isEmpty(c)) {
+                    c = context.getPackageName();
                 }
+                return TextUtils.isEmpty(c) ? "" : c;
+            } catch (Throwable th) {
+                vi1.d(th);
+                return "";
             }
-            return bArr3;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] g(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public static String f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = oi1.b(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    ii1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (!TextUtils.isEmpty(d)) {
+                    return d;
                 }
+                String b2 = wi1.b(context);
+                d = b2;
+                return b2;
+            } catch (Throwable unused) {
+                return "";
             }
-            return bArr3;
         }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static byte[] h(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public ni1 a(Context context, String str, String str2, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = oi1.c(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    ii1.d(th);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
                 }
+                JSONArray jSONArray = new JSONArray(str);
+                JSONObject c2 = c(context, str2);
+                c2.put("module_section", jSONArray);
+                ni1 ni1Var = new ni1();
+                ni1Var.e(i);
+                ni1Var.c(c2.toString());
+                ni1Var.g(i2);
+                return ni1Var;
+            } catch (Throwable th) {
+                vi1.d(th);
+                return null;
             }
-            return bArr3;
         }
-        return (byte[]) invokeLL.objValue;
+        return (ni1) invokeCommon.objValue;
     }
 }

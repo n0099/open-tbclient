@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -49,14 +49,14 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c.setTextColor(hc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-            String r = hc0.f().r();
+            this.c.setTextColor(uc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+            String r = uc0.f().r();
             if (r == "day") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d15);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d29);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d17);
             } else if (r == "night") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d31);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d16);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d33);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
             }
         }
     }

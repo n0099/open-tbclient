@@ -1,113 +1,162 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.RGBLuminanceSource;
-import com.google.zxing.common.GlobalHistogramBinarizer;
-import com.google.zxing.common.HybridBinarizer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class hc8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public PostSearchActivity a;
+    public View b;
+    public bc8 c;
+    public dc8 d;
+    public gc8 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819020, "Lcom/baidu/tieba/hc8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947819020, "Lcom/baidu/tieba/hc8;");
+    public hc8(PostSearchActivity postSearchActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postSearchActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new EnumMap(DecodeHintType.class);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(BarcodeFormat.QR_CODE);
-        arrayList.add(BarcodeFormat.AZTEC);
-        arrayList.add(BarcodeFormat.DATA_MATRIX);
-        arrayList.add(BarcodeFormat.PDF_417);
-        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        a.put(DecodeHintType.CHARACTER_SET, IMAudioTransRequest.CHARSET);
+        this.a = postSearchActivity;
     }
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                int i = 1;
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(str, options);
-                int i2 = options.outHeight / 800;
-                if (i2 > 0) {
-                    i = i2;
-                }
-                options.inSampleSize = i;
-                options.inJustDecodeBounds = false;
-                return BitmapFactory.decodeFile(str, options);
-            } catch (Exception unused) {
-                return null;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.d() : invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.e();
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public static String b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        RGBLuminanceSource rGBLuminanceSource;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
-            try {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int[] iArr = new int[width * height];
-                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
-            } catch (Exception e) {
-                e = e;
-                rGBLuminanceSource = null;
-            }
-            try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                if (rGBLuminanceSource != null) {
-                    try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                        return null;
-                    }
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.f();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? b(a(str)) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.h();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0748);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091e0c);
+            this.b = findViewById;
+            this.c = new bc8(this.a, findViewById);
+            this.d = new dc8(this.a, this.b);
+            this.e = new gc8(this.a, this.b);
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.i() : invokeV.booleanValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.j(i);
+            this.d.j(i);
+            this.e.g(i);
+            ge5.a(this.a.getPageContext(), this.b);
+        }
+    }
+
+    public void h() {
+        bc8 bc8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bc8Var = this.c) == null) {
+            return;
+        }
+        bc8Var.k();
+    }
+
+    public void i(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.e.j(false);
+            this.d.k(arrayList);
+        }
+    }
+
+    public void j(int i, cc8 cc8Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), cc8Var, Boolean.valueOf(z)}) == null) {
+            this.e.h(i, cc8Var, z);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c.l(str);
+        }
+    }
+
+    public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
+        gc8 gc8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, onPageChangeListener) == null) || (gc8Var = this.e) == null) {
+            return;
+        }
+        gc8Var.i(onPageChangeListener);
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.d.m();
+            this.d.g();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.p();
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.g();
+            d();
+            this.c.f();
+            this.e.j(true);
+            this.e.k(i);
+        }
     }
 }

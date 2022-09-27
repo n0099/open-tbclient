@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.more.youngster.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.rg8;
+import com.baidu.tieba.gh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg8 mSearchMajorResultData;
+    public gh8 mSearchMajorResultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public YoungsterVerifyHttpResponsedMessage() {
@@ -41,16 +41,16 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                rg8 rg8Var = new rg8();
-                this.mSearchMajorResultData = rg8Var;
-                rg8Var.a(optJSONObject);
+                gh8 gh8Var = new gh8();
+                this.mSearchMajorResultData = gh8Var;
+                gh8Var.a(optJSONObject);
             }
         }
     }
 
-    public rg8 getData() {
+    public gh8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (rg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (gh8) invokeV.objValue;
     }
 }

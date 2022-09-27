@@ -1,117 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class m55 {
+/* loaded from: classes4.dex */
+public class m55 extends s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public on a;
-    public on b;
-    public int c;
-    public int d;
 
-    public m55() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m55(int i) {
+        super((String) null, 1, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public abstract String b(int i);
-
-    public abstract int c();
-
-    public on d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (on) invokeV.objValue;
-    }
-
-    public on e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (on) invokeV.objValue;
-    }
-
-    public abstract String f();
-
-    public abstract String g();
-
-    public abstract EmotionGroupType h();
-
-    public abstract int i();
-
-    public abstract boolean j();
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public abstract int l();
-
-    public abstract boolean m(String str);
-
-    public abstract on n(String str);
-
-    public abstract on o(String str);
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (i == 7) {
+            this.d = R.drawable.obfuscated_res_0x7f08081e;
+            this.f = R.color.CAM_X0105;
+            this.j = true;
+        } else {
+            this.d = R.drawable.obfuscated_res_0x7f0809bf;
+            this.i = true;
         }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void r(on onVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onVar) == null) {
-            if (onVar != null) {
-                onVar.p();
-            }
-            this.a = onVar;
-        }
-    }
-
-    public void s(on onVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onVar) == null) {
-            if (onVar != null) {
-                onVar.p();
-            }
-            this.b = onVar;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.c = i;
-        }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f135c);
     }
 }

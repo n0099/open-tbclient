@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,47 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class ni0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<qm0> a;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (qm0 qm0Var : ni0.a) {
-                    qm0Var.b();
-                }
-            }
-        }
-    }
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    @NonNull
+    public final HashMap<String, String> e;
 
     static {
         InterceptResult invokeClinit;
-        List<qm0> list;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948003284, "Lcom/baidu/tieba/ni0;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -61,29 +37,78 @@ public class ni0 {
                 return;
             }
         }
-        a = new ArrayList();
-        ge1<qm0> ge1Var = new sm0().a;
-        if (ge1Var == null || (list = ge1Var.getList()) == null) {
-            return;
-        }
-        a.addAll(list);
+        f = zi0.c().a().p() + "://";
     }
 
-    public static void b(@NonNull Application application) {
+    public ni0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
-            mi0.a = application;
-            fp0.a(application);
-            for (qm0 qm0Var : a) {
-                qm0Var.a(application);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Uri parse = Uri.parse(str);
+        this.a = str;
+        this.b = wi0.m(parse);
+        this.c = wi0.k(parse);
+        this.d = wi0.i(parse);
+        this.e = wi0.l(parse);
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public HashMap<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (HashMap) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d)) {
+                wi0.q(this.a, this.e.get("ext_info"));
             }
         }
     }
 
-    public static void c() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            v01.c(new a(), "nad_core_init_on_create", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SchemeModel{command='" + this.a + "', scheme='" + this.b + "', module='" + this.c + "', action='" + this.d + "', params=" + this.e + '}';
         }
+        return (String) invokeV.objValue;
     }
 }

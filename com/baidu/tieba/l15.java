@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.coreExtra.data.VcodeExtra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
@@ -15,10 +9,10 @@ import org.json.JSONObject;
 public class l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public VcodeExtra d;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
     public l15() {
         Interceptable interceptable = $ic;
@@ -33,83 +27,20 @@ public class l15 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
     }
 
-    public VcodeExtra a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (VcodeExtra) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                g(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            try {
-                g(jSONObject);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
-            }
-            if (optJSONObject == null) {
-                return;
-            }
-            this.a = optJSONObject.optString("vcode_md5");
-            this.b = optJSONObject.optString("vcode_pic_url");
-            this.c = optJSONObject.optString("vcode_type");
-            JSONObject jSONObject2 = optJSONObject.getJSONObject("vcode_extra");
-            VcodeExtra vcodeExtra = new VcodeExtra();
-            this.d = vcodeExtra;
-            vcodeExtra.textImg = jSONObject2.optString("textimg");
-            this.d.slideImg = jSONObject2.optString("slideimg");
-            this.d.endPoint = jSONObject2.optString(ContentUtil.RESULT_KEY_ENDPOINT);
-            this.d.successImg = jSONObject2.optString("successimg");
-            this.d.slideEndPoint = jSONObject2.optString("slideendpoint");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        this.a = jSONObject.optInt("days_new_user", 0);
+        this.b = jSONObject.optInt("days_low_active", 0);
+        this.c = jSONObject.optInt("limit_day", 0);
+        this.d = jSONObject.optInt("limit_count", 0);
     }
 }

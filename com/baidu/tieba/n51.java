@@ -1,20 +1,650 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.net.http.SslCertificate;
+import android.net.http.SslError;
+import android.os.SystemClock;
+import android.text.ClipboardManager;
 import android.text.TextUtils;
-import android.util.Log;
+import android.text.format.DateFormat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.SslErrorHandler;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.widget.BdBaseImageView;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.tieba.c61;
+import com.baidu.tieba.h71;
+import com.baidu.tieba.j71;
+import com.baidu.tieba.k71;
+import com.baidu.tieba.l71;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class n51 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
+    public static Set<String> i;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public c61 b;
+    public b61 c;
+    public boolean d;
+    public Map<String, w51> e;
+    public Map<String, r> f;
+    public Map<String, r> g;
+    public Map<String, r> h;
+
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public a(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public b(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public c(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public d(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public e(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public f(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+
+        public g(n51 n51Var, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x51 a;
+        public final /* synthetic */ EditText b;
+
+        public h(n51 n51Var, x51 x51Var, EditText editText) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, x51Var, editText};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x51Var;
+            this.b = editText;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.a(this.b.getText().toString());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i implements c61.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v51 a;
+        public final /* synthetic */ n51 b;
+
+        public i(n51 n51Var, v51 v51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, v51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = n51Var;
+            this.a = v51Var;
+        }
+
+        @Override // com.baidu.tieba.c61.f
+        public void a(String str, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+                this.a.setHttpAuthUsernamePassword(str, str2, str3, str4);
+                this.a.a(str3, str4);
+                this.b.b = null;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j implements c61.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v51 a;
+        public final /* synthetic */ n51 b;
+
+        public j(n51 n51Var, v51 v51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, v51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = n51Var;
+            this.a = v51Var;
+        }
+
+        @Override // com.baidu.tieba.c61.e
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.cancel();
+                this.b.b = null;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class k implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SslErrorHandler a;
+
+        public k(n51 n51Var, SslErrorHandler sslErrorHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, sslErrorHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sslErrorHandler;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class l implements h71.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SslErrorHandler a;
+
+        public l(n51 n51Var, SslErrorHandler sslErrorHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, sslErrorHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sslErrorHandler;
+        }
+
+        @Override // com.baidu.tieba.h71.c
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class m implements h71.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y51 a;
+        public final /* synthetic */ SslErrorHandler b;
+        public final /* synthetic */ SslError c;
+        public final /* synthetic */ n51 d;
+
+        public m(n51 n51Var, y51 y51Var, SslErrorHandler sslErrorHandler, SslError sslError) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, y51Var, sslErrorHandler, sslError};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = n51Var;
+            this.a = y51Var;
+            this.b = sslErrorHandler;
+            this.c = sslError;
+        }
+
+        @Override // com.baidu.tieba.h71.c
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.d.u(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class n implements h71.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SslErrorHandler a;
+
+        public n(n51 n51Var, SslErrorHandler sslErrorHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, sslErrorHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sslErrorHandler;
+        }
+
+        @Override // com.baidu.tieba.h71.c
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.proceed();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class o implements h71.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long[] a;
+        public final /* synthetic */ SslError b;
+        public final /* synthetic */ n51 c;
+
+        public o(n51 n51Var, SslError sslError) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, sslError};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = n51Var;
+            this.b = sslError;
+            this.a = null;
+        }
+
+        @Override // com.baidu.tieba.h71.c
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a == null) {
+                    this.a = new long[5];
+                }
+                long[] jArr = this.a;
+                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
+                long[] jArr2 = this.a;
+                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
+                if (this.a[0] >= SystemClock.uptimeMillis() - 3000) {
+                    this.a = null;
+                    this.c.j(this.b.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class p implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y51 a;
+
+        public p(n51 n51Var, y51 y51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, y51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y51Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        @RequiresApi(api = 26)
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.a();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class q implements h71.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y51 a;
+
+        public q(n51 n51Var, y51 y51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n51Var, y51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y51Var;
+        }
+
+        @Override // com.baidu.tieba.h71.c
+        @RequiresApi(api = 26)
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,108 +659,433 @@ public class n51 {
                 return;
             }
         }
-        a = Pattern.compile("((?:(http|https|Http|Https|rtsp|Rtsp):\\/\\/(?:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,64}(?:\\:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,25})?\\@)?)?((?:(?:[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\-]{0,64}\\.)+(?:(?:aaa|aarp|abb|abbott|abbvie|abogado|abudhabi|academy|accenture|accountant|accountants|aco|active|actor|adac|ads|adult|aeg|aero|afl|agakhan|agency|aig|airforce|airtel|akdn|alibaba|alipay|allfinanz|ally|alsace|amica|amsterdam|analytics|android|anquan|apartments|app|apple|aquarelle|aramco|archi|army|arpa|arte|asia|associates|attorney|auction|audi|audio|author|auto|autos|avianca|aws|axa|azure|a[cdefgilmoqrstuwxz])|(?:baby|baidu|band|bank|bar|barcelona|barclaycard|barclays|barefoot|bargains|bauhaus|bayern|bbc|bbva|bcg|bcn|beats|beer|bentley|berlin|best|bet|bharti|bible|bid|bike|bing|bingo|bio|biz|black|blackfriday|bloomberg|blue|bms|bmw|bnl|bnpparibas|boats|boehringer|bom|bond|boo|book|boots|bosch|bostik|bot|boutique|bradesco|bridgestone|broadway|broker|brother|brussels|budapest|bugatti|build|builders|business|buy|buzz|bzh|b[abdefghijmnorstvwyz])|(?:cab|cafe|cal|call|camera|camp|cancerresearch|canon|capetown|capital|car|caravan|cards|care|career|careers|cars|cartier|casa|cash|casino|cat|catering|cba|cbn|ceb|center|ceo|cern|cfa|cfd|chanel|channel|chase|chat|cheap|chloe|christmas|chrome|church|cipriani|circle|cisco|citic|city|cityeats|claims|cleaning|click|clinic|clinique|clothing|cloud|club|clubmed|coach|codes|coffee|college|cologne|com|commbank|community|company|compare|computer|comsec|condos|construction|consulting|contact|contractors|cooking|cool|coop|corsica|country|coupon|coupons|courses|credit|creditcard|creditunion|cricket|crown|crs|cruises|csc|cuisinella|cymru|cyou|c[acdfghiklmnoruvwxyz])|(?:dabur|dad|dance|date|dating|datsun|day|dclk|dealer|deals|degree|delivery|dell|deloitte|delta|democrat|dental|dentist|desi|design|dev|diamonds|diet|digital|direct|directory|discount|dnp|docs|dog|doha|domains|download|drive|dubai|durban|dvag|d[ejkmoz])|(?:earth|eat|edeka|edu|education|email|emerck|energy|engineer|engineering|enterprises|epson|equipment|erni|esq|estate|eurovision|eus|events|everbank|exchange|expert|exposed|express|extraspace|e[cegrstu])|(?:fage|fail|fairwinds|faith|family|fan|fans|farm|fashion|fast|feedback|ferrero|film|final|finance|financial|firestone|firmdale|fish|fishing|fit|fitness|flickr|flights|florist|flowers|flsmidth|fly|foo|football|ford|forex|forsale|forum|foundation|fox|fresenius|frl|frogans|frontier|ftr|fund|furniture|futbol|fyi|f[ijkmor])|(?:gal|gallery|gallo|gallup|game|garden|gbiz|gdn|gea|gent|genting|ggee|gift|gifts|gives|giving|glass|gle|global|globo|gmail|gmbh|gmo|gmx|gold|goldpoint|golf|goo|goog|google|gop|got|gov|grainger|graphics|gratis|green|gripe|group|gucci|guge|guide|guitars|guru|g[abdefghilmnpqrstuwy])|(?:hamburg|hangout|haus|hdfcbank|health|healthcare|help|helsinki|here|hermes|hiphop|hitachi|hiv|hockey|holdings|holiday|homedepot|homes|honda|horse|host|hosting|hoteles|hotmail|house|how|hsbc|htc|hyundai|h[kmnrtu])|(?:ibm|icbc|ice|icu|ifm|iinet|imamat|immo|immobilien|industries|infiniti|info|ing|ink|institute|insurance|insure|int|international|investments|ipiranga|irish|iselect|ismaili|ist|istanbul|itau|iwc|i[delmnoqrst])|(?:jaguar|java|jcb|jcp|jetzt|jewelry|jlc|jll|jmp|jnj|jobs|joburg|jot|joy|jpmorgan|jprs|juegos|j[emop])|(?:kaufen|kddi|kerryhotels|kerrylogistics|kerryproperties|kfh|kia|kim|kinder|kitchen|kiwi|koeln|komatsu|kpmg|kpn|krd|kred|kuokgroup|kyoto|k[eghimnprwyz])|(?:lacaixa|lamborghini|lamer|lancaster|land|landrover|lanxess|lasalle|lat|latrobe|law|lawyer|lds|lease|leclerc|legal|lexus|lgbt|liaison|lidl|life|lifeinsurance|lifestyle|lighting|like|limited|limo|lincoln|linde|link|live|living|lixil|loan|loans|locus|lol|london|lotte|lotto|love|ltd|ltda|lupin|luxe|luxury|l[abcikrstuvy])|(?:madrid|maif|maison|makeup|man|management|mango|market|marketing|markets|marriott|mba|med|media|meet|melbourne|meme|memorial|men|menu|meo|miami|microsoft|mil|mini|mls|mma|mobi|mobily|moda|moe|moi|mom|monash|money|montblanc|mormon|mortgage|moscow|motorcycles|mov|movie|movistar|mtn|mtpc|mtr|museum|mutual|mutuelle|m[acdeghklmnopqrstuvwxyz])|(?:nadex|nagoya|name|natura|navy|nec|net|netbank|network|neustar|new|news|nexus|ngo|nhk|nico|nikon|ninja|nissan|nissay|nokia|northwesternmutual|norton|nowruz|nra|nrw|ntt|nyc|n[acefgilopruz])|(?:obi|office|okinawa|omega|one|ong|onl|online|ooo|oracle|orange|org|organic|origins|osaka|otsuka|ovh|om)|(?:page|pamperedchef|panerai|paris|pars|partners|parts|party|passagens|pet|pharmacy|philips|photo|photography|photos|physio|piaget|pics|pictet|pictures|pid|pin|ping|pink|pizza|place|play|playstation|plumbing|plus|pohl|poker|porn|post|praxi|press|pro|prod|productions|prof|progressive|promo|properties|property|protection|pub|pwc|p[aefghklmnrstwy])|(?:qpon|quebec|quest|qa)|(?:racing|read|realtor|realty|recipes|red|redstone|redumbrella|rehab|reise|reisen|reit|ren|rent|rentals|repair|report|republican|rest|restaurant|review|reviews|rexroth|rich|ricoh|rio|rip|rocher|rocks|rodeo|room|rsvp|ruhr|run|rwe|ryukyu|r[eosuw])|(?:saarland|safe|safety|sakura|sale|salon|samsung|sandvik|sandvikcoromant|sanofi|sap|sapo|sarl|sas|saxo|sbi|sbs|sca|scb|schaeffler|schmidt|scholarships|school|schule|schwarz|science|scor|scot|seat|security|seek|select|sener|services|seven|sew|sex|sexy|sfr|sharp|shaw|shell|shia|shiksha|shoes|shouji|show|shriram|sina|singles|site|ski|skin|sky|skype|smile|sncf|soccer|social|softbank|software|sohu|solar|solutions|song|sony|soy|space|spiegel|spot|spreadbetting|srl|stada|star|starhub|statebank|statefarm|statoil|stc|stcgroup|stockholm|storage|store|stream|studio|study|style|sucks|supplies|supply|support|surf|surgery|suzuki|swatch|swiss|sydney|symantec|systems|s[abcdeghijklmnortuvxyz])|(?:tab|taipei|talk|taobao|tatamotors|tatar|tattoo|tax|taxi|tci|team|tech|technology|tel|telecity|telefonica|temasek|tennis|teva|thd|theater|theatre|tickets|tienda|tiffany|tips|tires|tirol|tmall|today|tokyo|tools|top|toray|toshiba|total|tours|town|toyota|toys|trade|trading|training|travel|travelers|travelersinsurance|trust|trv|tube|tui|tunes|tushu|tvs|t[cdfghjklmnortvwz])|(?:ubs|unicom|university|uno|uol|u[agksyz])|(?:vacations|vana|vegas|ventures|verisign|versicherung|vet|viajes|video|vig|viking|villas|vin|vip|virgin|vision|vista|vistaprint|viva|vlaanderen|vodka|volkswagen|vote|voting|voto|voyage|vuelos|v[aceginu])|(?:wales|walter|wang|wanggou|watch|watches|weather|weatherchannel|webcam|weber|website|wed|wedding|weibo|weir|whoswho|wien|wiki|williamhill|win|windows|wine|wme|wolterskluwer|work|works|world|wtc|wtf|w[fs])|(?:\\u03b5\\u03bb|\\u0431\\u0435\\u043b|\\u0434\\u0435\\u0442\\u0438|\\u0435\\u044e|\\u043a\\u043e\\u043c|\\u043c\\u043a\\u0434|\\u043c\\u043e\\u043d|\\u043c\\u043e\\u0441\\u043a\\u0432\\u0430|\\u043e\\u043d\\u043b\\u0430\\u0439\\u043d|\\u043e\\u0440\\u0433|\\u0440\\u0443\\u0441|\\u0440\\u0444|\\u0441\\u0430\\u0439\\u0442|\\u0441\\u0440\\u0431|\\u0443\\u043a\\u0440|\\u049b\\u0430\\u0437|\\u0570\\u0561\\u0575|\\u05e7\\u05d5\\u05dd|\\u0627\\u0628\\u0648\\u0638\\u0628\\u064a|\\u0627\\u0631\\u0627\\u0645\\u0643\\u0648|\\u0627\\u0644\\u0627\\u0631\\u062f\\u0646|\\u0627\\u0644\\u062c\\u0632\\u0627\\u0626\\u0631|\\u0627\\u0644\\u0633\\u0639\\u0648\\u062f\\u064a\\u0629|\\u0627\\u0644\\u0645\\u063a\\u0631\\u0628|\\u0627\\u0645\\u0627\\u0631\\u0627\\u062a|\\u0627\\u06cc\\u0631\\u0627\\u0646|\\u0628\\u0627\\u0632\\u0627\\u0631|\\u0628\\u064a\\u062a\\u0643|\\u0628\\u06be\\u0627\\u0631\\u062a|\\u062a\\u0648\\u0646\\u0633|\\u0633\\u0648\\u062f\\u0627\\u0646|\\u0633\\u0648\\u0631\\u064a\\u0629|\\u0634\\u0628\\u0643\\u0629|\\u0639\\u0631\\u0627\\u0642|\\u0639\\u0645\\u0627\\u0646|\\u0641\\u0644\\u0633\\u0637\\u064a\\u0646|\\u0642\\u0637\\u0631|\\u0643\\u0648\\u0645|\\u0645\\u0635\\u0631|\\u0645\\u0644\\u064a\\u0633\\u064a\\u0627|\\u0645\\u0648\\u0628\\u0627\\u064a\\u0644\\u064a|\\u0645\\u0648\\u0642\\u0639|\\u0647\\u0645\\u0631\\u0627\\u0647|\\u0915\\u0949\\u092e|\\u0928\\u0947\\u091f|\\u092d\\u093e\\u0930\\u0924|\\u0938\\u0902\\u0917\\u0920\\u0928|\\u09ad\\u09be\\u09b0\\u09a4|\\u0a2d\\u0a3e\\u0a30\\u0a24|\\u0aad\\u0abe\\u0ab0\\u0aa4|\\u0b87\\u0ba8\\u0bcd\\u0ba4\\u0bbf\\u0baf\\u0bbe|\\u0b87\\u0bb2\\u0b99\\u0bcd\\u0b95\\u0bc8|\\u0b9a\\u0bbf\\u0b99\\u0bcd\\u0b95\\u0baa\\u0bcd\\u0baa\\u0bc2\\u0bb0\\u0bcd|\\u0c2d\\u0c3e\\u0c30\\u0c24\\u0c4d|\\u0dbd\\u0d82\\u0d9a\\u0dcf|\\u0e04\\u0e2d\\u0e21|\\u0e44\\u0e17\\u0e22|\\u10d2\\u10d4|\\u307f\\u3093\\u306a|\\u30af\\u30e9\\u30a6\\u30c9|\\u30b0\\u30fc\\u30b0\\u30eb|\\u30b3\\u30e0|\\u30b9\\u30c8\\u30a2|\\u30bb\\u30fc\\u30eb|\\u30d5\\u30a1\\u30c3\\u30b7\\u30e7\\u30f3|\\u30dd\\u30a4\\u30f3\\u30c8|\\u4e16\\u754c|\\u4e2d\\u4fe1|\\u4e2d\\u56fd|\\u4e2d\\u570b|\\u4e2d\\u6587\\u7f51|\\u4f01\\u4e1a|\\u4f5b\\u5c71|\\u4fe1\\u606f|\\u5065\\u5eb7|\\u516b\\u5366|\\u516c\\u53f8|\\u516c\\u76ca|\\u53f0\\u6e7e|\\u53f0\\u7063|\\u5546\\u57ce|\\u5546\\u5e97|\\u5546\\u6807|\\u5609\\u91cc\\u5927\\u9152\\u5e97|\\u5728\\u7ebf|\\u5927\\u62ff|\\u5a31\\u4e50|\\u5bb6\\u96fb|\\u5de5\\u884c|\\u5e7f\\u4e1c|\\u5fae\\u535a|\\u6148\\u5584|\\u6211\\u7231\\u4f60|\\u624b\\u673a|\\u624b\\u8868|\\u653f\\u52a1|\\u653f\\u5e9c|\\u65b0\\u52a0\\u5761|\\u65b0\\u95fb|\\u65f6\\u5c1a|\\u66f8\\u7c4d|\\u673a\\u6784|\\u6de1\\u9a6c\\u9521|\\u6e38\\u620f|\\u6fb3\\u9580|\\u70b9\\u770b|\\u73e0\\u5b9d|\\u79fb\\u52a8|\\u7ec4\\u7ec7\\u673a\\u6784|\\u7f51\\u5740|\\u7f51\\u5e97|\\u7f51\\u7ad9|\\u7f51\\u7edc|\\u8054\\u901a|\\u8bfa\\u57fa\\u4e9a|\\u8c37\\u6b4c|\\u8d2d\\u7269|\\u96c6\\u56e2|\\u98de\\u5229\\u6d66|\\u98df\\u54c1|\\u9910\\u5385|\\u9999\\u6e2f|\\ub2f7\\ub137|\\ub2f7\\ucef4|\\uc0bc\\uc131|\\ud55c\\uad6d|verm\\xf6gensberater|verm\\xf6gensberatung|xbox|xerox|xihuan|xin|xn\\-\\-11b4c3d|xn\\-\\-1ck2e1b|xn\\-\\-1qqw23a|xn\\-\\-30rr7y|xn\\-\\-3bst00m|xn\\-\\-3ds443g|xn\\-\\-3e0b707e|xn\\-\\-3pxu8k|xn\\-\\-42c2d9a|xn\\-\\-45brj9c|xn\\-\\-45q11c|xn\\-\\-4gbrim|xn\\-\\-55qw42g|xn\\-\\-55qx5d|xn\\-\\-5tzm5g|xn\\-\\-6frz82g|xn\\-\\-6qq986b3xl|xn\\-\\-80adxhks|xn\\-\\-80ao21a|xn\\-\\-80asehdb|xn\\-\\-80aswg|xn\\-\\-8y0a063a|xn\\-\\-90a3ac|xn\\-\\-90ais|xn\\-\\-9dbq2a|xn\\-\\-9et52u|xn\\-\\-9krt00a|xn\\-\\-b4w605ferd|xn\\-\\-bck1b9a5dre4c|xn\\-\\-c1avg|xn\\-\\-c2br7g|xn\\-\\-cck2b3b|xn\\-\\-cg4bki|xn\\-\\-clchc0ea0b2g2a9gcd|xn\\-\\-czr694b|xn\\-\\-czrs0t|xn\\-\\-czru2d|xn\\-\\-d1acj3b|xn\\-\\-d1alf|xn\\-\\-e1a4c|xn\\-\\-eckvdtc9d|xn\\-\\-efvy88h|xn\\-\\-estv75g|xn\\-\\-fct429k|xn\\-\\-fhbei|xn\\-\\-fiq228c5hs|xn\\-\\-fiq64b|xn\\-\\-fiqs8s|xn\\-\\-fiqz9s|xn\\-\\-fjq720a|xn\\-\\-flw351e|xn\\-\\-fpcrj9c3d|xn\\-\\-fzc2c9e2c|xn\\-\\-g2xx48c|xn\\-\\-gckr3f0f|xn\\-\\-gecrj9c|xn\\-\\-h2brj9c|xn\\-\\-hxt814e|xn\\-\\-i1b6b1a6a2e|xn\\-\\-imr513n|xn\\-\\-io0a7i|xn\\-\\-j1aef|xn\\-\\-j1amh|xn\\-\\-j6w193g|xn\\-\\-jlq61u9w7b|xn\\-\\-jvr189m|xn\\-\\-kcrx77d1x4a|xn\\-\\-kprw13d|xn\\-\\-kpry57d|xn\\-\\-kpu716f|xn\\-\\-kput3i|xn\\-\\-l1acc|xn\\-\\-lgbbat1ad8j|xn\\-\\-mgb9awbf|xn\\-\\-mgba3a3ejt|xn\\-\\-mgba3a4f16a|xn\\-\\-mgbaam7a8h|xn\\-\\-mgbab2bd|xn\\-\\-mgbayh7gpa|xn\\-\\-mgbb9fbpob|xn\\-\\-mgbbh1a71e|xn\\-\\-mgbc0a9azcg|xn\\-\\-mgbca7dzdo|xn\\-\\-mgberp4a5d4ar|xn\\-\\-mgbpl2fh|xn\\-\\-mgbt3dhd|xn\\-\\-mgbtx2b|xn\\-\\-mgbx4cd0ab|xn\\-\\-mix891f|xn\\-\\-mk1bu44c|xn\\-\\-mxtq1m|xn\\-\\-ngbc5azd|xn\\-\\-ngbe9e0a|xn\\-\\-node|xn\\-\\-nqv7f|xn\\-\\-nqv7fs00ema|xn\\-\\-nyqy26a|xn\\-\\-o3cw4h|xn\\-\\-ogbpf8fl|xn\\-\\-p1acf|xn\\-\\-p1ai|xn\\-\\-pbt977c|xn\\-\\-pgbs0dh|xn\\-\\-pssy2u|xn\\-\\-q9jyb4c|xn\\-\\-qcka1pmc|xn\\-\\-qxam|xn\\-\\-rhqv96g|xn\\-\\-rovu88b|xn\\-\\-s9brj9c|xn\\-\\-ses554g|xn\\-\\-t60b56a|xn\\-\\-tckwe|xn\\-\\-unup4y|xn\\-\\-vermgensberater\\-ctb|xn\\-\\-vermgensberatung\\-pwb|xn\\-\\-vhquv|xn\\-\\-vuq861b|xn\\-\\-w4r85el8fhu5dnra|xn\\-\\-wgbh1c|xn\\-\\-wgbl6a|xn\\-\\-xhq521b|xn\\-\\-xkc2al3hye2a|xn\\-\\-xkc2dl3a5ee0h|xn\\-\\-y9a3aq|xn\\-\\-yfro4i67o|xn\\-\\-ygbi2ammx|xn\\-\\-zfr164b|xperia|xxx|xyz)|(?:yachts|yahoo|yamaxun|yandex|yodobashi|yoga|yokohama|you|youtube|yun|y[et])|(?:zara|zero|zip|zone|zuerich|z[amw])))|(?:(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9])\\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[1-9]|0)\\.(?:25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[1-9][0-9]|[0-9])))(?:\\:\\d{1,5})?)([?/](?:(?:[a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\;\\?\\:\\@\\&\\=\\#\\~\\-\\.\\+\\!\\*\\'\\(\\)\\,\\_\\s+\\{\\}\\/\\[\\]\\$\\%\\<\\>\\^\\`\\|\\\\])|(?:\\%[a-fA-F0-9]{2}))*)?(?:\\b|$)");
+        HashSet hashSet = new HashSet();
+        i = hashSet;
+        hashSet.add(".baidu.com");
+        i.add(".nuomi.com");
+        i.add(".nuomi.bdimg.com");
+        i.add(".hao123.com");
+        i.add(".qunaer.com");
+        i.add(".wejianzhan.com");
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public n51(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (str.startsWith("http://") || str.startsWith("https://") || str.startsWith("rtsp://")) {
-                return str;
-            }
-            return "http://" + str;
         }
-        return (String) invokeL.objValue;
+        this.d = false;
+        this.e = new HashMap();
+        this.f = new HashMap();
+        this.g = new HashMap();
+        this.h = new HashMap();
+        this.a = context;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        int indexOf;
+    public final void d(LinearLayout linearLayout, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (!TextUtils.isEmpty(str) && (indexOf = str.indexOf("?")) > 0) ? str.substring(0, indexOf) : str : (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return "";
-            }
-            int indexOf = str.indexOf(58);
-            boolean z = true;
-            for (int i = 0; i < indexOf; i++) {
-                char charAt = str.charAt(i);
-                if (!Character.isLetter(charAt)) {
-                    break;
-                }
-                z &= Character.isLowerCase(charAt);
-                if (i == indexOf - 1 && !z) {
-                    str = str.substring(0, indexOf).toLowerCase() + str.substring(indexOf);
-                }
-            }
-            if (str.startsWith("http://") || str.startsWith("https://") || str.startsWith("rtsp://")) {
-                return str;
-            }
-            if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS) || str.startsWith("rtsp:")) {
-                if (!str.startsWith("http:/") && !str.startsWith("https:/") && !str.startsWith("rtsp:/")) {
-                    return str.replaceFirst(":", "://");
-                }
-                return str.replaceFirst("/", "//");
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, linearLayout, i2) == null) {
+            e(linearLayout, i2, R.drawable.obfuscated_res_0x7f080dd1);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public final void e(LinearLayout linearLayout, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TextUtils.isEmpty(str) || !e(str)) ? str : a(c(str).trim()) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, i2, i3) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0616, (ViewGroup) linearLayout, false);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f65);
+            textView.setTextColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06086c));
+            textView.setText(i2);
+            ((BdBaseImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f64)).setImageResource(i3);
+            linearLayout.addView(inflate);
+        }
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public final void f(LinearLayout linearLayout, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            try {
-                return a.matcher(str).matches();
-            } catch (Exception e) {
-                h(e);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, linearLayout, i2) == null) {
+            e(linearLayout, i2, R.drawable.obfuscated_res_0x7f080dd0);
+        }
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Context context = this.a;
+            return (context instanceof Activity) && !((Activity) context).isFinishing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean h(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (parse = Uri.parse(str)) == null) {
                 return false;
             }
+            String host = parse.getHost();
+            if (TextUtils.isEmpty(host)) {
+                return false;
+            }
+            for (String str2 : i) {
+                if (host.endsWith(str2)) {
+                    return true;
+                }
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    public synchronized void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return Pattern.compile("(https?|ftp)://[-A-Za-z0-9+&@#/%?=~_|!:,.;{]+[-A-Za-z0-9+&@#/%=~_|}]").matcher(str).matches();
-            } catch (Exception e) {
-                h(e);
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                this.e.clear();
+                this.f.clear();
+                this.h.clear();
+                this.g.clear();
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean g(String str) {
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            ClipboardManager clipboardManager = (ClipboardManager) this.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            if (clipboardManager != null) {
+                clipboardManager.setText(str);
+            }
+            a21.a().a(this.a, R.string.obfuscated_res_0x7f0f0c0b);
+        }
+    }
+
+    public final l71.a k(SslCertificate sslCertificate, SslError sslError) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, sslCertificate, sslError)) == null) {
+            View n2 = n(sslCertificate);
+            LinearLayout linearLayout = (LinearLayout) n2.findViewById(R.id.obfuscated_res_0x7f0919e9);
+            n2.findViewById(R.id.obfuscated_res_0x7f091f63).setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060833));
+            if (sslError == null) {
+                d(linearLayout, R.string.obfuscated_res_0x7f0f0c09);
+            } else {
+                if (sslError.hasError(3)) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c14);
+                }
+                if (sslError.hasError(2)) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c11);
+                }
+                if (sslError.hasError(1)) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c0d);
+                }
+                if (sslError.hasError(0)) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c12);
+                }
+                if (sslError.hasError(4)) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c0c);
+                }
+                if (sslError.hasError(5)) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c10);
+                }
+                if (linearLayout.getChildCount() == 0) {
+                    f(linearLayout, R.string.obfuscated_res_0x7f0f0c13);
+                }
+            }
+            l71.a aVar = new l71.a(this.a);
+            aVar.y(R.string.obfuscated_res_0x7f0f0c08);
+            aVar.x(n2);
+            return aVar;
+        }
+        return (l71.a) invokeLL.objValue;
+    }
+
+    public synchronized void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                o(false);
+                for (Map.Entry<String, w51> entry : this.e.entrySet()) {
+                    if (entry.getValue() != null) {
+                        p(entry.getKey(), entry.getValue());
+                    }
+                }
+                this.e.clear();
+                for (Map.Entry<String, r> entry2 : this.f.entrySet()) {
+                    r value = entry2.getValue();
+                    if (value != null) {
+                        r(entry2.getKey(), value.a, value.c);
+                    }
+                }
+                this.f.clear();
+                for (Map.Entry<String, r> entry3 : this.h.entrySet()) {
+                    r value2 = entry3.getValue();
+                    if (value2 != null) {
+                        t(entry3.getKey(), value2.a, value2.b, value2.c);
+                    }
+                }
+                this.h.clear();
+                for (Map.Entry<String, r> entry4 : this.g.entrySet()) {
+                    r value3 = entry4.getValue();
+                    if (value3 != null) {
+                        s(entry4.getKey(), value3.a, value3.c);
+                    }
+                }
+                this.g.clear();
+            }
+        }
+    }
+
+    public final String m(Date date) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? e(str) || f(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, date)) == null) ? date == null ? "" : DateFormat.getDateFormat(this.a).format(date) : (String) invokeL.objValue;
     }
 
-    public static void h(Exception exc) {
+    public final View n(SslCertificate sslCertificate) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
-            Log.i("UrlUtils", "x");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, sslCertificate)) == null) {
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0615, null);
+            int color = this.a.getResources().getColor(R.color.obfuscated_res_0x7f06086c);
+            ViewGroup viewGroup = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0903b3);
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
+                if (childAt instanceof TextView) {
+                    TextView textView = (TextView) childAt;
+                    textView.setTextColor(color);
+                    textView.setTextSize(14.0f);
+                }
+            }
+            SslCertificate.DName issuedTo = sslCertificate.getIssuedTo();
+            if (issuedTo != null) {
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226b)).setText(issuedTo.getCName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226e)).setText(issuedTo.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092270)).setText(issuedTo.getUName());
+            }
+            SslCertificate.DName issuedBy = sslCertificate.getIssuedBy();
+            if (issuedBy != null) {
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090486)).setText(issuedBy.getCName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090488)).setText(issuedBy.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09048a)).setText(issuedBy.getUName());
+            }
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f8a)).setText(m(sslCertificate.getValidNotBeforeDate()));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090965)).setText(m(sslCertificate.getValidNotAfterDate()));
+            return inflate;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void p(String str, @NonNull w51 w51Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, w51Var) == null) {
+            if (this.d) {
+                this.e.put(str, w51Var);
+            }
+            if (g()) {
+                if (h(str)) {
+                    if (w51Var != null) {
+                        w51Var.a(str, true, true);
+                        return;
+                    }
+                    return;
+                }
+                b61 b61Var = new b61(this.a, str, w51Var);
+                this.c = b61Var;
+                b61Var.e();
+            }
+        }
+    }
+
+    public void q(@NonNull v51 v51Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, v51Var, str, str2) == null) {
+            c61 c61Var = new c61(this.a, str, str2);
+            this.b = c61Var;
+            c61Var.h(new i(this, v51Var));
+            this.b.g(new j(this, v51Var));
+            this.b.i();
+        }
+    }
+
+    public boolean r(String str, String str2, @NonNull x51 x51Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, str, str2, x51Var)) == null) {
+            if (this.d) {
+                this.f.put(str, new r(str2, x51Var));
+                return true;
+            } else if (!g()) {
+                x51Var.cancel();
+                return false;
+            } else {
+                j71.a aVar = new j71.a(this.a);
+                aVar.q(R.string.obfuscated_res_0x7f0f0baa);
+                aVar.j(str2);
+                aVar.o(R.string.obfuscated_res_0x7f0f0b9e, new b(this, x51Var));
+                aVar.n(new a(this, x51Var));
+                aVar.t();
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean s(String str, String str2, @NonNull x51 x51Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, str2, x51Var)) == null) {
+            if (this.d) {
+                this.g.put(str, new r(str2, x51Var));
+                return true;
+            } else if (!g()) {
+                x51Var.cancel();
+                return false;
+            } else {
+                j71.a aVar = new j71.a(this.a);
+                aVar.q(R.string.obfuscated_res_0x7f0f0baa);
+                aVar.j(str2);
+                aVar.o(R.string.obfuscated_res_0x7f0f0b9e, new e(this, x51Var));
+                aVar.l(R.string.obfuscated_res_0x7f0f0b9c, new d(this, x51Var));
+                aVar.n(new c(this, x51Var));
+                aVar.t();
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean t(String str, String str2, String str3, @NonNull x51 x51Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048592, this, str, str2, str3, x51Var)) == null) {
+            if (this.d) {
+                this.h.put(str, new r(str2, str3, x51Var));
+                return true;
+            } else if (!g()) {
+                x51Var.cancel();
+                return false;
+            } else {
+                View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05f6, null);
+                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0924e8);
+                editText.setText(str3);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091515)).setText(str2);
+                j71.a aVar = new j71.a(this.a);
+                aVar.q(R.string.obfuscated_res_0x7f0f0baa);
+                aVar.s(inflate);
+                aVar.o(R.string.obfuscated_res_0x7f0f0b9e, new h(this, x51Var, editText));
+                aVar.l(R.string.obfuscated_res_0x7f0f0b9c, new g(this, x51Var));
+                aVar.n(new f(this, x51Var));
+                aVar.t();
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void u(@NonNull y51 y51Var, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048593, this, y51Var, sslErrorHandler, sslError) == null) {
+            if (!g()) {
+                sslErrorHandler.cancel();
+                return;
+            }
+            SslCertificate certificate = sslError.getCertificate();
+            if (certificate == null) {
+                return;
+            }
+            l71.a k2 = k(certificate, sslError);
+            k2.v(new h71.a(this.a.getText(R.string.obfuscated_res_0x7f0f0c0f), R.color.obfuscated_res_0x7f06086a, new q(this, y51Var)));
+            k2.n(new p(this, y51Var));
+            k2.t();
+        }
+    }
+
+    public void v(@NonNull y51 y51Var, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, y51Var, sslErrorHandler, sslError) == null) {
+            if (!g()) {
+                sslErrorHandler.cancel();
+                return;
+            }
+            k71.c cVar = new k71.c(this.a);
+            cVar.A(R.string.obfuscated_res_0x7f0f0c04);
+            cVar.z(R.string.obfuscated_res_0x7f0f0c15, new o(this, sslError));
+            cVar.v(new h71.a(this.a.getText(R.string.obfuscated_res_0x7f0f0c0a), R.color.obfuscated_res_0x7f06086d, new n(this, sslErrorHandler)));
+            cVar.v(new h71.a(this.a.getText(R.string.obfuscated_res_0x7f0f0c38), R.color.obfuscated_res_0x7f06086a, new m(this, y51Var, sslErrorHandler, sslError)));
+            cVar.v(new h71.a(this.a.getText(R.string.obfuscated_res_0x7f0f0c0e), R.color.obfuscated_res_0x7f06086a, new l(this, sslErrorHandler)));
+            cVar.n(new k(this, sslErrorHandler));
+            cVar.t();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class r {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public x51 c;
+
+        public r(String str, String str2, x51 x51Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, x51Var};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = x51Var;
+        }
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public r(String str, x51 x51Var) {
+            this(str, null, x51Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, x51Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    this((String) objArr2[0], (String) objArr2[1], (x51) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
     }
 }

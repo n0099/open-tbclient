@@ -1,67 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.channel.GdtHelper;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 /* loaded from: classes3.dex */
-public class an9 implements GdtHelper.GdtNativeContainerCreator {
+public class an9 extends km9<TTRewardVideoAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final an9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<WeakReference<NativeAdContainer>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621085, "Lcom/baidu/tieba/an9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621085, "Lcom/baidu/tieba/an9;");
-                return;
-            }
-        }
-        b = new an9();
-    }
-
-    public an9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an9(TTRewardVideoAd tTRewardVideoAd) {
+        super(tTRewardVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTRewardVideoAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
-    public ViewGroup generateGdtNativeContainer(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.km9
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
-            this.a.add(new WeakReference<>(nativeAdContainer));
-            return nativeAdContainer;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

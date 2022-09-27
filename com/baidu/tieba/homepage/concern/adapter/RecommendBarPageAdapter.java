@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lx6;
-import com.baidu.tieba.mx6;
-import com.baidu.tieba.ox6;
+import com.baidu.tieba.ay6;
+import com.baidu.tieba.cy6;
+import com.baidu.tieba.zx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Cdo> a;
-    public List<ox6> b;
+    public List<cy6> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -55,7 +55,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new ox6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d076c, (ViewGroup) null, false), this.c, b));
+            this.b.add(new cy6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d076c, (ViewGroup) null, false), this.c, b));
         }
     }
 
@@ -77,38 +77,38 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<ox6> list = this.b;
+        List<cy6> list = this.b;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (ox6 ox6Var : this.b) {
-            ox6Var.l(i);
+        for (cy6 cy6Var : this.b) {
+            cy6Var.l(i);
         }
     }
 
-    public void d(lx6 lx6Var) {
+    public void d(zx6 zx6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lx6Var) == null) || lx6Var == null || ListUtils.isEmpty(lx6Var.f())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx6Var) == null) || zx6Var == null || ListUtils.isEmpty(zx6Var.f())) {
             return;
         }
         this.a.clear();
-        this.a.addAll(lx6Var.f());
+        this.a.addAll(zx6Var.f());
         for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-            ox6 ox6Var = this.b.get(i);
-            ox6Var.m(!lx6Var.h());
-            ox6Var.c((Cdo) ListUtils.getItem(this.a, i));
+            cy6 cy6Var = this.b.get(i);
+            cy6Var.m(!zx6Var.h());
+            cy6Var.c((Cdo) ListUtils.getItem(this.a, i));
         }
         notifyDataSetChanged();
-        if (this.a.get(0) instanceof mx6) {
-            mx6 mx6Var = (mx6) this.a.get(0);
+        if (this.a.get(0) instanceof ay6) {
+            ay6 ay6Var = (ay6) this.a.get(0);
             StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-            if (!StringUtils.isNull(mx6Var.a)) {
-                param = param.param("obj_name", mx6Var.a);
+            if (!StringUtils.isNull(ay6Var.a)) {
+                param = param.param("obj_name", ay6Var.a);
             }
             TiebaStatic.log(param);
-            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", mx6Var.a()).param("obj_locate", (int) this.e);
-            if (!StringUtils.isNull(mx6Var.a)) {
-                param2 = param2.param("obj_name", mx6Var.a);
+            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ay6Var.a()).param("obj_locate", (int) this.e);
+            if (!StringUtils.isNull(ay6Var.a)) {
+                param2 = param2.param("obj_name", ay6Var.a);
             }
             TiebaStatic.log(param2);
         }
@@ -128,15 +128,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            ox6 ox6Var = this.b.get(i);
-            mx6 j2 = ox6Var.j();
+            cy6 cy6Var = this.b.get(i);
+            ay6 j2 = cy6Var.j();
             if (j2 != null) {
                 int i2 = 0;
                 while (true) {
-                    mx6.a[] aVarArr = j2.d;
+                    ay6.a[] aVarArr = j2.d;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].g() == j) {
-                            ox6Var.n(i2, z);
+                            cy6Var.n(i2, z);
                         }
                         i2++;
                     }
@@ -158,20 +158,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            List<ox6> list = this.b;
+            List<cy6> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            ox6 ox6Var = (ox6) ListUtils.getItem(list, i);
-            if (ox6Var == null) {
+            cy6 cy6Var = (cy6) ListUtils.getItem(list, i);
+            if (cy6Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (ox6Var.b().getParent() == null) {
-                viewGroup.addView(ox6Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (cy6Var.b().getParent() == null) {
+                viewGroup.addView(cy6Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            ox6Var.b().setTag(Integer.valueOf(i));
-            ox6Var.c((Cdo) ListUtils.getItem(this.a, i));
-            return ox6Var.b();
+            cy6Var.b().setTag(Integer.valueOf(i));
+            cy6Var.c((Cdo) ListUtils.getItem(this.a, i));
+            return cy6Var.b();
         }
         return invokeLI.objValue;
     }

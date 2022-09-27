@@ -1,104 +1,266 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class c61 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] AdImageView;
-    public static final int AdImageView_adCornerRadius = 0;
-    public static final int AdImageView_borderColor = 1;
-    public static final int AdImageView_borderColorWidth = 2;
-    public static final int AdImageView_circleType = 3;
-    public static final int AdImageView_errorHolder = 4;
-    public static final int AdImageView_holder = 5;
-    public static final int AdImageView_imageScaleType = 6;
-    public static final int AdImageView_leftBottomRadius = 7;
-    public static final int AdImageView_leftTopRadius = 8;
-    public static final int AdImageView_loadingHolder = 9;
-    public static final int AdImageView_rightBottomRadius = 10;
-    public static final int AdImageView_rightTopRadius = 11;
-    public static final int[] ExpandIconView;
-    public static final int ExpandIconView_animationDuration = 0;
-    public static final int ExpandIconView_color = 1;
-    public static final int ExpandIconView_length = 2;
-    public static final int ExpandIconView_thick = 3;
-    public static final int[] NADUnifyTextView;
-    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
-    public static final int NADUnifyTextView_spannable_top_padding = 1;
-    public static final int[] NadBdThumbSeekBar;
-    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
-    public static final int[] NadEnhanceButtonView;
-    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
-    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
-    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
-    public static final int[] NadRoundProgressBar;
-    public static final int NadRoundProgressBar_max = 0;
-    public static final int NadRoundProgressBar_nad_style = 1;
-    public static final int NadRoundProgressBar_reverse = 2;
-    public static final int NadRoundProgressBar_roundColor = 3;
-    public static final int NadRoundProgressBar_roundHintTextSize = 4;
-    public static final int NadRoundProgressBar_roundMax = 5;
-    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
-    public static final int NadRoundProgressBar_roundProgressColor = 7;
-    public static final int NadRoundProgressBar_roundTextColor = 8;
-    public static final int NadRoundProgressBar_roundTextSize = 9;
-    public static final int NadRoundProgressBar_roundWidth = 10;
-    public static final int NadRoundProgressBar_textColor = 11;
-    public static final int NadRoundProgressBar_textIsDisplayable = 12;
-    public static final int NadRoundProgressBar_textSize = 13;
-    public static final int[] NadShadowViewGroup;
-    public static final int NadShadowViewGroup_containerCornerRadius = 0;
-    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
-    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
-    public static final int NadShadowViewGroup_containerShadowColor = 3;
-    public static final int NadShadowViewGroup_containerShadowRadius = 4;
-    public static final int NadShadowViewGroup_deltaX = 5;
-    public static final int NadShadowViewGroup_deltaY = 6;
-    public static final int NadShadowViewGroup_enable = 7;
-    public static final int NadShadowViewGroup_shadowAlpha = 8;
-    public static final int[] NadTextProgressView;
-    public static final int NadTextProgressView_nad_progressGravity = 0;
-    public static final int NadTextProgressView_nad_progressTextColor = 1;
-    public static final int NadTextProgressView_nad_progressTextMode = 2;
-    public static final int NadTextProgressView_nad_progressTextSize = 3;
-    public static final int[] RoundCornerRelativeLayout;
-    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
-    public static final int[] SimpleAdInfoView;
-    public static final int SimpleAdInfoView_layoutId = 0;
-    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
+public class c61 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final String b;
+    public final String c;
+    public j71 d;
+    public TextView e;
+    public TextView f;
+    public f g;
+    public e h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626603, "Lcom/baidu/tieba/c61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class a implements TextView.OnEditorActionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c61 a;
+
+        public a(c61 c61Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c61Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626603, "Lcom/baidu/tieba/c61;");
+            this.a = c61Var;
+        }
+
+        @Override // android.widget.TextView.OnEditorActionListener
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
+                if (i == 6 || i == 0) {
+                    if (i == 0 && keyEvent != null && keyEvent.getAction() == 1) {
+                        return true;
+                    }
+                    this.a.f();
+                    return true;
+                }
+                return false;
+            }
+            return invokeLIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c61 a;
+
+        public b(c61 c61Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c61Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c61Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.a.h == null) {
+                return;
+            }
+            this.a.h.onCancel();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c61 a;
+
+        public c(c61 c61Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c61Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c61Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) || this.a.h == null) {
+                return;
+            }
+            this.a.h.onCancel();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c61 a;
+
+        public d(c61 c61Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c61Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c61Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface e {
+        void onCancel();
+    }
+
+    /* loaded from: classes3.dex */
+    public interface f {
+        void a(String str, String str2, String str3, String str4);
+    }
+
+    public c61(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AdImageView = new int[]{R.attr.obfuscated_res_0x7f040071, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ea, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f04028b, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040338, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040427, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c5};
-        ExpandIconView = new int[]{R.attr.animationDuration, R.attr.obfuscated_res_0x7f04016a, R.attr.obfuscated_res_0x7f040429, R.attr.obfuscated_res_0x7f0406fa};
-        NADUnifyTextView = new int[]{R.attr.spannable_bottom_padding, R.attr.spannable_top_padding};
-        NadBdThumbSeekBar = new int[]{R.attr.obfuscated_res_0x7f0404e3};
-        NadEnhanceButtonView = new int[]{R.attr.obfuscated_res_0x7f04010c, R.attr.obfuscated_res_0x7f04010d, R.attr.obfuscated_res_0x7f04010f};
-        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404b9, R.attr.obfuscated_res_0x7f0404f9, R.attr.obfuscated_res_0x7f0405bc, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d0, R.attr.roundProgressColor, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f0406e4, R.attr.textIsDisplayable, R.attr.obfuscated_res_0x7f0406f1};
-        NadShadowViewGroup = new int[]{R.attr.obfuscated_res_0x7f04018c, R.attr.obfuscated_res_0x7f04018d, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f04018f, R.attr.obfuscated_res_0x7f040190, R.attr.obfuscated_res_0x7f04020b, R.attr.obfuscated_res_0x7f04020c, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f040612};
-        NadTextProgressView = new int[]{R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404f6, R.attr.obfuscated_res_0x7f0404f7, R.attr.obfuscated_res_0x7f0404f8};
-        RoundCornerRelativeLayout = new int[]{R.attr.obfuscated_res_0x7f0405d9};
-        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f04040b};
-        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.obfuscated_res_0x7f0404e4, R.attr.obfuscated_res_0x7f0404e5, R.attr.obfuscated_res_0x7f0404e6, R.attr.obfuscated_res_0x7f0404e7};
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        c();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05df, null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924e1);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917b0);
+            this.f = textView;
+            textView.setOnEditorActionListener(new a(this));
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0c07, this.b, this.c);
+            j71.a aVar = new j71.a(this.a);
+            aVar.r(string);
+            aVar.i(17301543);
+            aVar.s(inflate);
+            aVar.o(R.string.obfuscated_res_0x7f0f0bcf, new d(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0bce, new c(this));
+            aVar.n(new b(this));
+            j71 a2 = aVar.a();
+            this.d = a2;
+            a2.getWindow().setSoftInputMode(4);
+        }
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.getText().toString() : (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e.getText().toString() : (String) invokeV.objValue;
+    }
+
+    public final void f() {
+        f fVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fVar = this.g) == null) {
+            return;
+        }
+        fVar.a(this.b, this.c, e(), d());
+    }
+
+    public void g(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+            this.h = eVar;
+        }
+    }
+
+    public void h(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            this.g = fVar;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            n21.b(this.d);
+            this.e.requestFocus();
+        }
     }
 }

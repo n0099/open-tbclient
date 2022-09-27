@@ -1,51 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xc7 {
+public class xc7<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public T b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948295645, "Lcom/baidu/tieba/xc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948295645, "Lcom/baidu/tieba/xc7;");
-                return;
-            }
-        }
-        a = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-    }
-
-    public static void a(String str) {
+    public xc7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            b(str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str, BdSwitchView.SwitchState switchState) {
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, switchState) == null) {
-            StatisticItem param = new StatisticItem(str).param("uid", a);
-            if (switchState != null) {
-                param.param("obj_type", switchState == BdSwitchView.SwitchState.OFF ? 1 : 2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
+    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    public int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (str == null) {
+                return -1;
             }
-            TiebaStatic.log(param);
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() == 3) {
+                    jSONArray.optString(0);
+                    this.a = jSONArray.optInt(1);
+                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
+                    if (1 == this.a) {
+                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
+                        String optString2 = optJSONObject.optString("shareSourceIcon");
+                        String optString3 = optJSONObject.optString("shareSource");
+                        String optString4 = optJSONObject.optString("shareUrl");
+                        String optString5 = optJSONObject.optString("shareSourceUrl");
+                        if (TextUtils.isEmpty(optString4)) {
+                            ?? r4 = (T) new ShareFromPBMsgData();
+                            r4.setContent(optJSONObject.optString("themeContent"));
+                            r4.setForumName(optJSONObject.optString("forumName"));
+                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                            r4.setPostId(optJSONObject.optString("postID"));
+                            r4.setThreadId(optJSONObject.optString("themeID"));
+                            r4.setTitle(optJSONObject.optString("themeTitle"));
+                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
+                            r4.setThreadType(optJSONObject.optInt("threadType"));
+                            this.b = r4;
+                            return 0;
+                        }
+                        ?? r1 = (T) new ShareFromGameCenterMsgData();
+                        r1.setContent(optJSONObject.optString("themeContent"));
+                        r1.setForumName(optJSONObject.optString("forumName"));
+                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r1.setPostId(optJSONObject.optString("postID"));
+                        r1.setThreadId(optJSONObject.optString("themeID"));
+                        r1.setTitle(optJSONObject.optString("themeTitle"));
+                        r1.setButton(optString);
+                        r1.setShareSource(optString3);
+                        r1.setShareSourceIcon(optString2);
+                        r1.setShareSourceUrl(optString5);
+                        r1.setShareUrl(optString4);
+                        this.b = r1;
+                        return 1;
+                    } else if (4 == this.a) {
+                        ?? r12 = (T) new ShareFromFrsMsgData();
+                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
+                        r12.setPostNum(optJSONObject.optInt("postNum"));
+                        this.b = r12;
+                        return 2;
+                    } else {
+                        return -1;
+                    }
+                }
+                return -1;
+            } catch (Exception unused) {
+                return -1;
+            }
         }
+        return invokeLL.intValue;
     }
 }

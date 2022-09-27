@@ -1,37 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieCompositionFactory;
-import com.airbnb.lottie.LottieListener;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.poly.widget.coupon.CouponListView;
+import com.baidu.tieba.dd1;
+import com.baidu.tieba.tc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.zip.ZipInputStream;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bd1 {
+public class bd1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CouponListView a;
+    public ImageView b;
+    public FrameLayout c;
+    public d d;
 
     /* loaded from: classes3.dex */
-    public class a implements LottieListener<Throwable> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
+        public final /* synthetic */ bd1 a;
 
-        public a(bd1 bd1Var, f fVar) {
+        public a(bd1 bd1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bd1Var, fVar};
+                Object[] objArr = {bd1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,34 +46,67 @@ public class bd1 {
                     return;
                 }
             }
-            this.a = fVar;
+            this.a = bd1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            f fVar;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.a) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.a != null && this.a.d != null) {
+                    this.a.d.a(false, this.a.a.getSelectedItem());
+                }
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bd1 a;
+
+        public b(bd1 bd1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bd1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bd1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.a.a == null || this.a.d == null) {
                 return;
             }
-            fVar.b();
+            this.a.d.a(false, this.a.a.getSelectedItem());
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements LottieListener<LottieComposition> {
+    public class c implements CouponListView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
+        public final /* synthetic */ bd1 a;
 
-        public b(bd1 bd1Var, f fVar) {
+        public c(bd1 bd1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bd1Var, fVar};
+                Object[] objArr = {bd1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -78,197 +116,128 @@ public class bd1 {
                     return;
                 }
             }
-            this.a = fVar;
+            this.a = bd1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                if (lottieComposition != null) {
-                    f fVar = this.a;
-                    if (fVar != null) {
-                        fVar.a(lottieComposition);
-                        return;
-                    }
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void c(dd1.a aVar, tc1 tc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, tc1Var) == null) {
+                tc1.a aVar2 = new tc1.a();
+                aVar2.a = 0;
+                tc1Var.a(aVar2);
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void d(boolean z, dd1.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) {
+                this.a.dismiss();
+                if (this.a.d != null) {
+                    this.a.d.a(z, aVar);
                 }
-                f fVar2 = this.a;
-                if (fVar2 != null) {
-                    fVar2.b();
-                }
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void onDetach() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements LottieListener<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public c(bd1 bd1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bd1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            f fVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.a) == null) {
-                return;
-            }
-            fVar.b();
-        }
+    public interface d {
+        void a(boolean z, dd1.a aVar);
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements LottieListener<LottieComposition> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public d(bd1 bd1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bd1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                if (lottieComposition != null) {
-                    f fVar = this.a;
-                    if (fVar != null) {
-                        fVar.a(lottieComposition);
-                        return;
-                    }
-                    return;
-                }
-                f fVar2 = this.a;
-                if (fVar2 != null) {
-                    fVar2.b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static bd1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-922741671, "Lcom/baidu/tieba/bd1$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-922741671, "Lcom/baidu/tieba/bd1$e;");
-                    return;
-                }
-            }
-            a = new bd1(null);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface f {
-        void a(LottieComposition lottieComposition);
-
-        void b();
-    }
-
-    public /* synthetic */ bd1(a aVar) {
-        this();
-    }
-
-    public static bd1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e.a : (bd1) invokeV.objValue;
-    }
-
-    public void a(File file, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
-            try {
-                LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
-            } catch (Exception unused) {
-                if (fVar != null) {
-                    fVar.b();
-                }
-            }
-        }
-    }
-
-    public void b(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fVar) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File s = md1.s(str);
-        if (s != null && s.exists()) {
-            a(s, fVar);
-            return;
-        }
-        try {
-            LottieCompositionFactory.fromUrl(mi0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
-        } catch (Exception unused) {
-            if (fVar != null) {
-                fVar.b();
-            }
-        }
-    }
-
-    public bd1() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public bd1(Context context) {
+        this(context, R.style.obfuscated_res_0x7f100100);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d022a);
+            Window window = getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003a5);
+                window.setLayout(-1, -2);
+            }
+            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f0905a3);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0905a4);
+            this.c = frameLayout;
+            frameLayout.setVisibility(8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff9);
+            this.b = imageView;
+            imageView.setOnClickListener(new a(this));
+            setOnCancelListener(new b(this));
+        }
+    }
+
+    public void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.d = dVar;
+        }
+    }
+
+    public void update(List<dd1.a> list) {
+        CouponListView couponListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (couponListView = this.a) == null) {
+            return;
+        }
+        couponListView.update(list);
+        this.a.setListener(new c(this));
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd1(Context context, int i) {
+        super(context, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c();
     }
 }

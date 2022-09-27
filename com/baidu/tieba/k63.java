@@ -1,126 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.h22;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes4.dex */
-public class k63 extends v43 {
+public class k63 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean q;
+    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final double b;
+    public final double c;
+    public final float d;
+    public final double e;
+    public final double f;
+    public final double g;
+    public final double h;
+    public final String i;
+    public final String j;
+    public final String k;
+    public final String l;
+    public final String m;
+    public final String n;
+    public final String o;
+    public final String p;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k63(v33 v33Var) {
-        super(v33Var, "/swanAPI/navigateBack");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864993, "Lcom/baidu/tieba/k63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864993, "Lcom/baidu/tieba/k63;");
+                return;
+            }
+        }
+        q = vj1.a;
+        r = "LocationResult";
+    }
+
+    public k63(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = d;
+        this.c = d2;
+        this.d = f;
+        this.e = d3;
+        this.f = d4;
+        this.g = 0.0d;
+        this.h = d3;
+        this.i = str2;
+        this.j = str3;
+        this.k = str4;
+        this.l = str5;
+        this.m = str6;
+        this.n = str7;
+        this.o = str8;
+        this.p = str9;
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
-        int optInt;
-        ys2 ys2Var;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (v43.b) {
-                Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String uuid = UUID.randomUUID().toString();
-            ew2.b(uuid);
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                optInt = 1;
-            } else {
-                try {
-                    optInt = new JSONObject(str).optInt("delta", 1);
-                } catch (JSONException e) {
-                    if (v43.b) {
-                        e.printStackTrace();
-                    }
-                    yz1.c("navigateBack", "params parse fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("longitude", this.b);
+                jSONObject.put("latitude", this.c);
+                jSONObject.put("speed", this.d);
+                jSONObject.put("accuracy", this.e);
+                jSONObject.put("altitude", this.f);
+                jSONObject.put("verticalAccuracy", this.g);
+                jSONObject.put("horizontalAccuracy", this.h);
+                jSONObject.put("country", this.i);
+                jSONObject.put("countryCode", this.j);
+                jSONObject.put("city", this.k);
+                jSONObject.put("cityCode", this.l);
+                jSONObject.put("province", this.m);
+                jSONObject.put("district", this.n);
+                jSONObject.put("street", this.o);
+                jSONObject.put("streetNumber", this.p);
+                jSONObject.put("isFullAccuracy", true);
+            } catch (JSONException e) {
+                if (q) {
+                    String str = r;
+                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
                 }
             }
-            h22 V = lo2.U().V();
-            if (V == null) {
-                yz1.c("navigateBack", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            int k = V.k();
-            if (v43.b) {
-                Log.d("NavigateBackAction", "back delta: " + optInt);
-            }
-            if (k == 1) {
-                yz1.c("NavigateBackAction", "navigateBack api can only work when slave's count greater than 1");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "navigateBack api can only work when slave's count greater than 1");
-                return false;
-            }
-            if (optInt >= k) {
-                optInt = k - 1;
-            }
-            if (v43.b) {
-                Log.d("NavigateBackAction", "real back delta: " + optInt);
-            }
-            e22 j = V.j((k - optInt) - 1);
-            if (j instanceof g22) {
-                ys2Var = ((g22) j).m3();
-                ys2Var.e = "1";
-                ys2Var.f = uuid;
-            } else {
-                ys2Var = null;
-            }
-            m93.g(ys2Var);
-            ew2.c(1, uuid);
-            if3.a(V, context);
-            h22.b i = V.i("navigateBack");
-            i.n(h22.i, h22.h);
-            i.h(optInt);
-            i.a();
-            g22 o = V.o();
-            ys2 m3 = o != null ? o.m3() : null;
-            dw2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-            ew2.a(uuid, m3);
-            if (!(V.m() instanceof g22)) {
-                yz1.c("navigateBack", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                m93.i(ys2Var);
-                return false;
-            }
-            g22 g22Var = (g22) V.m();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(h63.c(g22Var != null ? g22Var.t3() : ""), 0));
-            return true;
+            return jSONObject;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

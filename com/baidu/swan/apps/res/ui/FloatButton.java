@@ -15,8 +15,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        o = ij1.a;
+        o = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -165,7 +165,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0909f0).setBottom(pg3.O(191.0f));
+            findViewById(R.id.obfuscated_res_0x7f0909f0).setBottom(ch3.O(191.0f));
         }
     }
 

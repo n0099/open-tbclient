@@ -1,12 +1,14 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,29 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class yj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public AdDownloadStatus c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public File h;
-    public float i;
-    public float j;
-    public Uri k;
-    public long l;
-    public long m;
-    public int n;
-    public String o;
-    public ck0 p;
-    public zj0 q;
-    public bk0 r;
+    public final HashMap<String, List<dl0>> a;
+    public final ReentrantReadWriteLock b;
+    public final IAdDownloader c;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -57,16 +48,271 @@ public class yj0 {
                     return;
                 }
             }
-            int[] iArr = new int[AdDownloadStatus.values().length];
+            int[] iArr = new int[AdDownloadAction.values().length];
             a = iArr;
             try {
-                iArr[AdDownloadStatus.COMPLETED.ordinal()] = 1;
+                iArr[AdDownloadAction.START.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[AdDownloadStatus.INSTALLED.ordinal()] = 2;
+                a[AdDownloadAction.PAUSE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
+            try {
+                a[AdDownloadAction.RESUME.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadAction.COMPLETE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_START.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdDownloadAction.INSTALL_FINISH.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[AdDownloadAction.OPEN.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[AdDownloadAction.FAIL.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_RETRY.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                a[AdDownloadAction.FAIL_PERMISSION_DENY.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yj0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-258759956, "Lcom/baidu/tieba/yj0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-258759956, "Lcom/baidu/tieba/yj0$b;");
+                    return;
+                }
+            }
+            a = new yj0(null);
+        }
+    }
+
+    public /* synthetic */ yj0(a aVar) {
+        this();
+    }
+
+    public static yj0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (yj0) invokeV.objValue;
+    }
+
+    public static void c(@NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, lk0Var) == null) {
+            if (TextUtils.isEmpty(lk0Var.p.c) || !ii0.b(lk0Var.p.c)) {
+                pl0.f(lk0Var.d);
+                d(AdDownloadAction.OPEN, lk0Var);
+            }
+        }
+    }
+
+    public static void d(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, adDownloadAction, lk0Var) == null) {
+            e(adDownloadAction, lk0Var, null);
+        }
+    }
+
+    public static void e(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var, @Nullable tk0 tk0Var) {
+        ClogBuilder.LogType logType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, adDownloadAction, lk0Var, tk0Var) == null) || TextUtils.isEmpty(lk0Var.p.a)) {
+            return;
+        }
+        String str = lk0Var.q.j;
+        switch (a.a[adDownloadAction.ordinal()]) {
+            case 1:
+                logType = ClogBuilder.LogType.DOWNLOAD_START;
+                break;
+            case 2:
+                logType = ClogBuilder.LogType.DOWNLOAD_PAUSE;
+                break;
+            case 3:
+                logType = ClogBuilder.LogType.DOWNLOAD_CONTINUE;
+                break;
+            case 4:
+                logType = ClogBuilder.LogType.DOWNLOAD_COMPLETE;
+                break;
+            case 5:
+                logType = ClogBuilder.LogType.DOWNLOAD_INSTALL;
+                break;
+            case 6:
+                logType = ClogBuilder.LogType.INSTALL_COMPLETE;
+                break;
+            case 7:
+                logType = ClogBuilder.LogType.DEEP_LINK;
+                break;
+            case 8:
+                logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
+                break;
+            case 9:
+                logType = ClogBuilder.LogType.DOWNLOAD_RETRY;
+                break;
+            default:
+                return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = ClogBuilder.Area.DOWNLOAD_BUTTON.type;
+        }
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(logType).p(lk0Var.p.a).v(lk0Var.q.a).j(str).k(lk0Var.d).l(lk0Var.q.a).m(lk0Var.q.b).n(lk0Var.g);
+        JSONObject jSONObject = new JSONObject();
+        if (!TextUtils.isEmpty(lk0Var.q.d)) {
+            xz0.f(jSONObject, "ad_download_content_type", lk0Var.q.d);
+        }
+        long j = lk0Var.q.e;
+        if (j > 0) {
+            xz0.e(jSONObject, "ad_download_content_length", j);
+        }
+        int i = lk0Var.n;
+        if (i > 0) {
+            xz0.d(jSONObject, "version_code", i);
+        }
+        if (!TextUtils.isEmpty(lk0Var.o)) {
+            xz0.f(jSONObject, "version_name", lk0Var.o);
+        }
+        if (tk0Var != null) {
+            Exception exc = tk0Var.a;
+            if (exc != null) {
+                xz0.f(jSONObject, "failed_reason", exc.getClass().toString());
+            }
+            String str2 = tk0Var.b;
+            if (str2 != null) {
+                xz0.f(jSONObject, "failed_reason", str2);
+            }
+        }
+        if (jSONObject.length() > 0) {
+            clogBuilder.o(jSONObject.toString());
+        }
+        h01.b(clogBuilder);
+    }
+
+    public void a(@NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lk0Var) == null) || lk0Var.f()) {
+            return;
+        }
+        this.c.b(lk0Var);
+        lk0Var.c = AdDownloadStatus.NONE;
+        f(AdDownloadAction.FAIL, lk0Var);
+    }
+
+    public void f(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadAction, lk0Var) == null) {
+            g(adDownloadAction, lk0Var, null);
+        }
+    }
+
+    public void g(@NonNull AdDownloadAction adDownloadAction, @NonNull lk0 lk0Var, @Nullable tk0 tk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, adDownloadAction, lk0Var, tk0Var) == null) {
+            e(adDownloadAction, lk0Var, tk0Var);
+            this.b.readLock().lock();
+            try {
+                List list = (List) yz0.b(this.a, lk0Var.e());
+                if (list == null) {
+                    return;
+                }
+                for (int i = 0; i != wz0.l(list); i++) {
+                    dl0 dl0Var = (dl0) wz0.d(list, i);
+                    if (dl0Var != null && dl0Var.getData() != null) {
+                        dl0Var.getData().i(lk0Var);
+                        dl0Var.a(adDownloadAction, dl0Var.getData());
+                    }
+                }
+            } finally {
+                this.b.readLock().unlock();
+            }
+        }
+    }
+
+    public void h(@NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lk0Var) == null) {
+            this.c.c(lk0Var);
+        }
+    }
+
+    public void i(String str, dl0 dl0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, dl0Var) == null) || TextUtils.isEmpty(str) || dl0Var == null) {
+            return;
+        }
+        this.b.writeLock().lock();
+        try {
+            List list = (List) yz0.b(this.a, str);
+            if (list == null) {
+                list = new ArrayList();
+                yz0.e(this.a, str, list);
+            }
+            wz0.b(list, dl0Var);
+        } finally {
+            this.b.writeLock().unlock();
+        }
+    }
+
+    public void j(@NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, lk0Var) == null) {
+            f(AdDownloadAction.PROGRESS_UPDATE, lk0Var);
+            this.c.d(lk0Var, new zj0(lk0Var));
+        }
+    }
+
+    public void k(@NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lk0Var) == null) {
+            f(AdDownloadAction.PROGRESS_UPDATE, lk0Var);
+            lk0Var.b = this.c.a(lk0Var, new zj0(lk0Var));
+            lk0Var.c = AdDownloadStatus.DOWNLOADING;
+        }
+    }
+
+    public void l(String str, dl0 dl0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, str, dl0Var) == null) || TextUtils.isEmpty(str) || dl0Var == null) {
+            return;
+        }
+        this.b.writeLock().lock();
+        try {
+            List list = (List) yz0.b(this.a, str);
+            if (list == null) {
+                return;
+            }
+            wz0.j(list, dl0Var);
+        } finally {
+            this.b.writeLock().unlock();
         }
     }
 
@@ -83,144 +329,8 @@ public class yj0 {
                 return;
             }
         }
-        this.a = "";
-        this.b = -1;
-        this.c = AdDownloadStatus.NONE;
-        this.i = 0.0f;
-        this.j = 0.0f;
-        this.n = -1;
-        this.p = new ck0();
-        this.q = new zj0();
-        this.r = new bk0();
-    }
-
-    @NonNull
-    public static yj0 c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        ho0 ho0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
-            yj0 yj0Var = new yj0();
-            if (adBaseModel != null && (ho0Var = adBaseModel.l) != null && ho0Var.e) {
-                yj0Var.g = ho0Var.c;
-                yj0Var.h(ho0Var.d);
-                yj0Var.d = adBaseModel.l.a;
-                AdOperator adOperator = adBaseModel.h;
-                yj0Var.f = adOperator == null ? null : adOperator.d;
-                yj0Var.p.a = adBaseModel.f.d;
-            }
-            return yj0Var;
-        }
-        return (yj0) invokeL.objValue;
-    }
-
-    @NonNull
-    public static yj0 d(ho0 ho0Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, ho0Var, str, str2)) == null) {
-            yj0 yj0Var = new yj0();
-            if (ho0Var != null && ho0Var.e) {
-                yj0Var.g = ho0Var.c;
-                yj0Var.h(ho0Var.d);
-                yj0Var.d = ho0Var.a;
-                yj0Var.p.a = str;
-                yj0Var.f = str2;
-            }
-            return yj0Var;
-        }
-        return (yj0) invokeLLL.objValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!f() && this.q.s) {
-                return !TextUtils.isEmpty(TextUtils.isEmpty(this.p.c) ? nj0.a(this.d) : this.p.c) || (this.q.u && !TextUtils.isEmpty(this.d));
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.q.g != 1 : invokeV.booleanValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.g) : invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = AdDownloadStatus.NONE;
-            this.i = 0.0f;
-            this.j = 0.0f;
-            this.h = null;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || str == null) {
-            return;
-        }
-        this.a = str;
-    }
-
-    public void i(yj0 yj0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, yj0Var) == null) {
-            if (yj0Var != null && TextUtils.equals(e(), yj0Var.e())) {
-                int i = a.a[yj0Var.c.ordinal()];
-                if (i != 1) {
-                    if (i == 2 && !cl0.b(yj0Var.d)) {
-                        File file = yj0Var.h;
-                        if (file != null && file.exists()) {
-                            yj0Var.c = AdDownloadStatus.COMPLETED;
-                        } else {
-                            yj0Var.g();
-                            return;
-                        }
-                    }
-                } else if (cl0.b(yj0Var.d)) {
-                    yj0Var.c = AdDownloadStatus.INSTALLED;
-                } else if (!cl0.e(yj0Var.h)) {
-                    lj0.b().a(yj0Var);
-                    yj0Var.g();
-                }
-                if (TextUtils.isEmpty(this.d)) {
-                    this.d = yj0Var.d;
-                }
-                this.b = yj0Var.b;
-                this.c = yj0Var.c;
-                this.i = yj0Var.i;
-                this.j = yj0Var.j;
-                this.h = yj0Var.h;
-                this.d = yj0Var.d;
-                this.l = yj0Var.l;
-                this.m = yj0Var.m;
-                zj0 zj0Var = this.q;
-                zj0 zj0Var2 = yj0Var.q;
-                zj0Var.k = zj0Var2.k;
-                zj0Var.l = zj0Var2.l;
-                this.p.h = yj0Var.p.h;
-                this.k = yj0Var.k;
-            } else if (cl0.b(this.d)) {
-                this.c = AdDownloadStatus.INSTALLED;
-            }
-        }
+        this.a = new HashMap<>(32);
+        this.b = new ReentrantReadWriteLock();
+        this.c = fl0.b();
     }
 }

@@ -2,7 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes3.dex */
-public class ai8 implements ILokiIdentityNeedContext {
+public class ai8 implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,10 +30,10 @@ public class ai8 implements ILokiIdentityNeedContext {
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
-    public String getAppName() {
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.getVersion() : (String) invokeV.objValue;
     }
 }

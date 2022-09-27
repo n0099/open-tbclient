@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.fb5;
-import com.baidu.tieba.iq6;
-import com.baidu.tieba.jq6;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.wq6;
+import com.baidu.tieba.xq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsProfessionPermissionModel<T> extends NetAutoModel<iq6, jq6, T> {
+public class FrsProfessionPermissionModel<T> extends NetAutoModel<wq6, xq6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, iq6 iq6Var) {
-        super(tbPageContext, iq6Var);
+    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, wq6 wq6Var) {
+        super(tbPageContext, wq6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, iq6Var};
+            Object[] objArr = {tbPageContext, wq6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (fb5) objArr2[1]);
+                super((TbPageContext) objArr2[0], (sb5) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,9 +80,9 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<iq6, jq6, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<jq6> getResponseDataClass() {
+    public Class<xq6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? jq6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? xq6.class : (Class) invokeV.objValue;
     }
 }

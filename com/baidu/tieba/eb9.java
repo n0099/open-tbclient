@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes3.dex */
-public final class eb9 {
+public class eb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (!lb9.i() || ob9.f(context) == 1) {
-                    return fb9.c(fb9.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "process";
             }
-            return false;
+            try {
+                return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

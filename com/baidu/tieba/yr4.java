@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes6.dex */
 public class yr4 {
     public static /* synthetic */ Interceptable $ic;
@@ -27,44 +24,41 @@ public class yr4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = 0;
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public void c(ForumBookInfo forumBookInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) == null) || forumBookInfo == null) {
             return;
         }
-        try {
-            this.b = jSONObject.optInt("class_id", 0);
-            this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void d(Classify classify) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, classify) == null) || classify == null) {
-            return;
-        }
-        this.b = classify.class_id.intValue();
-        this.a = classify.class_name;
+        this.a = forumBookInfo.book_id;
+        this.b = forumBookInfo.book_type.intValue();
+        String str = forumBookInfo.book_title;
+        String str2 = forumBookInfo.book_cover;
+        String str3 = forumBookInfo.author;
+        String str4 = forumBookInfo.forum_pic;
+        String str5 = forumBookInfo.show_chapter_id;
+        String str6 = forumBookInfo.show_chapter_no;
+        String str7 = forumBookInfo.show_chapter_title;
+        forumBookInfo.history_page_id.longValue();
+        forumBookInfo.history_paragraph_id.longValue();
+        forumBookInfo.history_word_id.longValue();
+        forumBookInfo.history_percent.longValue();
+        forumBookInfo.show_page_id.longValue();
+        forumBookInfo.show_paragraph_id.longValue();
     }
 }

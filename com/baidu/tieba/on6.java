@@ -1,33 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j76;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
+import com.baidu.tieba.frs.gamepaltform.GameRankListViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class on6 {
+public class on6 extends dh6<nv6, GameRankListViewHolder> implements ds6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public boolean b;
-    public k76 c;
-    public boolean d;
-    public VelocityTracker e;
-    public j76.b f;
+    public bs6 l;
 
     /* loaded from: classes5.dex */
-    public class a implements j76.b {
+    public class a implements GameRankHorizontalLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ on6 a;
@@ -50,141 +50,121 @@ public class on6 {
             this.a = on6Var;
         }
 
-        @Override // com.baidu.tieba.j76.b
-        public void a(int i, int i2) {
+        @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.b
+        public void a(mv6 mv6Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
-                this.a.e(true);
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, mv6Var, i) == null) || mv6Var == null) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.j76.b
-        public void b(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
-                this.a.e(false);
+            if (this.a.l != null) {
+                TiebaStatic.log(new StatisticItem("c12105").param("fid", this.a.l.c).param("obj_locate", i + 1));
             }
-        }
-
-        @Override // com.baidu.tieba.j76.b
-        public void c(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (StringUtils.isNull(mv6Var.c())) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.j76.b
-        public void d(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            }
-        }
-
-        public final boolean e(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) ? Math.abs(f) >= 10.0f : invokeF.booleanValue;
+            yo4.o(this.a.c.getPageActivity(), mv6Var.c());
         }
     }
 
-    public on6(Context context, BdUniqueId bdUniqueId, boolean z) {
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(on6 on6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {on6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ox4 k = ox4.k();
+                k.y("game_rank_list_info", System.currentTimeMillis() + ",7");
+                ox4.k().w("game_rank_list_show_times", 0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921005));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public on6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.f = new a(this);
-        this.a = bdUniqueId;
-        this.d = z;
-        if (z) {
-            k76 k76Var = new k76(context);
-            this.c = k76Var;
-            k76Var.d(this.f);
-        }
+        this.l = new bs6();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
-        if (r5 != 3) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(View view2, MotionEvent motionEvent) {
-        k76 k76Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: G */
+    public GameRankListViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
-            if (this.e == null) {
-                this.e = VelocityTracker.obtain();
-            }
-            this.e.addMovement(motionEvent);
-            int action = motionEvent.getAction();
-            if (action != 1) {
-                if (action == 2) {
-                    this.e.computeCurrentVelocity(1000);
-                    if (Math.abs(this.e.getXVelocity()) > Math.abs(this.e.getYVelocity())) {
-                        this.d = false;
-                    } else {
-                        this.d = true;
-                    }
-                }
-                if (this.d || (k76Var = this.c) == null) {
-                }
-                k76Var.c(motionEvent);
-                return;
-            }
-            c();
-            if (this.d) {
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0374, (ViewGroup) null)) : (GameRankListViewHolder) invokeL.objValue;
     }
 
-    public final void c() {
-        VelocityTracker velocityTracker;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dh6, com.baidu.tieba.qn
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nv6 nv6Var, GameRankListViewHolder gameRankListViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.e) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nv6Var, gameRankListViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, nv6Var, gameRankListViewHolder);
+            if (nv6Var == null) {
+                return null;
+            }
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
+            if (this.l != null) {
+                TiebaStatic.log(new StatisticItem("c12104").param("fid", this.l.c));
+            }
+            GameRankHorizontalLayout gameRankHorizontalLayout = gameRankListViewHolder.a;
+            if (gameRankHorizontalLayout != null) {
+                gameRankHorizontalLayout.setData(nv6Var);
+                gameRankListViewHolder.a.setOnCardClickListener(new a(this));
+            }
+            TextView textView = gameRankListViewHolder.b;
+            if (textView != null) {
+                textView.setOnClickListener(new b(this));
+            }
+            this.c.getLayoutMode().l(this.f == 1);
+            this.c.getLayoutMode().k(view2);
+            return view2;
         }
-        velocityTracker.clear();
-        this.e.recycle();
-        this.e = null;
+        return (View) invokeCommon.objValue;
     }
 
-    public final void d(boolean z, boolean z2) {
+    @Override // com.baidu.tieba.ds6
+    public bs6 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                CustomMessage customMessage = new CustomMessage(2001617);
-                customMessage.setTag(this.a);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
-                customResponsedMessage.setOrginalMessage(customMessage);
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                return;
-            }
-            CustomMessage customMessage2 = new CustomMessage(2001618);
-            customMessage2.setTag(this.a);
-            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
-            customResponsedMessage2.setOrginalMessage(customMessage2);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-            if (this.d) {
-                d(!z, true);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (bs6) invokeV.objValue;
     }
 }

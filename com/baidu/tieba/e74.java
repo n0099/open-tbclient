@@ -3,25 +3,30 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes3.dex */
 public class e74 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d74 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized d74 a() {
+    public static String a() {
         InterceptResult invokeV;
-        d74 d74Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (e74.class) {
-                if (a == null) {
-                    a = new d74();
-                }
-                d74Var = a;
-            }
-            return d74Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINESE).format(new Date(System.currentTimeMillis())) : (String) invokeV.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? zb3.a().getString(str, null) : (String) invokeL.objValue;
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            zb3.a().putString(str, str2);
         }
-        return (d74) invokeV.objValue;
     }
 }

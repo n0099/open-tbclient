@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sx extends gx<lq4> {
+public class sx extends gx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout f;
-    public lq4 g;
+    public yq4 g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -98,14 +98,14 @@ public class sx extends gx<lq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: q */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) || (cardForumHeadLayout = this.f) == null || lq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) || (cardForumHeadLayout = this.f) == null || yq4Var == null) {
             return;
         }
-        this.g = lq4Var;
+        this.g = yq4Var;
         cardForumHeadLayout.setOnClickListener();
-        this.f.setData(lq4Var.getThreadData());
+        this.f.setData(yq4Var.getThreadData());
     }
 }

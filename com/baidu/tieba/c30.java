@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i50;
+import com.baidu.tieba.k50;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ public abstract class c30 {
     public static Comparator<c30> e;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public i50.a b;
+    public k50.a b;
     public final String c;
     public long d;
 
@@ -63,8 +63,8 @@ public abstract class c30 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
-        public i50 b;
-        public m50 c;
+        public k50 b;
+        public o50 c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -85,11 +85,11 @@ public abstract class c30 {
     public static abstract class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public i50.a a;
+        public k50.a a;
         public String b;
         public boolean c;
 
-        public c(i50.a aVar, String str) {
+        public c(k50.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

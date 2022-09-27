@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.hp7;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.vp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,8 +39,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && ACTION_NAME.equals(intent.getAction())) {
-            hp7.b().g();
-            if (bx4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            vp7.b().g();
+            if (ox4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);

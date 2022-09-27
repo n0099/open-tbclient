@@ -1,86 +1,53 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.annotation.RestrictTo;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes3.dex */
 public class cb0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<Matrix> a;
-    public static final ThreadLocal<RectF> b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static int b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947668856, "Lcom/baidu/tieba/cb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947668856, "Lcom/baidu/tieba/cb0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947668856, "Lcom/baidu/tieba/cb0;")) == null) {
+            return;
         }
-        a = new ThreadLocal<>();
-        b = new ThreadLocal<>();
-    }
-
-    public static void a(ViewGroup viewGroup, View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, viewGroup, view2, rect) == null) {
-            rect.set(0, 0, view2.getWidth(), view2.getHeight());
-            c(viewGroup, view2, rect);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947668856, "Lcom/baidu/tieba/cb0;");
         }
     }
 
-    public static void b(ViewParent viewParent, View view2, Matrix matrix) {
+    public static synchronized int a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, viewParent, view2, matrix) == null) {
-            ViewParent parent = view2.getParent();
-            if ((parent instanceof View) && parent != viewParent) {
-                View view3 = (View) parent;
-                b(viewParent, view3, matrix);
-                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (cb0.class) {
+                if (!a && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
+                    b = dimensionPixelSize;
+                    a = true;
+                    Log.d("StatusBarHeightUtil", String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize)));
+                }
+                i = b;
             }
-            matrix.preTranslate(view2.getLeft(), view2.getTop());
-            if (view2.getMatrix().isIdentity()) {
-                return;
-            }
-            matrix.preConcat(view2.getMatrix());
+            return i;
         }
-    }
-
-    public static void c(ViewGroup viewGroup, View view2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view2, rect) == null) {
-            Matrix matrix = a.get();
-            if (matrix == null) {
-                matrix = new Matrix();
-                a.set(matrix);
-            } else {
-                matrix.reset();
-            }
-            b(viewGroup, view2, matrix);
-            RectF rectF = b.get();
-            if (rectF == null) {
-                rectF = new RectF();
-                b.set(rectF);
-            }
-            rectF.set(rect);
-            matrix.mapRect(rectF);
-            rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
-        }
+        return invokeL.intValue;
     }
 }

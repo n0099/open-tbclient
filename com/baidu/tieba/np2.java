@@ -1,61 +1,182 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class np2 extends kp2 {
+public class np2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final np2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public rp2 A;
-    public double B;
-    public int C;
-    public String z;
+    public final AtomicBoolean a;
+    public final List<kp2> b;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010073, "Lcom/baidu/tieba/np2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948010073, "Lcom/baidu/tieba/np2;");
+                return;
+            }
+        }
+        c = vj1.a;
+        d = new np2();
+    }
 
     public np2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.z = "";
-        this.C = 1000;
+        this.a = new AtomicBoolean(false);
+        te1<kp2> te1Var = new mp2().a;
+        this.b = te1Var == null ? null : te1Var.getList();
     }
 
-    @Override // com.baidu.tieba.kp2, com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        rp2 rp2Var = new rp2();
-        this.A = rp2Var;
-        rp2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public boolean isValid() {
+    public static np2 a() {
         InterceptResult invokeV;
-        rp2 rp2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.z) || (rp2Var = this.A) == null || !rp2Var.isValid()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d : (np2) invokeV.objValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
+            }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN : invokeV.booleanValue;
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (kp2 kp2Var : this.b) {
+                    if (current == kp2Var.b()) {
+                        kp2Var.a(true, activity);
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (kp2 kp2Var : this.b) {
+                    if (current == kp2Var.b()) {
+                        kp2Var.a(false, activity);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends to2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ np2 b;
+
+        public b(np2 np2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {np2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = np2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.to2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.to2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(np2 np2Var, a aVar) {
+            this(np2Var);
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface n13<T> {
-    int a();
+public interface n13 {
+    void handleHide();
 
-    T getItem(int i);
+    void handleShow();
 }

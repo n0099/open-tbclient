@@ -1,210 +1,194 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class b78 {
     public static /* synthetic */ Interceptable $ic;
+    public static b78 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public a78 a;
-    public p68 b;
-    public w68 c;
-    public o68 d;
-    public q68 e;
-    public v68 f;
-    public s68 g;
-    public y68 h;
-    public r68 i;
-    public x38 j;
-    public u38 k;
-    public d78 l;
-    public k78 m;
-    public h78 n;
-    public m78 o;
-    public l78 p;
-    public e78 q;
-    public g78 r;
-    public f78 s;
-    public i78 t;
-    public j78 u;
-    public List<qn> v;
-    public BdTypeRecyclerView w;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
 
-    public b78(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, BdUniqueId bdUniqueId) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947597990, "Lcom/baidu/tieba/b78;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947597990, "Lcom/baidu/tieba/b78;");
+                return;
+            }
+        }
+        h = new b78();
+    }
+
+    public b78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.v = new ArrayList();
-        a(tbPageContext, bdTypeRecyclerView);
-        e(bdUniqueId);
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
     }
 
-    public final void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public static b78 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdTypeRecyclerView) == null) {
-            this.w = bdTypeRecyclerView;
-            this.a = new a78(tbPageContext);
-            this.b = new p68(tbPageContext);
-            this.c = new w68(tbPageContext);
-            this.d = new o68(tbPageContext);
-            this.e = new q68(tbPageContext);
-            this.f = new v68(tbPageContext, tbPageContext.getUniqueId());
-            this.g = new s68(tbPageContext, e88.h);
-            this.h = new y68(tbPageContext);
-            this.i = new r68(tbPageContext);
-            this.j = new x38(tbPageContext, z38.b);
-            this.k = new u38(tbPageContext.getPageActivity(), p38.d);
-            this.l = new d78(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-            this.m = new k78(tbPageContext, k26.i0);
-            this.n = new h78(tbPageContext, k26.q0);
-            this.o = new m78(tbPageContext, l26.U);
-            this.p = new l78(tbPageContext, k26.r0);
-            this.s = new f78(tbPageContext, k26.t0);
-            this.t = new i78(tbPageContext, k26.s0);
-            this.u = new j78(tbPageContext, k26.u0);
-            this.q = new e78(tbPageContext, f26.N0);
-            this.r = new g78(tbPageContext, g26.N0);
-            this.v.add(this.a);
-            this.v.add(this.b);
-            this.v.add(this.c);
-            this.v.add(this.d);
-            this.v.add(this.e);
-            this.v.add(this.f);
-            this.v.add(this.g);
-            this.v.add(this.h);
-            this.v.add(this.i);
-            this.v.add(this.j);
-            this.v.add(this.k);
-            this.v.add(this.l);
-            this.v.add(this.m);
-            this.v.add(this.n);
-            this.v.add(this.o);
-            this.v.add(this.p);
-            this.v.add(this.s);
-            this.v.add(this.t);
-            this.v.add(this.u);
-            this.v.add(this.q);
-            this.v.add(this.r);
-            bdTypeRecyclerView.a(this.v);
-            c("page_recommend");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? h : (b78) invokeV.objValue;
     }
 
-    public void b() {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.w.getListAdapter() == null) {
-            return;
-        }
-        this.w.getListAdapter().notifyDataSetChanged();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.longValue;
     }
 
-    public final void c(String str) {
-        List<qn> list;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (list = this.v) == null) {
-            return;
-        }
-        for (qn qnVar : list) {
-            if (qnVar instanceof go5) {
-                ((go5) qnVar).g(str);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+            this.e = 0L;
+            this.f = 0L;
+            this.g = 0L;
         }
     }
 
-    public void d(boolean z) {
+    public void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.l.u(z);
-            this.c.w(z);
-            this.m.x(z);
-            this.n.v(z);
-            this.o.w(z);
-            this.p.v(z);
-            this.q.y(z);
-            this.r.x(z);
-            this.s.x(z);
-            this.t.x(z);
-            this.u.x(z);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.e = j;
         }
     }
 
-    public void e(BdUniqueId bdUniqueId) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.m.a = bdUniqueId;
-            this.n.a = bdUniqueId;
-            this.o.a = bdUniqueId;
-            this.p.a = bdUniqueId;
-            this.s.a = bdUniqueId;
-            this.t.a = bdUniqueId;
-            this.u.a = bdUniqueId;
-            this.q.a = bdUniqueId;
-            this.r.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void f(int i) {
+    public void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.m.y(i);
-            this.n.w(i);
-            this.o.x(i);
-            this.p.w(i);
-            this.q.z(i);
-            this.r.y(i);
-            this.s.y(i);
-            this.t.y(i);
-            this.u.y(i);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.d = j;
         }
     }
 
-    public void g(int i) {
+    public void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.m.z(i);
-            this.n.x(i);
-            this.o.y(i);
-            this.p.x(i);
-            this.q.A(i);
-            this.r.z(i);
-            this.s.z(i);
-            this.t.z(i);
-            this.u.z(i);
+        if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && this.b == 0) {
+            this.b = j;
         }
     }
 
-    public void h(int i) {
+    public void n(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m.A(i);
-            this.n.y(i);
-            this.o.z(i);
-            this.p.y(i);
-            this.q.B(i);
-            this.r.A(i);
-            this.s.A(i);
-            this.t.A(i);
-            this.u.A(i);
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.c = j;
         }
+    }
+
+    public void o(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && this.g == 0) {
+            this.g = j;
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(" beginTime:");
+            stringBuffer.append(this.e);
+            stringBuffer.append(" creatTime:");
+            stringBuffer.append(this.a);
+            stringBuffer.append(" refreshStartTime:");
+            stringBuffer.append(this.g);
+            stringBuffer.append(" refrehTime:");
+            stringBuffer.append(this.f);
+            stringBuffer.append(" drawTime:");
+            stringBuffer.append(this.d);
+            stringBuffer.append(" profileTime:");
+            stringBuffer.append(this.c);
+            return stringBuffer.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

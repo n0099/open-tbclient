@@ -12,10 +12,10 @@ import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.lb0;
-import com.baidu.tieba.xa0;
-import com.baidu.tieba.xs9;
+import com.baidu.tieba.kb0;
+import com.baidu.tieba.mt9;
+import com.baidu.tieba.uc0;
+import com.baidu.tieba.yb0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,14 +187,14 @@ public class LiveFeedPageSdk {
     public String getYYHDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? xs9.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? mt9.a(context) : (String) invokeL.objValue;
     }
 
     public void initHostInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             this.mHost = str;
-            hc0.f().s(str, str2);
+            uc0.f().s(str, str2);
         }
     }
 
@@ -208,7 +208,7 @@ public class LiveFeedPageSdk {
     public void initNetWork(INetWork iNetWork) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iNetWork) == null) {
-            lb0.b(iNetWork);
+            yb0.b(iNetWork);
         }
     }
 
@@ -258,16 +258,16 @@ public class LiveFeedPageSdk {
 
     public void startLiveSearchActivity(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, context) == null) || xa0.a() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, context) == null) || kb0.a() == null) {
             return;
         }
-        xa0.a().a(context, "");
+        kb0.a().a(context, "");
     }
 
     public void updateUiMode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            hc0.f().u(str);
+            uc0.f().u(str);
         }
     }
 

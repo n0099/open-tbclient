@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.Cdo;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.g97;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.m77;
 import com.baidu.tieba.ma;
-import com.baidu.tieba.s87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,10 +56,10 @@ public abstract class ChatMessage extends TbSocketMessage implements ma, Cdo {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<s87> iceBreakEmotions;
+    public List<g97> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<m77> itemViewWeakReference;
+    public WeakReference<a87> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -253,7 +253,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ma, Cdo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.height : invokeV.intValue;
     }
 
-    public List<s87> getIceBreakEmotions() {
+    public List<g97> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.iceBreakEmotions : (List) invokeV.objValue;
@@ -272,17 +272,17 @@ public abstract class ChatMessage extends TbSocketMessage implements ma, Cdo {
     }
 
     @Nullable
-    public m77 getItemView() {
+    public a87 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<m77> weakReference = this.itemViewWeakReference;
+            WeakReference<a87> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (m77) invokeV.objValue;
+        return (a87) invokeV.objValue;
     }
 
     public String getLink() {
@@ -600,7 +600,7 @@ public abstract class ChatMessage extends TbSocketMessage implements ma, Cdo {
         }
     }
 
-    public void setIceBreakEmotions(List<s87> list) {
+    public void setIceBreakEmotions(List<g97> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;
@@ -628,24 +628,24 @@ public abstract class ChatMessage extends TbSocketMessage implements ma, Cdo {
         }
     }
 
-    public void setItemView(@Nullable m77 m77Var) {
-        WeakReference<m77> weakReference;
+    public void setItemView(@Nullable a87 a87Var) {
+        WeakReference<a87> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, m77Var) == null) {
-            if (m77Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, a87Var) == null) {
+            if (a87Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<m77> weakReference2 = this.itemViewWeakReference;
+            WeakReference<a87> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == m77Var) {
+                if (weakReference2.get() == a87Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(m77Var);
+            this.itemViewWeakReference = new WeakReference<>(a87Var);
         }
     }
 

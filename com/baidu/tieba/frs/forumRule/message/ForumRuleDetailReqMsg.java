@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.fh5;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class ForumRuleDetailReqMsg extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.forum_id = getForumRuleId();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    fh5.c(builder, true, true, false);
+                    sh5.c(builder, true, true, false);
                 }
                 ForumRuleDetailReqIdl.Builder builder2 = new ForumRuleDetailReqIdl.Builder();
                 builder2.data = builder.build(false);

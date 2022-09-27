@@ -1,48 +1,88 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class tj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return (String) invokeLLZ.objValue;
+        if (inputStream == null) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            try {
+                i = inputStream.read(bArr, 0, 1024);
+            } catch (IOException unused) {
+                i = 0;
+            }
+            if (i != -1) {
+                byteArrayOutputStream.write(bArr, 0, i);
+            } else {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                pj4.d(byteArrayOutputStream);
+                return byteArray;
+            }
+        }
     }
 
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                bArr = messageDigest.digest();
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            return a(bArr, "", z);
+            try {
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
         }
-        return (String) invokeLZ.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                byte[] a = a(inputStream);
+                if (a != null) {
+                    String str = new String(a);
+                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                        str = str.substring(1);
+                    }
+                    pj4.d(inputStream);
+                    return str;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                pj4.d(inputStream);
+                throw th;
+            }
+            pj4.d(inputStream);
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

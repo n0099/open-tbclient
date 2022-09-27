@@ -1,383 +1,126 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.io2;
+import com.baidu.tieba.q92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public class rw2 implements pw2, co2 {
+public class rw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ExecutorService e;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ux2 c;
-    public final ux2 d;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public a(rw2 rw2Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rw2Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (pw2.b) {
-                    try {
-                        pw2.b.wait(this.a);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements ux2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-
-        public b(rw2 rw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new ConcurrentHashMap();
-            this.d = false;
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    sf3.l(runnable, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (co2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "high task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    sf3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "HighPriorityTask" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements ux2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-        public final /* synthetic */ rw2 e;
-
-        public c(rw2 rw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = rw2Var;
-            this.c = new ConcurrentHashMap();
-            this.d = false;
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    sf3.l(runnable, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (co2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "low task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-                if (zw2.e()) {
-                    this.e.c();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-                if (zw2.e()) {
-                    this.e.b(zw2.f());
-                }
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    sf3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
-        }
-
-        @Override // com.baidu.tieba.ux2
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LowPriorityTask" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rw2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-447098596, "Lcom/baidu/tieba/rw2$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-447098596, "Lcom/baidu/tieba/rw2$d;");
-                    return;
-                }
-            }
-            a = new rw2(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135964, "Lcom/baidu/tieba/rw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948135964, "Lcom/baidu/tieba/rw2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948135964, "Lcom/baidu/tieba/rw2;")) == null) {
+            return;
         }
-        e = Executors.newSingleThreadExecutor();
-    }
-
-    public /* synthetic */ rw2(a aVar) {
-        this();
-    }
-
-    public static rw2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (rw2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pw2
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (co2.a) {
-                Log.d("SwanPerformance", "low priority thread wait = " + i);
-            }
-            e.execute(new a(this, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.pw2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (co2.a) {
-                Log.d("SwanPerformance", "low priority thread notify");
-            }
-            synchronized (pw2.b) {
-                try {
-                    pw2.b.notifyAll();
-                }
-            }
-        }
-    }
-
-    public boolean d(@NonNull Runnable runnable, @NonNull String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, runnable, str, z)) == null) {
-            if (z) {
-                this.c.c(runnable, str);
-                return true;
-            } else if (zw2.e()) {
-                e.execute(runnable);
-                return true;
-            } else {
-                this.d.c(runnable, str);
-                return true;
-            }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sx2.g().i(this.c, 3000);
-            sx2.g().i(this.d, 5000);
-        }
-    }
-
-    public rw2() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948135964, "Lcom/baidu/tieba/rw2;");
+        }
+    }
+
+    public static void a(String str, @Nullable lt2 lt2Var) {
+        l33 M;
+        io2.a Y;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, lt2Var) == null) || (M = l33.M()) == null || (Y = M.Y()) == null) {
+            return;
+        }
+        HybridUbcFlow q = qw2.q("route", str);
+        q.D("appid", Y.H());
+        q.D("swan", qc3.i(Y.j0(), Y.G()));
+        q.D("net", SwanAppNetworkUtils.f().type);
+        q.D("appversion", Y.v1());
+        q.D("thirdversion", Y.w1());
+        q.D("mobile", bg3.c());
+        q.D("scheme", Y.W());
+        q.D("launchid", Y.V());
+        q.E("from", "swan");
+        q.D("web_widget_state", "0");
+        q.A();
+        if (lt2Var != null) {
+            q.E("na_multi_jump_dst_path", lt2Var.a());
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            yt2.j(true);
+            qw2.s("route", str);
+            HybridUbcFlow q = qw2.q("route", str);
+            q.F(new UbcFlowEvent("na_first_receive_action"));
+            q.D("sub_state", "0");
+            a = System.currentTimeMillis();
+        }
+    }
+
+    public static void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
+            ql2.c(i);
+            HybridUbcFlow q = qw2.q("route", str);
+            if (i != 6 && i != 4 && i != 1) {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
+            } else {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
+            }
+            q.E("type", Integer.valueOf(i));
+            t22 H = yo2.U().H();
+            q.E("na_multi_jump_src_path", H != null ? H.m3().a() : "");
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(qw2.q("route", str).h("sub_state"), "1")) {
+            qw2.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
+        }
+    }
+
+    public static void e(q92.e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
+            qw2.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
+            if (eVar == null) {
                 return;
             }
+            rp1 rp1Var = eVar.a;
+            if (rp1Var != null) {
+                rp1Var.v(str);
+            }
+            HybridUbcFlow q = qw2.q("route", str);
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
+            ubcFlowEvent.h(eVar.d);
+            q.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
+            ubcFlowEvent2.h(eVar.e);
+            q.F(ubcFlowEvent2);
         }
-        this.c = new b(this);
-        this.d = new c(this);
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            HybridUbcFlow q = qw2.q("route", str);
+            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
+            q.D("web_widget_state", "1");
+            q.T();
+        }
     }
 }

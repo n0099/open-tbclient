@@ -11,9 +11,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.eb7;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import com.baidu.tieba.qa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qa7 a;
+    public eb7 a;
     public RecommendDetailModel b;
     public long c;
     public String d;
@@ -194,23 +194,23 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void W(UserInfoBigVip userInfoBigVip, boolean z) {
-        qa7 qa7Var;
+        eb7 eb7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, userInfoBigVip, z) == null) || (qa7Var = this.a) == null || userInfoBigVip == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, userInfoBigVip, z) == null) || (eb7Var = this.a) == null || userInfoBigVip == null) {
             return;
         }
-        qa7Var.g();
+        eb7Var.g();
         this.a.p(userInfoBigVip, z);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void i0(View view2, BdSwitchView.SwitchState switchState) {
-        qa7 qa7Var;
+        eb7 eb7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, view2, switchState) == null) || (qa7Var = this.a) == null || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, view2, switchState) == null) || (eb7Var = this.a) == null || this.b == null) {
             return;
         }
-        if (view2 == qa7Var.c()) {
+        if (view2 == eb7Var.c()) {
             this.b.O(1, switchState != BdSwitchView.SwitchState.OFF);
         } else if (view2 == this.a.d()) {
             this.b.O(2, switchState != BdSwitchView.SwitchState.OFF);
@@ -222,9 +222,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            qa7 qa7Var = this.a;
-            if (qa7Var != null) {
-                qa7Var.j(i);
+            eb7 eb7Var = this.a;
+            if (eb7Var != null) {
+                eb7Var.j(i);
             }
         }
     }
@@ -234,7 +234,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new qa7(this);
+            this.a = new eb7(this);
             this.b = new RecommendDetailModel(getPageContext(), this, this);
             A1(bundle);
             this.a.a();
@@ -257,11 +257,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void onFailed(String str) {
         RecommendDetailModel recommendDetailModel;
-        qa7 qa7Var;
+        eb7 eb7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (!StringUtils.isNull(str) && (qa7Var = this.a) != null) {
-                qa7Var.g();
+            if (!StringUtils.isNull(str) && (eb7Var = this.a) != null) {
+                eb7Var.g();
                 this.a.b();
             }
             if (this.a == null || (recommendDetailModel = this.b) == null || !recommendDetailModel.I() || this.b.G() || !StringUtils.isNull(str)) {

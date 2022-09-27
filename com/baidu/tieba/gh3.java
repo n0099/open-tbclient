@@ -1,43 +1,182 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class gh3 {
+public abstract class gh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
+    @SuppressLint({"StaticFieldLeak"})
+    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947793879, "Lcom/baidu/tieba/gh3;")) != null) {
+    @TargetApi(11)
+    /* loaded from: classes4.dex */
+    public static class a extends gh3 {
+        public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager b;
+        public static ClipData c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-775842374, "Lcom/baidu/tieba/gh3$a;")) == null) {
+                return;
+            }
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947793879, "Lcom/baidu/tieba/gh3;");
-                return;
+                classClinitInterceptable.invokePostClinit(-775842374, "Lcom/baidu/tieba/gh3$a;");
             }
         }
-        a = a("b3Bwbw==");
-        b = a("T1BQTw==");
-        a("T3Bwbw==");
-        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
+
+        @SuppressLint({"ServiceCast"})
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (ClipboardManager) gh3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.gh3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    c = b.getPrimaryClip();
+                } catch (Exception e) {
+                    if (vj1.a) {
+                        throw e;
+                    }
+                }
+                ClipData clipData = c;
+                return (clipData == null || clipData.getItemCount() <= 0) ? "" : c.getItemAt(0).getText();
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.gh3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                c = newPlainText;
+                try {
+                    b.setPrimaryClip(newPlainText);
+                } catch (RuntimeException e) {
+                    if (vj1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
-    public static String a(String str) {
+    /* loaded from: classes4.dex */
+    public static class b extends gh3 {
+        public static /* synthetic */ Interceptable $ic;
+        public static android.text.ClipboardManager b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-775842343, "Lcom/baidu/tieba/gh3$b;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-775842343, "Lcom/baidu/tieba/gh3$b;");
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (android.text.ClipboardManager) gh3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.gh3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.getText() : (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.gh3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                b.setText(charSequence);
+            }
+        }
+    }
+
+    public gh3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static gh3 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new String(Base64.decode(str, 0)) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            a = context.getApplicationContext();
+            if (sf3.c()) {
+                return new a();
+            }
+            return new b();
+        }
+        return (gh3) invokeL.objValue;
     }
+
+    public abstract CharSequence a();
+
+    public abstract void c(CharSequence charSequence);
 }

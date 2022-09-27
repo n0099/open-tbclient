@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes4.dex */
 public interface la0 {
-    void a(boolean z);
-
-    int getHeight();
-
-    void refreshHeight(int i);
+    void a(View view2);
 }

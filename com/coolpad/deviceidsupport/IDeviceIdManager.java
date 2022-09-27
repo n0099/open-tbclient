@@ -4,29 +4,101 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public interface IDeviceIdManager extends IInterface {
 
+    @Keep
     /* loaded from: classes7.dex */
-    public static abstract class a extends Binder implements IDeviceIdManager {
+    public static class Default implements IDeviceIdManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: com.coolpad.deviceidsupport.IDeviceIdManager$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0513a implements IDeviceIdManager {
-            public static /* synthetic */ Interceptable $ic;
-            public static IDeviceIdManager b;
-            public transient /* synthetic */ FieldHolder $fh;
-            public IBinder a;
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-            public C0513a(IBinder iBinder) {
+        @Override // android.os.IInterface
+        @Keep
+        public native IBinder asBinder();
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native String getAAID(String str);
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native String getCoolOsVersion();
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native String getIMEI(String str);
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native String getOAID(String str);
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native String getUDID(String str);
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native String getVAID(String str);
+
+        @Override // com.coolpad.deviceidsupport.IDeviceIdManager
+        @Keep
+        public native boolean isCoolOs();
+    }
+
+    @Keep
+    /* loaded from: classes7.dex */
+    public static abstract class Stub extends Binder implements IDeviceIdManager {
+        public static /* synthetic */ Interceptable $ic = null;
+        @Keep
+        public static final String DESCRIPTOR = "com.coolpad.deviceidsupport.IDeviceIdManager";
+        @Keep
+        public static final int TRANSACTION_getAAID = 4;
+        @Keep
+        public static final int TRANSACTION_getCoolOsVersion = 7;
+        @Keep
+        public static final int TRANSACTION_getIMEI = 5;
+        @Keep
+        public static final int TRANSACTION_getOAID = 2;
+        @Keep
+        public static final int TRANSACTION_getUDID = 1;
+        @Keep
+        public static final int TRANSACTION_getVAID = 3;
+        @Keep
+        public static final int TRANSACTION_isCoolOs = 6;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Keep
+        /* loaded from: classes7.dex */
+        public static class Proxy implements IDeviceIdManager {
+            public static /* synthetic */ Interceptable $ic;
+            @Keep
+            public static IDeviceIdManager sDefaultImpl;
+            public transient /* synthetic */ FieldHolder $fh;
+            @Keep
+            public IBinder mRemote;
+
+            public Proxy(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,225 +113,97 @@ public interface IDeviceIdManager extends IInterface {
                         return;
                     }
                 }
-                this.a = iBinder;
+                this.mRemote = iBinder;
             }
 
             @Override // android.os.IInterface
-            public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (IBinder) invokeV.objValue;
-            }
+            @Keep
+            public native IBinder asBinder();
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public String getAAID(String str) {
-                InterceptResult invokeL;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        obtain.writeString(str);
-                        if (this.a.transact(4, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = a.a().getAAID(str);
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getAAID(String str);
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public String getCoolOsVersion() {
-                InterceptResult invokeV;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        if (this.a.transact(7, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = a.a().getCoolOsVersion();
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getCoolOsVersion();
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public String getIMEI(String str) {
-                InterceptResult invokeL;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        obtain.writeString(str);
-                        if (this.a.transact(5, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = a.a().getIMEI(str);
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getIMEI(String str);
+
+            @Keep
+            public native String getInterfaceDescriptor();
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public String getOAID(String str) {
-                InterceptResult invokeL;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        obtain.writeString(str);
-                        if (this.a.transact(2, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = a.a().getOAID(str);
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getOAID(String str);
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public String getUDID(String str) {
-                InterceptResult invokeL;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        obtain.writeString(str);
-                        if (this.a.transact(1, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = a.a().getUDID(str);
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getUDID(String str);
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public String getVAID(String str) {
-                InterceptResult invokeL;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        obtain.writeString(str);
-                        if (this.a.transact(3, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = a.a().getVAID(str);
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getVAID(String str);
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
-            public boolean isCoolOs() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        if (this.a.transact(6, obtain, obtain2, 0) || a.a() == null) {
-                            obtain2.readException();
-                            return obtain2.readInt() != 0;
-                        }
-                        return a.a().isCoolOs();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeV.booleanValue;
-            }
+            @Keep
+            public native boolean isCoolOs();
         }
 
-        public static IDeviceIdManager a() {
-            InterceptResult invokeV;
+        public Stub() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C0513a.b : (IDeviceIdManager) invokeV.objValue;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            attachInterface(this, DESCRIPTOR);
         }
 
-        public static IDeviceIdManager a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.coolpad.deviceidsupport.IDeviceIdManager");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C0513a(iBinder) : (IDeviceIdManager) queryLocalInterface;
-            }
-            return (IDeviceIdManager) invokeL.objValue;
-        }
+        @Keep
+        public static native IDeviceIdManager asInterface(IBinder iBinder);
+
+        @Keep
+        public static native IDeviceIdManager getDefaultImpl();
+
+        @Keep
+        public static native boolean setDefaultImpl(IDeviceIdManager iDeviceIdManager);
+
+        @Override // android.os.IInterface
+        @Keep
+        public native IBinder asBinder();
+
+        @Override // android.os.Binder
+        @Keep
+        public native boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2);
     }
 
+    @Keep
     String getAAID(String str);
 
+    @Keep
     String getCoolOsVersion();
 
+    @Keep
     String getIMEI(String str);
 
+    @Keep
     String getOAID(String str);
 
+    @Keep
     String getUDID(String str);
 
+    @Keep
     String getVAID(String str);
 
+    @Keep
     boolean isCoolOs();
 }

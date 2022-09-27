@@ -1,206 +1,497 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.database.Cursor;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 /* loaded from: classes6.dex */
 public class yp4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public Map<String, xp4> b;
+    public Resources c;
+    public Resources d;
+    public boolean e;
 
-    public static boolean a(AccountData accountData, y9 y9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, accountData, y9Var)) == null) ? y9Var.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()}) : invokeLL.booleanValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().d("update account_data set isactive=0 where isactive=1");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948337836, "Lcom/baidu/tieba/yp4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948337836, "Lcom/baidu/tieba/yp4;");
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public yp4() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from account_data where id=?", new String[]{str}) : invokeL.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            int i = 0;
-            Cursor cursor = null;
-            try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select count(*) from account_data", null);
-                        if (cursor != null && cursor.moveToFirst()) {
-                            i = cursor.getInt(0);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAccountNum");
-                    }
-                }
-                return i;
-            } finally {
-                ch.a(cursor);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        this.a = false;
+        this.b = new HashMap();
+        this.e = false;
     }
 
-    public static AccountData e() {
-        InterceptResult invokeV;
-        AccountData accountData;
-        Exception e;
-        Cursor cursor;
+    public static int h(Resources resources, Resources resources2, int i) {
+        InterceptResult invokeLLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor2 = null;
-            if (mainDBDatabaseManager != null) {
-                try {
-                    cursor = mainDBDatabaseManager.j("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
-                    if (cursor != null) {
-                        try {
-                            try {
-                                if (cursor.moveToFirst()) {
-                                    accountData = new AccountData();
-                                    try {
-                                        accountData.setID(cursor.getString(0));
-                                        accountData.setAccount(cursor.getString(1));
-                                        accountData.setPassword(cursor.getString(2));
-                                        accountData.setBDUSS(cursor.getString(3));
-                                        accountData.setIsActive(cursor.getInt(4));
-                                        accountData.setTbs(cursor.getString(5));
-                                        accountData.setTime(cursor.getLong(6));
-                                        accountData.setPortrait(cursor.getString(7));
-                                        accountData.setSex(cursor.getInt(9));
-                                        accountData.setMemberIconUrl(cursor.getString(10));
-                                        accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                                        accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                                        cursor2 = cursor;
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        mainDBDatabaseManager.i(e, "getActiveAccountData");
-                                        ch.a(cursor);
-                                        return accountData;
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                accountData = null;
-                                e = e3;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            ch.a(cursor2);
-                            throw th;
-                        }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, resources, resources2, i)) == null) {
+            String resourceName = resources.getResourceName(i);
+            if (TextUtils.isEmpty(resourceName)) {
+                i2 = i;
+            } else {
+                String packageName = SkinManager.getPackageName();
+                f = packageName;
+                if (StringUtils.isNull(packageName)) {
+                    f = BdBaseApplication.getInst().getPackageName();
+                }
+                resourceName = f + resourceName.substring(resourceName.indexOf(":"));
+                i2 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
+            }
+            if (i2 == 0) {
+                BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
+                return i;
+            }
+            return i2;
+        }
+        return invokeLLI.intValue;
+    }
+
+    public final void a(View view2) {
+        Drawable g;
+        Drawable g2;
+        Drawable g3;
+        int q;
+        ColorStateList f2;
+        ColorStateList f3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            String str = "@" + view2.getId();
+            Map<String, xp4> map = this.b;
+            if (map == null || !map.containsKey(str)) {
+                return;
+            }
+            xp4 xp4Var = this.b.get(str);
+            if (view2 instanceof TextView) {
+                if (xp4Var.v() != 0 && (f3 = f(this.a, xp4Var.u(), xp4Var.v())) != null) {
+                    ((TextView) view2).setTextColor(f3);
+                }
+                if (xp4Var.t() != 0 && (f2 = f(this.a, xp4Var.s(), xp4Var.t())) != null) {
+                    ((TextView) view2).setHintTextColor(f2);
+                }
+                if (xp4Var.r() != 0) {
+                    TextView textView = (TextView) view2;
+                    Context context = view2.getContext();
+                    if (this.a) {
+                        q = xp4Var.r();
+                    } else {
+                        q = xp4Var.q();
                     }
-                    accountData = null;
-                    cursor2 = cursor;
-                } catch (Exception e4) {
-                    accountData = null;
-                    e = e4;
-                    cursor = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    ch.a(cursor2);
-                    throw th;
+                    textView.setTextAppearance(context, q);
+                }
+                if (xp4Var.k() != 0) {
+                    ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, g(this.a, xp4Var.j(), xp4Var.k()), (Drawable) null, (Drawable) null);
+                }
+                if (xp4Var.g() != 0) {
+                    ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(g(this.a, xp4Var.f(), xp4Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+                }
+                if (xp4Var.i() != 0) {
+                    ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, g(this.a, xp4Var.h(), xp4Var.i()), (Drawable) null);
+                }
+            } else if (view2 instanceof ImageButton) {
+                if (xp4Var.n() != 0 && (g3 = g(this.a, xp4Var.m(), xp4Var.n())) != null) {
+                    ((ImageView) view2).setImageDrawable(g3);
+                }
+            } else if (view2 instanceof ImageView) {
+                if (xp4Var.n() != 0 && (g2 = g(this.a, xp4Var.m(), xp4Var.n())) != null) {
+                    ((ImageView) view2).setImageDrawable(g2);
+                }
+            } else if ((view2 instanceof ProgressBar) && xp4Var.p() != 0 && (g = g(this.a, xp4Var.o(), xp4Var.p())) != null) {
+                ((ProgressBar) view2).setProgressDrawable(g);
+            }
+            if (xp4Var.c() != 0) {
+                int paddingLeft = view2.getPaddingLeft();
+                int paddingTop = view2.getPaddingTop();
+                int paddingRight = view2.getPaddingRight();
+                int paddingBottom = view2.getPaddingBottom();
+                String resourceTypeName = this.c.getResourceTypeName(xp4Var.b());
+                if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                    view2.setBackgroundColor(d(this.a, xp4Var.b(), xp4Var.c()));
+                } else {
+                    view2.setBackgroundDrawable(g(this.a, xp4Var.b(), xp4Var.c()));
+                }
+                view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public final void b(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
+            String str = "@" + viewGroup.getId();
+            Map<String, xp4> map = this.b;
+            if (map == null || !map.containsKey(str)) {
+                return;
+            }
+            xp4 xp4Var = this.b.get(str);
+            if (viewGroup instanceof AdapterView) {
+                if ((viewGroup instanceof ListView) && xp4Var.e() != 0) {
+                    ListView listView = (ListView) viewGroup;
+                    int dividerHeight = listView.getDividerHeight();
+                    listView.setDivider(g(this.a, xp4Var.d(), xp4Var.e()));
+                    listView.setDividerHeight(dividerHeight);
+                }
+                Adapter adapter = ((AdapterView) viewGroup).getAdapter();
+                if (adapter != null && (adapter instanceof BaseAdapter)) {
+                    ((BaseAdapter) adapter).notifyDataSetChanged();
+                }
+            }
+            if (xp4Var.c() != 0) {
+                int paddingLeft = viewGroup.getPaddingLeft();
+                int paddingTop = viewGroup.getPaddingTop();
+                int paddingRight = viewGroup.getPaddingRight();
+                int paddingBottom = viewGroup.getPaddingBottom();
+                String resourceTypeName = this.c.getResourceTypeName(xp4Var.b());
+                if (resourceTypeName != null && resourceTypeName.equals("color")) {
+                    viewGroup.setBackgroundColor(d(this.a, xp4Var.b(), xp4Var.c()));
+                } else {
+                    viewGroup.setBackgroundDrawable(g(this.a, xp4Var.b(), xp4Var.c()));
+                }
+                viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public void c() {
+        Map<String, xp4> map;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.b) == null) {
+            return;
+        }
+        map.clear();
+        this.b = null;
+    }
+
+    public final int d(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 2 || (!this.e && skinType == 4)) {
+                return SkinManager.getColor(i);
+            }
+            if (!z) {
+                return this.c.getColor(i);
+            }
+            if (i == i2) {
+                Resources resources = this.c;
+                this.d = resources;
+                i2 = h(resources, resources, i);
+            }
+            Resources resources2 = this.d;
+            if (resources2 == null) {
+                return this.c.getColor(i);
+            }
+            try {
+                return resources2.getColor(i2);
+            } catch (Resources.NotFoundException unused) {
+                return this.c.getColor(i);
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final ColorStateList e(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 2 || (!this.e && skinType == 4)) {
+                return SkinManager.getColorList(i);
+            }
+            if (!z) {
+                return this.c.getColorStateList(i);
+            }
+            if (i == i2) {
+                Resources resources = this.c;
+                this.d = resources;
+                i2 = h(resources, resources, i);
+            }
+            Resources resources2 = this.d;
+            if (resources2 == null) {
+                return this.c.getColorStateList(i);
+            }
+            try {
+                return resources2.getColorStateList(i2);
+            } catch (Resources.NotFoundException unused) {
+                return this.c.getColorStateList(i);
+            }
+        }
+        return (ColorStateList) invokeCommon.objValue;
+    }
+
+    public final ColorStateList f(boolean z, int i, int i2) {
+        String str;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            try {
+                return e(z, i, i2);
+            } catch (Exception e) {
+                try {
+                    str = this.c.getResourceName(i);
+                } catch (Exception unused) {
+                    str = "";
+                }
+                TiebaStatic.log(new StatisticItem("getColorListCrash").param("obj_source", e.toString()).param("obj_param1", i).param(TiebaStatic.Params.OBJ_PARAM2, str));
+                return null;
+            }
+        }
+        return (ColorStateList) invokeCommon.objValue;
+    }
+
+    public final Drawable g(boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 2 || (!this.e && skinType == 4)) {
+                return SkinManager.getDrawable(i);
+            }
+            if (!z) {
+                try {
+                    return this.c.getDrawable(i);
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            if (i == i2) {
+                Resources resources = this.c;
+                this.d = resources;
+                i2 = h(resources, resources, i);
+            }
+            Resources resources2 = this.d;
+            if (resources2 == null) {
+                try {
+                    return this.c.getDrawable(i);
+                } catch (Throwable unused2) {
+                    return null;
+                }
+            }
+            try {
+                try {
+                    return resources2.getDrawable(i2);
+                } catch (Throwable unused3) {
+                    return null;
+                }
+            } catch (Resources.NotFoundException unused4) {
+                return this.c.getDrawable(i);
+            } catch (ArrayIndexOutOfBoundsException unused5) {
+                return null;
+            }
+        }
+        return (Drawable) invokeCommon.objValue;
+    }
+
+    public final int[] i(String str) {
+        InterceptResult invokeL;
+        int parseInt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
+                return new int[]{parseInt, h(this.c, this.d, parseInt)};
+            }
+            return null;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public void j(String str, Context context, AttributeSet attributeSet) {
+        int[] i;
+        int e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, context, attributeSet) == null) {
+            try {
+                Resources resources = context.getResources();
+                this.c = resources;
+                this.d = resources;
+                int attributeCount = attributeSet.getAttributeCount();
+                xp4 xp4Var = new xp4();
+                xp4Var.R(str);
+                boolean z = false;
+                for (int i2 = 0; i2 < attributeCount; i2++) {
+                    String attributeName = attributeSet.getAttributeName(i2);
+                    String attributeValue = attributeSet.getAttributeValue(i2);
+                    if (attributeName.equals("id")) {
+                        xp4Var.G(attributeValue);
+                    } else if (attributeName.equals("tb_background")) {
+                        int[] i3 = i(attributeValue);
+                        if (i3 != null) {
+                            xp4Var.w(i3[0]);
+                            xp4Var.x(i3[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_src")) {
+                        int[] i4 = i(attributeValue);
+                        if (i4 != null) {
+                            xp4Var.H(i4[0]);
+                            xp4Var.I(i4[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_textColor")) {
+                        int[] i5 = i(attributeValue);
+                        if (i5 != null) {
+                            xp4Var.P(i5[0]);
+                            xp4Var.Q(i5[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_style")) {
+                        int[] i6 = i(attributeValue);
+                        if (i6 != null) {
+                            xp4Var.L(i6[0]);
+                            xp4Var.M(i6[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_divider")) {
+                        int[] i7 = i(attributeValue);
+                        if (i7 != null) {
+                            xp4Var.y(i7[0]);
+                            xp4Var.z(i7[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableTop")) {
+                        int[] i8 = i(attributeValue);
+                        if (i8 != null) {
+                            xp4Var.E(i8[0]);
+                            xp4Var.F(i8[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableLeft")) {
+                        int[] i9 = i(attributeValue);
+                        if (i9 != null) {
+                            xp4Var.A(i9[0]);
+                            xp4Var.B(i9[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_drawableRight")) {
+                        int[] i10 = i(attributeValue);
+                        if (i10 != null) {
+                            xp4Var.C(i10[0]);
+                            xp4Var.D(i10[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_progressDrawable")) {
+                        int[] i11 = i(attributeValue);
+                        if (i11 != null) {
+                            xp4Var.J(i11[0]);
+                            xp4Var.K(i11[1]);
+                            z = true;
+                        }
+                    } else if (attributeName.equals("tb_textColorHint") && (i = i(attributeValue)) != null) {
+                        xp4Var.N(i[0]);
+                        xp4Var.O(i[1]);
+                        z = true;
+                    }
+                    if (z && TbConfig.getDebugSwitch() && (e = dh.e(attributeValue.substring(1), 0)) != 0) {
+                        String resourceName = this.c.getResourceName(e);
+                        xp4Var.a(attributeName + "=" + resourceName);
+                    }
+                }
+                if (!z || TextUtils.isEmpty(xp4Var.l()) || this.b == null || this.b.containsKey(xp4Var.l())) {
+                    return;
+                }
+                this.b.put(xp4Var.l(), xp4Var);
+            } catch (Resources.NotFoundException unused) {
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void k(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, view2) == null) || view2 == null) {
+            return;
+        }
+        Stack stack = new Stack();
+        stack.push(view2);
+        while (!stack.isEmpty()) {
+            View view3 = (View) stack.pop();
+            if (view3 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view3;
+                b(viewGroup);
+                if (!(view3 instanceof AdapterView)) {
+                    int childCount = viewGroup.getChildCount();
+                    for (int i = 0; i < childCount; i++) {
+                        stack.push(viewGroup.getChildAt(i));
+                    }
                 }
             } else {
-                accountData = null;
-            }
-            ch.a(cursor2);
-            return accountData;
-        }
-        return (AccountData) invokeV.objValue;
-    }
-
-    public static ArrayList<AccountData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            ArrayList<AccountData> arrayList = new ArrayList<>();
-            Cursor cursor = null;
-            try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select * from account_data order by time desc", null);
-                        while (cursor.moveToNext()) {
-                            AccountData accountData = new AccountData();
-                            accountData.setID(cursor.getString(0));
-                            accountData.setAccount(cursor.getString(1));
-                            accountData.setPassword(cursor.getString(2));
-                            accountData.setBDUSS(cursor.getString(3));
-                            accountData.setIsActive(cursor.getInt(4));
-                            accountData.setTbs(cursor.getString(5));
-                            accountData.setTime(cursor.getLong(6));
-                            accountData.setPortrait(cursor.getString(7));
-                            accountData.setSex(cursor.getInt(9));
-                            accountData.setMemberIconUrl(cursor.getString(10));
-                            accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                            accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                            arrayList.add(accountData);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAllAccountData");
-                    }
-                }
-                return arrayList;
-            } finally {
-                ch.a(cursor);
+                a(view3);
             }
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public static void g(AccountData accountData) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, accountData) == null) || accountData == null || accountData.getID() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.a = z;
         }
-        Intent intent = new Intent();
-        intent.setAction("com.baidu.tieba.action.accountChange");
-        intent.putExtra("intent_data_accountData", TbadkCoreApplication.getCurrentAccountObj());
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        TbadkCoreApplication.getInst().sendBroadcast(intent);
-        String str = "set_basedata_account:";
-        if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
-            str = "set_basedata_account:valid_logined";
-        } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-            str = "set_basedata_account:valid";
-        } else if (!StringUtils.isNull(accountData.getID())) {
-            str = "set_basedata_account:logined";
+    }
+
+    public void m(Resources resources) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, resources) == null) {
+            this.d = resources;
         }
-        qw4.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
-        if (accountData.getIsActive() == 1) {
-            b();
-        }
-        y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-        if (c(accountData.getID()) && a(accountData, mainDBDatabaseManager)) {
-            return;
-        }
-        if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
-            mainDBDatabaseManager.b();
-        }
-        mainDBDatabaseManager.d("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
-        a(accountData, mainDBDatabaseManager);
     }
 }

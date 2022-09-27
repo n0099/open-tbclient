@@ -1,56 +1,58 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class mj2 {
+public class mj2 extends fh2<wj2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
 
-    public mj2(String str, long j, String str2, String str3, String str4) {
+    public mj2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = j;
-        this.c = str2;
-        this.d = str3;
-        this.e = str4;
     }
 
-    public boolean a() {
+    @Override // com.baidu.tieba.fh2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e) || !hj2.a(this.b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wj2 wj2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "roomName=" + this.a + ";localUserId=" + this.b + ";displayName=" + this.c + ";rtcAppId=" + this.d + ";token=" + this.e;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wj2Var) == null) {
+            String str = command.what;
+            d(wj2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "ear")) {
+                    wj2Var.r(str2);
+                } else if (TextUtils.equals(str2, "speaker")) {
+                    wj2Var.r(str2);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

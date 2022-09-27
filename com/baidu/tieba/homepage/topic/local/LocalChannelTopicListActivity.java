@@ -6,10 +6,10 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.e47;
-import com.baidu.tieba.h47;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.s47;
+import com.baidu.tieba.v47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel k;
-    public e47 l;
+    public s47 l;
 
     /* loaded from: classes4.dex */
     public class a implements LocalChannelTopicListModel.b {
@@ -47,12 +47,12 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(h47 h47Var) {
+        public void a(v47 v47Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, h47Var) == null) || this.a.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, v47Var) == null) || this.a.l == null) {
                 return;
             }
-            this.a.l.q(h47Var);
+            this.a.l.q(v47Var);
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
@@ -114,15 +114,15 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public vd5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ie5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            e47 e47Var = new e47(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.l = e47Var;
-            return e47Var;
+            s47 s47Var = new s47(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = s47Var;
+            return s47Var;
         }
-        return (vd5) invokeLL.objValue;
+        return (ie5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -137,9 +137,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            e47 e47Var = this.l;
-            if (e47Var != null) {
-                e47Var.n(i);
+            s47 s47Var = this.l;
+            if (s47Var != null) {
+                s47Var.n(i);
             }
         }
     }
@@ -162,9 +162,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            e47 e47Var = this.l;
-            if (e47Var != null) {
-                e47Var.onDestroy();
+            s47 s47Var = this.l;
+            if (s47Var != null) {
+                s47Var.onDestroy();
             }
         }
     }

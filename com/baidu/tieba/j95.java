@@ -1,68 +1,100 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface j95 {
-    public static final a a = a.a;
+public class j95 extends z85 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+    public EMTextView b;
+    public EMTextView c;
+    public TBSpecificationBtn d;
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-733300826, "Lcom/baidu/tieba/j95$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-733300826, "Lcom/baidu/tieba/j95$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("Frs", "FrsService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j95(Context context) {
+        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0562, (ViewGroup) null));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a(context);
+    }
 
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (ServiceReference) invokeV.objValue;
+    public final void a(Context context) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.attachedView) == null) {
+            return;
+        }
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09143b);
+        EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09143c);
+        this.b = eMTextView;
+        eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a71));
+        EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09143a);
+        this.c = eMTextView2;
+        eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a70));
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091431);
+        this.d = tBSpecificationBtn;
+        tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0997));
+        this.d.setTextSize(R.dimen.T_X05);
+        this.d.setConfig(new my4());
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (tBSpecificationBtn = this.d) == null) {
+            return;
+        }
+        tBSpecificationBtn.setOnClickListener(onClickListener);
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hv4 d = hv4.d(this.b);
+            d.z(R.dimen.T_X06);
+            d.v(R.color.CAM_X0107);
+            hv4 d2 = hv4.d(this.c);
+            d2.z(R.dimen.T_X09);
+            d2.v(R.color.CAM_X0108);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e59, null);
+            TBSpecificationBtn tBSpecificationBtn = this.d;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
+            }
         }
     }
 
-    void a(TbPageContext<?> tbPageContext, long j);
-
-    void b(Context context, Frs$From frs$From, Long l, String str);
-
-    void c(Long l, String str);
+    @Override // com.baidu.tieba.z85
+    public void onViewAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onViewAttached();
+            onChangeSkinType();
+        }
+    }
 }

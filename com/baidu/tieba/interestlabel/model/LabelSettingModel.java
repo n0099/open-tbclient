@@ -8,15 +8,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af7;
-import com.baidu.tieba.bf7;
 import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
+import com.baidu.tieba.of7;
 import com.baidu.tieba.pb;
+import com.baidu.tieba.pf7;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public bf7 b;
-    public af7 c;
+    public pf7 b;
+    public of7 c;
     public pb d;
     public pb e;
 
@@ -141,7 +141,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new af7();
+        this.c = new of7();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -150,9 +150,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                bf7 bf7Var = this.b;
-                if (bf7Var != null) {
-                    bf7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                pf7 pf7Var = this.b;
+                if (pf7Var != null) {
+                    pf7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;
@@ -179,10 +179,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(bf7 bf7Var) {
+    public void G(pf7 pf7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bf7Var) == null) {
-            this.b = bf7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pf7Var) == null) {
+            this.b = pf7Var;
         }
     }
 

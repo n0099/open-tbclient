@@ -157,7 +157,7 @@ public class d {
                                 this.Nx.Nv.a(this.Nw, new a(this) { // from class: com.kwad.components.core.webview.b.d.1.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ RunnableC05891 Ny;
+                                    public final /* synthetic */ RunnableC05851 Ny;
 
                                     {
                                         Interceptable interceptable3 = $ic;

@@ -1,57 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class rc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public boolean b;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116775, "Lcom/baidu/tieba/rc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948116775, "Lcom/baidu/tieba/rc3;");
+                return;
             }
         }
+        a = vj1.a;
     }
 
-    @Nullable
-    public static a a(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static synchronized JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            if (registerReceiver == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (rc3.class) {
+                if (b != null) {
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
+                    }
+                    return b;
+                }
+                JSONObject rawSwitch = sm2.g0().getRawSwitch();
+                if (rawSwitch == null) {
+                    b = new JSONObject();
+                    if (a) {
+                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
+                    }
+                    return b;
+                }
+                Iterator<String> keys = rawSwitch.keys();
+                while (keys.hasNext()) {
+                    if (!keys.next().startsWith("swanswitch")) {
+                        keys.remove();
+                    }
+                }
+                b = rawSwitch;
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
+                }
+                return b;
             }
-            a aVar = new a();
-            aVar.a = registerReceiver.getIntExtra(PollingModel.LEVEL, -1);
-            aVar.b = registerReceiver.getIntExtra("plugged", 0) != 0;
-            return aVar;
         }
-        return (a) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("abTestSwitch", a());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (rc3.class) {
+                if (a) {
+                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
+                }
+                b = null;
+            }
+        }
     }
 }

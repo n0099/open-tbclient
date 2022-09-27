@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel;
+import com.baidu.tieba.bx5;
+import com.baidu.tieba.dx5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.ow5;
-import com.baidu.tieba.qw5;
-import com.baidu.tieba.ws5;
+import com.baidu.tieba.jt5;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,15 +44,15 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public View a;
     public NavigationBar b;
     public TextView c;
-    public ow5 d;
+    public bx5 d;
     public AlaFrsStoryLiveGatherModel e;
     public String f;
     public String g;
     public AlaFrsStoryLiveGatherModel.b h;
-    public ws5 i;
-    public lx4.g j;
+    public jt5 i;
+    public yx4.g j;
     public BdListView.p k;
-    public qw5 l;
+    public dx5 l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -189,7 +189,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class d implements ws5 {
+    public class d implements jt5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -212,7 +212,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.ws5
+        @Override // com.baidu.tieba.jt5
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
@@ -223,7 +223,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class e implements lx4.g {
+    public class e implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -246,7 +246,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.e == null) {
@@ -297,7 +297,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class g implements qw5 {
+    public class g implements dx5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -320,7 +320,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.qw5
+        @Override // com.baidu.tieba.dx5
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.e == null || this.a.e.Q() == i) {
@@ -418,9 +418,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.b.setCenterTextTitle(string);
             linearLayout.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);
-            ow5 ow5Var = new ow5(getPageContext(), false, false, getUniqueId());
-            this.d = ow5Var;
-            ow5Var.j();
+            bx5 bx5Var = new bx5(getPageContext(), false, false, getUniqueId());
+            this.d = bx5Var;
+            bx5Var.j();
             this.d.p(1);
             this.d.q(this.i);
             this.d.s(this.j);
@@ -463,9 +463,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
-            ow5 ow5Var = this.d;
-            if (ow5Var != null) {
-                ow5Var.l(TbadkCoreApplication.getInst().getSkinType());
+            bx5 bx5Var = this.d;
+            if (bx5Var != null) {
+                bx5Var.l(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.vj6;
+import com.baidu.tieba.ik6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
-public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<vj6, StarTrendsResIdl> {
+public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<ik6, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vj6 responseData;
+    public ik6 responseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDynamicSocketResponsedMessage() {
@@ -42,9 +42,9 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            vj6 vj6Var = new vj6();
-            this.responseData = vj6Var;
-            StarTrendsResIdl a = vj6Var.a(bArr);
+            ik6 ik6Var = new ik6();
+            this.responseData = ik6Var;
+            StarTrendsResIdl a = ik6Var.a(bArr);
             if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {

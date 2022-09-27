@@ -1,30 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes4.dex */
-public class ig0 extends wh0 {
+public class ig0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final float[] a;
+    public static final float[] b;
+    public static final float[] c;
+    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-719596966, "Lcom/baidu/tieba/ig0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-719596966, "Lcom/baidu/tieba/ig0$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Rotation.values().length];
+            a = iArr;
+            try {
+                iArr[Rotation.ROTATION_90.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Rotation.ROTATION_180.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Rotation.ROTATION_270.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Rotation.NORMAL.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,76 +68,38 @@ public class ig0 extends wh0 {
                 return;
             }
         }
-        a = dj0.a().a();
+        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
+        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
+        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
     }
 
-    public ig0() {
+    public static float a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
     }
 
-    @Override // com.baidu.tieba.wh0
-    public String a() {
-        InterceptResult invokeV;
+    public static float[] b(Rotation rotation, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        float[] fArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mnprogram" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wh0
-    public boolean b(@NonNull Context context, @NonNull ai0 ai0Var, @Nullable Map<String, Object> map, @Nullable ei0 ei0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ai0Var, map, ei0Var)) == null) {
-            super.b(context, ai0Var, map, ei0Var);
-            if (TextUtils.isEmpty(a)) {
-                c(ei0Var, ai0Var, 303, false);
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int i = a.a[rotation.ordinal()];
+            if (i == 1) {
+                fArr = b;
+            } else if (i == 2) {
+                fArr = c;
+            } else if (i != 3) {
+                fArr = a;
+            } else {
+                fArr = d;
             }
-            HashMap<String, String> d = ai0Var.d();
-            if (TextUtils.isEmpty((CharSequence) lz0.b(d, "mn_program_type"))) {
-                c(ei0Var, ai0Var, 202, false);
-                return true;
+            if (z) {
+                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
             }
-            WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
-            req.userName = (String) lz0.b(d, "user_name");
-            req.path = (String) lz0.b(d, "path");
-            req.miniprogramType = Integer.parseInt((String) lz0.b(d, "mn_program_type"));
-            String str = (String) lz0.b(d, "ext_info");
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, a);
-            boolean sendReq = createWXAPI.sendReq(req);
-            if (!sendReq) {
-                e("URL", str, !createWXAPI.isWXAppInstalled() ? "1001" : "1002");
-                return vh0.e((String) lz0.b(d, "web_url"), context, map, ei0Var);
-            }
-            e(ClogBuilder.Area.APP.type, str, null);
-            c(ei0Var, ai0Var, 0, sendReq);
-            return true;
+            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void e(@NonNull String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.u(ClogBuilder.Page.MINI_PROGRAM);
-        clogBuilder.y(ClogBuilder.LogType.MINI_PROGRAM);
-        clogBuilder.j(str);
-        clogBuilder.p(str2);
-        if (!TextUtils.isEmpty(str3)) {
-            clogBuilder.k(str3);
-        }
-        uz0.b(clogBuilder);
+        return (float[]) invokeCommon.objValue;
     }
 }

@@ -1,27 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TabPic;
 /* loaded from: classes4.dex */
 public class is6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public bj6 c;
+    public String d;
+    public int e;
+    public TabPic f;
 
-    public static PackageInfo a(String str) {
-        InterceptResult invokeL;
+    public is6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (PackageInfo) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null || !(obj instanceof is6)) {
+                return false;
+            }
+            is6 is6Var = (is6) obj;
+            if (this.b == is6Var.b && (str = this.a) != null && str.equals(is6Var.a)) {
+                return true;
+            }
+            return super.equals(obj);
+        }
+        return invokeL.booleanValue;
     }
 }

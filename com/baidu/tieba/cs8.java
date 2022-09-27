@@ -1,42 +1,35 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.os.Build;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.ds8;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class cs8 extends BaseAdapter {
+public class cs8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AvatarPendantActivity a;
-    public List<DressItemData> b;
-    public ds8.a c;
+    public final MainTabActivity a;
+    public final lq8 b;
+    public final xp8 c;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a extends di5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AvatarPendantPerItemView a;
-
-        public b(cs8 cs8Var) {
+        public a(cs8 cs8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,117 +45,139 @@ public class cs8 extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(cs8 cs8Var, a aVar) {
-            this(cs8Var);
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.di5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(if7.w()) : (Boolean) invokeV.objValue;
         }
     }
 
-    public cs8(AvatarPendantActivity avatarPendantActivity) {
+    /* loaded from: classes3.dex */
+    public class b implements ih5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cs8 a;
+
+        public b(cs8 cs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cs8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ih5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                if (bool != null && !bool.booleanValue()) {
+                    if7 m = if7.m(this.a.a);
+                    m.o(true);
+                    m.C("1", this.a.a.C.intValue(), 0, this.a.a.L, new cq8(this.a.a, this.a.c), false);
+                    m.o(false);
+                    return;
+                }
+                if7.A(1);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cs8(MainTabActivity mainTabActivity, xp8 xp8Var) {
+        super(2001371);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
+            Object[] objArr = {mainTabActivity, xp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = avatarPendantActivity;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+        this.c = xp8Var;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
+            ol0.l().p();
+        }
+    }
+
+    public final void d() {
+        lq8 lq8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || MainTabActivity.W) {
+            return;
+        }
+        if (UbsABTestHelper.isAdRetargetNotificationRemindTest()) {
+            c();
+        }
+        if (this.b != null) {
+            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                hi5.b(new a(this), new b(this));
+            } else {
+                if7 m = if7.m(this.a);
+                int intValue = this.a.C.intValue();
+                MainTabActivity mainTabActivity = this.a;
+                m.C("1", intValue, 0, mainTabActivity.L, new cq8(mainTabActivity, this.c), false);
+            }
+        }
+        if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !TbSingleton.getInstance().mIsSplashClick && (lq8Var = this.b) != null && lq8Var.b() != null) {
+            this.b.b().b();
+        }
+        qi5.a(1);
+        g35.g(HotEventData.getInstance());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public DressItemData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        lq8 lq8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<DressItemData> list = this.b;
-            if (list == null || list.size() <= 0 || this.b.size() <= i) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            d();
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                if (!TbSingleton.getInstance().mIsSplashClick && (lq8Var = this.b) != null && lq8Var.c() != null) {
+                    if (UbsABTestHelper.isNewInterestShowTestA()) {
+                        this.b.c().d();
+                    } else {
+                        this.b.c().a();
+                    }
+                }
+                lq8 lq8Var2 = this.b;
+                if (lq8Var2 != null && lq8Var2.i() != null) {
+                    this.b.i().a();
+                }
             }
-            return this.b.get(i);
-        }
-        return (DressItemData) invokeI.objValue;
-    }
-
-    public final void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            int skinType = TbadkApplication.getInst().getSkinType();
-            if (view2 != null) {
-                this.a.getLayoutMode().l(skinType == 1);
-                this.a.getLayoutMode().k(view2);
+            if (!MainTabActivity.W && UbsABTestHelper.isAdRetargetTipsRemindTest()) {
+                new tg5(this.a).o();
             }
+            MainTabActivity.W = true;
         }
-    }
-
-    public void c(ds8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.c = aVar;
-        }
-    }
-
-    public void d(List<DressItemData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<DressItemData> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof b)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0129, viewGroup, false);
-                bVar = new b(this, null);
-                AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view2.findViewById(R.id.obfuscated_res_0x7f09030f);
-                bVar.a = avatarPendantPerItemView;
-                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.c);
-                view2.setTag(bVar);
-            }
-            DressItemData item = getItem(i);
-            if (item != null) {
-                bVar.a.c(item);
-            }
-            b(view2);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

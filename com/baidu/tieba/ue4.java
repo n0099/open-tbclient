@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ue4 extends ge4 {
+public abstract class ue4 implements xe4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,65 +28,61 @@ public class ue4 extends ge4 {
         }
     }
 
-    @Override // com.baidu.tieba.ge4, com.baidu.tieba.je4
-    public void b(JSONObject jSONObject, ta4 ta4Var, @Nullable ta4 ta4Var2, @Nullable ta4 ta4Var3) {
+    public static <T> T e(@Nullable T t, @Nullable ve4<T> ve4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, ta4Var, ta4Var2, ta4Var3) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, ve4Var)) == null) {
+            if (t != null && ve4Var != null) {
+                ve4Var.a(t);
+            }
+            return t;
         }
-        we4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        af4.f().k(jSONObject.optJSONObject("page_tips"));
-        se4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        cf4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        kf4.f(jSONObject.optJSONObject("app_inner_preload"));
-        ve4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        hf4.b().d(jSONObject.optJSONObject("tts"));
-        df4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        if4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (ef4.a) {
-            c(jSONObject);
-        }
-        gf4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        xe4.a().c(jSONObject.optJSONObject("local_debug"));
-        ja4.a().b(jSONObject.optJSONObject(ja4.a().c()));
-        if (ff4.b()) {
-            ze4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        ye4.a().e(jSONObject.optJSONObject("no_history_apps"));
+        return (T) invokeLL.objValue;
     }
 
-    public final void c(@NonNull JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    @Override // com.baidu.tieba.xe4
+    @Nullable
+    public JSONObject a(@Nullable ve4<JSONObject> ve4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("heartbeat")) != null && optJSONObject.optLong("errno") == 0) {
-            ha4 b = ja4.b();
-            aj4 i = b != null ? b.i() : null;
-            String optString = optJSONObject.optString("version");
-            if (!TextUtils.isEmpty(optString)) {
-                ef4.b = optString;
-                if (i != null) {
-                    i.putString("key_h2_heart_beat_version", optString);
-                }
-            }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-            if (optJSONObject2 != null) {
-                if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) > 0) {
-                    int optInt = optJSONObject2.optInt("timespan");
-                    int optInt2 = optJSONObject2.optInt("timeout");
-                    if (i != null) {
-                        if (optInt > 0) {
-                            i.putInt("key_h2_heart_beat_timespan", optInt);
-                        }
-                        if (optInt2 > 0) {
-                            i.putInt("key_h2_heart_beat_timeout", optInt2);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                ef4.a = false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ve4Var)) == null) {
+            JSONObject d = d();
+            e(d, ve4Var);
+            return d;
         }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.xe4
+    @Nullable
+    public JSONArray b(@Nullable ve4<JSONArray> ve4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ve4Var)) == null) {
+            JSONArray c = c();
+            e(c, ve4Var);
+            return c;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @Nullable
+    public JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    @Nullable
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

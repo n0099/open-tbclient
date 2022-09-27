@@ -5,10 +5,10 @@ import android.content.Intent;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.kf8;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.VideoPlayActivity;
+import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements kf8 {
+public class VideoPlayDispatcher implements zf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public class VideoPlayDispatcher implements kf8 {
         }
     }
 
-    @Override // com.baidu.tieba.kf8
+    @Override // com.baidu.tieba.zf8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {

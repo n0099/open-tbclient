@@ -1,29 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes5.dex */
-public class n41 {
+public final class n41 {
     public static /* synthetic */ Interceptable $ic;
+    public static i41 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> void a(@NonNull h51 h51Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, h51Var, str) == null) || TextUtils.isEmpty(str)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947952382, "Lcom/baidu/tieba/n41;")) == null) {
             return;
         }
-        if (!str.startsWith("javascript:")) {
-            str = "javascript:" + str;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        h51Var.loadUrl(str, null);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947952382, "Lcom/baidu/tieba/n41;");
+        }
     }
 
-    public static <T> void b(@NonNull h51 h51Var, int i, int i2, int i3, int i4) {
+    public n41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{h51Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            a(h51Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
+    }
+
+    @JvmStatic
+    public static final i41 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (n41.class) {
+                    if (a == null) {
+                        a = (i41) ServiceManager.getService(i41.a);
+                    }
+                    if (a == null) {
+                        a = i41.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
+                }
+            }
+            return a;
+        }
+        return (i41) invokeV.objValue;
     }
 }

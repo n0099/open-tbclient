@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.ParseError;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class fk0 {
+public class fk0 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ap0 b;
-    public String c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fk0() {
+        super(zi0.b(), "nad.core.download.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,32 +24,35 @@ public class fk0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((Context) objArr[0], (String) objArr[1], (SQLiteDatabase.CursorFactory) objArr[2], ((Integer) objArr[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static fk0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            fk0 fk0Var = new fk0();
-            fk0Var.a = jSONObject.optInt("download_state");
-            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
-            if (optJSONObject != null) {
-                try {
-                    fk0Var.b = ap0.c(optJSONObject);
-                } catch (ParseError e) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            z01[] z01VarArr = {new f01().b()};
+            for (int i = 0; i < 1; i++) {
+                z01 z01Var = z01VarArr[i];
+                sQLiteDatabase.execSQL(w01.b(z01Var));
+                Iterator<String> it = w01.a(z01Var).iterator();
+                while (it.hasNext()) {
+                    sQLiteDatabase.execSQL(it.next());
                 }
             }
-            fk0Var.c = jSONObject.optString("download_hint");
-            return fk0Var;
         }
-        return (fk0) invokeL.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+        }
     }
 }

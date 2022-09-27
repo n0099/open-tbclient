@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveFeedData;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.jb0;
-import com.baidu.tieba.kb0;
+import com.baidu.tieba.wb0;
+import com.baidu.tieba.xb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class LiveFeedInterstModel {
             hashMap.put("session_id", str);
             hashMap.put("live_tag", str2);
             hashMap.put("feed_tag", str3);
-            kb0.f(FEED_PAGE_INTEREST_URL, hashMap, new jb0<LiveFeedData>(this, onInterestDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
+            xb0.f(FEED_PAGE_INTEREST_URL, hashMap, new wb0<LiveFeedData>(this, onInterestDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveFeedInterstModel this$0;
@@ -82,7 +82,7 @@ public class LiveFeedInterstModel {
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-                @Override // com.baidu.tieba.jb0
+                @Override // com.baidu.tieba.wb0
                 public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list) {
                     onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list);
                 }
@@ -116,7 +116,7 @@ public class LiveFeedInterstModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.jb0
+                @Override // com.baidu.tieba.wb0
                 public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

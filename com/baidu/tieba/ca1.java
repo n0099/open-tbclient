@@ -1,10 +1,134 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ca1 extends fa1<JSONObject> {
+public class ca1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ca1 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947667926, "Lcom/baidu/tieba/ca1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947667926, "Lcom/baidu/tieba/ca1;");
+        }
+    }
+
+    public ca1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized ca1 f() {
+        InterceptResult invokeV;
+        ca1 ca1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ca1.class) {
+                if (a == null) {
+                    synchronized (ca1.class) {
+                        if (a == null) {
+                            a = new ca1();
+                        }
+                    }
+                }
+                ca1Var = a;
+            }
+            return ca1Var;
+        }
+        return (ca1) invokeV.objValue;
+    }
+
+    public boolean a(Activity activity, String str, ga1 ga1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, ga1Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            ba1.a().c(activity, str, ga1Var);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean b(Activity activity, String str, ga1 ga1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, ga1Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            ba1.a().e(activity, str, ga1Var);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean c(Activity activity, JSONObject jSONObject, ga1 ga1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, jSONObject, ga1Var)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            ba1.a().i(activity, jSONObject, ga1Var);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean d(Context context, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            ba1.a().f(context, jSONObject);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean e(Context context, JSONObject jSONObject, ga1 ga1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, jSONObject, ga1Var)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            ba1.a().d(context, jSONObject, ga1Var);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
 }

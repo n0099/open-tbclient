@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ll9;
+import com.baidu.tieba.am9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -149,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public ll9 getDownloadListener() {
+    public am9 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ll9(this.e) : (ll9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new am9(this.e) : (am9) invokeV.objValue;
     }
 
     @Override // android.view.View

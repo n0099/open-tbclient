@@ -1,40 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
-import com.baidu.tieba.ut7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class aw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public int c;
+    public float d;
+    public boolean e;
 
-    public static dw7 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
-        InterceptResult invokeLL;
+    public aw7(float f, float f2, int i, float f3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
-            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StatisticItem statisticItem = new StatisticItem(ut7.a.a);
-            int i = 0;
-            int from = iBaseDialogData.getFrom();
-            if (from == 0) {
-                i = 2;
-            } else if (from == 1) {
-                i = 3;
-            } else if (from == 2) {
-                i = 4;
-            }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-            return new bw7(tbPageContext, (CustomDialogData) iBaseDialogData);
         }
-        return (dw7) invokeLL.objValue;
+        this.a = f;
+        this.b = f2;
+        this.c = i;
+        this.d = f3;
+        this.e = z;
     }
 }

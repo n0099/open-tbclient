@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObserver;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ListAdapter;
-import android.widget.WrapperListAdapter;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.session.XRSessionAnchor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,19 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huewu.pla.lib.internal.PLA_ListView;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes5.dex */
-public class qr9 implements WrapperListAdapter, Filterable {
+public final class qr9 extends ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<PLA_ListView.a> f;
+    public static final qr9 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ListAdapter a;
-    public ArrayList<PLA_ListView.a> b;
-    public ArrayList<PLA_ListView.a> c;
-    public boolean d;
-    public final boolean e;
+    public Exception a;
+    public ArCoreApk.Availability b;
+    public boolean c;
+    public wr9 d;
+    public boolean e;
+    public boolean f;
+    public int g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,310 +45,201 @@ public class qr9 implements WrapperListAdapter, Filterable {
                 return;
             }
         }
-        f = new ArrayList<>();
+        h = new qr9();
     }
 
-    public qr9(ArrayList<PLA_ListView.a> arrayList, ArrayList<PLA_ListView.a> arrayList2, ListAdapter listAdapter) {
+    public qr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, arrayList2, listAdapter};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = listAdapter;
-        this.e = listAdapter instanceof Filterable;
-        if (arrayList == null) {
-            this.b = f;
-        } else {
-            this.b = arrayList;
-        }
-        if (arrayList2 == null) {
-            this.c = f;
-        } else {
-            this.c = arrayList2;
-        }
-        this.d = a(this.b) && a(this.c);
     }
 
-    public final boolean a(ArrayList<PLA_ListView.a> arrayList) {
+    public static qr9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? h : (qr9) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 24 : invokeV.booleanValue;
+    }
+
+    public static int k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<PLA_ListView.a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    if (!it.next().c) {
-                        return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
+                int i = packageInfo.versionCode;
+                if (i == 0) {
+                    if (packageInfo.services != null) {
+                        if (packageInfo.services.length == 0) {
+                        }
                     }
+                    return -1;
                 }
-                return true;
+                return i;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return -1;
             }
-            return true;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.google.ar.core.ArCoreApk
+    public final ArCoreApk.Availability a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!i()) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            }
+            try {
+                if (h(context)) {
+                    g();
+                    return pr9.c(context);
+                }
+                synchronized (this) {
+                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
+                        this.c = true;
+                        pr9 pr9Var = new pr9(this);
+                        if (h(context)) {
+                            pr9Var.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
+                        } else if (k(context) != -1) {
+                            pr9Var.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
+                        } else if (j(context)) {
+                            pr9Var.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                        } else {
+                            e(context).e(context, pr9Var);
+                        }
+                    }
+                    if (this.b != null) {
+                        return this.b;
+                    }
+                    if (this.c) {
+                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
+                    }
+                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
+                    return ArCoreApk.Availability.UNKNOWN_ERROR;
+                }
+            } catch (FatalException e) {
+                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
+            }
+        }
+        return (ArCoreApk.Availability) invokeL.objValue;
+    }
+
+    public final synchronized wr9 e(Context context) {
+        InterceptResult invokeL;
+        wr9 wr9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    wr9 wr9Var2 = new wr9((byte) 0);
+                    wr9Var2.d(context.getApplicationContext());
+                    this.d = wr9Var2;
+                }
+                wr9Var = this.d;
+            }
+            return wr9Var;
+        }
+        return (wr9) invokeL.objValue;
+    }
+
+    public final synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Exception exc = this.a;
+                if (this.d != null) {
+                    this.d.a();
+                    this.d = null;
+                }
+            }
+        }
+    }
+
+    public final boolean h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            l(context);
+            return k(context) == 0 || k(context) >= this.g;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return this.d && listAdapter.areAllItemsEnabled();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.size() : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    public boolean d(View view2) {
+    public final boolean j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).a == view2) {
-                    this.c.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
-                    }
-                    this.d = z;
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            l(context);
+            return this.f;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean e(View view2) {
-        InterceptResult invokeL;
+    public final synchronized void l(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.b.size(); i++) {
-                if (this.b.get(i).a == view2) {
-                    this.b.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            synchronized (this) {
+                if (this.e) {
+                    return;
+                }
+                PackageManager packageManager = context.getPackageManager();
+                String packageName = context.getPackageName();
+                try {
+                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
+                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
+                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
+                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
+                            try {
+                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
+                                String canonicalName = InstallActivity.class.getCanonicalName();
+                                int length = activityInfoArr.length;
+                                boolean z = false;
+                                int i = 0;
+                                while (true) {
+                                    if (i >= length) {
+                                        break;
+                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                if (!z) {
+                                    String valueOf = String.valueOf(canonicalName);
+                                    throw new FatalException(valueOf.length() != 0 ? "Application manifest must contain activity ".concat(valueOf) : new String("Application manifest must contain activity "));
+                                } else {
+                                    this.e = true;
+                                    return;
+                                }
+                            } catch (PackageManager.NameNotFoundException e) {
+                                throw new FatalException("Could not load application package info", e);
+                            }
+                        }
+                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
                     }
-                    this.d = z;
-                    return true;
+                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
+                } catch (PackageManager.NameNotFoundException e2) {
+                    throw new FatalException("Could not load application package metadata", e2);
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        int c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a != null) {
-                b = b() + c();
-                c = this.a.getCount();
-            } else {
-                b = b();
-                c = c();
-            }
-            return b + c;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Filterable
-    public Filter getFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.e) {
-                return ((Filterable) this.a).getFilter();
-            }
-            return null;
-        }
-        return (Filter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).b;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getItem(i2);
-            }
-            return this.c.get(i2 - i3).b;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null || i < c || (i2 = i - c) >= listAdapter.getCount()) {
-                return -1L;
-            }
-            return this.a.getItemId(i2);
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null || i < c || (i2 = i - c) >= listAdapter.getCount()) {
-                return -2;
-            }
-            return this.a.getItemViewType(i2);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).a;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getView(i2, view2, viewGroup);
-            }
-            return this.c.get(i2 - i3).a;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.getViewTypeCount();
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.WrapperListAdapter
-    public ListAdapter getWrappedAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (ListAdapter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.hasStableIds();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            return listAdapter == null || listAdapter.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).c;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.isEnabled(i2);
-            }
-            return this.c.get(i2 - i3).c;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) || (listAdapter = this.a) == null) {
-            return;
-        }
-        listAdapter.registerDataSetObserver(dataSetObserver);
-    }
-
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) || (listAdapter = this.a) == null) {
-            return;
-        }
-        listAdapter.unregisterDataSetObserver(dataSetObserver);
     }
 }

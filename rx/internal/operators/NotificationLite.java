@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.rw9;
+import com.baidu.tieba.gx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,22 +117,22 @@ public final class NotificationLite {
         };
     }
 
-    public static <T> boolean a(rw9<? super T> rw9Var, Object obj) {
+    public static <T> boolean a(gx9<? super T> gx9Var, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, rw9Var, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, gx9Var, obj)) == null) {
             if (obj == a) {
-                rw9Var.onCompleted();
+                gx9Var.onCompleted();
                 return true;
             } else if (obj == b) {
-                rw9Var.onNext(null);
+                gx9Var.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    rw9Var.onError(((OnErrorSentinel) obj).e);
+                    gx9Var.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                rw9Var.onNext(obj);
+                gx9Var.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");

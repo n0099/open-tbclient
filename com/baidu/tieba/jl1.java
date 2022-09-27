@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class jl1 implements on1 {
+public class jl1 implements gn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +23,10 @@ public class jl1 implements on1 {
         }
     }
 
-    @Override // com.baidu.tieba.on1
-    @Nullable
-    public List<ContentValues> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gn1
+    public void a(String str, k03 k03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, k03Var) == null) {
         }
-        return (List) invokeV.objValue;
     }
 }

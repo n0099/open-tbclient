@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dp implements lo8 {
+public class dp implements ap8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public uj a;
@@ -106,13 +106,13 @@ public class dp implements lo8 {
 
         /* renamed from: com.baidu.tieba.dp$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0234b implements Runnable {
+        public class RunnableC0226b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0234b(b bVar, String str) {
+            public RunnableC0226b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,13 +166,13 @@ public class dp implements lo8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = mz4.c(kz4.d(this.a)).a;
+                String str = zz4.c(xz4.d(this.a)).a;
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(str)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0234b(this, str));
+                        this.c.b.post(new RunnableC0226b(this, str));
                     }
                 }
             }
@@ -317,7 +317,7 @@ public class dp implements lo8 {
                     if (dpVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        zi.k(kz4.c(this.a.c));
+                        zi.k(xz4.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         wj.a = 1;
@@ -391,7 +391,7 @@ public class dp implements lo8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new dp() : (dp) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -399,7 +399,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -417,7 +417,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public boolean c(uj ujVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -436,9 +436,9 @@ public class dp implements lo8 {
                 return false;
             }
             r(true);
-            String e = kz4.e();
+            String e = xz4.e();
             this.c = e;
-            String c2 = kz4.c(e);
+            String c2 = xz4.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }
@@ -461,7 +461,7 @@ public class dp implements lo8 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -469,7 +469,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -478,7 +478,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void e(uj ujVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ujVar) == null) {
@@ -486,7 +486,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -522,7 +522,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -541,7 +541,7 @@ public class dp implements lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.ap8
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

@@ -28,14 +28,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao4;
+import com.baidu.tieba.bo4;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g16;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.nn4;
-import com.baidu.tieba.on4;
+import com.baidu.tieba.ji5;
+import com.baidu.tieba.t16;
 import com.baidu.tieba.w9;
-import com.baidu.tieba.wh5;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public class UserIconLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null || this.a.g.getAuthor() == null) {
                 return;
             }
-            lo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            yo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.j == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -242,8 +242,8 @@ public class UserIconLayout extends LinearLayout {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new g16.a(str, R.drawable.pic_smalldot_title));
-            return g16.h(this.a, str2, arrayList, true);
+            arrayList.add(new t16.a(str, R.drawable.pic_smalldot_title));
+            return t16.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -262,7 +262,7 @@ public class UserIconLayout extends LinearLayout {
             this.d = new UserIconBox(this.a);
             this.e = new UserIconBox(this.a);
             this.b = new TextView(this.a);
-            View a2 = on4.b().a(this.a, 1);
+            View a2 = bo4.b().a(this.a, 1);
             this.c = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
@@ -307,10 +307,10 @@ public class UserIconLayout extends LinearLayout {
         if (threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.c != null) {
-                nn4 nn4Var = new nn4();
-                nn4Var.a = alaUserData;
-                nn4Var.b = 1;
-                this.c.setTag(nn4Var);
+                ao4 ao4Var = new ao4();
+                ao4Var.a = alaUserData;
+                ao4Var.b = 1;
+                this.c.setTag(ao4Var);
             }
         }
         if (StringUtils.isNull(this.g.getAuthor().getName_show())) {
@@ -320,7 +320,7 @@ public class UserIconLayout extends LinearLayout {
             String name_show = this.g.getAuthor().getName_show();
             if (this.i) {
                 if (this.k) {
-                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), wh5.l(name_show, 20)));
+                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), ji5.l(name_show, 20)));
                     int byteLength = dj.byteLength(name_show);
                     i = byteLength < 20 ? byteLength >= 16 ? 2 : 4 : 1;
                     ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
@@ -339,7 +339,7 @@ public class UserIconLayout extends LinearLayout {
                     }
                     setUserTextColor(threadData);
                 }
-                this.b.setText(wh5.l(name_show, 20));
+                this.b.setText(ji5.l(name_show, 20));
             } else if (this.k) {
                 this.b.setText(e(this.g.getAuthor().getSealPrefix(), name_show));
             } else {

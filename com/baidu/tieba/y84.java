@@ -1,172 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class y84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BaiduMap b;
-    public Marker c;
-    public BitmapDescriptor d;
-    public b e;
-    public LocationClient f;
-    public BDLocation g;
-    public boolean h;
+    public PoiInfo a;
+    public boolean b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
-    public class a extends BDAbstractLocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y84 a;
-
-        public a(y84 y84Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y84Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y84Var;
-        }
-
-        @Override // com.baidu.location.BDAbstractLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null) {
-                    this.a.m();
-                    return;
-                }
-                this.a.b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.a.c != null) {
-                    this.a.c.remove();
-                    this.a.c = null;
-                }
-                MarkerOptions anchor = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d).anchor(0.5f, 0.5f);
-                y84 y84Var = this.a;
-                y84Var.c = (Marker) y84Var.b.addOverlay(anchor);
-                if (this.a.g == null) {
-                    MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude()));
-                    if (this.a.e != null) {
-                        this.a.e.a(bDLocation);
-                    }
-                }
-                this.a.g = bDLocation;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(BDLocation bDLocation);
-    }
-
-    public y84(Context context, BaiduMap baiduMap) {
+    public y84(PoiInfo poiInfo, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, baiduMap};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {poiInfo, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = false;
-        this.a = context;
-        this.b = baiduMap;
-    }
-
-    public BDLocation i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (BDLocation) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
-            LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
-            this.f = locationClient;
-            locationClient.registerLocationListener(new a(this));
-            LocationClientOption locationClientOption = new LocationClientOption();
-            locationClientOption.setOpenGps(true);
-            locationClientOption.setCoorType(CoordType.GCJ02.name());
-            locationClientOption.setScanSpan(1000);
-            this.f.setLocOption(locationClientOption);
-            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f08018c);
+        if (poiInfo == null) {
+            this.a = new PoiInfo();
         }
+        this.a = poiInfo;
+        this.b = z;
+        this.c = z2;
     }
 
-    public void k(b bVar) {
+    public static List<y84> a(List<PoiInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList(list.size());
+                for (PoiInfo poiInfo : list) {
+                    if (poiInfo.location != null) {
+                        arrayList.add(new y84(poiInfo));
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList();
         }
+        return (List) invokeL.objValue;
     }
 
-    public final void l() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public y84(PoiInfo poiInfo) {
+        this(poiInfo, false, false);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.h) {
-            return;
-        }
-        j();
-        LocationClient locationClient = this.f;
-        if (locationClient == null || locationClient.isStarted()) {
-            return;
-        }
-        this.f.start();
-        this.h = true;
-    }
-
-    public final void m() {
-        LocationClient locationClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && (locationClient = this.f) != null && locationClient.isStarted()) {
-            this.f.stop();
-            this.h = false;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                l();
-            } else {
-                m();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {poiInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((PoiInfo) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }

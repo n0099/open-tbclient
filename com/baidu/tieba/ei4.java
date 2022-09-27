@@ -1,17 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.IBinder;
-import android.os.RemoteException;
+import android.graphics.Paint;
+import android.os.Build;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tbadk.core.util.GameCenterCoreUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,20 +12,261 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Autowired
 /* loaded from: classes3.dex */
 public class ei4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile IRemoteUBCService a;
-    public static final Map<String, Integer> b;
-    public static final Set<String> c;
+    public static final k a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static class a implements k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ei4.k
+        public int a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? fi4.a(view2) : invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.ei4.k
+        public void c(View view2, int i, Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, paint) == null) {
+                fi4.b(view2, i, paint);
+            }
+        }
+
+        @Override // com.baidu.tieba.ei4.k
+        public void d(View view2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, view2, z) == null) {
+                fi4.c(view2, z);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class e extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ei4.k
+        public boolean b(View view2, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) ? gi4.a(view2, i) : invokeLI.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class f extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ei4.k
+        public boolean e(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? hi4.a(view2) : invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class g extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class h extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class i extends h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class j extends i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public j() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface k {
+        int a(View view2);
+
+        boolean b(View view2, int i);
+
+        void c(View view2, int i, Paint paint);
+
+        void d(View view2, boolean z);
+
+        boolean e(View view2);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -47,13 +281,11 @@ public class ei4 {
                 return;
             }
         }
-        b = new HashMap();
-        HashSet hashSet = new HashSet();
-        c = hashSet;
-        hashSet.add(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER);
-        c.add("671");
-        b.put(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER, -1);
-        b.put("671", -1);
+        if (Build.VERSION.SDK_INT >= 21) {
+            a = new j();
+        } else {
+            a = new i();
+        }
     }
 
     public ei4() {
@@ -61,190 +293,44 @@ public class ei4 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
-        int intValue;
+    public static boolean a(View view2, int i2) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Integer num = b.get(str);
-            if (num == null) {
-                num = -1;
-            }
-            if (num.intValue() == -1) {
-                intValue = ti4.f().getInt(str2, 0);
-            } else {
-                intValue = num.intValue();
-            }
-            int i = intValue + 1;
-            if (i >= Integer.MAX_VALUE || i < 0) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, view2, i2)) == null) ? a.b(view2, i2) : invokeLI.booleanValue;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        li4 g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (c.contains(str) && (g = g()) != null && g.p()) {
-                synchronized (ei4.class) {
-                    String str3 = "ubc_counter" + str;
-                    int a2 = a(str, str3);
-                    try {
-                        JSONObject jSONObject = new JSONObject(str2);
-                        jSONObject.put("counter", a2);
-                        str2 = jSONObject.toString();
-                        ti4.f().putInt(str3, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
-                }
-                return str2;
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static JSONObject c(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        li4 g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            if (c.contains(str) && (g = g()) != null && g.p()) {
-                synchronized (ei4.class) {
-                    String str2 = "ubc_counter" + str;
-                    int a2 = a(str, str2);
-                    try {
-                        jSONObject.put("counter", a2);
-                        ti4.f().putInt(str2, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
-                }
-                return jSONObject;
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static Flow d(String str) {
+    public static int b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? e(str, "", 0) : (Flow) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) ? a.a(view2) : invokeL.intValue;
     }
 
-    public static Flow e(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, str, str2, i)) == null) ? pi4.b().a(str, str2, i) : (Flow) invokeLLI.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? a.e(view2) : invokeL.booleanValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static IRemoteUBCService f() throws RemoteException {
-        InterceptResult invokeV;
+    public static void d(View view2, int i2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (a == null) {
-                synchronized (ei4.class) {
-                    if (a == null) {
-                        IBinder f = IPCServiceManager.f("open_log", true);
-                        if (f == null) {
-                            throw new RemoteException("Ceres get remote service empty !");
-                        }
-                        if (f != null) {
-                            a = IRemoteUBCService.Stub.asInterface(f);
-                        }
-                    }
-                }
-            }
-            return a;
-        }
-        return (IRemoteUBCService) invokeV.objValue;
-    }
-
-    @Inject
-    public static li4 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? fv2.a() : (li4) invokeV.objValue;
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
-            i(str, str2, 0);
+        if (interceptable == null || interceptable.invokeLIL(65541, null, view2, i2, paint) == null) {
+            a.c(view2, i2, paint);
         }
     }
 
-    public static void i(String str, String str2, int i) {
+    public static void e(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65547, null, str, str2, i) == null) {
-            if (he1.g()) {
-                str2 = b(str, str2);
-            }
-            if (yi4.a()) {
-                pi4.b().e(str, str2, i);
-            }
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
-            k(str, map, 0);
-        }
-    }
-
-    public static void k(String str, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65549, null, str, map, i) == null) && yi4.a()) {
-            pi4.b().f(str, map, i);
-        }
-    }
-
-    public static void l(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, jSONObject) == null) {
-            m(str, jSONObject, 0);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65551, null, str, jSONObject, i) == null) {
-            if (he1.g()) {
-                c(str, jSONObject);
-            }
-            if (yi4.a()) {
-                pi4.b().g(str, jSONObject, i);
-            }
-        }
-    }
-
-    public static void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            i(str, "", 0);
+        if (interceptable == null || interceptable.invokeLZ(65542, null, view2, z) == null) {
+            a.d(view2, z);
         }
     }
 }

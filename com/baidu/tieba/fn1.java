@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface fn1 {
-    void a(Activity activity, Bundle bundle, uq2 uq2Var);
+    String a(@NonNull String str, @Nullable JSONObject jSONObject);
 }

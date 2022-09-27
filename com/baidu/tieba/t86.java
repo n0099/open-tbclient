@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class t86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
 
-    public t86(String str, int i) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ox4.k().h("like_forum_sort_level", false) ? 2 : 1 : invokeI.intValue;
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, String str) {
+        ForumSquareActivityConfig forumSquareActivityConfig;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, str) == null) || tbPageContext == null) {
+            return;
         }
-        this.a = str;
-        this.b = i;
+        if (!StringUtils.isNull(str)) {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
+        } else {
+            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
+        }
+        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
     }
 }

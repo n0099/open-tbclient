@@ -18,20 +18,20 @@ import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class sm9 extends FunNativeAd2Bridger<im9, View> {
+public class sm9 extends FunNativeAd2Bridger<rm9, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean b;
-    public final /* synthetic */ om9 c;
+    public final /* synthetic */ nm9 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sm9(om9 om9Var, ReporterPidLoader reporterPidLoader) {
+    public sm9(nm9 nm9Var, ReporterPidLoader reporterPidLoader) {
         super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {om9Var, reporterPidLoader};
+            Object[] objArr = {nm9Var, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,43 +42,39 @@ public class sm9 extends FunNativeAd2Bridger<im9, View> {
                 return;
             }
         }
-        this.c = om9Var;
+        this.c = nm9Var;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(im9 im9Var) {
+    public View createExpressView(rm9 rm9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, im9Var)) == null) ? ((TTNativeExpressAd) im9Var.a).getExpressAdView() : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rm9Var)) == null) ? ((TTNativeExpressAd) rm9Var.a).getExpressAdView() : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, im9 im9Var, BaseNativeAd2<im9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, rm9 rm9Var, BaseNativeAd2<rm9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, im9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, rm9Var, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, im9 im9Var, BaseNativeAd2<im9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, rm9 rm9Var, BaseNativeAd2<rm9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, im9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-            im9 im9Var2 = im9Var;
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(im9Var2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, rm9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            rm9 rm9Var2 = rm9Var;
+            expressInflater.inflate();
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(rm9Var2);
             if (expressAdListenerWrapper != null) {
                 expressAdListenerWrapper.funListener = funAdInteractionListener;
             } else {
-                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
+                LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
             }
-            this.c.onShowStart(im9Var2, this.b);
-            expressInflater.inflate();
-            View expressView = expressInflater.getExpressView();
-            om9 om9Var = this.c;
-            om9Var.getClass();
-            ((TTNativeExpressAd) im9Var2.a).setDislikeCallback(activity, new rm9(om9Var, expressView, im9Var2, funAdInteractionListener, str));
+            this.c.onShowStart(rm9Var2, this.b);
             this.b = true;
         }
     }

@@ -75,11 +75,11 @@ public class EmotionFloatView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 1) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080949, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094b, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             } else if (i == 2) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094c, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             } else if (i == 3) {
-                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
+                setBackgroundDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08094a, SkinManager.getColor(R.color.CAM_X0208), WebPManager.ResourceStateType.NORMAL));
             }
         }
     }

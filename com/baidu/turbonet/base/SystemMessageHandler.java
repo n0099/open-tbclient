@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s79;
+import com.baidu.tieba.h89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +32,12 @@ public class SystemMessageHandler extends Handler {
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0489a implements c {
+        public static class C0486a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Method a;
 
-            public C0489a() {
+            public C0486a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,11 +53,11 @@ public class SystemMessageHandler extends Handler {
                 try {
                     this.a = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e) {
-                    s79.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
+                    h89.c("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
                 } catch (NoSuchMethodException e2) {
-                    s79.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e2);
+                    h89.c("cr.SysMessageHandler", "Failed to load Message.setAsynchronous method", e2);
                 } catch (RuntimeException e3) {
-                    s79.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e3);
+                    h89.c("cr.SysMessageHandler", "Exception while loading Message.setAsynchronous method", e3);
                 }
             }
 
@@ -71,16 +71,16 @@ public class SystemMessageHandler extends Handler {
                 try {
                     method.invoke(message, Boolean.valueOf(z));
                 } catch (IllegalAccessException unused) {
-                    s79.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
+                    h89.c("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (IllegalArgumentException unused2) {
-                    s79.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
+                    h89.c("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (RuntimeException unused3) {
-                    s79.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
+                    h89.c("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
                     this.a = null;
                 } catch (InvocationTargetException unused4) {
-                    s79.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
+                    h89.c("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
                     this.a = null;
                 }
             }
@@ -136,7 +136,7 @@ public class SystemMessageHandler extends Handler {
             if (Build.VERSION.SDK_INT >= 22) {
                 a = new b();
             } else {
-                a = new C0489a();
+                a = new C0486a();
             }
         }
 

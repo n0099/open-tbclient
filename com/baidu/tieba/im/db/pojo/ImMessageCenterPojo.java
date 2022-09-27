@@ -6,10 +6,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.as4;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.fc7;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.tc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String group_head;
     public String group_name;
     public int group_type;
-    public as4 imUserExtraData;
+    public ns4 imUserExtraData;
     public int isFriend;
     public boolean isSelf;
     public int is_delete;
@@ -138,7 +138,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(fc7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(tc7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -202,10 +202,10 @@ public class ImMessageCenterPojo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.group_type : invokeV.intValue;
     }
 
-    public as4 getImUserExtraData() {
+    public ns4 getImUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imUserExtraData : (as4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imUserExtraData : (ns4) invokeV.objValue;
     }
 
     public int getIsFriend() {
@@ -416,10 +416,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setImUserExtraData(as4 as4Var) {
+    public void setImUserExtraData(ns4 ns4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, as4Var) == null) {
-            this.imUserExtraData = as4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, ns4Var) == null) {
+            this.imUserExtraData = ns4Var;
         }
     }
 

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface e11 {
-    void a(@NonNull Runnable runnable, @NonNull String str, int i, long j);
+public class e11 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Runnable runnable, @NonNull String str, long j);
+    public abstract String a();
 }

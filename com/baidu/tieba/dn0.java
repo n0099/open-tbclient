@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.app.Application;
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
 public interface dn0 {
-    void a();
+    void a(@NonNull Application application);
 
-    void b(Bitmap bitmap);
+    void b();
 }

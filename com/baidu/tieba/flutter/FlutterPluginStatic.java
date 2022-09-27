@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ld5;
-import com.baidu.tieba.np4;
+import com.baidu.tieba.aq4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.yd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (np4.c().contains("-Flutter")) {
+        if (aq4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class FlutterPluginStatic {
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                    } else if (customResponsedMessage.getData() instanceof ld5) {
-                        FlutterPluginManager.getInstance().init((ld5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof yd5) {
+                        FlutterPluginManager.getInstance().init((yd5) customResponsedMessage.getData());
                     } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                         FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                     } else {

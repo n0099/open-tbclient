@@ -24,14 +24,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.fi5;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.hg;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.lj;
 import com.baidu.tieba.rg;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.si5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +92,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
         initNetWork();
         this.mContext = TbadkCoreApplication.getInst().getApp();
         this.netContext = httpNetContext;
-        rg.u(fi5.b());
+        rg.u(si5.b());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
@@ -589,7 +589,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
                             return null;
                         }
                         int i2 = parseInt * 10;
-                        if (i2 > 0 && !u75.k().i(i2)) {
+                        if (i2 > 0 && !h85.k().i(i2)) {
                             BdLog.d("Image download cacelled. out of memory. url:[" + this.netContext.getRequest().mUrl + "], size:" + i2);
                             this.netContext.getResponse().mNetErrorCode = -16;
                             return null;

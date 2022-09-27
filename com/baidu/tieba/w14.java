@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class w14 {
+public class w14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String filePath;
+    @V8JavascriptField
+    public int statusCode;
+    @V8JavascriptField
+    public String tempFilePath;
 
     public w14() {
         Interceptable interceptable = $ic;
@@ -27,51 +31,12 @@ public final class w14 {
         }
     }
 
-    public final boolean a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ku2 d = d();
-            if (d != null) {
-                return d.a();
-            }
-            return false;
+            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void b(WebSocketTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            ku2 d = d();
-            if (d != null) {
-                d.b(task);
-            }
-        }
-    }
-
-    public final void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            Intrinsics.checkNotNullParameter(taskId, "taskId");
-            ku2 d = d();
-            if (d != null) {
-                d.c(taskId);
-            }
-        }
-    }
-
-    public final ku2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            y23 M = y23.M();
-            if (M != null) {
-                return M.m0();
-            }
-            return null;
-        }
-        return (ku2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

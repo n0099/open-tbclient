@@ -215,12 +215,12 @@ public class sv extends pv {
 
             /* renamed from: com.baidu.tieba.sv$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0415a implements Runnable {
+            public class RunnableC0419a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0415a(a aVar) {
+                public RunnableC0419a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -306,7 +306,7 @@ public class sv extends pv {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0415a(this));
+                        this.a.a.post(new RunnableC0419a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {

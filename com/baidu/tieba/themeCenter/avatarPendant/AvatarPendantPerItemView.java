@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.ds8;
+import com.baidu.tieba.ss8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
     public ImageView e;
     public TextView f;
     public DressItemData g;
-    public ds8.a h;
+    public ss8.a h;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -103,10 +103,10 @@ public class AvatarPendantPerItemView extends LinearLayout {
         boolean inUse = dressItemData.getInUse();
         if (dressItemData.isPropIdEven()) {
             if (this.c.getHeadView() != null) {
-                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f87), 24, false);
+                this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f8b), 24, false);
             }
         } else if (this.c.getHeadView() != null) {
-            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f86), 24, false);
+            this.c.getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f8a), 24, false);
         }
         if (dj.byteLength(dressItemData.getTitle()) > 8) {
             this.f.setText(dj.cutString(dressItemData.getTitle(), 8));
@@ -131,12 +131,12 @@ public class AvatarPendantPerItemView extends LinearLayout {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012b, this);
             this.b = inflate;
             this.c = (HeadPendantView) inflate.findViewById(R.id.obfuscated_res_0x7f09030a);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918cf);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08123c);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08123c);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
             this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090620);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092129);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09212b);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);
@@ -149,7 +149,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
         }
     }
 
-    public void setAvatarPendantItemClickListener(ds8.a aVar) {
+    public void setAvatarPendantItemClickListener(ss8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.h = aVar;

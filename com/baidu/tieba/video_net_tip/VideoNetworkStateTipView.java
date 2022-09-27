@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lo4;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,7 +53,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                lo4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
+                yo4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
             }
         }
     }
@@ -84,11 +84,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0592, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e8);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0919ea);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090ad5);
             this.c = textView;
             textView.setOnClickListener(new a(this));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919f7);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919f9);
             b(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -100,11 +100,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         }
         this.a = i;
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fdc);
+        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fe0);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080321);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fdc);
+        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fe0);
     }
 
     public void setHasAgreeToPlay(boolean z) {

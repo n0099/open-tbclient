@@ -1,112 +1,139 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class qn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lh a;
+    public String b;
+    public boolean c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String[] split3;
+    public qn8(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (dj.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return split3[split3.length - 1];
         }
-        return (String) invokeL.objValue;
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public void a() {
+        tn8 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (c = c()) == null || c.f == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        long e = this.a.e();
+        if (e > 3000) {
+            sn8 sn8Var = c.f;
+            sn8Var.a += e;
+            sn8Var.b++;
+            rn8.b(c, 10);
+        }
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        tn8 c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("upgrade");
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.a == null || (c = c()) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        if (z) {
+            sn8 sn8Var = c.d;
+            if (sn8Var == null) {
+                return;
+            }
+            sn8Var.b++;
+            if (z2) {
+                sn8Var.a += j2;
+                sn8Var.d += j;
+            } else {
+                sn8Var.c++;
+            }
+        } else {
+            sn8 sn8Var2 = c.e;
+            if (sn8Var2 == null) {
+                return;
+            }
+            sn8Var2.b++;
+            if (z2) {
+                sn8Var2.a += j3;
+                sn8Var2.d += j;
+            } else {
+                sn8Var2.c++;
+            }
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            rn8.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                lh lhVar = new lh("dbg");
+                lhVar.b("act", "frs");
+                lhVar.b(TiebaStatic.LogFields.RESULT, z2 ? "0" : "1");
+                lhVar.b("isHttp", z ? "1" : "0");
+                lhVar.b("timeCost", String.valueOf(j2));
+                lhVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                lhVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
+                lhVar.b("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", lhVar);
+            }
+        }
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        String[] split2;
-        String str2;
-        String[] split3;
-        String str3;
+    public final tn8 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                if (!dj.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
-                    return str2.substring(0, (str2.length() - str3.length()) - 1);
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? rn8.e(this.b, d(), this.c) : (tn8) invokeV.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Uri parse;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (dj.isEmpty(str) || (parse = Uri.parse(str)) == null) {
-                return null;
-            }
-            return parse.getQueryParameter("notificationName");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            return netType == 0 ? "N" : netType == 1 ? "WIFI" : netType == 3 ? "3G" : netType == 2 ? "2G" : "N";
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static JSONObject f(String str) throws JSONException {
-        InterceptResult invokeL;
+    public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (dj.isEmpty(str)) {
-                return new JSONObject();
-            }
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return new JSONObject();
-            }
-            String queryParameter = parse.getQueryParameter("params");
-            if (dj.isEmpty(queryParameter)) {
-                return new JSONObject();
-            }
-            return new JSONObject(queryParameter);
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new lh("dbg");
+            rn8.c(str, d(), z);
         }
-        return (JSONObject) invokeL.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.g();
+        }
     }
 }

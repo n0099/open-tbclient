@@ -1,148 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ny4 {
+public class ny4 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
-    public static ny4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, DownloadData> a;
-    public final HashMap<String, DownloadData> b;
-    public final HashMap<String, String> c;
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ny4 ny4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ny4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
-                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
-                if (ListUtils.isEmpty(data)) {
-                    return;
-                }
-                for (DownloadData downloadData : data) {
-                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
-                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
-                        int status = downloadData.getStatus();
-                        if (status == 0) {
-                            if (this.a.a.containsKey(str)) {
-                                this.a.b.put(str, this.a.a.get(str));
-                                this.a.a.remove(str);
-                                my4.a(downloadData, 700);
-                                return;
-                            }
-                            return;
-                        } else if (status != 2) {
-                            if (status == 4 && this.a.a.containsKey(str)) {
-                                this.a.a.remove(str);
-                                my4.a(downloadData, 400);
-                                return;
-                            }
-                            return;
-                        } else {
-                            my4.a(downloadData, 600);
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ny4 ny4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ny4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Intent) {
-                    Intent intent = (Intent) data;
-                    String g = k85.g(intent);
-                    if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) || "android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        if (this.a.b.containsKey(g)) {
-                            my4.a((DownloadData) this.a.b.get(g), 900);
-                            this.a.b.remove(g);
-                        }
-                    } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-                        this.a.l(g);
-                    }
-                }
-            }
-        }
-    }
+    public boolean u;
 
     public ny4() {
         Interceptable interceptable = $ic;
@@ -157,103 +31,113 @@ public class ny4 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        h();
-        i();
+        this.b = R.color.CAM_X0302;
+        this.u = true;
     }
 
-    public static ny4 f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new ny4();
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? v(f) : (Drawable) invokeF.objValue;
+    }
+
+    public void p(@ColorRes int i, @ColorRes int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.d = i;
+            this.b = i2;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
-            return d;
-        }
-        return (ny4) invokeV.objValue;
-    }
-
-    public void d(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
-    public void e(DownloadData downloadData) {
+    public void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
-        }
-    }
-
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c.containsKey(str)) {
-                return this.c.get(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.d = R.color.CAM_X0904;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
-            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
-            this.c.put(str, string);
-            return string;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a aVar = new a(this, 2001118);
-            aVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(aVar);
         }
     }
 
-    public final void i() {
+    public void r(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b bVar = new b(this, 2002504);
-            bVar.setPriority(-1);
-            MessageManager.getInstance().registerListener(bVar);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            this.u = true;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public void j(DownloadData downloadData) {
+    public void s(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+            this.u = true;
+            this.q = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public void k(DownloadData downloadData) {
+    public void t(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0903;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public final void l(String str) {
+    public void u(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.c.remove(str);
-            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-            edit.remove(str);
-            edit.commit();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
+            this.d = R.color.CAM_X0211;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public void m(String str, String str2) {
+    public final Drawable v(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || StringHelper.equals(this.c.get(str), str2)) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.u) {
+                gradientDrawable.setColor(ol8.a(this.q ? SkinManager.getColor(this.r, this.b) : this.b, 0.08f));
+            } else {
+                gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
+            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
-        this.c.put(str, str2);
-        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
-        edit.putString(str, str2);
-        edit.commit();
+        return (Drawable) invokeF.objValue;
     }
 }

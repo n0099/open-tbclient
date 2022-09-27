@@ -1,94 +1,48 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Message;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpRequest;
-import java.util.Map;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
 public interface in1 {
-    @Nullable
-    String A();
 
-    String B();
+    /* loaded from: classes4.dex */
+    public interface a {
+        void onFinish();
+    }
 
-    String C();
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(boolean z);
 
-    String D();
+        void b(Exception exc);
+    }
 
-    long E();
+    /* loaded from: classes4.dex */
+    public interface c {
+        void a(boolean z);
 
-    HttpRequest F(Context context, Map<String, String> map);
+        void b();
+    }
 
-    String G();
+    void a(a aVar);
 
-    String H();
+    void b(Activity activity, Bundle bundle, xj1 xj1Var);
 
-    String I();
+    void c(zj1 zj1Var);
 
-    boolean J();
+    String d(@NonNull Context context);
 
-    String K();
+    boolean e(Context context);
 
-    String L();
+    String f(@NonNull Context context);
 
-    HttpRequest M(Context context, Map<String, String> map);
+    void g(c cVar);
 
-    boolean N();
+    String h(Context context);
 
-    String O();
+    String i(@NonNull Context context);
 
-    HttpRequest a(Context context, Map<String, String> map);
-
-    String b();
-
-    String c();
-
-    void d();
-
-    String e();
-
-    String f();
-
-    HttpRequest g(Context context, Map<String, String> map);
-
-    String h();
-
-    String i();
-
-    boolean isDebug();
-
-    String j();
-
-    void k();
-
-    String l();
-
-    String m(String str);
-
-    String n();
-
-    HttpRequest o(Context context, Map<String, String> map);
-
-    String p();
-
-    String q();
-
-    int r();
-
-    HttpRequest s(Context context, Map<String, String> map);
-
-    String t();
-
-    HttpRequest u(Context context, Map<String, String> map);
-
-    String v();
-
-    String w();
-
-    void x(Message message, yp2 yp2Var);
-
-    String y();
-
-    String z(Context context);
+    void j(xj1 xj1Var);
 }

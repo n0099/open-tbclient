@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Region;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class xw1 extends ew1 {
+public class xw1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,20 +27,16 @@ public class xw1 extends ew1 {
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) {
-            fw1Var.e();
-            try {
-                canvas.restore();
-            } catch (IllegalStateException e) {
-                yz1.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) {
+            sw1Var.g = true;
+            canvas.clipPath(sw1Var.f, Region.Op.INTERSECT);
         }
     }
 
-    @Override // com.baidu.tieba.ew1
+    @Override // com.baidu.tieba.rw1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {

@@ -15,12 +15,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
-import com.baidu.tieba.av4;
-import com.baidu.tieba.bv4;
-import com.baidu.tieba.dv4;
-import com.baidu.tieba.ev4;
-import com.baidu.tieba.yu4;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.lv4;
+import com.baidu.tieba.mv4;
+import com.baidu.tieba.nv4;
+import com.baidu.tieba.ov4;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.rv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,20 +28,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class DownloadFlowView<T extends zu4> extends FrameLayout {
+public class DownloadFlowView<T extends mv4> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public bv4 c;
+    public ov4 c;
     public View d;
     public DownloadFlowAdapter<T> e;
-    public yu4 f;
+    public lv4 f;
     public DownloadFlowView<T>.c g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public dv4<T> k;
+    public qv4<T> k;
     public DownloadFlowView<T>.e l;
     public DownloadFlowView<T>.b m;
     public DownloadFlowView<T>.d n;
@@ -77,7 +77,7 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
             this.a = downloadFlowView;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.dv4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.qv4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -162,7 +162,7 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
             this.a = downloadFlowView;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.dv4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.qv4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -265,7 +265,7 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new av4());
+            setCoverFlowFactory(new nv4());
             addView(this.a);
             addView(this.b);
             DownloadFlowAdapter<T> downloadFlowAdapter = new DownloadFlowAdapter<>(context);
@@ -293,15 +293,15 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
     }
 
     public void r() {
-        bv4 bv4Var;
+        ov4 ov4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.d();
             IndicatorView indicatorView = this.b;
-            if (indicatorView == null || (bv4Var = this.c) == null) {
+            if (indicatorView == null || (ov4Var = this.c) == null) {
                 return;
             }
-            indicatorView.setDrawable(SkinManager.getDrawable(bv4Var.a()));
+            indicatorView.setDrawable(SkinManager.getDrawable(ov4Var.a()));
             this.b.setSelector(SkinManager.getDrawable(this.c.b()));
         }
     }
@@ -321,24 +321,24 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
         }
     }
 
-    public void setCallback(dv4<T> dv4Var) {
+    public void setCallback(qv4<T> qv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dv4Var) == null) {
-            this.k = dv4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, qv4Var) == null) {
+            this.k = qv4Var;
         }
     }
 
-    public void setCoverFlowFactory(yu4 yu4Var) {
+    public void setCoverFlowFactory(lv4 lv4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, yu4Var) == null) || yu4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, lv4Var) == null) || lv4Var == null) {
             return;
         }
-        this.f = yu4Var;
-        bv4 a2 = yu4Var.a();
+        this.f = lv4Var;
+        ov4 a2 = lv4Var.a();
         this.c = a2;
         a2.i(this.b);
-        yu4Var.c().b(this.a);
-        View b2 = yu4Var.b();
+        lv4Var.c().b(this.a);
+        View b2 = lv4Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();
@@ -494,13 +494,13 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
         downloadFlowAdapter.g(list, this.f);
     }
 
-    public void z(ev4 ev4Var) {
+    public void z(rv4 rv4Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, ev4Var) == null) || ev4Var == null || (listViewPager = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, rv4Var) == null) || rv4Var == null || (listViewPager = this.a) == null) {
             return;
         }
-        ev4Var.b(listViewPager);
+        rv4Var.b(listViewPager);
     }
 
     /* loaded from: classes3.dex */
@@ -566,7 +566,7 @@ public class DownloadFlowView<T extends zu4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.dv4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.qv4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {

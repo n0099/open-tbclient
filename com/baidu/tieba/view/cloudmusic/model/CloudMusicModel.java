@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pz8;
+import com.baidu.tieba.e09;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pz8<CloudMusicData> a;
+    public e09<CloudMusicData> a;
     public final HttpMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -128,13 +128,13 @@ public class CloudMusicModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(pz8<CloudMusicData> pz8Var) {
+    public void A(e09<CloudMusicData> e09Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pz8Var) == null) || pz8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, e09Var) == null) || e09Var == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = pz8Var;
+        this.a = e09Var;
     }
 
     public final void B() {

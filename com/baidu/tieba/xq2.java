@@ -1,41 +1,49 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j23;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class xq2 {
+public class xq2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public ki3 b;
+    public Activity a;
+    public String b;
+    public ArrayList<lr2> c;
+    public int d;
 
     /* loaded from: classes6.dex */
-    public class a implements j23.a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ xq2 b;
+        public SimpleDraweeView a;
+        public TextView b;
+        public TextView c;
 
-        public a(xq2 xq2Var, String str) {
+        public a(xq2 xq2Var, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xq2Var, str};
+                Object[] objArr = {xq2Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,26 +53,18 @@ public class xq2 {
                     return;
                 }
             }
-            this.b = xq2Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.j23.a
-        public void a(j23 j23Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j23Var) == null) {
-                xq2.d(j23Var.c(), this.b.a, this.a);
-                this.b.b.j();
-            }
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09024d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090250);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024f);
         }
     }
 
-    public xq2(@NonNull Activity activity) {
+    public xq2(Activity activity, String str, ArrayList<lr2> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {activity, str, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,90 +75,84 @@ public class xq2 {
             }
         }
         this.a = activity;
+        this.b = str;
+        this.c = arrayList;
+        this.d = (int) (ch3.f(activity, 50.0f) / 2.0f);
     }
 
-    public static void d(int i, Activity activity, String str) {
+    public final String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, activity, str) == null) {
-            if (i == 6) {
-                g(activity, str);
-            } else if (i == 7) {
-                f(activity, str);
-            } else if (i != 8) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f12e1, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f12b0, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<lr2> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i < 0 || i > this.c.size()) {
+                return null;
+            }
+            return this.c.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) null);
+                aVar = new a(this, view2);
+                view2.setTag(aVar);
             } else {
-                h(activity, str);
+                aVar = (a) view2.getTag();
             }
-        }
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081184));
+            lr2 lr2Var = this.c.get(i);
+            if (lr2Var == null) {
+                return view2;
             }
-            return str.startsWith("content://") || str.startsWith("file://");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, activity, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "swan");
-                jSONObject.put("urls", new JSONArray(new String[]{str}));
-                jSONObject.put("type", "0");
-                jSONObject.put("index", "0");
-            } catch (JSONException e) {
-                if (ij1.a) {
-                    e.printStackTrace();
-                }
+            aVar.b.setText(lr2Var.c());
+            ArrayList<MediaModel> arrayList = lr2Var.d;
+            if (arrayList == null) {
+                return view2;
             }
-            fm2.C().b(activity, jSONObject);
-        }
-    }
-
-    public static void g(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, activity, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("imageUrl", str);
-            fm2.C().f(activity, new JSONObject(hashMap));
-        }
-    }
-
-    public static void h(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, activity, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("imageUrl", str);
-            fm2.C().a(activity, new JSONObject(hashMap));
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || e(str)) {
-            return;
-        }
-        this.b.e(6, R.string.obfuscated_res_0x7f0f1260);
-    }
-
-    public void i(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) {
-            ki3 ki3Var = this.b;
-            if (ki3Var != null && ki3Var.n()) {
-                this.b.j();
+            aVar.c.setText(a(arrayList.size()));
+            if (lr2Var.d.get(0) != null && !TextUtils.isEmpty(lr2Var.d.get(0).getPath())) {
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(lr2Var.d.get(0).getPath())));
+                int i2 = this.d;
+                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
+                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
+                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
             }
-            ki3 ki3Var2 = new ki3(view2);
-            this.b = ki3Var2;
-            ki3Var2.r(new a(this, str));
-            c(str);
-            this.b.t();
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

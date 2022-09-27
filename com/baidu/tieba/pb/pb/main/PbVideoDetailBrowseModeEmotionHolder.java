@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay4;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ny4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,10 +58,10 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         this.c = (TBSpecificationBtn) findViewById3;
         SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
         this.b.setText(R.string.obfuscated_res_0x7f0f0e12);
-        uu4.d(this.b).v(R.color.CAM_X0107);
-        ay4 ay4Var = new ay4();
-        ay4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.c.setConfig(ay4Var);
+        hv4.d(this.b).v(R.color.CAM_X0107);
+        ny4 ny4Var = new ny4();
+        ny4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
+        this.c.setConfig(ny4Var);
         this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e11));
         this.c.setTextSize(R.dimen.T_X07);
     }
@@ -70,7 +70,7 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-            uu4.d(this.b).v(R.color.CAM_X0107);
+            hv4.d(this.b).v(R.color.CAM_X0107);
             this.c.k();
         }
     }

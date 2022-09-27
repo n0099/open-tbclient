@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class mx1 extends ew1 {
+public class mx1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     public mx1() {
         Interceptable interceptable = $ic;
@@ -25,42 +22,29 @@ public class mx1 extends ew1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) {
-            fw1Var.k = this.a;
-        }
-    }
-
-    @Override // com.baidu.tieba.ew1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) {
             try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "top")) {
-                        this.a = 1;
-                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
-                        this.a = 2;
-                    } else if (TextUtils.equals(optString, "bottom")) {
-                        this.a = 3;
-                    } else {
-                        this.a = 0;
-                    }
-                }
-            } catch (Exception e) {
-                if (ij1.a) {
+                sw1Var.f();
+                canvas.save();
+            } catch (CloneNotSupportedException e) {
+                if (vj1.a) {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.rw1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
     }
 }

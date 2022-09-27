@@ -3,33 +3,15 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class u01 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static boolean b;
-    public static long c;
-    public static int d;
-    public static int e;
-    public static int f;
-    public static int g;
-    public static int h;
-    public static int i;
-    public static double j;
-    public static double k;
-    public static double l;
-    public static long m;
-    public static long n;
-    public static double o;
-    public static double p;
-    public static double q;
-    public static double r;
-    public static double[] s;
-    public static AtomicBoolean t;
-    public static final Object u;
+    public static final HashMap<Class<? extends a11>, a11> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,38 +27,45 @@ public class u01 {
                 return;
             }
         }
-        a = new int[]{0, 1, 2, 3};
-        b = true;
-        c = 2000L;
-        d = 2;
-        e = 2;
-        f = 6;
-        g = 4;
-        h = 6;
-        i = 30;
-        j = 10.0d;
-        k = 30.0d;
-        l = 2.0d;
-        m = 500L;
-        n = 3000L;
-        o = 999.0d;
-        p = 8.0d;
-        q = 3.0d;
-        r = 1.0d;
-        s = new double[]{999.0d, 8.0d, 3.0d, 1.0d};
-        t = new AtomicBoolean(false);
-        u = new Object();
+        a = new HashMap<>();
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public u01() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? t.get() : invokeV.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
-    public static Object b() {
-        InterceptResult invokeV;
+    public static <T extends a11> T a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? u : invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            T t = (T) a.get(cls);
+            if (t == null) {
+                synchronized (u01.class) {
+                    t = (T) a.get(cls);
+                    if (t == null) {
+                        t = (T) v01.a(cls);
+                        a.put(cls, t);
+                    }
+                }
+            }
+            return t;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T extends a11> z01 b(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? a(cls).b() : (z01) invokeL.objValue;
     }
 }

@@ -9,8 +9,8 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.q90;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,16 +48,16 @@ public class EmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = q90.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
-            layoutParams.height = q90.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
+            layoutParams.width = da0.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
+            layoutParams.height = da0.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(hc0.f().b(str));
+            setImageResource(uc0.f().b(str));
             if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
                 this.b.setText(R.string.obfuscated_res_0x7f0f0a0d);
             } else {
                 this.b.setText(R.string.obfuscated_res_0x7f0f0a0c);
             }
-            this.b.setTextColor(hc0.f().a(getContext(), str, "color_8585852"));
+            this.b.setTextColor(uc0.f().a(getContext(), str, "color_8585852"));
         }
     }
 

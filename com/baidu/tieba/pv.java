@@ -332,7 +332,7 @@ public class pv {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0798, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810a9);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810ad);
             gradientDrawable.setColor(uv.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ae6)));
             gradientDrawable.setAlpha(204);
             relativeLayout.setBackground(gradientDrawable);
@@ -353,18 +353,18 @@ public class pv {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0799, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810a9);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810ad);
             gradientDrawable.setColor(uv.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060ae6)));
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c32)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c34)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(uv.a.a(str3, resources.getColor(R.color.obfuscated_res_0x7f060ae5)));
                 textView.setTextSize(1, i);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c31);
-            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810aa);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c33);
+            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f0810ae);
             gradientDrawable2.setColor(uv.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060ae6)));
             textView2.setBackground(gradientDrawable2);
             if (!TextUtils.isEmpty(charSequence2)) {

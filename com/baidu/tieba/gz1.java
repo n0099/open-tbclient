@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class gz1 extends ky1 {
+public final class gz1 extends zy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public String E;
+    public String t;
+    public boolean u;
+    public boolean v;
+    public String w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gz1() {
-        super("coverView", "viewId");
+        super("animateview", "sanId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,26 +35,34 @@ public final class gz1 extends ky1 {
                 return;
             }
         }
-        this.E = "";
+        this.u = false;
+        this.v = true;
+        this.w = null;
     }
 
-    @Override // com.baidu.tieba.ky1, com.baidu.tieba.my1, com.baidu.tieba.oy1, com.baidu.tieba.xs2
+    @Override // com.baidu.tieba.zy1, com.baidu.tieba.bz1, com.baidu.tieba.kt2
     public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.D = jSONObject.optInt("scrollTop");
-        JSONObject jSONObject3 = this.j;
-        if (jSONObject3 != null) {
-            this.E = jSONObject3.optString("overflowY");
-        }
-        et2 et2Var = this.h;
-        if (et2Var == null || (jSONObject2 = this.j) == null) {
-            return;
-        }
-        et2Var.i(jSONObject2.optBoolean("fixed", false));
+        this.t = jSONObject.optString("path");
+        this.u = jSONObject.optBoolean("loop");
+        this.v = jSONObject.optBoolean("autoPlay");
+        this.w = jSONObject.optString("action");
+    }
+
+    @Override // com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b)) ? false : true : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? isValid() && !TextUtils.isEmpty(this.t) : invokeV.booleanValue;
     }
 }

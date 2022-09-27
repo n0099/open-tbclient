@@ -1,27 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
-public interface yd9 extends Runnable {
+public interface yd9 {
+    int a(byte[] bArr, int i);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void b(DownloadException downloadException);
+    boolean a();
 
-        void onConnectCanceled();
+    boolean a(int i, int i2, int i3, int i4);
 
-        void onConnectPaused();
+    byte[] a(int i);
 
-        void onConnected(long j, long j2, boolean z);
+    boolean b();
 
-        void onConnecting();
-    }
+    void c();
 
-    void cancel();
+    void d();
 
-    boolean isCanceled();
-
-    boolean isPaused();
-
-    void pause();
+    void e();
 }

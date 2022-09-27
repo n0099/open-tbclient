@@ -1,107 +1,187 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class o16 {
+public class o16 extends i16<f76> {
     public static /* synthetic */ Interceptable $ic;
-    public static o16 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+    public TbImageView i;
+    public LinearLayout j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public LinearLayout n;
+    public ImageView o;
+    public ImageView p;
+    public ImageView q;
+    public ImageView r;
+    public ImageView s;
+    public TextView t;
+    public f76 u;
+    public View v;
 
-    public o16() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o16(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        r(h());
     }
 
-    public static o16 b() {
+    @Override // com.baidu.tieba.i16
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (o16.class) {
-                    if (b == null) {
-                        b = new o16();
-                    }
-                }
-            }
-            return b;
-        }
-        return (o16) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018e : invokeV.intValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(this.t, R.color.CAM_X0107, 1);
+                t(this.u);
+            }
+            this.a = i;
         }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        this.a.add(statisticItem);
     }
 
-    public void c() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.getCount(this.a) == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
             return;
         }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
+        e().a(h(), this.u);
     }
 
-    public void d(boolean z) {
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || ListUtils.getCount(this.a) == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090515);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090516);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090517);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090519);
+            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
+            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
+            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
+            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
+            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090514);
+            this.i.setDefaultResource(17170445);
+            this.i.setDefaultBgResource(R.color.CAM_X0205);
+            this.i.setDrawBorder(true);
+            this.i.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
+            h().setOnClickListener(this);
+            this.v = view2.findViewById(R.id.divider_line);
         }
-        int i = -1;
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null && i != statisticItem.getPosition()) {
-                i = statisticItem.getPosition();
-                statisticItem.delete(TiebaStatic.Params.OBJ_PARAM2);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
     }
 
-    public void e(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: s */
+    public void i(f76 f76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || ListUtils.getCount(this.a) == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, f76Var) == null) || f76Var == null || f76Var.c() == null) {
             return;
         }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                if (statisticItem.getKey() != null && !statisticItem.getKey().equals("c13756") && !statisticItem.getKey().equals("c13750") && !statisticItem.getKey().equals("c13751")) {
-                    statisticItem.param("obj_type", z ? 1 : 0);
-                }
-                TiebaStatic.log(statisticItem);
+        this.u = f76Var;
+        this.i.K(f76Var.c().avatar, 10, false);
+        this.k.setText(f76Var.c().game_name);
+        this.l.setText(f76Var.c().title_small);
+        this.m.setText(String.valueOf(f76Var.c().game_score));
+        t(f76Var);
+        this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f070d, StringHelper.numberUniform(f76Var.c().game_score_num)));
+    }
+
+    public final void t(f76 f76Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, f76Var) == null) || f76Var == null) {
+            return;
+        }
+        SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_empty_bg);
+        SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_empty_bg);
+        if (f76Var.c().game_score > 0.0d) {
+            if (f76Var.c().game_score < 2.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (f76Var.c().game_score == 2.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (f76Var.c().game_score < 4.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (f76Var.c().game_score == 4.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (f76Var.c().game_score < 6.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (f76Var.c().game_score == 6.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (f76Var.c().game_score < 8.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (f76Var.c().game_score == 8.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+            } else if (f76Var.c().game_score < 10.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
+            } else if (f76Var.c().game_score == 10.0d) {
+                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
+                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
             }
         }
-        this.a.clear();
     }
 }

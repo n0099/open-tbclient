@@ -1,316 +1,209 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.GroupSettingItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.GroupImageView;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.mygroup.PersonalGroupFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wa7 extends va7 {
+public class wa7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static wa7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public PersonalGroupFragment a;
+    public List<GroupInfoData> b;
 
     /* loaded from: classes6.dex */
-    public class a extends qh5<Boolean> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ wa7 d;
+        public LinearLayout a;
+        public GroupImageView b;
+        public TextView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public ImageView g;
+        public ImageView h;
+        public ImageView i;
+        public ImageView j;
+        public ImageView k;
+        public ImageView l;
+        public ImageView[] m;
 
-        public a(wa7 wa7Var, String str, String str2, long j) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa7Var, str, str2, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.d = wa7Var;
-            this.a = str;
-            this.b = str2;
-            this.c = j;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.qh5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                GroupSettingItemData a = this.d.a(this.a, this.b);
-                if (a != null && a.isAlreadyApply()) {
-                    if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.c) {
-                        return Boolean.FALSE;
-                    }
-                }
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends qh5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ wa7 c;
-
-        public b(wa7 wa7Var, GroupSettingItemData groupSettingItemData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa7Var, groupSettingItemData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = wa7Var;
-            this.a = groupSettingItemData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qh5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends qh5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ wa7 b;
-
-        public c(wa7 wa7Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wa7Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wa7Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qh5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.b.b().remove(this.a);
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948263932, "Lcom/baidu/tieba/wa7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948263932, "Lcom/baidu/tieba/wa7;");
-                return;
-            }
-        }
-        b = new wa7();
-    }
-
-    public wa7() {
+    public wa7(PersonalGroupFragment personalGroupFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalGroupFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList();
+        this.a = personalGroupFragment;
     }
 
-    public static wa7 k() {
-        InterceptResult invokeV;
+    public final void a(ImageView[] imageViewArr, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (wa7) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.va7
-    public jf<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            zt4.f();
-            return zt4.g("tb.im_group_setting");
-        }
-        return (jf) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.va7
-    public void h(ChatSetting chatSetting) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                jf<String> b2 = b();
-                String str = uid + "@" + gid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, groupSettingItemData);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, imageViewArr, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            if (i > 3) {
+                i = 3;
+            }
+            for (int i2 = 1; i2 <= 3; i2++) {
+                if (i2 <= i) {
+                    imageViewArr[i2].setVisibility(0);
+                } else {
+                    imageViewArr[i2].setVisibility(8);
                 }
-                b2.g(str, jsonStrWithObject);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
             }
         }
-    }
-
-    @Override // com.baidu.tieba.va7
-    public void i(ChatSetting chatSetting, vg5<Void> vg5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, vg5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
-            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
-            String uid = groupSettingItemData.getUid();
-            String gid = groupSettingItemData.getGid();
-            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
-                String str = uid + "@" + gid;
-                synchronized (this.a) {
-                    this.a.put(str, groupSettingItemData);
-                }
-                uh5.c(new b(this, groupSettingItemData, str), vg5Var);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    public void j(String str, String str2, vg5<Void> vg5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, vg5Var) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        String str3 = str + "@" + str2;
-        synchronized (this.a) {
-            this.a.remove(str3);
-        }
-        uh5.c(new c(this, str3), vg5Var);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.va7
-    /* renamed from: l */
-    public GroupSettingItemData a(String str, String str2) {
-        InterceptResult invokeLL;
-        GroupSettingItemData groupSettingItemData;
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public GroupInfoData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int itemId = (int) getItemId(i);
+            if (itemId < 0 || itemId >= this.b.size()) {
                 return null;
             }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                groupSettingItemData = chatSetting instanceof GroupSettingItemData ? (GroupSettingItemData) chatSetting : null;
+            return this.b.get(itemId);
+        }
+        return (GroupInfoData) invokeI.objValue;
+    }
+
+    public void c(List<GroupInfoData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d084a, viewGroup, false);
+                aVar = new a();
+                aVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09064a);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ef);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907ee);
+                aVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907f0);
+                aVar.b = (GroupImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa8);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa5);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa6);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb1);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f87);
+                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa1);
+                aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa2);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa3);
+                aVar.l = imageView;
+                ImageView[] imageViewArr = new ImageView[4];
+                aVar.m = imageViewArr;
+                imageViewArr[1] = aVar.j;
+                imageViewArr[2] = aVar.k;
+                imageViewArr[3] = imageView;
+                view2.setTag(aVar);
             }
-            if (groupSettingItemData == null) {
-                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
-                groupSettingItemData2.setUid(str);
-                groupSettingItemData2.setGid(str2);
-                groupSettingItemData2.setAcceptNotify(true);
-                groupSettingItemData2.setInGroup(true);
-                return groupSettingItemData2;
+            GroupInfoData groupInfoData = this.b.get(i);
+            aVar.b.setTag(null);
+            aVar.b.setDrawBorder(true);
+            aVar.b.setPlaceHolder(1);
+            if (groupInfoData != null) {
+                String portrait = groupInfoData.getPortrait();
+                if (!TextUtils.isEmpty(portrait)) {
+                    aVar.b.K(portrait, 10, false);
+                } else {
+                    aVar.b.K("", 10, false);
+                }
+                aVar.a.setOnClickListener(this.a);
+                aVar.a.setTag(groupInfoData);
+                aVar.g.setVisibility(8);
+                aVar.i.setVisibility(8);
+                aVar.h.setVisibility(0);
+                aVar.c.setText(groupInfoData.getName());
+                TextView textView = aVar.d;
+                textView.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+                aVar.e.setText(groupInfoData.getIntro());
+                if (groupInfoData.getIsGroupManager() == 1) {
+                    aVar.f.setVisibility(0);
+                } else {
+                    aVar.f.setVisibility(8);
+                }
+                a(aVar.m, groupInfoData.getGrade());
             }
-            return groupSettingItemData;
+            this.a.getBaseFragmentActivity().getLayoutMode().l(TbadkApplication.getInst().getSkinType() == 1);
+            this.a.getBaseFragmentActivity().getLayoutMode().k(view2);
+            if (groupInfoData != null && groupInfoData.isMemGroup()) {
+                SkinManager.setViewTextColor(aVar.c, R.color.common_color_10009, 1);
+                SkinManager.setImageResource(aVar.j, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setImageResource(aVar.k, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setImageResource(aVar.l, R.drawable.icon_vip_grade_big_small_s);
+            }
+            return view2;
         }
-        return (GroupSettingItemData) invokeLL.objValue;
-    }
-
-    public void m(String str, String str2, long j, vg5<Boolean> vg5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), vg5Var}) == null) {
-            uh5.c(new a(this, str, str2, j), vg5Var);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.e(GroupSettingItemData.class);
-        }
-    }
-
-    public void o(String str, String str2, boolean z, vg5<Void> vg5Var) {
-        GroupSettingItemData a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Boolean.valueOf(z), vg5Var}) == null) || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        a2.setAlreadyApply(z);
-        a2.setLastApplyTimeStamp(System.currentTimeMillis());
-        i(a2, vg5Var);
-    }
-
-    public void p(String str, String str2, boolean z, vg5<Void> vg5Var) {
-        GroupSettingItemData a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Boolean.valueOf(z), vg5Var}) == null) || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        a2.setInGroup(z);
-        i(a2, vg5Var);
+        return (View) invokeILL.objValue;
     }
 }

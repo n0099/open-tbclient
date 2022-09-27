@@ -1,148 +1,266 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.CustomViewPager;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes3.dex */
 public class cx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile cx4 g;
+    public static int h;
+    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public FragmentTabHost b;
-    public final yg<on> c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     /* loaded from: classes3.dex */
-    public class a extends yg<on> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cx4 a;
 
-        public a(cx4 cx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875552851, "Lcom/baidu/tieba/cx4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-875552851, "Lcom/baidu/tieba/cx4$a;");
                     return;
                 }
             }
-            this.a = cx4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
-                super.onLoaded((a) onVar, str, i);
-                if (this.a.b == null || onVar == null || !onVar.w()) {
-                    this.a.f();
-                    return;
-                }
-                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
-                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
-                ViewGroup tabWrapper = this.a.b.getTabWrapper();
-                if (fragmentTabWidget == null || fragmentViewPager == null) {
-                    return;
-                }
-                this.a.b.setNeedShowThemeStyle(false);
-                fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = ej.f(this.a.b.getContext(), R.dimen.tbds100);
-                fragmentViewPager.setLayoutParams(layoutParams);
-                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(onVar.p()));
+            int[] iArr = new int[LiveRemindConfig.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[LiveRemindConfig.Scene.LIVE_BUBBLE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LiveRemindConfig.Scene.LIVE_FLOAT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    public cx4(FragmentTabHost fragmentTabHost, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947690122, "Lcom/baidu/tieba/cx4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947690122, "Lcom/baidu/tieba/cx4;");
+                return;
+            }
+        }
+        new Date();
+        new Date();
+    }
+
+    public cx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new a(this);
-        this.b = fragmentTabHost;
-        this.a = i;
+        h();
     }
 
-    public final BdUniqueId c() {
+    public static cx4 b() {
         InterceptResult invokeV;
-        r9<?> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabHost fragmentTabHost = this.b;
-            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = w9.a(this.b.getContext())) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (cx4.class) {
+                    if (g == null) {
+                        g = new cx4();
+                    }
+                }
             }
-            return a2.getUniqueId();
+            return g;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (cx4) invokeV.objValue;
     }
 
-    public final void d(String str) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            zg.h().m(str, 10, this.c, c());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ox4.k().l(c(LiveRemindConfig.Scene.LIVE_BUBBLE), 0) : invokeV.intValue;
+    }
+
+    public final String c(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                return this.a;
+            }
+            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                return this.d;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                return this.c;
+            }
+            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                return this.f;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String e(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                return this.b;
+            }
+            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                return this.e;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(LiveRemindConfig.Scene scene) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, scene) == null) {
+            int i2 = a.a[scene.ordinal()];
+            if (i2 == 1) {
+                ox4.k().x(d(scene), System.currentTimeMillis());
+                i++;
+                g(LiveRemindConfig.Scene.LIVE_BUBBLE);
+            } else if (i2 != 2) {
+            } else {
+                ox4.k().x(d(scene), System.currentTimeMillis());
+                h++;
+                g(LiveRemindConfig.Scene.LIVE_FLOAT);
+            }
         }
     }
 
-    public void e(Pair<String, String> pair) {
+    public final void g(LiveRemindConfig.Scene scene) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
-            return;
-        }
-        String str = (String) pair.first;
-        String str2 = (String) pair.second;
-        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-            d(str2);
-        } else if (!TextUtils.isEmpty(str)) {
-            d(str);
-        } else {
-            f();
+        if (interceptable == null || interceptable.invokeL(1048581, this, scene) == null) {
+            ox4.k().w(c(scene), ox4.k().l(c(scene), 0) + 1);
         }
     }
 
-    public final void f() {
-        FragmentTabHost fragmentTabHost;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = "key_live_bubble_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
+            this.b = "key_live_bubble_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
+            this.c = "key_live_bubble_last_show_time" + TbadkCoreApplication.getCurrentAccount();
+            this.d = "key_live_top_float_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
+            this.e = "key_live_top_float_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
+            this.f = "key_live_top_float_last_show_time" + TbadkCoreApplication.getCurrentAccount();
         }
-        this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
-        SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
-        SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
+    }
+
+    public final boolean i(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                i2 = i;
+            } else {
+                i2 = scene == LiveRemindConfig.Scene.LIVE_FLOAT ? h : 0;
+            }
+            return ox4.k().l(c(scene), 0) < LiveRemindConfig.c().b() && i2 < LiveRemindConfig.c().a();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean j(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
+            if (!StringHelper.isTaday(ox4.k().m(e(scene), 0L))) {
+                ox4.k().x(e(scene), System.currentTimeMillis());
+                m(scene);
+            }
+            return i(scene) && k(scene);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean k(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long m = ox4.k().m(d(scene), currentTimeMillis);
+            return currentTimeMillis == m || (currentTimeMillis - m) / 1000 >= LiveRemindConfig.c().d();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            i = 0;
+            h = 0;
+            if (TbadkCoreApplication.isLogin()) {
+                h();
+            }
+        }
+    }
+
+    public void m(LiveRemindConfig.Scene scene) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, scene) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                i = 0;
+            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                h = 0;
+            }
+            ox4.k().w(c(scene), 0);
+        }
+    }
+
+    public void n(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            ox4.k().w(c(LiveRemindConfig.Scene.LIVE_BUBBLE), i2);
+        }
     }
 }

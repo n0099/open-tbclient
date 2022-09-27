@@ -1,147 +1,99 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import androidx.annotation.AnyThread;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 /* loaded from: classes4.dex */
 public class kx2 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
 
-    public kx2() {
-        Interceptable interceptable = $ic;
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            l33 b0;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b0 = l33.b0()) == null) {
+                return;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("appKey", b0.getAppId());
+            contentValues.put("launch_type", Integer.valueOf(da3.c()));
+            contentValues.put("source", b0.W().T());
+            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
+            ContentResolver contentResolver = sm2.c().getContentResolver();
+            if (contentResolver != null) {
+                contentResolver.insert(ma2.b(), contentValues);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947928388, "Lcom/baidu/tieba/kx2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947928388, "Lcom/baidu/tieba/kx2;");
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = true;
-        }
-    }
-
-    public final ViewGroup b() {
+    public static int a() {
         InterceptResult invokeV;
-        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (y23.b0() == null || y23.b0().w() == null || (viewGroup = (ViewGroup) y23.b0().w().findViewById(16908290)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = a;
+            if (i != -1) {
+                return i;
             }
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f79);
-            if (viewGroup2 != null) {
-                return viewGroup2;
+            sm2.g0().getSwitch("swan_backstage_policy", 0);
+            a = 300;
+            if (300 < 60) {
+                a = 60;
+            } else if (300 > 3600) {
+                a = 3600;
             }
-            ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(y23.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d081d, viewGroup);
-            this.b = true;
-            return viewGroup3;
+            return a;
         }
-        return (ViewGroup) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void c() {
+    @AnyThread
+    public static void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            d();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            fg3.k(new a(), "SwanLaunchBehavior");
         }
-    }
-
-    public final void d() {
-        y23 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (b0 = y23.b0()) == null || b0.w() == null) {
-            return;
-        }
-        ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f091f79);
-        if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
-        }
-        this.b = false;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            c();
-            k();
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909a4, j, "#80ff0000", "FCP");
-        }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909c1, j, "#80ff0000", "FIP");
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090a13, j, "#8000ff00", "FMP");
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090c23, j, "#80ff0000", "FTP");
-        }
-    }
-
-    public final void j(int i, long j, String str, String str2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) || this.a || (b = b()) == null) {
-            return;
-        }
-        TextView textView = (TextView) b.findViewById(i);
-        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
-        textView.setBackgroundColor(Color.parseColor(str));
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b) {
-            return;
-        }
-        b();
-    }
-
-    public void l(long j, long j2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
-            return;
-        }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091fb1)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

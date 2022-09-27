@@ -1,87 +1,134 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.zxing.client.result.ResultParser;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes3.dex */
-public final class cb9 {
+public class cb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
 
-    public cb9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669135, "Lcom/baidu/tieba/cb9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947669135, "Lcom/baidu/tieba/cb9;");
                 return;
             }
         }
-        this.a = xa9.a().c();
+        a = x99.m();
     }
 
-    public final void a(String str) {
+    public static byte[] a(InputStream inputStream) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                try {
+                    i = inputStream.read(bArr, 0, 1024);
+                } catch (IOException e) {
+                    if (a) {
+                        Log.e("StringUtil", e.toString());
+                    }
+                    i = 0;
+                }
+                if (i == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, i);
+            }
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            try {
+                byteArrayOutputStream.close();
+            } catch (IOException e2) {
+                if (a) {
+                    Log.e("StringUtil", e2.toString());
+                }
+            }
+            return byteArray;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public final boolean b(String str) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
-            int count = rawQuery.getCount();
-            rawQuery.close();
-            return count > 0;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final List<com.baidu.ubs.analytics.a.n> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
-                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
-                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                arrayList.add(nVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            try {
+                try {
+                    byte[] a2 = a(inputStream);
+                    if (a2 != null) {
+                        String str = new String(a2);
+                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                            str = str.substring(1);
+                        }
+                        return str;
+                    } else if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                            return null;
+                        } catch (Exception e) {
+                            e = e;
+                            if (!a) {
+                                return null;
+                            }
+                            Log.e("StringUtil", e.toString());
+                            return null;
+                        }
+                    } else {
+                        return null;
+                    }
+                } finally {
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e2) {
+                            if (a) {
+                                Log.e("StringUtil", e2.toString());
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e3) {
+                if (a) {
+                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                        return null;
+                    } catch (Exception e4) {
+                        e = e4;
+                        if (!a) {
+                            return null;
+                        }
+                        Log.e("StringUtil", e.toString());
+                        return null;
+                    }
+                }
+                return null;
             }
-            rawQuery.close();
-            return arrayList;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void d(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
-        }
-    }
-
-    public final void e(com.baidu.ubs.analytics.a.n nVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
-            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
-        }
+        return (String) invokeL.objValue;
     }
 }

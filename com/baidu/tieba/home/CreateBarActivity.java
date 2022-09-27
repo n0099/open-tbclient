@@ -30,7 +30,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.l15;
+import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -347,14 +347,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        l15 l15Var = new l15();
-                        l15Var.e(postNetData);
-                        if (l15Var.c() != null && l15Var.c().length() > 0) {
-                            this.c.n = l15Var.b();
+                        y15 y15Var = new y15();
+                        y15Var.e(postNetData);
+                        if (y15Var.c() != null && y15Var.c().length() > 0) {
+                            this.c.n = y15Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(l15Var.c());
+                            NetWork netWork2 = new NetWork(y15Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -460,13 +460,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l = new a(this);
             this.m = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.u = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f046e));
             this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922b5)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922b7)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090925);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f25);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090727);
@@ -491,12 +491,12 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             frameLayout.setOnClickListener(this.l);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091aba);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ac1);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ac3);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f091ec6).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f091ec8).setOnTouchListener(new c(this));
         }
     }
 

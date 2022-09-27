@@ -1,116 +1,106 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class gx3 {
+public class gx3 extends rq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
+    public EventTargetImpl d;
+    public dx3 e;
 
-    public gx3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809255, "Lcom/baidu/tieba/gx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947809255, "Lcom/baidu/tieba/gx3;");
+                return;
+            }
+        }
+        f = vj1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gx3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = eventTargetImpl;
+    }
+
+    @Override // com.baidu.tieba.rq2
+    public void b(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            dx3 dx3Var = this.e;
+            if (dx3Var != null) {
+                dx3Var.p(optString, jSONObject);
+            }
+            if (this.d.hasEventListener(optString)) {
+                JSEvent jSEvent = new JSEvent(optString);
+                if (jSONObject != null) {
+                    jSEvent.data = jSONObject;
+                }
+                if (f && !"onTimeUpdate".equals(str)) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("type = ");
+                    sb.append(str);
+                    sb.append("  result = ");
+                    sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
+                    Log.d("AudioCallbackForV8", sb.toString());
+                }
+                this.d.dispatchEvent(jSEvent);
             }
         }
     }
 
-    public static gx3 e(fv1 fv1Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rq2
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fv1Var)) == null) {
-            if (fv1Var == null) {
-                return null;
-            }
-            gx3 gx3Var = new gx3();
-            gx3Var.a = fv1Var.u("success");
-            gx3Var.b = fv1Var.u(com.baidu.pass.biometrics.face.liveness.b.a.g0);
-            gx3Var.c = fv1Var.u(TaskProcessData.keyComplete);
-            return gx3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return (gx3) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void a() {
+    public void e(dx3 dx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            JsFunction jsFunction = this.b;
-            if (jsFunction != null) {
-                jsFunction.call();
-            }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call();
-            }
-            f(this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dx3Var) == null) {
+            this.e = dx3Var;
         }
-    }
-
-    public void b(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            JsFunction jsFunction = this.b;
-            if (jsFunction != null) {
-                jsFunction.call(obj);
-            }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call(obj);
-            }
-            f(this.a);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            JsFunction jsFunction = this.a;
-            if (jsFunction != null) {
-                jsFunction.call();
-            }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call();
-            }
-            f(this.b);
-        }
-    }
-
-    public void d(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            JsFunction jsFunction = this.a;
-            if (jsFunction != null) {
-                jsFunction.call(obj);
-            }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call(obj);
-            }
-            f(this.b);
-        }
-    }
-
-    public final void f(JsFunction jsFunction) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jsFunction) == null) || jsFunction == null) {
-            return;
-        }
-        jsFunction.release();
     }
 }

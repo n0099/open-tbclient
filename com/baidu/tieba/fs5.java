@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,28 +12,61 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 /* loaded from: classes4.dex */
-public class fs5 {
+public class fs5 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fs5 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
+
+    /* loaded from: classes4.dex */
+    public class a implements es5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fs5 a;
+
+        public a(fs5 fs5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fs5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fs5Var;
+        }
+
+        @Override // com.baidu.tieba.es5
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                this.a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.a.mResult.putString("params", bundle.getString("result_msg"));
+                this.a.finish();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947774721, "Lcom/baidu/tieba/fs5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774721, "Lcom/baidu/tieba/fs5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947774721, "Lcom/baidu/tieba/fs5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947774721, "Lcom/baidu/tieba/fs5;");
-        }
+        a = vj1.a;
     }
 
     public fs5() {
@@ -46,28 +83,47 @@ public class fs5 {
         }
     }
 
-    public static fs5 a() {
-        InterceptResult invokeV;
+    public static Bundle d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (fs5.class) {
-                    if (b == null) {
-                        b = new fs5();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("order_info", str);
+            return bundle;
         }
-        return (fs5) invokeV.objValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    public void b(Context context) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, "wx7088ea0f777314d2", true);
-            this.a = createWXAPI;
-            createWXAPI.registerApp("wx7088ea0f777314d2");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.mParams.isEmpty()) {
+                if (a) {
+                    Log.d("BaiFuBaoPayDelegation", "onExec params is null.");
+                }
+                return false;
+            }
+            if (a) {
+                Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            }
+            Log.d("BaiFuBaoPayDelegation", "PAYMENT onExec");
+            if (!ed5.c().d()) {
+                ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0ed1);
+                return false;
+            } else if (getAgent() instanceof Activity) {
+                bs5 bs5Var = new bs5();
+                bs5Var.mParams.putInt("type", 1);
+                bs5Var.mParams.putString("orderInfo", this.mParams.getString("order_info"));
+                bs5Var.d(getAgent());
+                bs5Var.e(new a(this));
+                bs5Var.onExec();
+                return false;
+            } else {
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 }

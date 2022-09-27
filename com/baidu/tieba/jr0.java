@@ -1,66 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthParser")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class jr0 {
+public class jr0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jr0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static final hr0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null) {
-                try {
-                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
-                    if (optJSONArray != null) {
-                        ArrayList arrayList = new ArrayList();
-                        int length = optJSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (optJSONObject != null) {
-                                String host = optJSONObject.optString("host");
-                                String optString = optJSONObject.optString("auth");
-                                Intrinsics.checkNotNullExpressionValue(host, "host");
-                                arrayList.add(new gr0(host, b(optString)));
-                            }
-                        }
-                        return new hr0(arrayList);
-                    }
-                    return null;
-                } catch (Exception e) {
-                    jj0.a("AuthParser", e.getMessage());
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892769, "Lcom/baidu/tieba/jr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947892769, "Lcom/baidu/tieba/jr0;");
+                return;
+            }
         }
-        return (hr0) invokeL.objValue;
+        b = new jr0();
     }
 
-    public static final ir0 b(String str) {
-        InterceptResult invokeL;
+    public jr0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null) {
-                List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
-                if (split$default.size() < 4) {
-                    return null;
-                }
-                return new ir0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (ir0) invokeL.objValue;
+        this.a = 0;
     }
 }

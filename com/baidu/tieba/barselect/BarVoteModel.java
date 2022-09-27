@@ -15,18 +15,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a06;
 import com.baidu.tieba.barselect.data.VoteElectionHttpResMessage;
 import com.baidu.tieba.barselect.data.VoteElectionRequestMessage;
 import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.j06;
+import com.baidu.tieba.l06;
+import com.baidu.tieba.n06;
+import com.baidu.tieba.no8;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.yn8;
-import com.baidu.tieba.yz5;
+import com.baidu.tieba.w06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class BarVoteModel extends BdBaseModel {
     public final BdUniqueId RELOAD_TYPE;
     public final BdUniqueId SWITCH_TYPE;
     public BarVoteActivity a;
-    public a06 b;
+    public n06 b;
     public c c;
     public long d;
     public pb e;
@@ -144,7 +144,7 @@ public class BarVoteModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.pb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            a06 voteData;
+            n06 voteData;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
@@ -187,7 +187,7 @@ public class BarVoteModel extends BdBaseModel {
                     if (this.a.a != null) {
                         gh.a().postDelayed(new b(this), 5000L);
                     }
-                } else if (voteData.a().h() == j06.c) {
+                } else if (voteData.a().h() == w06.c) {
                     this.a.b = voteData;
                     BarVoteModel barVoteModel3 = this.a;
                     barVoteModel3.mPn = 1;
@@ -238,10 +238,10 @@ public class BarVoteModel extends BdBaseModel {
             int error = httpResponsedMessage.getError();
             if (error != 0) {
                 if (error == 3250023) {
-                    yn8.b(error, "", null);
+                    no8.b(error, "", null);
                     return;
                 } else if (error == 3250021) {
-                    yn8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    no8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                     return;
                 } else if (error != 3250002 && error != 3250004) {
                     ej.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -264,9 +264,9 @@ public class BarVoteModel extends BdBaseModel {
             }
             CommitVoteReqMsg commitVoteReqMsg = (CommitVoteReqMsg) orginalMessage;
             if (commitVoteReqMsg.candidate_uid != 0) {
-                for (yz5 yz5Var : this.a.b.b()) {
-                    if (yz5Var.l() == commitVoteReqMsg.candidate_uid) {
-                        yz5Var.D(yz5Var.m() + 1);
+                for (l06 l06Var : this.a.b.b()) {
+                    if (l06Var.l() == commitVoteReqMsg.candidate_uid) {
+                        l06Var.D(l06Var.m() + 1);
                         z = true;
                     }
                 }
@@ -285,7 +285,7 @@ public class BarVoteModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(int i, String str, a06 a06Var);
+        void a(int i, String str, n06 n06Var);
     }
 
     public BarVoteModel(BarVoteActivity barVoteActivity) {

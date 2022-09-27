@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xb4;
-import com.baidu.tieba.yb4;
+import com.baidu.tieba.kc4;
+import com.baidu.tieba.lc4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -166,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(xb4 xb4Var) {
+    public void copyMainPkgInfo(kc4 kc4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xb4Var) == null) || xb4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kc4Var) == null) || kc4Var == null) {
             return;
         }
-        this.appId = xb4Var.g;
-        this.versionCode = xb4Var.i;
-        this.versionName = xb4Var.j;
-        this.type = xb4Var.o;
-        this.pkgSize = xb4Var.k;
+        this.appId = kc4Var.g;
+        this.versionCode = kc4Var.i;
+        this.versionName = kc4Var.j;
+        this.type = kc4Var.o;
+        this.pkgSize = kc4Var.k;
     }
 
-    public void copySubPkgInfo(yb4 yb4Var) {
+    public void copySubPkgInfo(lc4 lc4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, yb4Var) == null) || yb4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, lc4Var) == null) || lc4Var == null) {
             return;
         }
-        this.appId = yb4Var.o;
-        this.versionCode = yb4Var.i;
-        this.versionName = yb4Var.j;
-        this.type = yb4Var.q;
-        this.pkgSize = yb4Var.k;
+        this.appId = lc4Var.o;
+        this.versionCode = lc4Var.i;
+        this.versionName = lc4Var.j;
+        this.type = lc4Var.q;
+        this.pkgSize = lc4Var.k;
     }
 
     public void countLaunch(long j) {

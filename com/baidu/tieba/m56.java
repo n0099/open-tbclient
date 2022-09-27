@@ -1,77 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class m56 {
+/* loaded from: classes4.dex */
+public abstract class m56<T> extends h56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    public static final <T extends k46> T a(l46 l46Var, Class<T> type, p0 entity, d46 item) {
-        InterceptResult invokeLLLL;
-        T t;
+    public /* synthetic */ m56(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
+    }
+
+    @Override // com.baidu.tieba.h56
+    public boolean b(q46 item, t66 timer, k46 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, l46Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(l46Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
-            o0 f = l46Var.f();
-            if (f == null || (t = (T) f.h(type)) == null) {
-                return null;
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (this.d) {
+                boolean contains = this.c.contains(c(item.e()));
+                return this.b ? !contains : contains;
             }
-            entity.a(t);
-            t.b(item);
-            return t;
+            return false;
         }
-        return (T) invokeLLLL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static final long b(l46 l46Var) {
-        InterceptResult invokeL;
+    public abstract T c(r46 r46Var);
+
+    public final Set<T> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l46Var)) == null) {
-            Intrinsics.checkNotNullParameter(l46Var, "<this>");
-            return d(l46Var).a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
         }
-        return invokeL.longValue;
+        return (Set) invokeV.objValue;
     }
 
-    public static final d66 c(l46 l46Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m56(int i, boolean z) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, l46Var)) == null) {
-            Intrinsics.checkNotNullParameter(l46Var, "<this>");
-            return l46Var.i().d();
-        }
-        return (d66) invokeL.objValue;
-    }
-
-    public static final g66 d(l46 l46Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, l46Var)) == null) {
-            Intrinsics.checkNotNullParameter(l46Var, "<this>");
-            return l46Var.i().f();
-        }
-        return (g66) invokeL.objValue;
-    }
-
-    public static final boolean e(l46 l46Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, l46Var)) == null) {
-            Intrinsics.checkNotNullParameter(l46Var, "<this>");
-            o0 f = l46Var.f();
-            j46 j46Var = f instanceof j46 ? (j46) f : null;
-            if (j46Var == null) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return j46Var.x();
         }
-        return invokeL.booleanValue;
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 }

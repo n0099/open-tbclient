@@ -105,7 +105,7 @@ public class r10 {
     public static u10 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? sh8.a() : (u10) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? hi8.a() : (u10) invokeV.objValue;
     }
 
     @Inject(force = false)
@@ -119,7 +119,7 @@ public class r10 {
     public static w10 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? uh8.a() : (w10) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ji8.a() : (w10) invokeV.objValue;
     }
 
     @Inject(force = false)

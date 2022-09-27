@@ -86,13 +86,13 @@ public class wy extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: t */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) {
-            if (lq4Var != null && lq4Var.getThreadData() != null && lq4Var.getThreadData().originalThreadData != null && lq4Var.getThreadData().originalThreadData.C != null) {
-                if (!lq4Var.getThreadData().originalThreadData.m && !lq4Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) {
+            if (yq4Var != null && yq4Var.getThreadData() != null && yq4Var.getThreadData().originalThreadData != null && yq4Var.getThreadData().originalThreadData.C != null) {
+                if (!yq4Var.getThreadData().originalThreadData.m && !yq4Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(lq4Var.getThreadData().originalThreadData.D, 13, lq4Var.getThreadData().originalThreadData.f);
+                    this.i.setData(yq4Var.getThreadData().originalThreadData.D, 13, yq4Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

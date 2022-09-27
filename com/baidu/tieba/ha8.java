@@ -1,58 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.helper.ProgressHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ha8 extends ProgressHelper {
+public class ha8 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDVideoPlayer a;
+    public boolean a;
+    public int b;
+    public int c;
+    public boolean d;
+    public qa8 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ha8(@NonNull BDVideoPlayer bDVideoPlayer) {
-        super(bDVideoPlayer);
+    public ha8(qa8 qa8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bDVideoPlayer};
+            Object[] objArr = {qa8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BDVideoPlayer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bDVideoPlayer;
+        this.d = false;
+        this.e = qa8Var;
     }
 
-    public final void callPlayerBack(int i, int i2, int i3) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) || i2 <= 0) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        qa8 qa8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (qa8Var = this.e) == null) {
             return;
         }
-        this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
-    }
-
-    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
-    public void doTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int position = this.a.getPosition();
-            int durationMs = this.a.getDurationMs();
-            int bufferingPosition = this.a.getBufferingPosition();
-            int positionMs = this.a.getPositionMs();
-            this.a.getControlEventTrigger().syncPos(position, durationMs, bufferingPosition);
-            callPlayerBack(positionMs, durationMs, bufferingPosition);
+        if (!this.d) {
+            qa8Var.m(this.b, this.c, this.a, 2);
+        } else {
+            qa8Var.m(this.b, this.c, this.a, 1);
         }
     }
 }

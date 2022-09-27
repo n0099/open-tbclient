@@ -1,118 +1,54 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.p33;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class x53 {
+public class x53 extends v53 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean q;
-    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final double b;
-    public final double c;
-    public final float d;
-    public final double e;
-    public final double f;
-    public final double g;
-    public final double h;
-    public final String i;
-    public final String j;
-    public final String k;
-    public final String l;
-    public final String m;
-    public final String n;
-    public final String o;
-    public final String p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251315, "Lcom/baidu/tieba/x53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251315, "Lcom/baidu/tieba/x53;");
-                return;
-            }
-        }
-        q = ij1.a;
-        r = "LocationResult";
-    }
-
-    public x53(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x53(o33 o33Var) {
+        super(o33Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {o33Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((o33) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = d;
-        this.c = d2;
-        this.d = f;
-        this.e = d3;
-        this.f = d4;
-        this.g = 0.0d;
-        this.h = d3;
-        this.i = str2;
-        this.j = str3;
-        this.k = str4;
-        this.l = str5;
-        this.m = str6;
-        this.n = str7;
-        this.o = str8;
-        this.p = str9;
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v53
+    public void I(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("longitude", this.b);
-                jSONObject.put("latitude", this.c);
-                jSONObject.put("speed", this.d);
-                jSONObject.put("accuracy", this.e);
-                jSONObject.put("altitude", this.f);
-                jSONObject.put("verticalAccuracy", this.g);
-                jSONObject.put("horizontalAccuracy", this.h);
-                jSONObject.put("country", this.i);
-                jSONObject.put("countryCode", this.j);
-                jSONObject.put("city", this.k);
-                jSONObject.put("cityCode", this.l);
-                jSONObject.put("province", this.m);
-                jSONObject.put("district", this.n);
-                jSONObject.put("street", this.o);
-                jSONObject.put("streetNumber", this.p);
-                jSONObject.put("isFullAccuracy", true);
-            } catch (JSONException e) {
-                if (q) {
-                    String str = r;
-                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            wz2 w = xz2.Q("swan_forbidden_kill_on_client").z("mAppId", str).w("ipc_forbidden_flag", this.b);
+            w.J(str);
+            w.call();
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ei3
+    /* renamed from: M */
+    public void a(p33.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && xz2.J(aVar.D(), "swan_forbidden_kill_on_server")) {
+            this.b = aVar.j("ipc_forbidden_flag", 1);
+            I(aVar.o("mAppId", k33.K().getAppId()));
+        }
     }
 }

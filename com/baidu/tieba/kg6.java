@@ -1,109 +1,134 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
+import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public class kg6 implements uh6 {
+public class kg6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<uh6> a;
-    public static final uh6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public final BdUniqueId b;
+    public b c;
+    public pb d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947912175, "Lcom/baidu/tieba/kg6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a extends pb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kg6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kg6 kg6Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kg6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947912175, "Lcom/baidu/tieba/kg6;");
-                return;
+            this.a = kg6Var;
+        }
+
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.a.b) {
+                    if (this.a.c != null) {
+                        this.a.c.a(false, null);
+                        return;
+                    }
+                    return;
+                }
+                og6 searchData = responsedMessage instanceof SearchPostForumHttpResponseMessage ? ((SearchPostForumHttpResponseMessage) responsedMessage).getSearchData() : null;
+                if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
+                    searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
+                }
+                if (this.a.c != null) {
+                    this.a.c.a(searchData != null, searchData);
+                }
             }
         }
-        a = new AtomicReference<>(null);
-        b = new kg6();
     }
 
-    public kg6() {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(boolean z, og6 og6Var);
+    }
+
+    public kg6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public static uh6 e() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            uh6 uh6Var = a.get();
-            return uh6Var == null ? b : uh6Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
         }
-        return (uh6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uh6
-    public qn<? extends ot4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (qn) invokeLLZ.objValue;
+        if (!ej.D()) {
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
+            return;
+        }
+        c();
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.b);
+        SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
+        searchPostForumRequestMessage.setTag(this.b);
+        searchPostForumRequestMessage.set_word(str);
+        MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
 
-    @Override // com.baidu.tieba.uh6
-    public qg6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
         }
-        return (qg6) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh6
-    public qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (qn) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh6
-    public qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
-        }
-        return (qn) invokeLLL.objValue;
     }
 }

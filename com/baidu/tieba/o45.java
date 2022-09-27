@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,142 +10,52 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class o45 {
     public static /* synthetic */ Interceptable $ic;
-    public static oe0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public String b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements oe0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.o45$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0354a implements p45 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ne0 a;
-
-            public C0354a(a aVar, ne0 ne0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ne0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = ne0Var;
-            }
-
-            @Override // com.baidu.tieba.p45
-            public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-                ne0 ne0Var;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || (ne0Var = this.a) == null) {
-                    return;
-                }
-                ne0Var.onFailed(new Exception(str));
-            }
-
-            @Override // com.baidu.tieba.p45
-            public void onFileDownloadSucceed(DownloadData downloadData) {
-                ne0 ne0Var;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || (ne0Var = this.a) == null) {
-                    return;
-                }
-                ne0Var.b(downloadData.getPath());
-            }
-
-            @Override // com.baidu.tieba.p45
-            public boolean onFileDownloaded(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-
-            @Override // com.baidu.tieba.p45
-            public void onFileUpdateProgress(DownloadData downloadData) {
-                ne0 ne0Var;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (ne0Var = this.a) == null) {
-                    return;
-                }
-                ne0Var.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
-            }
-
-            @Override // com.baidu.tieba.p45
-            public boolean onPreDownload(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                    ne0 ne0Var = this.a;
-                    if (ne0Var != null) {
-                        ne0Var.onStarted();
-                        return true;
-                    }
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.oe0
-        public void a(String str, String str2, String str3, ne0 ne0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, ne0Var) == null) {
-                DownloadData downloadData = new DownloadData();
-                downloadData.setPath(str2 + "/" + str3);
-                downloadData.setUrl(str);
-                downloadData.setCallback(new C0354a(this, ne0Var));
-                q45.k().l(downloadData);
+    public o45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982297, "Lcom/baidu/tieba/o45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982297, "Lcom/baidu/tieba/o45;");
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public TbPageContext b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TbPageContext) invokeV.objValue;
+    }
+
+    public o45(TbPageContext tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new a();
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            he0.q(a);
-        }
+        this.a = tbPageContext;
+        this.b = str;
     }
 }

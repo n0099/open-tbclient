@@ -158,13 +158,13 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d07c7);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f11ab));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee0);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091edb);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eda);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08123c);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee2);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091edd);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091edc);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
             zg.h().m(this.a, 10, new a(this), null);
             this.d.K(this.a, 10, false);
             this.d.setOnClickListener(new b(this));

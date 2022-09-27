@@ -1,50 +1,83 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
-import org.apache.http.protocol.HTTP;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.List;
+import okhttp3.Dns;
 /* loaded from: classes4.dex */
-public class gq0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gq0 extends Dns {
+    public static final ServiceReference d = new ServiceReference("nad.core", "httpdns");
 
-    public static Request.Builder a(@NonNull fq0 fq0Var) throws RequestError {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fq0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(fq0Var.a);
-                Object obj = fq0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
+    /* loaded from: classes4.dex */
+    public static class a implements gq0 {
+        public static /* synthetic */ Interceptable $ic;
+        public static final gq0 a;
+        public static gq0 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-767620058, "Lcom/baidu/tieba/gq0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                if (fq0Var.k) {
-                    builder.header("Content-Type", "application/x-www-form-urlencoded");
-                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
-                    builder.header(HTTP.CONN_DIRECTIVE, "close");
-                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-767620058, "Lcom/baidu/tieba/gq0$a;");
+                    return;
                 }
-                Headers.a aVar = fq0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.header(c.f(i), c.h(i));
-                    }
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
-                String str = fq0Var.b;
-                builder.method(str, cq0.g(str, fq0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + fq0Var.a, th);
             }
         }
-        return (Request.Builder) invokeL.objValue;
+
+        public static gq0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                if (b == null) {
+                    synchronized (a.class) {
+                        if (b == null) {
+                            b = (gq0) ServiceManager.getService(gq0.d);
+                        }
+                        if (b == null) {
+                            b = a;
+                        }
+                    }
+                }
+                return b;
+            }
+            return (gq0) invokeV.objValue;
+        }
+
+        @Override // okhttp3.Dns
+        public List<InetAddress> lookup(String str) throws UnknownHostException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? Dns.SYSTEM.lookup(str) : (List) invokeL.objValue;
+        }
     }
 }

@@ -1,184 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class lu3 extends yy2 {
+public class lu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public String g;
-    public JSONObject h;
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ lu3 b;
-
-        public a(lu3 lu3Var, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lu3Var, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = lu3Var;
-            this.a = jSONObject;
-        }
-
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        @Override // java.lang.Runnable
-        public void run() {
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                xt3.n().G(this.b.h);
-                String str = this.b.f;
-                switch (str.hashCode()) {
-                    case -1261560102:
-                        if (str.equals("queryStatus")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -625158317:
-                        if (str.equals("deleteDownload")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -606050596:
-                        if (str.equals("resumeAllDownload")) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -534830837:
-                        if (str.equals("queryAllStatus")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -451216226:
-                        if (str.equals("pauseDownload")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -417021581:
-                        if (str.equals("pauseAllDownload")) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 184711125:
-                        if (str.equals("resumeDownload")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1554935562:
-                        if (str.equals("startDownload")) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        this.b.w(this.a);
-                        return;
-                    case 1:
-                        this.b.t(this.a);
-                        return;
-                    case 2:
-                        this.b.s();
-                        return;
-                    case 3:
-                        this.b.r(this.a);
-                        return;
-                    case 4:
-                        this.b.v(this.a);
-                        return;
-                    case 5:
-                        this.b.p(this.a);
-                        return;
-                    case 6:
-                        this.b.u();
-                        return;
-                    case 7:
-                        this.b.q();
-                        return;
-                    default:
-                        this.b.setResult(new su3(31009, "invalid operation"));
-                        return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements ru3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lu3 a;
-
-        public b(lu3 lu3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lu3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lu3Var;
-        }
-
-        @Override // com.baidu.tieba.ru3
-        public void a(tu3 tu3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, tu3Var) == null) {
-                this.a.setResult(tu3Var);
-            }
-        }
-    }
+    public volatile HashMap<String, List<ev3>> a;
 
     public lu3() {
         Interceptable interceptable = $ic;
@@ -190,96 +26,111 @@ public class lu3 extends yy2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(tu3 tu3Var) {
+    public synchronized void a(String str, ev3 ev3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, tu3Var) == null) {
-            this.d.clear();
-            if (tu3Var != null) {
-                this.d.putString("functionType", tu3Var.a());
-                this.d.putString("resultData", tu3Var.b());
-                this.d.putInt("resultStatus", tu3Var.c());
-                if (tu3Var.d()) {
-                    if (!TextUtils.equals(this.f, "startDownload")) {
-                        zu3.a(this.g, this.f, "success", null, new xu3(this.h));
-                    }
-                } else {
-                    zu3.a(this.g, this.f, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(tu3Var.c()), new xu3(this.h));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ev3Var) == null) {
+            synchronized (this) {
+                if (e(str, ev3Var)) {
+                    return;
+                }
+                List<ev3> c = c(str);
+                if (!c.contains(ev3Var)) {
+                    c.add(ev3Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
                 }
             }
-            c();
         }
     }
 
-    @Override // com.baidu.tieba.yy2
-    public void b(@NonNull Bundle bundle) {
+    public synchronized void b(String str, gv3 gv3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-            this.h = yf3.d(bundle.getString("ubc_params", ""));
-            JSONObject d = yf3.d(bundle.getString("data", ""));
-            this.g = d.optString("packageName");
-            au3.d.execute(new a(this, d));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, gv3Var) == null) {
+            synchronized (this) {
+                for (ev3 ev3Var : new ArrayList(c(str))) {
+                    if (ev3Var != null) {
+                        ev3Var.a(gv3Var);
+                    }
+                }
+            }
         }
     }
 
-    public final void p(@NonNull JSONObject jSONObject) {
+    public final List<ev3> c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            xt3.n().m(jSONObject, new b(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
+            }
+            List<ev3> list = this.a.get(str);
+            return list == null ? new ArrayList() : list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<ev3> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean e(String str, ev3 ev3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, ev3Var)) == null) ? TextUtils.isEmpty(str) || ev3Var == null : invokeLL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
         }
     }
 
-    public final void q() {
+    public synchronized void g(String str, ev3 ev3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xt3.n().u();
-        }
-    }
-
-    public final void r(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            xt3.n().v(jSONObject, new b(this));
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xt3.n().w(new b(this));
-        }
-    }
-
-    public final void t(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            xt3.n().x(jSONObject, new b(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            xt3.n().D();
-        }
-    }
-
-    public final void v(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            xt3.n().E(jSONObject, new b(this));
-        }
-    }
-
-    public final void w(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            xt3.n().H(jSONObject.optString("url"), jSONObject.optString("packageName"), jSONObject.optString("apkId"), new b(this));
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, ev3Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (ev3Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<ev3> c = c(str);
+                if (c.contains(ev3Var)) {
+                    c.remove(ev3Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
         }
     }
 }

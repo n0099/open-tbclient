@@ -65,8 +65,8 @@ public final class Thread2GroupShareView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088a, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e7e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eaf);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e80);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb1);
             this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090609);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090602);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090601);

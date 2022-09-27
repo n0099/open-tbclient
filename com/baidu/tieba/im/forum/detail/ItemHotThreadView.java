@@ -129,11 +129,11 @@ public class ItemHotThreadView extends LinearLayout {
         if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
             view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09219c);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e14);
-            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e12);
-            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e13);
-            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e11);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09219e);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e13);
+            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e11);
+            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e12);
+            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e10);
             view2.setTag(bVar);
             this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
             addView(view2);

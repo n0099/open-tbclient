@@ -1,54 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.res.Configuration;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.splashad.SplashAdView;
 import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class dq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static dq8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public CurrencySwitchTDouYBeanDialog b;
+    public WeakReference<SplashAdView> a;
 
-    public dq8(MainTabActivity mainTabActivity, ip8 ip8Var) {
+    public dq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    public void a() {
+    public static dq8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null && TbadkCoreApplication.isLogin() && CurrencySwitchUtil.isNeedConfirmTDouToYBeanSwitchOpen()) {
-            CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog = new CurrencySwitchTDouYBeanDialog(this.a.getPageContext());
-            this.b = currencySwitchTDouYBeanDialog;
-            currencySwitchTDouYBeanDialog.showDialog();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new dq8();
+            }
+            return b;
         }
+        return (dq8) invokeV.objValue;
     }
 
-    public void b() {
-        CurrencySwitchTDouYBeanDialog currencySwitchTDouYBeanDialog;
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (currencySwitchTDouYBeanDialog = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
             return;
         }
-        currencySwitchTDouYBeanDialog.onDestroy();
+        splashAdView.onConfigurationChanged(configuration);
+    }
+
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.a();
+    }
+
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.b();
+    }
+
+    public void e(MainTabActivity mainTabActivity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) || mainTabActivity == null) {
+            return;
+        }
+        SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
+        this.a = new WeakReference<>(splashAdView);
+        mainTabActivity.getWindow().setFlags(1024, 1024);
+        ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091f33);
+        if (viewGroup != null) {
+            viewGroup.setVisibility(0);
+            viewGroup.addView(splashAdView);
+        }
     }
 }

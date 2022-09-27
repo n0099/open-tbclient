@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.os.Process;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes4.dex */
-public class k12 extends a83 {
+public class k12 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,123 +30,135 @@ public class k12 extends a83 {
                 return;
             }
         }
-        a = ij1.a;
-        try {
-            CookieSyncManager.createInstance(AppRuntime.getAppContext());
-        } catch (Exception e) {
-            if (a) {
-                Log.w("RealCookieManager", "static createInstance err=" + e + " trace=" + Log.getStackTraceString(e));
-            }
-        }
+        a = vj1.a;
     }
 
-    public k12() {
+    public static synchronized String a() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (String) invokeV.objValue;
         }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ff3.f()) {
-                if (a) {
-                    Log.i("RealCookieManager", "syncCookie: hasLollipop flush");
-                }
-                CookieManager.getInstance().flush();
-                android.webkit.CookieManager.getInstance().flush();
-                return;
-            }
+        synchronized (k12.class) {
             if (a) {
-                Log.i("RealCookieManager", "syncCookie: noLollipop sync");
+                Log.d("SwanCpuProperty", "start cpu monitor thread");
             }
-            CookieSyncManager.getInstance().sync();
-        }
-    }
-
-    @Override // com.baidu.tieba.a83, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (a) {
-                Log.i("RealCookieManager", "getCookie: httpUrl=" + str);
-            }
-            String str2 = "";
             try {
-                str2 = CookieManager.getInstance().getCookie(str);
-                if (a) {
-                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
+                try {
+                    try {
+                        String c = c(bufferedReader);
+                        if (a) {
+                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
+                        }
+                        pj4.d(bufferedReader);
+                        return c;
+                    } catch (IOException e2) {
+                        e = e2;
+                        if (a) {
+                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
+                        }
+                        pj4.d(bufferedReader);
+                        return "";
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    pj4.d(bufferedReader);
+                    throw th;
                 }
+            } catch (IOException e3) {
+                bufferedReader = null;
+                e = e3;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
+                pj4.d(bufferedReader);
+                throw th;
+            }
+        }
+    }
+
+    public static float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a2 = a();
+            try {
+                if (a2.contains("%")) {
+                    return Float.parseFloat(a2.replace("%", "").trim());
+                }
+                return Float.parseFloat(a2);
             } catch (Exception e) {
                 if (a) {
-                    Log.e("RealCookieManager", "getCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
+                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
+                    return 0.0f;
                 }
+                return 0.0f;
             }
-            if (a) {
-                Log.i("RealCookieManager", "getCookie: ret cookie=" + str2 + " for httpUrl=" + str);
+        }
+        return invokeV.floatValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+        r11 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+        if (com.baidu.tieba.k12.a != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        char read;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
+            char[] cArr = new char[4];
+            int i = 0;
+            if (Build.VERSION.SDK_INT < 26) {
+                int i2 = 0;
+                do {
+                    read = (char) bufferedReader.read();
+                    if (read == ' ' || i2 == 4) {
+                        i2 = 0;
+                    } else {
+                        cArr[i2] = read;
+                        i2++;
+                    }
+                    if (read == '%') {
+                        break;
+                    }
+                } while (read != 65535);
+                return String.valueOf(cArr, 0, i2);
             }
-            return str2;
+            int i3 = 0;
+            int i4 = 0;
+            while (true) {
+                char read2 = (char) bufferedReader.read();
+                if (z && read2 != ' ') {
+                    i3++;
+                }
+                if (i3 == 9) {
+                    if (read2 != '.' && read2 != ' ') {
+                        cArr[i4] = read2;
+                        i4++;
+                    }
+                    i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                    return i + "%";
+                }
+                z = (i3 <= 9 && read2 != 65535 && i4 < 4) ? read2 == ' ' : true;
+                i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                return i + "%";
+            }
         }
         return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (a) {
-                Log.d("RealCookieManager", "storeCookie: httpUrl= " + str);
-                StringBuilder sb = new StringBuilder();
-                sb.append("storeCookie: cookies=");
-                sb.append(list == null ? -1 : list.size());
-                Log.i("RealCookieManager", sb.toString());
-            }
-            if (list == null || list.size() <= 0) {
-                return;
-            }
-            try {
-                for (String str2 : list) {
-                    if (a) {
-                        Log.i("RealCookieManager", "storeCookie: cookies item=" + str2);
-                    }
-                    CookieManager.getInstance().setCookie(str, str2);
-                    android.webkit.CookieManager.getInstance().setCookie(str, str2);
-                }
-                a();
-            } catch (Exception e) {
-                if (a) {
-                    Log.e("RealCookieManager", "storeCookie: err=" + e + " trace=" + Log.getStackTraceString(e));
-                }
-            }
-        }
     }
 }

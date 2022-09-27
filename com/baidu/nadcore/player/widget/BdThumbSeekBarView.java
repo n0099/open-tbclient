@@ -14,8 +14,8 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.my0;
-import com.baidu.tieba.qy0;
+import com.baidu.tieba.dz0;
+import com.baidu.tieba.zy0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -785,9 +785,9 @@ public class BdThumbSeekBarView extends View {
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080d9d);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080d9f);
         }
-        this.i = my0.a(this, 0.0f);
+        this.i = zy0.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -798,6 +798,6 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        qy0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        dz0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 }

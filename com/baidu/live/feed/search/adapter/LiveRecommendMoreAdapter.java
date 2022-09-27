@@ -23,7 +23,7 @@ import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -748,28 +748,28 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
                     liveSearchResultViewHolder.d().setVisibility(0);
                     liveSearchResultViewHolder.d().setText("已关注");
                     liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT);
-                    liveSearchResultViewHolder.d().setTextColor(hc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
-                    hc0 f = hc0.f();
+                    liveSearchResultViewHolder.d().setTextColor(uc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
+                    uc0 f = uc0.f();
                     Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                     String r = f.r();
                     if (Intrinsics.areEqual(r, "day")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d11);
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d13);
                     } else if (Intrinsics.areEqual(r, "night")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d12);
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d14);
                     }
                 }
             } else {
                 liveSearchResultViewHolder.d().setVisibility(0);
                 liveSearchResultViewHolder.d().setText("关注");
                 liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT_BOLD);
-                liveSearchResultViewHolder.d().setTextColor(hc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
-                hc0 f2 = hc0.f();
+                liveSearchResultViewHolder.d().setTextColor(uc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
+                uc0 f2 = uc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
                 String r2 = f2.r();
                 if (Intrinsics.areEqual(r2, "day")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d0f);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d11);
                 } else if (Intrinsics.areEqual(r2, "night")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d10);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d12);
                 }
             }
             liveSearchResultViewHolder.f().setVisibility(8);
@@ -784,7 +784,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
             if (bool.booleanValue()) {
                 liveSearchResultViewHolder.f().setVisibility(0);
                 liveSearchResultViewHolder.e().setVisibility(0);
-                hc0 f3 = hc0.f();
+                uc0 f3 = uc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
                 String r3 = f3.r();
                 if (Intrinsics.areEqual(r3, "day")) {

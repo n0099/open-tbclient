@@ -1,195 +1,190 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.IdRes;
+import android.util.AtomicFile;
+import android.util.SparseArray;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.view.BearLayout;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import okhttp3.Response;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public BearLayout a;
-    public Activity b;
-    public SwanAppBearInfo c;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public BearLayout.d a;
-        public boolean b;
-
-        public a(vh3 vh3Var, BearLayout.d dVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vh3Var, dVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-            this.b = z;
+    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
+        InterceptResult invokeLLI;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
+        FileLock fileLock;
+        AtomicFile atomicFile;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) != null) {
+            return invokeLLI.booleanValue;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || this.a == null) {
-                return;
+        StringBuilder sb = new StringBuilder();
+        AtomicFile atomicFile2 = null;
+        r1 = null;
+        FileLock fileLock2 = null;
+        FileChannel fileChannel2 = null;
+        try {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                SparseArray sparseArray = new SparseArray(i);
+                ArrayList arrayList = new ArrayList();
+                for (int i2 = 0; i2 < i; i2++) {
+                    arrayList.add(bufferedReader.readLine());
+                }
+                for (int i3 = 0; i3 < i; i3++) {
+                    String str = (String) arrayList.get(i3);
+                    if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
+                        return false;
+                    }
+                    HashMap hashMap = new HashMap();
+                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                        JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
+                        hashMap.put(jSONObject.optString("name"), jSONObject);
+                    }
+                    sparseArray.put(i3, hashMap);
+                }
+                for (int i5 = 0; i5 < jSONArray.length(); i5++) {
+                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
+                    String optString = jSONObject2.optString("name");
+                    int i6 = 0;
+                    while (true) {
+                        if (i6 >= i) {
+                            break;
+                        } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
+                            ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                            break;
+                        } else {
+                            if (i6 == i - 1) {
+                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                            }
+                            i6++;
+                        }
+                    }
+                }
+                for (int i7 = 0; i7 < i; i7++) {
+                    JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
+                    JSONArray jSONArray2 = new JSONArray();
+                    jSONObject3.optJSONArray("descriptions");
+                    for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
+                        jSONArray2.put(entry.getValue());
+                    }
+                    jSONObject3.put("descriptions", jSONArray2);
+                    if (i7 != i - 1) {
+                        sb.append(jSONObject3.toString());
+                        sb.append("\n");
+                    } else {
+                        sb.append(jSONObject3.toString());
+                    }
+                }
+                bufferedReader.close();
+                atomicFile = new AtomicFile(file);
+                try {
+                    atomicFile.startWrite();
+                    fileOutputStream = atomicFile.startWrite();
+                    try {
+                        fileChannel = fileOutputStream.getChannel();
+                    } catch (IOException | JSONException unused) {
+                        fileChannel = null;
+                        fileLock = fileChannel;
+                        atomicFile2 = atomicFile;
+                        if (atomicFile2 != null) {
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException unused2) {
+                                }
+                            }
+                            atomicFile2.failWrite(fileOutputStream);
+                        }
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                            } catch (IOException unused3) {
+                            }
+                        }
+                        return false;
+                    }
+                } catch (IOException | JSONException unused4) {
+                    fileOutputStream = null;
+                    fileChannel = null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (fileChannel2 != null) {
+                    try {
+                        fileChannel2.close();
+                    } catch (IOException unused5) {
+                    }
+                }
+                throw th;
             }
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno");
-                if (optInt == 0) {
-                    if (this.b) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        if (optJSONObject != null) {
-                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                this.a.a(true);
-                            }
-                            this.a.a(false);
-                        }
+                try {
+                    fileLock = fileChannel.lock();
+                } catch (IOException | JSONException unused6) {
+                    fileLock = fileLock2;
+                }
+                try {
+                    fileOutputStream.write(sb.toString().getBytes());
+                    if (fileLock != null) {
+                        fileLock.release();
                     } else {
-                        this.a.a(true);
+                        fileLock2 = fileLock;
                     }
-                } else if (800200 == optInt) {
-                    String optString = jSONObject.optString("errmsg");
-                    BearLayout.d dVar = this.a;
-                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
-                } else {
-                    BearLayout.d dVar2 = this.a;
-                    dVar2.b("errNo:" + optInt);
+                    atomicFile.finishWrite(fileOutputStream);
+                    if (fileChannel != null) {
+                        try {
+                            fileChannel.close();
+                            return true;
+                        } catch (IOException unused7) {
+                            return true;
+                        }
+                    }
+                    return true;
+                } catch (IOException | JSONException unused8) {
+                    atomicFile2 = atomicFile;
+                    if (atomicFile2 != null) {
+                    }
+                    if (fileChannel != null) {
+                    }
+                    return false;
                 }
-            } catch (JSONException e) {
-                if (vh3.d) {
-                    e.printStackTrace();
-                    this.a.b(e.getMessage());
+            } catch (Throwable th2) {
+                th = th2;
+                fileChannel2 = fileChannel;
+                if (fileChannel2 != null) {
                 }
+                throw th;
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && vh3.d) {
-                exc.printStackTrace();
-                this.a.b(exc.getMessage());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? (response == null || response.body() == null) ? "" : response.body().string() : (String) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240744, "Lcom/baidu/tieba/vh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948240744, "Lcom/baidu/tieba/vh3;");
-                return;
-            }
-        }
-        d = ij1.a;
-    }
-
-    public vh3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = activity;
-        this.c = swanAppBearInfo;
-        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
-        this.a = bearLayout;
-        bearLayout.setVisibility(0);
-        this.a.k(activity, swanAppBearInfo, this);
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (SwanAppNetworkUtils.i(this.b)) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("type", "media");
-                linkedHashMap.put("sfrom", "searchpaws");
-                linkedHashMap.put("store", "uid_cuid");
-                linkedHashMap.put("source", "dusite_na_subbar");
-                linkedHashMap.put("third_id", this.c.bearId);
-                linkedHashMap.put("op_type", "add");
-                String b = cy1.b();
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                ca4.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(fm2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
-                return;
-            }
-            q23.f(this.b, R.string.obfuscated_res_0x7f0f01a0).G();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("type", "media");
-            linkedHashMap.put("sfrom", "searchpaws");
-            linkedHashMap.put("store", "uid_cuid");
-            linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.c.bearId);
-            String B = fm2.o().B();
-            if (TextUtils.isEmpty(B)) {
-                return;
-            }
-            ca4.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(fm2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
+        } catch (IOException | JSONException unused9) {
+            fileOutputStream = null;
+            fileChannel = null;
+            fileLock = null;
         }
     }
 }

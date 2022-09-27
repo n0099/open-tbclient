@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca7;
+import com.baidu.tieba.ea7;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.q97;
+import com.baidu.tieba.qa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,7 +97,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08092c, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08092e, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
@@ -123,13 +123,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(ca7.a aVar, int i, q97 q97Var) {
+    public void setData(qa7.a aVar, int i, ea7 ea7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, q97Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, ea7Var) == null) {
             this.b.K(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (q97Var != null) {
-                i = q97Var.i();
+            if (ea7Var != null) {
+                i = ea7Var.i();
             }
             d(i);
         }

@@ -1,144 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cq7 extends qn<sq7, a> {
+public class cq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    /* loaded from: classes3.dex */
-    public static class a extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public TextView b;
-        public View c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2, TextView textView, View view3) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, textView, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-            this.b = textView;
-            this.c = view3;
-        }
-
-        public void a(sq7 sq7Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, sq7Var) == null) || sq7Var == null) {
-                return;
-            }
-            this.b.setText(sq7Var.a);
-            this.c.setVisibility(sq7Var.b ? 0 : 8);
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == i) {
-                return;
-            }
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-            this.a = i;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cq7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), qq7.b);
+    public cq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
-            linearLayout.setOrientation(1);
-            linearLayout.setPadding(ej.f(viewGroup.getContext(), R.dimen.tbds44), 0, ej.f(viewGroup.getContext(), R.dimen.tbds44), ej.f(viewGroup.getContext(), R.dimen.tbds12));
-            linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            View view2 = new View(viewGroup.getContext());
-            linearLayout.addView(view2, new LinearLayout.LayoutParams(-1, ej.f(viewGroup.getContext(), R.dimen.tbds1)));
-            TextView textView = new TextView(viewGroup.getContext());
-            textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.CAM_X0105));
-            textView.setTextSize(0, ej.f(viewGroup.getContext(), R.dimen.tbds47));
-            textView.setTypeface(Typeface.DEFAULT_BOLD);
-            textView.setIncludeFontPadding(false);
-            textView.setSingleLine();
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setPadding(0, ej.f(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
-            linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
-            a aVar = new a(linearLayout, textView, view2);
-            aVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return aVar;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (a) invokeL.objValue;
+        try {
+            d(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sq7 sq7Var, a aVar) {
-        InterceptResult invokeCommon;
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sq7Var, aVar})) == null) {
-            if (sq7Var == null || aVar == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            try {
+                this.a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            aVar.a(sq7Var);
-            aVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return aVar.getView();
         }
-        return (View) invokeCommon.objValue;
     }
 }

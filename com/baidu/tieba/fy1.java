@@ -1,133 +1,106 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class fy1 extends ky1 {
+public class fy1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public String I;
-    public boolean J;
-    public int K;
+    public String a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fy1(String str, @NonNull String str2) {
-        super(str, str2);
+    public fy1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.I = "";
+        this.d = -1.0f;
+        this.e = 0.0f;
+        this.f = 1.0f;
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        this.u = SwanAppConfigData.t(jSONObject.optString("color"));
-        this.v = true;
-    }
-
-    @Override // com.baidu.tieba.ky1, com.baidu.tieba.my1, com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.D = jSONObject.optInt("maxLength");
-        this.E = k(jSONObject);
-        this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
-        this.G = jSONObject.optInt("selectionStart");
-        this.H = jSONObject.optInt("selectionEnd");
-        this.I = jSONObject.optString("confirmType");
-        this.J = jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m) == 1;
-        i();
-    }
-
-    @Override // com.baidu.tieba.ky1, com.baidu.tieba.my1, com.baidu.tieba.oy1
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-                this.E = k(jSONObject);
-            }
-            this.D = jSONObject.optInt("maxLength", this.D);
-            this.F = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.F);
-            this.G = jSONObject.optInt("selectionStart", this.G);
-            this.H = jSONObject.optInt("selectionEnd", this.H);
-            this.I = jSONObject.optString("confirmType", this.I);
-            this.J = jSONObject.optInt(com.baidu.sapi2.views.logindialog.view.a.m, this.J ? 1 : 0) == 1;
-            this.t = jSONObject.optString("value", this.t);
-            i();
-        }
-    }
-
-    public final int k(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("cursorSpacing");
-            if (TextUtils.isEmpty(optString)) {
-                return 0;
-            }
-            if (optString.endsWith("rpx")) {
-                try {
-                    return pg3.g(Integer.parseInt(optString.replace("rpx", "")));
-                } catch (NumberFormatException unused) {
-                    return 0;
+        TextPaint textPaint = sw1Var.e;
+        int i = sw1Var.k;
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float f = fontMetrics.top;
+        int i2 = this.c;
+        float f2 = i2 + f;
+        float f3 = fontMetrics.ascent + i2;
+        float f4 = fontMetrics.bottom;
+        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
+        if (this.e == 0.0d) {
+            Rect rect = new Rect();
+            String str = this.a;
+            textPaint.getTextBounds(str, 0, str.length(), rect);
+            if (this.d != -1.0f) {
+                float f6 = this.d;
+                if (rect.width() > f6) {
+                    this.e = f6 / rect.width();
                 }
             }
+            this.e = 1.0f;
+        }
+        canvas.save();
+        int alpha = textPaint.getAlpha();
+        int color = textPaint.getColor();
+        textPaint.setStyle(Paint.Style.STROKE);
+        textPaint.setStrokeWidth(this.f);
+        textPaint.setColor(sw1Var.m);
+        sw1Var.c(textPaint);
+        canvas.scale(this.e, 1.0f);
+        canvas.drawText(this.a, this.b, f5, textPaint);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setAlpha(alpha);
+        textPaint.setColor(color);
+        canvas.restore();
+    }
+
+    @Override // com.baidu.tieba.rw1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                return Integer.parseInt(optString.replace("px", ""));
-            } catch (NumberFormatException unused2) {
-                return 0;
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = ch3.g((float) jSONArray.optDouble(1));
+                    this.c = ch3.g((float) jSONArray.optDouble(2));
+                    if (jSONArray.length() > 3) {
+                        this.d = ch3.g((float) jSONArray.optDouble(3));
+                    }
+                    this.f = ch3.g(1.0f);
+                }
+            } catch (Exception e) {
+                if (vj1.a) {
+                    e.printStackTrace();
+                }
             }
-        }
-        return invokeL.intValue;
-    }
-
-    public void l(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.G = i;
-            this.H = i2;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.K = i;
         }
     }
 }

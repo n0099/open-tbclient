@@ -160,7 +160,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static GhostViewPort getGhostView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9d) : (GhostViewPort) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? (GhostViewPort) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9c) : (GhostViewPort) invokeL.objValue;
     }
 
     public static void removeGhost(View view2) {
@@ -179,7 +179,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static void setGhostView(@NonNull View view2, @Nullable GhostViewPort ghostViewPort) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, view2, ghostViewPort) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9d, ghostViewPort);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090c9c, ghostViewPort);
         }
     }
 

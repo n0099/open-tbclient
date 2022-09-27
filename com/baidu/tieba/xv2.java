@@ -1,24 +1,41 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Map<String, HybridUbcFlow>> a;
-    public final Map<String, rh3<HybridUbcFlow>> b;
-    public final rh3<HybridUbcFlow> c;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
 
     /* loaded from: classes6.dex */
-    public class a implements rh3<HybridUbcFlow> {
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xv2 a;
@@ -41,146 +58,178 @@ public class xv2 {
             this.a = xv2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-                this.a.g(hybridUbcFlow.p);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f != null) {
+                    this.a.f.onFail(exc.getMessage());
+                    return;
+                }
+                l02.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
             }
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    l02.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) == 0) {
+                    this.a.f.a(jSONObject.optJSONObject("data"));
+                } else {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                return lg3.d(response.body().string());
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(JSONObject jSONObject);
+
+        void onFail(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313749, "Lcom/baidu/tieba/xv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948313749, "Lcom/baidu/tieba/xv2;");
+                return;
+            }
+        }
+        boolean z = vj1.a;
+        h = String.format("%s/ma/pay_check", f02.b());
+        i = su2.a;
     }
 
     public xv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = h;
         this.b = new HashMap();
-        this.c = new a(this);
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
     }
 
-    public final HybridUbcFlow a(String str) {
-        InterceptResult invokeL;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.H("callback_on_submit", this.c);
-            rh3<HybridUbcFlow> rh3Var = this.b.get(str);
-            if (rh3Var != null) {
-                rh3Var.a(hybridUbcFlow);
-            }
-            return hybridUbcFlow;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
         }
-        return (HybridUbcFlow) invokeL.objValue;
+        this.b.put(str, str2);
     }
 
-    public HybridUbcFlow b(String str) {
-        InterceptResult invokeL;
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c(str, "default") : (HybridUbcFlow) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
+            }
+            this.a = dh3.b(this.a, this.c);
+            oa4 oa4Var = new oa4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            oa4Var.c = this.b;
+            oa4Var.g = true;
+            l02.b("PayCheckRequest", "start paycheck request : " + this.e);
+            pa4.g().e(oa4Var);
+        }
     }
 
-    public HybridUbcFlow c(String str, String str2) {
-        InterceptResult invokeLL;
+    public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map == null) {
-                    return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = tc4.i(h);
+            this.a = i2;
+            this.a = h02.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", sg3.b());
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String O = k33.K().q().O();
+            try {
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(O)) {
+                    O = "";
                 }
-                return map.get(str2);
+                jSONObject.put("appkey", O);
+            } catch (JSONException e) {
+                l02.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
             }
         }
-        return (HybridUbcFlow) invokeLL.objValue;
     }
 
-    public xv2 d(String str, rh3<HybridUbcFlow> rh3Var) {
-        InterceptResult invokeLL;
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, rh3Var)) == null) {
-            synchronized (this.b) {
-                this.b.put(str, rh3Var);
-            }
-            return this;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (xv2) invokeLL.objValue;
-    }
-
-    public synchronized HybridUbcFlow e(String str) {
-        InterceptResult invokeL;
-        HybridUbcFlow f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                f = f(str, "default");
-            }
-            return f;
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            l02.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
         }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public synchronized HybridUbcFlow f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            synchronized (this) {
-                synchronized (this.a) {
-                    Map<String, HybridUbcFlow> map = this.a.get(str);
-                    if (map == null) {
-                        HashMap hashMap = new HashMap();
-                        HybridUbcFlow a2 = a(str);
-                        hashMap.put(str2, a2);
-                        this.a.put(str, hashMap);
-                        return a2;
-                    }
-                    HybridUbcFlow hybridUbcFlow = map.get(str2);
-                    if (hybridUbcFlow == null) {
-                        hybridUbcFlow = a(str);
-                        map.put(str2, hybridUbcFlow);
-                    }
-                    return hybridUbcFlow;
-                }
-            }
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public xv2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.a) {
-                this.a.remove(str);
-            }
-            return this;
-        }
-        return (xv2) invokeL.objValue;
-    }
-
-    public xv2 h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map != null) {
-                    map.remove(str2);
-                }
-            }
-            return this;
-        }
-        return (xv2) invokeLL.objValue;
     }
 }

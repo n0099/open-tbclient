@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.BackgroundItemView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.if7;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class js8 extends BaseAdapter {
+public class js8 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<List<DressItemData>> a;
-    public TbPageContext<?> b;
-    public is8 c;
+    public MainTabActivity m;
+    public boolean n;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public class a implements if7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public BackgroundItemView b;
-        public BackgroundItemView c;
-        public BackgroundItemView d;
+        public final /* synthetic */ js8 a;
 
         public a(js8 js8Var) {
             Interceptable interceptable = $ic;
@@ -43,17 +36,61 @@ public class js8 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = js8Var;
+        }
+
+        @Override // com.baidu.tieba.if7.f
+        public void dismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.u();
             }
         }
     }
 
-    public js8(TbPageContext<?> tbPageContext, is8 is8Var) {
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ js8 a;
+
+        public b(js8 js8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {js8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = js8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || if7.m(this.a.m).I(this.a.m.C.intValue(), 0)) {
+                return;
+            }
+            this.a.u();
+        }
+    }
+
+    public js8(TbPageContext tbPageContext, xp8 xp8Var, MainTabActivity mainTabActivity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, is8Var};
+            Object[] objArr = {tbPageContext, xp8Var, mainTabActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,100 +100,23 @@ public class js8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = is8Var;
+        this.m = mainTabActivity;
+        this.n = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public List<DressItemData> getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public void b(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if7.m(this.m).F(new a(this));
+            gh.a().postDelayed(new b(this), 400L);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            List<DressItemData> item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0133, viewGroup, false);
-                aVar = new a(this);
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0922b6);
-                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038b);
-                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038c);
-                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038d);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                if (i == 0) {
-                    aVar.a.setVisibility(0);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-                aVar.b.e(item.get(0));
-                aVar.b.setController(this.c);
-                if (item.size() > 2) {
-                    aVar.c.e(item.get(1));
-                    aVar.d.e(item.get(2));
-                    aVar.c.setController(this.c);
-                    aVar.d.setController(this.c);
-                } else if (item.size() > 1) {
-                    aVar.c.e(item.get(1));
-                    aVar.c.setController(this.c);
-                    aVar.d.f();
-                } else {
-                    aVar.c.f();
-                    aVar.d.f();
-                }
-            }
-            this.b.getLayoutMode().k(view2);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !(TbSingleton.getInstance().isCanShowHotSplash || if7.n || TbSingleton.getInstance().mIsSplashClick) || this.n : invokeV.booleanValue;
     }
 }

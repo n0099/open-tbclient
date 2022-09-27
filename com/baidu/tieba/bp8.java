@@ -1,30 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.util.PriorityOrganizer;
+import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface bp8 {
+public class bp8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-
-        /* renamed from: com.baidu.tieba.bp8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public interface InterfaceC0213a {
-            void a(@NonNull s35 s35Var);
-
-            boolean b();
+    public static VoiceManager a(Context context) {
+        InterceptResult invokeL;
+        TbPageContext tbPageContext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof VoiceManager.j) {
+                return ((VoiceManager.j) context).t0();
+            }
+            if ((w9.a(context) instanceof r9) && (tbPageContext = (TbPageContext) w9.a(context)) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).t0();
+            }
+            return null;
         }
-
-        void a(@Nullable InterfaceC0213a interfaceC0213a);
+        return (VoiceManager) invokeL.objValue;
     }
-
-    @NonNull
-    PriorityOrganizer d0();
-
-    int getCurrentTabType();
-
-    @NonNull
-    a q0();
 }

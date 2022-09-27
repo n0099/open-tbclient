@@ -1,44 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class yb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final lb8 a;
+    public final String b;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public yb8(lb8 lb8Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-            return !StringUtils.isNull(systemProperty) && dh.e(systemProperty.replace("V", ""), 0) >= 9;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
-            try {
-                try {
-                } catch (PackageManager.NameNotFoundException unused) {
-                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
-                        return true;
-                    }
-                }
-            } catch (PackageManager.NameNotFoundException unused2) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lb8Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null;
         }
-        return invokeV.booleanValue;
+        this.a = lb8Var;
+        this.b = str;
     }
 }

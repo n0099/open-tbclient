@@ -1,147 +1,169 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
-import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zy4 extends vy4<zy4> {
+public class zy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtSelectData i;
 
-    public zy4() {
+    /* loaded from: classes6.dex */
+    public static class a extends BdAsyncTask<String, Integer, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Integer doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            HttpURLConnection httpURLConnection;
+            DataOutputStream dataOutputStream;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                HttpURLConnection httpURLConnection2 = null;
+                if (strArr != null) {
+                    ?? length = strArr.length;
+                    try {
+                        if (length != 0) {
+                            try {
+                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
+                                try {
+                                    httpURLConnection.setRequestMethod("POST");
+                                    httpURLConnection.setDoOutput(true);
+                                    httpURLConnection.setDoInput(true);
+                                    httpURLConnection.setConnectTimeout(yb.d().c().b());
+                                    httpURLConnection.setReadTimeout(yb.d().b().b());
+                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
+                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                                    httpURLConnection.connect();
+                                    try {
+                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                                        try {
+                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
+                                            dataOutputStream.flush();
+                                            ch.d(dataOutputStream);
+                                            httpURLConnection.getResponseCode();
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            ch.d(dataOutputStream);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        dataOutputStream = null;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    e.printStackTrace();
+                                    ch.f(httpURLConnection);
+                                    return null;
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                                httpURLConnection = null;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                ch.f(httpURLConnection2);
+                                throw th;
+                            }
+                            ch.f(httpURLConnection);
+                            return null;
+                        }
+                    } catch (Throwable th4) {
+                        th = th4;
+                        httpURLConnection2 = length;
+                    }
+                }
+                return null;
+            }
+            return (Integer) invokeL.objValue;
+        }
+    }
+
+    public static void a(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
+            if (dj.isEmpty(itemDownloadExtraData.shouzhuSource)) {
+                itemDownloadExtraData.shouzhuSource = az4.f().g(itemDownloadExtraData.pkgName);
+            }
+            c(downloadData, i);
+            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
+        }
+    }
+
+    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("pkgname", str);
+                jSONObject.put("appname", str2);
+                jSONObject.put("host", 4);
+                jSONObject.put("scene", i);
+                jSONObject.put("category", i2);
+                jSONObject.put("event", i3);
+                jSONObject.put("source", str3);
+                new a().execute(jSONObject.toString());
+            } catch (JSONException unused) {
             }
         }
     }
 
-    public static zy4 y(@NonNull zy4 zy4Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
+    public static void c(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, zy4Var, editable)) == null) {
-            zy4 zy4Var2 = new zy4();
-            zy4Var2.b(zy4Var);
-            zy4Var2.p(editable);
-            return zy4Var2;
-        }
-        return (zy4) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vy4
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy4
-    public void r(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#(at, ");
-            sb.append(this.i.getPortrait());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getNameShow());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getUid());
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(" ");
-            k(sb);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy4
-    public void s(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#(at, ");
-            sb.append(this.i.getPortrait());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            sb.append(this.i.getNameShow());
-            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(" ");
-            k(sb);
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q(true);
-            u();
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vy4
-    /* renamed from: v */
-    public void b(zy4 zy4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zy4Var) == null) {
-            super.b(zy4Var);
-            this.i = zy4Var.i;
-        }
-    }
-
-    public AtSelectData w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (AtSelectData) invokeV.objValue;
-    }
-
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "@" + this.i.getNameShow() + " ";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public zy4(AtSelectData atSelectData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atSelectData};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
+            if (i != 100 && i != 200) {
+                if (i != 300) {
+                    if (i != 400) {
+                        if (i != 500) {
+                            if (i != 600) {
+                                if (i == 700 || i == 800) {
+                                    az4.f().e(downloadData);
+                                    return;
+                                } else if (i != 900) {
+                                    return;
+                                } else {
+                                    az4.f().k(downloadData);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    az4.f().j(downloadData);
+                    return;
+                }
+                az4.f().d(downloadData);
                 return;
             }
+            az4.f();
         }
-        this.i = atSelectData;
     }
 }

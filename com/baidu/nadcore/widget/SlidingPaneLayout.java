@@ -27,7 +27,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f61;
+import com.baidu.tieba.s61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public float o;
     public float p;
     public e q;
-    public final f61 r;
+    public final s61 r;
     public double s;
     public double t;
     public boolean u;
@@ -334,7 +334,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class d extends f61.c {
+    public class d extends s61.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -358,7 +358,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             this.b = slidingPaneLayout;
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public int a(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
@@ -369,21 +369,21 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return invokeLII.intValue;
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public int d(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.b.k : invokeL.intValue;
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.f : invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public void g(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -394,7 +394,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public void j(View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
@@ -402,7 +402,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public void k(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && this.b.r.y() == 0) {
@@ -420,7 +420,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public void l(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -430,7 +430,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public void m(View view2, float f, float f2) {
             int i;
             Interceptable interceptable = $ic;
@@ -457,7 +457,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.f61.c
+        @Override // com.baidu.tieba.s61.c
         public boolean n(View view2, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -684,9 +684,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) {
             if (this.e) {
                 int paddingLeft = (int) (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.h.getLayoutParams())).leftMargin + (f2 * this.k));
-                f61 f61Var = this.r;
+                s61 s61Var = this.r;
                 View view2 = this.h;
-                if (f61Var.L(view2, paddingLeft, view2.getTop())) {
+                if (s61Var.L(view2, paddingLeft, view2.getTop())) {
                     G();
                     ViewCompat.postInvalidateOnAnimation(this);
                     return true;
@@ -1651,7 +1651,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         setWillNotDraw(false);
         ViewCompat.setAccessibilityDelegate(this, new b(this));
         ViewCompat.setImportantForAccessibility(this, 1);
-        f61 m = f61.m(this, 0.5f, new d(this, null));
+        s61 m = s61.m(this, 0.5f, new d(this, null));
         this.r = m;
         m.H(1);
         this.r.I(f2 * 400.0f);

@@ -1,55 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+@Service
 /* loaded from: classes4.dex */
-public class hq3<ContenT> {
+public class hq3 implements jp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, hq3<ContenT>.a> a;
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ContenT b;
-        public final /* synthetic */ hq3 c;
-
-        public a(hq3 hq3Var, String str, ContenT content) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hq3Var, str, content};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = hq3Var;
-            this.a = str;
-            this.b = content;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a);
-            }
-        }
-    }
 
     public hq3() {
         Interceptable interceptable = $ic;
@@ -61,72 +25,64 @@ public class hq3<ContenT> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jp1
+    public kg4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? gq3.b().a() : (kg4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jp1
+    public void b(p92 p92Var, n92 n92Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p92Var, n92Var) == null) || n92Var == null) {
+            return;
+        }
+        if (p92Var != null && !TextUtils.isEmpty(p92Var.a)) {
+            String str = p92Var.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1195918653) {
+                if (hashCode == 1825003424 && str.equals("by_click")) {
+                    c = 0;
+                }
+            } else if (str.equals("by_silent")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    n92Var.onFail();
+                    return;
+                } else {
+                    gq3.b().b(true, n92Var);
+                    return;
+                }
+            } else if (p92Var.b) {
+                gq3.b().b(false, n92Var);
+                return;
+            } else {
+                gq3.b().b(true, n92Var);
                 return;
             }
         }
-        this.a = new HashMap();
+        n92Var.onFail();
     }
 
-    public synchronized ContenT a(String str, ContenT content, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.jp1
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                d(str);
-                if (content == null) {
-                    return null;
-                }
-                hq3<ContenT>.a aVar = new a(this, str, content);
-                this.a.put(str, aVar);
-                if (j > 0) {
-                    x23.M().postDelayed(aVar, j);
-                }
-                return content;
-            }
-        }
-        return (ContenT) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || ad2.d.w() || (ad2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && fa2.U().s0()) : invokeV.booleanValue;
     }
 
-    public synchronized void b() {
+    @Override // com.baidu.tieba.jp1
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (hq3<ContenT>.a aVar : this.a.values()) {
-                    if (aVar != null) {
-                        x23.M().removeCallbacks(aVar);
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public ContenT c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            hq3<ContenT>.a aVar = this.a.get(str);
-            if (aVar == null) {
-                return null;
-            }
-            return aVar.b;
-        }
-        return (ContenT) invokeL.objValue;
-    }
-
-    public synchronized ContenT d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                hq3<ContenT>.a remove = this.a.remove(str);
-                if (remove != null) {
-                    x23.M().removeCallbacks(remove);
-                    return remove.b;
-                }
-                return null;
-            }
-        }
-        return (ContenT) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !gq3.b().c() : invokeV.booleanValue;
     }
 }

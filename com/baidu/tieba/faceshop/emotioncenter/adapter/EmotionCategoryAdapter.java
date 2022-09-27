@@ -13,15 +13,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ed6;
 import com.baidu.tieba.qn;
+import com.baidu.tieba.rd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class EmotionCategoryAdapter extends qn<ed6, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends qn<rd6, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,9 +119,9 @@ public class EmotionCategoryAdapter extends qn<ed6, EmotionCategoryViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ed6 ed6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rd6 rd6Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ed6Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.getView() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rd6Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.getView() : (View) invokeCommon.objValue;
     }
 }

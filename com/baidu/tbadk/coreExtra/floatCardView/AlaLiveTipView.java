@@ -40,13 +40,13 @@ import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.d25;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.ow4;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.q15;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.na5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -276,7 +276,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && !customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
-                this.a.setData(ow4.a().b, ow4.a().c(this.a.m), false);
+                this.a.setData(bx4.a().b, bx4.a().c(this.a.m), false);
             }
         }
     }
@@ -313,7 +313,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921733 && this.a.m == 2) {
-                this.a.setData(ow4.a().b, ow4.a().c(this.a.m), false);
+                this.a.setData(bx4.a().b, bx4.a().c(this.a.m), false);
             }
         }
     }
@@ -612,7 +612,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LiveRemindNormalConfigData liveRemindNormalConfigData = this.k;
             if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                p(q15.a(this.k.getNormalIconScheme(), this.m));
+                p(d25.a(this.k.getNormalIconScheme(), this.m));
             } else {
                 p("");
             }
@@ -627,7 +627,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 A();
                 return;
             }
-            String b2 = q15.b(liveRemindRecommendData);
+            String b2 = d25.b(liveRemindRecommendData);
             if (StringUtils.isNull(b2)) {
                 p("");
             } else {
@@ -654,7 +654,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             P(i2);
             this.f.setSkinType(i2);
             SkinManager.setBackgroundShapeDrawable(this.g, ej.f(this.b, R.dimen.tbds74), R.color.CAM_X0310, R.color.CAM_X0310);
-            uu4 d2 = uu4.d(this.h);
+            hv4 d2 = hv4.d(this.h);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0101);
@@ -869,7 +869,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                     this.e.post(new i(this));
                 }
                 if (this.f.getVisibility() == 0) {
-                    pw4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
+                    cx4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
                     M();
                     return;
                 }
@@ -992,7 +992,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onAttachedToWindow();
-            setData(ow4.a().b, ow4.a().c(this.m), true);
+            setData(bx4.a().b, bx4.a().c(this.m), true);
         }
     }
 
@@ -1000,7 +1000,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
-            q15.e();
+            d25.e();
             if (view2.getId() != R.id.obfuscated_res_0x7f0901c6 && view2.getId() != R.id.obfuscated_res_0x7f090201) {
                 A();
                 I();
@@ -1042,7 +1042,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             }
             LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
             liveStartClickDataEvent.viewTag = str;
-            aa5.i(liveStartClickDataEvent);
+            na5.i(liveStartClickDataEvent);
         }
     }
 
@@ -1090,7 +1090,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 this.p = this.l.getDisappearSecond() * 1000;
                 this.h.setText(this.l.getDesc());
                 C(false);
-                if (pw4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
+                if (cx4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
                     O(true);
                     H();
                 } else if (this.x) {

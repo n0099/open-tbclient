@@ -19,8 +19,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.p31;
+import com.baidu.tieba.c41;
+import com.baidu.tieba.p61;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -293,7 +293,7 @@ public class BdThumbSeekBar extends View {
                 return;
             }
         }
-        y = p31.d(0.0f);
+        y = c41.d(0.0f);
         z = BdSeekBarStyle.LINE;
     }
 
@@ -879,7 +879,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c61.NadBdThumbSeekBar);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, p61.NadBdThumbSeekBar);
         int i5 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i5 == 1) {
@@ -906,9 +906,9 @@ public class BdThumbSeekBar extends View {
         this.q = 0;
         if (this.c != null) {
             if (this.k == null) {
-                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e24);
+                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e26);
             }
-            this.l = p31.a(0.0f);
+            this.l = c41.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

@@ -1,192 +1,187 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.util.Log;
 import android.view.Surface;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.vv8;
-import com.baidu.tieba.zv8;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.afx.recode.OutputSurface;
+import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
+import com.faceunity.FaceUnityUtils;
+import com.faceunity.gles.FullFrameRect;
+import com.faceunity.gles.Texture2dProgram;
+import com.faceunity.wrapper.faceunity;
 /* loaded from: classes6.dex */
-public class uv8 extends vv8 {
+public class uv8 implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
+    public static int m;
+    public static int n;
+    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
+    public SurfaceTexture a;
+    public Surface b;
+    public Object c;
+    public boolean d;
+    public Context e;
+    public String f;
+    public int g;
+    public int h;
+    public FullFrameRect i;
+    public FullFrameRect j;
+    public int k;
+    public final float[] l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uv8(String str) {
-        super(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224562, "Lcom/baidu/tieba/uv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948224562, "Lcom/baidu/tieba/uv8;");
+                return;
+            }
+        }
+        o = new int[]{0, 0, 0};
+    }
+
+    public uv8(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.c = new Object();
+        this.f = "normal";
+        this.l = new float[16];
+        this.e = context;
+        this.f = str;
+        this.g = i;
+        this.h = i2;
+        f();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public vv8.b a(String str, boolean z, zv8.a aVar, zv8.a aVar2) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        double d;
-        int dequeueOutputBuffer;
-        byte[] bArr;
-        byte[] bArr2;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
-            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = this.a;
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str2);
-            boolean z2 = false;
-            int i = 0;
-            while (true) {
-                if (i >= mediaExtractor.getTrackCount()) {
-                    mediaFormat = null;
-                    break;
-                }
-                mediaFormat = mediaExtractor.getTrackFormat(i);
-                if (mediaFormat.getString("mime").startsWith("audio/")) {
-                    mediaExtractor.selectTrack(i);
-                    break;
-                }
-                i++;
-            }
-            if (mediaFormat == null) {
-                BdLog.e("not a valid file with audio track..");
-                mediaExtractor.release();
-                return null;
-            }
-            BdLog.e("mediaFormat " + mediaFormat);
-            vv8.b bVar = new vv8.b();
-            int i2 = aVar2.b;
-            int i3 = aVar2.a;
-            int i4 = aVar2.c;
-            bVar.a = str;
-            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-            double d2 = mediaFormat.getLong("durationUs");
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            ByteBuffer[] byteBufferArr = outputBuffers;
-            boolean z3 = false;
-            boolean z4 = false;
-            while (!z3) {
-                long j = currentTimeMillis;
-                if (!z4) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                while (!this.d) {
                     try {
-                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                        if (dequeueInputBuffer >= 0) {
-                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
-                            if (readSampleData < 0) {
-                                BdLog.i("saw input EOS.");
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                z4 = true;
-                            } else {
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                                mediaExtractor.advance();
-                            }
-                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                            if (dequeueOutputBuffer < 0) {
-                                if ((bufferInfo.flags & 2) != 0) {
-                                    BdLog.i("audio encoder: codec config buffer");
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                } else {
-                                    if (bufferInfo.size != 0) {
-                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
-                                        byteBuffer.position(bufferInfo.offset);
-                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                        byte[] bArr3 = new byte[bufferInfo.size];
-                                        byteBuffer.get(bArr3);
-                                        if (z) {
-                                            bArr = null;
-                                            bArr2 = null;
-                                        } else {
-                                            bArr2 = aVar2.a() ? zv8.b(aVar2.c / 8, aVar.c / 8, bArr3) : null;
-                                            if (aVar2.b()) {
-                                                bArr = zv8.c(aVar2.b, aVar.b, aVar.c / 8, bArr2 == null ? bArr3 : bArr2);
-                                            } else {
-                                                bArr = null;
-                                            }
-                                        }
-                                        if (bArr == null) {
-                                            bArr = bArr2 == null ? bArr3 : bArr2;
-                                        }
-                                        fileOutputStream.write(bArr);
-                                        if (this.b != null) {
-                                            this.b.a(bArr3, bufferInfo.presentationTimeUs / d);
-                                        }
-                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                        z2 = false;
-                                    }
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                    if ((bufferInfo.flags & 4) != 0) {
-                                        BdLog.i("saw output EOS.");
-                                        z3 = true;
-                                    }
-                                }
-                            } else if (dequeueOutputBuffer == -3) {
-                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
-                                BdLog.i("output buffers have changed.");
-                                byteBufferArr = outputBuffers2;
-                            } else if (dequeueOutputBuffer == -2) {
-                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
-                            }
-                            currentTimeMillis = j;
-                            d2 = d;
+                        this.c.wait(500L);
+                        if (!this.d) {
+                            throw new RuntimeException("Surface frame wait timed out");
                         }
-                    } finally {
-                        fileOutputStream.close();
-                        createDecoderByType.stop();
-                        createDecoderByType.release();
-                        mediaExtractor.release();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
                 }
-                d = d2;
-                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                if (dequeueOutputBuffer < 0) {
-                }
-                currentTimeMillis = j;
-                d2 = d;
+                this.d = false;
             }
-            long j2 = currentTimeMillis;
-            if (this.b != null) {
-                this.b.a(null, 1.0d);
-            }
-            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
-            return bVar;
+            b("before updateTexImage");
+            this.a.updateTexImage();
         }
-        return (vv8.b) invokeCommon.objValue;
+    }
+
+    public void b(String str) {
+        int glGetError;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+            return;
+        }
+        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
+        throw new RuntimeException(str + ": glError " + glGetError);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.updateTexImage();
+            this.a.getTransformMatrix(this.l);
+            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
+            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
+            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
+            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
+        }
+    }
+
+    public Surface d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Surface) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.release();
+            this.b = null;
+            this.a = null;
+            FullFrameRect fullFrameRect = this.i;
+            if (fullFrameRect != null) {
+                fullFrameRect.release(false);
+                this.i = null;
+            }
+            faceunity.fuDestroyItem(n);
+            int[] iArr = o;
+            n = 0;
+            iArr[1] = 0;
+            faceunity.fuDestroyItem(m);
+            int[] iArr2 = o;
+            m = 0;
+            iArr2[0] = 0;
+            faceunity.fuOnDeviceLost();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
+            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.j = fullFrameRect;
+            this.k = fullFrameRect.createTextureObject();
+            this.a = new SurfaceTexture(this.k);
+            this.b = new Surface(this.a);
+            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
+            m = upFaceUnity;
+            o[0] = upFaceUnity;
+            this.a.setOnFrameAvailableListener(this);
+        }
+    }
+
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            Log.d(OutputSurface.TAG, "new frame available");
+            synchronized (this.c) {
+                if (!this.d) {
+                    this.d = true;
+                    this.c.notifyAll();
+                } else {
+                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+                }
+            }
+        }
     }
 }

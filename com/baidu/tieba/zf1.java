@@ -1,46 +1,36 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Build;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import com.baidu.sdk.container.gif.GifAnimView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.apache.http.protocol.HTTP;
+import java.io.FileInputStream;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zf1 {
+public class zf1 extends yf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpURLConnection a;
-    public b b;
-    public c c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public int i;
-    public boolean j;
-    public Uri.Builder k;
-    public int l;
+    public FileInputStream d0;
+    public GifAnimView e0;
 
     /* loaded from: classes6.dex */
-    public class a extends kg1 {
+    public class a implements cg1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf1 c;
+        public final /* synthetic */ zf1 a;
 
         public a(zf1 zf1Var) {
             Interceptable interceptable = $ic;
@@ -57,303 +47,272 @@ public class zf1 {
                     return;
                 }
             }
-            this.c = zf1Var;
+            this.a = zf1Var;
         }
 
-        @Override // com.baidu.tieba.kg1
-        public Object b() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.cg1
+        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.i();
-                this.c.e();
-                return null;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
+                this.a.M("cache gif, load failed");
             }
-            return invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.cg1
+        public void onLoadingComplete(String str, View view2, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
+                zf1 zf1Var = this.a;
+                zf1Var.a0(MaterialLoader.k(zf1Var.a).l(str));
+            }
+        }
+
+        @Override // com.baidu.tieba.cg1
+        public void onLoadingStarted(String str, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str, int i);
+    public class b implements gg1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        void onSuccess(String str, String str2);
+        public b(zf1 zf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gg1
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
     }
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(String str, int i);
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zf1 a;
 
-        void b(InputStream inputStream, String str);
+        public c(zf1 zf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zf1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.L();
+            }
+        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public zf1(int i, String str) {
-        this(i, str, "GET");
+    /* loaded from: classes6.dex */
+    public class d implements hg1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zf1 a;
+
+        public d(zf1 zf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zf1Var;
+        }
+
+        @Override // com.baidu.tieba.hg1
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.P();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zf1(Context context, JSONObject jSONObject) {
+        super(context, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+                super((Context) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.r = NativeConstants.TYPE_GIF;
     }
 
-    public void c(c cVar) {
+    @Override // com.baidu.tieba.yf1
+    public void A() {
+        GifAnimView gifAnimView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.c = cVar;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gifAnimView = this.e0) == null) {
+            return;
         }
+        gifAnimView.setOnClickListener(null);
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.yf1
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                if (this.l == 1) {
-                    lg1.a().c(new a(this));
-                } else {
-                    lg1.a().c(new a(this));
-                }
-            } catch (Exception unused) {
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b == 2) {
+            return;
         }
+        GifAnimView gifAnimView = new GifAnimView(this.a, new b(this));
+        this.e0 = gifAnimView;
+        gifAnimView.setGifImage(this.d0);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+        this.e0.setLayoutParams(layoutParams);
+        this.e0.setShowDimension(this.k.getWidth(), this.k.getHeight());
+        this.e0.setAlpha(255);
+        this.e0.setOnClickListener(new c(this));
+        this.e0.i();
+        k(this.e0, layoutParams);
+        this.e0.requestLayout();
+        this.e0.j = new d(this);
+        super.D();
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    public final void e() {
-        HttpURLConnection httpURLConnection;
+    @Override // com.baidu.tieba.yf1
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                try {
-                    this.a.connect();
-                    int responseCode = this.a.getResponseCode();
-                    if (responseCode == 302 || responseCode == 301) {
-                        this.a.setInstanceFollowRedirects(false);
-                        HttpURLConnection g = g(this.a);
-                        this.a = g;
-                        responseCode = g.getResponseCode();
-                    }
-                    if (responseCode / 100 != 2) {
-                        if (this.b != null) {
-                            this.b.a(this.a.getResponseMessage(), responseCode);
-                        }
-                        if (this.c != null) {
-                            this.c.a(this.a.getResponseMessage(), responseCode);
-                        }
-                    } else {
-                        String a2 = jg1.a(this.d);
-                        if (this.b != null) {
-                            this.b.onSuccess(f(), a2);
-                        }
-                        if (this.c != null) {
-                            this.c.b(this.a.getInputStream(), a2);
-                        }
-                    }
-                    httpURLConnection = this.a;
-                    if (httpURLConnection == null) {
-                        return;
-                    }
-                } catch (Exception e) {
-                    if (this.b != null) {
-                        b bVar = this.b;
-                        bVar.a("Net Connect RuntimeError: " + e.toString(), 0);
-                    }
-                    if (this.c != null) {
-                        c cVar = this.c;
-                        cVar.a("Net Connect RuntimeError: " + e.toString(), 0);
-                    }
-                    httpURLConnection = this.a;
-                    if (httpURLConnection == null) {
-                        return;
-                    }
-                }
-                httpURLConnection.disconnect();
-            } catch (Throwable th) {
-                HttpURLConnection httpURLConnection2 = this.a;
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.disconnect();
-                }
-                throw th;
-            }
         }
     }
 
-    public String f() throws Exception {
+    public final void a0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            try {
+                this.d0 = new FileInputStream(str);
+                N();
+            } catch (Exception unused) {
+            }
+            W();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yf1, com.baidu.tieba.jg1
+    public View getAdView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            InputStream inputStream = null;
-            try {
-                inputStream = this.a.getInputStream();
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] bArr = new byte[128];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                byteArrayOutputStream.flush();
-                return byteArrayOutputStream.toString();
-            } finally {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? super.getAdView() : (View) invokeV.objValue;
     }
 
-    public final HttpURLConnection g(HttpURLConnection httpURLConnection) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yf1, com.baidu.tieba.jg1
+    public void load() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, httpURLConnection)) != null) {
-            return (HttpURLConnection) invokeL.objValue;
-        }
-        while (true) {
-            try {
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode != 302 && responseCode != 301) {
-                    return httpURLConnection;
-                }
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(httpURLConnection.getHeaderField(Headers.LOCATION)).openConnection();
-                try {
-                    httpURLConnection2.setConnectTimeout(httpURLConnection2.getConnectTimeout());
-                    httpURLConnection2.setInstanceFollowRedirects(false);
-                    httpURLConnection2.setRequestProperty("Range", "bytes=0-");
-                    httpURLConnection = httpURLConnection2;
-                } catch (Exception unused) {
-                    return httpURLConnection2;
-                }
-            } catch (Exception unused2) {
-                return httpURLConnection;
-            }
-        }
-    }
-
-    public final void h(String str, HttpURLConnection httpURLConnection) throws IOException {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048581, this, str, httpURLConnection) != null) {
-            return;
-        }
-        BufferedWriter bufferedWriter = null;
-        try {
-            outputStream = httpURLConnection.getOutputStream();
-            try {
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                try {
-                    bufferedWriter2.write(str);
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                    if (outputStream != null) {
-                        outputStream.close();
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedWriter = bufferedWriter2;
-                    if (bufferedWriter != null) {
-                        bufferedWriter.close();
-                    }
-                    if (outputStream != null) {
-                        outputStream.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            outputStream = null;
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || TextUtils.isEmpty(this.d)) {
-            return;
-        }
-        try {
-            HttpURLConnection b2 = jg1.b(new URL(this.d));
-            this.a = b2;
-            b2.setConnectTimeout(this.h);
-            this.a.setReadTimeout(this.i);
-            if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-                System.setProperty("http.keepAlive", "false");
-            }
-            this.a.setRequestMethod(this.e);
-            this.a.setUseCaches(this.j);
-            if (!TextUtils.isEmpty(this.f)) {
-                this.a.setRequestProperty("User-Agent", this.f);
-            }
-            this.a.setRequestProperty("Content-type", this.g);
-            this.a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-            this.a.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-            if (this.e.equals("POST")) {
-                this.a.setDoInput(true);
-                this.a.setDoOutput(true);
-                if (this.k != null) {
-                    h(this.k.build().getEncodedQuery(), this.a);
-                }
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.a("Net Create RuntimeError: " + e.toString(), 0);
-            }
-            c cVar = this.c;
-            if (cVar != null) {
-                cVar.a("Net Create RuntimeError: " + e.toString(), 0);
-            }
-        } catch (Throwable th) {
-            b bVar2 = this.b;
-            if (bVar2 != null) {
-                bVar2.a("Net Create RuntimeError: " + th.toString(), 0);
-            }
-            c cVar2 = this.c;
-            if (cVar2 != null) {
-                cVar2.a("Net Create RuntimeError: " + th.toString(), 0);
-            }
-        }
-    }
-
-    public zf1(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.load();
+            String optString = this.i.optString("cached_path");
+            if (!TextUtils.isEmpty(optString)) {
+                a0(optString);
                 return;
             }
+            try {
+                if (!this.h.c(this.t, MaterialLoader.MaterialCacheType.VIDEO)) {
+                    MaterialLoader.k(this.a).f(this.t, new a(this));
+                } else {
+                    a0(this.h.b(this.t, MaterialLoader.MaterialCacheType.VIDEO));
+                }
+            } catch (Throwable unused) {
+                M("gif渲染失败");
+            }
         }
-        this.b = null;
-        this.c = null;
-        this.g = "text/plain";
-        this.h = 10000;
-        this.i = 10000;
-        this.j = false;
-        this.k = null;
-        this.l = i;
-        this.d = str;
-        this.e = str2;
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yf1, com.baidu.sdk.container.widget.AdView.a
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowVisibilityChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
     }
 }

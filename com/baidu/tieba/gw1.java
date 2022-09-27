@@ -1,78 +1,47 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gw1 extends ew1 {
+public class gw1 extends bz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public float b;
-    public float c;
-    public boolean d;
 
-    public gw1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gw1(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            l02.d("Camera", "parsing CameraModel occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || this.a == null) {
-            return;
-        }
-        if (!this.d && Math.abs(this.c) >= 360.0f) {
-            Path path = fw1Var.f;
-            RectF rectF = this.a;
-            float f = rectF.bottom;
-            float f2 = rectF.top;
-            path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
-            fw1Var.f.arcTo(this.a, 0.0f, this.b);
-            return;
-        }
-        float f3 = this.c % 360.0f;
-        if (f3 < 0.0f && !this.d) {
-            f3 += 360.0f;
-        } else if (f3 > 0.0f && this.d) {
-            f3 -= 360.0f;
-        }
-        fw1Var.f.arcTo(this.a, this.b, f3);
-    }
-
-    @Override // com.baidu.tieba.ew1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            if (jSONArray.length() > 4) {
-                int g = pg3.g((float) jSONArray.optDouble(0));
-                int g2 = pg3.g((float) jSONArray.optDouble(1));
-                int g3 = pg3.g((float) jSONArray.optDouble(2));
-                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
-                this.b = degrees;
-                this.c = degrees2 - degrees;
-            }
-            if (jSONArray.length() > 5) {
-                this.d = jSONArray.optBoolean(5);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
         }
     }
 }

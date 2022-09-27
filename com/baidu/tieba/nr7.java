@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface nr7<T> {
-    void onUpdate(T t);
+public interface nr7 {
+    void onFail(String str);
+
+    void onProgress(int i);
+
+    void onSuccess(String str);
 }

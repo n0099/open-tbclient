@@ -1,7 +1,7 @@
 package com.baidu.nadcore.player.view;
 
 import android.view.ScaleGestureDetector;
-import com.baidu.tieba.fz0;
+import com.baidu.tieba.sz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,16 +15,16 @@ import kotlin.jvm.internal.Lambda;
 public final class BdVideoScaleGestureDetector$scaleGestureDetector$2 extends Lambda implements Function0<ScaleGestureDetector> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ fz0 this$0;
+    public final /* synthetic */ sz0 this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoScaleGestureDetector$scaleGestureDetector$2(fz0 fz0Var) {
+    public BdVideoScaleGestureDetector$scaleGestureDetector$2(sz0 sz0Var) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fz0Var};
+            Object[] objArr = {sz0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public final class BdVideoScaleGestureDetector$scaleGestureDetector$2 extends La
                 return;
             }
         }
-        this.this$0 = fz0Var;
+        this.this$0 = sz0Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

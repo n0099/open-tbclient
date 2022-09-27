@@ -15,12 +15,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.jz0;
-import com.baidu.tieba.mi0;
-import com.baidu.tieba.po0;
-import com.baidu.tieba.z21;
-import com.baidu.tieba.zo0;
+import com.baidu.tieba.cp0;
+import com.baidu.tieba.m31;
+import com.baidu.tieba.mp0;
+import com.baidu.tieba.t21;
+import com.baidu.tieba.wz0;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,8 +69,8 @@ public class NadExpressBottomView extends ViewGroup {
                 return;
             }
         }
-        l = g21.c.a(mi0.b(), 3.0f);
-        m = g21.c.a(mi0.b(), 0.0f);
+        l = t21.c.a(zi0.b(), 3.0f);
+        m = t21.c.a(zi0.b(), 0.0f);
         n = e(R.dimen.obfuscated_res_0x7f070046);
         o = e(R.dimen.obfuscated_res_0x7f070559);
         p = e(R.dimen.obfuscated_res_0x7f0704e7);
@@ -106,13 +106,13 @@ public class NadExpressBottomView extends ViewGroup {
     public static int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? ContextCompat.getColor(mi0.b(), i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? ContextCompat.getColor(zi0.b(), i) : invokeI.intValue;
     }
 
     public static int e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? mi0.b().getResources().getDimensionPixelSize(i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? zi0.b().getResources().getDimensionPixelSize(i) : invokeI.intValue;
     }
 
     public final String a(String str, float f, TextPaint textPaint) {
@@ -138,23 +138,23 @@ public class NadExpressBottomView extends ViewGroup {
                 return;
             }
             while (i2 < this.g.size()) {
-                if (TextUtils.equals((CharSequence) jz0.d(this.g, i2), this.c)) {
-                    measuredWidth = (int) (measuredWidth + h((String) jz0.d(this.g, i2), this.f) + n);
+                if (TextUtils.equals((CharSequence) wz0.d(this.g, i2), this.c)) {
+                    measuredWidth = (int) (measuredWidth + h((String) wz0.d(this.g, i2), this.f) + n);
                     i = l * 2;
                 } else {
-                    if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) jz0.d(this.g, i2), this.k)) {
+                    if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) wz0.d(this.g, i2), this.k)) {
                         i = this.i - measuredWidth;
-                        float h2 = h((String) jz0.d(this.g, i2), this.e) + n;
+                        float h2 = h((String) wz0.d(this.g, i2), this.e) + n;
                         float f = i;
                         if (f > h2) {
                             h = measuredWidth + h2;
                         } else {
-                            String b = z21.b(this.d, this.b, f, this.e);
+                            String b = m31.b(this.d, this.b, f, this.e);
                             this.k = b;
-                            jz0.a(this.g, b, i2);
+                            wz0.a(this.g, b, i2);
                         }
                     } else {
-                        h = measuredWidth + h((String) jz0.d(this.g, i2), this.e) + n;
+                        h = measuredWidth + h((String) wz0.d(this.g, i2), this.e) + n;
                     }
                     measuredWidth = (int) h;
                     if (measuredWidth <= this.i) {
@@ -181,13 +181,13 @@ public class NadExpressBottomView extends ViewGroup {
             int i3 = 0;
             for (int i4 = 0; i4 < min; i4++) {
                 int measuredHeight = getMeasuredHeight();
-                if (TextUtils.equals((CharSequence) jz0.d(this.g, i4), this.c)) {
+                if (TextUtils.equals((CharSequence) wz0.d(this.g, i4), this.c)) {
                     canvas.drawText(this.c, l + i3, ((((measuredHeight - i2) / 2.0f) + (t / 2.0f)) - ((this.f.getFontMetrics().top + this.f.getFontMetrics().bottom) / 2.0f)) - 1.0f, this.f);
                     f = i3;
                     h = h(this.c, this.f) + l;
                     i = n;
                 } else {
-                    String str = (String) jz0.d(this.g, i4);
+                    String str = (String) wz0.d(this.g, i4);
                     if (!TextUtils.isEmpty(str)) {
                         f = i3;
                         canvas.drawText(str, f, f(this.e, measuredHeight), this.e);
@@ -224,10 +224,10 @@ public class NadExpressBottomView extends ViewGroup {
             AdImageView adImageView = new AdImageView(getContext());
             this.a = adImageView;
             adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dff));
+            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e01));
             this.a.setId(R.id.obfuscated_res_0x7f0915d3);
             this.a.setContentDescription("不感兴趣");
-            z21.a(getContext(), this.a, 15.0f);
+            m31.a(getContext(), this.a, 15.0f);
             setWillNotDraw(false);
             TextPaint textPaint = new TextPaint();
             this.e = textPaint;
@@ -250,17 +250,17 @@ public class NadExpressBottomView extends ViewGroup {
             if (!TextUtils.isEmpty(this.c)) {
                 String a = a(this.c, q, this.f);
                 this.c = a;
-                jz0.b(this.g, a);
+                wz0.b(this.g, a);
             }
             if (!TextUtils.isEmpty(this.b)) {
-                String b = z21.b(this.d, this.b, p, this.e);
+                String b = m31.b(this.d, this.b, p, this.e);
                 this.k = b;
-                jz0.b(this.g, b);
+                wz0.b(this.g, b);
             } else if (TextUtils.isEmpty(this.d)) {
             } else {
                 String a2 = a(this.d, o, this.e);
                 this.d = a2;
-                jz0.b(this.g, a2);
+                wz0.b(this.g, a2);
             }
         }
     }
@@ -285,7 +285,7 @@ public class NadExpressBottomView extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onAttachedToWindow();
-            z21.a(getContext(), this.a, 15.0f);
+            m31.a(getContext(), this.a, 15.0f);
         }
     }
 
@@ -335,20 +335,20 @@ public class NadExpressBottomView extends ViewGroup {
     }
 
     public void update(AdBaseModel adBaseModel) {
-        zo0.a aVar;
+        mp0.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) || adBaseModel == null) {
             return;
         }
-        po0 po0Var = adBaseModel.f;
-        this.b = po0Var.h;
-        this.d = po0Var.e;
-        this.c = po0Var.i;
+        cp0 cp0Var = adBaseModel.f;
+        this.b = cp0Var.h;
+        this.d = cp0Var.e;
+        this.c = cp0Var.i;
         setNeedShowUnlikeIcon(true);
         j();
         this.j = s;
-        zo0 zo0Var = adBaseModel.p;
-        if (zo0Var != null && (aVar = zo0Var.j) != null) {
+        mp0 mp0Var = adBaseModel.p;
+        if (mp0Var != null && (aVar = mp0Var.j) != null) {
             int i = aVar.f;
             int i2 = aVar.g;
             int i3 = aVar.i;

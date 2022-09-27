@@ -1,37 +1,91 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.y50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.Base64;
-import com.bumptech.glide.disklrucache.StrictLineReader;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class u50 {
+public class u50 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161849, "Lcom/baidu/tieba/u50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Class[] a;
+        public final /* synthetic */ y50.a b;
+
+        public a(Class[] clsArr, y50.a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {clsArr, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161849, "Lcom/baidu/tieba/u50;");
-                return;
+            this.a = clsArr;
+            this.b = aVar;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                try {
+                    this.b.a(true, (String) this.a[0].getMethod("a", new Class[0]).invoke(this.a[0].getMethod("asInterface", IBinder.class).invoke(null, iBinder), new Object[0]));
+                } catch (Throwable unused) {
+                    this.b.a(false, null);
+                }
             }
         }
-        a = new byte[]{0, -118, 109, 108, -43, -56, 63, 62, 108, -63, -94, 72, -110, -122, -111, -109, 102, -12, 17, 110, 123, 1, -110, 124, 18, 78, -48, -23, 85, -21, -48, 4, -50, -68, 88, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -32, -14, 54, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -61, -110, -61, 113, -21, -60, 66, -122, -52, Base64.INTERNAL_PADDING, 28, -48, -24, -96, -25, StrictLineReader.CR, -88, -96, -98, 23, -14, -89, 24, 90, 82, -16, -65, 107, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -22, 113, 24, -46, 120, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -13, 2, Constants.SHORT_PING_CMD_TYPE, 92, 9, 69, 91, 107, -49, -127, 54, -70, 104, 34, -13, 76, 26, 84, -1, -99, 80, -98, 43, -38, -60, 86, 58, 107, 40, -69, -43, -109, -124, 103, -79, -43, -22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -11, -52, 55, 86, 75, -43, 114, -18, 2, 77, -53, -65, 3, 8, 45, 106, -117, -42, 56, 51, -11, -76, 21, 68, 116, -52, -71, 81, -17, 49, 71, 4, -1, -60, 52, -55, -72, 8, -100, 90, -12, 15, 108, 45, 86, 97, 20, 53, 70, -106, -36, -1, 10, -115, 53, -109, -52, -73, 108, 122, -8, 113, 98, Byte.MIN_VALUE, -81, 79, 98, -15, -36, 119, 118, -55, -125, BaseNCodec.PAD_DEFAULT, -98, 59, 111, 16, 22, 118, 40, -18, -5, 2, -17, 71, -114, 42, -45, 96, 10, -104, 64, 95, -47, 73, ByteCompanionObject.MAX_VALUE, 88, -54, -3, -99, 16, -58, 27, -7, -36, 60, -60, -13, -99, 55, 55, -7, -96, -34, 7, -34, 28, -31, -26, -96, -31, 54, -108, 45, 6, -27, -106, -104, -58, -22, -71, -81, -30, 100, BaseNCodec.PAD_DEFAULT, -1, -59, 56, 48, -61, -11};
-        b = new byte[]{1, 0, 1};
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+    }
+
+    public static void a(Context context, y50.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return;
+            }
+            Class[] clsArr = new Class[1];
+            try {
+                clsArr[0] = Class.forName("com.zui.deviceidservice.IDeviceidInterface$Stub");
+            } catch (Throwable unused) {
+            }
+            if (clsArr[0] == null) {
+                aVar.a(false, null);
+                return;
+            }
+            try {
+                a aVar2 = new a(clsArr, aVar);
+                Intent intent = new Intent();
+                intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
+                context.bindService(intent, aVar2, 1);
+            } catch (Throwable unused2) {
+                aVar.a(false, null);
+            }
+        }
     }
 }

@@ -1,235 +1,215 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.module.hottopic.HotTopicStat;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbContent;
 /* loaded from: classes6.dex */
 public class y95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<String> a;
-    public static String b;
-    public static String c;
-    public static boolean d;
-    public static String e;
-    public static String f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public ThreadData a;
+    @NonNull
+    public PbContent b;
+    public boolean c;
+    public int d;
+    public int e;
+    @Nullable
+    public PostData f;
+    @NonNull
+    public HotTopicStat.Locate g;
+    @Nullable
+    public String h;
+    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948285012, "Lcom/baidu/tieba/y95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948285012, "Lcom/baidu/tieba/y95;");
+    public y95(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData, pbContent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList<>();
-        d = false;
+        this.g = HotTopicStat.Locate.UNDEFINED;
+        this.a = threadData;
+        this.b = pbContent;
+        this.c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
     }
 
-    public static boolean a(Context context) {
+    @NonNull
+    public static y95 f(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, pbContent)) == null) ? new y95(threadData, pbContent) : (y95) invokeLL.objValue;
+    }
+
+    @NonNull
+    public y95 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.i = z;
+            return this;
+        }
+        return (y95) invokeZ.objValue;
+    }
+
+    @NonNull
+    public y95 b(@NonNull HotTopicStat.Locate locate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!d) {
-                r(context);
-            }
-            return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            this.g = locate;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (y95) invokeL.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    @NonNull
+    public y95 c(@Nullable PostData postData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, postData)) == null) {
+            this.f = postData;
+            return this;
+        }
+        return (y95) invokeL.objValue;
     }
 
-    public static String c() {
+    @NonNull
+    public y95 d(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.d = i;
+            return this;
+        }
+        return (y95) invokeI.objValue;
+    }
+
+    @NonNull
+    public y95 e(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.e = i;
+            return this;
+        }
+        return (y95) invokeI.objValue;
+    }
+
+    @NonNull
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                b = d(TbadkCoreApplication.getInst().getApp());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.valueOf(this.a.getFid()) : (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.h == null) {
+                this.h = UrlUtils.appendParam(this.b.link, "locate", i().toString());
             }
-            return b;
+            return this.h;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        ActivityManager activityManager;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+    @NonNull
+    public HotTopicStat.Locate i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return Application.getProcessName();
-            }
-            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (HotTopicStat.Locate) invokeV.objValue;
+    }
+
+    @NonNull
+    public PbContent j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (PbContent) invokeV.objValue;
+    }
+
+    @Nullable
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            PostData postData = this.f;
+            if (postData == null) {
                 return null;
             }
-            int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
+            return postData.L();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public ThreadData l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+    }
+
+    @ColorRes
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (o()) {
+                int i = this.e;
+                if (i != 0) {
+                    return i;
+                }
+            } else {
+                int i2 = this.d;
+                if (i2 != 0) {
+                    return i2;
                 }
             }
-            return null;
+            return R.color.CAM_X0304;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String e() {
+    public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    public static String f() {
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    public static void g() {
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            String packageName = TbadkCoreApplication.getInst().getPackageName();
-            String str = packageName + ":swan";
-            c = str;
-            a.clear();
-            a.add(packageName);
-            a.add(packageName + ":remote");
-            a.add(packageName + ":cdnTachometer");
-            a.add(packageName + ":daemon");
-            a.add(packageName + ":third");
-            a.add(packageName + ":pluginInstaller");
-            a.add(packageName + ":xiaoying");
-            a.add(packageName + ":media");
-            a.add(packageName + ":kmyas__");
-            a.add(packageName + ":guardService");
-            a.add(packageName + ":warkup");
-            a.add(str);
-            a.add(packageName + ":bdservice_v1");
-            a.add(packageName + ":live");
-            m("initProcess-->CurrentProcessName=" + c());
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.c = z;
         }
-    }
-
-    public static boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return str != null && str.equalsIgnoreCase(c());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? j(c()) : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Iterator<String> it = a.iterator();
-            while (it.hasNext()) {
-                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(c)) {
-                    return true;
-                }
-                while (it.hasNext()) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d : invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? h(TbadkCoreApplication.getInst().getPackageName()) : invokeV.booleanValue;
-    }
-
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
-            Log.e("MutiProcess", str);
-        }
-    }
-
-    public static void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
-            e = str;
-        }
-    }
-
-    public static void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
-            d = z;
-        }
-    }
-
-    public static void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            f = str;
-        }
-    }
-
-    public static void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
-            g = str;
-        }
-    }
-
-    public static void r(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65554, null, context) == null) || context == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
     }
 }

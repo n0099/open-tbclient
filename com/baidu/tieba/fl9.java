@@ -1,98 +1,154 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cl9;
+import com.baidu.tieba.el9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class fl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Handler a;
-    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Deque<c>> a;
 
     /* loaded from: classes4.dex */
-    public static class a extends Handler {
+    public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final el9 a;
+        public final HashSet<Ssp.Pid> b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
+        public a(el9 el9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
+                Object[] objArr = {el9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = el9Var;
+            this.b = new HashSet<>();
+            for (el9.c cVar : el9Var.e) {
+                for (el9.b bVar : cVar.b) {
+                    this.b.add(bVar.c);
+                }
+            }
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        @Override // com.baidu.tieba.fl9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                SharedPreferences sharedPreferences = pm9.a;
-                sharedPreferences.edit().clear().apply();
-                sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
-                fl9.b.clear();
-                sendEmptyMessageDelayed(101, fl9.a());
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fl9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947768118, "Lcom/baidu/tieba/fl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final cl9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public b(cl9 cl9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947768118, "Lcom/baidu/tieba/fl9;");
+            this.a = cl9Var;
+            this.b = new HashSet<>();
+            for (cl9.b bVar : cl9Var.b) {
+                for (cl9.a aVar : bVar.b) {
+                    this.b.add(aVar.c);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.fl9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.fl9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
+        Set<Ssp.Pid> a();
+
+        int b();
+    }
+
+    public fl9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new HashSet();
-        a = new a(Looper.getMainLooper());
+        this.a = new HashMap<>();
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    public final Deque<c> a(String str) {
+        InterceptResult invokeL;
+        Deque<c> deque;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            long timeInMillis = calendar.getTimeInMillis();
-            calendar.add(6, 1);
-            calendar.set(11, 0);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
-            if (timeInMillis2 < 0) {
-                return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                deque = this.a.get(str);
+                if (deque == null) {
+                    deque = new ArrayDeque<>();
+                    this.a.put(str, deque);
+                }
             }
-            return timeInMillis2;
+            return deque;
         }
-        return invokeV.longValue;
+        return (Deque) invokeL.objValue;
     }
 }

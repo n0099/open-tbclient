@@ -1,194 +1,135 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.util.Base64;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
+import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
+import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class tl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public b b;
+    public pb c;
 
     /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
+    public class a extends pb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tl4 a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tl4 tl4Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = tl4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            TbPageContext<?> d;
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag();
-                if (tag instanceof CompleteTaskToastData) {
-                    CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                    if (TextUtils.isEmpty(completeTaskToastData.url) || (d = tl4.d()) == null) {
-                        return;
-                    }
-                    UrlManager.getInstance().dealOneLink(d, new String[]{completeTaskToastData.url});
-                    jm4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage == null || responsedMessage.getError() != 0) {
+                    this.a.d(false, null);
+                } else if (responsedMessage instanceof GetTokenSocketResponsedMessage) {
+                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
+                } else if (responsedMessage instanceof GetTokenHttpResponsedMessage) {
+                    this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948185037, "Lcom/baidu/tieba/tl4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948185037, "Lcom/baidu/tieba/tl4;");
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, om4 om4Var);
+    }
+
+    public tl4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        f();
+        e();
     }
 
-    public static void a(MotionEvent motionEvent, int i, long j) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{motionEvent, Integer.valueOf(i), Long.valueOf(j)}) == null) && motionEvent != null && motionEvent.getAction() == 0) {
-            g(i, j);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a) {
+            return;
+        }
+        this.a = true;
+        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
+        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
+        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
+    }
+
+    public final void d(boolean z, om4 om4Var) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, om4Var) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.a(z, om4Var);
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    public static void b(int i, int i2, long j, String str) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
-            MissionEvent missionEvent = new MissionEvent();
-            missionEvent.tid = j;
-            missionEvent.pageId = i2;
-            missionEvent.pageType = i;
-            missionEvent.actionType = str;
-            aa5.i(missionEvent);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            sm8.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            sm8.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 
-    public static void c(int i, long j, String str) {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), str}) == null) {
-            MissionEvent missionEvent = new MissionEvent();
-            missionEvent.tid = j;
-            missionEvent.pageId = i;
-            missionEvent.actionType = str;
-            aa5.i(missionEvent);
-        }
-    }
-
-    public static TbPageContext d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof BaseActivity) {
-                return ((BaseActivity) currentActivity).getPageContext();
-            }
-            if (currentActivity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) currentActivity).getPageContext();
-            }
-            return null;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? TbadkCoreApplication.getInst().isMainProcess(true) : invokeV.booleanValue;
-    }
-
-    public static void f(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (e()) {
-                el4.w().E();
-            } else {
-                c(i, j, MissionEvent.MESSAGE_PAUSE);
-            }
-        }
-    }
-
-    public static void g(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (e()) {
-                el4.w().F();
-            } else {
-                c(i, j, MissionEvent.MESSAGE_TOUCH);
-            }
-        }
-    }
-
-    public static void h(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (e()) {
-                el4.w().K(i, j);
-            } else {
-                c(i, j, MissionEvent.MESSAGE_ACTIVITY);
-            }
-        }
-    }
-
-    public static gu4 i(CompleteTaskToastData completeTaskToastData) {
-        InterceptResult invokeL;
-        TbPageContext d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, completeTaskToastData)) == null) {
-            if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
-                return null;
-            }
-            gu4 f = gu4.f(d.getPageActivity(), completeTaskToastData.message);
-            f.g(completeTaskToastData.duration);
-            f.h(a);
-            f.i(completeTaskToastData);
-            f.j();
-            return f;
-        }
-        return (gu4) invokeL.objValue;
-    }
-
-    public static void j(int i, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            if (e()) {
-                el4.w().P(i, j);
-            } else {
-                b(i, i2, j, "onResume");
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

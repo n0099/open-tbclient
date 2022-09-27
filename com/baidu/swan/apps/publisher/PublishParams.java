@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.vn2;
-import com.baidu.tieba.y23;
+import com.baidu.tieba.io2;
+import com.baidu.tieba.l33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -336,16 +336,16 @@ public final class PublishParams implements Parcelable {
         this(str, str2, str3, i, i2, str4, i3, str5, i4, str6, str7, str8, i5, f, list, r18, r19);
         String str11;
         String str12;
-        vn2.a Y;
-        vn2.a Y2;
+        io2.a Y;
+        io2.a Y2;
         if ((i6 & 32768) != 0) {
-            y23 M = y23.M();
+            l33 M = l33.M();
             str11 = (M == null || (Y2 = M.Y()) == null) ? null : Y2.H();
         } else {
             str11 = str9;
         }
         if ((i6 & 65536) != 0) {
-            y23 M2 = y23.M();
+            l33 M2 = l33.M();
             str12 = (M2 == null || (Y = M2.Y()) == null) ? null : Y.v1();
         } else {
             str12 = str10;

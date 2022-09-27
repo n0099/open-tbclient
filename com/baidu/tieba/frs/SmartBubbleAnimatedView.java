@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.ol8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -250,7 +250,7 @@ public class SmartBubbleAnimatedView extends View {
     public final void d(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) {
-            this.f.setColor(zk8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+            this.f.setColor(ol8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0101));
             this.g.setTextSize(ej.f(getContext(), R.dimen.tbds32));
             this.k = ej.f(getContext(), R.dimen.tbds83);
@@ -260,7 +260,7 @@ public class SmartBubbleAnimatedView extends View {
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f.setColor(zk8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+            this.f.setColor(ol8.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0101));
             this.g.setTextSize(ej.f(getContext(), R.dimen.tbds32));
             invalidate();

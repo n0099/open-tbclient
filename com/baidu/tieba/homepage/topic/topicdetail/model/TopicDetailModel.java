@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.Cdo;
+import com.baidu.tieba.a57;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.RequestGetTopicDetailMessage;
@@ -15,11 +16,10 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicDe
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicThreadMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicDetailMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
-import com.baidu.tieba.i47;
-import com.baidu.tieba.m47;
 import com.baidu.tieba.message.RequestBlessMessage;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.w47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +30,8 @@ import java.util.List;
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i47 a;
-    public m47 b;
+    public w47 a;
+    public a57 b;
     public pb c;
 
     /* loaded from: classes4.dex */
@@ -216,9 +216,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                i47 i47Var = this.a;
-                if (i47Var != null) {
-                    i47Var.u(-1, null);
+                w47 w47Var = this.a;
+                if (w47Var != null) {
+                    w47Var.u(-1, null);
                     return;
                 }
                 return;
@@ -235,9 +235,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                i47 i47Var = this.a;
-                if (i47Var != null) {
-                    i47Var.M0(-1, false, null);
+                w47 w47Var = this.a;
+                if (w47Var != null) {
+                    w47Var.M0(-1, false, null);
                     return;
                 }
                 return;
@@ -252,10 +252,10 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void G(i47 i47Var) {
+    public void G(w47 w47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i47Var) == null) {
-            this.a = i47Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w47Var) == null) {
+            this.a = w47Var;
         }
     }
 

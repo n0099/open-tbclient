@@ -1,60 +1,37 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ll3 extends kl3 {
+public class ll3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946678, "Lcom/baidu/tieba/ll3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947946678, "Lcom/baidu/tieba/ll3;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ll3(v33 v33Var) {
-        super(v33Var, "/swanAPI/recommendProducts");
+    public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
+        InterceptResult invokeCommon;
+        SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((v33) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), quickLoginInfo, str2, str3})) == null) {
+            Bundle bundle = new Bundle();
+            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
+                swanAppPhoneLoginDialog = new SwanAppQuickLoginDialog();
+            } else {
+                swanAppPhoneLoginDialog = new SwanAppPhoneLoginDialog();
             }
+            bundle.putString("auth_tip", str);
+            bundle.putBoolean("is_night", z);
+            bundle.putParcelable("quick_login_info", quickLoginInfo);
+            bundle.putString("app_id", str3);
+            bundle.putString("launch_from", str2);
+            swanAppPhoneLoginDialog.setArguments(bundle);
+            return swanAppPhoneLoginDialog;
         }
-    }
-
-    @Override // com.baidu.tieba.kl3
-    @NonNull
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? yi3.a() : (String) invokeV.objValue;
+        return (SwanAppLoginAndGetMobileDialog) invokeCommon.objValue;
     }
 }

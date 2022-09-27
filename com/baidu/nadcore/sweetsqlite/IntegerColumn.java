@@ -1,7 +1,7 @@
 package com.baidu.nadcore.sweetsqlite;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e01;
+import com.baidu.tieba.r01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,18 +16,18 @@ public class IntegerColumn extends Column implements Serializable {
     public int value;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IntegerColumn(e01 e01Var) {
-        super(e01Var);
+    public IntegerColumn(r01 r01Var) {
+        super(r01Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e01Var};
+            Object[] objArr = {r01Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((e01) newInitContext.callArgs[0]);
+                super((r01) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

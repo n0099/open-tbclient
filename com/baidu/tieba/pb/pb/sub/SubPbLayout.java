@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e18;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.s18;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public e18 d;
+    public s18 d;
     public int e;
     public PostData f;
     public View g;
@@ -134,8 +134,8 @@ public class SubPbLayout extends ViewGroup {
                     sparseArray = new SparseArray();
                     this.i.setTag(sparseArray);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f092057, this.f);
-                sparseArray.put(R.id.obfuscated_res_0x7f092059, this.g);
+                sparseArray.put(R.id.obfuscated_res_0x7f092059, this.f);
+                sparseArray.put(R.id.obfuscated_res_0x7f09205b, this.g);
                 this.i.setVisibility(0);
                 this.i.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             } else {
@@ -195,21 +195,21 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray = new SparseArray();
                         childAt2.setTag(sparseArray);
                     }
-                    Object obj = sparseArray.get(R.id.obfuscated_res_0x7f092057);
+                    Object obj = sparseArray.get(R.id.obfuscated_res_0x7f092059);
                     PostData postData = this.f;
                     if (obj != postData) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092057, postData);
+                        sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f092059, this.g);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092053, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205b, this.g);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.TRUE);
                     if (list.get(i3) != null && list.get(i3).s() != null) {
-                        if (sparseArray.get(R.id.obfuscated_res_0x7f092058) != list.get(i3)) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f092058, list.get(i3));
+                        if (sparseArray.get(R.id.obfuscated_res_0x7f09205a) != list.get(i3)) {
+                            sparseArray.put(R.id.obfuscated_res_0x7f09205a, list.get(i3));
                         }
-                        sparseArray.put(R.id.obfuscated_res_0x7f09206f, list.get(i3).s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09206d, list.get(i3).s().getPortrait());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09206e, list.get(i3).s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09203a, list.get(i3));
+                        sparseArray.put(R.id.obfuscated_res_0x7f092071, list.get(i3).s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09206f, list.get(i3).s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092070, list.get(i3).s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09203c, list.get(i3));
                     }
                     SparseArray<Object> sparseArray2 = this.n;
                     if (sparseArray2 != null) {
@@ -218,7 +218,7 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(-3, this.n.get(-3));
                         sparseArray.put(-4, this.n.get(-4));
                     }
-                    e18.b bVar = (e18.b) sparseArray.get(R.id.obfuscated_res_0x7f09204f);
+                    s18.b bVar = (s18.b) sparseArray.get(R.id.obfuscated_res_0x7f092051);
                     this.d.c(bVar, list.get(i3), this.f.b0() > list.size() || list.size() - i3 > 1, i3 == 0, false);
                     bVar.e.setPadding(0, 0, 0, ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
@@ -286,9 +286,9 @@ public class SubPbLayout extends ViewGroup {
         }
         textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
         if (this.k) {
-            uu4.d(this.j).v(R.color.CAM_X0304);
+            hv4.d(this.j).v(R.color.CAM_X0304);
         } else {
-            uu4.d(this.j).v(R.color.CAM_X0108);
+            hv4.d(this.j).v(R.color.CAM_X0108);
         }
     }
 
@@ -300,9 +300,9 @@ public class SubPbLayout extends ViewGroup {
         }
         textView.setTextSize(0, TbConfig.getTestContentSizeOfLzl());
         if (this.k) {
-            uu4.d(this.j).v(R.color.CAM_X0318);
+            hv4.d(this.j).v(R.color.CAM_X0318);
         } else {
-            uu4.d(this.j).v(R.color.CAM_X0108);
+            hv4.d(this.j).v(R.color.CAM_X0108);
         }
     }
 
@@ -433,10 +433,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(e18 e18Var) {
+    public void setSubPbAdapter(s18 s18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, e18Var) == null) {
-            this.d = e18Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, s18Var) == null) {
+            this.d = s18Var;
         }
     }
 
@@ -467,7 +467,7 @@ public class SubPbLayout extends ViewGroup {
         this.m = new ViewGroup.MarginLayoutParams(-1, -2);
         RelativeLayout relativeLayout = new RelativeLayout(context);
         this.i = relativeLayout;
-        relativeLayout.setId(R.id.obfuscated_res_0x7f09180b);
+        relativeLayout.setId(R.id.obfuscated_res_0x7f09180d);
         TextView textView = new TextView(context);
         this.j = textView;
         textView.setPadding(0, ej.f(context, R.dimen.tbds_3), 0, ej.f(context, R.dimen.tbds12));

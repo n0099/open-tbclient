@@ -1,28 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public interface vq0 extends rq0, tq0 {
-    public static final a a = w51.a;
+public class vq0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        vq0 a(Context context, int i);
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        vq0 b(Context context, int i, @Nullable wq0 wq0Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            new ArrayList();
+        }
     }
 
-    void a(sq0 sq0Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249300, "Lcom/baidu/tieba/vq0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948249300, "Lcom/baidu/tieba/vq0;");
+                return;
+            }
+        }
+        new ArrayList(2);
+        new a();
+    }
 
-    void attachToContainer(@NonNull ViewGroup viewGroup);
-
-    void c(@NonNull wo0 wo0Var);
-
-    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
-
-    void release();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i = a;
+            return i == 2 || i == 3;
+        }
+        return invokeV.booleanValue;
+    }
 }

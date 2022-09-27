@@ -1,59 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.query.JoinType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class d11 {
     public static /* synthetic */ Interceptable $ic;
-    public static d11 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public e11 a;
+    public final JoinType a;
+    public final String b;
+    public final String c;
+    public final z01 d;
+    public final r01 e;
+    public final r01 f;
+    public final StringBuilder g;
+    public boolean h;
+    public boolean i;
 
-    public d11() {
+    public final void a(String str, String str2, r01 r01Var, r01 r01Var2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, r01Var, r01Var2) == null) {
+            this.g.append(str);
+            this.g.append(".");
+            this.g.append(r01Var.b);
+            this.g.append(" = ");
+            this.g.append(str2);
+            this.g.append(".");
+            this.g.append(r01Var2.b);
         }
-        this.a = new b11();
-        if (u01.a()) {
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.h) {
             return;
         }
-        this.a = new c11();
-    }
-
-    public static d11 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (d11.class) {
-                    if (b == null) {
-                        b = new d11();
-                    }
-                }
-            }
-            return b;
+        this.h = true;
+        this.g.append(" ");
+        this.g.append(this.a.toString());
+        this.g.append(" JOIN ");
+        this.g.append(this.d.g());
+        this.g.append(" AS ");
+        this.g.append(this.c);
+        this.g.append(" ON ");
+        if (this.i) {
+            this.g.append("(");
         }
-        return (d11) invokeV.objValue;
+        a(this.b, this.c, this.e, this.f);
     }
 
-    @NonNull
-    public e11 a() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (e11) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            b();
+            StringBuilder sb = new StringBuilder();
+            sb.append((CharSequence) this.g);
+            if (this.i) {
+                sb.append(") ");
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

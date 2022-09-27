@@ -1,27 +1,59 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class mg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
-            context.startActivity(intent, bundle);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            SharedPreferences a = ug4.a();
+            return a.getLong("latest_update_time" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            SharedPreferences a = ug4.a();
+            return a.getLong("max_age" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return (System.currentTimeMillis() - a(i)) / 1000 > b(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void d(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            SharedPreferences.Editor edit = ug4.a().edit();
+            edit.putLong("latest_update_time" + i, j).apply();
         }
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
+    public static void e(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
-            activity.startActivityForResult(intent, i, bundle);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j <= 0 || j >= 259200) {
+                j = 0;
+            }
+            ug4.a().edit().putLong("max_age" + i, j).apply();
         }
     }
 }

@@ -1,168 +1,222 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+@TargetApi(18)
 /* loaded from: classes5.dex */
-public class ov8 extends p9 {
+public class ov8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public HorizontalListView b;
-    public lv8 c;
-    public wu8 d;
-    public yu8 e;
+    public Context a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
+    public c f;
+    public sv8 g;
+    public qv8 h;
+    public rv8 i;
+    public volatile boolean j;
+    public volatile boolean k;
+    public volatile boolean l;
 
     /* loaded from: classes5.dex */
-    public class a implements AdapterView.OnItemClickListener {
+    public class a extends sv8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov8 a;
+        public final /* synthetic */ ov8 f;
 
-        public a(ov8 ov8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ov8 ov8Var, Context context, String str, String str2, rv8 rv8Var, c cVar) {
+            super(context, str, str2, rv8Var, cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ov8Var};
+                Object[] objArr = {ov8Var, context, str, str2, rv8Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (rv8) objArr2[3], (c) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ov8Var;
+            this.f = ov8Var;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        @Override // com.baidu.tieba.sv8
+        public void k() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                gv8 gv8Var = (gv8) this.a.d.getItem(i);
-                if (this.a.e != null) {
-                    this.a.e.h(gv8Var);
-                }
-                if (this.a.c == null || this.a.c.C() == null) {
-                    return;
-                }
-                this.a.c.C().setFilter(gv8Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.j = true;
+                this.f.d();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ov8(r9 r9Var, lv8 lv8Var) {
-        super(r9Var);
+    /* loaded from: classes5.dex */
+    public class b extends qv8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ov8 f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ov8 ov8Var, Context context, String str, rv8 rv8Var, c cVar) {
+            super(context, str, rv8Var, cVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ov8Var, context, str, rv8Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (rv8) objArr2[2], (c) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = ov8Var;
+        }
+
+        @Override // com.baidu.tieba.qv8
+        public void k() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.k = true;
+                this.f.d();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void onGenFilterVideoFail(int i, String str);
+
+        void onGenFilterVideoRecordError(int i, String str);
+
+        void onGenFilterVideoSuccess(String str);
+    }
+
+    public ov8(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, lv8Var};
+            Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((r9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = lv8Var;
-        View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0245, (ViewGroup) null);
-        this.a = inflate;
-        inflate.getResources();
-        p();
+        this.e = false;
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
     }
 
-    public gv8 m(String str) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            for (gv8 gv8Var : this.d.a()) {
-                if (gv8Var != null && StringHelper.equals(gv8Var.c, str)) {
-                    return gv8Var;
-                }
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
+            this.i.f();
+            this.l = true;
+            g();
         }
-        return (gv8) invokeL.objValue;
     }
 
-    public View n() {
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            sv8 sv8Var = this.g;
+            if (sv8Var != null) {
+                sv8Var.interrupt();
+                this.g = null;
+            }
+            qv8 qv8Var = this.h;
+            if (qv8Var != null) {
+                qv8Var.interrupt();
+                this.h = null;
+            }
+        }
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
-    public void o(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-        }
-    }
-
-    public final void p() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (HorizontalListView) this.a.findViewById(R.id.obfuscated_res_0x7f090872);
-            this.d = new wu8();
-            v(yu8.c(this.a.getContext()));
-            this.b.setOnItemClickListener(new a(this));
+            if (this.f != null) {
+                File file = new File(this.c);
+                if (file.exists() && file.length() > 0) {
+                    this.f.onGenFilterVideoSuccess(this.c);
+                } else {
+                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+                }
+            }
+            this.e = false;
         }
     }
 
-    public void q() {
+    public void h(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.f = cVar;
         }
     }
 
-    public void r() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.e) {
+            return;
         }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        this.e = true;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        try {
+            File file = new File(new File(this.c).getParent());
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            c cVar = this.f;
+            if (cVar != null) {
+                cVar.onGenFilterVideoFail(222, cp7.a(e));
+            }
         }
-    }
-
-    public void t(gv8 gv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, gv8Var) == null) {
-            this.d.b(gv8Var);
-        }
-    }
-
-    public void u(yu8 yu8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yu8Var) == null) {
-            this.e = yu8Var;
-        }
-    }
-
-    public void v(List<gv8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.d.c(list);
-            this.b.setAdapter((ListAdapter) this.d);
+        try {
+            this.i = new rv8(this.c);
+            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
+            this.g = aVar;
+            aVar.start();
+            b bVar = new b(this, this.a, this.b, this.i, this.f);
+            this.h = bVar;
+            bVar.start();
+        } catch (Exception unused) {
         }
     }
 }

@@ -1,18 +1,18 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bun.miitmdid.provider.nubia.NubiaIdentityImpl;
+@Keep
 /* loaded from: classes7.dex */
-public class r extends m {
+public class r extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context i;
-    public String j;
+    @Keep
+    public Context l;
 
     public r(Context context) {
         Interceptable interceptable = $ic;
@@ -29,25 +29,10 @@ public class r extends m {
                 return;
             }
         }
-        this.i = context;
+        this.l = context;
     }
 
-    @Override // com.bun.miitmdid.m
-    public g a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g gVar = new g();
-            Context a = a(this.i);
-            this.i = a;
-            this.j = a.getPackageName();
-            gVar.e(new h(NubiaIdentityImpl.class, null, "isSupported", new Class[]{Context.class}, new Object[]{this.i}));
-            gVar.d(null);
-            gVar.b(new h(NubiaIdentityImpl.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.i}));
-            gVar.c(new h(NubiaIdentityImpl.class, null, "getVAID", new Class[]{Context.class, String.class}, new Object[]{this.i, this.j}));
-            gVar.a(new h(NubiaIdentityImpl.class, null, "getAAID", new Class[]{Context.class, String.class}, new Object[]{this.i, this.j}));
-            return gVar;
-        }
-        return (g) invokeV.objValue;
-    }
+    @Override // com.bun.miitmdid.n
+    @Keep
+    public native g d();
 }

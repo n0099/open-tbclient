@@ -55,16 +55,16 @@ import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.fz;
-import com.baidu.tieba.j45;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.kf8;
 import com.baidu.tieba.kx;
-import com.baidu.tieba.lo4;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.tx;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.ve8;
 import com.baidu.tieba.view.VirtualImageStatusTip;
+import com.baidu.tieba.w45;
 import com.baidu.tieba.w9;
 import com.baidu.tieba.xx;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -219,8 +219,8 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.B == null || this.a.B.getAuthor() == null || StringUtils.isNull(this.a.B.getAuthor().getName_show()) || StringUtils.isNull(this.a.B.getAuthor().getUserId()) || this.a.B.getForum_name() == null) {
                 return;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f092064) != null && (view2.getTag(R.id.obfuscated_res_0x7f092064) instanceof String)) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092064);
+            if (view2.getTag(R.id.obfuscated_res_0x7f092066) != null && (view2.getTag(R.id.obfuscated_res_0x7f092066) instanceof String)) {
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092066);
                 if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                     return;
@@ -277,7 +277,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.B == null || this.a.B.getAuthor() == null) {
                 return;
             }
-            lo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.B.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            yo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.B.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.y != null) {
                 this.a.x.onClick(view2);
             }
@@ -679,7 +679,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
     public void frsVirtualImageStatistic(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            j45 customState = this.B.getCustomState();
+            w45 customState = this.B.getCustomState();
             if (customState == null) {
                 this.H = tx.d;
             } else {
@@ -731,7 +731,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092486);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092488);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -739,40 +739,40 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new g(this));
-            this.D = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09248c);
-            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f092488);
+            this.D = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09248e);
+            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f09248a);
             this.E = headCustomImageView;
             headCustomImageView.setOnClickListener(this.N);
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924b2);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924b4);
             this.C = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ef9);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0924d5);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0924d7);
             this.i = userIconBox;
             userIconBox.setOnClickListener(this.K);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
             this.e = textView;
             textView.setOnClickListener(this.L);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e66);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921af);
-            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0921b9);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b1);
+            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0921bb);
             this.g = userIconBox2;
             userIconBox2.setOnClickListener(this.M);
             this.g.setAutoChangedStyle(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218b);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218d);
             if (DeviceInfoUtil.isMi5X()) {
                 this.j.setPadding(0, -P, 0, 0);
             }
             this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f0905f8);
             this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090203);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090202);
-            this.z = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.z = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924b8);
             this.A = findViewById(R.id.obfuscated_res_0x7f09054c);
-            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fb0);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b4e);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e24);
-            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092605);
+            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fb2);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b4d);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e26);
+            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092607);
             this.r = virtualImageStatusTip;
             virtualImageStatusTip.setOnClickListener(this.N);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092491);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092493);
         }
     }
 
@@ -891,7 +891,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             this.m.setVisibility(z ? 0 : 8);
             if (z) {
                 this.m.setText(str);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0109, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c2, R.color.CAM_X0109, null);
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
             }
         }
@@ -969,7 +969,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             boolean z2 = UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = ve8.e().c();
+                AppPosInfo c2 = kf8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -1130,7 +1130,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             return;
         }
         String backgroundValue = VirtualImageCustomFigure.BACK_GROUND_TYPE_TONE.equals(customFigure.getBackGroundType()) ? customFigure.getBackgroundValue() : "#7F66FE";
-        j45 customState = this.B.getCustomState();
+        w45 customState = this.B.getCustomState();
         if (customState != null && !TextUtils.isEmpty(customState.b())) {
             this.q.setVisibility(8);
             fz.b(this.A, 400);
@@ -1182,7 +1182,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
         }
         this.f.setOnClickListener(null);
         if (author.getIs_bawu() == 1) {
-            uu4 d2 = uu4.d(this.f);
+            hv4 d2 = hv4.d(this.f);
             d2.v(R.color.CAM_X0101);
             d2.e(R.string.A_X04);
             d2.n(R.string.J_X04);

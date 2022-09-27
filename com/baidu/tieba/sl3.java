@@ -1,39 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class sl3 implements vm2 {
+public class sl3 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements DelegateListener {
+    public class a implements tl3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rj1 a;
+        public final /* synthetic */ sl3 a;
 
-        public a(sl3 sl3Var, rj1 rj1Var) {
+        public a(sl3 sl3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sl3Var, rj1Var};
+                Object[] objArr = {sl3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,24 +32,15 @@ public class sl3 implements vm2 {
                     return;
                 }
             }
-            this.a = rj1Var;
+            this.a = sl3Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+        @Override // com.baidu.tieba.tl3
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (bundle == null) {
-                    this.a.a(0);
-                    return;
-                }
-                String string = bundle.getString("invoiceInfo");
-                if (TextUtils.isEmpty(string)) {
-                    this.a.a(0);
-                } else {
-                    this.a.b(yf3.d(string));
-                }
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.mResult.putInt("quick_login", i);
+                this.a.finish();
             }
         }
     }
@@ -79,12 +59,14 @@ public class sl3 implements vm2 {
         }
     }
 
-    @Override // com.baidu.tieba.vm2
-    public void a(Context context, String str, String str2, rj1 rj1Var) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, rj1Var) == null) || context == null || rj1Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ul3.d(getAgent(), kg3.f(this.mParams, "quick_login_mode", 0), new a(this));
+            return false;
         }
-        DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, rl3.class, new a(this, rj1Var));
+        return invokeV.booleanValue;
     }
 }

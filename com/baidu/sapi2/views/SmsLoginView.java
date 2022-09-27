@@ -39,7 +39,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n91;
+import com.baidu.tieba.aa1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -819,7 +819,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     this.h.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a16));
                     Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                     declaredField.setAccessible(true);
-                    declaredField.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081075));
+                    declaredField.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081079));
                 } else {
                     this.b.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a17));
                     this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a1f));
@@ -830,7 +830,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     this.h.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a15));
                     Field declaredField2 = TextView.class.getDeclaredField("mCursorDrawableRes");
                     declaredField2.setAccessible(true);
-                    declaredField2.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081074));
+                    declaredField2.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081078));
                 }
             } catch (Exception unused) {
             }
@@ -861,16 +861,16 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         this.m = true;
         this.a = context;
         this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0504, (ViewGroup) this, true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n91.sapi_sdk_sms_login_view, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, aa1.sapi_sdk_sms_login_view, i, 0);
         boolean z2 = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090669);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f0919b4);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f0919b6);
         this.i = this.b.findViewById(R.id.obfuscated_res_0x7f091418);
         this.e = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f09060e);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c9a);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad0);
-        this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091e5f);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c99);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad2);
+        this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091e61);
         a(this.d, context.getString(R.string.obfuscated_res_0x7f0f1088));
         a(this.e, context.getString(R.string.obfuscated_res_0x7f0f1087));
         this.d.addTextChangedListener(new e(this, null));

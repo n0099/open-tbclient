@@ -1,58 +1,135 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.CookieManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
-import com.baidu.tbadk.TbConfig;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes6.dex */
-public class ul4 {
+public class ul4 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public r9 b;
+    public float c;
+    public ViewGroup d;
+    public RoundRelativeLayout e;
+    public View f;
+    public ImageView g;
+    public ImageView h;
+    public Drawable i;
 
-    public ul4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ul4(r9 r9Var) {
+        super(r9Var.getPageActivity(), 16973835);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        messageManager.registerTask(tbHttpMessageTask);
+        this.c = 0.33f;
+        this.b = r9Var;
+        this.a = r9Var.getPageActivity();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
-            httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
-            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addParam("client_version", TbConfig.getVersion());
-            httpMessage.addParam("client_type", "Android");
-            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("ua", fi5.e());
-            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
-            MessageManager.getInstance().sendMessage(httpMessage);
+            ih.b(this, this.b);
+        }
+    }
+
+    public void b(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
+            this.i = drawable;
+        }
+    }
+
+    public void c(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
+            this.f = viewGroup;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (isShowing()) {
+                ih.b(this, this.b);
+            }
+            ih.j(this, this.b);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090ed0) {
+            a();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(R.layout.obfuscated_res_0x7f0d0227);
+            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = defaultDisplay.getWidth();
+            attributes.height = defaultDisplay.getHeight();
+            getWindow().setAttributes(attributes);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            getWindow().setDimAmount(this.c);
+            getWindow().setGravity(80);
+            getWindow().setWindowAnimations(0);
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09057c);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8d);
+            this.e = roundRelativeLayout;
+            roundRelativeLayout.setAllCornerRound(dh.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
+            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.height = -1;
+                layoutParams.width = -1;
+            } else {
+                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            }
+            this.e.addView(this.f, layoutParams);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecd);
+            this.g = imageView;
+            imageView.setImageDrawable(this.i);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed0);
+            this.h = imageView2;
+            imageView2.setOnClickListener(this);
         }
     }
 }

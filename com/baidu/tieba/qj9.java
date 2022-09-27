@@ -1,24 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.dq9;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Comparator;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class qj9 implements Comparator {
+public class qj9 extends ff1<ij9> {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ qj9 a = new qj9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ qj9() {
+    public qj9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    @Override // java.util.Comparator
-    public final int compare(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ff1
+    /* renamed from: a */
+    public ij9 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? dq9.b.h((Double) obj, (Double) obj2) : invokeLL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jj9() : (ij9) invokeV.objValue;
     }
 }

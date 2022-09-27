@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.gb7;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ImShareDialog.java */
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class hb7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(gb7.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
-        }
-    }
+public interface hb7 {
+    void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap);
 }

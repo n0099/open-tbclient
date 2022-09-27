@@ -2,12 +2,12 @@ package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.d86;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.in8;
-import com.baidu.tieba.m76;
-import com.baidu.tieba.q76;
-import com.baidu.tieba.r76;
-import com.baidu.tieba.s76;
+import com.baidu.tieba.e86;
+import com.baidu.tieba.f86;
+import com.baidu.tieba.xn8;
+import com.baidu.tieba.z76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class EasterEggBridge implements in8 {
+public class EasterEggBridge implements xn8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -26,7 +26,7 @@ public class EasterEggBridge implements in8 {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<m76> mListener;
+    public List<z76> mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
@@ -42,22 +42,22 @@ public class EasterEggBridge implements in8 {
             }
         }
         this.mListener = new ArrayList();
-        addListener(new r76());
-        addListener(new s76());
-        addListener(new q76());
+        addListener(new e86());
+        addListener(new f86());
+        addListener(new d86());
     }
 
-    public void addListener(m76 m76Var) {
-        List<m76> list;
+    public void addListener(z76 z76Var) {
+        List<z76> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, m76Var) == null) || m76Var == null || (list = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, z76Var) == null) || z76Var == null || (list = this.mListener) == null) {
             return;
         }
-        list.add(m76Var);
+        list.add(z76Var);
     }
 
     public void clearListener() {
-        List<m76> list;
+        List<z76> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mListener) == null) {
             return;
@@ -65,7 +65,7 @@ public class EasterEggBridge implements in8 {
         list.clear();
     }
 
-    @Override // com.baidu.tieba.in8
+    @Override // com.baidu.tieba.xn8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -78,9 +78,9 @@ public class EasterEggBridge implements in8 {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (m76 m76Var : this.mListener) {
-                        if (trim.equals(m76Var.b())) {
-                            m76Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
+                    for (z76 z76Var : this.mListener) {
+                        if (trim.equals(z76Var.b())) {
+                            z76Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }
                 } catch (JSONException unused) {
@@ -91,12 +91,12 @@ public class EasterEggBridge implements in8 {
         return invokeLLLL.booleanValue;
     }
 
-    public void removeListener(m76 m76Var) {
-        List<m76> list;
+    public void removeListener(z76 z76Var) {
+        List<z76> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, m76Var) == null) || m76Var == null || (list = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, z76Var) == null) || z76Var == null || (list = this.mListener) == null) {
             return;
         }
-        list.remove(m76Var);
+        list.remove(z76Var);
     }
 }

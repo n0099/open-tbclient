@@ -1,82 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes3.dex */
-public class cc2 extends ProviderDelegation {
+public class cc2 extends zb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669879, "Lcom/baidu/tieba/cc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947669879, "Lcom/baidu/tieba/cc2;");
-                return;
-            }
-        }
-        a = ij1.a;
-    }
 
     public cc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.kp2
+    public LifecycleProcessType b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return dc2.b().c(i);
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt(PollingModel.LEVEL, i);
-            nz2 c = lz2.c(cc2.class, bundle);
-            int i2 = c.a() ? c.a.getInt("count", 0) : 0;
-            if (a) {
-                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt(PollingModel.LEVEL, -1);
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("count", dc2.b().c(i));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.MAIN : (LifecycleProcessType) invokeV.objValue;
     }
 }

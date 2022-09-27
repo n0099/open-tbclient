@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.hardware.Camera;
+import com.faceunity.encoder.TextureMovieEncoder;
 /* loaded from: classes6.dex */
-public class yw8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yw8 {
 
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_EXPOSURE);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z, String str);
     }
+
+    void a(Camera camera);
+
+    void b(Camera camera);
+
+    void c(a aVar);
+
+    void d(Camera camera);
+
+    void e(Camera camera);
+
+    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
+
+    void setPreviewSize(int i, int i2);
 }

@@ -160,9 +160,9 @@ public class ky extends ix implements wx<ThreadData>, xx {
         this.m = align;
     }
 
-    public void n(lq4 lq4Var) {
+    public void n(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

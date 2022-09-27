@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.nm5;
-import com.baidu.tieba.wn5;
+import com.baidu.tieba.jo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,13 +34,13 @@ import java.util.List;
 public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nm5 a;
+    public an5 a;
     public int b;
     public List<SelectForumData> c;
     public View.OnClickListener d;
     public View.OnClickListener e;
     @Nullable
-    public wn5.e f;
+    public jo5.e f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -155,12 +155,12 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
     }
 
-    public SelectForumItemAdapter(nm5 nm5Var) {
+    public SelectForumItemAdapter(an5 an5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nm5Var};
+            Object[] objArr = {an5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -172,7 +172,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
         this.d = new a(this);
         this.e = new b(this);
-        this.a = nm5Var;
+        this.a = an5Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -203,9 +203,9 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
             cVar.d.setVisibility(8);
             cVar.e.setVisibility(0);
             if (selectForumData.isInterestForumSelected) {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809f6, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809f8, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
             } else {
-                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809f5, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f0809f7, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
             }
         } else {
             cVar.d.setVisibility(selectForumData.isLately ? 0 : 8);
@@ -246,7 +246,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
     }
 
-    public void j(wn5.e eVar) {
+    public void j(jo5.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
             this.f = eVar;

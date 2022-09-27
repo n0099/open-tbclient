@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
+import com.baidu.tieba.pp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, ap8.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, pp8.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             float dimension = obtainStyledAttributes.getDimension(3, -1.0f);
@@ -102,11 +102,11 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b9, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
             BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f090480);
             this.e = bdSwitchView;
             bdSwitchView.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ed);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ef);
             this.d = textView;
             if (textView != null) {
                 textView.setVisibility(8);

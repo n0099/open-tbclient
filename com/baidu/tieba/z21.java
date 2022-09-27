@@ -1,119 +1,110 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
-import android.text.TextPaint;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.TouchDelegate;
 import android.view.View;
-import android.view.ViewParent;
-import com.baidu.tieba.g21;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes6.dex */
 public class z21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ float b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ View d;
-
-        public a(Context context, float f, View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, Float.valueOf(f), view2, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f;
-            this.c = view2;
-            this.d = view3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                int a = g21.c.a(this.a, this.b);
-                this.c.getHitRect(rect);
-                rect.left -= a;
-                rect.right += a;
-                rect.top -= a;
-                rect.bottom += a;
-                this.d.setTouchDelegate(new TouchDelegate(rect, this.c));
-            }
-        }
-    }
-
-    public static void a(Context context, View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, view2, Float.valueOf(f)}) == null) || view2 == null) {
-            return;
-        }
-        ViewParent parent = view2.getParent();
-        if (View.class.isInstance(parent)) {
-            View view3 = (View) parent;
-            view3.post(new a(context, f, view2, view3));
-        }
-    }
-
-    public static String b(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
-            if (TextUtils.isEmpty(ellipsize)) {
-                return str2;
-            }
-            return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static boolean c(View view2) {
+    public static int a(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null || !view2.isShown()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (g(activity)) {
+                return c(activity);
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.BRAND;
+            return (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) ? "navigationbar_is_min" : str.equalsIgnoreCase("XIAOMI") ? "force_fsg_nav_bar" : (str.equalsIgnoreCase("VIVO") || str.equalsIgnoreCase("OPPO")) ? "navigation_gesture_on" : "navigationbar_is_min";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android");
+            if (identifier > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @RequiresApi(api = 17)
+    public static int d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (h(context)) {
+                return 0;
+            }
+            return a((Activity) context);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            return i == 29 || i == 30;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String d = zi0.c().a().d();
+            if (TextUtils.isEmpty(d)) {
                 return false;
             }
-            Rect rect = new Rect();
-            if (view2.getGlobalVisibleRect(rect)) {
-                long height = rect.height() * rect.width();
-                long height2 = view2.getHeight() * view2.getWidth();
-                return height2 > 0 && height * 100 >= height2 * 50;
-            }
-            return false;
+            return d.contains("MI 8") || d.contains("MI 9");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            View findViewById = activity.findViewById(16908336);
+            return findViewById != null && findViewById.getVisibility() == 0;
         }
         return invokeL.booleanValue;
+    }
+
+    @RequiresApi(api = 17)
+    public static boolean h(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? Settings.Global.getInt(context.getContentResolver(), b(), 0) != 0 : invokeL.booleanValue;
     }
 }

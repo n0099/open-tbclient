@@ -1,82 +1,143 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j23;
+import com.baidu.tieba.p23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g32 {
+public class g32 extends j23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout k;
+    public a l;
 
     /* loaded from: classes4.dex */
-    public class a implements SwanAppNetworkUtils.b {
+    public static class a extends j23.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public View g;
 
-        public a(g32 g32Var, b bVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g32Var, bVar};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = bVar;
         }
 
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
+        @Override // com.baidu.tieba.p23.a
+        public /* bridge */ /* synthetic */ p23.a U(int i) {
+            d0(i);
+            return this;
+        }
+
+        @Override // com.baidu.tieba.j23.b, com.baidu.tieba.p23.a
+        public p23 c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 1) {
-                    this.a.a(NetworkStatus.NETWORK_GOOD);
-                } else if (i == 2) {
-                    this.a.a(NetworkStatus.NETWORK_BAD);
-                } else if (i != 3) {
-                    this.a.a(NetworkStatus.NETWORK_UNKNOWN);
-                } else {
-                    this.a.a(NetworkStatus.NETWORK_OFFLINE);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                g32 g32Var = (g32) super.c();
+                g32Var.q(this);
+                return g32Var;
             }
+            return (p23) invokeV.objValue;
+        }
+
+        public a c0(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                this.g = view2;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d0(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                super.U(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @Override // com.baidu.tieba.p23.a
+        public p23 h(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? new g32(context) : (p23) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(NetworkStatus networkStatus);
-    }
-
-    public g32() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g32(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(@NonNull b bVar) {
+    @Override // com.baidu.tieba.j23
+    public View k(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00dc, viewGroup, false);
+            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f62);
+            p();
+            return inflate;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public final void p() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.l) == null) {
             return;
         }
-        SwanAppNetworkUtils.b(new a(this, bVar));
+        this.k.addView(aVar.g);
+    }
+
+    public void q(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.l = aVar;
+        }
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.ir4;
-import com.baidu.tieba.vy4;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends iz4<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public ir4 i;
+    public vr4 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -148,10 +148,10 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
         return (TbLinkSpanGroup) invokeLL.objValue;
     }
 
-    public void A(ir4 ir4Var) {
+    public void A(vr4 vr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ir4Var) == null) {
-            this.i = ir4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+            this.i = vr4Var;
         }
     }
 
@@ -196,7 +196,7 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
         if (f() < 0 || f() > this.c.length() || f() + 3 < 0 || f() + 3 > this.c.length() || c() < 0 || c() > this.c.length()) {
             return;
         }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809be, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         n(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
@@ -212,13 +212,13 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
         String str = "[p]" + this.p + ((Object) this.m);
         this.q = str.length();
         k(str);
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809be, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         n(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.vy4
+    @Override // com.baidu.tieba.iz4
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048583, this, editable, i, i2, i3) == null) {
@@ -233,13 +233,13 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.vy4
+    @Override // com.baidu.tieba.iz4
     public void r(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, editable) == null) {
-            ir4 ir4Var = this.i;
-            if (ir4Var != null && ir4Var.b == 2) {
-                if (ir4Var.h != null) {
+            vr4 vr4Var = this.i;
+            if (vr4Var != null && vr4Var.b == 2) {
+                if (vr4Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -256,7 +256,7 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.vy4
+    @Override // com.baidu.tieba.iz4
     public void s(Editable editable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, editable, i) == null) {
@@ -335,7 +335,7 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vy4
+    @Override // com.baidu.tieba.iz4
     /* renamed from: u */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -352,10 +352,10 @@ public class TbLinkSpanGroup extends vy4<TbLinkSpanGroup> {
         }
     }
 
-    public ir4 v() {
+    public vr4 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.i : (ir4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.i : (vr4) invokeV.objValue;
     }
 
     public LINK_TYPE w() {

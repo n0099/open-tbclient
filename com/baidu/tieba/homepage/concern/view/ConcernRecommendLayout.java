@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bo;
-import com.baidu.tieba.dp4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ft4;
 import com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter;
+import com.baidu.tieba.qp4;
+import com.baidu.tieba.st4;
 import com.baidu.tieba.xx;
 import com.baidu.tieba.zn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,8 +120,8 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f2, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09217d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09217f);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
             this.d.setAdapter(concernRecommendListAdapter);
@@ -166,19 +166,19 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
         }
     }
 
-    public void setData(ft4 ft4Var) {
+    public void setData(st4 st4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ft4Var) == null) {
-            if (ft4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, st4Var) == null) {
+            if (st4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(ft4Var.a) && ft4Var.b != 0) {
+            if (!TextUtils.isEmpty(st4Var.a) && st4Var.b != 0) {
                 this.c.setTextSize(0, ej.f(this.a, R.dimen.tbds37));
-                this.c.setText(ft4Var.a);
+                this.c.setText(st4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = ft4Var.b;
+                this.g = st4Var.b;
             } else {
                 this.c.setTextSize(0, ej.f(this.a, R.dimen.tbds37));
                 this.c.setText(R.string.obfuscated_res_0x7f0f0431);
@@ -186,7 +186,7 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
                 this.g = R.color.CAM_X0105;
             }
             this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(ft4Var.c());
+            this.e.setData(st4Var.c());
             this.e.notifyDataSetChanged();
         }
     }
@@ -198,10 +198,10 @@ public class ConcernRecommendLayout extends LinearLayout implements xx {
         }
     }
 
-    public void setOnItemCoverListener(dp4<MetaData> dp4Var) {
+    public void setOnItemCoverListener(qp4<MetaData> qp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dp4Var) == null) {
-            this.e.l(dp4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, qp4Var) == null) {
+            this.e.l(qp4Var);
         }
     }
 

@@ -1,165 +1,109 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fz8 {
+public class fz8 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Spannable a;
+    public il5 b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947781541, "Lcom/baidu/tieba/fz8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public fz8(Spannable spannable) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spannable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947781541, "Lcom/baidu/tieba/fz8;");
-        }
+        this.b = null;
+        this.c = 0;
+        this.a = spannable;
     }
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        il5 il5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static int b(TbPageContext tbPageContext, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
-            int i3 = 0;
-            try {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                int d = d(tbPageContext);
-                if (cameraInfo.facing == 1) {
-                    i3 = (cameraInfo.orientation + d) % 360;
-                    i2 = (360 - i3) % 360;
-                } else {
-                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (view2 instanceof TextView) {
+                TextView textView = (TextView) view2;
+                if (action == 3 && (il5Var = this.b) != null) {
+                    il5Var.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view2.invalidate();
+                    this.b = null;
+                    return false;
                 }
-                return i2;
-            } catch (RuntimeException e) {
-                bg9.g(e);
-                return i3;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int c(Camera.Parameters parameters) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
-            if (parameters == null) {
-                return -1;
-            }
-            try {
-                if (parameters.isZoomSupported()) {
-                    return Math.min(parameters.getMaxZoom(), 40);
-                }
-                return -1;
-            } catch (Exception e) {
-                bg9.g(e);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation != 1) {
-                    if (rotation != 2) {
-                        return rotation != 3 ? 0 : 270;
+                if (action == 1 || action == 0) {
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    Layout layout = textView.getLayout();
+                    if (layout == null) {
+                        return false;
                     }
-                    return 180;
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                    Spannable spannable = this.a;
+                    if (spannable == null) {
+                        return false;
+                    }
+                    il5[] il5VarArr = (il5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, il5.class);
+                    if (il5VarArr != null && il5VarArr.length != 0 && il5VarArr[0] != null) {
+                        if (action == 1) {
+                            il5VarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                            il5VarArr[0].onClick(textView);
+                            view2.invalidate();
+                        } else {
+                            il5 il5Var2 = il5VarArr[0];
+                            this.b = il5Var2;
+                            if (il5Var2.e()) {
+                                int i = this.c;
+                                if (i != 0) {
+                                    il5VarArr[0].g(SkinManager.getColor(i));
+                                } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                                    il5VarArr[0].g(SkinManager.getColor(R.color.CAM_X0204));
+                                } else {
+                                    il5VarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
+                                }
+                            }
+                            Spannable spannable2 = this.a;
+                            Selection.setSelection(spannable2, spannable2.getSpanStart(il5VarArr[0]), this.a.getSpanEnd(il5VarArr[0]));
+                            view2.invalidate();
+                        }
+                        return true;
+                    }
+                    il5 il5Var3 = this.b;
+                    if (il5Var3 != null) {
+                        il5Var3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        view2.invalidate();
+                    }
+                    Selection.removeSelection(this.a);
                 }
-                return 90;
+                return false;
             }
-            return 0;
+            return false;
         }
-        return invokeL.intValue;
-    }
-
-    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) == null) || matrix == null) {
-            return;
-        }
-        matrix.setScale(1 == i ? -1.0f : 1.0f, 1.0f);
-        matrix.postRotate(b(tbPageContext, i));
-        matrix.postScale(ug9.e() / 2000.0f, ug9.d() / 2000.0f);
-        matrix.postTranslate(ug9.e() / 2.0f, ug9.d() / 2.0f);
-    }
-
-    public static void f(RectF rectF, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
-            rect.left = Math.round(rectF.left);
-            rect.top = Math.round(rectF.top);
-            rect.right = Math.round(rectF.right);
-            rect.bottom = Math.round(rectF.bottom);
-        }
-    }
-
-    public static void g(int i, int i2, Camera camera) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i2, cameraInfo);
-            int i4 = 0;
-            if (i != 0) {
-                if (i == 1) {
-                    i4 = 90;
-                } else if (i == 2) {
-                    i4 = 180;
-                } else if (i == 3) {
-                    i4 = 270;
-                }
-            }
-            if (cameraInfo.facing == 1) {
-                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
-            } else {
-                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i3);
-        }
-    }
-
-    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i, cameraInfo);
-            int d = d(tbPageContext);
-            if (cameraInfo.facing == 1) {
-                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
-            } else {
-                i2 = ((cameraInfo.orientation - d) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i2);
-        }
+        return invokeLL.booleanValue;
     }
 }

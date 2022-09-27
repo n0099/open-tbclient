@@ -1,46 +1,44 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import android.view.View;
+import android.view.animation.Animation;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.NavTabInfo;
-import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
 public class ml8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FrsTabInfo> a;
-    public List<FrsTabInfo> b;
-    public List<FrsTabInfo> c;
 
-    public ml8() {
+    public static final TbPageContext a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null || !(context instanceof TbPageContextSupport)) {
+                return null;
             }
+            return ((TbPageContextSupport) context).getPageContext();
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new ArrayList();
+        return (TbPageContext) invokeL.objValue;
     }
 
-    public void a(NavTabInfo navTabInfo) {
+    public static final void b(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, navTabInfo) == null) || navTabInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContextSupport, animatable) == null) || tbPageContextSupport == null) {
             return;
         }
-        this.a = new ArrayList(navTabInfo.tab);
-        this.b = new ArrayList(navTabInfo.menu);
-        this.c = new ArrayList(navTabInfo.head);
+        tbPageContextSupport.getPageContext().startAnimatable(animatable);
+    }
+
+    public static final void c(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContextSupport, view2, animation, animationListener) == null) || tbPageContextSupport == null) {
+            return;
+        }
+        tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
     }
 }

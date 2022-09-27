@@ -16,8 +16,8 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.m83;
+import com.baidu.tieba.sm2;
+import com.baidu.tieba.z83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView g;
 
     /* loaded from: classes2.dex */
-    public class a implements m83 {
+    public class a implements z83 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonEmptyView a;
@@ -101,7 +101,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            fm2.M().f(this, new a(this));
+            sm2.M().f(this, new a(this));
         }
     }
 
@@ -130,7 +130,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            fm2.M().g(this);
+            sm2.M().g(this);
         }
     }
 

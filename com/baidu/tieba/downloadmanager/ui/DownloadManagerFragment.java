@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a76;
-import com.baidu.tieba.c76;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.h76;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.mx4;
-import com.baidu.tieba.t85;
-import com.baidu.tieba.x66;
-import com.baidu.tieba.z66;
+import com.baidu.tieba.g95;
+import com.baidu.tieba.k76;
+import com.baidu.tieba.m76;
+import com.baidu.tieba.n76;
+import com.baidu.tieba.p76;
+import com.baidu.tieba.u76;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     public View a;
     public BdSwipeRefreshLayout b;
     public BdTypeRecyclerView c;
-    public mx4 d;
+    public zx4 d;
     public PbListView e;
     public DownloadManagerNoDataLayout f;
     public DownloadManagerNotLoginLayout g;
@@ -51,14 +51,14 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     public int j;
     public boolean k;
     public int l;
-    public z66 m;
-    public List<x66> n;
-    public List<x66> o;
-    public final lx4.g p;
-    public c76 q;
+    public m76 m;
+    public List<k76> n;
+    public List<k76> o;
+    public final yx4.g p;
+    public p76 q;
 
     /* loaded from: classes3.dex */
-    public class a implements lx4.g {
+    public class a implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadManagerFragment a;
@@ -81,7 +81,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.a = downloadManagerFragment;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -95,7 +95,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     }
 
     /* loaded from: classes3.dex */
-    public class b implements c76 {
+    public class b implements p76 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadManagerFragment a;
@@ -118,8 +118,8 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.a = downloadManagerFragment;
         }
 
-        @Override // com.baidu.tieba.c76
-        public void a(List<x66> list, List<x66> list2, int i) {
+        @Override // com.baidu.tieba.p76
+        public void a(List<k76> list, List<k76> list2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, list, list2, i) == null) {
                 this.a.h = i == 1;
@@ -132,7 +132,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             }
         }
 
-        @Override // com.baidu.tieba.c76
+        @Override // com.baidu.tieba.p76
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -214,11 +214,11 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
     }
 
     public final void C1() {
-        t85 t85Var;
+        g95 g95Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView != null && ((bdTypeRecyclerView.getCount() != 0 || this.c.getHeaderViewsCount() != 0) && ((t85Var = this.mRefreshView) == null || !t85Var.isViewAttached()))) {
+            if (bdTypeRecyclerView != null && ((bdTypeRecyclerView.getCount() != 0 || this.c.getHeaderViewsCount() != 0) && ((g95Var = this.mRefreshView) == null || !g95Var.isViewAttached()))) {
                 D1(true);
             } else {
                 hideNetRefreshView(this.a);
@@ -245,17 +245,17 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             } else {
                 z1();
                 arrayList.addAll(this.n);
-                x66 clone = ((x66) arrayList.get(arrayList.size() - 1)).clone();
+                k76 clone = ((k76) arrayList.get(arrayList.size() - 1)).clone();
                 clone.d = false;
                 arrayList.remove(arrayList.get(arrayList.size() - 1));
                 arrayList.add(clone);
             }
             if (ListUtils.getCount(this.o) != 0) {
-                x66 x66Var = new x66();
-                x66Var.d = false;
-                arrayList.add(x66Var);
+                k76 k76Var = new k76();
+                k76Var.d = false;
+                arrayList.add(k76Var);
                 arrayList.addAll(this.o);
-                x66 clone2 = ((x66) arrayList.get(arrayList.size() - 1)).clone();
+                k76 clone2 = ((k76) arrayList.get(arrayList.size() - 1)).clone();
                 clone2.d = false;
                 arrayList.remove(arrayList.get(arrayList.size() - 1));
                 arrayList.add(clone2);
@@ -328,13 +328,13 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             if (downloadManagerNoDataLayout != null) {
                 downloadManagerNoDataLayout.b();
             }
-            t85 t85Var = this.mRefreshView;
-            if (t85Var != null) {
-                t85Var.f(R.color.CAM_X0201);
+            g95 g95Var = this.mRefreshView;
+            if (g95Var != null) {
+                g95Var.f(R.color.CAM_X0201);
             }
-            mx4 mx4Var = this.d;
-            if (mx4Var != null) {
-                mx4Var.H(i);
+            zx4 zx4Var = this.d;
+            if (zx4Var != null) {
+                zx4Var.H(i);
             }
             PbListView pbListView = this.e;
             if (pbListView != null) {
@@ -412,7 +412,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
                 }
             }
             if (this.m == null) {
-                z66 a2 = a76.a(this, this.j);
+                m76 a2 = n76.a(this, this.j);
                 this.m = a2;
                 a2.d(this.q);
             }
@@ -431,7 +431,7 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             this.c.setOnSrollToBottomListener(this);
-            new h76(this, this.c, this.j, this.l);
+            new u76(this, this.c, this.j, this.l);
             PbListView pbListView = new PbListView(getContext());
             this.e = pbListView;
             pbListView.a();
@@ -439,9 +439,9 @@ public class DownloadManagerFragment extends BaseFragment implements BdListView.
             this.e.y();
             this.e.H(R.dimen.tbfontsize33);
             this.e.s();
-            mx4 mx4Var = new mx4(getPageContext());
-            this.d = mx4Var;
-            mx4Var.f(this.p);
+            zx4 zx4Var = new zx4(getPageContext());
+            this.d = zx4Var;
+            zx4Var.f(this.p);
             BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090838);
             this.b = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.d);

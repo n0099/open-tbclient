@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
-public final class yy9 {
+public final class yy9 implements hx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final boolean b;
+    public static final hx9 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public hx9 b;
+    public boolean c;
+    public long d;
+    public long e;
+    public hx9 f;
 
     /* loaded from: classes6.dex */
-    public static class a implements PrivilegedAction<ClassLoader> {
+    public static class a implements hx9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,13 +39,11 @@ public final class yy9 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.security.PrivilegedAction
-        /* renamed from: a */
-        public ClassLoader run() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.hx9
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ClassLoader.getSystemClassLoader() : (ClassLoader) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
         }
     }
 
@@ -59,45 +60,173 @@ public final class yy9 {
                 return;
             }
         }
-        int d = d();
-        a = d;
-        b = d != 0;
+        g = new a();
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public yy9() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
-    }
-
-    public static ClassLoader b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (System.getSecurityManager() == null) {
-                return ClassLoader.getSystemClassLoader();
-            }
-            return (ClassLoader) AccessController.doPrivileged(new a());
-        }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return invokeV.intValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        while (true) {
+            synchronized (this) {
+                long j = this.d;
+                long j2 = this.e;
+                hx9 hx9Var = this.f;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i == 0 && j2 == 0 && hx9Var == null) {
+                    this.c = false;
+                    return;
+                }
+                this.d = 0L;
+                this.e = 0L;
+                this.f = null;
+                long j3 = this.a;
+                if (j3 != Long.MAX_VALUE) {
+                    long j4 = j3 + j;
+                    if (j4 < 0 || j4 == Long.MAX_VALUE) {
+                        this.a = Long.MAX_VALUE;
+                        j3 = Long.MAX_VALUE;
+                    } else {
+                        j3 = j4 - j2;
+                        if (j3 >= 0) {
+                            this.a = j3;
+                        } else {
+                            throw new IllegalStateException("more produced than requested");
+                        }
+                    }
+                }
+                if (hx9Var != null) {
+                    if (hx9Var == g) {
+                        this.b = null;
+                    } else {
+                        this.b = hx9Var;
+                        hx9Var.request(j3);
+                    }
+                } else {
+                    hx9 hx9Var2 = this.b;
+                    if (hx9Var2 != null && i != 0) {
+                        hx9Var2.request(j);
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j > 0) {
+                synchronized (this) {
+                    if (this.c) {
+                        this.e += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a;
+                        if (j2 != Long.MAX_VALUE) {
+                            long j3 = j2 - j;
+                            if (j3 >= 0) {
+                                this.a = j3;
+                            } else {
+                                throw new IllegalStateException("more items arrived than were requested");
+                            }
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n > 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void c(hx9 hx9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hx9Var) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    if (hx9Var == null) {
+                        hx9Var = g;
+                    }
+                    this.f = hx9Var;
+                    return;
+                }
+                this.c = true;
+                try {
+                    this.b = hx9Var;
+                    if (hx9Var != null) {
+                        hx9Var.request(this.a);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @Override // com.baidu.tieba.hx9
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
+                throw new IllegalArgumentException("n >= 0 required");
+            }
+            if (i == 0) {
+                return;
+            }
+            synchronized (this) {
+                if (this.c) {
+                    this.d += j;
+                    return;
+                }
+                this.c = true;
+                try {
+                    long j2 = this.a + j;
+                    if (j2 < 0) {
+                        j2 = Long.MAX_VALUE;
+                    }
+                    this.a = j2;
+                    hx9 hx9Var = this.b;
+                    if (hx9Var != null) {
+                        hx9Var.request(j);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
+            }
+        }
     }
 }

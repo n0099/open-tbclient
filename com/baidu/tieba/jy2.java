@@ -1,93 +1,52 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.py2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jy2 {
+public final class jy2 implements py2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public Object c;
-    public boolean d;
-    public String e;
+    public final int a;
+    public final oy2 b;
 
-    public jy2(String str) {
+    public jy2(int i, @NonNull oy2 oy2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Integer.valueOf(i), oy2Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = false;
-        this.b = str;
+        this.a = i;
+        this.b = oy2Var;
     }
 
-    public static String a(iy2 iy2Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.py2.a
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iy2Var)) == null) {
-            if (iy2Var == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+            if (i != this.a) {
+                this.b.b(2, "request permission fail");
+                return;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("componentId", iy2Var.f);
-                jSONObject.put("pluginProvider", iy2Var.b);
-                jSONObject.put("args", iy2Var.g);
-                jSONObject.put("slaveId", iy2Var.e);
-            } catch (JSONException e) {
-                qy2.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ed2 ed2Var = new ed2();
-            ?? jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "functionPageFinished");
-                jSONObject.put("componentId", this.b);
-                jSONObject.put("isSuccess", this.d);
-                jSONObject.put("data", this.e);
-                if (this.c != null) {
-                    jSONObject.put("error", this.c.toString());
+            for (int i2 : iArr) {
+                if (i2 == -1) {
+                    this.b.b(1, "user denied");
+                    return;
                 }
-            } catch (JSONException e) {
-                qy2.b(Log.getStackTraceString(e));
             }
-            ed2Var.c = jSONObject;
-            lo2.U().m(this.a, ed2Var);
-            qy2.b("finish event, isSuccess = " + this.d);
+            this.b.a("permission granted successful");
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

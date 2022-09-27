@@ -30,17 +30,17 @@ import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dl5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.hq4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.li5;
 import com.baidu.tieba.mn;
-import com.baidu.tieba.qk5;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.up4;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.v16;
 import com.baidu.tieba.wx;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements wx<yq4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -61,15 +61,15 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
     public VoteView e;
     public GridImageLayout f;
     public Context g;
-    public lq4 h;
+    public yq4 h;
     public String i;
     public boolean j;
     public boolean k;
-    public v16<lq4> l;
+    public i26<yq4> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
-    public qk5 p;
+    public dl5 p;
     public View.OnClickListener q;
     public boolean r;
     public int s;
@@ -100,7 +100,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            v16<lq4> subClickListener;
+            i26<yq4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -136,7 +136,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            v16<lq4> subClickListener;
+            i26<yq4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -174,7 +174,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
         public void a(View view2, String str, int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (yh5.c() && yh5.b(view2.getContext(), this.a.i, this.a.h)) {
+                if (li5.c() && li5.b(view2.getContext(), this.a.i, this.a.h)) {
                     return;
                 }
                 ThreadCardUtils.startImageViewer(view2, this.a.j ? true : this.a.p.s, this.a.o, i, this.a.h.getThreadData(), this.a.i, this.a.k);
@@ -186,15 +186,15 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq4 a;
+        public final /* synthetic */ yq4 a;
         public final /* synthetic */ NewGridImageLayout b;
 
-        public d(NewGridImageLayout newGridImageLayout, lq4 lq4Var) {
+        public d(NewGridImageLayout newGridImageLayout, yq4 yq4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newGridImageLayout, lq4Var};
+                Object[] objArr = {newGridImageLayout, yq4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -205,7 +205,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
                 }
             }
             this.b = newGridImageLayout;
-            this.a = lq4Var;
+            this.a = yq4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -278,7 +278,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
         public void a(View view2, String str, int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (yh5.c() && yh5.a(view2.getContext(), this.a.i, this.a.h)) {
+                if (li5.c() && li5.a(view2.getContext(), this.a.i, this.a.h)) {
                     return;
                 }
                 ThreadCardUtils.startImageViewer(view2, true, this.a.o, i, this.a.h.getThreadData().originalThreadData.b(), this.a.i, this.a.h.getThreadData().originalThreadData.o);
@@ -387,10 +387,10 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
         this.d.o();
     }
 
-    public v16<lq4> getSubClickListener() {
+    public i26<yq4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (v16) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (i26) invokeV.objValue;
     }
 
     public final void k(ThreadData threadData) {
@@ -411,7 +411,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
                 medias = originalThreadInfo.h;
                 z = true;
             }
-            if (up4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (hq4.c().g() && ListUtils.getCount(medias) != 0) {
                 this.o.clear();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -503,24 +503,24 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092171);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09217f);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092180);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092182);
             this.d = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.obfuscated_res_0x7f092176);
+            GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.obfuscated_res_0x7f092178);
             this.f = gridImageLayout;
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
             this.f.setAfterClickListener(new b(this));
-            this.p = new qk5();
+            this.p = new dl5();
             int i = ej.q(this.g)[0];
             this.p.H = (i - (ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
             this.p.I = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
             this.f.setLayoutStrategy(this.p);
             this.o = new LinkedList<>();
             this.f.setOnImageClickListener(new c(this));
-            VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f092181);
+            VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f092183);
             this.e = voteView;
             voteView.setBgColor(R.color.CAM_X0207);
         }
@@ -577,19 +577,19 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: q */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, lq4Var) == null) || lq4Var == null || lq4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, yq4Var) == null) || yq4Var == null || yq4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = lq4Var.getThreadData();
+        ThreadData threadData = yq4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.m) {
             s(this.f, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            uu4 d2 = uu4.d(this.c);
+            hv4 d2 = hv4.d(this.c);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X07);
-            uu4.d(this.b).z(R.dimen.T_X07);
+            hv4.d(this.b).z(R.dimen.T_X07);
             this.b.setVisibility(8);
             if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                 SpannableString c2 = originalThreadInfo.c();
@@ -602,7 +602,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             }
             if (!originalThreadInfo.m && p(originalThreadInfo.G)) {
-                d dVar = new d(this, lq4Var);
+                d dVar = new d(this, yq4Var);
                 this.e.setOnClickListener(dVar);
                 this.e.setOnItemClickListener(dVar);
                 this.e.setIsTransmit(true);
@@ -628,8 +628,8 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
             k(threadData);
         }
         setVoiceData(threadData);
-        this.h = lq4Var;
-        if (lq4Var.getThreadData().originalThreadData == null) {
+        this.h = yq4Var;
+        if (yq4Var.getThreadData().originalThreadData == null) {
             return;
         }
         if (threadData.isShareThread) {
@@ -745,10 +745,10 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
         }
     }
 
-    public void setSubClickListener(v16<lq4> v16Var) {
+    public void setSubClickListener(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, v16Var) == null) {
-            this.l = v16Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, i26Var) == null) {
+            this.l = i26Var;
         }
     }
 
@@ -763,8 +763,8 @@ public class NewGridImageLayout extends LinearLayout implements wx<lq4>, View.On
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, threadData)) == null) {
-            lq4 lq4Var = this.h;
-            if (lq4Var == null || lq4Var.getThreadData() == null) {
+            yq4 yq4Var = this.h;
+            if (yq4Var == null || yq4Var.getThreadData() == null) {
                 return true;
             }
             if (this.h.getThreadData().getTid() == null || this.h.getThreadData().getTid().equals(threadData.getTid())) {

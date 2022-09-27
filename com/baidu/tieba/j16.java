@@ -1,190 +1,178 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.o26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class j16 implements View.OnClickListener {
+public abstract class j16<T extends o26> extends i16<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Context b;
-    public View c;
-    public RelativeLayout d;
-    public RelativeLayout e;
-    public ImageView f;
-    public TextView g;
-    public ImageView h;
+    public RelativeLayout i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public View m;
+    public View n;
+    public View o;
+    public ImageView p;
+    public LinearLayout q;
+    public View r;
+    public View s;
 
-    public j16(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j16(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.a = 3;
-        this.b = context;
-        c();
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.q = null;
+        s(h());
     }
 
-    public final View a() {
+    @Override // com.baidu.tieba.i16
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ImageView imageView = this.h;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCardInterestClose");
-                return null;
-            }
-            return imageView;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0193 : invokeV.intValue;
     }
 
-    public final View b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.c;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                return null;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                r();
             }
-            return view2;
+            this.a = i;
         }
-        return (View) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout relativeLayout = null;
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019f, (ViewGroup) null);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(mContext).inflate(R…card_interest_view, null)");
-            this.c = inflate;
-            if (inflate == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                inflate = null;
-            }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09055a);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "mView.findViewById(R.id.card_interest_root)");
-            this.d = (RelativeLayout) findViewById;
-            View view2 = this.c;
-            if (view2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view2 = null;
-            }
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f090559);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "mView.findViewById(R.id.card_interest_insind)");
-            this.e = (RelativeLayout) findViewById2;
-            View view3 = this.c;
-            if (view3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view3 = null;
-            }
-            View findViewById3 = view3.findViewById(R.id.obfuscated_res_0x7f090556);
-            Intrinsics.checkNotNullExpressionValue(findViewById3, "mView.findViewById(R.id.card_interest_add)");
-            this.f = (ImageView) findViewById3;
-            View view4 = this.c;
-            if (view4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view4 = null;
-            }
-            View findViewById4 = view4.findViewById(R.id.obfuscated_res_0x7f090558);
-            Intrinsics.checkNotNullExpressionValue(findViewById4, "mView.findViewById(R.id.card_interest_content)");
-            this.g = (TextView) findViewById4;
-            View view5 = this.c;
-            if (view5 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mView");
-                view5 = null;
-            }
-            View findViewById5 = view5.findViewById(R.id.obfuscated_res_0x7f090557);
-            Intrinsics.checkNotNullExpressionValue(findViewById5, "mView.findViewById(R.id.card_interest_close)");
-            this.h = (ImageView) findViewById5;
-            RelativeLayout relativeLayout2 = this.e;
-            if (relativeLayout2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mCardInterestInsind");
-            } else {
-                relativeLayout = relativeLayout2;
-            }
-            relativeLayout.setOnClickListener(this);
-            d(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
-            return;
-        }
-        RelativeLayout relativeLayout = this.d;
-        ImageView imageView = null;
-        if (relativeLayout == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestRoot");
-            relativeLayout = null;
-        }
-        uu4 d = uu4.d(relativeLayout);
-        d.n(R.string.J_X06);
-        d.f(R.color.CAM_X0201);
-        ImageView imageView2 = this.f;
-        if (imageView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestAdd");
-            imageView2 = null;
-        }
-        WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f0806b7, R.color.CAM_X0304, null);
-        TextView textView = this.g;
-        if (textView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestContent");
-            textView = null;
-        }
-        uu4 d2 = uu4.d(textView);
-        d2.v(R.color.CAM_X0304);
-        d2.z(R.dimen.T_X08);
-        ImageView imageView3 = this.h;
-        if (imageView3 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("mCardInterestClose");
-        } else {
-            imageView = imageView3;
-        }
-        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View v) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v) == null) {
-            Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == R.id.obfuscated_res_0x7f090559) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this.b, 5)));
-                r27.a(1);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.l == view2 && view2 != null && (view2.getTag() instanceof String)) {
+            String str = (String) view2.getTag();
+            if (StringUtils.isNull(str)) {
+                return;
             }
+            UrlManager.getInstance().dealOneLink(g(), new String[]{str});
+        }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (c() != null && c().equals(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME)) {
+                SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1);
+                this.p.setVisibility(8);
+            } else {
+                SkinManager.setViewTextColor(this.j, R.color.CAM_X0106, 1);
+                SkinManager.setImageResource(this.p, R.drawable.icon_arrow_tab);
+            }
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0304, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.r, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
+        }
+    }
+
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fb3);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa7);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fce);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f92);
+            this.m = view2.findViewById(R.id.obfuscated_res_0x7f090817);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090814);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f090811);
+            this.q = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904fb);
+            this.r = view2.findViewById(R.id.obfuscated_res_0x7f090805);
+            this.s = view2.findViewById(R.id.obfuscated_res_0x7f090806);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fcd);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: t */
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            if (t == null) {
+                h().setVisibility(8);
+                return;
+            }
+            this.j.setText(t.mGroupTitle);
+            int i = t.mRightIconResId;
+            if (i > 0) {
+                this.k.setBackgroundResource(i);
+            }
+            if (t.showTopDivider) {
+                this.s.setVisibility(0);
+            } else {
+                this.s.setVisibility(8);
+            }
+            if (t.showBottomDivider) {
+                this.r.setVisibility(0);
+            } else {
+                this.r.setVisibility(8);
+            }
+            if (!StringUtils.isNull(t.mBottomText)) {
+                this.l.setVisibility(0);
+                this.o.setVisibility(0);
+                this.n.setVisibility(0);
+                this.l.setText(t.mBottomText);
+                String str = t.mBottomLink;
+                if (StringUtils.isNull(str)) {
+                    return;
+                }
+                this.l.setTag(str);
+                this.l.setOnClickListener(this);
+                return;
+            }
+            this.l.setVisibility(8);
+            this.o.setVisibility(8);
+            this.n.setVisibility(8);
         }
     }
 }

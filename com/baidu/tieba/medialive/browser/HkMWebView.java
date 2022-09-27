@@ -15,7 +15,7 @@ import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.to4;
+import com.baidu.tieba.gp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -164,7 +164,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                to4.a("HkMWebView", webView);
+                gp4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;

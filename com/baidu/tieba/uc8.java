@@ -1,469 +1,271 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Point;
+import android.hardware.Camera;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jf;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class uc8 implements fd8, hd8 {
+public final class uc8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uc8 h;
+    public static final Pattern e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<jf<String>> a;
-    public AtomicReference<jf<String>> b;
-    public HashMap<String, zc8> c;
-    public int d;
-    public String e;
-    public boolean f;
-    public boolean g;
+    public final Context a;
+    public Point b;
+    public Point c;
+    public Point d;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
-
-        /* renamed from: com.baidu.tieba.uc8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0429a implements jf.a<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0429a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.jf.a
-            /* renamed from: b */
-            public void a(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                Iterator it = this.a.a.q(str2).iterator();
-                while (it.hasNext()) {
-                    zc8 zc8Var = (zc8) it.next();
-                    if (zc8Var != null) {
-                        this.a.a.c.put(zc8Var.a, zc8Var);
-                        this.a.a.f = true;
-                    }
-                }
-            }
-        }
-
-        public a(uc8 uc8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948206303, "Lcom/baidu/tieba/uc8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = uc8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            jf jfVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (jfVar = (jf) this.a.a.get()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948206303, "Lcom/baidu/tieba/uc8;");
                 return;
             }
-            jfVar.f(this.a.e, new C0429a(this));
         }
+        e = Pattern.compile(",");
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
-
-        /* loaded from: classes6.dex */
-        public class a implements jf.a<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.jf.a
-            /* renamed from: b */
-            public void a(String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
-                    return;
-                }
-                try {
-                    this.a.a.d = Integer.parseInt(str2);
-                } catch (NumberFormatException unused) {
-                    this.a.a.d = 0;
-                }
-                this.a.a.g = true;
-            }
-        }
-
-        public b(uc8 uc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uc8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((jf) this.a.b.get()).f(this.a.e, new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicReference<jf<String>> a;
-        public final String b;
-        public final Runnable c;
-
-        public /* synthetic */ c(AtomicReference atomicReference, String str, Runnable runnable, a aVar) {
-            this(atomicReference, str, runnable);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                super.onPostExecute(r5);
-                Runnable runnable = this.c;
-                if (runnable != null) {
-                    runnable.run();
-                }
-            }
-        }
-
-        public c(AtomicReference<jf<String>> atomicReference, String str, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {atomicReference, str, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicReference;
-            this.b = str;
-            this.c = runnable;
-            setPriority(4);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
-                if (this.a.get() != null) {
-                    return null;
-                }
-                synchronized (c.class) {
-                    if (this.a.get() == null) {
-                        AtomicReference<jf<String>> atomicReference = this.a;
-                        zt4.f();
-                        atomicReference.set(zt4.g(this.b));
-                    }
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    public uc8() {
+    public uc8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicReference<>(null);
-        this.b = new AtomicReference<>(null);
-        this.f = false;
-        this.g = false;
-        this.c = new HashMap<>();
-        this.d = 0;
-        this.e = r();
+        this.a = context;
     }
 
-    public static uc8 t() {
-        InterceptResult invokeV;
+    public static boolean a(Camera camera) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (h == null) {
-                synchronized (uc8.class) {
-                    if (h == null) {
-                        h = new uc8();
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, camera)) == null) ? d(camera.getParameters().getSupportedFocusModes(), "auto") != null : invokeL.booleanValue;
+    }
+
+    public static int b(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
+            int i2 = 0;
+            for (String str : e.split(charSequence)) {
+                try {
+                    double parseDouble = Double.parseDouble(str.trim());
+                    int i3 = (int) (10.0d * parseDouble);
+                    if (Math.abs(i - parseDouble) < Math.abs(i - i2)) {
+                        i2 = i3;
+                    }
+                } catch (NumberFormatException unused) {
+                    return i;
+                }
+            }
+            return i2;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static Point c(List<Camera.Size> list, Point point) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, point)) == null) {
+            Iterator<Camera.Size> it = list.iterator();
+            int i = 0;
+            int i2 = 0;
+            int i3 = Integer.MAX_VALUE;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                Camera.Size next = it.next();
+                int i4 = next.width;
+                int i5 = next.height;
+                int abs = Math.abs(i4 - point.x) + Math.abs(i5 - point.y);
+                if (abs == 0) {
+                    i2 = i5;
+                    i = i4;
+                    break;
+                } else if (abs < i3) {
+                    i2 = i5;
+                    i = i4;
+                    i3 = abs;
+                }
+            }
+            if (i <= 0 || i2 <= 0) {
+                return null;
+            }
+            return new Point(i, i2);
+        }
+        return (Point) invokeLL.objValue;
+    }
+
+    public static String d(Collection<String> collection, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, collection, strArr)) == null) {
+            if (collection != null) {
+                for (String str : strArr) {
+                    if (collection.contains(str)) {
+                        return str;
                     }
                 }
             }
-            return h;
+            return null;
         }
-        return (uc8) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hd8
-    public int a() {
+    public static Point g(Camera.Parameters parameters, Point point) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, parameters, point)) == null) {
+            Point c = c(parameters.getSupportedPreviewSizes(), point);
+            return c == null ? new Point((point.x >> 3) << 3, (point.y >> 3) << 3) : c;
+        }
+        return (Point) invokeLL.objValue;
+    }
+
+    public Point e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (v(r())) {
-                return this.d;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Point) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            int i = 0;
+            Camera.getCameraInfo(0, cameraInfo);
+            int rotation = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 0) {
+                if (rotation == 1) {
+                    i = 90;
+                } else if (rotation == 2) {
+                    i = 180;
+                } else if (rotation == 3) {
+                    i = 270;
+                }
             }
-            return 0;
+            if (cameraInfo.facing == 1) {
+                return (360 - ((cameraInfo.orientation + i) % 360)) % 360;
+            }
+            return ((cameraInfo.orientation - i) + 360) % 360;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.hd8
-    public void b() {
-        jf<String> jfVar;
+    public void h(Camera camera) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jfVar = this.b.get()) == null) {
-            return;
-        }
-        p();
-        this.d++;
-        System.out.println("TestTest => mCachedHotSplashCount: " + this.d);
-        jfVar.i(this.e, Integer.toString(this.d), 86400000L);
-    }
-
-    @Override // com.baidu.tieba.hd8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.g) {
-            return;
-        }
-        b bVar = new b(this);
-        if (this.b.get() == null) {
-            new c(this.b, "hot.splash.count", bVar, null).execute(new Void[0]);
-        }
-    }
-
-    @Override // com.baidu.tieba.fd8
-    public int d(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) ? s(str, true, z) : invokeLZ.intValue;
-    }
-
-    @Override // com.baidu.tieba.fd8
-    public int e(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) ? s(str, false, z) : invokeLZ.intValue;
-    }
-
-    @Override // com.baidu.tieba.fd8
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f) {
-            return;
-        }
-        a aVar = new a(this);
-        if (this.a.get() == null) {
-            new c(this.a, "frs.refresh.count", aVar, null).execute(new Void[0]);
-        }
-    }
-
-    @Override // com.baidu.tieba.fd8
-    public void g(String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i == 1) {
-                u(str, true, z);
-            } else if (i == 2) {
-                u(str, false, z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) {
+            Camera.Parameters parameters = camera.getParameters();
+            if (a(camera)) {
+                parameters.setFocusMode("auto");
             }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            String r = r();
-            if (v(r)) {
+            this.b = tc8.d(this.a);
+            Point point = new Point();
+            Point point2 = this.b;
+            point.x = point2.x;
+            point.y = point2.y;
+            int c = tc8.c(this.a);
+            if (c == 0) {
+                Point point3 = this.b;
+                point.x = point3.y;
+                point.y = point3.x;
+            }
+            Point g = g(parameters, point);
+            this.d = g;
+            if (c == 0) {
+                Point point4 = this.d;
+                this.c = new Point(point4.y, point4.x);
                 return;
             }
-            this.c.clear();
-            this.d = 0;
-            this.e = r;
+            this.c = g;
         }
     }
 
-    public final ArrayList<zc8> q(String str) {
-        InterceptResult invokeL;
+    public void i(Camera camera) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            ArrayList<zc8> arrayList = new ArrayList<>();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new zc8(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new SimpleDateFormat("yyyy-MM-dd").format(new Date()) : (String) invokeV.objValue;
-    }
-
-    public final int s(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            zc8 zc8Var = this.c.get(str);
-            if (zc8Var == null || !v(r())) {
-                return 0;
-            }
-            return zc8Var.b(z, z2);
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final void u(String str, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            p();
-            zc8 zc8Var = this.c.get(str);
-            if (zc8Var == null) {
-                zc8Var = new zc8();
-                zc8Var.a = str;
-                this.c.put(str, zc8Var);
-            }
-            zc8Var.a(z, z2);
-            w(this.c);
+        if (interceptable == null || interceptable.invokeL(1048579, this, camera) == null) {
+            Camera.Parameters parameters = camera.getParameters();
+            Point point = this.d;
+            parameters.setPreviewSize(point.x, point.y);
+            j(parameters);
+            camera.setDisplayOrientation(f());
+            camera.setParameters(parameters);
         }
     }
 
-    public final boolean v(String str) {
-        InterceptResult invokeL;
+    public final void j(Camera.Parameters parameters) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (TextUtils.isEmpty(this.e)) {
-                return false;
-            }
-            return this.e.equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final synchronized void w(HashMap<String, zc8> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) {
-            synchronized (this) {
-                jf<String> jfVar = this.a.get();
-                if (jfVar == null) {
-                    return;
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, zc8> entry : hashMap.entrySet()) {
-                    JSONObject c2 = entry.getValue().c();
-                    if (c2 != null) {
-                        jSONArray.put(c2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, parameters) == null) {
+            String str = parameters.get("zoom-supported");
+            if (str == null || Boolean.parseBoolean(str)) {
+                int i = 27;
+                String str2 = parameters.get("max-zoom");
+                if (str2 != null) {
+                    try {
+                        int parseDouble = (int) (Double.parseDouble(str2) * 10.0d);
+                        if (27 > parseDouble) {
+                            i = parseDouble;
+                        }
+                    } catch (NumberFormatException unused) {
                     }
                 }
-                jfVar.i(this.e, jSONArray.toString(), 86400000L);
+                String str3 = parameters.get("taking-picture-zoom-max");
+                if (str3 != null) {
+                    try {
+                        int parseInt = Integer.parseInt(str3);
+                        if (i > parseInt) {
+                            i = parseInt;
+                        }
+                    } catch (NumberFormatException unused2) {
+                    }
+                }
+                String str4 = parameters.get("mot-zoom-values");
+                if (str4 != null) {
+                    i = b(str4, i);
+                }
+                String str5 = parameters.get("mot-zoom-step");
+                if (str5 != null) {
+                    try {
+                        int parseDouble2 = (int) (Double.parseDouble(str5.trim()) * 10.0d);
+                        if (parseDouble2 > 1) {
+                            i -= i % parseDouble2;
+                        }
+                    } catch (NumberFormatException unused3) {
+                    }
+                }
+                if (str2 != null || str4 != null) {
+                    parameters.set("zoom", String.valueOf(i / 10.0d));
+                }
+                if (str3 != null) {
+                    parameters.set("taking-picture-zoom", i);
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ac8;
+import com.baidu.tieba.pc8;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ac8 mData;
+    public pc8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogHttpResMsg(int i) {
@@ -37,10 +37,10 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public ac8 getData() {
+    public pc8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ac8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (pc8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,9 +53,9 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    ac8 ac8Var = new ac8();
-                    this.mData = ac8Var;
-                    ac8Var.e(getLockWindowMsgResIdl.data);
+                    pc8 pc8Var = new pc8();
+                    this.mData = pc8Var;
+                    pc8Var.e(getLockWindowMsgResIdl.data);
                 }
             } catch (IOException unused) {
             }

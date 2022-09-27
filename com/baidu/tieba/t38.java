@@ -1,87 +1,41 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.UcCard;
-import tbclient.UcCardInfo;
 /* loaded from: classes5.dex */
-public class t38 {
+public class t38 extends zx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public boolean c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(UcCardInfo ucCardInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCardInfo) == null) || ucCardInfo == null) {
-                return;
-            }
-            this.a = ucCardInfo.title;
-            String str = ucCardInfo.pic;
-            String str2 = ucCardInfo.jmp;
-            String str3 = ucCardInfo.tip;
-            this.b = ucCardInfo.st.intValue();
-        }
-    }
-
-    public t38() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t38(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(UcCard ucCard) {
+    @Override // com.baidu.tieba.yx4, com.baidu.tieba.sn
+    public View n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCard) == null) || ucCard == null) {
-            return;
-        }
-        String str = ucCard.name;
-        String str2 = ucCard.icon;
-        String str3 = ucCard.doc;
-        String str4 = ucCard.jmp;
-        this.a = new ArrayList();
-        List<UcCardInfo> list = ucCard.uc_cards;
-        if (list != null) {
-            for (UcCardInfo ucCardInfo : list) {
-                if (ucCardInfo != null) {
-                    a aVar = new a();
-                    aVar.a(ucCardInfo);
-                    this.a.add(aVar);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.n() : (View) invokeV.objValue;
     }
 }

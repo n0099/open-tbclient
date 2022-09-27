@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.j23;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.cpu.booster.utils.CpuType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,81 +13,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 /* loaded from: classes4.dex */
-public class jo3 implements ro1 {
+public class jo3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final SparseArray<bo3> a;
+    public static CpuType b;
+    public static int c;
+    public static co3 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public li3 a;
 
     /* loaded from: classes4.dex */
-    public class a implements j23.a {
+    public static class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
 
-        public a(jo3 jo3Var, SwanAppActivity swanAppActivity, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jo3Var, swanAppActivity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = swanAppActivity;
-            this.b = str;
         }
 
-        @Override // com.baidu.tieba.j23.a
-        public void a(j23 j23Var) {
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j23Var) == null) {
-                xq2.d(j23Var.c(), this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends vf2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ jo3 b;
-
-        public b(jo3 jo3Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jo3Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                String name = file.getName();
+                if (name.startsWith("cpu")) {
+                    int length = name.length();
+                    for (int i = 3; i < length; i++) {
+                        if (!Character.isDigit(name.charAt(i))) {
+                            return false;
+                        }
+                    }
+                    return true;
                 }
+                return false;
             }
-            this.b = jo3Var;
-            this.a = swanAppActivity;
-        }
-
-        @Override // com.baidu.tieba.vf2, com.baidu.tieba.wf2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.j();
-                this.a.F0(this);
-            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -108,121 +83,286 @@ public class jo3 implements ro1 {
                 return;
             }
         }
-        boolean z = ij1.a;
+        a = new SparseArray<>();
+        c = -1;
     }
 
-    public jo3() {
+    public static bo3 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            bo3 bo3Var = a.get(i);
+            if (bo3Var != null) {
+                return bo3Var;
+            }
+            try {
+                bo3 bo3Var2 = new bo3(i, k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_min_freq"), k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq"));
+                a.put(i, bo3Var2);
+                return bo3Var2;
+            } catch (Exception unused) {
+                return new bo3(i, -1, -1);
             }
         }
+        return (bo3) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.ro1
-    public void a(NgWebView ngWebView) {
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
-            ngWebView.doSelectionCancel();
-        }
-    }
-
-    @Override // com.baidu.tieba.ro1
-    public void b(NgWebView ngWebView, String str) {
-        SwanAppActivity w;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) || (w = x23.K().w()) == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a = new li3(ngWebView.covertToView());
-        int[] g = g(w);
-        int[] h = h(w);
-        for (int i = 0; i < g.length; i++) {
-            this.a.e(g[i], h[i]);
-        }
-        this.a.r(new a(this, w, str));
-        this.a.t();
-        w.t0(new b(this, w));
-    }
-
-    @Override // com.baidu.tieba.ro1
-    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
-            if (z) {
-                i("show", null, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File[] listFiles = new File("/sys/devices/system/cpu").listFiles(new a());
+            if (listFiles == null || listFiles.length <= 0) {
+                return -1;
             }
+            return listFiles.length;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ro1
-    public void d(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ro1
-    public void e(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, context) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        tg3.b(context).c(str);
-        i("click", "copy", null);
-    }
-
-    public int[] g(Context context) {
+    public static int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            int[] iArr = {7, 6, 8};
-            if (ag3.a(context, "android.permission.SET_WALLPAPER")) {
-                return iArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(str);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                String readLine = bufferedReader.readLine();
+                bufferedReader.close();
+                int d2 = d(readLine);
+                fileInputStream.close();
+                return d2;
+            } catch (Exception unused) {
+                return -1;
             }
-            int[] iArr2 = new int[2];
-            System.arraycopy(iArr, 0, iArr2, 0, 2);
-            return iArr2;
         }
-        return (int[]) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public int[] h(Context context) {
+    public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f125e, R.string.obfuscated_res_0x7f0f1260, R.string.obfuscated_res_0x7f0f1264};
-            if (ag3.a(context, "android.permission.SET_WALLPAPER")) {
-                return iArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            int[] iArr2 = new int[2];
-            System.arraycopy(iArr, 0, iArr2, 0, 2);
-            return iArr2;
+            int indexOf = str.indexOf(45);
+            if (indexOf == -1) {
+                if (TextUtils.isDigitsOnly(str)) {
+                    return m(str) + 1;
+                }
+                return -1;
+            }
+            int m = m(str.substring(indexOf + 1));
+            if (m != -1) {
+                return m + 1;
+            }
+            return -1;
         }
-        return (int[]) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
+    public static int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            aa3 aa3Var = new aa3();
-            aa3Var.a = ClearCacheUbcController.FROM_VALUE;
-            aa3Var.f = x23.K().getAppId();
-            aa3Var.c = "miniapp";
-            aa3Var.g = "text";
-            aa3Var.b = str;
-            aa3Var.e = str2;
-            if (!TextUtils.isEmpty(str3)) {
-                aa3Var.a("query", str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            int i = c;
+            if (i != -1) {
+                return i;
             }
-            r93.x("810", aa3Var);
+            int c2 = c("/sys/devices/system/cpu/possible");
+            if (c2 != -1) {
+                c = c2;
+                return c2;
+            }
+            int c3 = c("/sys/devices/system/cpu/present");
+            if (c3 != -1) {
+                c = c3;
+                return c3;
+            }
+            int b2 = b();
+            if (b2 == -1) {
+                b2 = Math.max(Runtime.getRuntime().availableProcessors(), 1);
+            }
+            c = b2;
+            return b2;
         }
+        return invokeV.intValue;
+    }
+
+    public static co3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            co3 co3Var = d;
+            if (co3Var != null) {
+                return co3Var;
+            }
+            int e = e();
+            if (e <= 0) {
+                return new co3();
+            }
+            if (e == 1) {
+                co3 co3Var2 = new co3();
+                co3Var2.h = false;
+                co3Var2.a = e;
+                co3Var2.l = a(0);
+                d = co3Var2;
+                return co3Var2;
+            }
+            ArrayList<bo3> arrayList = new ArrayList(e);
+            for (int i = 0; i < e; i++) {
+                arrayList.add(a(i));
+            }
+            SparseArray sparseArray = new SparseArray();
+            SparseIntArray sparseIntArray = new SparseIntArray();
+            ArrayList arrayList2 = new ArrayList();
+            for (bo3 bo3Var : arrayList) {
+                int i2 = bo3Var.c;
+                if (sparseArray.get(i2) != null) {
+                    sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
+                } else {
+                    sparseArray.put(i2, bo3Var);
+                    arrayList2.add(bo3Var);
+                    sparseIntArray.put(i2, 1);
+                }
+            }
+            Collections.sort(arrayList2);
+            co3 co3Var3 = new co3();
+            co3Var3.a = e;
+            boolean z = arrayList2.size() > 1;
+            co3Var3.h = z;
+            if (!z) {
+                co3Var3.l = (bo3) (arrayList2.size() <= 0 ? arrayList.get(0) : arrayList2.get(0));
+                d = co3Var3;
+                return co3Var3;
+            }
+            co3Var3.j = (bo3) arrayList2.get(0);
+            co3Var3.c = ((bo3) arrayList2.get(0)).a;
+            co3Var3.b = sparseIntArray.get(co3Var3.j.c);
+            co3Var3.i = (bo3) arrayList2.get(1);
+            co3Var3.e = ((bo3) arrayList2.get(1)).a;
+            co3Var3.d = sparseIntArray.get(co3Var3.i.c);
+            if (arrayList2.size() > 2) {
+                co3Var3.k = (bo3) arrayList2.get(2);
+                co3Var3.g = ((bo3) arrayList2.get(2)).a;
+                co3Var3.f = sparseIntArray.get(co3Var3.k.c);
+            }
+            d = co3Var3;
+            return co3Var3;
+        }
+        return (co3) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String a2 = lo3.a("ro.board.platform");
+            if (TextUtils.isEmpty(a2)) {
+                a2 = Build.HARDWARE;
+            }
+            return a2 != null ? a2.trim() : a2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static CpuType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            CpuType cpuType = b;
+            return cpuType != null ? cpuType : i(g());
+        }
+        return (CpuType) invokeV.objValue;
+    }
+
+    public static CpuType i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                CpuType cpuType = CpuType.Unknown;
+                b = cpuType;
+                return cpuType;
+            }
+            String lowerCase = str.toLowerCase();
+            if (!lowerCase.startsWith("kirin") && !lowerCase.startsWith("hi")) {
+                if (!lowerCase.startsWith("qcom") && !lowerCase.startsWith("kona") && !lowerCase.startsWith("lahaina") && !lowerCase.startsWith("msm") && !lowerCase.startsWith("sdm") && !lowerCase.startsWith("apq") && !lowerCase.startsWith("sm")) {
+                    if (lowerCase.startsWith("mt")) {
+                        CpuType cpuType2 = CpuType.Mtk;
+                        b = cpuType2;
+                        return cpuType2;
+                    }
+                    CpuType cpuType3 = CpuType.Unknown;
+                    b = cpuType3;
+                    return cpuType3;
+                }
+                CpuType cpuType4 = CpuType.QualComm;
+                b = cpuType4;
+                return cpuType4;
+            }
+            CpuType cpuType5 = CpuType.Hisilicon;
+            b = cpuType5;
+            return cpuType5;
+        }
+        return (CpuType) invokeL.objValue;
+    }
+
+    public static int j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            return k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq");
+        }
+        return invokeI.intValue;
+    }
+
+    public static int k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.canRead()) {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                    String readLine = bufferedReader.readLine();
+                    bufferedReader.close();
+                    return m(l(readLine));
+                } catch (Exception unused) {
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (str == null) {
+                return str;
+            }
+            int length = str.length();
+            int i = 0;
+            while (i < length && Character.isDigit(str.charAt(i))) {
+                i++;
+            }
+            return str.substring(0, i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeL.intValue;
     }
 }

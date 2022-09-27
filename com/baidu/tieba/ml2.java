@@ -1,105 +1,98 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tieba.hz1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ml2 {
+public class ml2 extends fh2<wl2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static hz1.g b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976438, "Lcom/baidu/tieba/ml2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947976438, "Lcom/baidu/tieba/ml2;");
+    public ml2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ij1.a;
+        this.b = 1;
+        this.c = 3;
     }
 
-    public static void a(hz1.g gVar) {
+    @Override // com.baidu.tieba.fh2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            b = gVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
     }
 
-    public static void b(EditText editText, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh2
+    @SuppressLint({"BDThrowableCheck"})
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wl2 wl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
-            e(editText, ConstPath.KEY_BLUR, i);
-        }
-    }
-
-    public static void c(iz1 iz1Var, EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, iz1Var, editText, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", "change");
-            jSONObject.put("cursorOffset", editText.getSelectionStart());
-            jSONObject.put("keyCode", i);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wl2Var) == null) {
+            Object obj = command.obj;
+            if (!(obj instanceof String)) {
+                if (fh2.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("setZeusVideoExt with a illegal obj ");
+                    sb.append(obj == null);
+                    throw new RuntimeException(sb.toString());
+                }
+                return;
             }
-        }
-        iz1Var.j(editText.getText().toString());
-        iz1Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
-        b.a(String.valueOf(editText.getTag()), jSONObject);
-    }
-
-    public static void d(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
-            e(editText, "confirm", i);
-        }
-    }
-
-    public static void e(EditText editText, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", str);
-            jSONObject.put("cursorOffset", editText.getText().length());
-            jSONObject.put("keyboardHeight", "" + pg3.O(i));
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
+            String str = command.what;
+            d(wl2Var, str, "setZeusVideoExt:" + obj, false);
+            try {
+                JSONObject jSONObject = new JSONObject((String) obj);
+                if (jSONObject.has("instance-error")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
+                    wl2Var.T(hashMap);
+                }
+                String optString = jSONObject.optString("firstPlayStatus");
+                if (!TextUtils.isEmpty(optString)) {
+                    wl2Var.b0(optString);
+                }
+                this.b = jSONObject.optInt("min-cache", this.b);
+                int optInt = jSONObject.optInt("max-cache", this.c);
+                this.c = optInt;
+                if (this.b <= optInt) {
+                    if (jSONObject.has("min-cache")) {
+                        wl2Var.G(this.b);
+                    }
+                    if (jSONObject.has("max-cache")) {
+                        wl2Var.g0(this.c);
+                    }
+                } else if (fh2.a) {
+                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
+                }
+            } catch (Exception e) {
+                if (fh2.a) {
+                    throw new RuntimeException("setZeusVideoExt with a illegal str", e);
+                }
             }
-        }
-        b.a(String.valueOf(editText.getTag()), jSONObject);
-    }
-
-    public static void f(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
-            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
         }
     }
 }

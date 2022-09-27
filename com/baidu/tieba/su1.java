@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class su1 {
+public class su1 extends ku1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, lu1> a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,74 +33,78 @@ public class su1 {
                 return;
             }
         }
-        b = ij1.a;
+        f = vj1.a;
     }
 
-    public su1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public su1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashMap();
     }
 
-    public synchronized void a(BasePendingOperation basePendingOperation) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void x(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
-            synchronized (this) {
-                if (basePendingOperation == null) {
-                    return;
-                }
-                if (b) {
-                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
-                }
-                c(basePendingOperation.getType()).b(basePendingOperation);
-            }
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || str == null || str.length() <= 3145728) {
+            return;
         }
+        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
     }
 
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (Map.Entry<String, lu1> entry : this.a.entrySet()) {
-                    entry.getValue().c();
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public final lu1 c(BasePendingOperation.OperationType operationType) {
+    public static String z(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
-            if (!this.a.containsKey(operationType.name())) {
-                lu1 a = pu1.a(operationType);
-                this.a.put(operationType.name(), a);
-                return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+            if (obj instanceof String) {
+                String str = (String) obj;
+                return !TextUtils.isEmpty(str) ? str : "log info is invalid";
+            } else if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                return jSONObject.length() != 0 ? jSONObject.toString() : "log info is invalid";
+            } else {
+                return "log info is invalid";
             }
-            return this.a.get(operationType.name());
         }
-        return (lu1) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public synchronized void d() {
+    @Override // com.baidu.tieba.or1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                for (Map.Entry<String, lu1> entry : this.a.entrySet()) {
-                    entry.getValue().a();
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
+    }
+
+    public lv1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (f) {
+                Log.d("LogApi", "start logToFile action, params = " + str);
+                x(str);
             }
+            Pair<lv1, JSONObject> s = s(str);
+            if (!((lv1) s.first).isSuccess()) {
+                return (lv1) s.first;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            l02.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
+            return lv1.f();
         }
+        return (lv1) invokeL.objValue;
     }
 }

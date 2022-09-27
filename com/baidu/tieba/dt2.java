@@ -1,12 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import androidx.appcompat.view.SupportMenuInflater;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.sapi2.SapiOptions;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.view.SwanAppActionBar;
+import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,116 +24,302 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dt2 extends at2 {
+public class dt2 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a implements ei3<o83<q83.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ SwanAppActionBar c;
+        public final /* synthetic */ float d;
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final dt2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-850677335, "Lcom/baidu/tieba/dt2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-850677335, "Lcom/baidu/tieba/dt2$b;");
+        public a(dt2 dt2Var, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dt2Var, callbackHandler, str, swanAppActionBar, Float.valueOf(f)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new dt2(null);
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = swanAppActionBar;
+            this.d = f;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(o83<q83.e> o83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
+                if (!j83.h(o83Var)) {
+                    j83.q(o83Var, this.a, this.b);
+                } else if (this.c.getRightMenu() == null) {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                } else {
+                    this.c.setRightMenuAlpha(this.d);
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                }
+            }
         }
     }
 
-    public /* synthetic */ dt2(a aVar) {
-        this();
+    /* loaded from: classes3.dex */
+    public class b implements ei3<o83<q83.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ SwanAppActionBar d;
+        public final /* synthetic */ dt2 e;
+
+        public b(dt2 dt2Var, CallbackHandler callbackHandler, String str, boolean z, SwanAppActionBar swanAppActionBar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dt2Var, callbackHandler, str, Boolean.valueOf(z), swanAppActionBar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = dt2Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = z;
+            this.d = swanAppActionBar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(o83<q83.e> o83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
+                if (!j83.h(o83Var)) {
+                    j83.q(o83Var, this.a, this.b);
+                    return;
+                }
+                if (this.c) {
+                    this.e.r(this.d);
+                } else {
+                    this.e.n(this.d);
+                }
+                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            }
+        }
     }
 
-    public static dt2 g() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dt2(i43 i43Var) {
+        super(i43Var, "/swanAPI/menu");
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (dt2) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    public boolean h(PMSAppInfo pMSAppInfo) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i53
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, l33 l33Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, l33Var)) == null) {
+            if (context != null && l33Var != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    l02.c(SupportMenuInflater.XML_MENU, "parameters are illegal");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                    return false;
+                }
+                yo2 U = yo2.U();
+                if (U == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                u22 V = U.V();
+                if (V == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                r22 m = V.m();
+                if (m == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                SwanAppActionBar K1 = m.K1();
+                if (K1 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                l(l33Var, context, callbackHandler, optString, K1, optParamsAsJo, str, m);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            l02.c(SupportMenuInflater.XML_MENU, "parameters dismissed");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void l(l33 l33Var, Context context, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, JSONObject jSONObject, String str2, r22 r22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{l33Var, context, callbackHandler, str, swanAppActionBar, jSONObject, str2, r22Var}) == null) {
+            if (swanAppActionBar == null) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            } else if (TextUtils.equals(str2, "/swanAPI/menu/setMenuEnabled")) {
+                p(l33Var, context, callbackHandler, str, swanAppActionBar, jSONObject.optBoolean(SapiOptions.KEY_CACHE_ENABLED, true));
+            } else if (TextUtils.equals(str2, "/swanAPI/menu/setPageStyle")) {
+                String optString = jSONObject.optString("menuColorStyle", "");
+                boolean m = m(jSONObject);
+                if (TextUtils.isEmpty(optString)) {
+                    optString = "white";
+                }
+                q(callbackHandler, str, swanAppActionBar, optString, m, r22Var);
+                dj3.c().j(jSONObject.optString(PrefetchEvent.EVENT_KEY_PAGE_URL, ""));
+            } else if (TextUtils.equals(str2, "/swanAPI/menu/setMenuOpacity")) {
+                float optDouble = (float) jSONObject.optDouble(Key.ALPHA, 1.0d);
+                if (optDouble <= 1.0f && optDouble >= 0.1f) {
+                    o(l33Var, context, callbackHandler, str, swanAppActionBar, optDouble);
+                    return;
+                }
+                l02.c(SupportMenuInflater.XML_MENU, "The range of alpha should be in [0.1,1]");
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            } else {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
+        }
+    }
+
+    public final boolean m(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            JSONObject d = d(pMSAppInfo);
-            if (d == null || d.length() <= 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            boolean d = dj3.c().d();
+            if (jSONObject == null || !jSONObject.has(LiveFeedPageSdk.IMMERSION)) {
+                return d;
             }
-            boolean optBoolean = d.optBoolean("is_opti");
-            if (at2.c) {
-                Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
-            }
+            boolean optBoolean = jSONObject.optBoolean(LiveFeedPageSdk.IMMERSION, true);
+            dj3.c().k(optBoolean);
             return optBoolean;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean i(PMSAppInfo pMSAppInfo) {
+    public final boolean n(SwanAppActionBar swanAppActionBar) {
         InterceptResult invokeL;
-        boolean z;
+        View rightMenu;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
-                z = b2.optBoolean(PrefetchEvent.MODULE);
-            } else {
-                JSONObject a2 = a(pMSAppInfo);
-                z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, swanAppActionBar)) == null) {
+            if (swanAppActionBar == null || (rightMenu = swanAppActionBar.getRightMenu()) == null) {
+                return false;
             }
-            if (at2.c) {
-                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
-            }
-            return z;
+            rightMenu.setVisibility(4);
+            swanAppActionBar.setRightMenuEnable(false);
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean j(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public final void o(l33 l33Var, Context context, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, float f) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) ? TextUtils.equals(c(pMSAppInfo), "1") : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{l33Var, context, callbackHandler, str, swanAppActionBar, Float.valueOf(f)}) == null) {
+            l33Var.e0().g(context, "mapp_change_menu_appearance", new a(this, callbackHandler, str, swanAppActionBar, f));
+        }
     }
 
-    public JSONObject k(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public final void p(l33 l33Var, Context context, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 == null || b2.length() <= 0) {
-                return null;
-            }
-            return b2.optJSONObject("topPages");
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{l33Var, context, callbackHandler, str, swanAppActionBar, Boolean.valueOf(z)}) == null) {
+            l33Var.e0().g(context, "scope_hide_menu", new b(this, callbackHandler, str, z, swanAppActionBar));
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public dt2() {
+    public final void q(CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, String str2, boolean z, r22 r22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{callbackHandler, str, swanAppActionBar, str2, Boolean.valueOf(z), r22Var}) == null) {
+            if (swanAppActionBar.getRightMenu() == null) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                return;
             }
+            int t = SwanAppConfigData.t(str2);
+            swanAppActionBar.f(t, false);
+            mi3 I1 = r22Var.I1();
+            if (I1 == null) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                return;
+            }
+            if (t == -1) {
+                I1.m(0, z, false);
+            } else {
+                boolean z2 = true;
+                if (t == -16777216) {
+                    I1.m(0, z, true);
+                } else {
+                    I1.m(0, z, ((t != 1) || !xf3.a(t)) ? false : false);
+                }
+            }
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
         }
+    }
+
+    public final boolean r(SwanAppActionBar swanAppActionBar) {
+        InterceptResult invokeL;
+        View rightMenu;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, swanAppActionBar)) == null) {
+            if (swanAppActionBar == null || (rightMenu = swanAppActionBar.getRightMenu()) == null) {
+                return false;
+            }
+            rightMenu.setVisibility(0);
+            swanAppActionBar.setRightMenuEnable(true);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

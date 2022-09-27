@@ -1,294 +1,135 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class sm8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Pattern f;
-    public static final Pattern g;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public SpannableStringBuilder e;
-
-    /* loaded from: classes5.dex */
-    public class a extends yg5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm8 a;
-
-        public a(sm8 sm8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sm8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                b(this.a.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends yg5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm8 a;
-
-        public b(sm8 sm8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sm8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Matcher matcher = sm8.f.matcher(this.a.d);
-                if (matcher.find()) {
-                    try {
-                        String group = matcher.group();
-                        a(group.substring(group.lastIndexOf("/") + 1));
-                        return;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                Matcher matcher2 = sm8.g.matcher(this.a.d);
-                if (matcher2.find()) {
-                    try {
-                        String group2 = matcher2.group();
-                        a(group2.substring(group2.lastIndexOf("=") + 1));
-                        return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                b(this.a.d);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends yg5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm8 a;
-
-        public c(sm8 sm8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sm8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b != null) {
-                    this.a.b.replace("@", "").replace(" ", "");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(dh.g(this.a.d, 0L), false, false)));
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948156331, "Lcom/baidu/tieba/sm8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948156331, "Lcom/baidu/tieba/sm8;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948156331, "Lcom/baidu/tieba/sm8;")) == null) {
+            return;
         }
-        f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-        g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
-    }
-
-    public sm8() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948156331, "Lcom/baidu/tieba/sm8;");
+        }
+    }
+
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static le5 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
+            try {
+                le5 le5Var = new le5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(le5Var);
+                return le5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.d = null;
-        this.e = null;
+        return (le5) invokeIL.objValue;
     }
 
-    public static boolean k(int i, int i2) {
-        InterceptResult invokeII;
+    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? (i != 0 || i2 == 3 || i2 == 2) ? false : true : invokeII.booleanValue;
-    }
-
-    public SpannableStringBuilder e(SpannableString spannableString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
-            if (this.e == null) {
-                this.e = new SpannableStringBuilder();
-            }
-            this.e.append((CharSequence) spannableString);
-            return this.e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i2);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
         }
-        return (SpannableStringBuilder) invokeL.objValue;
+        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public SpannableString h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a;
-            if (i != 0) {
-                if (i == 1) {
-                    if (!this.b.endsWith(" ")) {
-                        this.b += " ";
-                    }
-                    SpannableString spannableString = new SpannableString(this.b);
-                    spannableString.setSpan(new b(this), 0, this.b.length() - 1, 33);
-                    return spannableString;
-                } else if (i == 2) {
-                    SpannableString spannableString2 = new SpannableString(this.b + " ");
-                    on face = TbadkCoreApplication.getInst().getFace(this.b);
-                    if (face != null) {
-                        BitmapDrawable j = face.j();
-                        j.setBounds(0, 0, face.r(), face.m());
-                        spannableString2.setSpan(new ImageSpan(j, 1), 0, this.b.length(), 33);
-                    }
-                    return spannableString2;
-                } else if (i == 4) {
-                    if (!this.b.endsWith(" ")) {
-                        this.b += " ";
-                    }
-                    SpannableString spannableString3 = new SpannableString(this.b);
-                    spannableString3.setSpan(new c(this), 0, this.b.length() - 1, 33);
-                    return spannableString3;
-                } else if (i != 5) {
-                    return null;
-                } else {
-                    if (!this.b.endsWith(" ")) {
-                        this.b += " ";
-                    }
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1523);
-                    String str = string + this.b;
-                    SpannableString spannableString4 = new SpannableString(str);
-                    spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);
-                    return spannableString4;
-                }
-            }
-            return new SpannableString(this.b);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, cls2}) == null) {
+            h(i2, cls2, false, false);
+            c(i2, i, str, cls, false, true, true, false);
         }
-        return (SpannableString) invokeV.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
+    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public SpannableStringBuilder j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
+            tbHttpMessageTask.setIsNeedLogin(z);
+            tbHttpMessageTask.setIsNeedTbs(z2);
+            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
+            tbHttpMessageTask.setResponsedClass(cls);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            return tbHttpMessageTask;
         }
+        return (TbHttpMessageTask) invokeCommon.objValue;
+    }
+
+    public static me5 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true) : (me5) invokeCommon.objValue;
+    }
+
+    public static me5 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
+            me5 me5Var = new me5(i);
+            me5Var.setResponsedClass(cls);
+            me5Var.h(z);
+            me5Var.f(dupLicateMode);
+            me5Var.setRetry(a);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(me5Var);
+            me5Var.setNeedEncrypt(z2);
+            return me5Var;
+        }
+        return (me5) invokeCommon.objValue;
+    }
+
+    public static me5 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2) : (me5) invokeCommon.objValue;
     }
 }

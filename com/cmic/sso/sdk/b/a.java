@@ -28,17 +28,17 @@ public class a {
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0511a c;
+    public C0508a c;
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0511a {
+    public static class C0508a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0511a() {
+        public C0508a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,14 +145,14 @@ public class a {
         return invokeL.intValue;
     }
 
-    public C0511a b() {
+    public C0508a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C0511a c0511a = this.c;
-            return c0511a == null ? new C0511a() : c0511a;
+            C0508a c0508a = this.c;
+            return c0508a == null ? new C0508a() : c0508a;
         }
-        return (C0511a) invokeV.objValue;
+        return (C0508a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -218,15 +218,15 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis >= 5000 || currentTimeMillis <= 0) {
-                this.c = new C0511a();
+                this.c = new C0508a();
                 if (z2) {
                     a(context, z);
                     if (m.e() && m.d()) {
                         c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                         if (this.c.b == 0 || this.c.b == 1) {
                             if (this.c.a == -1) {
-                                C0511a c0511a = this.c;
-                                c0511a.a = c0511a.b;
+                                C0508a c0508a = this.c;
+                                c0508a.a = c0508a.b;
                             }
                             this.c.b = -1;
                         }

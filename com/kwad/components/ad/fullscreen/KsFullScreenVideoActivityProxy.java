@@ -47,7 +47,7 @@ import org.json.JSONObject;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
 /* loaded from: classes7.dex */
-public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b<k> implements a.InterfaceC0552a {
+public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b<k> implements a.InterfaceC0548a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -343,7 +343,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "KsFullScreenVideoActivityProxy" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0552a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0548a
     public boolean handledOnResume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

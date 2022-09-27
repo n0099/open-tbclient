@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.aa7;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.tieba.im.db.pojo.GraffitiInfoPojo;
@@ -21,8 +22,7 @@ import com.baidu.tieba.im.db.pojo.PbContentPojo;
 import com.baidu.tieba.im.db.pojo.PluginUserPojo;
 import com.baidu.tieba.im.db.pojo.TiebaPlusInfoPojo;
 import com.baidu.tieba.im.db.pojo.TogetherHiPojo;
-import com.baidu.tieba.kt4;
-import com.baidu.tieba.m97;
+import com.baidu.tieba.xt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,7 +139,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             shareThreadMsgData.thread_type = threadData.threadType;
             shareThreadMsgData.id = dh.g(threadData.getTid(), 0L);
             if (threadData.isImShareFromPb()) {
-                shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().g0);
+                shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().h0);
             } else {
                 shareThreadMsgData.rich_abstract = parseContentTb(threadData.getRichAbstractList());
             }
@@ -178,7 +178,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 shareThreadMsgData.author_name_show = threadData.getAuthor().getName_show();
             }
             if (threadData.getForumData() != null) {
-                kt4 forumData = threadData.getForumData();
+                xt4 forumData = threadData.getForumData();
                 shareThreadMsgData.forum_id = dh.g(forumData.a, 0L);
                 shareThreadMsgData.forum_avatar = forumData.c;
                 shareThreadMsgData.forum_name = forumData.b;
@@ -341,23 +341,23 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        m97 m97Var = pbContentPojo.item;
-                        builder8.item_id = m97Var.a;
-                        builder8.item_name = m97Var.b;
-                        builder8.icon_size = m97Var.c;
-                        builder8.icon_url = m97Var.d;
+                        aa7 aa7Var = pbContentPojo.item;
+                        builder8.item_id = aa7Var.a;
+                        builder8.item_name = aa7Var.b;
+                        builder8.icon_size = aa7Var.c;
+                        builder8.icon_url = aa7Var.d;
                         builder8.tags = new ArrayList(pbContentPojo.item.e);
-                        m97 m97Var2 = pbContentPojo.item;
-                        builder8.score = m97Var2.f;
-                        builder8.star = m97Var2.g;
-                        builder8.button_name = m97Var2.h;
-                        builder8.button_link = m97Var2.i;
-                        builder8.item_appid = m97Var2.j;
-                        builder8.category_id = m97Var2.k;
-                        builder8.button_link_type = m97Var2.l;
-                        builder8.apk_name = m97Var2.m;
-                        builder8.forum_name = m97Var2.n;
-                        if (m97Var2.o != null) {
+                        aa7 aa7Var2 = pbContentPojo.item;
+                        builder8.score = aa7Var2.f;
+                        builder8.star = aa7Var2.g;
+                        builder8.button_name = aa7Var2.h;
+                        builder8.button_link = aa7Var2.i;
+                        builder8.item_appid = aa7Var2.j;
+                        builder8.category_id = aa7Var2.k;
+                        builder8.button_link_type = aa7Var2.l;
+                        builder8.apk_name = aa7Var2.m;
+                        builder8.forum_name = aa7Var2.n;
+                        if (aa7Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;

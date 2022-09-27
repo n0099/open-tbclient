@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.DelayTB;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class bp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
-    public final int c;
-    public final int d;
-    public int e;
+    @JvmField
+    public int a;
+    @JvmField
+    public long b;
+    @JvmField
+    public long c;
 
     /* loaded from: classes3.dex */
     public static final class a {
@@ -48,7 +49,11 @@ public final class bp0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject != null) {
-                    return new bp0(jSONObject.optInt("show_tail_frame", 0) == 1, jSONObject.optInt("unmount_lp_url") == 1, jSONObject.optInt("ad_immersive_video_tip_delay", -1), jSONObject.optInt("ad_immersive_video_tip_type", 0), jSONObject.optInt("auto_scroll_loop", 0));
+                    bp0 bp0Var = new bp0();
+                    bp0Var.a = jSONObject.optInt("style");
+                    bp0Var.b = jSONObject.optLong(DelayTB.DELAY) >= 0 ? jSONObject.optLong(DelayTB.DELAY) : 0L;
+                    bp0Var.c = jSONObject.optLong("duration");
+                    return bp0Var;
                 }
                 return null;
             }
@@ -73,97 +78,20 @@ public final class bp0 {
                 return;
             }
         }
-        f = new a(null);
+        d = new a(null);
     }
 
-    public bp0(boolean z, boolean z2, int i, int i2, int i3) {
+    public bp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = z;
-        this.b = z2;
-        this.c = i;
-        this.d = i2;
-        this.e = i3;
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof bp0) {
-                    bp0 bp0Var = (bp0) obj;
-                    return this.a == bp0Var.a && this.b == bp0Var.b && this.c == bp0Var.c && this.d == bp0Var.d && this.e == bp0Var.e;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v13 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean z = this.a;
-            ?? r0 = z;
-            if (z) {
-                r0 = 1;
-            }
-            int i = r0 * 31;
-            boolean z2 = this.b;
-            return ((((((i + (z2 ? 1 : z2 ? 1 : 0)) * 31) + this.c) * 31) + this.d) * 31) + this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CmdPolicy(showTailFrame=" + this.a + ", unmountLandingUrl=" + this.b + ", guideArrowShowTime=" + this.c + ", guideArrowType=" + this.d + ", autoScrollLoopCount=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
     }
 }

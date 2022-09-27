@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lj6;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.yj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public static class VideoAggregationResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<lj6> mDataList;
+        public List<yj6> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,10 +82,10 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        lj6 lj6Var = new lj6();
-                        lj6Var.f(jSONArray.optString(i2));
-                        if (lj6Var.n != null) {
-                            this.mDataList.add(lj6Var);
+                        yj6 yj6Var = new yj6();
+                        yj6Var.f(jSONArray.optString(i2));
+                        if (yj6Var.n != null) {
+                            this.mDataList.add(yj6Var);
                         }
                     }
                 }
@@ -201,7 +201,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<lj6> list, boolean z, boolean z2);
+        void b(List<yj6> list, boolean z, boolean z2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

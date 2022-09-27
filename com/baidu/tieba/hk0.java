@@ -1,321 +1,326 @@
 package com.baidu.tieba;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.text.TextUtils;
-import android.widget.RemoteViews;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.nadcore.download.notification.NotificationReceiver;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.tieba.t01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes4.dex */
-public class hk0 {
+public class hk0 extends s01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NotificationManager a;
-    public NotificationCompat.Builder b;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hk0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-744532002, "Lcom/baidu/tieba/hk0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-744532002, "Lcom/baidu/tieba/hk0$b;");
-                    return;
-                }
-            }
-            a = new hk0(null);
-        }
-    }
-
-    public /* synthetic */ hk0(a aVar) {
-        this();
-    }
-
-    public static hk0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (hk0) invokeV.objValue;
-    }
-
-    public void a(int i) {
-        NotificationManager notificationManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (notificationManager = this.a) == null) {
-            return;
-        }
-        try {
-            notificationManager.cancel(i);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        try {
-            a(135637042);
-            a(1743353008);
-            a(-1276312226);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final NotificationCompat.Builder c() {
-        InterceptResult invokeV;
-        NotificationCompat.Builder builder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context b2 = mi0.b();
-            if (Build.VERSION.SDK_INT >= 26) {
-                d();
-                builder = new NotificationCompat.Builder(b2, "com.baidu.nadcore.notification.channel");
-            } else {
-                builder = new NotificationCompat.Builder(b2);
-            }
-            builder.setSmallIcon(xj0.b().f());
-            builder.setWhen(System.currentTimeMillis());
-            builder.setPriority(0);
-            builder.setDefaults(-1);
-            builder.setVisibility(1);
-            builder.setVibrate(new long[]{0});
-            builder.setSound(null);
-            return builder;
-        }
-        return (NotificationCompat.Builder) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 26)
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null) {
-            return;
-        }
-        NotificationChannel notificationChannel = new NotificationChannel("com.baidu.nadcore.notification.channel", "下载消息提示", 4);
-        notificationChannel.setLockscreenVisibility(1);
-        notificationChannel.enableLights(false);
-        notificationChannel.enableVibration(false);
-        notificationChannel.setVibrationPattern(new long[]{0});
-        notificationChannel.setSound(null, null);
-        this.a.createNotificationChannel(notificationChannel);
-    }
-
-    public PendingIntent e(String str, yj0 yj0Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, yj0Var)) == null) {
-            if (TextUtils.isEmpty(str) || yj0Var == null) {
-                return null;
-            }
-            Context b2 = mi0.b();
-            Intent intent = new Intent(str);
-            intent.setComponent(new ComponentName(b2.getPackageName(), NotificationReceiver.class.getName()));
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_PACKAGE_NAME, yj0Var.d);
-            File file = yj0Var.h;
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH, (file == null || !file.exists()) ? "" : yj0Var.h.getAbsolutePath());
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_NOTIFY_TYPE, yj0Var.q.m);
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_NOTIFICATION_ID, yj0Var.e().hashCode());
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_EXTRA_PARAM, yj0Var.p.a);
-            return o21.a(b2, yj0Var.e().hashCode(), intent, 134217728);
-        }
-        return (PendingIntent) invokeLL.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        NotificationChannel notificationChannel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            boolean areNotificationsEnabled = NotificationManagerCompat.from(mi0.b()).areNotificationsEnabled();
-            return (this.a == null || TextUtils.isEmpty("com.baidu.nadcore.notification.channel") || Build.VERSION.SDK_INT < 26 || (notificationChannel = this.a.getNotificationChannel("com.baidu.nadcore.notification.channel")) == null) ? areNotificationsEnabled : areNotificationsEnabled && notificationChannel.getImportance() != 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            if (!TextUtils.isEmpty(str)) {
-                clogBuilder.z(str);
-            }
-            if (!TextUtils.equals(str, ClogBuilder.LogType.DOWNLOAD_INSTALL.type) && !TextUtils.equals(str, ClogBuilder.LogType.OPEN_APP.type)) {
-                clogBuilder.u(ClogBuilder.Page.AD_NOTIFICATION);
-            } else {
-                clogBuilder.u(ClogBuilder.Page.RETARGET);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                clogBuilder.j(str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                clogBuilder.p(str3);
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                clogBuilder.k(str4);
-            }
-            uz0.b(clogBuilder);
-        }
-    }
-
-    public void i(yj0 yj0Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, yj0Var, str) == null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = mi0.b();
-            String str2 = yj0Var.p.h;
-            String str3 = "";
-            if (TextUtils.equals(str, "notify_type_pause")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0bbb);
-            } else if (TextUtils.equals(str, "notify_type_stop")) {
-                str3 = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0bc1);
-            }
-            NotificationCompat.Builder c = c();
-            c.setTicker(str2 + str3);
-            c.setContentTitle(str2);
-            c.setContentText(str3);
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(1743353008, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void j(@NonNull Bitmap bitmap, @NonNull RemoteViews remoteViews, PendingIntent pendingIntent, PendingIntent pendingIntent2, @NonNull yj0 yj0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap, remoteViews, pendingIntent, pendingIntent2, yj0Var) == null) || this.a == null) {
-            return;
-        }
-        try {
-            a(yj0Var.e().hashCode());
-            NotificationCompat.Builder c = c();
-            if (Build.VERSION.SDK_INT >= 24) {
-                c.setCustomContentView(remoteViews).setContentIntent(pendingIntent).setDeleteIntent(pendingIntent2).setPriority(2).setAutoCancel(true);
-            } else {
-                c.setContentIntent(pendingIntent).setDeleteIntent(pendingIntent2).setLargeIcon(bitmap).setContentTitle(yj0Var.p.h).setContentText(yj0Var.q.n).setPriority(2).setAutoCancel(true);
-            }
-            Notification build = c.build();
-            build.flags |= 32;
-            this.a.notify(yj0Var.e().hashCode(), build);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void k(yj0 yj0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, yj0Var) == null) || this.a == null) {
-            return;
-        }
-        try {
-            b();
-            Context b2 = mi0.b();
-            String str = yj0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0bc2);
-            NotificationCompat.Builder c = c();
-            c.setTicker(string);
-            c.setContentTitle(str);
-            c.setContentText(string);
-            c.setContentIntent(e(NotificationReceiver.RECEIVER_ACTION_DOWNLOAD_SUCCESS, yj0Var));
-            c.setAutoCancel(true);
-            c.setOngoing(false);
-            this.a.notify(-1276312226, c.build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void l(yj0 yj0Var) {
-        NotificationManager notificationManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, yj0Var) == null) || (notificationManager = this.a) == null) {
-            return;
-        }
-        try {
-            notificationManager.cancel(1743353008);
-            this.a.cancel(-1276312226);
-            Context b2 = mi0.b();
-            String str = yj0Var.p.h;
-            String string = b2.getResources().getString(R.string.obfuscated_res_0x7f0f0bc3);
-            int i = (int) (yj0Var.i * 100.0f);
-            if (this.b == null) {
-                NotificationCompat.Builder c = c();
-                this.b = c;
-                c.setAutoCancel(false);
-                this.b.setOngoing(true);
-                NotificationCompat.Builder builder = this.b;
-                builder.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setContentText(string);
-            } else {
-                NotificationCompat.Builder builder2 = this.b;
-                builder2.setTicker(string + "：" + str);
-                this.b.setContentTitle(str);
-                this.b.setDefaults(4);
-            }
-            this.b.setProgress(100, i, false);
-            this.a.notify(135637042, this.b.build());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public hk0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hk0(SQLiteDatabase sQLiteDatabase) {
+        super(sQLiteDatabase);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SQLiteDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (NotificationManager) mi0.b().getSystemService(ActionJsonData.TAG_NOTIFICATION);
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized t01.a a(a11 a11Var, r01... r01VarArr) {
+        InterceptResult invokeLL;
+        t01.a a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, a11Var, r01VarArr)) == null) {
+            synchronized (this) {
+                a = super.a(a11Var, r01VarArr);
+            }
+            return a;
+        }
+        return (t01.a) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized void beginTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                try {
+                    super.beginTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized int delete(String str, b11 b11Var) {
+        InterceptResult invokeLL;
+        int delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, b11Var)) == null) {
+            synchronized (this) {
+                try {
+                    delete = super.delete(str, b11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return delete;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized void endTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                try {
+                    super.endTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized long insert(a11 a11Var) {
+        InterceptResult invokeL;
+        long insert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a11Var)) == null) {
+            synchronized (this) {
+                try {
+                    insert = super.insert(a11Var);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return insert;
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized boolean query(a11 a11Var, b11 b11Var) {
+        InterceptResult invokeLL;
+        boolean query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, a11Var, b11Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(a11Var, b11Var);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return query;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized void setTransactionSuccessful() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                try {
+                    super.setTransactionSuccessful();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized int update(a11 a11Var, r01... r01VarArr) {
+        InterceptResult invokeLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, a11Var, r01VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(a11Var, r01VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized int delete(a11 a11Var, r01... r01VarArr) {
+        InterceptResult invokeLL;
+        int delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, a11Var, r01VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    delete = super.delete(a11Var, r01VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return delete;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized long insert(String str, String[] strArr, Object... objArr) {
+        InterceptResult invokeLLL;
+        long insert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, strArr, objArr)) == null) {
+            synchronized (this) {
+                try {
+                    insert = super.insert(str, strArr, objArr);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return insert;
+        }
+        return invokeLLL.longValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized boolean query(a11 a11Var, r01... r01VarArr) {
+        InterceptResult invokeLL;
+        boolean query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, a11Var, r01VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(a11Var, r01VarArr);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return query;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized int update(Class<? extends a11> cls, b11 b11Var, r01[] r01VarArr, Object... objArr) {
+        InterceptResult invokeLLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, cls, b11Var, r01VarArr, objArr)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(cls, b11Var, r01VarArr, objArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized Cursor query(String str, r01[] r01VarArr, b11 b11Var) {
+        InterceptResult invokeLLL;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, r01VarArr, b11Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(str, r01VarArr, b11Var);
+                } catch (Exception unused) {
+                    return new g11(null);
+                }
+            }
+            return query;
+        }
+        return (Cursor) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized int update(a11 a11Var, b11 b11Var) {
+        InterceptResult invokeLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, a11Var, b11Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(a11Var, b11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.s01, com.baidu.tieba.t01
+    public synchronized Cursor query(f11 f11Var) {
+        InterceptResult invokeL;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, f11Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(f11Var);
+                } catch (Exception unused) {
+                    return new g11(null);
+                }
+            }
+            return query;
+        }
+        return (Cursor) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized int update(String str, ContentValues contentValues, b11 b11Var) {
+        InterceptResult invokeLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, contentValues, b11Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(str, contentValues, b11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.s01
+    public synchronized int update(String str, Column[] columnArr, b11 b11Var) {
+        InterceptResult invokeLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, columnArr, b11Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(str, columnArr, b11Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLL.intValue;
     }
 }

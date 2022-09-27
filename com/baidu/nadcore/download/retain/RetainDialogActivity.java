@@ -5,8 +5,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xj0;
-import com.baidu.tieba.xk0;
+import com.baidu.tieba.kk0;
+import com.baidu.tieba.kl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xk0.c().f();
+            kl0.c().f();
             finish();
         }
     }
@@ -45,7 +45,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     public void B1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            xk0.c().g();
+            kl0.c().g();
             finish();
         }
     }
@@ -54,7 +54,7 @@ public class RetainDialogActivity extends NadDialogActivity {
     public int C1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? xj0.a().b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? kk0.a().b() : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
@@ -117,7 +117,7 @@ public class RetainDialogActivity extends NadDialogActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.c1();
-            if (xk0.c().a()) {
+            if (kl0.c().a()) {
                 finish();
             }
         }

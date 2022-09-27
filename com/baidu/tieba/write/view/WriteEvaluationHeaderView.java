@@ -23,7 +23,7 @@ import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0939, (ViewGroup) this, true);
             this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fc9);
             this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090fcb);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0926c0);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0926c2);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc8);
             this.f = findViewById(R.id.obfuscated_res_0x7f090fca);
             this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090fd5);
@@ -172,7 +172,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         EMTextView eMTextView = this.b;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            uu4 d = uu4.d(this.b);
+            hv4 d = hv4.d(this.b);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0206);
         }

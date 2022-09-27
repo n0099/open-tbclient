@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fh;
+import com.baidu.tieba.ol8;
 import com.baidu.tieba.on;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.w9;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
-import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -249,8 +249,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d4, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a6);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a7);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a8);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a9);
             this.r = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();
@@ -504,13 +504,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.r.setTextColor(zk8.f(this.f.dark.font_color));
+                        this.r.setTextColor(ol8.f(this.f.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.r.setTextColor(zk8.f(this.f.night.font_color));
+                        this.r.setTextColor(ol8.f(this.f.night.font_color));
                         return;
                     } else {
-                        this.r.setTextColor(zk8.f(this.f.day.font_color));
+                        this.r.setTextColor(ol8.f(this.f.day.font_color));
                         return;
                     }
                 }

@@ -1,85 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wl4 {
+public abstract class wl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public ArrayList<am4> c;
-    public String d;
+    public ql4 a;
+    public volatile long b;
+    public volatile boolean c;
+    public int d;
 
-    public wl4() {
+    public wl4(ql4 ql4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ql4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0L;
+        this.c = false;
+        this.d = 0;
+        this.a = ql4Var;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public synchronized void a(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            synchronized (this) {
+                this.b += i;
+            }
+        }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
     }
 
-    public ArrayList<am4> c() {
+    public ql4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ql4) invokeV.objValue;
     }
 
-    public String d() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public void e(String str) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || dj.isEmpty(str)) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public synchronized void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            synchronized (this) {
+                this.c = z;
+            }
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optLong("start_date", 0L) * 1000;
-            this.b = jSONObject.optLong("end_date", 0L) * 1000;
-            this.d = jSONObject.optString("ahead_url", "");
-            this.c = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("time");
-            if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return;
-            }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
-                am4 am4Var = new am4();
-                am4Var.c(optJSONArray2);
-                this.c.add(am4Var);
-            }
-        } catch (Exception e) {
-            BdLog.e(e);
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wv7;
+import com.baidu.tieba.kw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -220,7 +220,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        wv7.a(Math.abs(i - 3));
+                        kw7.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {

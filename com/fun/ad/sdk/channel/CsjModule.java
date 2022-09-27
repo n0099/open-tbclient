@@ -3,10 +3,10 @@ package com.fun.ad.sdk.channel;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.el9;
-import com.baidu.tieba.fl9;
-import com.baidu.tieba.ol9;
-import com.baidu.tieba.pm9;
+import com.baidu.tieba.dm9;
+import com.baidu.tieba.en9;
+import com.baidu.tieba.tl9;
+import com.baidu.tieba.ul9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +101,7 @@ public class CsjModule implements Module {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 TTAdConfig.Builder builder = new TTAdConfig.Builder();
-                builder.data(ol9.b(z));
+                builder.data(dm9.b(z));
                 TTAdSdk.updateAdConfig(builder.build());
             }
         }
@@ -132,22 +132,22 @@ public class CsjModule implements Module {
             }
             if (obj instanceof ModuleConfigCsj) {
                 ModuleConfigCsj moduleConfigCsj = (ModuleConfigCsj) obj;
-                synchronized (fl9.class) {
-                    Handler handler = fl9.a;
+                synchronized (ul9.class) {
+                    Handler handler = ul9.a;
                     Calendar calendar = Calendar.getInstance();
                     int i = calendar.get(6);
                     int i2 = calendar.get(1);
-                    SharedPreferences sharedPreferences = pm9.a;
+                    SharedPreferences sharedPreferences = en9.a;
                     calendar.setTimeInMillis(sharedPreferences.getLong("req_id_update_time", 0L));
                     if (!(i2 == calendar.get(1) && i == calendar.get(6))) {
                         sharedPreferences.edit().clear().apply();
                     }
                     sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
-                    fl9.a.sendEmptyMessageDelayed(101, fl9.a());
+                    ul9.a.sendEmptyMessageDelayed(101, ul9.a());
                 }
-                TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(moduleConfigCsj.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(funAdConfig.logEnabled).directDownloadNetworkType(4, 1).customController(moduleConfigCsj.ttCustomCtr).supportMultiProcess(moduleConfigCsj.ttSupportMultiProcess).data(ol9.b(funAdConfig.runtimeAdConfig.personalRecommendStatus)).build(), new a(this, moduleConfigCsj));
+                TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(moduleConfigCsj.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(funAdConfig.logEnabled).directDownloadNetworkType(4, 1).customController(moduleConfigCsj.ttCustomCtr).supportMultiProcess(moduleConfigCsj.ttSupportMultiProcess).data(dm9.b(funAdConfig.runtimeAdConfig.personalRecommendStatus)).build(), new a(this, moduleConfigCsj));
                 funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new b());
-                return new el9();
+                return new tl9();
             }
             throw new RuntimeException("The csj config need ModuleConfigCsj!");
         }

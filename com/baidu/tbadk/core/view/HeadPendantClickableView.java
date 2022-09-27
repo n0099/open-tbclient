@@ -222,7 +222,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         getHeadView().setUserName(author.getUserName());
         getHeadView().setUrl(author.getAvater());
         if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
-            getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f64), 24, false);
+            getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f68), 24, false);
         } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
             getHeadView().K(author.getAvater(), 10, false);
         } else if (z) {

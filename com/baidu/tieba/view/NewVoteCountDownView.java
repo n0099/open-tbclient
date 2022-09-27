@@ -122,15 +122,15 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a66);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a68);
             this.c = findViewById(R.id.obfuscated_res_0x7f090770);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090e0c);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090e0b);
             this.e = findViewById(R.id.obfuscated_res_0x7f091542);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090771);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0d);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0c);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091543);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09076e);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0b);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090e0a);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091541);
         }
     }

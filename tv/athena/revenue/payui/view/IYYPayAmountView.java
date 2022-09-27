@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import androidx.annotation.Keep;
-import com.baidu.tieba.x3a;
-import com.baidu.tieba.y4a;
+import com.baidu.tieba.m4a;
+import com.baidu.tieba.n5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends y4a {
+public interface IYYPayAmountView extends n5a {
 
     @Keep
     /* loaded from: classes9.dex */
@@ -29,7 +29,7 @@ public interface IYYPayAmountView extends y4a {
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(x3a x3aVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(m4a m4aVar, List<PayWayInfo> list, String str);
     }
 
     @Keep
@@ -74,16 +74,16 @@ public interface IYYPayAmountView extends y4a {
         }
     }
 
-    @Override // com.baidu.tieba.y4a
+    @Override // com.baidu.tieba.n5a
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.baidu.tieba.y4a
+    @Override // com.baidu.tieba.n5a
     /* synthetic */ View getContentView();
 
-    @Override // com.baidu.tieba.y4a
+    @Override // com.baidu.tieba.n5a
     /* synthetic */ void refreshView();
 
-    @Override // com.baidu.tieba.y4a
+    @Override // com.baidu.tieba.n5a
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);

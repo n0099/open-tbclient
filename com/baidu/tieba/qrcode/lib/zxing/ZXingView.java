@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hc8;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
+import com.baidu.tieba.wc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class ZXingView extends QRCodeView {
         }
     }
 
-    @Override // com.baidu.tieba.gc8.a
+    @Override // com.baidu.tieba.vc8.a
     public String a(byte[] bArr, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Result result;
@@ -80,7 +80,7 @@ public class ZXingView extends QRCodeView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MultiFormatReader multiFormatReader = new MultiFormatReader();
             this.j = multiFormatReader;
-            multiFormatReader.setHints(hc8.a);
+            multiFormatReader.setHints(wc8.a);
         }
     }
 

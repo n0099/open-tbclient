@@ -1,43 +1,31 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface e06 {
+public abstract class e06<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        int a(byte[] bArr, int i);
+    public e06(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(byte[] bArr);
-    }
+    public abstract float a(T t);
 
-    View a();
-
-    void b(b bVar);
-
-    void c(int i);
-
-    int d();
-
-    void e();
-
-    Rect f();
-
-    void g();
-
-    void h(int i);
-
-    void i(f06 f06Var);
-
-    void pause();
-
-    void resume();
-
-    void start();
-
-    void stop();
+    public abstract void b(T t, float f);
 }

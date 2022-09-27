@@ -1,6 +1,6 @@
 package rx.internal.util;
 
-import com.baidu.tieba.ix9;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class AlwaysFalse implements ix9<Object, Boolean> {
+    public static final class AlwaysFalse implements xx9<Object, Boolean> {
         public static final /* synthetic */ AlwaysFalse[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysFalse INSTANCE;
@@ -72,7 +72,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ix9
+        @Override // com.baidu.tieba.xx9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class AlwaysTrue implements ix9<Object, Boolean> {
+    public static final class AlwaysTrue implements xx9<Object, Boolean> {
         public static final /* synthetic */ AlwaysTrue[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final AlwaysTrue INSTANCE;
@@ -139,7 +139,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.ix9
+        @Override // com.baidu.tieba.xx9
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public final class UtilityFunctions {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
-    public static final class Identity implements ix9<Object, Object> {
+    public static final class Identity implements xx9<Object, Object> {
         public static final /* synthetic */ Identity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Identity INSTANCE;
@@ -204,7 +204,7 @@ public final class UtilityFunctions {
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Identity[]) $VALUES.clone() : (Identity[]) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ix9
+        @Override // com.baidu.tieba.xx9
         public Object call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -212,15 +212,15 @@ public final class UtilityFunctions {
         }
     }
 
-    public static <T> ix9<? super T, Boolean> a() {
+    public static <T> xx9<? super T, Boolean> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? AlwaysTrue.INSTANCE : (ix9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? AlwaysTrue.INSTANCE : (xx9) invokeV.objValue;
     }
 
-    public static <T> ix9<T, T> b() {
+    public static <T> xx9<T, T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Identity.INSTANCE : (ix9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Identity.INSTANCE : (xx9) invokeV.objValue;
     }
 }

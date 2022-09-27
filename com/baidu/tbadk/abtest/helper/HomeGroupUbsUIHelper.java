@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.ra8;
+import com.baidu.tieba.fb8;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -212,10 +212,10 @@ public final class HomeGroupUbsUIHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, ra8 ra8Var, int i, int i2) {
+    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, fb8 fb8Var, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{layoutParams, Boolean.valueOf(z), ra8Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{layoutParams, Boolean.valueOf(z), fb8Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (layoutParams == null || !UbsABTestHelper.showNewUI()) {
                 return z;
             }
@@ -226,18 +226,18 @@ public final class HomeGroupUbsUIHelper {
             int i3 = (wantWidthNumber * 4) / 3;
             layoutParams.height = i3;
             boolean z2 = (wantWidthNumber == i && i3 == i2) ? false : true;
-            if (ra8Var != null) {
-                ra8Var.changeRenderViewMode(0);
+            if (fb8Var != null) {
+                fb8Var.changeRenderViewMode(0);
             }
             return z2;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isFromHotRankTab(lq4 lq4Var) {
+    public static boolean isFromHotRankTab(yq4 yq4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, lq4Var)) == null) ? (lq4Var == null || lq4Var.getThreadData() == null || !lq4Var.getThreadData().isFromHotRankTab) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, yq4Var)) == null) ? (yq4Var == null || yq4Var.getThreadData() == null || !yq4Var.getThreadData().isFromHotRankTab) ? false : true : invokeL.booleanValue;
     }
 
     public static int[] handleSinglePicSize(MediaData mediaData) {

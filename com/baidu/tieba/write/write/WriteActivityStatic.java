@@ -42,10 +42,11 @@ import com.baidu.tbadk.core.view.spanGroup.UrlParserHttpResponseMessage;
 import com.baidu.tbadk.core.view.spanGroup.UrlParserSocketResponseMessage;
 import com.baidu.tbadk.switchs.NewWritePageSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.ep8;
 import com.baidu.tieba.fb;
-import com.baidu.tieba.g36;
-import com.baidu.tieba.po8;
+import com.baidu.tieba.o19;
+import com.baidu.tieba.sm8;
+import com.baidu.tieba.t36;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.w9;
 import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
@@ -66,7 +67,6 @@ import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResM
 import com.baidu.tieba.write.write.work.guide.WorkVideoGuideActivity;
 import com.baidu.tieba.write.write.work.selecttag.SelectTagActivity;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicHttpResMessage;
-import com.baidu.tieba.z09;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -157,12 +157,12 @@ public class WriteActivityStatic {
                             if (WriteActivityConfig.class == cls || WorkPublishActivityConfig.class == cls || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls || AlbumFloatActivityConfig.class == cls) {
                                 String simpleName = intentConfig.getContext().getClass().getSimpleName();
                                 if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
-                                    po8.k().w(w9.a(intentConfig.getContext()).getUniqueId());
-                                    po8.k().z(false);
+                                    ep8.k().w(w9.a(intentConfig.getContext()).getUniqueId());
+                                    ep8.k().z(false);
                                 }
                             }
                             if (WorkPublishManager.isWorkPublishLocateMyTab()) {
-                                po8.k().w(null);
+                                ep8.k().w(null);
                             }
                         }
                     }
@@ -229,10 +229,10 @@ public class WriteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<g36> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<t36> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001449, new z09()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001449, new o19()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -277,10 +277,10 @@ public class WriteActivityStatic {
         UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new a());
         d();
         e();
-        dm8.h(309450, GetRepostForumSocketResMessage.class, false, false);
-        dm8.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
-        dm8.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
-        dm8.c(309719, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, TbConfig.URL_GET_RECOMMEND_TOPIC, GetRecommendTopicHttpResMessage.class, false, false, true, false);
+        sm8.h(309450, GetRepostForumSocketResMessage.class, false, false);
+        sm8.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        sm8.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
+        sm8.c(309719, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, TbConfig.URL_GET_RECOMMEND_TOPIC, GetRecommendTopicHttpResMessage.class, false, false, true, false);
     }
 
     public WriteActivityStatic() {
@@ -316,8 +316,8 @@ public class WriteActivityStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new d());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            dm8.f(309686, UrlParserSocketResponseMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, dm8.a(TbConfig.URL_URL_PARSER, 309686));
+            sm8.f(309686, UrlParserSocketResponseMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, sm8.a(TbConfig.URL_URL_PARSER, 309686));
             tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

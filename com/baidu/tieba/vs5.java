@@ -1,77 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class vs5 {
     public static /* synthetic */ Interceptable $ic;
-    public static vs5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
 
-    public vs5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static vs5 b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (vs5.class) {
-                    if (b == null) {
-                        b = new vs5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (vs5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? sm2.M().a() : invokeV.booleanValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
+            int i = a() ? 2 : 1;
+            if (defaultNightMode != i) {
+                AppCompatDelegate.setDefaultNightMode(i);
+            }
         }
     }
 
-    public void c() {
+    public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.getCount(this.a) == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
+            intent.putExtra("key_night_mode", z);
+            LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
         }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
     }
 }

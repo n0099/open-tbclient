@@ -1,25 +1,52 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class j85 extends e85 {
+public class j85<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public WeakReference<b<T>> a;
+    public d b;
+    public String c;
+    public j85<T>.c d;
+    public T e;
+    public final ImageUploader f;
+    public int g;
 
-    public j85() {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b<T> {
+        void a(int i, T t);
+    }
+
+    /* loaded from: classes4.dex */
+    public interface d {
+        void a(String str, ImageUploadResult imageUploadResult);
+    }
+
+    public j85(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,48 +56,218 @@ public class j85 extends e85 {
                 return;
             }
         }
-        this.a = "";
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.c = str;
+        this.f = new ImageUploader(str2);
     }
 
-    @Override // com.baidu.tieba.e85
-    public String a() {
+    public T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e85
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.d == null) {
+            j85<T>.c cVar = new c(this, null);
+            this.d = cVar;
+            cVar.e(z);
+            this.d.f(this.g);
+            this.d.execute(new String[0]);
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f.setGroupId(str);
+        }
+    }
+
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.e = t;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.getInstance().getMsgSPicMaxSize();
+            LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
+            k(msgBPicMaxSize.width, msgBPicMaxSize.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
+        }
+    }
+
+    public void k(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            this.f.setServersideResize(i, i2, i3, i4);
+        }
+    }
+
+    public void l(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            this.b = dVar;
+        }
+    }
+
+    public void m(b<T> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.a = new WeakReference<>(bVar);
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements ImageUploader.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public int b;
+        public final /* synthetic */ j85 c;
+
+        public c(j85 j85Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j85Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            u75.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.loadResizedBitmap(this.a, ej.k(TbadkCoreApplication.getInst()), ej.i(TbadkCoreApplication.getInst()));
+            this.c = j85Var;
+            this.a = false;
         }
-        return (Bitmap) invokeLZ.objValue;
-    }
 
-    @Override // com.baidu.tieba.e85
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, ej.k(TbadkCoreApplication.getInst()), ej.i(TbadkCoreApplication.getInst())), true) : (Bitmap) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e85
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        @Override // com.baidu.tbadk.img.ImageUploader.a
+        public void a(String str, Object obj, long j, long j2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, obj, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                if (j2 == 0) {
+                    i = 0;
+                } else {
+                    i = (int) ((((float) j) * 100.0f) / ((float) j2));
+                    if (i > 100) {
+                        i = 90;
+                    }
+                }
+                publishProgress(Integer.valueOf(i));
+            }
         }
-    }
 
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) ? g() : (ImageUploadResult) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                this.c.d = null;
+                if (this.c.b != null) {
+                    if (imageUploadResult == null) {
+                        imageUploadResult = new ImageUploadResult();
+                        imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
+                        imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
+                    }
+                    this.c.b.a(this.c.c, imageUploadResult);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.cancel();
+                this.c.d = null;
+                this.c.f.cancel();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(Integer... numArr) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, numArr) == null) || numArr == null || numArr.length == 0 || this.c.a == null || this.c.a.get() == null) {
+                return;
+            }
+            ((b) this.c.a.get()).a(numArr[0].intValue(), this.c.e);
+        }
+
+        public void e(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+                this.a = z;
+            }
+        }
+
+        public void f(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.b = i;
+            }
+        }
+
+        public final ImageUploadResult g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                this.c.f.setImageUploadProgressCallback(this, null);
+                this.c.f.setWaterMaskType(this.b);
+                ImageUploadResult uploadInBackground = this.c.f.uploadInBackground(this.c.c, this.a);
+                publishProgress(100);
+                return uploadInBackground;
+            }
+            return (ImageUploadResult) invokeV.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                super.onPreCancel();
+                if (this.c.b != null) {
+                    ImageUploadResult imageUploadResult = new ImageUploadResult();
+                    imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
+                    this.c.b.a(this.c.c, imageUploadResult);
+                }
+            }
+        }
+
+        public /* synthetic */ c(j85 j85Var, a aVar) {
+            this(j85Var);
         }
     }
 }

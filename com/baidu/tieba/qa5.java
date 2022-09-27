@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qa5 implements u95<PrePageKeyEvent> {
+public class qa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,19 +28,19 @@ public class qa5 implements u95<PrePageKeyEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u95
-    /* renamed from: a */
-    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
-        InterceptResult invokeL;
+    public void a(Intent intent, ga5 ga5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
-            if (prePageKeyEvent == null || TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, ga5Var) == null) {
+            if (ga5Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) ga5Var);
+            } else if (ga5Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) ga5Var);
+            } else if (ga5Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) ga5Var);
             }
-            TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

@@ -6,11 +6,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.co2;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.sf3;
-import com.baidu.tieba.y23;
-import com.baidu.tieba.zw2;
+import com.baidu.tieba.fg3;
+import com.baidu.tieba.l33;
+import com.baidu.tieba.mx2;
+import com.baidu.tieba.po2;
+import com.baidu.tieba.sm2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SwanPrefetchImageRes implements co2 {
+public class SwanPrefetchImageRes implements po2 {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, List<String>> c;
     public static final List<String> d;
@@ -67,7 +67,7 @@ public class SwanPrefetchImageRes implements co2 {
                 for (String str : this.a) {
                     this.c.f(str);
                 }
-                if (co2.a) {
+                if (po2.a) {
                     Log.d("SwanPerformance", "start prefetch image appKey = " + this.b + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
                 }
             }
@@ -414,7 +414,7 @@ public class SwanPrefetchImageRes implements co2 {
                     add("http://b.hiphotos.baidu.com/baike/whfpf%3D640%2C360%2C0/sign=f5fefd63a8cc7cd9fa7867995f3c170b/3c6d55fbb2fb431634739cf42ba4462308f7d3d4.jpg");
                 }
             });
-            if (co2.a) {
+            if (po2.a) {
                 Log.d("SwanPerformance", "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
             }
         }
@@ -422,9 +422,9 @@ public class SwanPrefetchImageRes implements co2 {
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && zw2.m()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && mx2.m()) {
             if (d.contains(str)) {
-                if (co2.a) {
+                if (po2.a) {
                     Log.d("SwanPerformance", "has prefetch this appKey = " + str);
                     return;
                 }
@@ -432,14 +432,14 @@ public class SwanPrefetchImageRes implements co2 {
             }
             List<String> list = c.get(str);
             if (list != null && !list.isEmpty()) {
-                y23 b0 = y23.b0();
+                l33 b0 = l33.b0();
                 if (b0 != null && !b0.I()) {
                     d.add(str);
-                    sf3.k(new a(this, list, str), "PrefetchImageRes");
-                } else if (co2.a) {
+                    fg3.k(new a(this, list, str), "PrefetchImageRes");
+                } else if (po2.a) {
                     Log.d("SwanPerformance", "app is occupied");
                 }
-            } else if (co2.a) {
+            } else if (po2.a) {
                 Log.d("SwanPerformance", "can't find res, appKey = " + str);
             }
         }
@@ -455,7 +455,7 @@ public class SwanPrefetchImageRes implements co2 {
     public final void f(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            BdNet bdNet = new BdNet(fm2.c());
+            BdNet bdNet = new BdNet(sm2.c());
             bdNet.setEventListener(new INetListener(this) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -520,7 +520,7 @@ public class SwanPrefetchImageRes implements co2 {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetResponseCode(BdNet bdNet2, BdNetTask bdNetTask, int i) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i) == null) && co2.a) {
+                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i) == null) && po2.a) {
                         Log.d("SwanPerformance", "response code = " + i);
                     }
                 }
@@ -542,7 +542,7 @@ public class SwanPrefetchImageRes implements co2 {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetTaskStart(BdNet bdNet2, BdNetTask bdNetTask) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && co2.a) {
+                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && po2.a) {
                         Log.d("SwanPerformance", "start prefetch image = " + bdNetTask.getUrl());
                     }
                 }

@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jb1;
-import com.baidu.tieba.sa1;
+import com.baidu.tieba.fb1;
+import com.baidu.tieba.wb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                jb1.c++;
+                wb1.c++;
                 if (this.b.f != null) {
                     this.b.f.a(this.a);
                 }
@@ -175,10 +175,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913fe);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091400);
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913ff);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fe);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092400);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f41);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091a17);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091a19);
             setOnClickListener(this);
         }
     }
@@ -271,13 +271,13 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            sa1.b().a(this.a, icon);
+            fb1.b().a(this.a, icon);
             this.b.setText(displayName);
             if (isSelected == 1) {
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081268);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08126c);
                 this.m = false;
             }
             if (1 == enable) {

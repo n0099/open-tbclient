@@ -73,7 +73,7 @@ public final class l extends d implements View.OnClickListener {
     public final void a(l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c16));
+            KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c18));
             String title = cVar.getTitle();
             if (this.eQ != null && title != null) {
                 SpannableString spannableString = new SpannableString(title);

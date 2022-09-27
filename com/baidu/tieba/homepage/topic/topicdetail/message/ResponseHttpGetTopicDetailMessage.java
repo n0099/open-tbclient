@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.m47;
+import com.baidu.tieba.a57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.NewHottopic.NewHottopicResIdl;
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m47 mTopicDetailData;
+    public a57 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicDetailMessage() {
@@ -35,10 +35,10 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public m47 getTopicDetailData() {
+    public a57 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDetailData : (m47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDetailData : (a57) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,8 +54,8 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
         if (getError() != 0 || newHottopicResIdl.data == null) {
             return;
         }
-        m47 m47Var = new m47();
-        this.mTopicDetailData = m47Var;
-        m47Var.b(newHottopicResIdl.data);
+        a57 a57Var = new a57();
+        this.mTopicDetailData = a57Var;
+        a57Var.b(newHottopicResIdl.data);
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.k36;
+import com.baidu.tieba.x36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public k36 b;
+    public x36 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,12 +150,12 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        k36 k36Var;
+        x36 x36Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (k36Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (x36Var = this.b) == null) {
             return;
         }
-        k36Var.N();
+        x36Var.N();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
@@ -164,9 +164,9 @@ public class WriteTipBubbleController {
             return;
         }
         if (this.b == null) {
-            k36 k36Var = new k36(this.a, view2);
-            this.b = k36Var;
-            k36Var.q0(R.drawable.pic_post_findlink);
+            x36 x36Var = new x36(this.a, view2);
+            this.b = x36Var;
+            x36Var.q0(R.drawable.pic_post_findlink);
             this.b.a0(2);
             this.b.W(true);
             this.b.p0(19);

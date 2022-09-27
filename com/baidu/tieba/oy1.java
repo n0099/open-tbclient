@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.widget.FrameLayout;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.apps.commonsync.CommonSyncServerData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,23 +14,88 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class oy1 implements qy1 {
+public class oy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    @Nullable
-    public et2 h;
-    public String i;
+
+    /* loaded from: classes5.dex */
+    public static class a extends ResponseCallback<CommonSyncServerData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qy1 a;
+
+        public a(qy1 qy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qy1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qy1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
+            qy1 qy1Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) || (qy1Var = this.a) == null) {
+                return;
+            }
+            qy1Var.a(commonSyncServerData);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    String string = response.body().string();
+                    if (TextUtils.isEmpty(string)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(string);
+                    int optInt = jSONObject.optInt("errno");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == oy1.b && optJSONObject != null) {
+                        return CommonSyncServerData.parseFromJson(optJSONObject);
+                    }
+                }
+                return null;
+            }
+            return (CommonSyncServerData) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            qy1 qy1Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (qy1Var = this.a) == null) {
+                return;
+            }
+            qy1Var.onFail();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,235 +110,56 @@ public abstract class oy1 implements qy1 {
                 return;
             }
         }
-        boolean z = ij1.a;
+        a = vj1.a;
+        b = 0;
     }
 
-    public oy1(@NonNull String str, @NonNull String str2) {
+    public static void b(qy1 qy1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65538, null, qy1Var) == null) {
+            if (!SwanAppNetworkUtils.h()) {
+                if (qy1Var != null) {
+                    qy1Var.onFail();
+                    return;
+                }
                 return;
             }
-        }
-        this.a = "unknown";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.i = "id";
-        if (!TextUtils.isEmpty(str)) {
-            this.a = str;
-        } else {
-            rz1.a("Component-Model-Base", "component type is empty");
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            this.i = str2;
-        } else {
-            rz1.a("Component-Model-Base", "component id key is empty");
+            pa4.g().getRequest().cookieManager(sm2.q().a()).url(sm2.m().processUrl(py1.a())).build().executeAsync(new a(qy1Var));
         }
     }
 
-    @Override // com.baidu.tieba.xs2
-    @CallSuper
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static RequestBody c(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        if (!TextUtils.equals(this.i, "ARCameraId")) {
-            String optString = jSONObject.optString("componentId");
-            this.b = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.b = jSONObject.optString(this.i);
-            }
-        } else {
-            String optString2 = jSONObject.optString(this.i);
-            this.b = optString2;
-            if (TextUtils.isEmpty(optString2)) {
-                this.b = jSONObject.optString("componentId");
-            }
-        }
-        if (TextUtils.isEmpty(this.b)) {
-            yz1.c("Component-Model-Base", this.a + " component componentId is empty");
-        }
-        String optString3 = jSONObject.optString("slaveId");
-        this.c = optString3;
-        if (TextUtils.isEmpty(optString3)) {
-            yz1.c("Component-Model-Base", this.a + " component slaveId is empty");
-        }
-        this.d = jSONObject.optString("parentId");
-        this.e = jSONObject.optString("cb");
-        this.f = jSONObject.optBoolean("hide", false);
-        this.g = TextUtils.equals(jSONObject.optString("gesture"), "1");
-        f(jSONObject);
-    }
-
-    public final FrameLayout.LayoutParams b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            et2 et2Var = this.h;
-            int f = et2Var != null ? et2Var.f() : -1;
-            et2 et2Var2 = this.h;
-            int c = et2Var2 != null ? et2Var2.c() : -1;
-            et2 et2Var3 = this.h;
-            int d = et2Var3 != null ? et2Var3.d() : 0;
-            et2 et2Var4 = this.h;
-            int e = et2Var4 != null ? et2Var4.e() : 0;
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, c);
-            layoutParams.setMargins(d, e, 0, 0);
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeV.objValue;
-    }
-
-    public final float c(JSONObject jSONObject, String str, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
-    }
-
-    @CallSuper
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            oy1 oy1Var = (oy1) super.clone();
-            et2 et2Var = this.h;
-            if (et2Var != null) {
-                oy1Var.h = (et2) et2Var.clone();
-            } else {
-                oy1Var.h = null;
-            }
-            return oy1Var;
-        }
-        return invokeV.objValue;
-    }
-
-    @NonNull
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("【");
-            sb.append(this.a);
-            sb.append("#");
-            sb.append(TextUtils.isEmpty(this.b) ? "" : this.b);
-            sb.append("】");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void e(JSONObject jSONObject, @NonNull oy1 oy1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, oy1Var) == null) || jSONObject == null) {
-            return;
-        }
-        if (!TextUtils.equals(this.i, "ARCameraId")) {
-            String optString = jSONObject.optString("componentId");
-            this.b = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.b = jSONObject.optString(this.i, oy1Var.b);
-            }
-        } else {
-            String optString2 = jSONObject.optString(this.i);
-            this.b = optString2;
-            if (TextUtils.isEmpty(optString2)) {
-                this.b = jSONObject.optString("componentId", oy1Var.b);
-            }
-        }
-        if (TextUtils.isEmpty(this.b)) {
-            yz1.c("Component-Model-Base", this.a + " component componentId is empty");
-        }
-        String optString3 = jSONObject.optString("slaveId", oy1Var.c);
-        this.c = optString3;
-        if (TextUtils.isEmpty(optString3)) {
-            yz1.c("Component-Model-Base", this.a + " component slaveId is empty");
-        }
-        this.d = jSONObject.optString("parentId", oy1Var.d);
-        this.e = jSONObject.optString("cb", oy1Var.e);
-        this.f = jSONObject.optBoolean("hide", oy1Var.f);
-        this.g = TextUtils.equals(jSONObject.optString("gesture", oy1Var.g ? "1" : "0"), "1");
-        et2 et2Var = oy1Var.h;
-        this.h = et2Var;
-        if (et2Var == null) {
-            this.h = new et2();
-        }
-        f(jSONObject);
-    }
-
-    public final void f(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject(CriusAttrConstants.POSITION)) == null) {
-            return;
-        }
-        et2 et2Var = new et2();
-        this.h = et2Var;
-        et2Var.l(pg3.g(c(optJSONObject, "left", 0.0f)));
-        this.h.m(pg3.g(c(optJSONObject, "top", 0.0f)));
-        this.h.n(pg3.g(c(optJSONObject, "width", 0.0f)));
-        this.h.j(pg3.g(c(optJSONObject, "height", 0.0f)));
-    }
-
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            if (!TextUtils.equals(this.i, "ARCameraId")) {
-                String optString = jSONObject.optString("componentId");
-                this.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    this.b = jSONObject.optString(this.i, this.b);
-                }
-            } else {
-                String optString2 = jSONObject.optString(this.i);
-                this.b = optString2;
-                if (TextUtils.isEmpty(optString2)) {
-                    this.b = jSONObject.optString("componentId", this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (map != null && map.size() > 0) {
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
-            if (TextUtils.isEmpty(this.b)) {
-                yz1.c("Component-Model-Base", this.a + " component componentId is empty");
-            }
-            String optString3 = jSONObject.optString("slaveId", this.c);
-            this.c = optString3;
-            if (TextUtils.isEmpty(optString3)) {
-                yz1.c("Component-Model-Base", this.a + " component slaveId is empty");
-            }
-            this.d = jSONObject.optString("parentId", this.d);
-            this.e = jSONObject.optString("cb", this.e);
-            this.f = jSONObject.optBoolean("hide", this.f);
-            this.g = TextUtils.equals(jSONObject.optString("gesture", this.g ? "1" : "0"), "1");
-            f(jSONObject);
+            return RequestBody.create(su2.a, jSONObject.toString());
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) pa4.g().postRequest().cookieManager(sm2.q().a())).url(sm2.m().processUrl(py1.b()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 
-    @Override // com.baidu.tieba.xs2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        et2 et2Var;
+    public static void e(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (et2Var = this.h) == null || !et2Var.h()) ? false : true : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "SwanAppBaseComponentModel{componentType='" + this.a + "', componentId='" + this.b + "', slaveId='" + this.c + "', parentId='" + this.d + "', callback='" + this.e + "', hidden=" + this.f + ", gesture=" + this.g + ", position=" + this.h + ", mComponentIdKey='" + this.i + "'}";
+        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) pa4.g().postRequest().cookieManager(sm2.q().a())).url(sm2.m().processUrl(py1.c()))).requestBody(c(map)).build().executeAsync(null);
         }
-        return (String) invokeV.objValue;
     }
 }

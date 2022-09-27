@@ -1,7 +1,6 @@
 package com.bun.miitmdid;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Keep;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,30 +12,58 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+@Keep
 /* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static final c b;
+    @Keep
     public static final c c;
+    @Keep
     public static final c d;
+    @Keep
     public static final c e;
+    @Keep
     public static final c f;
+    @Keep
     public static final c g;
+    @Keep
     public static final c h;
+    @Keep
     public static final c i;
+    @Keep
     public static final c j;
+    @Keep
     public static final c k;
+    @Keep
     public static final c l;
+    @Keep
     public static final c m;
+    @Keep
     public static final c n;
+    @Keep
     public static final c o;
+    @Keep
     public static final c p;
+    @Keep
     public static final c q;
+    @Keep
     public static final c r;
+    @Keep
     public static final c s;
+    @Keep
     public static final c t;
-    public static final /* synthetic */ c[] u;
+    @Keep
+    public static final c u;
+    @Keep
+    public static final c v;
+    @Keep
+    public static final c w;
+    @Keep
+    public static final /* synthetic */ c[] x;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public String a;
 
     static {
@@ -90,7 +117,13 @@ public final class c {
         s = cVar18;
         c cVar19 = new c("COOLPAD", 18, 35, "coolpad");
         t = cVar19;
-        u = new c[]{cVar, cVar2, cVar3, cVar4, cVar5, cVar6, cVar7, cVar8, cVar9, cVar10, cVar11, cVar12, cVar13, cVar14, cVar15, cVar16, cVar17, cVar18, cVar19};
+        c cVar20 = new c("EEBBK", 19, 36, "EEBBK");
+        u = cVar20;
+        c cVar21 = new c("CHUANGLIAN", 20, 37, "ChuangLian");
+        v = cVar21;
+        c cVar22 = new c("CHINATELECOM", 21, 38, "ChinaTelecom");
+        w = cVar22;
+        x = new c[]{cVar, cVar2, cVar3, cVar4, cVar5, cVar6, cVar7, cVar8, cVar9, cVar10, cVar11, cVar12, cVar13, cVar14, cVar15, cVar16, cVar17, cVar18, cVar19, cVar20, cVar21, cVar22};
     }
 
     public c(String str, int i2, int i3, String str2) {
@@ -114,33 +147,12 @@ public final class c {
         this.a = str2;
     }
 
-    public static c a(String str) {
-        InterceptResult invokeL;
-        c[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return b;
-            }
-            for (c cVar : values()) {
-                if (cVar.a.equalsIgnoreCase(str)) {
-                    return cVar;
-                }
-            }
-            return b;
-        }
-        return (c) invokeL.objValue;
-    }
+    @Keep
+    public static native c a(String str);
 
-    public static c valueOf(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (c) Enum.valueOf(c.class, str) : (c) invokeL.objValue;
-    }
+    @Keep
+    public static native c valueOf(String str);
 
-    public static c[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) u.clone() : (c[]) invokeV.objValue;
-    }
+    @Keep
+    public static native c[] values();
 }

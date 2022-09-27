@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.AssetManager;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,21 +9,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class ef0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public File g;
+    public File h;
 
-    public ef0(Context context) {
+    public ef0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,154 +35,179 @@ public class ef0 {
                 return;
             }
         }
-        this.a = context;
+        this.a = "5.1_v2";
+        this.g = null;
     }
 
-    public boolean a(String str, File file) {
-        InterceptResult invokeLL;
+    public static ef0 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
-            boolean b = b(str, file);
-            if (file.isDirectory()) {
-                File file2 = new File(file, ".nomedia");
-                if (!file2.exists()) {
-                    try {
-                        file2.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ef0 ef0Var = new ef0();
+            ef0Var.d = "source";
+            ef0Var.a = "5.1_v2";
+            ef0Var.f = "resource_capture";
+            String a = ef0Var.a("resource_capture");
+            ef0Var.b = a;
+            ef0Var.c = hf0.b(a);
+            ef0Var.g = ef0Var.k();
+            ef0Var.h = ef0Var.d();
+            return ef0Var;
+        }
+        return (ef0) invokeV.objValue;
+    }
+
+    public static ef0 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ef0 ef0Var = new ef0();
+            ef0Var.d = "source";
+            ef0Var.a = "5.1_v2";
+            ef0Var.f = "resource_live";
+            String a = ef0Var.a("resource_live");
+            ef0Var.b = a;
+            ef0Var.c = hf0.b(a);
+            ef0Var.g = ef0Var.k();
+            ef0Var.h = ef0Var.d();
+            return ef0Var;
+        }
+        return (ef0) invokeV.objValue;
+    }
+
+    public static ef0 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ef0 ef0Var = new ef0();
+            ef0Var.d = "so";
+            ef0Var.e = "so1";
+            ef0Var.a = "5.1_v2";
+            String j = ef0Var.j("so1");
+            ef0Var.b = j;
+            ef0Var.c = hf0.b(j);
+            ef0Var.g = ef0Var.k();
+            if (ue0.m()) {
+                xf0.a("DuAr_", "so1 local file path = " + ef0Var.g.getAbsolutePath());
             }
-            return b;
+            ef0Var.h = ef0Var.d();
+            return ef0Var;
         }
-        return invokeLL.booleanValue;
+        return (ef0) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
-        InputStream open;
+    public static ef0 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) != null) {
-            return invokeLL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ef0 ef0Var = new ef0();
+            ef0Var.d = "so";
+            ef0Var.e = "so2";
+            ef0Var.a = "5.1_v2";
+            String j = ef0Var.j("so2");
+            ef0Var.b = j;
+            ef0Var.c = hf0.b(j);
+            ef0Var.g = ef0Var.k();
+            if (ue0.m()) {
+                xf0.a("DuAr_", "So2 local file path = " + ef0Var.g.getAbsolutePath());
+            }
+            ef0Var.h = ef0Var.d();
+            return ef0Var;
         }
-        AssetManager assets = this.a.getAssets();
-        FileOutputStream fileOutputStream = null;
-        try {
-            String[] list = assets.list(str);
-            if (list.length > 0) {
-                if (!file.isDirectory() && file.exists()) {
-                    file.delete();
+        return (ef0) invokeV.objValue;
+    }
+
+    public final String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = TextUtils.equals("resource_live", str) ? "https://pic.rmb.bdstatic.com/baidu-ar-source-live-" : "https://pic.rmb.bdstatic.com/baidu-ar-source-";
+            return str2 + "5.1_v2.zip";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            boolean a = yf0.a(ue0.getContext());
+            if (TextUtils.equals(this.d, "so")) {
+                if (TextUtils.equals(this.e, "so2")) {
+                    return ff0.f().getAbsolutePath();
                 }
-                if (file.isDirectory() && !file.exists()) {
-                    file.mkdirs();
+                return ff0.b(a).getAbsolutePath();
+            }
+            return ff0.d().g().getAbsolutePath();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k() : (File) invokeV.objValue;
+    }
+
+    public File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.h == null) {
+                File c = c();
+                String absolutePath = c != null ? c.getAbsolutePath() : null;
+                if (absolutePath == null) {
+                    return null;
                 }
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        b(str + File.separator + str2, new File(file, str2));
-                    }
+                if (!absolutePath.endsWith(".zip")) {
+                    absolutePath = absolutePath + ".zip";
                 }
-                open = null;
+                if (!absolutePath.endsWith(".loading")) {
+                    absolutePath = absolutePath + ".loading";
+                }
+                this.h = new File(absolutePath);
+            }
+            return this.h;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a + "-" + this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String j(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.equals("so2", str)) {
+                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
             } else {
-                File parentFile = file.getParentFile();
-                if (parentFile != null && !parentFile.exists()) {
-                    parentFile.mkdirs();
-                }
-                if (file.exists()) {
-                    file.delete();
-                }
-                file.createNewFile();
-                open = assets.open(str);
-                try {
-                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = open.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream2.write(bArr, 0, read);
-                        }
-                        fileOutputStream2.flush();
-                        fileOutputStream = fileOutputStream2;
-                    } catch (Exception e) {
-                        e = e;
-                        fileOutputStream = fileOutputStream2;
-                        Exception exc = e;
-                        inputStream = open;
-                        e = exc;
-                        try {
-                            e.printStackTrace();
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
-                                    return false;
-                                }
-                            }
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileOutputStream = fileOutputStream2;
-                        Throwable th3 = th;
-                        inputStream = open;
-                        th = th3;
-                        if (fileOutputStream != null) {
-                        }
-                        if (inputStream != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                } catch (Throwable th4) {
-                    th = th4;
+                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
+                if (yf0.a(ue0.getContext())) {
+                    str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-64bit-";
                 }
             }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                    return true;
-                }
-            }
-            if (open != null) {
-                open.close();
-                return true;
-            }
-            return true;
-        } catch (Exception e6) {
-            e = e6;
-            inputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
-            inputStream = null;
+            return str2 + "5.1_v2.zip";
         }
+        return (String) invokeL.objValue;
+    }
+
+    public File k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.g == null && !TextUtils.isEmpty(this.a)) {
+                this.g = new File(b(), e());
+            }
+            return this.g;
+        }
+        return (File) invokeV.objValue;
     }
 }

@@ -1,65 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lf0 {
+public final class lf0 {
     public static /* synthetic */ Interceptable $ic;
+    public static xe0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i >= 21) {
-                return c(context);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long b;
+        public int c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public boolean j;
+        public boolean k;
+        public boolean l;
+        public int m;
+        public int n;
+        public JSONObject o;
+        public JSONObject p;
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                str = strArr.length > 0 ? strArr[0] : null;
-            } else {
-                str = Build.CPU_ABI;
-            }
-            return str != null && str.contains("arm64");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                Object invoke = ClassLoader.class.getDeclaredMethod("findLibrary", String.class).invoke(context.getClassLoader(), "art");
-                if (invoke != null) {
-                    return ((String) invoke).contains("lib64");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return false;
-            } catch (Exception unused) {
-                return b();
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void a(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.putOpt("sdk_version", Integer.valueOf(ue0.h()));
+                if (jSONObject2.length() > 0) {
+                    jSONObject2.put("debug_info", jSONObject);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            xe0 xe0Var = a;
+            if (xe0Var != null) {
+                xe0Var.report(str, jSONObject2);
+            }
+        }
     }
 }

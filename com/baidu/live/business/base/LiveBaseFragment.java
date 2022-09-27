@@ -17,7 +17,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.gb0;
+import com.baidu.tieba.tb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +155,7 @@ public abstract class LiveBaseFragment extends Fragment {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             this.b = null;
-            gb0.a().e(this);
+            tb0.a().e(this);
         }
     }
 

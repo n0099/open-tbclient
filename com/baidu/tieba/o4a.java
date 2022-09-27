@@ -1,157 +1,142 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes5.dex */
 public class o4a {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static PaysSettingInfo a = null;
+    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
+    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+    public static String e = "https://web.yy.com/yy_wallet/help-faq.html?";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-593461872, "Lcom/baidu/tieba/o4a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-593461872, "Lcom/baidu/tieba/o4a$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PayDialogType.values().length];
-            a = iArr;
-            try {
-                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947983661, "Lcom/baidu/tieba/o4a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947983661, "Lcom/baidu/tieba/o4a;");
         }
     }
 
-    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
-        InterceptResult invokeLIL;
+    public static String a(String str, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) ? b(payDialogType, i, str, false) : (PayFinishInfo) invokeLIL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00a1  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            int i2 = a.a[payDialogType.ordinal()];
-            if (i2 == 1) {
-                payFinishInfo.step = h2a.a;
-                if (TextUtils.isEmpty(str)) {
-                    str2 = "支付金额选择面板";
-                } else {
-                    str2 = "支付金额选择面板," + str;
-                }
-            } else if (i2 == 2) {
-                payFinishInfo.step = h2a.b;
-                if (TextUtils.isEmpty(str)) {
-                    str2 = "支付金额输入面板";
-                } else {
-                    str2 = "支付金额输入面板," + str;
-                }
-            } else {
-                if (i2 == 3) {
-                    if (z) {
-                        payFinishInfo.step = h2a.g;
-                        if (TextUtils.isEmpty(str)) {
-                            str2 = "支付渠道选择面板(快捷)";
-                        } else {
-                            str2 = "支付渠道选择面板(快捷)," + str;
-                        }
-                    } else {
-                        payFinishInfo.step = h2a.c;
-                        if (TextUtils.isEmpty(str)) {
-                            str2 = "支付渠道选择面板";
-                        } else {
-                            str2 = "支付渠道选择面板," + str;
-                        }
-                    }
-                }
-                if (TextUtils.isEmpty(str)) {
-                    str = "";
-                }
-                payFinishInfo.message = str;
-                payFinishInfo.code = i;
-                return payFinishInfo;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
+                return str;
             }
-            str = str2;
-            if (TextUtils.isEmpty(str)) {
+            StringBuilder sb = new StringBuilder(str);
+            sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
+            sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
+            sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
+            sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
+            sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
+            sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
+            sb.append("&sdkVersion=4.3.30-bdpay-fix.2-SNAPSHOT");
+            int i = 0;
+            ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
+            if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100154) {
+                i = 1;
             }
-            payFinishInfo.message = str;
-            payFinishInfo.code = i;
-            return payFinishInfo;
+            sb.append("&theme=" + i);
+            return sb.toString();
         }
-        return (PayFinishInfo) invokeCommon.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static PayFinishInfo c(int i, String str) {
-        InterceptResult invokeIL;
+    public static String b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = h2a.e;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(d, payUIKitConfig);
+            }
+            return d;
         }
-        return (PayFinishInfo) invokeIL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static PayFinishInfo d(int i, String str) {
-        InterceptResult invokeIL;
+    public static String c(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = h2a.d;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(e, payUIKitConfig);
+            }
+            return e;
         }
-        return (PayFinishInfo) invokeIL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static PayFinishInfo e(int i, String str) {
-        InterceptResult invokeIL;
+    public static PaysSettingInfo d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            PayFinishInfo payFinishInfo = new PayFinishInfo();
-            payFinishInfo.step = h2a.f;
-            payFinishInfo.code = i;
-            payFinishInfo.message = str;
-            return payFinishInfo;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (PaysSettingInfo) invokeV.objValue;
+    }
+
+    public static String e(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                return a(c, payUIKitConfig);
+            }
+            return c;
         }
-        return (PayFinishInfo) invokeIL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
+                return b;
+            }
+            return a(b, payUIKitConfig);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            if (z) {
+                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
+                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
+                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+                e = "https://webtest.yy.com/yy_wallet/help-faq.html?";
+                return;
+            }
+            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
+            c = "https://web.yy.com/yy_wallet/wallet.html?";
+            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            e = "https://web.yy.com/yy_wallet/help-faq.html?";
+        }
+    }
+
+    public static void h(PaysSettingInfo paysSettingInfo, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, paysSettingInfo, str) == null) {
+            RLog.info("PaySettingConfig", "setPaysSettingInfo info:" + paysSettingInfo + " from:" + str);
+            a = paysSettingInfo;
+        }
     }
 }

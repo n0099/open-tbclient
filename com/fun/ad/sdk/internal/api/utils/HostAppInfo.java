@@ -13,8 +13,8 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.tieba.ck9;
-import com.baidu.tieba.fk9;
+import com.baidu.tieba.rk9;
+import com.baidu.tieba.uk9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +127,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, ck9.a);
+                        FunOpenIDSdk.getOaid(appContext, rk9.a);
                         if (FunAdSdk.isLogEnabled()) {
                             LogPrinter.d(b.toString(), new Object[0]);
                         }
@@ -365,14 +365,14 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = fk9.c();
+            this.o = uk9.c();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.bk9
+            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.qk9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

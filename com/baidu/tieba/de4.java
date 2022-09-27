@@ -1,124 +1,86 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class de4 extends ee4 {
+public class de4 extends rc4<je4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public int i;
+    @Nullable
+    public gb4 d;
+    @Nullable
+    public gb4 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public de4(String str, int i, String str2, int i2) {
-        super(i2);
+    public de4(gb4 gb4Var, re4 re4Var, @Nullable gb4 gb4Var2, @Nullable gb4 gb4Var3) {
+        super(gb4Var, re4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
+            Object[] objArr = {gb4Var, re4Var, gb4Var2, gb4Var3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((gb4) objArr2[0], (re4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = -1;
-        this.d = str;
-        this.e = str2;
-        this.f = i;
+        this.d = gb4Var2;
+        this.e = gb4Var3;
     }
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.intValue;
-    }
-
+    @Override // com.baidu.tieba.rc4
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updatecore" : (String) invokeV.objValue;
     }
 
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public de4 m(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: v */
+    public boolean f(je4 je4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (de4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, je4Var)) == null) ? je4Var != null : invokeL.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public de4(String str, String str2, String str3, int i) {
-        super(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: w */
+    public fc4 t(je4 je4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, je4Var)) == null) {
+            this.a.E();
+            mg4.e(this.b.a(), je4Var.a);
+            gb4 gb4Var = this.a;
+            if (gb4Var == this.d || gb4Var == this.e) {
+                gb4Var = null;
             }
+            ye4.c(je4Var.b, gb4Var, this.d, this.e);
+            return null;
         }
-        this.i = -1;
-        this.d = str;
-        this.e = str3;
-        try {
-            this.f = Integer.valueOf(str2).intValue();
-        } catch (NumberFormatException unused) {
-            this.f = 0;
-        }
+        return (fc4) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rc4
+    /* renamed from: x */
+    public je4 u(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? sg4.q(jSONObject) : (je4) invokeL.objValue;
     }
 }

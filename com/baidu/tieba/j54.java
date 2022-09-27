@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class j54 {
+public final class j54 extends ux3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i54 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized i54 a() {
-        InterceptResult invokeV;
-        i54 i54Var;
+    public j54(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (j54.class) {
-                if (a == null) {
-                    a = new i54();
-                }
-                i54Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i54Var;
         }
-        return (i54) invokeV.objValue;
+        this.errMsg = str;
     }
 }

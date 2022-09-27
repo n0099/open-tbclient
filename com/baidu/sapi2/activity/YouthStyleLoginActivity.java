@@ -39,7 +39,7 @@ public class YouthStyleLoginActivity extends LoginActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d0509);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091db5);
+            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
             this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f091022);
             this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);

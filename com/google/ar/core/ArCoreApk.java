@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ar9;
-import com.baidu.tieba.br9;
+import com.baidu.tieba.pr9;
+import com.baidu.tieba.qr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -285,7 +285,7 @@ public class ArCoreApk {
     public static ArCoreApk b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? br9.d() : (ArCoreApk) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? qr9.d() : (ArCoreApk) invokeV.objValue;
     }
 
     public abstract Availability a(Context context);
@@ -416,7 +416,7 @@ public class ArCoreApk {
             return invokeV.booleanValue;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, ar9 ar9Var) {
+        public /* synthetic */ Availability(String str, int i, int i2, pr9 pr9Var) {
             this(str, i, i2);
         }
     }

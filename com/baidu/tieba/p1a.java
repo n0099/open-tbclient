@@ -1,267 +1,240 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import java.util.Iterator;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public final class p1a {
+public class p1a {
     public static /* synthetic */ Interceptable $ic;
+    public static final p1a f;
+    public static final l1a g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public PayType b;
-    public long c;
-    public String d;
-    public ProductInfo e;
-    public int f;
-    public int g;
-    public IMiddlePayService.SubscriptType h;
-    public IMiddlePayService.ChargeSource i;
-    public String j;
-    public Map<String, Object> k;
-    public IPayCallback<String> l;
-    public IToken m;
-    public AppCustomExpand n;
-    public String o;
-    public int p;
+    public final AtomicReference<l1a> a;
+    public final AtomicReference<n1a> b;
+    public final AtomicReference<r1a> c;
+    public final AtomicReference<k1a> d;
+    public final AtomicReference<q1a> e;
+
+    /* loaded from: classes5.dex */
+    public static class a extends l1a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends k1a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(p1a p1aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948010569, "Lcom/baidu/tieba/p1a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948010569, "Lcom/baidu/tieba/p1a;");
+                return;
+            }
+        }
+        f = new p1a();
+        g = new a();
+    }
 
     public p1a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = PayType.ALI_PAY;
-        this.d = "";
-        this.h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
-        this.i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
-        this.j = "";
+        this.a = new AtomicReference<>();
+        this.b = new AtomicReference<>();
+        this.c = new AtomicReference<>();
+        this.d = new AtomicReference<>();
+        this.e = new AtomicReference<>();
     }
 
-    public final void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.o = str;
-        }
-    }
-
-    public final void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final AppCustomExpand a() {
+    @Deprecated
+    public static p1a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : (AppCustomExpand) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (p1a) invokeV.objValue;
     }
 
-    public final IPayCallback<String> b() {
-        InterceptResult invokeV;
+    public static Object e(Class<?> cls, Properties properties) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (IPayCallback) invokeV.objValue;
-    }
-
-    public final IMiddlePayService.ChargeSource c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (IMiddlePayService.ChargeSource) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public final Map<String, Object> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : (Map) invokeV.objValue;
-    }
-
-    public final ProductInfo f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ProductInfo productInfo = this.e;
-            if (productInfo == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("info");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
+            Properties properties2 = (Properties) properties.clone();
+            String simpleName = cls.getSimpleName();
+            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
+            if (property == null) {
+                Iterator it = properties2.entrySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Map.Entry entry = (Map.Entry) it.next();
+                    String obj = entry.getKey().toString();
+                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
+                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
+                        String property2 = properties2.getProperty(str);
+                        if (property2 == null) {
+                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
+                        }
+                        property = property2;
+                    }
+                }
             }
-            return productInfo;
-        }
-        return (ProductInfo) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.p : invokeV.intValue;
-    }
-
-    public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            Activity activity = this.a;
-            if (activity == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("activity");
+            if (property != null) {
+                try {
+                    return Class.forName(property).asSubclass(cls).newInstance();
+                } catch (ClassCastException e) {
+                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
+                } catch (ClassNotFoundException e2) {
+                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
+                } catch (IllegalAccessException e3) {
+                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
+                } catch (InstantiationException e4) {
+                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
+                }
             }
-            return activity;
+            return null;
         }
-        return (Activity) invokeV.objValue;
+        return invokeLL.objValue;
     }
 
-    public final PayType h() {
+    public k1a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (PayType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d.get() == null) {
+                Object e = e(k1a.class, System.getProperties());
+                if (e == null) {
+                    this.d.compareAndSet(null, new b(this));
+                } else {
+                    this.d.compareAndSet(null, (k1a) e);
+                }
+            }
+            return this.d.get();
+        }
+        return (k1a) invokeV.objValue;
     }
 
-    public final String i() {
+    public l1a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() == null) {
+                Object e = e(l1a.class, System.getProperties());
+                if (e == null) {
+                    this.a.compareAndSet(null, g);
+                } else {
+                    this.a.compareAndSet(null, (l1a) e);
+                }
+            }
+            return this.a.get();
+        }
+        return (l1a) invokeV.objValue;
     }
 
-    public final IMiddlePayService.SubscriptType j() {
+    public n1a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h : (IMiddlePayService.SubscriptType) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.get() == null) {
+                Object e = e(n1a.class, System.getProperties());
+                if (e == null) {
+                    this.b.compareAndSet(null, o1a.f());
+                } else {
+                    this.b.compareAndSet(null, (n1a) e);
+                }
+            }
+            return this.b.get();
+        }
+        return (n1a) invokeV.objValue;
     }
 
-    public final String k() {
+    public q1a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.e.get() == null) {
+                Object e = e(q1a.class, System.getProperties());
+                if (e == null) {
+                    this.e.compareAndSet(null, q1a.h());
+                } else {
+                    this.e.compareAndSet(null, (q1a) e);
+                }
+            }
+            return this.e.get();
+        }
+        return (q1a) invokeV.objValue;
     }
 
-    public final IToken l() {
+    public r1a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.m : (IToken) invokeV.objValue;
-    }
-
-    public final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.o : (String) invokeV.objValue;
-    }
-
-    public final long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public final int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final void p(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, activity) == null) {
-            this.a = activity;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c.get() == null) {
+                Object e = e(r1a.class, System.getProperties());
+                if (e == null) {
+                    this.c.compareAndSet(null, s1a.e());
+                } else {
+                    this.c.compareAndSet(null, (r1a) e);
+                }
+            }
+            return this.c.get();
         }
-    }
-
-    public final void q(AppCustomExpand appCustomExpand) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, appCustomExpand) == null) {
-            this.n = appCustomExpand;
-        }
-    }
-
-    public final void r(IPayCallback<String> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, iPayCallback) == null) {
-            this.l = iPayCallback;
-        }
-    }
-
-    public final void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public final void t(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, map) == null) {
-            this.k = map;
-        }
-    }
-
-    public final void u(ProductInfo productInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, productInfo) == null) {
-            this.e = productInfo;
-        }
-    }
-
-    public final void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public final void w(PayType payType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, payType) == null) {
-            this.b = payType;
-        }
-    }
-
-    public final void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public final void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public final void z(IToken iToken) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, iToken) == null) {
-            this.m = iToken;
-        }
+        return (r1a) invokeV.objValue;
     }
 }

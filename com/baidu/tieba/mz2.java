@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 public class mz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, ProviderDelegation> a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,51 +32,98 @@ public class mz2 {
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        c(xq1.a());
-        c(fm2.s().d());
+        a = vj1.a;
     }
 
-    public mz2() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            lz2 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
             }
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
         }
     }
 
-    @Nullable
-    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static lz2 b(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) ? a.get(cls.getName()) : (ProviderDelegation) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
+                }
+                return null;
+            }
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (a) {
+                        throw new RuntimeException("Messenger代理类不存在：" + str);
+                    }
+                    return null;
+                }
+                int modifiers = cls.getModifiers();
+                if (lz2.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof lz2)) {
+                        if (a) {
+                            throw new RuntimeException("Messenger代理类不是:" + lz2.class.getName());
+                        }
+                        return null;
+                    }
+                    return (lz2) newInstance;
+                }
+                if (a) {
+                    throw new RuntimeException("Messenger代理类不合法：" + str);
+                }
+                return null;
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (a) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
+                }
+                return null;
+            }
+        }
+        return (lz2) invokeL.objValue;
     }
 
-    @Nullable
-    public static ProviderDelegation b(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void c(int i, String str, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? a.get(str) : (ProviderDelegation) invokeL.objValue;
-    }
-
-    public static void c(@Nullable Map<Class, Object> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) || map == null) {
+        if (!(interceptable == null || interceptable.invokeILL(65539, null, i, str, bundle) == null) || tz2.a(str)) {
             return;
         }
-        for (Class cls : map.keySet()) {
-            if (cls != null) {
-                Object obj = map.get(cls);
-                if (obj instanceof ProviderDelegation) {
-                    a.put(cls.getName(), (ProviderDelegation) obj);
-                }
-            }
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            e03.f(bundle2);
+        } else {
+            e03.e(i, bundle2);
         }
     }
 }

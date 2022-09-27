@@ -1,36 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.http.HttpClientWrap;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class lm4 {
+public class lm4 implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public final Map<String, String> f;
-    public final List<qm4> g;
+    public Context a;
+    public b b;
+    public SensorManager c;
+    public Sensor d;
+    public Vibrator e;
+    public SoundPool f;
+    public int g;
+    public int h;
+    public long i;
+    public boolean j;
+    public MediaPlayer k;
+    public double l;
+    public double m;
 
-    public lm4(String str, String str2, String str3) {
+    /* loaded from: classes4.dex */
+    public class a implements MediaPlayer.OnPreparedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lm4 a;
+
+        public a(lm4 lm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lm4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lm4Var;
+        }
+
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
+                this.a.k.start();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a();
+    }
+
+    public lm4(@NonNull Context context, @Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,69 +93,175 @@ public class lm4 {
                 return;
             }
         }
-        this.f = new LinkedHashMap();
-        this.g = new ArrayList();
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            a();
-            b();
-            c();
+        this.l = 2.5d;
+        this.m = 4.2d;
+        if (context == null) {
             return;
         }
-        this.d = false;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.add(new wm4());
-            this.g.add(new um4());
-            this.g.add(new sm4());
-            this.g.add(new xm4());
-            this.g.add(new vm4());
-            this.g.add(new ym4());
-            this.g.add(new tm4());
+        this.a = context;
+        this.b = bVar;
+        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
+        this.c = sensorManager;
+        if (sensorManager != null) {
+            this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        }
+        this.e = (Vibrator) context.getSystemService("vibrator");
+        SoundPool soundPool = new SoundPool(1, 3, 0);
+        this.f = soundPool;
+        if (soundPool != null) {
+            try {
+                this.g = soundPool.load(context, R.raw.obfuscated_res_0x7f11006e, 1);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
         }
     }
 
-    public final void b() {
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
-            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
-            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
-            this.f.put("@rid", HttpClientWrap.f);
-            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
-            this.f.put("@c", TiebaStatic.Params.QD);
-            this.f.put("@p", "obj_source");
-            this.f.put("@eq", TiebaStatic.Params.EQID);
-            this.f.put("@1p", "obj_param1");
-            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
-            this.f.put("@m", "obj_name");
-            this.f.put("@re", TiebaStatic.Params.REFER);
-            this.f.put("@lo", "obj_locate");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.i > 2000) {
+                this.i = currentTimeMillis;
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public void c() {
+        SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || StringUtils.isNull(this.b)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sensorManager = this.c) == null) {
             return;
         }
-        String valueOf = String.valueOf(this.b.charAt(0));
-        String[] split = this.b.split("@");
-        for (qm4 qm4Var : this.g) {
-            if (valueOf.equals(qm4Var.b())) {
-                String a = qm4Var.a(split, this.f);
-                this.e = a;
-                if (StringUtils.isNull(a)) {
+        sensorManager.unregisterListener(this);
+        this.j = false;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.booleanValue;
+    }
+
+    public final boolean e(float[] fArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fArr)) == null) {
+            double sqrt = Math.sqrt(Math.pow(Math.abs(fArr[0]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[1]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[2]) / 9.8d, 2.0d));
+            if (Build.VERSION.SDK_INT <= 23) {
+                if (sqrt >= this.l && b()) {
+                    return true;
+                }
+            } else if (sqrt >= this.m && b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f() {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sensor = this.d) == null) {
+            return;
+        }
+        this.c.registerListener(this, sensor, 2);
+        this.j = true;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Context context = this.a;
+            if (context == null) {
+                return false;
+            }
+            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+            int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
+            Vibrator vibrator = this.e;
+            if (vibrator == null || !vibrator.hasVibrator() || ringerMode <= 0) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 26) {
+                this.e.vibrate(VibrationEffect.createOneShot(400L, 255));
+                return true;
+            }
+            this.e.vibrate(400L);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (!z && (i = this.h) != 0) {
+                SoundPool soundPool = this.f;
+                if (soundPool != null) {
+                    soundPool.play(i, 1.0f, 1.0f, 0, 0, 1.0f);
                     return;
                 }
-                this.d = true;
                 return;
             }
+            SoundPool soundPool2 = this.f;
+            if (soundPool2 != null) {
+                soundPool2.play(this.g, 1.0f, 1.0f, 0, 0, 1.0f);
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (this.k == null) {
+                this.k = new MediaPlayer();
+            }
+            try {
+                this.k.reset();
+                this.k.setLooping(false);
+                this.k.setDataSource(str);
+                this.k.prepareAsync();
+                this.k.setOnPreparedListener(new a(this));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void j(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.m = d;
+        }
+    }
+
+    public void k(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.l = d;
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, sensor, i) == null) {
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.b) != null) {
+            bVar.a();
         }
     }
 }

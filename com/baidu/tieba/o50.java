@@ -1,30 +1,56 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class o50 {
+public class o50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, n50> a;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, BaseNCodec.PAD_DEFAULT, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, -50, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 126, 85, -98, -93, 117, -30, 94, -49, -53, -45, -55, -76, 78, 117, 71, -32, -29, -30, 104, 120, -121, -9, 54, 4, 26, -98, -73, -9, -67, 94} : (byte[]) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        List<n50> a();
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public o50(a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, BaseNCodec.PAD_DEFAULT, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, -50, 15, 50} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+        for (n50 n50Var : aVar.a()) {
+            this.a.put(n50Var.e(), n50Var);
+        }
     }
 
-    public static byte[] c() {
+    public n50 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (n50) invokeL.objValue;
+    }
+
+    public List<n50> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{-57, 117, 76, 90, 52, -92, 15, 42, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, BaseNCodec.PAD_DEFAULT, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, -50, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 100, 94, -104, -80, 110, -17, 90, -115, -74, -50, -55, -126, 108} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
     }
 }

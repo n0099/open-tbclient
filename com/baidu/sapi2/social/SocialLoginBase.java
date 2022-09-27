@@ -53,7 +53,7 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
                 setContentView(R.layout.obfuscated_res_0x7f0d0508);
             } catch (Throwable unused) {
             }
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c81);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c83);
         }
     }
 }

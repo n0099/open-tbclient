@@ -1,10 +1,29 @@
 package com.baidu.tieba;
 
-import android.widget.ListView;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public interface nc7 {
-    boolean a(ChatMessage... chatMessageArr);
+public class nc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(ListView listView, ChatMessage... chatMessageArr);
+    @NonNull
+    public static ArrayList<MetaData> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921689, k97.class);
+            if (runTask != null && runTask.getData() != null) {
+                return ((k97) runTask.getData()).b();
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
 }

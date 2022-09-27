@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lb1;
-import com.baidu.tieba.ob1;
-import com.baidu.tieba.pc1;
+import com.baidu.tieba.bc1;
+import com.baidu.tieba.cd1;
+import com.baidu.tieba.yb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class PeriodView extends FrameLayout {
     public TextView i;
     public TextView j;
     public PayChannelEntity k;
-    public pc1 l;
+    public cd1 l;
     public InstallmentEntity m;
     public String n;
 
@@ -200,8 +200,8 @@ public class PeriodView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f1, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c79);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0918c7);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c7b);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0918c9);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090621);
             this.h = findViewById;
             findViewById.setOnTouchListener(new a(this));
@@ -209,16 +209,16 @@ public class PeriodView extends FrameLayout {
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090313);
             this.f = findViewById2;
             findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f0918c8);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f0918ca);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f42);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09068a);
-            pc1 pc1Var = new pc1(getContext());
-            this.l = pc1Var;
-            this.g.setAdapter((ListAdapter) pc1Var);
+            cd1 cd1Var = new cd1(getContext());
+            this.l = cd1Var;
+            this.g.setAdapter((ListAdapter) cd1Var);
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            lb1 lb1Var = new lb1("10");
-            lb1Var.a("type", this.n);
-            ob1.e(lb1Var);
+            yb1 yb1Var = new yb1("10");
+            yb1Var.a("type", this.n);
+            bc1.e(yb1Var);
         }
     }
 

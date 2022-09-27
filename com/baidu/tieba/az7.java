@@ -1,60 +1,60 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.app.Activity;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class az7 {
+public class az7 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public View b;
+    public final PbActivity a;
+    public c18 b;
+    public d18 c;
 
-    public az7(BaseFragmentActivity baseFragmentActivity, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public az7(PbActivity pbActivity) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
+            Object[] objArr = {pbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        this.b = view2;
+        this.a = pbActivity;
+        this.b = new c18(pbActivity);
+        d18 d18Var = new d18(pbActivity);
+        this.c = d18Var;
+        PriorityOrganizer.s(this.b, d18Var);
+        setPriority(1);
     }
 
-    public void a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(null);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (getTag() == (currentActivity instanceof BdBaseFragmentActivity ? ((BdBaseFragmentActivity) currentActivity).getUniqueId() : null) && !this.b.w(true)) {
+                this.b.F(true);
+                this.a.d0().v(this.b);
+            }
         }
-    }
-
-    public void b(ex7 ex7Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ex7Var) == null) || this.a == null || this.b == null) {
-            return;
-        }
-        c(ex7Var);
-    }
-
-    public abstract void c(ex7 ex7Var);
-
-    public void d(View view2, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, view2, onClickListener) == null) || view2 == null) {
-            return;
-        }
-        view2.setOnClickListener(onClickListener);
     }
 }
