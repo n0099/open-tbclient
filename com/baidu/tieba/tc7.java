@@ -163,7 +163,7 @@ public class tc7 {
                             if (optInt2 == 1) {
                                 return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f080c), optString, optString2);
                             }
-                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14f6), Integer.valueOf(optInt)) : optString2;
+                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14f7), Integer.valueOf(optInt)) : optString2;
                         }
                         return "";
                     } catch (JSONException e5) {

@@ -636,7 +636,7 @@ public class NewWriteModel extends BdBaseModel {
                     AntiData e = this.a.e();
                     String error_msg = g.getError_msg();
                     if (dj.isEmpty(error_msg)) {
-                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1130);
+                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1131);
                     }
                     kp8Var = new kp8(g.getError_code(), error_msg, e);
                     if (this.g.b != null && this.g.b.isHasImages() && !kp8Var.w()) {
@@ -790,7 +790,7 @@ public class NewWriteModel extends BdBaseModel {
                     }
                     if (StringUtils.isNull(str11)) {
                         videoEasterEggData2 = videoEasterEggData;
-                        str11 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1130);
+                        str11 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1131);
                     } else {
                         videoEasterEggData2 = videoEasterEggData;
                     }

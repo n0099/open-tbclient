@@ -1125,7 +1125,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements li6 {
             this.k.setVisibility(8);
             this.l.setVisibility(0);
             if (getPageContext() != null) {
-                showNetRefreshView(this.l, getPageContext().getString(R.string.obfuscated_res_0x7f0f14f8), null, getPageContext().getString(R.string.obfuscated_res_0x7f0f0fd6), false, this.y);
+                showNetRefreshView(this.l, getPageContext().getString(R.string.obfuscated_res_0x7f0f14f9), null, getPageContext().getString(R.string.obfuscated_res_0x7f0f0fd7), false, this.y);
             }
         }
     }
@@ -1258,16 +1258,16 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements li6 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048605, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07dc, (ViewGroup) null);
             this.i = inflate;
-            this.j = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c6);
-            this.k = (FrameLayout) this.i.findViewById(R.id.obfuscated_res_0x7f09265c);
+            this.j = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c7);
+            this.k = (FrameLayout) this.i.findViewById(R.id.obfuscated_res_0x7f09265d);
             this.l = (FrameLayout) this.i.findViewById(R.id.obfuscated_res_0x7f0916ca);
             if (this.d == null) {
                 this.d = new jo6(getPageContext());
             }
-            this.d.k((NavigationBar) this.i.findViewById(R.id.obfuscated_res_0x7f0925c4), this);
+            this.d.k((NavigationBar) this.i.findViewById(R.id.obfuscated_res_0x7f0925c5), this);
             Y1();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.k.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c4);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c5);
             this.k.setLayoutParams(layoutParams);
             ScrollBridgeWebview scrollBridgeWebview = this.h;
             if (scrollBridgeWebview != null && (parent = scrollBridgeWebview.getParent()) != null && (parent instanceof ViewGroup)) {

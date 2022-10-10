@@ -83,7 +83,7 @@ public class jp4 {
             this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
             this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092535);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092536);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
             this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);

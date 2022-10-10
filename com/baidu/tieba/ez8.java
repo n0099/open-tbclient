@@ -318,8 +318,8 @@ public class ez8 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0765, (ViewGroup) null);
         this.b = inflate;
         this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906f5);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092218);
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092229);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092219);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f09222a);
         this.h = new ArrayList();
         this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0907b4);
         RadioButton radioButton = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090680);

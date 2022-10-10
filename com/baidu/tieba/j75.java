@@ -549,7 +549,7 @@ public class j75 extends l55 implements nm8.g {
                 this.g.S().setVoiceDuringTime(-1);
             }
             if (!this.g.Q()) {
-                this.m.showToast(R.string.obfuscated_res_0x7f0f15f3);
+                this.m.showToast(R.string.obfuscated_res_0x7f0f15f4);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 12).param("obj_type", this.g.S() != null ? this.g.S().getType() : -1).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 return;
             }

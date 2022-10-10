@@ -357,7 +357,7 @@ public class m83 implements mn1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081167);
+                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081168);
                 }
                 SwanAppRoundedImageView swanAppRoundedImageView = this.b;
                 if (swanAppRoundedImageView != null) {
@@ -492,8 +492,8 @@ public class m83 implements mn1 {
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, view2, jSONObject) == null) || context == null || view2 == null || jSONObject == null) {
             return;
         }
-        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924a6);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b6);
+        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924a7);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b7);
         Pair<String, String> o = o(jSONObject);
         if (o != null) {
             ig3.e((String) o.second, new g(this, context, swanAppRoundedImageView));
@@ -740,7 +740,7 @@ public class m83 implements mn1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             boolean z = (TextUtils.isEmpty(this.d.p) || TextUtils.isEmpty(this.d.q)) ? false : true;
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091fc3);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091fc4);
             if (swanAppRoundedImageView != null) {
                 if (z) {
                     i2 = fh3.j(this.d.q, "SwanAppAuthDialog", false);
@@ -750,12 +750,12 @@ public class m83 implements mn1 {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), i2));
                 swanAppRoundedImageView.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a56));
             }
-            ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091fc5)).setText(z ? this.d.p : this.b.Z());
+            ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091fc6)).setText(z ? this.d.p : this.b.Z());
             TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0918d3);
             this.h = textView;
             if (textView != null) {
                 if (u(this.d)) {
-                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f091fc2);
+                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f091fc3);
                     if (findViewById != null) {
                         findViewById.setVisibility(8);
                     }
@@ -806,7 +806,7 @@ public class m83 implements mn1 {
             return;
         }
         if (!u(this.d)) {
-            ji3 ji3Var = new ji3(this.a, R.drawable.obfuscated_res_0x7f081144);
+            ji3 ji3Var = new ji3(this.a, R.drawable.obfuscated_res_0x7f081145);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(ji3Var, 1, 2, 33);
             spannableString.setSpan(new f(this, textView), 0, spannableString.length(), 33);
@@ -863,9 +863,9 @@ public class m83 implements mn1 {
         SpannableString spannableString = new SpannableString(textView2.getText());
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811bd);
-        } else {
             drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811be);
+        } else {
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811bf);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         spannableString.setSpan(new b(this, drawable), 0, 4, 33);
@@ -891,7 +891,7 @@ public class m83 implements mn1 {
         if (!(interceptable == null || interceptable.invokeLL(1048592, this, view2, l83Var) == null) || view2 == null || l83Var == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924bf);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c0);
         StringBuilder sb = new StringBuilder();
         for (String str : l83Var.i) {
             sb.append(str);
@@ -926,12 +926,12 @@ public class m83 implements mn1 {
         if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), view2, textView, l83Var}) == null) || view2 == null || l83Var == null || l83Var.n == null || (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902f2)) == null) {
             return;
         }
-        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f12f1));
+        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f12f2));
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811bd);
-        } else {
             drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811be);
+        } else {
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811bf);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         h hVar = new h(this, drawable);

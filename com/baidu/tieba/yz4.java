@@ -39,19 +39,19 @@ public class yz4 {
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             switch (i) {
                 case 1:
-                    return wj.a(R.string.obfuscated_res_0x7f0f157d);
+                    return wj.a(R.string.obfuscated_res_0x7f0f157e);
                 case 2:
-                    return wj.a(R.string.obfuscated_res_0x7f0f1582);
+                    return wj.a(R.string.obfuscated_res_0x7f0f1583);
                 case 3:
                     return wj.a(R.string.obfuscated_res_0x7f0f0c59);
                 case 4:
-                    return wj.a(R.string.obfuscated_res_0x7f0f1580);
-                case 5:
-                    return wj.a(R.string.obfuscated_res_0x7f0f157e);
-                case 6:
                     return wj.a(R.string.obfuscated_res_0x7f0f1581);
-                case 7:
+                case 5:
                     return wj.a(R.string.obfuscated_res_0x7f0f157f);
+                case 6:
+                    return wj.a(R.string.obfuscated_res_0x7f0f1582);
+                case 7:
+                    return wj.a(R.string.obfuscated_res_0x7f0f1580);
                 default:
                     return "";
             }

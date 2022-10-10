@@ -206,7 +206,7 @@ public class ph6 {
                 nu4Var2.setContentViewSize(1);
                 this.a.setNegativeTextColor(R.color.CAM_X0105);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016f, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092218);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219);
                 this.b = textView;
                 textView.setText(R.string.obfuscated_res_0x7f0f075b);
                 this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09048f);

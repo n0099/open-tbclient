@@ -137,7 +137,7 @@ public class mj7 extends qn<rj7, SearchSuggestRankingViewHolder> {
                 return view2;
             }
             x(searchSuggestRankingViewHolder);
-            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080a67, null);
+            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080a68, null);
             hj7.a(searchSuggestRankingViewHolder.b, rj7Var.f(), rj7Var.a());
             y(rj7Var);
             return view2;

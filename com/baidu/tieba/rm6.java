@@ -655,16 +655,16 @@ public class rm6 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, str) == null) {
             this.g = view2;
             this.y = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09163c);
-            this.w = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c96);
-            this.D = (EditorScrollView) view2.findViewById(R.id.obfuscated_res_0x7f091dd9);
+            this.w = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c97);
+            this.D = (EditorScrollView) view2.findViewById(R.id.obfuscated_res_0x7f091dda);
             this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a55);
             this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090abd);
             this.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a54);
             this.o = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a56);
             this.h = view2.findViewById(R.id.obfuscated_res_0x7f090abc);
             this.u = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f090930);
-            this.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092423);
-            this.q = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092237);
+            this.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092424);
+            this.q = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092238);
             this.i = view2.findViewById(R.id.obfuscated_res_0x7f090aba);
             this.r = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091a66);
             this.v = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091a64);
@@ -680,7 +680,7 @@ public class rm6 implements View.OnClickListener {
             this.y.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06b3));
             EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
             this.z = eMTextView;
-            eMTextView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f154f));
+            eMTextView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1550));
             this.z.setGravity(16);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.gravity = 17;
@@ -689,7 +689,7 @@ public class rm6 implements View.OnClickListener {
             this.y.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.z, this);
             EMTextView eMTextView2 = new EMTextView(this.a.getPageActivity());
             this.A = eMTextView2;
-            eMTextView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f68));
+            eMTextView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f69));
             this.A.setEnabled(false);
             this.A.setGravity(16);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
@@ -741,7 +741,7 @@ public class rm6 implements View.OnClickListener {
                 yu4Var.q(this.a.getString(R.string.obfuscated_res_0x7f0f06b9));
                 this.J = new wu4(this.a, this.K);
                 ArrayList arrayList = new ArrayList();
-                uu4 uu4Var = new uu4(this.a.getString(R.string.obfuscated_res_0x7f0f10a2), this.K);
+                uu4 uu4Var = new uu4(this.a.getString(R.string.obfuscated_res_0x7f0f10a3), this.K);
                 uu4Var.q(R.color.CAM_X0302);
                 uu4Var.m(this.N);
                 arrayList.add(uu4Var);

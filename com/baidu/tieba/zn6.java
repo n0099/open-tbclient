@@ -140,7 +140,7 @@ public class zn6 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d030c, (ViewGroup) null);
             this.c = inflate;
-            this.g = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.g = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c7);
             this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c71);
             BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090c72);
             this.f = bdTypeListView;
@@ -149,7 +149,7 @@ public class zn6 {
             this.i = zx4Var;
             zx4Var.b0(this.a.getUniqueId());
             this.f.setPullRefresh(this.i);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.e.showBottomLine();

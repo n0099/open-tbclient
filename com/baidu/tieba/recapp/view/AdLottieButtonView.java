@@ -69,7 +69,7 @@ public class AdLottieButtonView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(this.c, this);
             this.a = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09145a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09213d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09213e);
         }
     }
 

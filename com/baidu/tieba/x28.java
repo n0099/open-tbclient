@@ -487,7 +487,7 @@ public abstract class x28 extends j38 {
             }
             if (!ListUtils.isEmpty(jv7Var.f())) {
                 iv7 iv7Var = new iv7();
-                iv7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
+                iv7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fde));
                 iv7Var.c(this.a);
                 this.g.add(iv7Var);
                 int i3 = 1;

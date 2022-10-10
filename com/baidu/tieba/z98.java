@@ -129,7 +129,7 @@ public class z98 extends i16<y88> {
         if (interceptable == null || interceptable.invokeL(1048581, this, y88Var) == null) {
             if (y88Var != null && !ListUtils.isEmpty(y88Var.b)) {
                 this.i = y88Var.a;
-                this.k.setText(R.string.obfuscated_res_0x7f0f155e);
+                this.k.setText(R.string.obfuscated_res_0x7f0f155f);
                 this.l.setData(u(y88Var.b));
                 this.m.b(this.n);
                 return;

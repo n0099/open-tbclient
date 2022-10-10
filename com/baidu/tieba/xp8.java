@@ -1223,7 +1223,7 @@ public class xp8 {
     public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(R.id.obfuscated_res_0x7f092015);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(R.id.obfuscated_res_0x7f092016);
             this.b = fragmentTabHost;
             fragmentTabHost.setVisibility(8);
             sp8.b(new n(this), 1);

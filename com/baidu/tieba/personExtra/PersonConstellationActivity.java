@@ -383,12 +383,12 @@ public class PersonConstellationActivity extends BaseActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d070a);
             initData();
             this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091920);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e54)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, (View.OnClickListener) null);
             this.c = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c43);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c44);
             this.b = textView;
             textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
             this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e50));

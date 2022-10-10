@@ -711,10 +711,10 @@ public class EditorInfoContainer extends LinearLayout implements t55 {
             nu4Var.setNegativeButton((String) null, (nu4.e) null);
             nu4Var.setContentViewSize(6);
             CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15fb));
+            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f15fc));
             customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15f9));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15fa));
+            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f15fa));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f15fb));
             customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new b(this, hVar, nu4Var));
             customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new c(this, hVar, nu4Var));
             nu4Var.setContentView(customPrivacyDialogView);
@@ -726,8 +726,8 @@ public class EditorInfoContainer extends LinearLayout implements t55 {
     public final void x(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f53));
-            this.a.getStyleConfig().i(i == 0 ? R.drawable.obfuscated_res_0x7f0809b6 : R.drawable.obfuscated_res_0x7f0809b5, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0f54));
+            this.a.getStyleConfig().i(i == 0 ? R.drawable.obfuscated_res_0x7f0809b7 : R.drawable.obfuscated_res_0x7f0809b6, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.a.getStyleConfig().h(i == 0 ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.a.a = Integer.valueOf(i);
         }
@@ -736,8 +736,8 @@ public class EditorInfoContainer extends LinearLayout implements t55 {
     public final void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f119a));
-            this.c.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f0809b6 : R.drawable.obfuscated_res_0x7f0809b5, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f119b));
+            this.c.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f0809b7 : R.drawable.obfuscated_res_0x7f0809b6, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.c.getStyleConfig().h(z ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.c.a = Boolean.valueOf(z);
         }

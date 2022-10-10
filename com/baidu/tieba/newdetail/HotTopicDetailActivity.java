@@ -122,7 +122,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this).createNormalCfg(2);
-            createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f1374));
+            createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f1375));
             sendMessage(new CustomMessage(2015002, createNormalCfg));
         }
     }

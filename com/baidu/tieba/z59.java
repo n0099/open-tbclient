@@ -885,7 +885,7 @@ public class z59 extends a69 {
             this.K.A(this.C.f().size() > 0);
             this.K.H(this.p);
             if (!this.K.e()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f15f3);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f15f4);
             } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c59);
             } else if (g48.a().b() == 0 && this.p.isShowCustomFigure()) {

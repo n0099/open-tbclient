@@ -197,7 +197,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c1, this);
             this.a = findViewById(R.id.obfuscated_res_0x7f09193b);
             this.b = findViewById(R.id.obfuscated_res_0x7f09193d);
-            this.c = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0924a4);
+            this.c = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0924a5);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09193a);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a2c);
             this.e = imageView;
@@ -211,7 +211,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             this.c.setRadius(ej.f(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f10);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f11);
             h();
         }
     }
@@ -265,7 +265,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             d.z(R.dimen.T_X12);
             d.v(R.color.CAM_X0107);
             d.A(R.string.F_X01);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080964, R.color.CAM_X0111, null);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0111, null);
             hv4.d(this).f(R.color.CAM_X0204);
             hv4.d(this.a).p(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
             hv4 d2 = hv4.d(this.b);

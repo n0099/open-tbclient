@@ -58,10 +58,10 @@ public class e26 extends i16<ThreadData> implements so5 {
         View h = h();
         h.setOnClickListener(this);
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0922d6);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0922d7);
         this.k = headImageView;
         headImageView.setIsRound(true);
-        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f50);
+        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f51);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090591);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090580);
         this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09057b);

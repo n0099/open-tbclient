@@ -71,7 +71,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0378, this);
             setOrientation(1);
             this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c80);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb1);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091eb2);
             this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c7e);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c83);
             this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c82);

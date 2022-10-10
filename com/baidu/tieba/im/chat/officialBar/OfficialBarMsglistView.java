@@ -338,7 +338,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             }
             this.mTool.d(e65Var);
             r75 r75Var = new r75(talkableActivity.getActivity());
-            r75Var.g(R.string.obfuscated_res_0x7f0f112b);
+            r75Var.g(R.string.obfuscated_res_0x7f0f112c);
             this.mTool.d(r75Var);
             if (this.h) {
                 this.mTool.d(new q87(talkableActivity.getActivity()));

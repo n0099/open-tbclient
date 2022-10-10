@@ -207,11 +207,11 @@ public class sf8 extends uf8 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b.setOnClickListener(new a(this));
             this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090099);
-            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f09249f);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f0924b6);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f09248f);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f092326);
-            this.m = (TextView) a(R.id.obfuscated_res_0x7f091bd7);
+            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f0924a0);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f0924b7);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092490);
+            this.l = (TextView) a(R.id.obfuscated_res_0x7f092327);
+            this.m = (TextView) a(R.id.obfuscated_res_0x7f091bd8);
             this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f090708);
         }
     }

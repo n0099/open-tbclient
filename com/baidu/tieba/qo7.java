@@ -42,8 +42,8 @@ public class qo7 {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0862, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c5);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c6);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c6);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c7);
             return this.a;
         }
         return (View) invokeL.objValue;

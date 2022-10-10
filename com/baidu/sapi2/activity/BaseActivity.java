@@ -484,7 +484,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c83)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c84)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -646,7 +646,7 @@ public class BaseActivity extends TitleActivity {
                 Log.e(k, "子activity重写了webview布局");
             }
             this.sapiWebView.setHadMakeBarHide(true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c83);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c84);
             if (this.mTitleLayout == null) {
                 this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
             }
@@ -774,8 +774,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f106d);
-                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f106c);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f106e);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f106d);
                         if (string.equals(str)) {
                             str = string2;
                         }
@@ -1349,7 +1349,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10a1, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f10a2, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");

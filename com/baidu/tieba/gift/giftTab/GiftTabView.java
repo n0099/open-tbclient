@@ -812,8 +812,8 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             }
             for (int i3 = 0; i3 < childCount; i3++) {
                 LinearLayout linearLayout = (LinearLayout) this.t.getChildAt(i3);
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09213d);
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f09211a);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09213e);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f09211b);
                 if (i3 != i2) {
                     SkinManager.setViewTextColor(textView, R.color.gift_tab_textcolor_normal, 1);
                     SkinManager.setBackgroundColor(findViewById, R.color.common_color_10022);
@@ -935,10 +935,10 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             this.g.addTextChangedListener(new l(this, null));
             this.g.setOnClickListener(new d(this));
             this.g.setOnFocusChangeListener(new e(this));
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c1a);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c16);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c18);
-            this.k = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c19);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c1b);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c17);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c19);
+            this.k = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c1a);
             this.h.setOnClickListener(this.Y);
             this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090cad);
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090caa);
@@ -951,7 +951,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c9a);
             this.o = textView3;
             textView3.setOnClickListener(this.W);
-            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092141);
+            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092142);
             this.p = textView4;
             textView4.setOnClickListener(this.Z);
             this.u = this.b.findViewById(R.id.obfuscated_res_0x7f090cb5);
@@ -967,7 +967,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             ListView listView = (ListView) this.b.findViewById(R.id.obfuscated_res_0x7f090cb9);
             this.y = listView;
             listView.setOnItemClickListener(new k(this, null));
-            this.w = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09200d);
+            this.w = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09200e);
             View D = D(false);
             this.v = D;
             D.setVisibility(8);
@@ -1390,7 +1390,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             ov6 ov6Var = arrayList.get(i3);
             if (!TextUtils.isEmpty(ov6Var.b()) && ov6Var.c() != null && ov6Var.c().size() > 0) {
                 LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0382, (ViewGroup) null);
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09213d);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09213e);
                 textView.setText(ov6Var.b());
                 linearLayout.setOnClickListener(new m(this, i3));
                 textView.setSingleLine();

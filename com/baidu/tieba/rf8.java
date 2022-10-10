@@ -265,18 +265,18 @@ public class rf8 extends uf8 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setOnClickListener(new a(this));
             this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090099);
-            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f09249f);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f0924b6);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f09248f);
+            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f0924a0);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f0924b7);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092490);
             this.l = (ApkDownloadView) a(R.id.obfuscated_res_0x7f09082f);
-            this.m = (TextView) a(R.id.obfuscated_res_0x7f091bd7);
+            this.m = (TextView) a(R.id.obfuscated_res_0x7f091bd8);
             this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f090708);
             this.o = (AdAppInfoView) a(R.id.obfuscated_res_0x7f0900b4);
             this.l.setTextColorInitSkin(R.color.CAM_X0101);
             this.l.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             this.l.setTextSize(R.dimen.T_X06);
             this.l.setForegroundSkin(R.color.black_alpha15);
-            this.l.setBackgroundSkin(R.drawable.obfuscated_res_0x7f08127f);
+            this.l.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081280);
             this.l.setRatio(0);
             this.l.c();
         }

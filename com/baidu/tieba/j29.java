@@ -239,7 +239,7 @@ public class j29 extends BaseAdapter {
                         return;
                     }
                     this.c.j.a(this.b, this.a);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f092587 || this.c.j == null || this.a == null) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f092588 || this.c.j == null || this.a == null) {
                 } else {
                     this.c.j.a(this.b, this.a);
                 }
@@ -394,7 +394,7 @@ public class j29 extends BaseAdapter {
                     gVar2.b.setTagPaddingDis(8, 8);
                     gVar2.b.setGifIconSupport(true);
                     gVar2.b.setLongIconSupport(true);
-                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e41);
+                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e42);
                     gVar2.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091269);
                     d29 d29Var = this.d;
                     if (d29Var != null && d29Var.m() != null && this.d.m().isFromQRCode()) {
@@ -490,13 +490,13 @@ public class j29 extends BaseAdapter {
                     f fVar2 = new f(this, null);
                     View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d011b, viewGroup, false);
                     fVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092587);
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092588);
                     fVar2.b = tbImageView;
                     tbImageView.setDefaultResource(0);
                     fVar2.b.setTagPaddingDis(8, 8);
                     fVar2.b.setGifIconSupport(false);
                     fVar2.b.setLongIconSupport(false);
-                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09255c);
+                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09255d);
                     inflate.setTag(fVar2);
                     fVar = fVar2;
                     view2 = inflate;

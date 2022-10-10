@@ -53,7 +53,7 @@ public class ej7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, aj7Var, i)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a6, (ViewGroup) null);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092131);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092132);
             ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090eaa);
             if (aj7Var != null) {
                 int c = aj7Var.c();
@@ -103,11 +103,11 @@ public class ej7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a5, (ViewGroup) null);
             this.c = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09221d);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09221e);
             this.e = findViewById;
             findViewById.setVisibility(0);
-            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e14);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091f5c);
+            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091e15);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091f5d);
             this.d = textView;
             textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08af));
             return this.c;

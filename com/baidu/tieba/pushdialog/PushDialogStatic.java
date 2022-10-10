@@ -212,17 +212,17 @@ public class PushDialogStatic {
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
                             if (nc8.a()) {
                                 eVar = new a(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f6a;
+                                i = R.string.obfuscated_res_0x7f0f0f6b;
                             } else if (nc8.b()) {
                                 eVar = new C0386b(this, tbPageContextSupport);
-                                i = R.string.obfuscated_res_0x7f0f0f6b;
+                                i = R.string.obfuscated_res_0x7f0f0f6c;
                             } else {
                                 eVar = null;
                                 i = 0;
                             }
                             if (eVar != null) {
                                 nu4 nu4Var = new nu4(tbPageContextSupport.getPageContext().getPageActivity());
-                                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0f6c);
+                                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0f6d);
                                 nu4Var.setMessageId(i);
                                 nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f07e5, eVar);
                                 nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0849, new c(this));

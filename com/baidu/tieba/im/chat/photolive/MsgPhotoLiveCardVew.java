@@ -223,7 +223,7 @@ public class MsgPhotoLiveCardVew extends a87 {
             this.M = (TextView) j(R.id.obfuscated_res_0x7f09048e);
             this.N = (TextView) j(R.id.obfuscated_res_0x7f090490);
             this.P = (LinearLayout) j(R.id.obfuscated_res_0x7f0902ea);
-            this.O = (TextView) j(R.id.obfuscated_res_0x7f091bd2);
+            this.O = (TextView) j(R.id.obfuscated_res_0x7f091bd3);
             this.Q = (TextView) j(R.id.obfuscated_res_0x7f0904d2);
             this.I.setOnClickListener(new a(this));
         }
@@ -294,7 +294,7 @@ public class MsgPhotoLiveCardVew extends a87 {
             int i5 = this.H;
             if (i5 == 4) {
                 this.N.setText(a2.g);
-                this.O.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14ee));
+                this.O.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14ef));
             } else if (i5 == 5) {
                 this.N.setText(a2.g);
                 this.Q.setText(R.string.obfuscated_res_0x7f0f0a8a);

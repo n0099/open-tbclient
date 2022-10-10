@@ -161,19 +161,19 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0864, (ViewGroup) this, true);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920e0);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0920e1);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920e1);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0920e2);
             this.e.setDrawCorner(true);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080975);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080976);
             this.e.setRadiusById(R.string.J_X04);
             this.e.setConrers(15);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e3);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0920dd);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920de);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920e4);
-            this.k = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0920e2);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920dc);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920df);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e4);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0920de);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920df);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920e5);
+            this.k = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0920e3);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920dd);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920e0);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
             this.k.setOnClickListener(this);
@@ -219,8 +219,8 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
                 d5.A(R.string.F_X01);
                 d5.v(R.color.CAM_X0109);
             }
-            WebPManager.setPureDrawable(this.l, R.drawable.obfuscated_res_0x7f080976, R.color.CAM_X0110, null);
-            WebPManager.setPureDrawable(this.m, R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0110, null);
+            WebPManager.setPureDrawable(this.l, R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0110, null);
+            WebPManager.setPureDrawable(this.m, R.drawable.obfuscated_res_0x7f080978, R.color.CAM_X0110, null);
         }
     }
 
@@ -318,25 +318,25 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0920e0) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0920e1) {
                 uy4 uy4Var = this.c;
                 if (uy4Var != null) {
                     uy4Var.a("2");
                 }
                 a("2");
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920e2) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920e3) {
                 uy4 uy4Var2 = this.c;
                 if (uy4Var2 != null) {
                     uy4Var2.a("3");
                 }
                 a("3");
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920dc) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920dd) {
                 uy4 uy4Var3 = this.c;
                 if (uy4Var3 != null) {
                     uy4Var3.a("5");
                 }
                 a("5");
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920df) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920e0) {
                 uy4 uy4Var4 = this.c;
                 if (uy4Var4 != null) {
                     uy4Var4.a("4");

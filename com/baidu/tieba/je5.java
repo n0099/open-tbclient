@@ -204,7 +204,7 @@ public class je5 extends BaseAdapter {
                 bVar.b.setBorderColor(this.e);
                 bVar.b.setBorderWidth(this.g);
             }
-            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
             bVar.b.K(this.a.get(i).a(), 10, false);
             view2.setTag(bVar);
             return view2;

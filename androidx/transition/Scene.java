@@ -49,7 +49,7 @@ public class Scene {
     public static Scene getCurrentScene(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) ? (Scene) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092329) : (Scene) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, viewGroup)) == null) ? (Scene) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232a) : (Scene) invokeL.objValue;
     }
 
     @NonNull
@@ -57,10 +57,10 @@ public class Scene {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, i, context)) == null) {
-            SparseArray sparseArray = (SparseArray) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232c);
+            SparseArray sparseArray = (SparseArray) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232d);
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232c, sparseArray);
+                viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232d, sparseArray);
             }
             Scene scene = (Scene) sparseArray.get(i);
             if (scene != null) {
@@ -76,7 +76,7 @@ public class Scene {
     public static void setCurrentScene(@NonNull ViewGroup viewGroup, @Nullable Scene scene) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, viewGroup, scene) == null) {
-            viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092329, scene);
+            viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232a, scene);
         }
     }
 

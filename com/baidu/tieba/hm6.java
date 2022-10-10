@@ -153,7 +153,7 @@ public class hm6 extends qn<lm6, ForumRuleDetailSelfVH> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, forumRuleDetailSelfVH, lm6Var) == null) {
             if (lm6Var.c() != null) {
-                forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+                forumRuleDetailSelfVH.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
                 forumRuleDetailSelfVH.b.K(lm6Var.c().portrait, 12, false);
                 forumRuleDetailSelfVH.c.setText(lm6Var.c().name_show);
                 forumRuleDetailSelfVH.b(lm6Var.c().user_level.intValue());

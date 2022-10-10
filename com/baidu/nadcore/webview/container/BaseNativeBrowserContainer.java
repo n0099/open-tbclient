@@ -650,7 +650,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (this.b) {
                 b0();
             } else {
-                this.e.findViewById(R.id.obfuscated_res_0x7f09224e).setVisibility(8);
+                this.e.findViewById(R.id.obfuscated_res_0x7f09224f).setVisibility(8);
             }
         }
     }
@@ -691,8 +691,8 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         int[] c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.e.findViewById(R.id.obfuscated_res_0x7f09224e).setVisibility(0);
-            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092253);
+            this.e.findViewById(R.id.obfuscated_res_0x7f09224f).setVisibility(0);
+            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092254);
             for (int i : c51.h().b()) {
                 ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);
                 imageView.setImageResource(i);
@@ -700,7 +700,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
                 c51.h().a(imageView, this);
                 linearLayout.addView(imageView);
             }
-            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09225b);
+            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09225c);
             for (int i2 : c51.h().c()) {
                 NadLongPressView nadLongPressView = new NadLongPressView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);
                 nadLongPressView.setImageResource(i2);
@@ -1162,7 +1162,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void u0(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092419)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09241a)) == null) {
             return;
         }
         textView.setText(str);
@@ -1182,8 +1182,8 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, view2) == null) {
             super.x(view2);
-            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c84);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09265b);
+            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c85);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09265c);
         }
     }
 

@@ -229,7 +229,7 @@ public class bj8 {
             this.l = false;
         }
         this.r = this.a + this.c;
-        this.q = "1-" + (this.a - 1) + TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f119f);
+        this.q = "1-" + (this.a - 1) + TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11a0);
         ij8.o = this.G;
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
         if (optJSONArray != null) {
@@ -299,9 +299,9 @@ public class bj8 {
             int i2 = this.o;
             if (i + i2 > 0) {
                 if (i2 > 0) {
-                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11b5, Integer.valueOf(this.o), Integer.valueOf(this.p));
+                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11b6, Integer.valueOf(this.o), Integer.valueOf(this.p));
                 } else {
-                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11af, Integer.valueOf(this.p + this.o));
+                    this.t = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11b0, Integer.valueOf(this.p + this.o));
                 }
                 if (this.B.size() > 0) {
                     this.B.add(0, new aj8(this.r, this.t));
@@ -311,9 +311,9 @@ public class bj8 {
             int i4 = this.m;
             if (i3 + i4 > 0) {
                 if (i4 > 0) {
-                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11b5, Integer.valueOf(this.m), Integer.valueOf(this.n));
+                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11b6, Integer.valueOf(this.m), Integer.valueOf(this.n));
                 } else {
-                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11af, Integer.valueOf(this.n + this.m));
+                    this.s = TbadkApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f11b0, Integer.valueOf(this.n + this.m));
                 }
                 if (this.p + this.o > 0) {
                     if (this.B.size() > this.p + this.o + 1) {

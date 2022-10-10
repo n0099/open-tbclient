@@ -47,14 +47,14 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090720);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925af);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925b0);
             this.b = navigationBar;
             TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e9b));
             this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09267f)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a21));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092680)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a22));
             TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c64));
             this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));

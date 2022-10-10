@@ -239,7 +239,7 @@ public class HotTopicTabView extends FrameLayout implements yx4.g {
             this.e.setNextPage(this.l);
             this.l.f();
             this.l.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.l.E(getResources().getString(R.string.obfuscated_res_0x7f0f0fa1), ej.f(getContext(), R.dimen.tbds158));
+            this.l.E(getResources().getString(R.string.obfuscated_res_0x7f0f0fa2), ej.f(getContext(), R.dimen.tbds158));
         }
     }
 

@@ -67,14 +67,14 @@ public class pl6 extends dh6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) || view2 == null || threadData == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f0924b6 && view2.getId() != R.id.obfuscated_res_0x7f092488) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092194) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f0924b7 && view2.getId() != R.id.obfuscated_res_0x7f092489) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092195) {
                     as6.e(threadData, 5, this.b.mPageId, this.b.n, this.b.t());
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090ee8) {
                     as6.e(threadData, 3, this.b.mPageId, this.b.n, this.b.t());
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     as6.e(threadData, 15, this.b.mPageId, this.b.n, this.b.t());
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98) {
                     as6.e(threadData, 14, this.b.mPageId, this.b.n, this.b.t());
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090ec6) {
                     as6.e(threadData, 12, this.b.mPageId, this.b.n, this.b.t());
@@ -86,9 +86,9 @@ public class pl6 extends dh6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             } else {
                 as6.e(threadData, 2, this.b.mPageId, this.b.n, this.b.t());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6 || view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7 || view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 cs6.k().h(this.b.n, threadData, 2);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                 if (threadData.getTaskInfoStatus() == 2 && threadData.getTaskInfoData() != null) {
                     String d = threadData.getTaskInfoData().d();
                     if (StringUtils.isNull(d)) {

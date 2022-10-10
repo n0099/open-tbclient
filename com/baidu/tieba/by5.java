@@ -190,16 +190,16 @@ public class by5 extends h16<ThreadData> implements g26, so5 {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) relativeLayout.getLayoutParams();
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
         layoutParams.bottomMargin = 0;
-        this.y = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092511);
+        this.y = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092512);
         this.A.setOnClickListener(this);
-        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f092513);
+        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f092514);
         this.C = tbImageView;
         tbImageView.setDefaultResource(R.drawable.pic_frs_studio_photo);
         this.C.setDefaultBgResource(R.color.transparent);
         CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904d0);
         this.v = cardUserInfoLayout;
         cardUserInfoLayout.setUserAfterClickListener(this.W);
-        this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092136);
+        this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092137);
         this.D = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090ad4);
         TbImageView tbImageView2 = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090eae);
         this.E = tbImageView2;
@@ -221,7 +221,7 @@ public class by5 extends h16<ThreadData> implements g26, so5 {
         this.G = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0919ed);
         this.H = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901f6);
         this.J = h.findViewById(R.id.obfuscated_res_0x7f0919ee);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f09210e);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f09210f);
         this.l = threadCommentAndPraiseInfoLayout;
         t(threadCommentAndPraiseInfoLayout);
         this.l.setSelectVisible(false);
@@ -240,7 +240,7 @@ public class by5 extends h16<ThreadData> implements g26, so5 {
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09210f);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f092110);
         this.w = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.w.b.getCommentContainer().setOnClickListener(this);
@@ -251,17 +251,17 @@ public class by5 extends h16<ThreadData> implements g26, so5 {
         this.w.setHideBarName(true);
         this.x = h.findViewById(R.id.obfuscated_res_0x7f090800);
         this.z = (ThreadSkinView) h.findViewById(R.id.obfuscated_res_0x7f090c0d);
-        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f0921a0);
+        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f0921a1);
         this.S = findViewById;
         findViewById.setClickable(true);
         ux5 ux5Var = new ux5(tbPageContext, this.v.getSuffixContainer());
         this.V = ux5Var;
         ux5Var.d(f());
-        this.K = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092110);
+        this.K = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092111);
         this.L = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090a6e);
-        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923a4);
+        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923a5);
         this.N = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f090e9c);
-        this.O = (TbLiveContainer) h.findViewById(R.id.obfuscated_res_0x7f0920db);
+        this.O = (TbLiveContainer) h.findViewById(R.id.obfuscated_res_0x7f0920dc);
     }
 
     public final void M(ThreadData threadData, String str) {
@@ -473,7 +473,7 @@ public class by5 extends h16<ThreadData> implements g26, so5 {
                     layoutParams3.addRule(3, R.id.obfuscated_res_0x7f090a6e);
                 } else {
                     this.L.setVisibility(8);
-                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092511);
+                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092512);
                 }
                 this.K.setLayoutParams(layoutParams3);
                 X(O(1));
@@ -613,7 +613,7 @@ public class by5 extends h16<ThreadData> implements g26, so5 {
             return;
         }
         if (view2 != this.A && view2 != this.l.getCommentContainer() && view2 != this.y && view2 != this.w.b.getCommentContainer() && view2 != this.m.getCommentContainer() && view2 != this.L) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092515) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092516) {
                 if (e() != null) {
                     e().a(view2, this.k);
                 }

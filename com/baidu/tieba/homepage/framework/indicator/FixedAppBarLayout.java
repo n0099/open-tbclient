@@ -359,10 +359,10 @@ public class FixedAppBarLayout extends AppBarLayout {
                 eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0913b0);
                 eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090da1);
                 eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090772);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dfa);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e0e);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e15);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dda);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dfb);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e0f);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091e16);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ddb);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec7);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -439,7 +439,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10d3));
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f10d4));
             if (k()) {
                 this.d = true;
                 this.a.h.setVisibility(0);
@@ -504,7 +504,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setImageBackgroundVisibility(8);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a24, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             hv4 d2 = hv4.d(this.a.g);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
@@ -601,10 +601,10 @@ public class FixedAppBarLayout extends AppBarLayout {
                 if (z2) {
                     i = R.color.CAM_X0105;
                 }
-                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a24, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, getResources().getColor(i), WebPManager.ResourceStateType.NORMAL_PRESS));
                 return;
             }
-            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a24, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 

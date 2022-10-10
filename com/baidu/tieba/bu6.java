@@ -187,8 +187,8 @@ public class bu6 {
         this.d = frsViewData;
         this.c = view2;
         View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d034f, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092215)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216)).setText(R.string.obfuscated_res_0x7f0f145f);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092217)).setText(R.string.obfuscated_res_0x7f0f1460);
         inflate.setOnClickListener(this.h);
         this.b = new PopupWindow(inflate, -2, -2);
         gh.a().removeCallbacks(this.f);

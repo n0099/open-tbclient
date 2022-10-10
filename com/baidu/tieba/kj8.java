@@ -122,7 +122,7 @@ public class kj8 {
             rj8 rj8Var = new rj8(qj8Var);
             this.c = rj8Var;
             this.b = new uj8(this.a, rj8Var);
-            viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f90);
+            viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f91);
             ll8.g().i(this.a.getUniqueId());
             MessageManager.getInstance().runTask(2921668, (Class) null);
             baseFragmentActivity.registerListener(new pj8(this.a, this.c));

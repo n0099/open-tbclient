@@ -29,7 +29,7 @@ public class r55 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809c4;
+        this.d = R.drawable.obfuscated_res_0x7f0809c5;
         this.e = R.drawable.obfuscated_res_0x7f080821;
         this.i = true;
         this.p = new int[]{32};

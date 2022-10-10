@@ -145,7 +145,7 @@ public class b39 implements c39 {
                 return true;
             } else if (str.contains("objc:finish")) {
                 if (S.isAddThread()) {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1130);
+                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1131);
                     PostWriteCallBackData postWriteCallBackData = this.d;
                     String str3 = null;
                     if (postWriteCallBackData != null) {

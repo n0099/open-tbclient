@@ -305,7 +305,7 @@ public class if8 extends hf8 {
                 } else if (this.a.c == null || tm5.a().f() || om8.a((Activity) this.a.c)) {
                     return false;
                 } else {
-                    ej.M((Activity) this.a.c, R.string.obfuscated_res_0x7f0f15f1);
+                    ej.M((Activity) this.a.c, R.string.obfuscated_res_0x7f0f15f2);
                     return false;
                 }
             }
@@ -411,7 +411,7 @@ public class if8 extends hf8 {
         this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0900f1);
         this.o = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0900b3);
         this.p = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903e1);
-        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092502);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092503);
         this.q = imageView;
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), null));
         this.r = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0900d2);
@@ -427,7 +427,7 @@ public class if8 extends hf8 {
         this.v = apkDownloadView;
         apkDownloadView.setTextSize(R.dimen.tbds39);
         this.v.setTextColorInitSkin(R.color.CAM_X0101);
-        this.v.setBackgroundSkin(R.drawable.obfuscated_res_0x7f080f74);
+        this.v.setBackgroundSkin(R.drawable.obfuscated_res_0x7f080f75);
         this.v.c();
         D(this.x);
     }

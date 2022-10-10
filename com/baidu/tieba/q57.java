@@ -73,7 +73,7 @@ public class q57 {
         a aVar = new a(this);
         this.d = aVar;
         aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.agree.pk_desc;
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145e) : pkModule.agree.pk_desc;
         a aVar2 = this.d;
         PkItem pkItem = pkModule.agree;
         aVar2.c = pkItem.last_username;
@@ -84,7 +84,7 @@ public class q57 {
         a aVar3 = new a(this);
         this.e = aVar3;
         aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c) : pkModule.disagree.pk_desc;
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.disagree.pk_desc;
         a aVar4 = this.e;
         PkItem pkItem2 = pkModule.disagree;
         aVar4.c = pkItem2.last_username;
@@ -104,7 +104,7 @@ public class q57 {
         a aVar = new a(this);
         this.d = aVar;
         aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.agree.pk_desc;
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145e) : pkModule.agree.pk_desc;
         a aVar2 = this.d;
         tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
         aVar2.c = pkItem.last_username;
@@ -115,7 +115,7 @@ public class q57 {
         a aVar3 = new a(this);
         this.e = aVar3;
         aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c) : pkModule.disagree.pk_desc;
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.disagree.pk_desc;
         a aVar4 = this.e;
         tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
         aVar4.c = pkItem2.last_username;
@@ -135,7 +135,7 @@ public class q57 {
         a aVar = new a(this);
         this.d = aVar;
         aVar.a = pkModule.agree.pk_num.longValue();
-        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.agree.pk_desc;
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145e) : pkModule.agree.pk_desc;
         a aVar2 = this.d;
         tbclient.PkItem pkItem = pkModule.agree;
         aVar2.c = pkItem.last_username;
@@ -146,7 +146,7 @@ public class q57 {
         a aVar3 = new a(this);
         this.e = aVar3;
         aVar3.a = pkModule.disagree.pk_num.longValue();
-        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145c) : pkModule.disagree.pk_desc;
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145d) : pkModule.disagree.pk_desc;
         a aVar4 = this.e;
         tbclient.PkItem pkItem2 = pkModule.disagree;
         aVar4.c = pkItem2.last_username;

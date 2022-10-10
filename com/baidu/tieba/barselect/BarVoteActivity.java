@@ -203,7 +203,7 @@ public class BarVoteActivity extends BaseActivity {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091c43) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091c44) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tiebac.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
             } else if (view2.getId() == R.id.obfuscated_res_0x7f091842) {
                 h06 h06Var = this.c;

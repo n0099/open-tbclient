@@ -529,10 +529,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
                 this.a.a.G();
                 if (i != 0) {
-                    new ux4().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1127));
+                    new ux4().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1128));
                     return;
                 }
-                new ux4().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1128));
+                new ux4().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1129));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.m));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
@@ -578,7 +578,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 if (this.a.n != null && str.equalsIgnoreCase(this.a.n.b())) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.m));
                 }
-                new ux4().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1128));
+                new ux4().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1129));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
                 this.a.setResult(-1, intent);

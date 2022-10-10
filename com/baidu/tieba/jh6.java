@@ -284,7 +284,7 @@ public class jh6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0890, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092215)).setText(R.string.obfuscated_res_0x7f0f0777);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216)).setText(R.string.obfuscated_res_0x7f0f0777);
                 this.a.a.getPageContext().getLayoutMode().k(inflate);
                 return inflate;
             }
@@ -954,7 +954,7 @@ public class jh6 {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.N == null) {
             View C3 = this.a.C3();
             this.N = (GifView) C3.findViewById(R.id.obfuscated_res_0x7f090ca1);
-            TbImageView tbImageView = (TbImageView) C3.findViewById(R.id.obfuscated_res_0x7f0920eb);
+            TbImageView tbImageView = (TbImageView) C3.findViewById(R.id.obfuscated_res_0x7f0920ec);
             this.O = tbImageView;
             tbImageView.setPageId(this.a.getUniqueId());
             this.N.setLayerType(1, null);
@@ -1118,10 +1118,10 @@ public class jh6 {
                 n1(true);
             }
             if (this.T == null) {
-                this.T = C3.findViewById(R.id.obfuscated_res_0x7f091f7f);
+                this.T = C3.findViewById(R.id.obfuscated_res_0x7f091f80);
             }
             if (this.U == null) {
-                this.U = C3.findViewById(R.id.obfuscated_res_0x7f091f80);
+                this.U = C3.findViewById(R.id.obfuscated_res_0x7f091f81);
             }
             if (this.Q == null) {
                 this.Q = new qa8(this.a.getPageContext(), this.t);
@@ -1408,7 +1408,7 @@ public class jh6 {
         if (interceptable == null || interceptable.invokeL(1048601, this, ju4Var) == null) {
             if (this.m == null) {
                 View C3 = this.a.C3();
-                ViewStub viewStub = (ViewStub) C3.findViewById(R.id.obfuscated_res_0x7f0926ea);
+                ViewStub viewStub = (ViewStub) C3.findViewById(R.id.obfuscated_res_0x7f0926eb);
                 this.m = viewStub;
                 viewStub.setVisibility(0);
                 this.n = (FrameLayout) C3.findViewById(R.id.obfuscated_res_0x7f090c5e);
@@ -1750,7 +1750,7 @@ public class jh6 {
     public final void R() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048617, this) == null) && this.w == null && this.a.getPageContext() != null) {
-            String[] strArr = {this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f138a), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0253)};
+            String[] strArr = {this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f138b), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0253)};
             pu4 pu4Var = new pu4(this.a.getPageContext().getPageActivity());
             this.w = pu4Var;
             pu4Var.l(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d21));
@@ -2151,7 +2151,7 @@ public class jh6 {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080629, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 ImageView imageView = this.g;
                 if (imageView != null) {
-                    imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1a, SkinManager.getColor(R.color.CAM_X0101), null));
+                    imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1b, SkinManager.getColor(R.color.CAM_X0101), null));
                 }
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f08062a, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 this.o0 = 0;
@@ -2161,7 +2161,7 @@ public class jh6 {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080629, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             ImageView imageView2 = this.g;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1a, SkinManager.getColor(R.color.CAM_X0106), null));
+                imageView2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1b, SkinManager.getColor(R.color.CAM_X0106), null));
             }
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f08062a, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.o0 = 1;

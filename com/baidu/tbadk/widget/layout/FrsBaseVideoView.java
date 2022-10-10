@@ -585,8 +585,8 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
             this.j = findViewById(R.id.obfuscated_res_0x7f0902ff);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090301);
             this.g = findViewById(R.id.obfuscated_res_0x7f090300);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09213b);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09213c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09213c);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09213d);
         }
     }
 
@@ -636,7 +636,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundColor(this.g, R.color.common_color_10014);
         if (this.f != null) {
-            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aca), (Drawable) null, (Drawable) null);
+            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080acb), (Drawable) null, (Drawable) null);
         }
         this.l = i;
     }

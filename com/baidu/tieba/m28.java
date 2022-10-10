@@ -96,10 +96,10 @@ public class m28 {
                     int lineCount = layout.getLineCount();
                     RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.e.getLayoutParams();
                     if (this.a.e.getWidth() + layout.getLineWidth(lineCount - 1) > layout.getWidth()) {
-                        layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925d6);
+                        layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925d7);
                         layoutParams.addRule(8, 0);
                     } else {
-                        layoutParams.addRule(8, R.id.obfuscated_res_0x7f0925d6);
+                        layoutParams.addRule(8, R.id.obfuscated_res_0x7f0925d7);
                         layoutParams.addRule(3, 0);
                     }
                     this.a.e.setLayoutParams(layoutParams);
@@ -302,14 +302,14 @@ public class m28 {
             return;
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d6);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925d7);
         this.b = textView;
         textView.setTextSize(0, TbConfig.getContentSize());
         this.b.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
         this.b.getPaint().setFakeBoldText(true);
         this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0918a4);
         this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0918a2);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925d7);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925d8);
         this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091898);
         this.h = (ThreadAgreeAndShareLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09188e);
         this.g = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902c1);

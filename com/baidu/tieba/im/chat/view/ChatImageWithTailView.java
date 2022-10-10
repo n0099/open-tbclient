@@ -120,19 +120,19 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a.setRadiusById(R.string.J_X05);
             this.a.setShowStaticDrawable(false);
             this.a.setLoadCallback(new a(this));
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f07);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f08);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920b8);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.c.setAutoChangeStyle(false);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b6);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b7);
             this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090605);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e1b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092378);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092379);
             hv4 d = hv4.d(this.e);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0205);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080963, R.color.CAM_X0203, null);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080964, R.color.CAM_X0203, null);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0110);
         }
     }

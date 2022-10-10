@@ -311,14 +311,14 @@ public class u78 extends qn<t26, ThreadCardViewHolder<t26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180) {
+            if (id == R.id.obfuscated_res_0x7f092181) {
                 StatisticItem s = t26Var.s("c13543");
                 s.param("obj_type", t26Var.N(t26Var.a));
                 TiebaStatic.log(s);
                 a78.a(view2, t26Var, 2);
             } else if (view2 instanceof TbImageView) {
                 a78.a(view2, t26Var, 3);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092181 || view2.getId() == R.id.obfuscated_res_0x7f092173) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092182 || view2.getId() == R.id.obfuscated_res_0x7f092174) {
                 a78.a(view2, t26Var, 2);
             } else if (id == R.id.obfuscated_res_0x7f090a8f) {
                 a78.a(view2, t26Var, 7);

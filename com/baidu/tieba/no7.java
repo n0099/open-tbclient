@@ -45,8 +45,8 @@ public class no7 {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d085f, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920bd);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920bc);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920be);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920bd);
             return this.a;
         }
         return (View) invokeL.objValue;
@@ -72,7 +72,7 @@ public class no7 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1384), Integer.valueOf(i)));
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1385), Integer.valueOf(i)));
         }
     }
 }

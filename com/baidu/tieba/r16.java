@@ -379,7 +379,7 @@ public class r16 extends h16<w26> implements so5 {
             this.x = cardUserInfoLayout;
             cardUserInfoLayout.setPageContext(this.i);
             this.x.setPageUniqueId(this.j);
-            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092136);
+            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092137);
             this.z = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ad4);
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eae);
             this.A = tbImageView;
@@ -426,9 +426,9 @@ public class r16 extends h16<w26> implements so5 {
             t(this.m);
             this.w.setOnClickListener(this);
             this.L = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a6e);
-            this.M = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            this.M = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a5);
             this.N = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e9c);
-            this.O = (TbLiveContainer) view2.findViewById(R.id.obfuscated_res_0x7f0920db);
+            this.O = (TbLiveContainer) view2.findViewById(R.id.obfuscated_res_0x7f0920dc);
             this.L.setOnClickListener(this);
             this.u = view2.findViewById(R.id.obfuscated_res_0x7f0904d4);
             HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090e95), R.color.transparent);

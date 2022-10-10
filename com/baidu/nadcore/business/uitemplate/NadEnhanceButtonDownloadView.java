@@ -98,7 +98,7 @@ public class NadEnhanceButtonDownloadView extends NadMiniVideoDownloadView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lk0Var)) == null) {
             int i = a.a[lk0Var.c.ordinal()];
             if (i == 1 || i == 5 || i == 6) {
-                return R.drawable.obfuscated_res_0x7f080dc7;
+                return R.drawable.obfuscated_res_0x7f080dc8;
             }
             return -1;
         }

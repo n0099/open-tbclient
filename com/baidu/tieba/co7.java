@@ -15,7 +15,7 @@ public class co7 extends s55 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public co7(TbPageContext<?> tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1389), 17, i);
+        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f138a), 17, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

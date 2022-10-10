@@ -91,7 +91,7 @@ public class v96 {
                 return "";
             }
             String str = TextUtils.isEmpty("") ? user.name_show : "";
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1511) : str;
+            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1512) : str;
         }
         return (String) invokeL.objValue;
     }

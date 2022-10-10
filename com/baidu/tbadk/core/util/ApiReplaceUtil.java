@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.aq4;
 import com.baidu.tieba.qx4;
@@ -166,7 +167,11 @@ public class ApiReplaceUtil {
                 public String provideValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? Settings.Secure.getString(this.val$resolver, this.val$name) : (String) invokeV.objValue;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                        String string = Settings.Secure.getString(this.val$resolver, this.val$name);
+                        return (TextUtils.isEmpty(string) && TextUtils.equals(HttpRequest.ANDROID_ID, this.val$name)) ? Config.NULL_DEVICE_ID : string;
+                    }
+                    return (String) invokeV.objValue;
                 }
             }) : (String) invokeLL.objValue;
         }
@@ -519,7 +524,11 @@ public class ApiReplaceUtil {
             public String provideValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) ? Settings.System.getString(this.val$resolver, this.val$name) : (String) invokeV.objValue;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
+                    String string = Settings.System.getString(this.val$resolver, this.val$name);
+                    return (TextUtils.isEmpty(string) && TextUtils.equals(HttpRequest.ANDROID_ID, this.val$name)) ? Config.NULL_DEVICE_ID : string;
+                }
+                return (String) invokeV.objValue;
             }
         }) : (String) invokeLL.objValue;
     }

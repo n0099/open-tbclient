@@ -118,7 +118,7 @@ public class g32 extends j23 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00dc, viewGroup, false);
-            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f62);
+            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f63);
             p();
             return inflate;
         }

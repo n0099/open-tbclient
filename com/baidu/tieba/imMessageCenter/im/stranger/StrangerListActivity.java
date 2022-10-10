@@ -575,16 +575,16 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
             this.f = z;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f1444;
-                i2 = R.string.obfuscated_res_0x7f0f1246;
-                i3 = R.string.obfuscated_res_0x7f0f14c6;
-            } else {
                 i = R.string.obfuscated_res_0x7f0f1445;
-                i2 = R.string.obfuscated_res_0x7f0f1248;
-                i3 = R.string.obfuscated_res_0x7f0f14c4;
+                i2 = R.string.obfuscated_res_0x7f0f1247;
+                i3 = R.string.obfuscated_res_0x7f0f14c7;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f1446;
+                i2 = R.string.obfuscated_res_0x7f0f1249;
+                i3 = R.string.obfuscated_res_0x7f0f14c5;
             }
             TBAlertConfig.a aVar = new TBAlertConfig.a(i3, z ? TBAlertConfig.OperateBtnStyle.ALERT : TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14c5, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14c6, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
             tBAlertBuilder.t(i);
             tBAlertBuilder.k(i2);
@@ -653,7 +653,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.c);
                 bdTopToast.h(false);
-                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1443));
+                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1444));
                 bdTopToast.i((ViewGroup) findViewById(16908290));
             }
         }
@@ -690,7 +690,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             return;
         }
         if (this.a.o().c()) {
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e52);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e53);
             if (item.isSelected()) {
                 item.setSelected(false);
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08035a, R.color.CAM_X0111, null);

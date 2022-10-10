@@ -197,14 +197,14 @@ public class f19 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0175, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922b2);
                 cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092298);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092299);
                 cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916e3);
                 cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903e1);
-                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922ae);
+                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922af);
                 cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903f2);
-                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922b0);
+                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
                 cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903f6);
                 view2.setTag(cVar);
             } else {
@@ -222,7 +222,7 @@ public class f19 extends BaseAdapter {
                 if (this.a.get(i2).id == -1) {
                     cVar.i.setVisibility(0);
                     cVar.c.setVisibility(8);
-                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080b2d);
+                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080b2e);
                 } else {
                     cVar.i.setVisibility(8);
                     cVar.c.setVisibility(0);
@@ -241,7 +241,7 @@ public class f19 extends BaseAdapter {
                     }
                 }
                 if (this.a.get(i2).isSelect) {
-                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b8);
+                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b9);
                 } else {
                     cVar.a.setBackgroundResource(R.color.transparent);
                 }
@@ -265,7 +265,7 @@ public class f19 extends BaseAdapter {
                     }
                 }
                 if (this.a.get(i3).isSelect) {
-                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b8);
+                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810b9);
                 } else {
                     cVar.b.setBackgroundResource(R.color.transparent);
                 }

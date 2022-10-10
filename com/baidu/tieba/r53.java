@@ -55,7 +55,7 @@ public class r53 extends p53 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.e.d) {
-                    d33 f = d33.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f132b);
+                    d33 f = d33.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f132c);
                     f.l(2);
                     f.G();
                 }

@@ -434,7 +434,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                         this.a.G.setVisibility(0);
                         if (this.a.C.status == 4 || this.a.C.status == 2) {
                             this.a.G.setEnabled(false);
-                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.G, R.drawable.obfuscated_res_0x7f080a16, R.color.white_alpha100, null);
+                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.G, R.drawable.obfuscated_res_0x7f080a17, R.color.white_alpha100, null);
                         } else {
                             this.a.G.setEnabled(true);
                         }
@@ -488,7 +488,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                             this.a.u.setVisibility(0);
                             SkinManager.setImageResource(this.a.v, R.drawable.icon_illegal_off);
                             SkinManager.setViewTextColor(this.a.w, (int) R.color.CAM_X0109);
-                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.G, R.drawable.obfuscated_res_0x7f080a16, R.color.white_alpha100, null);
+                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.G, R.drawable.obfuscated_res_0x7f080a17, R.color.white_alpha100, null);
                             this.a.w.setText(R.string.obfuscated_res_0x7f0f0607);
                             this.a.u.setEnabled(false);
                             return;
@@ -500,7 +500,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                             this.a.u.setVisibility(0);
                             SkinManager.setImageResource(this.a.v, R.drawable.icon_illegal_off);
                             SkinManager.setViewTextColor(this.a.w, (int) R.color.CAM_X0109);
-                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.G, R.drawable.obfuscated_res_0x7f080a16, R.color.white_alpha100, null);
+                            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.G, R.drawable.obfuscated_res_0x7f080a17, R.color.white_alpha100, null);
                             this.a.w.setText(R.string.obfuscated_res_0x7f0f0606);
                             this.a.u.setEnabled(false);
                             return;
@@ -1066,7 +1066,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             this.G = new ImageView(getPageContext().getPageActivity());
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.G, R.drawable.obfuscated_res_0x7f080a16, R.color.white_alpha100, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.G, R.drawable.obfuscated_res_0x7f080a17, R.color.white_alpha100, null);
             this.G.setPadding(0, ej.f(this, R.dimen.obfuscated_res_0x7f0701d5), ej.f(this, R.dimen.obfuscated_res_0x7f07029b), ej.f(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.G.setLayoutParams(layoutParams);
             this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.G, new e(this));
@@ -1106,14 +1106,14 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             findViewById.setOnClickListener(this);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912d3);
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dc);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091c3a);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091c3b);
             this.A = findViewById2;
             findViewById2.setOnClickListener(this);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09178c);
             this.t = findViewById3;
             findViewById3.setOnClickListener(this);
-            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f09262a);
-            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f09263b);
+            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f09262b);
+            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f09263c);
             this.M = new he6(this);
         }
     }
@@ -1277,7 +1277,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                         if (i3 < this.a.size() && i3 >= 0) {
                             a2.setVisibility(0);
                             a2.setTag(null);
-                            a2.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+                            a2.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
                             a2.K(this.a.get(i3).thumbnail, 10, false);
                             a2.invalidate();
                             a2.setOnClickListener(new a(this, i3, a2));

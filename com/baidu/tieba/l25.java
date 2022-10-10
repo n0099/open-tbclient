@@ -345,14 +345,14 @@ public class l25 implements h25 {
                 SkinManager.setBackgroundResource(findViewById2, R.color.CAM_X0208);
                 SkinManager.setBackgroundResource(findViewById3, R.drawable.sign_remind_pic);
                 View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f091284);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092417);
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed9);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f091b1e);
-                TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1c);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092418);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eda);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f091b1f);
+                TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1d);
                 hv4.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f090e09)).f(R.color.CAM_X0208);
                 hv4.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091533)).f(R.color.CAM_X0208);
                 SkinManager.setBackgroundColor(findViewById4, R.color.CAM_X0208);
-                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921ed), R.color.CAM_X0306);
+                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921ee), R.color.CAM_X0306);
                 hv4 d = hv4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X05);
@@ -370,12 +370,12 @@ public class l25 implements h25 {
                 textView2.setText(f.get("view_params_key_desc"));
                 if (tBSpecificationBtn != null) {
                     tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f73));
+                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f74));
                     tBSpecificationBtn.setConfig(new my4());
                 }
                 if (this.a == 3 && tBSpecificationBtn != null) {
                     tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0436));
-                    textView3.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f4e));
+                    textView3.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f4f));
                 }
                 a aVar = new a(this);
                 findViewById.setOnTouchListener(aVar);
@@ -578,7 +578,7 @@ public class l25 implements h25 {
             textView.setGravity(17);
             textView.setTextSize(0, q(R.dimen.tbfontsize42));
             textView.setLineSpacing(q(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
-            textView.setText(activity.getString(R.string.obfuscated_res_0x7f0f11a8));
+            textView.setText(activity.getString(R.string.obfuscated_res_0x7f0f11a9));
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundColor(navigationBarCoverTip, R.color.cp_link_tip_a_alpha95);
             navigationBarCoverTip.m(activity, textView);

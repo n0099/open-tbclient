@@ -146,15 +146,15 @@ public class up7 {
         this.h = false;
         this.j = new b(this);
         this.g = collectTabActivity;
-        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f092015);
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f092016);
         this.b = fragmentTabHost;
         fragmentTabHost.setup(this.g.getSupportFragmentManager());
         this.b.setOnPageChangeListener(this.j);
         this.e = (NavigationBar) this.g.findViewById(R.id.obfuscated_res_0x7f091657);
-        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b68));
-        TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, this.g).findViewById(R.id.obfuscated_res_0x7f091c43);
+        TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, this.g).findViewById(R.id.obfuscated_res_0x7f091c44);
         this.a = textView;
         textView.setText(R.string.obfuscated_res_0x7f0f0534);
         this.a.setOnClickListener(this.g);

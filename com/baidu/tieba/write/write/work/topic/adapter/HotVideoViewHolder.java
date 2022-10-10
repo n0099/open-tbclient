@@ -95,11 +95,11 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092312);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d5);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c3);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092590);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09258f);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092313);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d6);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c4);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092591);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092590);
         this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f96);
     }
 
@@ -134,11 +134,11 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 if (j == p77Var.d().longValue()) {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
                     hv4.d(hotVideoViewHolder.a).v(R.color.CAM_X0304);
-                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a47, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a48, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                 } else {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
                     hv4.d(hotVideoViewHolder.a).v(R.color.CAM_X0105);
-                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a47, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
+                    eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a48, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
                 }
                 eMRichTextAnyIconSpan.d(VideoHotTopicSearchAdapter.h);
                 eMRichTextAnyIconSpan.b(VideoHotTopicSearchAdapter.h);

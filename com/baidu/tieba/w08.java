@@ -49,7 +49,7 @@ public class w08 extends t08 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0212, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0920ff);
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092100);
             return this.f;
         }
         return (View) invokeV.objValue;

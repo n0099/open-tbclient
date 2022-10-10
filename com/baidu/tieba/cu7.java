@@ -90,8 +90,8 @@ public class cu7 extends p9<PayVcodeActivity> {
             this.e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0924eb);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092660);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0924ec);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092661);
             this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0917cd);
             this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0917ce);
             this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0917d0);

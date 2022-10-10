@@ -198,7 +198,7 @@ public class wo3 implements ep1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f125e, R.string.obfuscated_res_0x7f0f1260, R.string.obfuscated_res_0x7f0f1264};
+            int[] iArr = {R.string.obfuscated_res_0x7f0f125f, R.string.obfuscated_res_0x7f0f1261, R.string.obfuscated_res_0x7f0f1265};
             if (ng3.a(context, "android.permission.SET_WALLPAPER")) {
                 return iArr;
             }

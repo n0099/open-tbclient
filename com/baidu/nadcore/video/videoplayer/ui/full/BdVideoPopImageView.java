@@ -100,7 +100,7 @@ public class BdVideoPopImageView extends View {
             this.f.setColor(-1);
             this.f.setTextAlign(Paint.Align.CENTER);
             this.h = new Rect();
-            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2a);
+            this.g = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2b);
         }
     }
 

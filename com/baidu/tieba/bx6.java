@@ -188,11 +188,11 @@ public class bx6 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
     public final void w(View view2, x26 x26Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, x26Var) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                 sw6.b(view2, x26Var, 2);
             } else if (view2 instanceof TbImageView) {
                 sw6.b(view2, x26Var, 3);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092181 || view2.getId() == R.id.obfuscated_res_0x7f092173) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092182 || view2.getId() == R.id.obfuscated_res_0x7f092174) {
                 sw6.b(view2, x26Var, 2);
             }
         }

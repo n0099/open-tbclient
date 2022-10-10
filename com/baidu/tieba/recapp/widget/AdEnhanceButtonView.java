@@ -481,7 +481,7 @@ public class AdEnhanceButtonView extends FrameLayout {
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             this.c.setTextSize(R.dimen.T_X08);
             this.c.setForegroundSkin(R.color.black_alpha15);
-            this.c.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081280);
+            this.c.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081281);
             this.c.setRatio(0);
             this.c.c();
         }

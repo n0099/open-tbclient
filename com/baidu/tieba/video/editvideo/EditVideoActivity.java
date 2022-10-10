@@ -566,7 +566,7 @@ public class EditVideoActivity extends BaseActivity implements iv8, jv8, MaskVid
             this.i = new SelectCoverModel(getPageContext(), this, this.t);
             this.j = new SelectMusicModel(getPageContext(), this);
             this.o = new nv8(this);
-            aw8 aw8Var = new aw8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091c7b), this.t);
+            aw8 aw8Var = new aw8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091c7c), this.t);
             this.h = aw8Var;
             aw8Var.U(this.d);
             this.h.a0(getIntent());

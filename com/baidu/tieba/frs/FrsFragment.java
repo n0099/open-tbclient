@@ -6653,7 +6653,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.j, xp6, Us
     public void showNetRefreshView(View view2, String str, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048728, this, view2, str, z2) == null) {
-            super.showNetRefreshView(view2, getResources().getString(R.string.obfuscated_res_0x7f0f0fd9), null, getResources().getString(R.string.obfuscated_res_0x7f0f0fd8), z2, getNetRefreshListener());
+            super.showNetRefreshView(view2, getResources().getString(R.string.obfuscated_res_0x7f0f0fda), null, getResources().getString(R.string.obfuscated_res_0x7f0f0fd9), z2, getNetRefreshListener());
             this.t.m1(8);
             this.t.g0().f(true);
         }

@@ -323,12 +323,12 @@ public class yq3 {
             AdElementInfo adElementInfo3 = this.b;
             if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1100));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1101));
             }
             AdElementInfo adElementInfo4 = this.b;
             if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1297));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1298));
             }
             if (this.b == null) {
                 this.j.setVisibility(8);

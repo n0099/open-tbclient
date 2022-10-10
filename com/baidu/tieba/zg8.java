@@ -92,7 +92,7 @@ public class zg8 extends p9<MsgRemindActivity> {
                 if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                     this.a.n.showToast(httpResponsedMessage.getErrorString());
                 } else {
-                    this.a.n.showToast(R.string.obfuscated_res_0x7f0f113a);
+                    this.a.n.showToast(R.string.obfuscated_res_0x7f0f113b);
                 }
             }
             this.a.O();
@@ -266,15 +266,15 @@ public class zg8 extends p9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, msgRemindActivity) == null) {
             this.j = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091792);
-            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.k = navigationBar;
-            navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f6e));
+            navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f6f));
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.l = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f090add);
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091be9);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091bea);
             this.a = msgSettingItemView;
-            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0ffd);
-            MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0926f4);
+            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0ffe);
+            MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0926f5);
             this.b = msgSettingItemView2;
             msgSettingItemView2.setVisibility(0);
             this.b.setText(R.string.obfuscated_res_0x7f0f0089);
@@ -284,31 +284,31 @@ public class zg8 extends p9<MsgRemindActivity> {
             MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091687);
             this.d = msgSettingItemView4;
             msgSettingItemView4.setText(R.string.obfuscated_res_0x7f0f0c5d);
-            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ed7);
+            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ed8);
             this.e = msgSettingItemView5;
-            msgSettingItemView5.setText(R.string.obfuscated_res_0x7f0f11a4);
-            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ed5);
-            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ed8);
-            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091eda);
+            msgSettingItemView5.setText(R.string.obfuscated_res_0x7f0f11a5);
+            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ed6);
+            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ed9);
+            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091edb);
             MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0916d1);
             this.i = msgSettingItemView6;
             msgSettingItemView6.setText(R.string.obfuscated_res_0x7f0f0c75);
             this.i.setTipText(R.string.obfuscated_res_0x7f0f0c76);
-            this.s = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0923b0);
-            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092404);
-            this.u = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092384);
+            this.s = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092405);
+            this.u = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092385);
             MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0915c8);
             this.q = msgSettingItemView7;
             msgSettingItemView7.setText(R.string.obfuscated_res_0x7f0f0b5e);
             this.q.setTipText(R.string.obfuscated_res_0x7f0f0b5f);
             MsgSettingItemView msgSettingItemView8 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090fe6);
             this.r = msgSettingItemView8;
-            msgSettingItemView8.setText(R.string.obfuscated_res_0x7f0f0fa6);
+            msgSettingItemView8.setText(R.string.obfuscated_res_0x7f0f0fa7);
             this.r.setOnSwitchStateChangeListener(this.n);
             D();
             MsgSettingItemView msgSettingItemView9 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090fe5);
             this.o = msgSettingItemView9;
-            msgSettingItemView9.setText(R.string.obfuscated_res_0x7f0f0fa5);
+            msgSettingItemView9.setText(R.string.obfuscated_res_0x7f0f0fa6);
             this.o.setOnSwitchStateChangeListener(this.n);
             C();
             MsgSettingItemView msgSettingItemView10 = (MsgSettingItemView) this.n.findViewById(R.id.obfuscated_res_0x7f090fe9);
@@ -375,7 +375,7 @@ public class zg8 extends p9<MsgRemindActivity> {
                 } else {
                     str2 = "0" + k;
                 }
-                this.g.setText(this.n.getString(R.string.obfuscated_res_0x7f0f11a5, new Object[]{str, str2}));
+                this.g.setText(this.n.getString(R.string.obfuscated_res_0x7f0f11a6, new Object[]{str, str2}));
                 this.f.setVisibility(0);
                 if (this.e.b()) {
                     return;
@@ -498,7 +498,7 @@ public class zg8 extends p9<MsgRemindActivity> {
             this.q.c(this.n.getPageContext(), i);
             this.i.c(this.n.getPageContext(), i);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(null, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091ed6), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091ed7), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 

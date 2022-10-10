@@ -243,8 +243,8 @@ public class xv6 extends p9<MyGiftListActivity> {
             aj5Var.c(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
             UtilHelper.setSpan(spannableString, str2, "[icon]", aj5Var);
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(ej.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07032c));
-            UtilHelper.setSpan(spannableString, str2, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14cc), absoluteSizeSpan);
             UtilHelper.setSpan(spannableString, str2, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14cd), absoluteSizeSpan);
+            UtilHelper.setSpan(spannableString, str2, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14ce), absoluteSizeSpan);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;
@@ -319,7 +319,7 @@ public class xv6 extends p9<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d05d0);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091c6c);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.f = findViewById;
             this.e = (BdListView) findViewById.findViewById(R.id.obfuscated_res_0x7f091332);
             NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.obfuscated_res_0x7f091657);
@@ -343,11 +343,11 @@ public class xv6 extends p9<MyGiftListActivity> {
             View inflate2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d2, (ViewGroup) null, false);
             this.g = inflate2;
             inflate2.setVisibility(8);
-            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0925bf);
-            this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092151);
-            this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092157);
-            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092158);
-            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925ba);
+            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0925c0);
+            this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092152);
+            this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092158);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092159);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925bb);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.obfuscated_res_0x7f0f0b72);
                 this.o.setText(R.string.obfuscated_res_0x7f0f07cc);
@@ -355,7 +355,7 @@ public class xv6 extends p9<MyGiftListActivity> {
                 this.p.setText(R.string.obfuscated_res_0x7f0f0b6e);
                 this.o.setText(R.string.obfuscated_res_0x7f0f07c9);
             }
-            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092150);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092151);
             this.o.setOnClickListener(this.z);
             View inflate3 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d1, (ViewGroup) null, false);
             this.i = inflate3;

@@ -127,8 +127,8 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092155);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092154);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092156);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092155);
         this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09170a);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091717);
         this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091709);
@@ -137,9 +137,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091715);
         TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091716);
         this.i = tbImageView;
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091b95);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091b96);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);
         this.c.setOnClickListener(this.n);

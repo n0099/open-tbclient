@@ -644,8 +644,8 @@ public final class mj3 {
             aVar.x(str2);
             aVar.n(new ti3());
             aVar.m(true);
-            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1267), new i(activity));
-            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f1268), null);
+            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1268), new i(activity));
+            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f1269), null);
             aVar.X();
         }
     }

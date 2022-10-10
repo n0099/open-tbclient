@@ -294,7 +294,7 @@ public class r39 extends BaseAdapter {
         imageFileInfo.clearPageActions();
         imageFileInfo.addPageAction(g);
         TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fea);
-        ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fcf)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080e4f));
+        ((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fcf)).setForeground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080e50));
         if (imageFileInfo.getImageType() == 0) {
             on c2 = this.c.c(imageFileInfo, true);
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
@@ -399,7 +399,7 @@ public class r39 extends BaseAdapter {
             if ("FLAG_ADD_ICON".equals(imageFileInfo.getFilePath())) {
                 tbImageView.setVisibility(8);
                 linearLayout.setVisibility(8);
-                view2.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809b2, WebPManager.ResourceStateType.NORMAL_PRESS));
+                view2.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809b3, WebPManager.ResourceStateType.NORMAL_PRESS));
                 view2.invalidate();
                 frameLayout.setForeground(null);
                 view2.setOnClickListener(new a(this));

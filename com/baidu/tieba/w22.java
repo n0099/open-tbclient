@@ -242,7 +242,7 @@ public class w22 extends r22 implements s23.a {
             J2(false);
             t2(-1);
             C2(-16777216);
-            v2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f127c));
+            v2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f127d));
             x2(true);
             b3();
         }
@@ -272,7 +272,7 @@ public class w22 extends r22 implements s23.a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || l33.b0() == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c9b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c9c);
         textView.setTextIsSelectable(true);
         StringBuilder sb = new StringBuilder();
         sb.append(eg3.l(this.c0));
@@ -298,7 +298,7 @@ public class w22 extends r22 implements s23.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView textView = new TextView(getContext());
-            textView.setText(R.string.obfuscated_res_0x7f0f127b);
+            textView.setText(R.string.obfuscated_res_0x7f0f127c);
             textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060259));
             textView.setOnClickListener(new b(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);

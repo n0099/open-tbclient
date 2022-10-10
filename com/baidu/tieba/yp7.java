@@ -362,19 +362,19 @@ public class yp7 extends BaseAdapter {
                     return;
                 }
             }
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e8d);
-            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091e8e);
-            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e93);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e94);
-            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091e92);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e8e);
+            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091e8f);
+            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e94);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e95);
+            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091e93);
             this.l = new rz4(yp7Var.a, this.d);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e8f);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb0);
-            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091e99);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e91);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e95);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e90);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091eae);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e90);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb1);
+            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091e9a);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e92);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e96);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e91);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091eaf);
             b(this.b);
         }
 
@@ -434,7 +434,7 @@ public class yp7 extends BaseAdapter {
             this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f090d8f);
             this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09168c);
             this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914bd);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092119);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09211a);
             b(this.b);
             this.n.setPlaceHolder(1);
         }
@@ -593,7 +593,7 @@ public class yp7 extends BaseAdapter {
                     view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d069a, (ViewGroup) null);
                     fVar = new f(this, null);
                     fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09178e);
-                    fVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abc);
+                    fVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abd);
                     view2.setTag(fVar);
                 }
                 fVar.a.setVisibility(0);

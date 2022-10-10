@@ -72,8 +72,8 @@ public class yx extends az {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null, true);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09256a);
-            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092569);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09256b);
+            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09256a);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ad4);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ad0);
             fb8 q = q();

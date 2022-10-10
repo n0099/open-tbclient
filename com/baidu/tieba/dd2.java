@@ -845,9 +845,9 @@ public final class dd2 extends p62 implements ig4, fg4 {
                         nc4 nc4Var = (nc4) sg4.j(new JSONObject(i), new nc4());
                         nc4Var.g = "so_zeus_armeabi";
                         g0(nc4Var);
-                        d33.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1253)).G();
+                        d33.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1254)).G();
                     } catch (JSONException e2) {
-                        d33.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1252)).G();
+                        d33.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1253)).G();
                         e2.printStackTrace();
                     }
                 }

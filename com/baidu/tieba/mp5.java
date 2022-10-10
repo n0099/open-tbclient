@@ -115,7 +115,7 @@ public class mp5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.l == null) {
-                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f8)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0fd6), this.m)));
+                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f9)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0fd7), this.m)));
             }
             this.l.f(this.c.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.j.setVisibility(8);
@@ -213,18 +213,18 @@ public class mp5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.c.setContentView(R.layout.obfuscated_res_0x7f0d0140);
-            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091c83);
-            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
             w("");
-            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09265b);
-            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092654);
+            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09265c);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092655);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c4);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c5);
             this.j.setLayoutParams(layoutParams);
-            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09265d);
+            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09265e);
             View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0920, new a(this));
             this.f = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09267f);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092680);
             this.g = imageView;
             imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02ce));
             h();
@@ -321,7 +321,7 @@ public class mp5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c4);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c5);
             this.j.setLayoutParams(layoutParams);
             this.g.setBackgroundDrawable(null);
             this.h.setBackgroundDrawable(null);

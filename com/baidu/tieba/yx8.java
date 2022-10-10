@@ -97,7 +97,7 @@ public class yx8 extends l55 {
                 this.a.r();
                 this.a.q();
                 if (writeData2 != null) {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ffb);
+                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ffc);
                     if (postWriteCallBackData != null) {
                         str2 = postWriteCallBackData.getPreMsg();
                         String colorMsg = postWriteCallBackData.getColorMsg();

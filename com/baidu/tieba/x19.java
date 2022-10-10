@@ -287,7 +287,7 @@ public class x19 {
             if (Build.VERSION.SDK_INT < 21) {
                 nu4 nu4Var = new nu4(this.a.getPageActivity());
                 nu4Var.setAutoNight(false);
-                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0f4c);
+                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0f4d);
                 nu4Var.setMessage(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04ff));
                 nu4Var.setTitleShowCenter(true);
                 nu4Var.setMessageShowCenter(true);

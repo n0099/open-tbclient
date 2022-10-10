@@ -376,7 +376,7 @@ public class uf6 {
             this.e.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06cf));
             View addCustomView = this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, (View.OnClickListener) null);
             this.g = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c43);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c44);
             this.f = textView;
             textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f06d0));
             this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a76);

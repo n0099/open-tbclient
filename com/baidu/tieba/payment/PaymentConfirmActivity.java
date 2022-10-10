@@ -662,7 +662,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 PaymentConfirmActivity paymentConfirmActivity = this.a;
-                paymentConfirmActivity.e2(2270066, paymentConfirmActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1069));
+                paymentConfirmActivity.e2(2270066, paymentConfirmActivity.getResources().getString(R.string.obfuscated_res_0x7f0f106a));
             }
         }
     }
@@ -886,7 +886,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a.z();
             this.a.B(i2);
             this.a.k();
-            nu4 create = new nu4(getPageContext().getPageActivity()).setContentView(u).setPositiveButton(R.string.obfuscated_res_0x7f0f0f68, new k(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new j(this)).create(getPageContext());
+            nu4 create = new nu4(getPageContext().getPageActivity()).setContentView(u).setPositiveButton(R.string.obfuscated_res_0x7f0f0f69, new k(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new j(this)).create(getPageContext());
             if (i2 <= 0) {
                 create.setYesBtnClickable(false);
                 this.a.m(false);
@@ -949,7 +949,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 string = getResources().getString(R.string.obfuscated_res_0x7f0f0db5);
             }
             str = string;
-            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f1143);
+            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f1144);
             String str4 = str;
             str3 = string2;
             str2 = str4;

@@ -282,7 +282,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     return;
                 }
                 forumDetailActivity.a.n();
-                this.a.a.z(R.string.obfuscated_res_0x7f0f0fd9);
+                this.a.a.z(R.string.obfuscated_res_0x7f0f0fda);
             }
         }
     }
@@ -406,7 +406,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 return;
             }
             this.a.n();
-            this.a.z(R.string.obfuscated_res_0x7f0f0fd9);
+            this.a.z(R.string.obfuscated_res_0x7f0f0fda);
             showToast(R.string.obfuscated_res_0x7f0f0c59);
         }
     }
@@ -480,7 +480,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f123d);
+                showToast(R.string.obfuscated_res_0x7f0f123e);
                 H1(true);
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "like_add ", "like_add", 1, new Object[0]);
                 return;
@@ -518,7 +518,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             if (ej.D()) {
                 this.a.z(R.string.obfuscated_res_0x7f0f0c72);
             } else {
-                this.a.z(R.string.obfuscated_res_0x7f0f0fd9);
+                this.a.z(R.string.obfuscated_res_0x7f0f0fda);
             }
         }
     }
@@ -534,7 +534,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             } else {
                 nu4 nu4Var = new nu4(getActivity());
                 nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f05ba);
-                nu4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f11b8), new a(this, nu4Var));
+                nu4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f11b9), new a(this, nu4Var));
                 nu4Var.create(getPageContext());
                 nu4Var.show();
                 this.mHandler.postDelayed(new b(this), 500L);
@@ -687,7 +687,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f123d);
+                showToast(R.string.obfuscated_res_0x7f0f123e);
                 H1(false);
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "like_cancel ", "like_canel", 1, new Object[0]);
                 return;

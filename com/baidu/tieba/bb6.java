@@ -450,7 +450,7 @@ public class bb6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
             this.d = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092014);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092015);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.f.setFadingEdgeLength(0);
@@ -473,7 +473,7 @@ public class bb6 {
             this.g.s();
             this.g.C(this.t);
             if (this.e == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092013);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092014);
                 this.e = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.h);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
@@ -502,7 +502,7 @@ public class bb6 {
             TextView textView = new TextView(this.a.getContext());
             this.m = textView;
             textView.setPadding(ej.f(this.a.getContext(), R.dimen.tbds44), ej.f(this.a.getContext(), R.dimen.tbds60), 0, ej.f(this.a.getContext(), R.dimen.tbds24));
-            this.m.setText(R.string.obfuscated_res_0x7f0f1368);
+            this.m.setText(R.string.obfuscated_res_0x7f0f1369);
             this.m.setTextSize(0, ej.f(this.a.getContext(), R.dimen.tbds46));
             this.m.setTypeface(Typeface.DEFAULT_BOLD);
             this.f.removeHeaderView(this.m);
@@ -653,9 +653,9 @@ public class bb6 {
         }
         this.i.f();
         if (i > 0) {
-            string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5), Integer.valueOf(i));
+            string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc6), Integer.valueOf(i));
         } else {
-            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc4);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5);
         }
         if (TextUtils.isEmpty(string) || !BdNetTypeUtil.isNetWorkAvailable()) {
             return;

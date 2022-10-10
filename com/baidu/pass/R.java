@@ -44,8 +44,8 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_bg = 0x7f080e86;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080e87;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f080e87;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080e88;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {

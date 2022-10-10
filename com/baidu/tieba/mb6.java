@@ -90,11 +90,11 @@ public class mb6 {
         this.a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02ce, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f3f);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f55);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f5b);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f5d);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f41);
+        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f40);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f56);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f5c);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f5e);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f42);
         this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091029);
         this.g.setText(R.string.obfuscated_res_0x7f0f06d5);
         this.h.setText(R.string.obfuscated_res_0x7f0f06d1);

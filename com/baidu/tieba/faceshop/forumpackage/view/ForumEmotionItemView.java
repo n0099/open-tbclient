@@ -92,7 +92,7 @@ public class ForumEmotionItemView extends LinearLayout {
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
                     this.b.K(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
@@ -238,7 +238,7 @@ public class ForumEmotionItemView extends LinearLayout {
             this.g = findViewById(R.id.obfuscated_res_0x7f091306);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090a59);
             this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
+            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
             a aVar = new a(this.m);
             this.l = aVar;
             this.a.setAdapter((ListAdapter) aVar);

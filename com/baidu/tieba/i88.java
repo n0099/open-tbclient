@@ -122,7 +122,7 @@ public class i88 implements View.OnClickListener {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
                 if (z && i != 2260104) {
                     if (StringUtils.isNull(str)) {
-                        ej.N(this.a.d.getPageActivity(), this.a.d.getString(i == 0 ? R.string.obfuscated_res_0x7f0f0fef : R.string.obfuscated_res_0x7f0f0fed));
+                        ej.N(this.a.d.getPageActivity(), this.a.d.getString(i == 0 ? R.string.obfuscated_res_0x7f0f0ff0 : R.string.obfuscated_res_0x7f0f0fee));
                     } else {
                         ej.N(this.a.d.getPageActivity(), str);
                     }
@@ -320,7 +320,7 @@ public class i88 implements View.OnClickListener {
                         return;
                     }
                     TbPageContext tbPageContext2 = this.a.d;
-                    tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0ff4));
+                    tbPageContext2.showToast(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f0ff5));
                     return;
                 }
                 this.a.d.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.a.d.getResources().getString(R.string.obfuscated_res_0x7f0f0c59) : responseUpdateMaskInfoMessage.getErrorString());
@@ -592,7 +592,7 @@ public class i88 implements View.OnClickListener {
         nu4 nu4Var = new nu4(this.d.getPageActivity());
         nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0436, new c(this));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(this));
-        nu4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0fec), this.g));
+        nu4Var.setMessage(String.format(this.d.getString(R.string.obfuscated_res_0x7f0f0fed), this.g));
         nu4Var.create(this.d);
         nu4Var.show();
     }

@@ -158,11 +158,11 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aff);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afd);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b00);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b03);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b05);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b00);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091afe);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091b01);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091b04);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091b06);
             this.f.setScaleType(ImageView.ScaleType.CENTER);
             this.f.setImageResource(R.drawable.obfuscated_res_0x7f080142);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);

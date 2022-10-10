@@ -461,8 +461,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             }
             BdTopToast bdTopToast = new BdTopToast(this.a.getPageContext().getPageActivity());
             bdTopToast.h(false);
-            bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f1460));
-            bdTopToast.i((ViewGroup) this.a.getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb9));
+            bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f1461));
+            bdTopToast.i((ViewGroup) this.a.getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fba));
         }
     }
 
@@ -571,12 +571,12 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                 BdTopToast bdTopToast = new BdTopToast(this);
                 bdTopToast.h(false);
                 bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f0382));
-                bdTopToast.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb9));
+                bdTopToast.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fba));
             } else if (this.r.size() >= this.C) {
                 BdTopToast bdTopToast2 = new BdTopToast(this);
                 bdTopToast2.h(false);
-                bdTopToast2.g(getString(R.string.obfuscated_res_0x7f0f1460));
-                bdTopToast2.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb9));
+                bdTopToast2.g(getString(R.string.obfuscated_res_0x7f0f1461));
+                bdTopToast2.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fba));
             } else {
                 this.r.add(str);
                 this.B.setText(String.format("(%d/%d)", Integer.valueOf(this.r.size()), Integer.valueOf(this.C)));
@@ -631,7 +631,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                 this.u.setVisibility(0);
             } else if (TextUtils.isEmpty(str)) {
             } else {
-                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0fd9));
+                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0fda));
                 this.u.setVisibility(0);
                 showToast(str);
             }
@@ -662,7 +662,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091e0b);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091e0c);
             this.t = editText;
             editText.setCompoundDrawablePadding(ej.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070302));
             this.t.setOnFocusChangeListener(new h(this));
@@ -677,12 +677,12 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090ad2);
-            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925c1);
-            this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f0922fb);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a0);
+            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f0922fc);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a1);
             this.B = textView;
             textView.setText(String.format("(%d/%d)", Integer.valueOf(this.r.size()), Integer.valueOf(this.C)));
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09230f);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092310);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f090646);
             this.m = findViewById(R.id.obfuscated_res_0x7f090d9d);
             this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090d93);
@@ -753,7 +753,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, linearLayout, navigationBar)) == null) {
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f15e3));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f15e4));
             this.y = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0505));
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03a0, (ViewGroup) linearLayout, true);
             return this;
@@ -818,8 +818,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.mSkinType = i2;
             hv4.d(this.y).x(R.color.CAM_X0302);
             hv4.d(this.B).v(R.color.CAM_X0107);
-            hv4.d(findViewById(R.id.obfuscated_res_0x7f09259f)).v(R.color.CAM_X0105);
-            hv4.d(findViewById(R.id.obfuscated_res_0x7f0925c2)).v(R.color.CAM_X0105);
+            hv4.d(findViewById(R.id.obfuscated_res_0x7f0925a0)).v(R.color.CAM_X0105);
+            hv4.d(findViewById(R.id.obfuscated_res_0x7f0925c3)).v(R.color.CAM_X0105);
             hv4 d2 = hv4.d(this.z);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);

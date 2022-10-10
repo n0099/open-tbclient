@@ -241,8 +241,8 @@ public class qv5 {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f7, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275), 0, 0);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091f58);
-            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f091f59);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091f59);
+            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f091f5a);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 colorDrawable = new ColorDrawable(this.a.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
             } else {
@@ -250,7 +250,7 @@ public class qv5 {
             }
             this.e.setDivider(colorDrawable);
             this.e.setDividerHeight(this.a.getActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f091f5b);
             zx4 zx4Var = new zx4(this.b);
             this.h = zx4Var;
             zx4Var.b0(this.a.getUniqueId());

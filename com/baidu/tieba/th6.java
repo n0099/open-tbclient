@@ -223,7 +223,7 @@ public class th6 {
             shareItem.n0 = false;
             shareItem.h0 = 1;
             if (i == 6) {
-                shareItem.v = this.a.getString(R.string.obfuscated_res_0x7f0f0408) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.obfuscated_res_0x7f0f0459) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.obfuscated_res_0x7f0f140f) + "https://tieba.baidu.com/f?kw=" + dj.getUrlEncode(this.n) + "&fr=frsshare";
+                shareItem.v = this.a.getString(R.string.obfuscated_res_0x7f0f0408) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.obfuscated_res_0x7f0f0459) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.obfuscated_res_0x7f0f1410) + "https://tieba.baidu.com/f?kw=" + dj.getUrlEncode(this.n) + "&fr=frsshare";
             } else {
                 shareItem.v = this.a.getString(R.string.obfuscated_res_0x7f0f029e);
             }

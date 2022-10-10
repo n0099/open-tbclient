@@ -56,7 +56,7 @@ public class ct2 extends cs1 {
             if (lv1Var.isSuccess()) {
                 String optString = ((JSONObject) s.second).optString("imageURL");
                 if (TextUtils.isEmpty(optString)) {
-                    return new lv1(202, sm2.c().getString(R.string.obfuscated_res_0x7f0f14d5));
+                    return new lv1(202, sm2.c().getString(R.string.obfuscated_res_0x7f0f14d6));
                 }
                 return y(optString);
             }

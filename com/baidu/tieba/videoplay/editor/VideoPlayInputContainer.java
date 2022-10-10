@@ -413,7 +413,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
             this.b.setPadding(0, ej.f(context, R.dimen.obfuscated_res_0x7f0701e8), ej.f(context, R.dimen.obfuscated_res_0x7f0702da), ej.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f1009));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f100a));
             this.b.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -430,7 +430,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f112d);
+            this.c.setText(R.string.obfuscated_res_0x7f0f112e);
             this.c.setOnClickListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, 0, ej.f(context, R.dimen.tbds18));
@@ -451,7 +451,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
             if (!this.e || e15Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
                 if (this.j && mc6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
                 } else {
                     nc6.b(getContext(), e15Var, this.b);
                 }
@@ -466,7 +466,7 @@ public class VideoPlayInputContainer extends LinearLayout implements t55 {
         }
         String obj = this.b.getText().toString();
         if (this.j && mc6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
         } else {
             nc6.c(getContext(), e15Var, this.b);
         }

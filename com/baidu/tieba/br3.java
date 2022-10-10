@@ -405,7 +405,7 @@ public class br3 extends Dialog {
                 Resources b2 = b();
                 int i = this.a.C;
                 if (i == -1) {
-                    i = R.drawable.obfuscated_res_0x7f08112c;
+                    i = R.drawable.obfuscated_res_0x7f08112d;
                 }
                 relativeLayout.setBackground(b2.getDrawable(i));
                 this.a.b.setTextColor(color);
@@ -436,12 +436,12 @@ public class br3 extends Dialog {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f08112a));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f081129));
-                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f081128));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f08112b));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f08112a));
+                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f081129));
                 TextView d = d();
                 if (d != null) {
-                    d.setBackground(this.a.E ? b().getDrawable(R.drawable.obfuscated_res_0x7f081128) : null);
+                    d.setBackground(this.a.E ? b().getDrawable(R.drawable.obfuscated_res_0x7f081129) : null);
                 }
             }
         }
@@ -504,7 +504,7 @@ public class br3 extends Dialog {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09223a);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09223b);
             this.b = (TextView) viewGroup.findViewById(R.id.dialog_title);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c9);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ca);
@@ -515,7 +515,7 @@ public class br3 extends Dialog {
             this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907fd);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.q = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c4);
-            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1c);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.s = (AdScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091527);
             this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09044c);

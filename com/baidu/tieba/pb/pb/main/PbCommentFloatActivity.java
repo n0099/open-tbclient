@@ -344,7 +344,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
                 return;
             }
             if (i == 3 || i == 7) {
-                WebPManager.setPureDrawable(this.F, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.F, R.drawable.obfuscated_res_0x7f080a4e, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (i == 2) {
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0807e6, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else if (i == 6) {
@@ -352,7 +352,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             } else if (i == 5) {
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08080d, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -404,7 +404,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            CommentFloatSusPendedView commentFloatSusPendedView = (CommentFloatSusPendedView) findViewById(R.id.obfuscated_res_0x7f091fbc);
+            CommentFloatSusPendedView commentFloatSusPendedView = (CommentFloatSusPendedView) findViewById(R.id.obfuscated_res_0x7f091fbd);
             this.v = commentFloatSusPendedView;
             commentFloatSusPendedView.setVideoPageUniqueId(this.D);
             this.v.setIsNoBgColor(true);
@@ -416,9 +416,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.v.setTranView(this.w);
             this.v.setContentView(this.B);
             this.v.s();
-            this.E = (TextView) findViewById(R.id.obfuscated_res_0x7f091c22);
-            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921d3);
-            this.G = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921d1);
+            this.E = (TextView) findViewById(R.id.obfuscated_res_0x7f091c23);
+            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921d4);
+            this.G = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921d2);
             this.H = new TiePlusEventController(this, TiePlusStat.Locate.VIDEO_COMMENT_TOP);
             registerListener(this.L);
         }
@@ -434,7 +434,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091fba);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091fbb);
             this.x = navigationBar;
             navigationBar.mCenterText.setTextSize(0, ej.f(getPageContext().getPageActivity(), R.dimen.T_X07));
             this.x.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
@@ -450,7 +450,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091fbb);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091fbc);
             this.y = noNetworkView;
             noNetworkView.a(this.K);
         }
@@ -526,7 +526,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pbModel = this.a) == null || pbModel.S1() == null || this.a.S1().O() == null) {
             return;
         }
-        this.x.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1237), Integer.valueOf(this.a.S1().O().getReply_num())));
+        this.x.setCenterTextTitle(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1238), Integer.valueOf(this.a.S1().O().getReply_num())));
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -620,7 +620,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.x.onChangeSkinType(getPageContext(), i);
             SkinManager.setBackgroundColor(this.G, R.color.CAM_X0208);
             B1();
-            WebPManager.setPureDrawable(this.z, R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.z, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.y.d(getPageContext(), i);
             this.v.p(i);
             SkinManager.setBackgroundColor(this.v, R.color.CAM_X0608);

@@ -558,7 +558,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a.setStrokeWith(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09210b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09210c);
         }
 
         public void a(og8 og8Var) {
@@ -704,7 +704,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0036);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c83);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c84);
             pg8 pg8Var = new pg8(getUniqueId());
             this.c = pg8Var;
             pg8Var.k(this.l);
@@ -713,7 +713,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f15));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.isShowBottomLine(true);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             this.b.setAdapter(this.k);

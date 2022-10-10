@@ -1147,11 +1147,11 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                 this.m = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) this, false);
             }
             this.R = this.m.findViewById(R.id.obfuscated_res_0x7f09032b);
-            View findViewById = this.m.findViewById(R.id.obfuscated_res_0x7f09219f);
+            View findViewById = this.m.findViewById(R.id.obfuscated_res_0x7f0921a0);
             this.p = findViewById;
             findViewById.setClickable(true);
             this.C = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0900f9);
-            this.D = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.D = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f092327);
             this.H = (ApkDownloadView) this.m.findViewById(R.id.obfuscated_res_0x7f090145);
             this.I = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090149);
             this.J = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f090402);

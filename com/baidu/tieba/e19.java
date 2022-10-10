@@ -118,7 +118,7 @@ public class e19 extends BaseAdapter implements View.OnClickListener {
             aVar.a.setBorderWidth(ej.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
             aVar.a.setConrers(15);
             aVar.a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ce);
+            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923cf);
         }
     }
 
@@ -304,7 +304,7 @@ public class e19 extends BaseAdapter implements View.OnClickListener {
                     aVar.c.setText(h19Var.b());
                 }
                 aVar.a.setTag(h19Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091bb3, aVar);
+                aVar.a.setTag(R.id.obfuscated_res_0x7f091bb4, aVar);
                 aVar.a.setOnClickListener(this);
                 aVar.d = i;
             }
@@ -331,7 +331,7 @@ public class e19 extends BaseAdapter implements View.OnClickListener {
             h19 h19Var = (h19) view2.getTag();
             if (h19Var.getType() == 3 && (h19Var.c() instanceof MusicData)) {
                 if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b42).equals(h19Var.b()) && (iVar = this.d) != null) {
-                    iVar.b(h19Var, view2.getTag(R.id.obfuscated_res_0x7f091bb3));
+                    iVar.b(h19Var, view2.getTag(R.id.obfuscated_res_0x7f091bb4));
                     this.c = this.a.indexOf(h19Var);
                     this.b = h19Var.b();
                 }
@@ -352,7 +352,7 @@ public class e19 extends BaseAdapter implements View.OnClickListener {
             notifyDataSetChanged();
             RecordEffectLayout.i iVar2 = this.d;
             if (iVar2 != null) {
-                iVar2.b(h19Var, view2.getTag(R.id.obfuscated_res_0x7f091bb3));
+                iVar2.b(h19Var, view2.getTag(R.id.obfuscated_res_0x7f091bb4));
             }
         }
     }

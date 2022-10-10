@@ -677,7 +677,7 @@ public class td7 extends p9 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && view2 != null && (baseCardInfo instanceof ie7)) {
                 ie7 ie7Var = (ie7) baseCardInfo;
-                if (ie7Var.E() && view2.getId() != R.id.obfuscated_res_0x7f0919be && view2.getId() != R.id.obfuscated_res_0x7f0924b6) {
+                if (ie7Var.E() && view2.getId() != R.id.obfuscated_res_0x7f0919be && view2.getId() != R.id.obfuscated_res_0x7f0924b7) {
                     ie7Var.J(false);
                     this.b.W();
                 }

@@ -499,7 +499,7 @@ public class cx5 {
                 this.k.setWidth(-2);
                 this.k.setHeight(-2);
                 this.k.setAnimationStyle(16973826);
-                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc1));
+                this.k.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc2));
                 this.k.setOutsideTouchable(true);
                 this.k.setFocusable(true);
                 this.k.setTouchable(true);
@@ -514,7 +514,7 @@ public class cx5 {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f9, (ViewGroup) null);
             this.f = inflate;
             if (this.q) {
-                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f0925c4);
+                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f0925c5);
                 this.D = navigationBar;
                 navigationBar.setVisibility(0);
                 this.D.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
@@ -528,7 +528,7 @@ public class cx5 {
             BdTypeMultiColumnListView bdTypeMultiColumnListView = (BdTypeMultiColumnListView) this.f.findViewById(R.id.obfuscated_res_0x7f09132a);
             this.j = bdTypeMultiColumnListView;
             bdTypeMultiColumnListView.setColumnDiv((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be));
-            this.t = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0924e2);
+            this.t = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0924e3);
             zx4 zx4Var = new zx4(this.a);
             this.r = zx4Var;
             zx4Var.b0(this.e);

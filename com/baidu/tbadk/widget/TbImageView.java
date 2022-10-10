@@ -859,7 +859,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             }
             int i = this.d.j;
             if (i == fl.c) {
-                this.e0.b(canvas, getContext().getString(R.string.obfuscated_res_0x7f0f15d8), R.color.CAM_X0305);
+                this.e0.b(canvas, getContext().getString(R.string.obfuscated_res_0x7f0f15d9), R.color.CAM_X0305);
             } else if (i == fl.b) {
                 this.e0.b(canvas, getContext().getString(R.string.obfuscated_res_0x7f0f07f8), R.color.CAM_X0310);
             }
@@ -1345,7 +1345,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
             setDefaultResource(SkinManager.getColor(R.color.CAM_X0202));
             if (i == 0) {
-                setDefaultBgResource(SkinManager.getResourceId(R.drawable.obfuscated_res_0x7f081240));
+                setDefaultBgResource(SkinManager.getResourceId(R.drawable.obfuscated_res_0x7f081241));
             } else if (i != 1) {
                 setDefaultBgResource(SkinManager.getResourceId(R.drawable.pic_use_header_40_n));
             } else {
@@ -1359,7 +1359,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
             setDefaultResource(SkinManager.getColor(R.color.CAM_X0202));
             if (i == 0) {
-                setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+                setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
             } else if (i != 1) {
                 setDefaultBgResource(R.drawable.pic_use_header_40_n);
             } else {

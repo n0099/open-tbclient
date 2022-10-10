@@ -581,7 +581,7 @@ public class x27 {
             String lengthLimitName = threadData.getLengthLimitName();
             String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
             if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112c) + "   " + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffc) + formatTimeForHomeC;
+                lengthLimitName = lengthLimitName + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112d) + "   " + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffd) + formatTimeForHomeC;
             }
             threadData.setThreadExtendInfo(lengthLimitName);
         }

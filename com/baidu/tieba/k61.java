@@ -63,7 +63,7 @@ public class k61 extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091c74);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091c75);
             this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091416);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091515);
             this.d = textView;
@@ -113,11 +113,11 @@ public class k61 extends Dialog {
         Resources resources = context.getResources();
         View view2 = this.b;
         if (view2 != null) {
-            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dd3));
+            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dd4));
         }
         LoadingProgressBar loadingProgressBar = this.c;
         if (loadingProgressBar != null) {
-            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dd6));
+            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dd7));
         }
         TextView textView = this.d;
         if (textView != null) {

@@ -99,9 +99,9 @@ public class gb8 extends ib8 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f092544) {
+        if (id == R.id.obfuscated_res_0x7f092545) {
             W();
-        } else if (id == R.id.obfuscated_res_0x7f091c0a) {
+        } else if (id == R.id.obfuscated_res_0x7f091c0b) {
             o0(this.b);
             startPlay();
         } else {

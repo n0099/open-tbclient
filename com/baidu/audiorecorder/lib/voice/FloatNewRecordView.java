@@ -178,7 +178,7 @@ public class FloatNewRecordView extends RelativeLayout implements w77 {
         this.b.setVisibility(0);
         this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b17));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0310, null);
+        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080966, R.color.CAM_X0310, null);
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
         WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
         this.f = true;
@@ -193,7 +193,7 @@ public class FloatNewRecordView extends RelativeLayout implements w77 {
             this.b.setVisibility(0);
             this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b18));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080966, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080967, R.color.CAM_X0319, null);
             this.g = false;
         }
     }

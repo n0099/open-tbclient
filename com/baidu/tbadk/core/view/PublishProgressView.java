@@ -50,7 +50,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     private void setProgress(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
-            this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f5a), Integer.valueOf(this.a.c(i))));
+            this.b.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0f5b), Integer.valueOf(this.a.c(i))));
         }
     }
 
@@ -58,9 +58,9 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0759, this);
-            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091abf);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ac8);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ac1);
+            this.a = (PublishProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091ac0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ac9);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ac2);
             this.c = textView;
             textView.setOnClickListener(this);
             this.a.setOnClickListener(this);
@@ -114,7 +114,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091ac1) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091ac2) {
             PublishProgressData publishProgressData = this.d;
             if (publishProgressData != null) {
                 publishProgressData.hideRunning();

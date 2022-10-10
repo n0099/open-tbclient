@@ -157,7 +157,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             tbImageView.setDrawCorner(true);
             this.c.setConrers(15);
             this.c.setRadiusById(R.string.J_X06);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b61);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b62);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e2f);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091713);
             this.g = findViewById(R.id.obfuscated_res_0x7f091710);
@@ -199,7 +199,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X05);
         d2.v(R.color.CAM_X0304);
-        WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08096f, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080970, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f0808b7, R.color.CAM_X0319, WebPManager.ResourceStateType.NORMAL);
     }
 

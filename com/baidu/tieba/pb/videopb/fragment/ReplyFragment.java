@@ -731,7 +731,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements s28, p38.
             MultiNestedLayout multiNestedLayout = (MultiNestedLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0915b0);
             this.g = multiNestedLayout;
             multiNestedLayout.setScrollStateChangeListener(this.B);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092550);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092551);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             u28 u28Var = new u28(this, this.d);
@@ -741,7 +741,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements s28, p38.
             this.e.k(B().T3());
             this.e.j(this.f.j());
             this.e.m(this.f.m());
-            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091bf8);
+            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091bf9);
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.h = pbListView;
             View findViewById = pbListView.b().findViewById(R.id.obfuscated_res_0x7f09184a);
@@ -770,7 +770,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements s28, p38.
                 this.s.setEnabled(false);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0205);
             }
-            View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f09254f);
+            View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f092550);
             this.r = findViewById2;
             n38 n38Var = new n38(findViewById2);
             this.q = n38Var;

@@ -136,10 +136,10 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09185e);
         this.b = view2.findViewById(R.id.obfuscated_res_0x7f09183e);
         this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09188a);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092297);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092295);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092293);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092292);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092298);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092296);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092293);
         this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916ad);
         this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ae);
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916af);
@@ -165,8 +165,8 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             this.f.setText(this.o.b);
             this.g.setText(this.o.e);
             this.e.setText(this.o.f);
-            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0810cb);
-            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080e5a);
+            SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0810cc);
+            SkinManager.setViewTextColor(this.e, (int) R.drawable.obfuscated_res_0x7f080e5b);
         } else {
             this.c.setVisibility(8);
         }

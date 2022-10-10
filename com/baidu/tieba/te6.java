@@ -278,7 +278,7 @@ public class te6 extends BaseAdapter {
                 } else {
                     view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0146, viewGroup, false);
                     fVar = new f(this);
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092143);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092144);
                     view2.setTag(fVar);
                 }
                 fVar.a.setText(((oe6) getItem(i)).b());
@@ -296,9 +296,9 @@ public class te6 extends BaseAdapter {
                     eVar = new e(this);
                     eVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090351);
                     eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0912d5);
-                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091c3f);
+                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091c40);
                     eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0912d4);
-                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091c3e);
+                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091c3f);
                     view2.setTag(eVar);
                 }
                 ne6 ne6Var = (ne6) getItem(i);
@@ -316,7 +316,7 @@ public class te6 extends BaseAdapter {
                                 } else if (ne6Var.d().equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0300))) {
                                     eVar.e.setVisibility(8);
                                     eVar.d.setVisibility(0);
-                                    eVar.d.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1420), this.c.b());
+                                    eVar.d.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1421), this.c.b());
                                     eVar.d.setOnClickListener(new a(this));
                                 }
                             } else if (ne6Var.d().equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02ff))) {
@@ -327,7 +327,7 @@ public class te6 extends BaseAdapter {
                                 eVar.c.setVisibility(8);
                                 eVar.e.setVisibility(0);
                                 eVar.d.setVisibility(8);
-                                eVar.e.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1420), this.c.b());
+                                eVar.e.a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1421), this.c.b());
                                 eVar.e.setOnClickListener(new b(this));
                             }
                         }

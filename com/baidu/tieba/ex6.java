@@ -59,7 +59,7 @@ public class ex6 extends qn<y26, ThreadCardViewHolder<y26>> implements to5 {
         public void a(View view2, y26 y26Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, y26Var) == null) {
-                BdToast b = BdToast.b(this.b.c.getContext(), this.b.c.getString(R.string.obfuscated_res_0x7f0f1537));
+                BdToast b = BdToast.b(this.b.c.getContext(), this.b.c.getString(R.string.obfuscated_res_0x7f0f1538));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
             }
@@ -94,7 +94,7 @@ public class ex6 extends qn<y26, ThreadCardViewHolder<y26>> implements to5 {
         public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast b = BdToast.b(this.a.c.getContext(), this.a.c.getString(R.string.obfuscated_res_0x7f0f1537));
+                BdToast b = BdToast.b(this.a.c.getContext(), this.a.c.getString(R.string.obfuscated_res_0x7f0f1538));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
             }

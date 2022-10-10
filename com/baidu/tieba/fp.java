@@ -54,8 +54,8 @@ public class fp extends s55 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f135d);
-        this.d = R.drawable.obfuscated_res_0x7f0809d4;
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f135e);
+        this.d = R.drawable.obfuscated_res_0x7f0809d5;
         this.f = R.color.CAM_X0105;
         this.i = false;
         this.j = true;

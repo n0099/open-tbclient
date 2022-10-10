@@ -102,7 +102,7 @@ public class sg6 extends i16<ng6> {
         this.i.K(ng6Var.c(), 10, false);
         this.j.setText(s(ng6Var.j(), ng6Var.r()));
         this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f0429), ng6Var.f()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10d6), ng6Var.n()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f10d7), ng6Var.n()));
         j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 

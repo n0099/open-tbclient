@@ -100,7 +100,7 @@ public class hb8 extends ib8 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f092544) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092545) {
             W();
         } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
             ej.M(this.O, R.string.obfuscated_res_0x7f0f0c92);

@@ -42,7 +42,7 @@ public class TwitterSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f109a);
+            setTitleText(R.string.obfuscated_res_0x7f0f109b);
             this.sapiWebView.loadUrl(ParamsUtil.getUrlTwitterLogin(SapiAccountManager.getInstance().getConfignation()));
         }
     }

@@ -73,11 +73,11 @@ public class fl6 extends dh6<bu4, ThreadCardViewHolder<ThreadData>> implements g
             if ("c13010".equals(this.b.m)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f0924b6 && view2.getId() != R.id.obfuscated_res_0x7f092488) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092194) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f0924b7 && view2.getId() != R.id.obfuscated_res_0x7f092489) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092195) {
                     as6.e(threadData, 5, this.b.mPageId, ds6.p0, this.b.t());
                     mt6.g(threadData, this.b.b, 1);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98) {
                     as6.e(threadData, 14, this.b.mPageId, ds6.p0, this.b.t());
                 } else if (view2 instanceof TbImageView) {
                     if (this.b.p.a instanceof Boolean) {
@@ -98,7 +98,7 @@ public class fl6 extends dh6<bu4, ThreadCardViewHolder<ThreadData>> implements g
             } else {
                 as6.e(threadData, 2, this.b.mPageId, ds6.p0, this.b.t());
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f0924b6 && view2.getId() != R.id.obfuscated_res_0x7f092488) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f0924b7 && view2.getId() != R.id.obfuscated_res_0x7f092489) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f090502) {
                     mt6.a(ds6.p0, threadData.getRecomReason());
                     return;
@@ -116,7 +116,7 @@ public class fl6 extends dh6<bu4, ThreadCardViewHolder<ThreadData>> implements g
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f09054b) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
                     return;
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092182) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092183) {
                     cs6.k().h(ds6.p0, threadData, 5);
                     return;
                 } else if (view2 instanceof ThreadGodReplyLayout) {

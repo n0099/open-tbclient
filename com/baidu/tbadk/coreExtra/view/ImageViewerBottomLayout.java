@@ -117,9 +117,9 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03c8, (ViewGroup) this, true);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09246a);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09246b);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092469);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09246b);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09246c);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09246a);
             this.d.setVisibility(8);
             WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f08083d, null);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090eb1);
@@ -151,12 +151,12 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             er4Var.b = 13;
             er4Var.h = 10;
             this.g.setStatisticData(er4Var);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e87);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e88);
             this.j = imageView2;
             WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080950, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090833);
             this.k = imageView3;
-            WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0809e7, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(imageView3, R.drawable.obfuscated_res_0x7f0809e8, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
         }
     }
 

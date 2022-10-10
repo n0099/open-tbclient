@@ -168,7 +168,7 @@ public class ol5 extends Dialog {
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a3);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090832);
             this.k = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f09082f);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f09269c);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f09269d);
             this.c.setPlaceHolder(2);
             this.c.setConrers(15);
             e();

@@ -188,7 +188,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
                 ((BaseActivity) context).startAnimatable(this);
             }
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09077e);
-            setDefaultImage(R.drawable.obfuscated_res_0x7f080be2);
+            setDefaultImage(R.drawable.obfuscated_res_0x7f080be3);
             setOnVideoErrorListener(null);
             AlphaVideo alphaVideo = (AlphaVideo) inflate.findViewById(R.id.obfuscated_res_0x7f090270);
             this.b = alphaVideo;

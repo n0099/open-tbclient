@@ -420,7 +420,7 @@ public class LocalInputContainer extends RelativeLayout implements t55 {
             this.e.setConfig(ny4Var);
             this.e.setEnabled(false);
             this.e.setTextSize(R.dimen.T_X08);
-            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f112b));
+            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f112c));
             addView(this.e);
         }
     }
@@ -521,7 +521,7 @@ public class LocalInputContainer extends RelativeLayout implements t55 {
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(ej.f(getContext(), R.dimen.tbds21)).into(this.c);
-            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f0809ba, R.drawable.obfuscated_res_0x7f08081e, 0, 0, i));
+            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f0809bb, R.drawable.obfuscated_res_0x7f08081e, 0, 0, i));
             this.e.k();
         }
     }

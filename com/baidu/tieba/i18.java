@@ -310,7 +310,7 @@ public class i18 {
             String f = f(threadData);
             Uri parse = f == null ? null : Uri.parse(f);
             String str2 = threadData.getAbstract();
-            String format = MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f114e), title, str2);
+            String format = MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f114f), title, str2);
             ShareItem shareItem = new ShareItem();
             shareItem.v = title;
             shareItem.w = format;
@@ -812,7 +812,7 @@ public class i18 {
         thread2GroupShareView.setData(e2);
         nu4Var.setContentViewSize(1);
         nu4Var.setContentView(thread2GroupShareView);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new d(pbFragment, thread2GroupShareView, j, str, j2, e2));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new d(pbFragment, thread2GroupShareView, j, str, j2, e2));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new e(pbFragment, thread2GroupShareView));
         nu4Var.setCanceledOnTouchOutside(true);
         nu4Var.create(pbFragment.getPageContext()).show();
@@ -837,7 +837,7 @@ public class i18 {
         thread2GroupShareView.setData(e2);
         nu4Var.setContentViewSize(1);
         nu4Var.setContentView(thread2GroupShareView);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new b(K, pbFragment, thread2GroupShareView, j, str, str2, str3, e2));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new b(K, pbFragment, thread2GroupShareView, j, str, str2, str3, e2));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new c(pbFragment, thread2GroupShareView));
         nu4Var.setCanceledOnTouchOutside(true);
         nu4Var.create(pbFragment.getPageContext()).show();

@@ -937,7 +937,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091a32);
             this.E = findViewById(R.id.obfuscated_res_0x7f0917ba);
             this.F = findViewById(R.id.obfuscated_res_0x7f0905f4);
-            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092214);
+            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092215);
             this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0905f5);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bb);
             DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f091a15);
@@ -952,16 +952,16 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             this.j = findViewById2;
             findViewById2.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f0925ea);
-            this.x = findViewById(R.id.obfuscated_res_0x7f0925b2);
+            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f0925eb);
+            this.x = findViewById(R.id.obfuscated_res_0x7f0925b3);
             this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090dc7);
             CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f09070a);
             this.D = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
             this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091549);
             this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f090760);
-            this.B = findViewById(R.id.obfuscated_res_0x7f0925d3);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0923d7);
+            this.B = findViewById(R.id.obfuscated_res_0x7f0925d4);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0923d8);
             this.C = findViewById3;
             findViewById3.setOnClickListener(this);
         }
@@ -1367,7 +1367,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09070a) {
                 a0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0923d7) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0923d8) {
                 this.b0 = true;
                 h0();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f091a13) {

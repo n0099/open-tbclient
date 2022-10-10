@@ -652,7 +652,7 @@ public class yr1 {
                 }
                 textView.setText(str3);
             }
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f09225e);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f09225f);
             if (guideType != ShowFavoriteGuideApi.GuideType.TIPS) {
                 RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909a1);
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();

@@ -125,9 +125,9 @@ public class ip4 {
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09067e);
             this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a61);
             this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a62);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b9);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ba);
             this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091485);
-            this.d = (TbRichTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c20);
+            this.d = (TbRichTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c21);
             this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
             this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));

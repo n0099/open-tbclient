@@ -204,14 +204,14 @@ public abstract class a69 implements u49, o49, i55, nm8.g {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091daf) {
+            if (id == R.id.obfuscated_res_0x7f091db0) {
                 this.b.i();
                 if (this.a) {
                     this.b.X();
                 }
                 this.b.e.setResult(100);
                 this.b.e.finish();
-            } else if (id == R.id.obfuscated_res_0x7f091db0) {
+            } else if (id == R.id.obfuscated_res_0x7f091db1) {
                 this.b.c0();
                 if (this.a) {
                     this.b.X();
@@ -341,7 +341,7 @@ public abstract class a69 implements u49, o49, i55, nm8.g {
                     return null;
                 }
                 a69 a69Var = this.a;
-                a69Var.d(a69Var.a.getString(R.string.obfuscated_res_0x7f0f14fd));
+                a69Var.d(a69Var.a.getString(R.string.obfuscated_res_0x7f0f14fe));
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -544,9 +544,9 @@ public abstract class a69 implements u49, o49, i55, nm8.g {
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.h = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new b(this));
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f112c);
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f112d);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.p.getFrom())) {
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f1146);
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f1147);
             }
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, string);
             this.l = addTextButton;
@@ -648,7 +648,7 @@ public abstract class a69 implements u49, o49, i55, nm8.g {
             this.y = intent.getBooleanExtra(WriteActivityConfig.NEED_CLOSE_PRE_PAGE, false);
             PostPrefixData postPrefixData = (PostPrefixData) intent.getSerializableExtra("prefix_data");
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
-                postPrefixData.getPrefixs().add(this.a.getString(R.string.obfuscated_res_0x7f0f15f7));
+                postPrefixData.getPrefixs().add(this.a.getString(R.string.obfuscated_res_0x7f0f15f8));
             }
             this.p.setPrefixData(postPrefixData);
             this.p.setWriteVoteData((WriteVoteData) intent.getSerializableExtra(IntentConfig.WRITE_VOTE_DATA));
@@ -885,7 +885,7 @@ public abstract class a69 implements u49, o49, i55, nm8.g {
             this.n = wu4Var;
             wu4Var.setContentView(this.m);
         }
-        this.m.setText(this.a.getString(R.string.obfuscated_res_0x7f0f15fc), this.a.getString(R.string.obfuscated_res_0x7f0f10a2));
+        this.m.setText(this.a.getString(R.string.obfuscated_res_0x7f0f15fd), this.a.getString(R.string.obfuscated_res_0x7f0f10a3));
         this.n.k();
     }
 
@@ -1089,7 +1089,7 @@ public abstract class a69 implements u49, o49, i55, nm8.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
             this.b.onChangeSkinType(this.a, i);
-            WebPManager.setPureDrawable(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.l.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0302, i));
             this.d.w(i);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);

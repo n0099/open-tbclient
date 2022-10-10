@@ -153,7 +153,7 @@ public class SelectTagListView extends LinearLayout implements ie5, View.OnClick
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i, str)) == null) {
-                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080969, R.color.CAM_X0304, null);
+                Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0304, null);
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
                 if (pureDrawable != null) {
                     pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
@@ -805,8 +805,8 @@ public class SelectTagListView extends LinearLayout implements ie5, View.OnClick
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0925d1);
-            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0925cf);
+            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0925d2);
+            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0925d0);
             this.g = eMTextView;
             hv4 d2 = hv4.d(eMTextView);
             d2.A(R.string.F_X02);
@@ -819,8 +819,8 @@ public class SelectTagListView extends LinearLayout implements ie5, View.OnClick
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f092081);
-            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f092074);
+            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f092082);
+            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f092075);
             this.k = scrollView;
             scrollView.setOnTouchListener(new i(this));
             this.l.setOnLabelClickListener(new j(this));
@@ -831,7 +831,7 @@ public class SelectTagListView extends LinearLayout implements ie5, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.h = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09075e);
-            this.i = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091bab);
+            this.i = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f091bac);
             hv4 d2 = hv4.d(this.h);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X06);

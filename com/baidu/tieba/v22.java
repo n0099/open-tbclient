@@ -127,7 +127,7 @@ public class v22 extends r22 {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f1279));
+            v2(G(R.string.obfuscated_res_0x7f0f127a));
             x2(true);
             J2(false);
         }

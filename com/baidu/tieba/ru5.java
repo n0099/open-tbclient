@@ -42,7 +42,7 @@ public class ru5 extends i16<vv5> {
             }
         }
         this.k = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092392);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092393);
         this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f091007);
         this.l = h().findViewById(R.id.obfuscated_res_0x7f090e54);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());

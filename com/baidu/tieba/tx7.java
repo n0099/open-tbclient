@@ -75,8 +75,8 @@ public class tx7 extends oz7 {
             return;
         }
         if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f0f67);
-            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080fd2);
+            textView.setText(R.string.obfuscated_res_0x7f0f0f68);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080fd3);
             SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
             this.c.setClickable(true);
         } else {

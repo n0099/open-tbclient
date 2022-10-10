@@ -3129,12 +3129,12 @@ public class b17 {
             String str = null;
             if (i2 == 2) {
                 if (i3 > 0) {
-                    str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5), Integer.valueOf(i3));
+                    str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc6), Integer.valueOf(i3));
                 } else {
-                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc4);
+                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5);
                 }
             } else if (i2 == 3) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc3);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc4);
             } else if (i2 == 4) {
                 str = TbadkCoreApplication.getInst().getActivityPrizeData().getFeedText();
             }
@@ -3478,12 +3478,12 @@ public class b17 {
             } else {
                 if (c2 == 2) {
                     if (i2 > 0) {
-                        feedText = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5), Integer.valueOf(i2));
+                        feedText = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc6), Integer.valueOf(i2));
                     } else {
-                        feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc4);
+                        feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5);
                     }
                 } else if (c2 == 3) {
-                    feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc3);
+                    feedText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc4);
                 } else {
                     feedText = c2 == 4 ? TbadkCoreApplication.getInst().getActivityPrizeData().getFeedText() : null;
                 }

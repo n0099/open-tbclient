@@ -199,7 +199,7 @@ public class qb6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
                 this.a.n(false);
-                ej.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f14bb));
+                ej.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f14bc));
             }
         }
     }
@@ -221,14 +221,14 @@ public class qb6 {
         }
         this.a = tbPageContext;
         this.i = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
-        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f4);
+        this.j = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f5);
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0774, (ViewGroup) null);
         this.b = inflate;
         this.c = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090334);
         this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090341);
         this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090797);
         this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a32);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921e6);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921e7);
         this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090a81);
         this.b.setOnClickListener(new a(this));
         this.h.setOnClickListener(new b(this));
@@ -378,7 +378,7 @@ public class qb6 {
                 ny4 ny4Var2 = new ny4();
                 ny4Var2.t(R.color.CAM_X0109);
                 this.h.setConfig(ny4Var2);
-                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
+                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
             }
             this.k.w(z);
         }

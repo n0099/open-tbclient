@@ -514,10 +514,10 @@ public class BiometricsManager implements NoProguard {
                 passFaceRecogCallback.onFailure(passFaceRecogResult);
                 return true;
             } else if (!activity.isFinishing() && (Build.VERSION.SDK_INT < 17 || !activity.isDestroyed())) {
-                String string = activity.getResources().getString(R.string.obfuscated_res_0x7f0f107c);
+                String string = activity.getResources().getString(R.string.obfuscated_res_0x7f0f107d);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string);
                 spannableStringBuilder.setSpan(new b(this, z, activity, str), 89, string.length(), 33);
-                new CommonDialog.Builder(activity).setDarkMode((SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) ? true : true).setTitle(activity.getResources().getString(R.string.obfuscated_res_0x7f0f107e)).setMessage(spannableStringBuilder).setNegativeButton(activity.getResources().getString(R.string.obfuscated_res_0x7f0f107d), new d(this, passFaceRecogCallback, str)).setPositiveBtn(activity.getResources().getString(R.string.obfuscated_res_0x7f0f107b), new c(this, passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity, str)).build().show();
+                new CommonDialog.Builder(activity).setDarkMode((SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) ? true : true).setTitle(activity.getResources().getString(R.string.obfuscated_res_0x7f0f107f)).setMessage(spannableStringBuilder).setNegativeButton(activity.getResources().getString(R.string.obfuscated_res_0x7f0f107e), new d(this, passFaceRecogCallback, str)).setPositiveBtn(activity.getResources().getString(R.string.obfuscated_res_0x7f0f107c), new c(this, passBiometric, passFaceOperation, passFaceRecogCallback, passFaceRecogDTO, activity, str)).build().show();
                 return true;
             } else {
                 PassFaceRecogResult passFaceRecogResult2 = new PassFaceRecogResult();

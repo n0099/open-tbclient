@@ -42,19 +42,19 @@ public class ut7 extends pt7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e3);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e4);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = ej.i(tbPageContext.getPageActivity()) / 2;
         this.o.setLayoutParams(layoutParams);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0924ad);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092488);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0924ae);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092489);
         this.q = tbImageView;
         tbImageView.setIsRound(true);
         this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b6);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924d1);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b7);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924d2);
     }
 
     @Override // com.baidu.tieba.pt7
@@ -85,6 +85,6 @@ public class ut7 extends pt7 {
         }
         this.q.K(storageModel.url, 10, false);
         this.r.setText(storageModel.displayname);
-        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1159, storageModel.app));
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f115a, storageModel.app));
     }
 }

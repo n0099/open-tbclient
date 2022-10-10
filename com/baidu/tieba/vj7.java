@@ -535,7 +535,7 @@ public class vj7 {
             if (!z) {
                 this.c.u();
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13d2);
+                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f13d3);
                 } else {
                     a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c59);
                 }

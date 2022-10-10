@@ -602,7 +602,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.i = findViewById(R.id.obfuscated_res_0x7f0907fd);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907c4);
-            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e1c);
             this.g = findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091527);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09044c);

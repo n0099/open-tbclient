@@ -49,7 +49,7 @@ public class xx2 {
             if (l33.b0() == null || l33.b0().w() == null || (viewGroup = (ViewGroup) l33.b0().w().findViewById(16908290)) == null) {
                 return null;
             }
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f7b);
+            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f7c);
             if (viewGroup2 != null) {
                 return viewGroup2;
             }
@@ -73,7 +73,7 @@ public class xx2 {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (b0 = l33.b0()) == null || b0.w() == null) {
             return;
         }
-        ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f091f7b);
+        ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f091f7c);
         if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
             ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
         }
@@ -142,6 +142,6 @@ public class xx2 {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
             return;
         }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091fb3)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091fb4)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

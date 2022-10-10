@@ -165,9 +165,9 @@ public class bg6 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f091c37);
-            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091c9e);
-            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091ca0);
+            this.b = (RelativeLayout) this.m.findViewById(R.id.obfuscated_res_0x7f091c38);
+            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091c9f);
+            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091ca1);
         }
     }
 

@@ -94,9 +94,9 @@ public class eg8 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1a);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b18);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b19);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b1b);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b19);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b1a);
             bVar.c = tbImageView;
             tbImageView.setAutoChangeStyle(false);
             bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091306);
@@ -138,7 +138,7 @@ public class eg8 extends BaseAdapter {
             }
             b2.a.setText(fg8Var.d);
             b2.b.setText(fg8Var.e);
-            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0810a5);
+            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0810a6);
             b2.c.G(fg8Var.f, 10, 0, 0, false);
             return view2;
         }

@@ -512,7 +512,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921cf);
+            this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921d0);
             this.q = findViewById(R.id.obfuscated_res_0x7f09025d);
             a aVar = new a(this, this);
             aVar.setOrientation(0);
@@ -557,12 +557,12 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             this.z.v(this);
             this.n.setCurrentItem(this.C);
             this.s.setOnClickListener(this);
-            this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f081187);
+            this.u.setBackgroundResource(R.drawable.obfuscated_res_0x7f081188);
             this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a9c));
             if (cr2.d() != 0) {
-                string = getString(R.string.obfuscated_res_0x7f0f12c3) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                string = getString(R.string.obfuscated_res_0x7f0f12c4) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX;
             } else {
-                string = getString(R.string.obfuscated_res_0x7f0f12c3);
+                string = getString(R.string.obfuscated_res_0x7f0f12c4);
             }
             this.u.setText(string);
         }
@@ -608,14 +608,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         if (cr2.g(mediaModel)) {
             this.v.setVisibility(0);
             this.v.setText(P(this.H.get(this.C)));
-            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081188);
+            this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081189);
             return;
         }
         this.v.setVisibility(8);
         if (br2.f(br2.d, mediaModel)) {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118a);
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118b);
         } else {
-            this.r.setImageResource(R.drawable.obfuscated_res_0x7f081189);
+            this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118a);
         }
     }
 
@@ -797,11 +797,11 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                         this.A.i(null);
                     }
                     this.v.setVisibility(8);
-                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f081189);
+                    this.r.setImageResource(R.drawable.obfuscated_res_0x7f08118a);
                     if (cr2.d() > 0) {
-                        string = getString(R.string.obfuscated_res_0x7f0f12c3) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                        string = getString(R.string.obfuscated_res_0x7f0f12c4) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX;
                     } else {
-                        string = getString(R.string.obfuscated_res_0x7f0f12c3);
+                        string = getString(R.string.obfuscated_res_0x7f0f12c4);
                     }
                     this.u.setText(string);
                     Y();
@@ -811,9 +811,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 if (d2 == br2.c) {
                     br2.j(br2.d);
                 } else if (d2 > 0 && TextUtils.equals(br2.d, "single") && !TextUtils.equals(cr2.b(), mediaModel.getType())) {
-                    d33.f(this, R.string.obfuscated_res_0x7f0f12b2).G();
+                    d33.f(this, R.string.obfuscated_res_0x7f0f12b3).G();
                 } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
-                    d33.f(this, R.string.obfuscated_res_0x7f0f12b1).G();
+                    d33.f(this, R.string.obfuscated_res_0x7f0f12b2).G();
                 } else {
                     int d3 = cr2.d();
                     this.A.notifyItemInserted(d3);
@@ -824,8 +824,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                     this.p.smoothScrollToPosition(d3);
                     this.v.setVisibility(0);
                     this.v.setText(P(mediaModel));
-                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081188);
-                    this.u.setText(getString(R.string.obfuscated_res_0x7f0f12c3) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX);
+                    this.v.setBackgroundResource(R.drawable.obfuscated_res_0x7f081189);
+                    this.u.setText(getString(R.string.obfuscated_res_0x7f0f12c4) + "(" + cr2.d() + SmallTailInfo.EMOTION_SUFFIX);
                     this.u.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a9c));
                     Y();
                 }

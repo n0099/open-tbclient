@@ -716,7 +716,7 @@ public abstract class r22 extends Fragment implements SlideInterceptor {
                             l02.b("SwanAppBaseFragment", "view为null");
                             return;
                         }
-                        r22Var.r0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091fca);
+                        r22Var.r0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091fcb);
                     }
                     this.d.r0.setVisibility(0);
                     if (this.a) {
@@ -724,7 +724,7 @@ public abstract class r22 extends Fragment implements SlideInterceptor {
                     }
                     if (this.b) {
                         this.d.s0 = new AtomicBoolean(false);
-                        this.d.r0.setText(R.string.obfuscated_res_0x7f0f131d);
+                        this.d.r0.setText(R.string.obfuscated_res_0x7f0f131e);
                         this.d.r0.setOnClickListener(new b(this));
                     }
                 }
@@ -1293,7 +1293,7 @@ public abstract class r22 extends Fragment implements SlideInterceptor {
         AtomicBoolean atomicBoolean = this.s0;
         atomicBoolean.set(!atomicBoolean.get());
         boolean z = this.s0.get();
-        this.r0.setText(z ? R.string.obfuscated_res_0x7f0f131e : R.string.obfuscated_res_0x7f0f131d);
+        this.r0.setText(z ? R.string.obfuscated_res_0x7f0f131f : R.string.obfuscated_res_0x7f0f131e);
         j93.j(z);
     }
 
@@ -1392,7 +1392,7 @@ public abstract class r22 extends Fragment implements SlideInterceptor {
         }
         this.f0 = (SwanAppActionBar) view2.findViewById(R.id.obfuscated_res_0x7f090181);
         this.e0 = view2.findViewById(R.id.obfuscated_res_0x7f090182);
-        this.i0 = view2.findViewById(R.id.obfuscated_res_0x7f092240);
+        this.i0 = view2.findViewById(R.id.obfuscated_res_0x7f092241);
         this.f0.setLeftBackViewMinWidth(ch3.f(this.c0, 38.0f));
         g gVar = new g(this);
         this.f0.setLeftBackViewClickListener(gVar);

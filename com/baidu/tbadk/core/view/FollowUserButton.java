@@ -113,7 +113,7 @@ public class FollowUserButton extends TBSpecificationBtn implements qz4 {
                 ny4Var.t(R.color.CAM_X0109);
                 ny4Var.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                 setConfig(ny4Var);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
             } else {
                 setVisibility(0);
                 ny4 ny4Var2 = new ny4();

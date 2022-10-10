@@ -85,7 +85,7 @@ public class hu6 extends j16<rh6> {
         this.t = hListView;
         hListView.setHeaderDividersEnabled(false);
         this.t.setFooterDividersEnabled(false);
-        this.t.setSelector(R.drawable.obfuscated_res_0x7f080ce4);
+        this.t.setSelector(R.drawable.obfuscated_res_0x7f080ce5);
         this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0348, (ViewGroup) null), tbPageContext, bdUniqueId);
         m67 m67Var = new m67(getContext(), R.layout.obfuscated_res_0x7f0d0348, this.v);
         this.u = m67Var;
@@ -142,7 +142,7 @@ public class hu6 extends j16<rh6> {
                 return;
             }
             if (StringUtils.isNull(rh6Var.mGroupTitle)) {
-                this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10bb));
+                this.j.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10bc));
             } else {
                 this.j.setText(rh6Var.mGroupTitle);
             }

@@ -178,10 +178,10 @@ public class SelectTopicListLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07b2, this);
             this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09140c);
-            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f0922c2);
+            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f0922c3);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906a1);
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f0922dd);
-            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f0922e0);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f0922de);
+            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f0922e1);
             this.d.setmFromType(2);
             this.d.h(false);
             c();
@@ -198,7 +198,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment q1 = VideoTopicListFragment.q1();
             m95Var.a = q1;
             q1.setArguments(bundle);
-            m95Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f111e);
+            m95Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f111f);
             m95Var.e = 1;
             this.f.add(m95Var);
             Bundle bundle2 = new Bundle();
@@ -207,7 +207,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment q12 = VideoTopicListFragment.q1();
             m95Var2.a = q12;
             q12.setArguments(bundle2);
-            m95Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1118);
+            m95Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1119);
             m95Var2.e = 2;
             this.f.add(m95Var2);
             this.c.setOffscreenPageLimit(this.f.size());

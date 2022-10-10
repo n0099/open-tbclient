@@ -174,7 +174,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.g = recentlyVisitedForumListAdapter;
             view2.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view2.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092298);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092299);
             BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a7a);
             this.d = barImageView;
             barImageView.setShowOval(true);
@@ -184,7 +184,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.d.setStrokeColorResId(R.color.CAM_X0401);
             this.d.setPlaceHolderAutoChangeSkinType(1);
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
-            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091bbd);
+            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091bbe);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6d);
             this.e.setThreeDotMode(2);
             this.e.setEnterForumStyle(true);

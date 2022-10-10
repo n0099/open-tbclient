@@ -64,16 +64,16 @@ public class nd7 {
         personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0697);
         View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091989);
         this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f138d));
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f138e));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091e6c);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091e6d);
         this.n = personalTalkSettingViewSettingView;
         personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0924ae);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f66);
-        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f67);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0924af);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f67);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f68);
         this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090125);
         this.i.setOnClickListener(this.a);
         this.j.setOnClickListener(this.a);
@@ -85,8 +85,8 @@ public class nd7 {
         this.d.setGodIconWidth(R.dimen.tbds47);
         this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090e6f);
         this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e6d);
-        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f0924a7);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092490);
+        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f0924a8);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092491);
         this.m = this.a.findViewById(R.id.obfuscated_res_0x7f090821);
     }
 

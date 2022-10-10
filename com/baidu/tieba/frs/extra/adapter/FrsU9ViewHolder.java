@@ -114,16 +114,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092453);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092452);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092297);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092454);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092453);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092298);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092293);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092290);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092296);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092454);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092295);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092291);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092297);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092455);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ae);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
@@ -175,7 +175,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (StringUtils.isNull(this.k.h())) {
                     this.f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14b4) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14b5) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.f.setText(spannableString);
@@ -184,7 +184,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (c.d() <= 0) {
                     this.g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14b5) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14b6) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.g.setText(spannableString2);

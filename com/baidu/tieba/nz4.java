@@ -108,7 +108,7 @@ public class nz4 extends iz4<nz4> {
             if (hh5.g(this.c, f())) {
                 return;
             }
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a47, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a48, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
             eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
             n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);

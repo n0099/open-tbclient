@@ -314,7 +314,7 @@ public class fe7 {
         this.d = noNetworkView;
         noNetworkView.d(this.a, TbadkCoreApplication.getInst().getSkinType());
         this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0906d3);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.c = navigationBar;
         navigationBar.showBottomLine();
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

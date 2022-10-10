@@ -33,10 +33,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int obfuscated = 2131304535;
+    public static final int obfuscated = 2131304536;
 
     /* renamed from: E */
-    public static final int obfuscated = 2131304536;
+    public static final int obfuscated = 2131304537;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;

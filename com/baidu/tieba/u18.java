@@ -55,7 +55,7 @@ public class u18 extends PbListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.f();
-            D(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f122c));
+            D(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f122d));
             b().setVisibility(0);
         }
     }

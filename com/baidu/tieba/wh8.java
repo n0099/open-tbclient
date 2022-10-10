@@ -159,7 +159,7 @@ public class wh8 extends yh8 {
         this.d0 = dVar5;
         this.e0 = onClickListener;
         this.S = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909ca);
-        this.T = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e25);
+        this.T = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e26);
         y0();
     }
 
@@ -185,32 +185,32 @@ public class wh8 extends yh8 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
             int intValue = view2.getTag() != null ? ((Integer) view2.getTag()).intValue() : -1;
-            if (intValue == R.drawable.obfuscated_res_0x7f0809ed) {
+            if (intValue == R.drawable.obfuscated_res_0x7f0809ee) {
                 yu4.d dVar = this.b0;
                 if (dVar != null) {
                     dVar.onClick();
                 }
-            } else if (intValue == -32040297) {
+            } else if (intValue == -32040295) {
                 yu4.d dVar2 = this.Z;
                 if (dVar2 != null) {
                     dVar2.onClick();
                 }
-            } else if (intValue == R.drawable.obfuscated_res_0x7f080a7c) {
+            } else if (intValue == R.drawable.obfuscated_res_0x7f080a7d) {
                 yu4.d dVar3 = this.a0;
                 if (dVar3 != null) {
                     dVar3.onClick();
                 }
-            } else if (intValue == R.drawable.obfuscated_res_0x7f080a7e) {
+            } else if (intValue == R.drawable.obfuscated_res_0x7f080a7f) {
                 yu4.d dVar4 = this.c0;
                 if (dVar4 != null) {
                     dVar4.onClick();
                 }
-            } else if (intValue == R.drawable.obfuscated_res_0x7f080a7d) {
+            } else if (intValue == R.drawable.obfuscated_res_0x7f080a7e) {
                 yu4.d dVar5 = this.d0;
                 if (dVar5 != null) {
                     dVar5.onClick();
                 }
-            } else if (intValue != R.drawable.obfuscated_res_0x7f080a8a || (onClickListener = this.e0) == null) {
+            } else if (intValue != R.drawable.obfuscated_res_0x7f080a8b || (onClickListener = this.e0) == null) {
             } else {
                 onClickListener.onClick(view2);
             }
@@ -247,32 +247,32 @@ public class wh8 extends yh8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.h.clear();
-            l(R.string.obfuscated_res_0x7f0f1168, new SvgMaskType(R.drawable.obfuscated_res_0x7f080832));
-            l(R.string.obfuscated_res_0x7f0f116c, new SvgMaskType(R.drawable.obfuscated_res_0x7f080833));
-            l(R.string.obfuscated_res_0x7f0f118a, new SvgMaskType(R.drawable.obfuscated_res_0x7f080835));
+            l(R.string.obfuscated_res_0x7f0f1169, new SvgMaskType(R.drawable.obfuscated_res_0x7f080832));
+            l(R.string.obfuscated_res_0x7f0f116d, new SvgMaskType(R.drawable.obfuscated_res_0x7f080833));
+            l(R.string.obfuscated_res_0x7f0f118b, new SvgMaskType(R.drawable.obfuscated_res_0x7f080835));
             a aVar = new a(this, this.R);
-            aVar.d(R.drawable.obfuscated_res_0x7f080a8a);
-            aVar.setItemName(R.string.obfuscated_res_0x7f0f118b);
-            aVar.e(R.string.obfuscated_res_0x7f0f118c);
+            aVar.d(R.drawable.obfuscated_res_0x7f080a8b);
+            aVar.setItemName(R.string.obfuscated_res_0x7f0f118c);
+            aVar.e(R.string.obfuscated_res_0x7f0f118d);
             aVar.setOnClickListener(this);
             List<View> list = this.h;
             aVar.a();
             list.add(aVar);
-            l(R.string.obfuscated_res_0x7f0f1191, new SvgMaskType(R.drawable.obfuscated_res_0x7f080831));
-            l(R.string.obfuscated_res_0x7f0f1177, new SvgMaskType(R.drawable.obfuscated_res_0x7f080836));
+            l(R.string.obfuscated_res_0x7f0f1192, new SvgMaskType(R.drawable.obfuscated_res_0x7f080831));
+            l(R.string.obfuscated_res_0x7f0f1178, new SvgMaskType(R.drawable.obfuscated_res_0x7f080836));
             if (this.W != null) {
-                i(R.string.obfuscated_res_0x7f0f0d2e, R.drawable.obfuscated_res_0x7f0809ed);
+                i(R.string.obfuscated_res_0x7f0f0d2e, R.drawable.obfuscated_res_0x7f0809ee);
             }
-            LinearLayout G = G(R.string.obfuscated_res_0x7f0f10af, R.drawable.obfuscated_res_0x7f0809e8);
+            LinearLayout G = G(R.string.obfuscated_res_0x7f0f10b0, R.drawable.obfuscated_res_0x7f0809e9);
             G.setOnClickListener(this);
-            G.setTag(-32040297);
+            G.setTag(-32040295);
             this.h.add(G);
             if (this.X) {
-                i(R.string.obfuscated_res_0x7f0f10ae, R.drawable.obfuscated_res_0x7f080a7c);
+                i(R.string.obfuscated_res_0x7f0f10af, R.drawable.obfuscated_res_0x7f080a7d);
             }
-            i(R.string.obfuscated_res_0x7f0f08c3, R.drawable.obfuscated_res_0x7f080a7e);
+            i(R.string.obfuscated_res_0x7f0f08c3, R.drawable.obfuscated_res_0x7f080a7f);
             if (this.Y) {
-                i(R.string.obfuscated_res_0x7f0f08ea, R.drawable.obfuscated_res_0x7f080a7d);
+                i(R.string.obfuscated_res_0x7f0f08ea, R.drawable.obfuscated_res_0x7f080a7e);
             }
             this.U = new View(this.R);
             this.V = new View(this.R);

@@ -50,7 +50,7 @@ public class lz7 {
         a = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds150);
         b = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
         c = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-        d = new int[]{R.string.obfuscated_res_0x7f0f0fff};
+        d = new int[]{R.string.obfuscated_res_0x7f0f1000};
     }
 
     public static void a(int i, String str, TextView textView, TextView textView2, ImageView imageView, UserIconBox userIconBox, UserIconBox userIconBox2) {
@@ -90,9 +90,9 @@ public class lz7 {
                 return null;
             }
             if (threadData.getBJHContentTag() == 1) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f165c);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f165d);
             } else {
-                string = threadData.getBJHContentTag() == 2 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1199) : "";
+                string = threadData.getBJHContentTag() == 2 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119a) : "";
             }
             if (TextUtils.isEmpty(string)) {
                 return null;

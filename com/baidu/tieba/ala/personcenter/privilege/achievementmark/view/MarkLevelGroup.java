@@ -112,7 +112,7 @@ public class MarkLevelGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout, z) == null) {
             if (z) {
-                frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f64);
+                frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f65);
             } else {
                 frameLayout.setBackgroundResource(0);
             }
@@ -156,20 +156,20 @@ public class MarkLevelGroup extends LinearLayout {
                 if (pz5Var.g() == rz5Var.c()) {
                     e(frameLayout, true);
                     if (z) {
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f62);
-                    } else {
                         textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f63);
+                    } else {
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f64);
                     }
                 } else if (pz5Var.g() > rz5Var.c()) {
                     e(frameLayout, false);
                     if (z) {
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f62);
-                    } else {
                         textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f63);
+                    } else {
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f64);
                     }
                 } else if (pz5Var.g() < rz5Var.c()) {
                     e(frameLayout, false);
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f62);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f63);
                 }
                 inflate.setOnClickListener(new a(this, rz5Var));
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) inflate.getLayoutParams();

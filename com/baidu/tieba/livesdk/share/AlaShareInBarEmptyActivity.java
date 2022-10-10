@@ -94,7 +94,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, ni7Var) == null) {
                 this.a.closeLoadingDialog();
                 if (i == 0 && ni7Var != null) {
-                    BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1148));
+                    BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1149));
                     b.f(BdToast.ToastIcon.SUCCESS);
                     b.c(3000);
                     b.i();

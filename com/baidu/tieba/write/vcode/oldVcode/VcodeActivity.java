@@ -924,7 +924,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             str2 = null;
                         }
                         if (StringUtils.isNull(str)) {
-                            str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1130);
+                            str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1131);
                             np8.a(this.e.a, this.a.getThreadId());
                         }
                         if (this.a.isAddThread()) {
@@ -1137,20 +1137,20 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091792);
-            this.l = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.l = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090f25);
             this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
-            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f1121), this.o);
+            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f1122), this.o);
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
             layoutParams.rightMargin = ej.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
             this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090f2e);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ea);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924eb);
             this.c = imageView;
             imageView.setImageDrawable(null);
             this.c.setOnClickListener(new d(this));
-            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
         }
     }
 
@@ -1175,7 +1175,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             sx4 sx4Var = new sx4(getPageContext());
             this.mWaitingDialog = sx4Var;
-            sx4Var.i(R.string.obfuscated_res_0x7f0f1133);
+            sx4Var.i(R.string.obfuscated_res_0x7f0f1134);
             this.mWaitingDialog.e(this.i);
             this.mWaitingDialog.d(false);
             this.mWaitingDialog.g(false);

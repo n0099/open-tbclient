@@ -334,12 +334,12 @@ public class EBusinessProtocolView extends Dialog {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad9);
-            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad4);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ada);
+            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ad5);
             this.f = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09015f);
             this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09049f);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921fa);
-            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09220a);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921fb);
+            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09220b);
             h();
             f();
         }
@@ -355,7 +355,7 @@ public class EBusinessProtocolView extends Dialog {
                 this.h.setVisibility(0);
                 setCanceledOnTouchOutside(true);
                 this.g.setText(this.k);
-                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f142c));
+                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f142d));
                 oy4 oy4Var = new oy4();
                 oy4Var.p(R.color.CAM_X0302);
                 this.h.setTextSize(R.dimen.T_X08);
@@ -371,13 +371,13 @@ public class EBusinessProtocolView extends Dialog {
                 oy4Var2.p(R.color.CAM_X0107);
                 this.e.setConfig(oy4Var2);
                 this.e.setTextSize(R.dimen.tbds42);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f4e));
+                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f4f));
                 this.f.setTextSize(R.dimen.tbds42);
                 oy4 oy4Var3 = new oy4();
                 oy4Var3.p(R.color.CAM_X0302);
                 this.f.setConfig(oy4Var3);
                 this.f.setTextSize(R.dimen.tbds42);
-                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f4d));
+                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f4e));
             }
         }
     }

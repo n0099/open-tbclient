@@ -219,8 +219,8 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d48);
-            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc3);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc7);
+            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc4);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fc8);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043b);
             this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902b5);
             io2.a W = k33.K().q().W();
@@ -313,17 +313,17 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (sm2.y0().d()) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f0161);
-                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f0811bf));
+                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f0811c0));
                 this.e.setTextColor(oh4.b(getContext(), R.color.obfuscated_res_0x7f060ab5));
             } else if (!z) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f0161);
                 this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
-                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f081193));
+                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f081194));
                 this.e.setTextColor(oh4.c(getContext(), R.color.obfuscated_res_0x7f060aa4));
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f12d9);
+                this.e.setText(R.string.obfuscated_res_0x7f0f12da);
                 this.e.setTypeface(Typeface.create("sans-serif", 0));
-                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f08119a));
+                this.e.setBackground(oh4.d(getContext(), R.drawable.obfuscated_res_0x7f08119b));
                 this.e.setTextColor(oh4.c(getContext(), R.color.obfuscated_res_0x7f060aa5));
             }
         }

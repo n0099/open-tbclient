@@ -162,7 +162,7 @@ public class BannerView extends RelativeLayout {
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092362);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092363);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090327);
             this.g = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);

@@ -44,11 +44,11 @@ public class io7 {
             }
         }
         this.b = baseActivity;
-        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f0920be);
-        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f0920ba);
-        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f0920bb);
+        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f0920bf);
+        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f0920bb);
+        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f0920bc);
         this.c = navigationBar;
-        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1383));
+        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1384));
         this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f0375), onClickListener);
         TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0534), onClickListener);
         this.g = addTextButton;
@@ -61,7 +61,7 @@ public class io7 {
         this.g.setLayoutParams(layoutParams2);
         int f = ej.f(this.b, R.dimen.tbds27);
         this.g.setPadding(f, 0, f, 0);
-        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f0920c7);
+        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f0920c8);
         View view2 = new View(baseActivity.getPageContext().getPageActivity());
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070266)));
         View view3 = new View(baseActivity.getPageContext().getPageActivity());

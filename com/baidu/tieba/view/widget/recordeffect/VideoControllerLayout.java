@@ -532,8 +532,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnTouc
             hv4 d3 = hv4.d(textView);
             d3.A(R.string.F_X02);
             d3.y(R.array.S_O_X001);
-            this.p.add(0, new h19(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b44), new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b44)), R.drawable.obfuscated_res_0x7f080b28));
-            this.p.add(1, new h19(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b42), new MusicData(MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b42)), R.drawable.obfuscated_res_0x7f080b12));
+            this.p.add(0, new h19(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b44), new MusicData(MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b44)), R.drawable.obfuscated_res_0x7f080b29));
+            this.p.add(1, new h19(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b42), new MusicData(MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b42)), R.drawable.obfuscated_res_0x7f080b13));
             return true;
         }
         return invokeV.booleanValue;

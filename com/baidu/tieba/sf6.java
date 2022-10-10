@@ -88,7 +88,7 @@ public class sf6 extends p9<TbTitleActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageContext().getContext()).createNormalCfg(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f140f), "from")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageContext().getContext()).createNormalCfg(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1410), "from")));
             }
         }
     }
@@ -198,11 +198,11 @@ public class sf6 extends p9<TbTitleActivity> {
             for (int i = 1; i <= list.size(); i++) {
                 LevelInfo levelInfo = list.get(i - 1);
                 View inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d086d, (ViewGroup) null);
-                LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09202f);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092031);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092032);
-                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0920ec);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092030);
+                LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092030);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092032);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092033);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0920ed);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092031);
                 if (i % 2 != 0) {
                     SkinManager.setBackgroundResource(linearLayout, R.color.CAM_X0205);
                 }
@@ -249,8 +249,8 @@ public class sf6 extends p9<TbTitleActivity> {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13c7);
-            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13c8);
+            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13c8);
+            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13c9);
             int length = string2.length();
             int indexOf = string.indexOf(string2);
             SpannableString spannableString = new SpannableString(string);
@@ -266,32 +266,32 @@ public class sf6 extends p9<TbTitleActivity> {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d086c, (ViewGroup) null);
             this.b = relativeLayout;
             this.a.setContentView(relativeLayout);
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925f2);
-            this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b49);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925f3);
+            this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b4a);
             this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090960);
             this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0919b4);
-            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092215);
-            this.r = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09264f);
-            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0925e9);
-            this.l = this.b.findViewById(R.id.obfuscated_res_0x7f0922b7);
+            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092216);
+            this.r = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092650);
+            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0925ea);
+            this.l = this.b.findViewById(R.id.obfuscated_res_0x7f0922b8);
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + ej.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025a);
             } else {
                 this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + ej.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070306);
             }
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f13ca));
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f13cb));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
-            this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ee);
+            this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ef);
             this.k = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909cb);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ed);
-            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09202e);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b3);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ee);
+            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09202f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b4);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d4e);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920ef);
-            this.c = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920f0);
+            this.c = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
             o();
             s();
         }

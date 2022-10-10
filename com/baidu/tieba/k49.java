@@ -282,7 +282,7 @@ public class k49 extends n49<h59> implements p49, w19.a, PopupWindow.OnDismissLi
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (x36Var = this.l) == null) {
             return;
         }
-        x36Var.y0(this.a.getString(R.string.obfuscated_res_0x7f0f160d), "write_title_prefix_tip_key", true);
+        x36Var.y0(this.a.getString(R.string.obfuscated_res_0x7f0f160e), "write_title_prefix_tip_key", true);
     }
 
     @Override // com.baidu.tieba.w19.a
@@ -405,7 +405,7 @@ public class k49 extends n49<h59> implements p49, w19.a, PopupWindow.OnDismissLi
             SelectForumData selectForumData = (SelectForumData) obj;
             PostPrefixData postPrefixData = selectForumData.postPrefix;
             if (postPrefixData != null && !ListUtils.isEmpty(postPrefixData.getPrefixs())) {
-                selectForumData.postPrefix.getPrefixs().add(this.a.getString(R.string.obfuscated_res_0x7f0f15f7));
+                selectForumData.postPrefix.getPrefixs().add(this.a.getString(R.string.obfuscated_res_0x7f0f15f8));
                 this.e.setPrefixData(selectForumData.postPrefix);
             }
             L();

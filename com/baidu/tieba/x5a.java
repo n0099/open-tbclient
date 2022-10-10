@@ -375,7 +375,7 @@ public final class x5a {
         }
         Window window = dialog.getWindow();
         Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
-        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091c7c);
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091c7d);
         ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f091015);
         if (viewGroup == null || imageView == null) {
             return;
@@ -406,10 +406,10 @@ public final class x5a {
             window.setAttributes(attributes);
             window.setWindowAnimations(R.style.obfuscated_res_0x7f10014f);
             window.setContentView(R.layout.obfuscated_res_0x7f0d069f);
-            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f092419);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f09241a);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
-            window.findViewById(R.id.obfuscated_res_0x7f091c66).setOnClickListener(new a(payDialogType, z5aVar, dialog, iViewEventListener));
+            window.findViewById(R.id.obfuscated_res_0x7f091c67).setOnClickListener(new a(payDialogType, z5aVar, dialog, iViewEventListener));
             ((Button) window.findViewById(R.id.obfuscated_res_0x7f09042f)).setOnClickListener(new b(payDialogType, z5aVar, dialog, iViewEventListener));
             ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f0906d3)).addView(view2);
         }
@@ -449,7 +449,7 @@ public final class x5a {
         }
         Window window = dialog.getWindow();
         Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
-        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091c7c);
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091c7d);
         ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f091015);
         if (viewGroup == null || imageView == null) {
             return;

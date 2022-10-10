@@ -90,10 +90,10 @@ public class hj6 implements th6.d {
         this.n = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092272);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092273);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906e3);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5e);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091eb4);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5f);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091eb5);
         this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090be0);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090660);
         this.j = imageView;
@@ -105,7 +105,7 @@ public class hj6 implements th6.d {
         layoutParams.width = k;
         layoutParams.height = (int) (((k * 364) * 1.0f) / 980.0f);
         this.k.setLayoutParams(layoutParams);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b2a);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b2b);
         View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091284);
         this.m = findViewById;
         findViewById.setBackground(f());
@@ -128,7 +128,7 @@ public class hj6 implements th6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080fab);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080fac);
         }
     }
 
@@ -137,7 +137,7 @@ public class hj6 implements th6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.h.setBackground(f());
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080faa);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f080fab);
         }
     }
 

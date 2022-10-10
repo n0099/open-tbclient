@@ -1200,7 +1200,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements jy6 
             this.a = getContext();
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0792, (ViewGroup) this, true);
             this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0902ac);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091e22);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091e23);
             this.d = pagerSlidingTabStrip;
             pagerSlidingTabStrip.setIsFromSecondtab(true);
             this.d.setTextNormalColor(R.color.CAM_X0107);
@@ -1211,7 +1211,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements jy6 
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090d9c);
             this.f = frameLayout;
             sp8.c(frameLayout, 5);
-            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091e2b);
+            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091e2c);
             this.h = findViewById(R.id.obfuscated_res_0x7f090819);
             this.i = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090dbb);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0903e9);

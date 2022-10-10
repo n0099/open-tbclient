@@ -271,7 +271,7 @@ public class PaymentManager {
         if (!(interceptable == null || interceptable.invokeIL(65543, null, i, str) == null) || (wc1Var = c) == null) {
             return;
         }
-        wc1Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0f95) + str);
+        wc1Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0f96) + str);
         c = null;
     }
 
@@ -388,7 +388,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                         wc1 wc1Var = this.a;
-                        PaymentManager.g(wc1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f1622) + str);
+                        PaymentManager.g(wc1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f1623) + str);
                     }
                 }
             }
@@ -583,7 +583,7 @@ public class PaymentManager {
                             ca1.f().c(activity2, xc1Var.b, new d(this, wc1Var));
                             break;
                         default:
-                            wc1Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f14db));
+                            wc1Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f14dc));
                             break;
                     }
                     activity2.finish();

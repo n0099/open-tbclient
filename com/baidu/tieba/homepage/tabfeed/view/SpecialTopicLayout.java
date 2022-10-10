@@ -104,9 +104,9 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
                 }
                 this.i = horizontalAdapter;
                 this.a = 3;
-                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09255b);
-                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092137);
-                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092381);
+                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
+                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092138);
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092382);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09100f);
                 this.b = tbImageView;
                 tbImageView.setConrers(15);
@@ -346,10 +346,10 @@ public class SpecialTopicLayout extends LinearLayout implements xx, wx<SpecialCo
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0386, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092231);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
-            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc2);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092232);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc3);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
             this.h = findViewById(R.id.obfuscated_res_0x7f090817);
             this.i = findViewById(R.id.obfuscated_res_0x7f090811);
             this.e = new HorizontalAdapter(this.a);

@@ -191,9 +191,9 @@ public class b {
             Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090458);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
                 ((LinearLayout) inflate.findViewById(R.id.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609de));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d5b)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609e1));
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d5a)).setImageResource(R.drawable.obfuscated_res_0x7f081065);
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f081031);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d5c)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609e1));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d5b)).setImageResource(R.drawable.obfuscated_res_0x7f081066);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f081032);
                 Resources resources = context.getResources();
                 if (resources != null) {
                     button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a29));

@@ -261,7 +261,7 @@ public class hn8 {
                     if (!this.b.endsWith(" ")) {
                         this.b += " ";
                     }
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1523);
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1524);
                     String str = string + this.b;
                     SpannableString spannableString4 = new SpannableString(str);
                     spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);

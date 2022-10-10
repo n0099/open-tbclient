@@ -796,7 +796,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements dy7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.A = new GestureDetector(new e(this));
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dd4);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dd5);
             this.z = findViewById;
             findViewById.setOnClickListener(new f(this));
         }
@@ -813,7 +813,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements dy7.c, V
             TextView centerTextTitle = this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e08));
             this.e = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
-            this.d = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f112c));
+            this.d = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f112d));
             ImageView backImageView = this.a.getBackImageView();
             if (backImageView == null || !(backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams) || (view2 = this.c) == null || this.d == null) {
                 return;
@@ -825,7 +825,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements dy7.c, V
             layoutParams2.width = -2;
             this.c.setLayoutParams(layoutParams2);
             if (this.a.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             this.c.setOnClickListener(new g(this));
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.d.getLayoutParams();
@@ -840,8 +840,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements dy7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             R1();
-            this.b = findViewById(R.id.obfuscated_res_0x7f0925be);
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091dd3);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0925bf);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091dd4);
             this.f = editorScrollView;
             editorScrollView.setListener(new a(this));
             Q1();
@@ -1113,7 +1113,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements dy7.c, V
             SkinManager.setImageResource(this.n, R.drawable.icon_edit_close_n);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
             if (this.a.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
             I1();

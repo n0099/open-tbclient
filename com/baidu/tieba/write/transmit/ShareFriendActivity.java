@@ -575,12 +575,12 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.a = navigationBar;
             if (this.z) {
                 this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f03ae));
             } else if (this.y) {
-                this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1115));
+                this.r = navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1116));
             }
             this.t = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0079, new g(this));
             this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
@@ -606,11 +606,11 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = findViewById(R.id.obfuscated_res_0x7f091e9e);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091e9f);
             this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, ej.f(getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c9a)), null, true);
             b2();
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eac);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091e8b);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ead);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091e8c);
             this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f091328);
             w29 w29Var = new w29(this);
             this.h = w29Var;
@@ -805,8 +805,8 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 noDataView.f(getPageContext(), i2);
             }
             this.a.onChangeSkinType(getPageContext(), i2);
-            this.w.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a24, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            WebPManager.setPureDrawable(this.x, R.drawable.obfuscated_res_0x7f080a6f, R.color.CAM_X0109, null);
+            this.w.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            WebPManager.setPureDrawable(this.x, R.drawable.obfuscated_res_0x7f080a70, R.color.CAM_X0109, null);
             SkinManager.setImageResource(this.q, R.drawable.icon_input_close_s);
             this.h.c(i2);
             hv4 d2 = hv4.d(this.n);
@@ -980,7 +980,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 } else {
                     this.b.k.setVisibility(8);
                     ShareFriendActivity shareFriendActivity2 = this.b;
-                    shareFriendActivity2.showNetRefreshView(shareFriendActivity2.j, this.b.getString(R.string.obfuscated_res_0x7f0f0fd9), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fd8), true, this.b.getNetRefreshListener());
+                    shareFriendActivity2.showNetRefreshView(shareFriendActivity2.j, this.b.getString(R.string.obfuscated_res_0x7f0f0fda), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fd9), true, this.b.getNetRefreshListener());
                 }
                 super.onPostExecute(l29Var);
             }

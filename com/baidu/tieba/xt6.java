@@ -143,7 +143,7 @@ public class xt6 extends p9<BaseFragmentActivity> {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0923bf || logicField == LogicField.LIKE_BTN) {
+            if (id == R.id.obfuscated_res_0x7f0923c0 || logicField == LogicField.LIKE_BTN) {
                 if (this.a.a.w3()) {
                     return;
                 }
@@ -165,7 +165,7 @@ public class xt6 extends p9<BaseFragmentActivity> {
                     statisticItem2.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem2);
                 }
-            } else if (id == R.id.obfuscated_res_0x7f092403 || logicField == LogicField.SIGN_BTN) {
+            } else if (id == R.id.obfuscated_res_0x7f092404 || logicField == LogicField.SIGN_BTN) {
                 if (this.a.a.w3()) {
                     return;
                 }

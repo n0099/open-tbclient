@@ -206,9 +206,9 @@ public class yw6 extends qn<s26, ThreadCardViewHolder<s26>> implements to5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, view2, s26Var) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180) {
+            if (id == R.id.obfuscated_res_0x7f092181) {
                 sw6.b(view2, s26Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f092488 || id == R.id.obfuscated_res_0x7f0924b6) {
+            } else if (id == R.id.obfuscated_res_0x7f092489 || id == R.id.obfuscated_res_0x7f0924b7) {
                 sw6.b(view2, s26Var, 1);
             } else if (id == R.id.obfuscated_res_0x7f090718 || id == R.id.obfuscated_res_0x7f0903f0) {
                 sw6.b(view2, s26Var, 3);

@@ -120,7 +120,7 @@ public class jk8 extends BaseAdapter {
                         }
                         TiebaStatic.log(new StatisticItem("c10566").param("fid", valueOf));
                     }
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f091f42) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f091f43) {
                     String valueOf3 = view2.getTag(R.id.obfuscated_res_0x7f090ab9) == null ? "" : String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090ab9));
                     valueOf = view2.getTag(R.id.obfuscated_res_0x7f090a57) != null ? String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f090a57)) : "";
                     this.a.b.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.b.getContext()).createNormalCfg(valueOf3, null)));
@@ -312,7 +312,7 @@ public class jk8 extends BaseAdapter {
             SkinManager.setViewTextColor(cVar2.c, (int) R.color.CAM_X0105);
             Integer num = this.a.get(item.forum_id);
             int intValue = item.like_num.intValue() + (num == null ? 0 : num.intValue());
-            cVar2.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f02b0) + ":" + StringHelper.numberUniformFormat(intValue) + GlideException.IndentedAppendable.INDENT + this.b.getString(R.string.obfuscated_res_0x7f0f13d5) + ":" + StringHelper.numberUniformFormat(item.post_num.intValue()));
+            cVar2.d.setText(this.b.getString(R.string.obfuscated_res_0x7f0f02b0) + ":" + StringHelper.numberUniformFormat(intValue) + GlideException.IndentedAppendable.INDENT + this.b.getString(R.string.obfuscated_res_0x7f0f13d6) + ":" + StringHelper.numberUniformFormat(item.post_num.intValue()));
             SkinManager.setViewTextColor(cVar2.d, (int) R.color.CAM_X0109);
             cVar2.e.setText(item._abstract);
             SkinManager.setViewTextColor(cVar2.e, (int) R.color.CAM_X0109);
@@ -320,7 +320,7 @@ public class jk8 extends BaseAdapter {
             cVar2.f.setTag(R.id.obfuscated_res_0x7f090a57, item.forum_id);
             int intValue2 = this.a.get(item.forum_id) == null ? 0 : this.a.get(item.forum_id).intValue();
             if ((item.is_like.intValue() == 0 && intValue2 > 0) || (item.is_like.intValue() == 1 && intValue2 >= 0)) {
-                cVar2.f.setText(R.string.obfuscated_res_0x7f0f0fdc);
+                cVar2.f.setText(R.string.obfuscated_res_0x7f0f0fdd);
                 cVar2.f.setBackgroundResource(0);
                 SkinManager.setViewTextColor(cVar2.f, (int) R.color.CAM_X0109);
             } else {

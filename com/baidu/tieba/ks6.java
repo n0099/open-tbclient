@@ -100,10 +100,10 @@ public class ks6 implements fs6 {
                     view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0843, (ViewGroup) null);
                     view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
                     js6.f fVar = new js6.f();
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09201c);
-                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092019);
-                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09201b);
-                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09201a);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09201d);
+                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09201a);
+                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09201c);
+                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09201b);
                     view2.setTag(fVar);
                 }
                 SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);

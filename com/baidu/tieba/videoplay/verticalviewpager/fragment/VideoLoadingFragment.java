@@ -357,7 +357,7 @@ public final class VideoLoadingFragment extends BaseFragment implements vy8 {
             this.mRefreshView = g95Var;
             g95Var.p();
             this.mRefreshView.m(null);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0fd9);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0fda);
             Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
             this.mRefreshView.n(string);
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);

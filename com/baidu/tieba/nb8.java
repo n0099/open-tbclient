@@ -63,12 +63,12 @@ public class nb8 implements View.OnClickListener {
             }
         }
         this.o = tbPageContext;
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922a9);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922aa);
         this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a34);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924e0);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bfb);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924e1);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bfc);
         this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bec);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bed);
         this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f96);
         this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090faa);
         this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fa0);
@@ -86,7 +86,7 @@ public class nb8 implements View.OnClickListener {
         this.m.setOnClickListener(this);
         this.d.setOnClickListener(this);
         this.e.setOnClickListener(this);
-        this.m.setText(R.string.obfuscated_res_0x7f0f1000);
+        this.m.setText(R.string.obfuscated_res_0x7f0f1001);
     }
 
     public void a(int i) {

@@ -352,7 +352,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.e = new yz5(this.h);
             Serializable serializableExtra = getIntent().getSerializableExtra("key_effect_data");
             if (!(serializableExtra instanceof AlaEnterEffectData)) {
-                showToast(R.string.obfuscated_res_0x7f0f13ac);
+                showToast(R.string.obfuscated_res_0x7f0f13ad);
                 setResult(0);
                 finish();
                 return;

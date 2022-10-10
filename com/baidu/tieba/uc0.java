@@ -154,7 +154,7 @@ public class uc0 {
     public int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? "recommend".equals(str) ? R.drawable.obfuscated_res_0x7f080d3e : (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) ? R.drawable.obfuscated_res_0x7f080d3f : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d40 : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d3f : R.drawable.obfuscated_res_0x7f080d3e : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? "recommend".equals(str) ? R.drawable.obfuscated_res_0x7f080d3f : (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) ? R.drawable.obfuscated_res_0x7f080d40 : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d41 : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080d40 : R.drawable.obfuscated_res_0x7f080d3f : invokeL.intValue;
     }
 
     public String g(String str) {
@@ -346,7 +346,7 @@ public class uc0 {
     public int p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) ? R.drawable.obfuscated_res_0x7f080cf1 : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cf2 : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cf1 : R.drawable.obfuscated_res_0x7f080cf0 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) ? R.drawable.obfuscated_res_0x7f080cf2 : "night".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cf3 : "dark".equals(this.b) ? R.drawable.obfuscated_res_0x7f080cf2 : R.drawable.obfuscated_res_0x7f080cf1 : invokeL.intValue;
     }
 
     public int q(String str) {
@@ -354,14 +354,14 @@ public class uc0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d02;
+                return R.drawable.obfuscated_res_0x7f080d03;
             }
             if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d03;
+                return R.drawable.obfuscated_res_0x7f080d04;
             }
             if ("dark".equals(this.b)) {
             }
-            return R.drawable.obfuscated_res_0x7f080d01;
+            return R.drawable.obfuscated_res_0x7f080d02;
         }
         return invokeL.intValue;
     }

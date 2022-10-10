@@ -371,12 +371,12 @@ public class HotUserRankView {
         TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f08b6));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09202d);
+        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09202e);
         this.d = tbTabLayout;
         tbTabLayout.setTabTextSize(ej.f(baseFragmentActivity, R.dimen.tbds46));
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f09200f);
-        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f092010);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0925d9);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092010);
+        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f092011);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0925da);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);
@@ -386,8 +386,8 @@ public class HotUserRankView {
         this.d.setupWithViewPager(this.g);
         this.j = new s96(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f090403));
         this.a.registerListener(this.u);
-        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092477);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092478);
+        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092478);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092479);
         this.p = this.b.findViewById(R.id.obfuscated_res_0x7f090404);
     }
 
@@ -407,7 +407,7 @@ public class HotUserRankView {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             this.j.d(i);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f081122, R.color.CAM_X0302, null);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f081123, R.color.CAM_X0302, null);
             int f = ej.f(this.a, R.dimen.tbds63);
             int f2 = ej.f(this.a, R.dimen.tbds2);
             if (pureDrawable != null) {

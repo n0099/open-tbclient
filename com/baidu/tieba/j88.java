@@ -430,7 +430,7 @@ public class j88 extends f88 implements View.OnClickListener {
     public final void C(u45 u45Var, List<Cdo> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, u45Var, list, i) == null) {
-            String[] strArr = {this.b.getString(R.string.obfuscated_res_0x7f0f0a86), this.b.getString(R.string.obfuscated_res_0x7f0f1135), this.b.getString(R.string.obfuscated_res_0x7f0f04b0)};
+            String[] strArr = {this.b.getString(R.string.obfuscated_res_0x7f0f0a86), this.b.getString(R.string.obfuscated_res_0x7f0f1136), this.b.getString(R.string.obfuscated_res_0x7f0f04b0)};
             wu4 wu4Var = new wu4(this.b);
             wu4Var.i(null, strArr, new c(this, u45Var, list, i, wu4Var));
             wu4Var.k();

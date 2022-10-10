@@ -30,7 +30,7 @@ public class ui7 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080974;
+        this.d = R.drawable.obfuscated_res_0x7f080975;
         this.i = true;
         this.p = new int[]{18};
     }

@@ -463,7 +463,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements tr7.c, BarInf
             this.b.setCloseListener(new a(this));
             this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b, (View.OnClickListener) null);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            this.c = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.c = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0925c7);
             if (N1()) {
                 this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f05fb).toString());
             } else {
@@ -474,7 +474,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements tr7.c, BarInf
             EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090875);
             this.f = editText;
             editText.setFilters(new InputFilter[]{new g(this, 20)});
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092361);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092362);
             R1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090cf7);
             tr7 tr7Var = new tr7(this.n);
@@ -483,8 +483,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements tr7.c, BarInf
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090342);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f5);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f4);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f6);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f5);
             this.k = textView;
             textView.setOnClickListener(this);
             this.i.setVisibility(8);

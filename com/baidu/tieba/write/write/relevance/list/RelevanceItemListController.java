@@ -230,7 +230,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, h69.b, BdL
             this.b.getActivity().finish();
             return;
         }
-        ej.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f15f2);
+        ej.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f15f3);
     }
 
     @Override // com.baidu.tieba.h69.b

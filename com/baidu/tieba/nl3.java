@@ -154,12 +154,12 @@ public class nl3 {
                 p23.a aVar = new p23.a(context);
                 aVar.n(new ti3());
                 p23 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f125b);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f125a));
+                aVar.U(R.string.obfuscated_res_0x7f0f125c);
+                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f125b));
                 aVar.y();
                 aVar.J(sm2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f125c, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1259, a2);
+                aVar.O(R.string.obfuscated_res_0x7f0f125d, a2);
+                aVar.B(R.string.obfuscated_res_0x7f0f125a, a2);
                 aVar.a();
                 c.setCancelable(false);
                 c.show();

@@ -202,7 +202,7 @@ public class j35 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             HashMap hashMap = new HashMap();
-            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7d);
+            String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7e);
             switch (str.hashCode()) {
                 case -1130769265:
                     if (str.equals("forum_follow")) {
@@ -244,15 +244,15 @@ public class j35 {
                     break;
             }
             if (c2 == 0) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79);
-            } else if (c2 == 1) {
                 string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7a);
-            } else if (c2 == 2 || c2 == 3) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7c);
-            } else if (c2 != 4) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f78);
-            } else {
+            } else if (c2 == 1) {
                 string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7b);
+            } else if (c2 == 2 || c2 == 3) {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7d);
+            } else if (c2 != 4) {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f79);
+            } else {
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7c);
             }
             s15 s15Var = null;
             r15 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
@@ -518,7 +518,7 @@ public class j35 {
         if (findViewById instanceof ViewGroup) {
             BdTopToast bdTopToast = new BdTopToast(activity, 3000);
             bdTopToast.h(true);
-            bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f74));
+            bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f75));
             bdTopToast.i((ViewGroup) findViewById);
         }
     }

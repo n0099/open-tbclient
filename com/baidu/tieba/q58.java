@@ -442,9 +442,14 @@ public class q58 implements b48 {
             u58 m2 = m(R.drawable.obfuscated_res_0x7f080864, "开店", 48);
             m2.g = "https://activity.baidu.com/mbox/4a81af9f62/home";
             this.a.add(m2);
-            u58 m3 = m(R.drawable.obfuscated_res_0x7f080858, "广告推广", 49);
-            m3.g = "https://yingxiao.baidu.com/new/home/topic/detail?name=index&no=644";
+            u58 m3 = m(R.drawable.obfuscated_res_0x7f080961, "隐私设置", 61);
+            w58 w58Var = new w58();
+            m3.i = w58Var;
+            w58Var.a = ox4.k().l("setting_private_red_dot", 1) == 1;
             this.a.add(m3);
+            u58 m4 = m(R.drawable.obfuscated_res_0x7f080858, "广告推广", 49);
+            m4.g = "https://yingxiao.baidu.com/new/home/topic/detail?name=index&no=644";
+            this.a.add(m4);
             if (this.m == null) {
                 this.m = new PersonMoreData();
             }
@@ -504,7 +509,7 @@ public class q58 implements b48 {
             u58 l8 = l(R.drawable.obfuscated_res_0x7f080866, R.string.obfuscated_res_0x7f0f0aab, 51);
             l8.g = TbConfig.TIEBA_ADDRESS + "mo/q/icon/panelIcon?opacity=0&opacitybtnhex=ffffff&user_id=" + this.b.getUserId();
             arrayList.add(l8);
-            arrayList.add(l(R.drawable.obfuscated_res_0x7f080865, R.string.obfuscated_res_0x7f0f123b, 52));
+            arrayList.add(l(R.drawable.obfuscated_res_0x7f080865, R.string.obfuscated_res_0x7f0f123c, 52));
             u58 l9 = l(R.drawable.obfuscated_res_0x7f08085e, R.string.obfuscated_res_0x7f0f0cdc, 54);
             l9.g = kc5.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}");
             arrayList.add(l9);
@@ -512,7 +517,7 @@ public class q58 implements b48 {
             l10.g = TbConfig.COMMUNITY_CONVENTION;
             arrayList.add(l10);
             arrayList.add(l(R.drawable.obfuscated_res_0x7f08085f, R.string.obfuscated_res_0x7f0f052f, 57));
-            arrayList.add(l(R.drawable.obfuscated_res_0x7f080a4e, R.string.obfuscated_res_0x7f0f05cf, 60));
+            arrayList.add(l(R.drawable.obfuscated_res_0x7f080a4f, R.string.obfuscated_res_0x7f0f05cf, 60));
             x58Var.f(arrayList);
             this.a.add(x58Var);
             this.u = x58Var;

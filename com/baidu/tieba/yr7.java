@@ -58,8 +58,8 @@ public class yr7 extends BaseAdapter {
             if (view2 == null) {
                 return;
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092331);
-            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09232e);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092332);
+            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09232f);
             this.c = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a4b);
         }
 

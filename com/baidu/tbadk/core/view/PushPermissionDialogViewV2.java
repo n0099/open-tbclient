@@ -120,7 +120,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
         setBackgroundDrawable(gradientDrawable);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
         this.a = textView;
         if (textView != null) {
             hv4 d = hv4.d(textView);
@@ -137,13 +137,13 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             d2.A(R.string.F_X01);
         }
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908ac);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b1b);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b1c);
         this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08090f));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1d);
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1e);
         this.e = tBSpecificationBtn;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f72));
+            this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f73));
             this.e.setConfig(new my4());
         }
         this.f = skinType;

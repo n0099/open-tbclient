@@ -67,8 +67,8 @@ public class c08 {
             this.d = headImageView;
             headImageView.setIsRound(true);
             this.d.setPlaceHolder(1);
-            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923e1);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923e0);
+            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923e2);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923e1);
             this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09101e);
             this.c.setOnClickListener(this.b);
         }
@@ -124,7 +124,7 @@ public class c08 {
                 this.d.L(smartApp.avatar, 10, false, false);
             }
             if (!dj.isEmpty(smartApp.name)) {
-                charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f11c9));
+                charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f11ca));
             } else {
                 charSequence = this.a.getText(R.string.obfuscated_res_0x7f0f091e).toString();
             }
@@ -132,7 +132,7 @@ public class c08 {
             if (!dj.isEmpty(smartApp._abstract)) {
                 this.f.setText(smartApp._abstract);
             } else {
-                this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f11c8));
+                this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f11c9));
             }
             this.c.setTag(smartApp);
             return;

@@ -147,13 +147,13 @@ public class jw5 {
             }
             this.a = view2;
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebf);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092352);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092351);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4c);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092353);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092352);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4d);
             this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec0);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235e);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092358);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235f);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235c);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092359);
             view2.setOnClickListener(jw5Var.j);
             this.b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.b.setDrawerType(0);
@@ -216,7 +216,7 @@ public class jw5 {
                 this.c.b.setBorderSurroundContent(true);
                 this.c.b.setDrawBorder(true);
                 this.c.b.K(this.g.getThreadAlaInfo().cover, 10, false);
-                this.c.d.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fb, StringHelper.numberUniformFormatExtra(this.g.getThreadAlaInfo().audience_count)));
+                this.c.d.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fc, StringHelper.numberUniformFormatExtra(this.g.getThreadAlaInfo().audience_count)));
                 this.c.f.setData(this.g, false);
                 this.c.h.setText(this.g.getTitle());
                 if (this.g.getAuthor() != null) {
@@ -234,7 +234,7 @@ public class jw5 {
                     this.c.c.setVisibility(8);
                 }
                 if (mt5Var.e) {
-                    this.c.i.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fa, StringHelper.numberUniformFormatExtra((long) (this.g.getThreadAlaInfo().distance / 1000.0d))));
+                    this.c.i.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fb, StringHelper.numberUniformFormatExtra((long) (this.g.getThreadAlaInfo().distance / 1000.0d))));
                     this.c.i.setVisibility(0);
                 } else {
                     this.c.i.setVisibility(8);

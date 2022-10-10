@@ -17,6 +17,7 @@ public final class LiveRes extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_IS_END = "";
     public static final List<YyLiveInfoSimple> DEFAULT_LIVE_LIST;
+    public static final List<LiveNormalConfig> DEFAULT_NORMAL_CONFIG_LIST;
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String is_end;
@@ -24,6 +25,8 @@ public final class LiveRes extends Message {
     public final List<YyLiveInfoSimple> live_list;
     @ProtoField(tag = 1)
     public final NormalConfig normal_config;
+    @ProtoField(label = Message.Label.REPEATED, tag = 4)
+    public final List<LiveNormalConfig> normal_config_list;
 
     /* loaded from: classes9.dex */
     public static final class Builder extends Message.Builder<LiveRes> {
@@ -32,6 +35,7 @@ public final class LiveRes extends Message {
         public String is_end;
         public List<YyLiveInfoSimple> live_list;
         public NormalConfig normal_config;
+        public List<LiveNormalConfig> normal_config_list;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -71,6 +75,7 @@ public final class LiveRes extends Message {
             this.normal_config = liveRes.normal_config;
             this.live_list = Message.copyOf(liveRes.live_list);
             this.is_end = liveRes.is_end;
+            this.normal_config_list = Message.copyOf(liveRes.normal_config_list);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,6 +107,7 @@ public final class LiveRes extends Message {
             }
         }
         DEFAULT_LIVE_LIST = Collections.emptyList();
+        DEFAULT_NORMAL_CONFIG_LIST = Collections.emptyList();
     }
 
     public /* synthetic */ LiveRes(Builder builder, boolean z, a aVar) {
@@ -137,14 +143,21 @@ public final class LiveRes extends Message {
             String str = builder.is_end;
             if (str == null) {
                 this.is_end = "";
-                return;
             } else {
                 this.is_end = str;
+            }
+            List<LiveNormalConfig> list2 = builder.normal_config_list;
+            if (list2 == null) {
+                this.normal_config_list = DEFAULT_NORMAL_CONFIG_LIST;
+                return;
+            } else {
+                this.normal_config_list = Message.immutableCopyOf(list2);
                 return;
             }
         }
         this.normal_config = builder.normal_config;
         this.live_list = Message.immutableCopyOf(builder.live_list);
         this.is_end = builder.is_end;
+        this.normal_config_list = Message.immutableCopyOf(builder.normal_config_list);
     }
 }

@@ -126,15 +126,15 @@ public class f69 extends z59 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
             super.P(navigationBar);
             if (this.q) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f102e));
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f102f));
                 o0(0, 0);
-                p0(R.drawable.obfuscated_res_0x7f0809ad, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                p0(R.drawable.obfuscated_res_0x7f0809ae, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
                 this.j.setOnClickListener(new a(this));
                 return;
             }
             navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0eee));
             if (this.p.getProZone() == 1) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f161c));
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f161d));
             }
         }
     }

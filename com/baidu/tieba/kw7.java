@@ -27,15 +27,15 @@ public class kw7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             int fontSize = TbadkCoreApplication.getInst().getFontSize();
             if (fontSize == 0) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1451);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1452);
             }
             if (fontSize == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f144e);
-            }
-            if (fontSize == 2) {
                 return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f144f);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1450);
+            if (fontSize == 2) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1450);
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1451);
         }
         return (String) invokeV.objValue;
     }

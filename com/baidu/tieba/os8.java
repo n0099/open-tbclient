@@ -254,9 +254,9 @@ public class os8 {
             return;
         }
         nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
-        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1427);
+        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1428);
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(nu4Var));
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1426, new e(nu4Var, str, tbPageContext));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1427, new e(nu4Var, str, tbPageContext));
         nu4Var.create(tbPageContext);
         nu4Var.show();
     }

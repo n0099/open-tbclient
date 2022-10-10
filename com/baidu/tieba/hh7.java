@@ -1009,10 +1009,10 @@ public class hh7 {
         if (view2 instanceof FrameLayout) {
             ((FrameLayout) view2).addView(e0);
         }
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.d.findViewById(R.id.obfuscated_res_0x7f0924f7);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.d.findViewById(R.id.obfuscated_res_0x7f0924f8);
         this.f = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
-        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f09253b);
+        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f09253c);
         VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.d.findViewById(R.id.obfuscated_res_0x7f0914d6);
         this.h = videoListMediaControllerView;
         videoListMediaControllerView.setPlayer(this.f.getControl());
@@ -1031,13 +1031,13 @@ public class hh7 {
         this.o = imageView3;
         imageView3.setOnClickListener(this.i0);
         this.p = this.d.findViewById(R.id.obfuscated_res_0x7f09055c);
-        this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091c56);
+        this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091c57);
         this.f.getControl().setOperableVideoContainer(this.e0);
         this.f.getControl().setOnSurfaceDestroyedListener(this.h0);
         ImageView imageView4 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090efa);
         this.t = imageView4;
         imageView4.setOnClickListener(this.i0);
-        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092588);
+        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092589);
         this.v = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
         this.W = ej.k(this.a.getPageActivity());
@@ -1045,7 +1045,7 @@ public class hh7 {
         ImageView imageView5 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ee0);
         this.y = imageView5;
         imageView5.setOnClickListener(this.i0);
-        this.z = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09258a);
+        this.z = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09258b);
         View findViewById2 = this.d.findViewById(R.id.obfuscated_res_0x7f0912ad);
         this.A = findViewById2;
         findViewById2.setVisibility(8);
@@ -1195,7 +1195,7 @@ public class hh7 {
             this.g.setVisibility(0);
             this.v.setVisibility(0);
             this.t.setVisibility(8);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b25);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b26);
             this.j.setVisibility(8);
             gh.a().removeCallbacks(this.g0);
             gh.a().postDelayed(this.g0, 60000L);
@@ -1210,7 +1210,7 @@ public class hh7 {
                 if (this.K == null) {
                     View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0292, (ViewGroup) null);
                     this.K = inflate;
-                    this.M = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ecc);
+                    this.M = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ecd);
                     this.P = (ImageView) this.K.findViewById(R.id.obfuscated_res_0x7f0902be);
                 }
                 if (this.K.getParent() == null) {
@@ -1221,7 +1221,7 @@ public class hh7 {
                     View inflate2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0293, (ViewGroup) null);
                     this.L = inflate2;
                     this.O = (ImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f0902c4);
-                    this.N = (SeekBar) this.L.findViewById(R.id.obfuscated_res_0x7f091ece);
+                    this.N = (SeekBar) this.L.findViewById(R.id.obfuscated_res_0x7f091ecf);
                 }
                 if (this.L.getParent() == null) {
                     this.J.addView(this.L, X());
@@ -1339,9 +1339,9 @@ public class hh7 {
                 }
             }
             if (this.a0 > 0) {
-                this.O.setImageResource(R.drawable.obfuscated_res_0x7f080a8f);
+                this.O.setImageResource(R.drawable.obfuscated_res_0x7f080a90);
             } else {
-                this.O.setImageResource(R.drawable.obfuscated_res_0x7f080a8e);
+                this.O.setImageResource(R.drawable.obfuscated_res_0x7f080a8f);
             }
             this.Q.setStreamVolume(3, this.a0, 0);
             this.N.setProgress(this.Z);
@@ -1580,7 +1580,7 @@ public class hh7 {
                     nVar.a();
                 }
                 V();
-                this.o.setImageResource(R.drawable.obfuscated_res_0x7f080aa0);
+                this.o.setImageResource(R.drawable.obfuscated_res_0x7f080aa1);
                 u0(this.Y);
                 D0();
                 return;
@@ -1671,7 +1671,7 @@ public class hh7 {
         this.i.setVisibility(0);
         this.t.setVisibility(0);
         this.g.setVisibility(8);
-        this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b24);
+        this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b25);
         this.p.setVisibility(4);
         this.j.setVisibility(8);
         this.h.n();
@@ -1682,7 +1682,7 @@ public class hh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             this.f.getControl().start();
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b25);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b26);
             this.v.setVisibility(8);
             this.i.setVisibility(8);
             this.g.setVisibility(8);
@@ -1699,7 +1699,7 @@ public class hh7 {
         this.i.setVisibility(0);
         this.t.setVisibility(0);
         this.g.setVisibility(8);
-        this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b24);
+        this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b25);
         this.p.setVisibility(0);
         this.j.setVisibility(8);
         this.h.n();
@@ -1766,7 +1766,7 @@ public class hh7 {
     public void z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b24);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b25);
             this.g.setVisibility(8);
             this.t.setVisibility(0);
         }

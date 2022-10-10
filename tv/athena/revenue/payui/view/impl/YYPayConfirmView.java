@@ -140,9 +140,9 @@ public class YYPayConfirmView extends LinearLayout implements p5a {
             this.j = r5aVar;
             this.d.setAdapter((ListAdapter) r5aVar);
             this.d.setVisibility(b() ? 0 : 8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092388);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091c54);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092389);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091c55);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
         }
     }
 

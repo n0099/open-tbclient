@@ -93,11 +93,11 @@ public class yx5 extends i16<ThreadData> implements g26 {
         this.i = tbPageContext;
         View h = h();
         this.l = h.findViewById(R.id.obfuscated_res_0x7f0907f9);
-        this.m = h.findViewById(R.id.obfuscated_res_0x7f091ba8);
-        this.n = h.findViewById(R.id.obfuscated_res_0x7f091baa);
+        this.m = h.findViewById(R.id.obfuscated_res_0x7f091ba9);
+        this.n = h.findViewById(R.id.obfuscated_res_0x7f091bab);
         this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901e9);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901fe);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091f77);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091f78);
         this.r = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901c4);
         this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09022b);
     }

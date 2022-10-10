@@ -30,7 +30,7 @@ public class o47 extends xz6 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd1);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd2);
     }
 
     public void h(HotTopic hotTopic) {

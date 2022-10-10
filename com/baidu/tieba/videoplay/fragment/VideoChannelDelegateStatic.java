@@ -283,7 +283,7 @@ public class VideoChannelDelegateStatic extends l95 {
             m95Var.a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
             m95Var.e = 22;
-            m95Var.b = R.string.obfuscated_res_0x7f0f152f;
+            m95Var.b = R.string.obfuscated_res_0x7f0f1530;
             m95Var.i = m95.l;
             m95Var.f = R.raw.lottie_tab_video_channel;
             m95Var.h = r95.d().c("channel");

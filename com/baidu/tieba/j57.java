@@ -38,7 +38,7 @@ public class j57 extends s55 {
         TopicDetaiInputContainer topicDetaiInputContainer = new TopicDetaiInputContainer(context);
         this.m = topicDetaiInputContainer;
         this.t = topicDetaiInputContainer.getInputView();
-        ((TopicDetaiInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10b3));
+        ((TopicDetaiInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10b4));
         this.p = new int[]{4, 13, 24, 3, 9, 6, 12};
     }
 

@@ -265,7 +265,7 @@ public class eb6 implements EnterForumAdView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0890, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092215)).setText(this.a.q);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216)).setText(this.a.q);
                 this.a.b.getPageContext().getLayoutMode().k(inflate);
                 return inflate;
             }
@@ -572,7 +572,7 @@ public class eb6 implements EnterForumAdView.c {
                 if (B != null) {
                     B.setAlpha(abs);
                 }
-                View findViewById = this.b.b.s1().getRootView().findViewById(R.id.obfuscated_res_0x7f09202b);
+                View findViewById = this.b.b.s1().getRootView().findViewById(R.id.obfuscated_res_0x7f09202c);
                 if (findViewById != null) {
                     findViewById.setAlpha(abs);
                 }
@@ -1523,7 +1523,7 @@ public class eb6 implements EnterForumAdView.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            c96 c96Var = new c96(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fc8), false, true);
+            c96 c96Var = new c96(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fc9), false, true);
             c96Var.g = R.dimen.M_W_X004;
             c96Var.h = R.dimen.tbds112;
             c96Var.j = R.dimen.M_W_X005;
@@ -2006,7 +2006,7 @@ public class eb6 implements EnterForumAdView.c {
             if (B != null) {
                 B.setAlpha(abs2);
             }
-            View findViewById = this.b.s1().getRootView().findViewById(R.id.obfuscated_res_0x7f09202b);
+            View findViewById = this.b.s1().getRootView().findViewById(R.id.obfuscated_res_0x7f09202c);
             if (findViewById != null) {
                 findViewById.setAlpha(abs2);
             }

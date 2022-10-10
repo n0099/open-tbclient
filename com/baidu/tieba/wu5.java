@@ -94,10 +94,10 @@ public class wu5 {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0852, (ViewGroup) null);
         this.b = inflate;
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092020);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092021);
         this.c = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ff2);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092366);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923bc);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092367);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923bd);
         this.b.setOnClickListener(this.i);
         this.c.setBorderWidth(ej.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.c.setIsRound(true);

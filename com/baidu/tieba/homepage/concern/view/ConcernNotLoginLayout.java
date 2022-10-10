@@ -56,10 +56,10 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f0, (ViewGroup) this, true);
             this.a = context;
             this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ffb);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092380);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092381);
             this.c = textView;
             textView.setTextSize(0, ej.f(context, R.dimen.T_X06));
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09237f);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092380);
             my4 my4Var = new my4();
             this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f042c));
             this.d.setTextSize(R.dimen.T_X05);
@@ -84,7 +84,7 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09237f) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092380) {
             ViewHelper.checkUpIsLogin(this.a);
             HomePageStatic.a = true;
         }

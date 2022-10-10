@@ -1195,7 +1195,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements q37, ii6 {
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.F(false);
             }
-            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fd9), str, null, z, getNetRefreshListener());
+            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fda), str, null, z, getNetRefreshListener());
             setNetRefreshViewTopMargin(ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }

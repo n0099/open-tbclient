@@ -244,13 +244,13 @@ public class nt6 {
         if (PermissionUtil.checkCamera(TbadkCoreApplication.getInst().getApplicationContext())) {
             SelectImageHelper.takePhoto(frsFragment.getPageContext());
         } else {
-            frsFragment.showToast(R.string.obfuscated_res_0x7f0f1361);
+            frsFragment.showToast(R.string.obfuscated_res_0x7f0f1362);
         }
         ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
         if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
             return;
         }
-        frsFragment.showToast(R.string.obfuscated_res_0x7f0f10bd);
+        frsFragment.showToast(R.string.obfuscated_res_0x7f0f10be);
     }
 
     public static boolean j(Context context, String str) {

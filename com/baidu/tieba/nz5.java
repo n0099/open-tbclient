@@ -282,13 +282,13 @@ public class nz5 extends BaseAdapter {
         SkinManager.setViewTextColor(eVar.j, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.o, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         if (TbadkApplication.getInst().getSkinType() == 1) {
+            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080f62);
+            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080f62);
+            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080f62);
+        } else {
             eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080f61);
             eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080f61);
             eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080f61);
-        } else {
-            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080f60);
-            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080f60);
-            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080f60);
         }
         SkinManager.setBackgroundColor(eVar.p, R.color.CAM_X0204);
     }

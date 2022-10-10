@@ -314,7 +314,7 @@ public class AtListActivity extends SuspendedActivity implements ie5, AdapterVie
                         return;
                     }
                     AtListActivity atListActivity = this.a;
-                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f096a), 5), R.drawable.obfuscated_res_0x7f080aca);
+                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f096a), 5), R.drawable.obfuscated_res_0x7f080acb);
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
@@ -626,7 +626,7 @@ public class AtListActivity extends SuspendedActivity implements ie5, AdapterVie
     private void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f110c));
+            this.A = this.l.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f110d));
             View addCustomView = this.l.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0079, new i(this));
             this.C = addCustomView;
             this.D = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09168a);
@@ -931,9 +931,9 @@ public class AtListActivity extends SuspendedActivity implements ie5, AdapterVie
             d2.n(R.string.J_X03);
             d2.f(R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101, 3);
-            this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a24, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a25, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0201);
-            WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a6f, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a70, R.color.CAM_X0109, null);
             hv4 d3 = hv4.d(this.p);
             d3.n(R.string.J_X07);
             d3.l(R.dimen.L_X01);
@@ -999,7 +999,7 @@ public class AtListActivity extends SuspendedActivity implements ie5, AdapterVie
                 if (item.isChecked()) {
                     Q1(item);
                 } else if (5 <= this.r.getItemLength()) {
-                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f096a), 5), R.drawable.obfuscated_res_0x7f080aca);
+                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f096a), 5), R.drawable.obfuscated_res_0x7f080acb);
                     return;
                 } else {
                     M1(item);
@@ -1169,7 +1169,7 @@ public class AtListActivity extends SuspendedActivity implements ie5, AdapterVie
                 } else {
                     this.b.showToast(this.a.getErrorString());
                     AtListActivity atListActivity2 = this.b;
-                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0fd9), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fd8), true, this.b.getNetRefreshListener());
+                    atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0fda), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fd9), true, this.b.getNetRefreshListener());
                 }
                 super.onPostExecute(l29Var);
             }

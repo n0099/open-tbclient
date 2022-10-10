@@ -98,9 +98,9 @@ public class j47 extends qn<bu4, ThreadCardViewHolder<bu4>> {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, yq4Var, view2) == null) || yq4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7) {
                 yq4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 yq4Var.objType = 4;
             } else {
                 yq4Var.objType = 1;

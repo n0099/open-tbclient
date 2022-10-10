@@ -94,7 +94,7 @@ public class FrsSplitAlaShareItemAdapter extends dh6<bu4, FrsPageAlaShareHolder>
                 if (view2.getId() == R.id.obfuscated_res_0x7f0912a7) {
                     customMessage = new CustomMessage(2921018);
                 } else if (view2.getId() != R.id.obfuscated_res_0x7f09054e && view2.getId() != R.id.obfuscated_res_0x7f09054a) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f092515 ? new CustomMessage(2921019) : null;
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f092516 ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }

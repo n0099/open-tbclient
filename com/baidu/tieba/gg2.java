@@ -59,9 +59,9 @@ public final class gg2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.size() > 0) {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081143));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081144));
                 } else {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081142));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081143));
                 }
             }
         }
@@ -243,7 +243,7 @@ public final class gg2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{activity, l33Var, str, list, fVar, onCancelListener})) == null) {
             View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d081e, null);
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fc3);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fc4);
             Resources resources = activity.getResources();
             if (swanAppRoundedImageView != null) {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, fh3.i(l33Var.W(), "SwanSubscribeMsgDialog", false)));
@@ -251,9 +251,9 @@ public final class gg2 {
             }
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f0);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f1);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fc5)).setText(l33Var.Z());
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092215)).setText(str);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920f1);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fc6)).setText(l33Var.Z());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216)).setText(str);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920f2);
             ArrayList arrayList = new ArrayList(list);
             if (list.size() > 0) {
                 for (hg2 hg2Var : list) {

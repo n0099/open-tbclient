@@ -233,7 +233,7 @@ public class d49 extends n49<b59> implements q49 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04a4, viewGroup, false);
             this.c = inflate;
-            this.g = (WriteImageGridView) inflate.findViewById(R.id.obfuscated_res_0x7f0926b4);
+            this.g = (WriteImageGridView) inflate.findViewById(R.id.obfuscated_res_0x7f0926b5);
             s39 s39Var = new s39(this.a, this.c);
             this.h = s39Var;
             s39Var.r(this.j);

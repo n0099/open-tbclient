@@ -53,9 +53,9 @@ public class bt8 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0131, (ViewGroup) null);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09210d);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09210e);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090388);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09210c);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09210d);
             c();
         }
     }

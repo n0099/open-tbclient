@@ -73,8 +73,8 @@ public class ad7 implements bd7 {
         if (childAt == null || childAt2 == null) {
             return;
         }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f0920fb);
-        TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f0920fb);
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f0920fc);
+        TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f0920fc);
         if (chatMessageArr == null || chatMessageArr.length <= 1) {
             return;
         }

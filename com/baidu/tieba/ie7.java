@@ -191,7 +191,7 @@ public class ie7 extends BaseCardInfo {
             } else {
                 str = feedData.getQuote_user().getName_show();
             }
-            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1001, new Object[]{str, feedData.getQuote_content()});
+            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1002, new Object[]{str, feedData.getQuote_content()});
             if (TextUtils.isGraphic(this.g.g)) {
                 OriginalThreadInfo originalThreadInfo3 = this.g;
                 originalThreadInfo3.g = originalThreadInfo3.g.replace("\n", " ");
@@ -204,7 +204,7 @@ public class ie7 extends BaseCardInfo {
         } else {
             this.g.n = "0";
             if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f116d, new Object[]{feedData.getOriginalThreadInfo().b});
+                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f116e, new Object[]{feedData.getOriginalThreadInfo().b});
             } else {
                 this.g.g = feedData.getTitle();
             }

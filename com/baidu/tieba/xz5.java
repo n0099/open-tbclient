@@ -102,8 +102,8 @@ public class xz5 {
         this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912d8);
         this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091392);
         this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906c7);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092007);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092008);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092008);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092009);
         this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090741);
         this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090740);
         c(alaEnterEffectData);
@@ -143,14 +143,14 @@ public class xz5 {
                 this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
             } else {
                 this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d51);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d52);
                 this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607af));
             }
         }
         AlaEnterEffectData alaEnterEffectData2 = this.k;
         if (alaEnterEffectData2.isOwn) {
             if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4e);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
                 this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607ae));
                 this.e.setText(R.string.obfuscated_res_0x7f0f024e);
                 if (2 == this.k.categoryType) {

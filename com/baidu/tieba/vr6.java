@@ -111,9 +111,9 @@ public class vr6 {
         }
         if (this.c != null) {
             if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5), Integer.valueOf(i));
+                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc6), Integer.valueOf(i));
             } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11ca);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11cb);
             }
             this.c.setText(string);
         }

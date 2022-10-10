@@ -231,12 +231,12 @@ public class vh8 implements View.OnClickListener {
         this.f = new ArrayList();
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d010a, (ViewGroup) null);
         this.b = inflate;
-        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e82);
+        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e83);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
             this.d.setText(sharePanelText);
         }
-        ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e86);
+        ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e87);
         this.e = shareGridLayout;
         ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -251,16 +251,16 @@ public class vh8 implements View.OnClickListener {
         this.c = textView;
         textView.setOnClickListener(this);
         if (!o(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, 4);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, 4);
         }
         if (!p(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, 3);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, 3);
         }
         if (!n(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, 9);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, 9);
         }
         if (!q(i)) {
-            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, 7);
+            m(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, 7);
         }
         if (e35.m()) {
             return;
@@ -478,7 +478,7 @@ public class vh8 implements View.OnClickListener {
                 }
                 if (intValue == 4) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     v("share_to_weixin", new Object[0]);
@@ -490,7 +490,7 @@ public class vh8 implements View.OnClickListener {
                     }
                 } else if (intValue == 3) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     v("share_to_pyq", new Object[0]);
@@ -505,7 +505,7 @@ public class vh8 implements View.OnClickListener {
                     }
                 } else if (intValue == 5) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     } else if (om8.b(this.a, "com.tencent.mobileqq")) {
                         v("share_to_qzone", new Object[0]);
@@ -517,11 +517,11 @@ public class vh8 implements View.OnClickListener {
                         }
                     } else {
                         Context context = this.a;
-                        BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                        BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                     }
                 } else if (intValue == 6) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     v("share_to_qweibo", new Object[0]);
@@ -536,7 +536,7 @@ public class vh8 implements View.OnClickListener {
                     }
                 } else if (intValue == 7) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     v("share_to_sweibo", new Object[0]);
@@ -551,7 +551,7 @@ public class vh8 implements View.OnClickListener {
                     }
                 } else if (intValue == 8) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     v("share_to_renren", new Object[0]);
@@ -566,7 +566,7 @@ public class vh8 implements View.OnClickListener {
                     }
                 } else if (intValue == 9) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     } else if (om8.b(this.a, "com.tencent.mobileqq")) {
                         v("share_to_qq_friend", new Object[0]);
@@ -578,7 +578,7 @@ public class vh8 implements View.OnClickListener {
                         }
                     } else {
                         Context context2 = this.a;
-                        BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                        BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                     }
                 } else if (intValue == 10) {
                     A(j, 10);
@@ -643,7 +643,7 @@ public class vh8 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                 Context context = this.a;
                 if (context instanceof Activity) {
                     ((Activity) context).finish();

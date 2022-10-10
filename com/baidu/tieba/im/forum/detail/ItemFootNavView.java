@@ -290,7 +290,7 @@ public class ItemFootNavView extends LinearLayout {
                         return;
                     }
                     BaseActivity baseActivity = this.a.a;
-                    baseActivity.showToast(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14de));
+                    baseActivity.showToast(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14df));
                 }
             }
 
@@ -481,7 +481,7 @@ public class ItemFootNavView extends LinearLayout {
                 return;
             }
             imageView.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_tips_attention_cancel));
-            textView.setText(R.string.obfuscated_res_0x7f0f14c3);
+            textView.setText(R.string.obfuscated_res_0x7f0f14c4);
             Toast toast = new Toast(this.b);
             toast.setView(inflate);
             toast.setGravity(17, 0, 0);
@@ -521,7 +521,7 @@ public class ItemFootNavView extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
                 SkinManager.setImageResource(this.e, R.drawable.icon_pop_pass);
-                i = R.string.obfuscated_res_0x7f0f0fdc;
+                i = R.string.obfuscated_res_0x7f0f0fdd;
                 this.c.setTag(0);
             } else {
                 SkinManager.setImageResource(this.e, R.drawable.icon_brief_attention);

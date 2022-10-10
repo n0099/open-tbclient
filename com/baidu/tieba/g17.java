@@ -225,9 +225,9 @@ public class g17 extends lw6<s26, ThreadCardViewHolder<s26>> implements to5 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f092180) {
+        if (id == R.id.obfuscated_res_0x7f092181) {
             TiebaStatic.log(s26Var.A());
-        } else if (id == R.id.obfuscated_res_0x7f092488 || id == R.id.obfuscated_res_0x7f0924b6) {
+        } else if (id == R.id.obfuscated_res_0x7f092489 || id == R.id.obfuscated_res_0x7f0924b7) {
             i = 2;
             if (i == 0) {
                 d37.d(s26Var.a, this.b, s26Var.n(), i);

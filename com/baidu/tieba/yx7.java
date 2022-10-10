@@ -167,7 +167,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof SparseArray)) {
                 SparseArray sparseArray = (SparseArray) view2.getTag();
-                if (!(sparseArray.get(R.id.obfuscated_res_0x7f092059) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f092059)) == null || this.a.b == null || this.b == null) {
+                if (!(sparseArray.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09205a)) == null || this.a.b == null || this.b == null) {
                     return;
                 }
                 gh.a().postDelayed(new RunnableC0475a(this, postData), 100L);
@@ -1219,7 +1219,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
         if (interceptable == null || interceptable.invokeLLII(1048581, this, postData, pbCommenFloorItemViewHolder, i2, i3) == null) {
             if (i2 > postData.m0() + postData.M()) {
                 if (pbCommenFloorItemViewHolder.M != null && postData.s() != null) {
-                    pbCommenFloorItemViewHolder.M.setTag(R.id.obfuscated_res_0x7f092091, postData.s().getUserId());
+                    pbCommenFloorItemViewHolder.M.setTag(R.id.obfuscated_res_0x7f092092, postData.s().getUserId());
                     t28 t28Var = this.a;
                     if (t28Var != null && t28Var.P() != null) {
                         pbCommenFloorItemViewHolder.M.setOnClickListener(this.a.P().d.c);
@@ -1424,7 +1424,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 if (!z2) {
                     pbCommenFloorItemViewHolder.m.setVisibility(0);
                     TextView textView = pbCommenFloorItemViewHolder.m;
-                    textView.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a) + str);
+                    textView.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150b) + str);
                 } else if (z3) {
                     pbCommenFloorItemViewHolder.m.setVisibility(0);
                     if (postData.a0) {
@@ -1548,7 +1548,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 sparseArray = new SparseArray();
                 pbCommenFloorItemViewHolder.w.setTag(sparseArray);
             }
-            sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
+            sparseArray.put(R.id.obfuscated_res_0x7f09205a, postData);
             if (postData.G() == 2) {
                 pbCommenFloorItemViewHolder.w.setVisibility(8);
             } else {
@@ -1563,7 +1563,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 sparseArray2 = new SparseArray();
                 pbCommenFloorItemViewHolder.x.setTag(sparseArray2);
             }
-            sparseArray2.put(R.id.obfuscated_res_0x7f092059, postData);
+            sparseArray2.put(R.id.obfuscated_res_0x7f09205a, postData);
         }
         ImageView imageView2 = pbCommenFloorItemViewHolder.y;
         if (imageView2 != null) {
@@ -1572,7 +1572,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 sparseArray3 = new SparseArray();
                 pbCommenFloorItemViewHolder.y.setTag(sparseArray3);
             }
-            sparseArray3.put(R.id.obfuscated_res_0x7f092059, postData);
+            sparseArray3.put(R.id.obfuscated_res_0x7f09205a, postData);
         }
         pbCommenFloorItemViewHolder.v.setVisibility(8);
         if (!postData.o0() && !postData.n0(false)) {
@@ -1631,7 +1631,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
         } else {
             pbCommenFloorItemViewHolder.t.setVisibility(0);
         }
-        pbCommenFloorItemViewHolder.l0.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffd));
+        pbCommenFloorItemViewHolder.l0.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffe));
     }
 
     public final void b0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, View view2) {
@@ -1653,7 +1653,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
         } else {
             pbCommenFloorItemViewHolder.p.k0(null);
             pbCommenFloorItemViewHolder.p.setBackgroundDrawable(null);
-            pbCommenFloorItemViewHolder.p.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f081240);
+            pbCommenFloorItemViewHolder.p.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f081241);
         }
         pbCommenFloorItemViewHolder.p.getLayoutStrategy().x(R.drawable.pic_video);
         O(pbCommenFloorItemViewHolder.p, view2, !StringUtils.isNull(postData.t()), layoutParams.leftMargin + layoutParams.rightMargin);
@@ -1665,12 +1665,12 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
         if (sparseArray == null) {
             sparseArray = new SparseArray();
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.FALSE);
+        sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
         sparseArray.put(R.id.obfuscated_res_0x7f092056, Boolean.FALSE);
+        sparseArray.put(R.id.obfuscated_res_0x7f092057, Boolean.FALSE);
         pbCommenFloorItemViewHolder.p.setTag(sparseArray);
         pbCommenFloorItemViewHolder.r.setTag(sparseArray);
-        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f09204f, sparseArray);
+        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f092050, sparseArray);
         pbCommenFloorItemViewHolder.r0.setTag(sparseArray);
         pbCommenFloorItemViewHolder.i0.setTag(sparseArray);
     }
@@ -1833,16 +1833,16 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
             }
             String avater = postData.s().getAvater();
             int i4 = postData.b0 ? 2 : 8;
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092091, postData.s().getUserId());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092099, postData.s().getUserName());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f09209b, postData.s().getVirtualUserUrl());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092087, j28.i(this.k, postData, postData.c0, i4, 2));
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092092, postData.s().getUserId());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f09209a, postData.s().getUserName());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f09209c, postData.s().getVirtualUserUrl());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092088, j28.i(this.k, postData, postData.c0, i4, 2));
             String name_show = postData.s().getName_show();
             String userName = postData.s().getUserName();
             if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                 pbCommenFloorItemViewHolder.g.setText(ju7.b(this.mContext, pbCommenFloorItemViewHolder.f.getText().toString()));
                 pbCommenFloorItemViewHolder.f.setGravity(16);
-                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092066, ju7.a());
+                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092067, ju7.a());
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0312, 1);
             }
             if (postData.s().getPendantData() != null && !StringUtils.isNull(postData.s().getPendantData().getImgUrl())) {
@@ -1859,7 +1859,7 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 pbCommenFloorItemViewHolder.K.getHeadView().setFName(jv7Var2 != null ? jv7Var2.n() : "");
                 pbCommenFloorItemViewHolder.K.getHeadView().setFloor(postData.C());
                 pbCommenFloorItemViewHolder.K.getHeadView().setTid(postData.L());
-                pbCommenFloorItemViewHolder.K.getHeadView().setTag(R.id.obfuscated_res_0x7f092087, j28.i(this.k, postData, postData.c0, i4, 2));
+                pbCommenFloorItemViewHolder.K.getHeadView().setTag(R.id.obfuscated_res_0x7f092088, j28.i(this.k, postData, postData.c0, i4, 2));
                 pbCommenFloorItemViewHolder.K.m(postData.s().getPendantData().getImgUrl());
             } else {
                 pbCommenFloorItemViewHolder.o.setGodIconWidth(R.dimen.tbds36);
@@ -1872,8 +1872,8 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 pbCommenFloorItemViewHolder.o.setFloor(postData.C());
                 pbCommenFloorItemViewHolder.o.setTid(postData.L());
                 pbCommenFloorItemViewHolder.o.setUserName(postData.s().getUserName(), postData.h0());
-                pbCommenFloorItemViewHolder.o.setTag(R.id.obfuscated_res_0x7f09209b, postData.s().getVirtualUserUrl());
-                pbCommenFloorItemViewHolder.o.setTag(R.id.obfuscated_res_0x7f092087, j28.i(this.k, postData, postData.c0, i4, 2));
+                pbCommenFloorItemViewHolder.o.setTag(R.id.obfuscated_res_0x7f09209c, postData.s().getVirtualUserUrl());
+                pbCommenFloorItemViewHolder.o.setTag(R.id.obfuscated_res_0x7f092088, j28.i(this.k, postData, postData.c0, i4, 2));
                 pbCommenFloorItemViewHolder.o.setImageDrawable(null);
                 pbCommenFloorItemViewHolder.o.K(avater, 28, false);
                 pbCommenFloorItemViewHolder.o.setVisibility(0);
@@ -2000,12 +2000,12 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
             pbCommenFloorItemViewHolder.D0.setVisibility(8);
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f09205b, view2);
-        sparseArray.put(R.id.obfuscated_res_0x7f09206a, Integer.valueOf(i2));
-        sparseArray.put(R.id.obfuscated_res_0x7f092069, Integer.valueOf(postData.C()));
-        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.L());
+        sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205a, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205c, view2);
+        sparseArray.put(R.id.obfuscated_res_0x7f09206b, Integer.valueOf(i2));
+        sparseArray.put(R.id.obfuscated_res_0x7f09206a, Integer.valueOf(postData.C()));
+        sparseArray.put(R.id.obfuscated_res_0x7f09204d, postData.L());
         sparseArray.put(R.id.obfuscated_res_0x7f0917ef, pbCommenFloorItemViewHolder.n);
         sparseArray.put(R.id.obfuscated_res_0x7f0917f0, pbCommenFloorItemViewHolder.h0);
         sparseArray.put(R.id.obfuscated_res_0x7f0917ed, pbCommenFloorItemViewHolder.x);
@@ -2068,43 +2068,43 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 }
                 int i7 = postData.C() != 1 ? 1 : 0;
                 if (!z) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(this.k.W()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(this.k.W()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092049, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.s().getPortrait());
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
                 }
                 if (!z5) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092053, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092054, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092093, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getName_show());
                     }
                     if (this.k.O() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092097, this.k.O().getId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092098, this.k.O().getId());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092097, postData.L());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                 }
                 if (!z4) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092050, Boolean.valueOf(postData.o0()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(this.k.W()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z6));
-                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i7));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203e, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092051, Boolean.valueOf(postData.o0()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(this.k.W()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z6));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i7));
+                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, postData.L());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.valueOf(z3));
-                sparseArray.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(z7));
+                sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.valueOf(z3));
+                sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z7));
                 pbCommenFloorItemViewHolder.p.setTag(sparseArray);
                 pbCommenFloorItemViewHolder.r.setTag(sparseArray);
             }
@@ -2127,8 +2127,8 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
         }
         if (!z4) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.valueOf(z3));
-        sparseArray.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(z7));
+        sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.valueOf(z3));
+        sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z7));
         pbCommenFloorItemViewHolder.p.setTag(sparseArray);
         pbCommenFloorItemViewHolder.r.setTag(sparseArray);
     }
@@ -2463,8 +2463,8 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.v, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.v, (int) R.color.CAM_X0304);
             pbCommenFloorItemViewHolder.v.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right, SkinManager.getColor(R.color.CAM_X0304), null), (Drawable) null);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.x, R.drawable.obfuscated_res_0x7f0809a9, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.y, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.x, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.y, R.drawable.obfuscated_res_0x7f0809ab, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
             pbCommenFloorItemViewHolder.u.d();
             pbCommenFloorItemViewHolder.s.b();
             SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.V, R.color.CAM_X0304, 1);
@@ -2486,8 +2486,8 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
             pbCommenFloorItemViewHolder.n.L(TbadkCoreApplication.getInst().getSkinType());
             pbCommenFloorItemViewHolder.c(skinType);
             SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.O, R.color.CAM_X0203);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.i0, R.drawable.obfuscated_res_0x7f080984, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.r0, R.drawable.obfuscated_res_0x7f080984, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.i0, R.drawable.obfuscated_res_0x7f080985, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.r0, R.drawable.obfuscated_res_0x7f080985, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
             pbCommenFloorItemViewHolder.b();
         }
         pbCommenFloorItemViewHolder.a = skinType;
@@ -2511,12 +2511,12 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                 pbCommenFloorItemViewHolder.x0.d(postData.s());
                 pbCommenFloorItemViewHolder.v0.setVisibility(8);
                 pbCommenFloorItemViewHolder.y0.setVisibility(0);
-                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f092091, postData.s().getUserId());
-                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f092099, postData.s().getUserName());
+                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f092092, postData.s().getUserId());
+                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f09209a, postData.s().getUserName());
             } else {
                 pbCommenFloorItemViewHolder.y0.setVisibility(8);
-                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f092091, null);
-                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f092099, null);
+                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f092092, null);
+                pbCommenFloorItemViewHolder.x0.setTag(R.id.obfuscated_res_0x7f09209a, null);
                 pbCommenFloorItemViewHolder.v0.setVisibility(0);
             }
             if (postData.k0() != null && !TextUtils.isEmpty(postData.k0().b())) {
@@ -2527,8 +2527,8 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                     marginLayoutParams.setMargins(-UtilHelper.getDimenPixelSize(R.dimen.tbds20), marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
                     pbCommenFloorItemViewHolder.z0.setLayoutParams(marginLayoutParams);
                 }
-                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f092091, postData.s().getUserId());
-                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f092099, postData.s().getUserName());
+                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f092092, postData.s().getUserId());
+                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f09209a, postData.s().getUserName());
                 this.w = pz7.d;
                 this.x = pbCommenFloorItemViewHolder.w0.getData();
                 pbCommenFloorItemViewHolder.x0.setWithBubble(this.w);
@@ -2540,8 +2540,8 @@ public class yx7 extends ay7<PostData, PbCommenFloorItemViewHolder> implements V
                     pbCommenFloorItemViewHolder.z0.setLayoutParams(marginLayoutParams2);
                 }
                 pbCommenFloorItemViewHolder.w0.setVisibility(8);
-                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f092099, null);
-                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f092091, null);
+                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f09209a, null);
+                pbCommenFloorItemViewHolder.w0.setTag(R.id.obfuscated_res_0x7f092092, null);
                 int i2 = pz7.e;
                 this.w = i2;
                 pbCommenFloorItemViewHolder.x0.setWithBubble(i2);

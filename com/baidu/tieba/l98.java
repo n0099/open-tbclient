@@ -59,7 +59,7 @@ public class l98 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    ej.M(this.b.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13ec);
+                    ej.M(this.b.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13ed);
                 }
                 this.b.h(z, this.a);
             }

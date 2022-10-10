@@ -57,8 +57,8 @@ public class rx5 extends dh6<bu4, FrsPageAlaVideoHolder> implements g26, to5 {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f0912a7) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09054e && view2.getId() != R.id.obfuscated_res_0x7f09054a && view2.getId() != R.id.obfuscated_res_0x7f092488) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f092515 ? new CustomMessage(2921019) : null;
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09054e && view2.getId() != R.id.obfuscated_res_0x7f09054a && view2.getId() != R.id.obfuscated_res_0x7f092489) {
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f092516 ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }

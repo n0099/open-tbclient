@@ -444,11 +444,11 @@ public class o96 extends p9 implements NoNetworkView.b {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0276, (ViewGroup) null);
             this.b = linearLayout;
-            ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b97);
+            ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b98);
             this.c = forumHeaderView;
             forumHeaderView.setFrom(0);
             this.c.b();
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f092018);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f092019);
             this.d = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
             this.d.setRectPaintColor(R.color.CAM_X0302);
@@ -475,7 +475,7 @@ public class o96 extends p9 implements NoNetworkView.b {
         F(bundle);
         D(bundle);
         C(bundle);
-        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.r = noNetworkView;
         noNetworkView.a(this);
     }

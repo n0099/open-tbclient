@@ -72,14 +72,14 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<hq
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0630, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d0);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d1);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d0);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101b);
             this.d = findViewById(R.id.obfuscated_res_0x7f09166f);
             this.g = findViewById(R.id.obfuscated_res_0x7f09166d);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09166c);
             this.b = findViewById(R.id.obfuscated_res_0x7f09129f);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbc);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -133,7 +133,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<hq
         d2.v(R.color.CAM_X0109);
         d2.z(R.dimen.T_X08);
         d2.A(R.string.F_X01);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096d, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         this.a = i;
         hv4 d3 = hv4.d(this.h);
         d3.n(R.string.J_X06);

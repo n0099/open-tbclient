@@ -178,7 +178,7 @@ public final class MediaGestureLayout extends FrameLayout implements zk4 {
                 return false;
             }
             float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-            this.c.g(R.drawable.obfuscated_res_0x7f0811e4);
+            this.c.g(R.drawable.obfuscated_res_0x7f0811e5);
             this.c.h(b2);
             this.c.f();
             return true;
@@ -194,7 +194,7 @@ public final class MediaGestureLayout extends FrameLayout implements zk4 {
             if (this.g.d()) {
                 float x = motionEvent2.getX() - motionEvent.getX();
                 this.e.h((int) (this.e.b() + ((this.e.c() * x) / (getWidth() * 0.8f))));
-                this.e.g(x > 0.0f ? R.drawable.obfuscated_res_0x7f0811e0 : R.drawable.obfuscated_res_0x7f0811e1);
+                this.e.g(x > 0.0f ? R.drawable.obfuscated_res_0x7f0811e1 : R.drawable.obfuscated_res_0x7f0811e2);
                 this.e.f();
                 return true;
             }
@@ -213,7 +213,7 @@ public final class MediaGestureLayout extends FrameLayout implements zk4 {
             }
             float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
             this.d.f(a2);
-            this.d.g(R.drawable.obfuscated_res_0x7f0811d2);
+            this.d.g(R.drawable.obfuscated_res_0x7f0811d3);
             this.d.h((int) ((a2 / this.d.b()) * 100.0f));
             this.d.e();
             return true;

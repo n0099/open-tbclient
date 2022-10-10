@@ -239,7 +239,7 @@ public class z64 extends s64 {
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             view2.setOnClickListener(new a(this));
             this.p.f(new b(this));
-            this.k.findViewById(R.id.obfuscated_res_0x7f091ff5).setOnClickListener(new c(this));
+            this.k.findViewById(R.id.obfuscated_res_0x7f091ff6).setOnClickListener(new c(this));
             this.m.setOnClickListener(new d(this));
         }
     }
@@ -260,7 +260,7 @@ public class z64 extends s64 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             boolean a2 = sm2.M().a();
             this.n.setVisibility(8);
-            this.m.setImageResource(a2 ? R.drawable.obfuscated_res_0x7f0811f3 : R.drawable.obfuscated_res_0x7f0811f2);
+            this.m.setImageResource(a2 ? R.drawable.obfuscated_res_0x7f0811f4 : R.drawable.obfuscated_res_0x7f0811f3);
             if (a2) {
                 this.l.post(new e(this));
             }
@@ -302,11 +302,11 @@ public class z64 extends s64 {
             View i = super.i();
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083f, (ViewGroup) null);
             this.k = inflate;
-            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f091ff4);
-            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f091ff7);
-            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f091ff3);
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f091ff5);
+            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f091ff8);
+            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f091ff4);
             z();
-            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f091ff6);
+            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f091ff7);
             this.o = recyclerView;
             recyclerView.setItemAnimator(null);
             this.o.setLayoutManager(new LinearLayoutManager(this.a));

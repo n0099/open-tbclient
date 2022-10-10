@@ -160,7 +160,7 @@ public class s39 {
         this.n = false;
         this.q = new a(this);
         this.a = tbPageContext;
-        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f0926b4);
+        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f0926b5);
         r39 r39Var = new r39(view2.getContext(), this.e, null, this.q);
         this.d = r39Var;
         this.b.setAdapter((ListAdapter) r39Var);

@@ -84,7 +84,7 @@ public class ff6 extends dh6<gf6, FrsMemberHeaderViewHolder> {
                                 String a = gf6Var.a();
                                 this.a.l.Q(gf6Var.b(), a);
                             }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f0924b3) {
+                        } else if (view2.getId() == R.id.obfuscated_res_0x7f0924b4) {
                             String a2 = gf6Var.a();
                             this.a.c.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.mContext, gf6Var.b(), a2)));
                         }

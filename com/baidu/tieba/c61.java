@@ -203,7 +203,7 @@ public class c61 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05df, null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924e1);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924e2);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917b0);
             this.f = textView;
             textView.setOnEditorActionListener(new a(this));

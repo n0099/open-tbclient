@@ -103,7 +103,7 @@ public class s57 extends i16<p57> {
         this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f0905ca);
         this.u = h.findViewById(R.id.obfuscated_res_0x7f0905cd);
         this.i = h.findViewById(R.id.obfuscated_res_0x7f0905c8);
-        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092488);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092489);
         this.w = headImageView;
         headImageView.setIsRound(true);
         this.w.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -208,7 +208,7 @@ public class s57 extends i16<p57> {
             if (p57Var.V == 0) {
                 this.n.setText("NEW");
             } else {
-                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1461), StringHelper.numberUniformFormat(p57Var.V)));
+                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1462), StringHelper.numberUniformFormat(p57Var.V)));
             }
             if (p57Var.Y == null) {
                 this.t.setVisibility(8);
@@ -224,7 +224,7 @@ public class s57 extends i16<p57> {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             int f2 = ej.f(getContext(), R.dimen.tbds30);
             int f3 = ej.f(getContext(), R.dimen.tbds16);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f092488);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f092489);
             layoutParams2.setMargins(f2, 0, f3, 0);
             this.m.setTextSize(0, ej.f(this.c, R.dimen.tbds40));
             hv4 d = hv4.d(this.m);

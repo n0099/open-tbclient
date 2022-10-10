@@ -146,7 +146,7 @@ public class n38 {
         TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091780);
         this.c = textView2;
         textView2.setOnClickListener(this.k);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092552);
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092553);
         this.d = sortSwitchButton;
         sortSwitchButton.setOnSwitchChangeListener(this.j);
         this.d.w(2);

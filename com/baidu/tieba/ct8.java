@@ -119,13 +119,13 @@ public class ct8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c = (BdExpandImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090956);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09249f);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ed);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a0);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ee);
             this.e = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b6);
-            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924cf);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09248c);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b7);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d0);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09248d);
             this.d.setDefaultResource(R.drawable.icon_default_avatar100);
         }
     }

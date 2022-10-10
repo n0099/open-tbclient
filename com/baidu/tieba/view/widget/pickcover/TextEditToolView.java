@@ -233,7 +233,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, hh9.l(R.string.obfuscated_res_0x7f0f14b9))) {
+        if (!TextUtils.equals(str, hh9.l(R.string.obfuscated_res_0x7f0f14ba))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -356,7 +356,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         hv4 d = hv4.d(findViewById);
         d.n(R.string.J_X01);
         d.f(R.color.CAM_X0106);
-        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092129);
+        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09212a);
         ny4 ny4Var = new ny4();
         ny4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
         this.f.setConfig(ny4Var);

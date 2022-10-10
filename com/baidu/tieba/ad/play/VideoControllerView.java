@@ -165,8 +165,8 @@ public class VideoControllerView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View k = k(context);
             addView(k, -1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214e);
-            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214f);
+            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f09214f);
+            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f092150);
             SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f091890);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.k);

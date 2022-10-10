@@ -159,14 +159,14 @@ public class FrsUserRecommendAdapter extends dh6<qh6, FrsUserRecommendViewHolder
             this.h = new b(this);
             this.e = z;
             this.f = str;
-            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f0924cc);
-            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924c6);
+            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f0924cd);
+            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924c7);
             this.c = userRecommendLayout;
             userRecommendLayout.setItemSpace(ej.f(view2.getContext(), R.dimen.obfuscated_res_0x7f0701be));
             this.c.setAfterLikeBtnClickListener(this.g);
             this.c.setAfterHeaderLickListener(this.h);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c7);
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924cb);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c8);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924cc);
         }
 
         public final void d(String str, int i) {

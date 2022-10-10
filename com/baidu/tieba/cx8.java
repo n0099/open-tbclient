@@ -196,12 +196,12 @@ public class cx8 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d052d, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922b2);
                 cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092298);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092299);
                 cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916e3);
                 cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903e1);
-                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922b0);
+                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
                 cVar.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903f6);
                 view2.setTag(cVar);
             } else {
@@ -217,7 +217,7 @@ public class cx8 extends BaseAdapter {
                 if (this.a.get(i2).id == -1) {
                     cVar.g.setVisibility(0);
                     cVar.c.setVisibility(8);
-                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080b2d);
+                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080b2e);
                 } else {
                     cVar.g.setVisibility(8);
                     cVar.c.setVisibility(0);

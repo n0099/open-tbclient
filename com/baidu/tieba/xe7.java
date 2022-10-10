@@ -131,26 +131,26 @@ public class xe7 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03c9, (ViewGroup) null);
                 this.b = inflate;
-                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092218);
-                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b22);
+                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219);
+                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b23);
                 this.d = imageView;
                 imageView.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080832));
                 this.d.setOnClickListener(this);
-                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b27);
+                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b28);
                 this.e = imageView2;
                 imageView2.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080833));
                 this.e.setOnClickListener(this);
-                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09266c);
+                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09266d);
                 this.f = imageView3;
                 imageView3.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080835));
                 this.f.setOnClickListener(this);
-                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09266e);
+                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09266f);
                 this.g = imageView4;
                 imageView4.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080831));
                 this.g.setOnClickListener(this);
-                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09266b);
+                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09266c);
                 this.h = imageView5;
-                imageView5.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080a8a));
+                imageView5.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080a8b));
                 this.h.setOnClickListener(this);
                 setContentView(this.b);
             }
@@ -254,7 +254,7 @@ public class xe7 {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
             } else if (view2 == this.d) {
                 if (om8.b(this.a, "com.tencent.mobileqq")) {
                     if (c(b) && b.a() != null && b.a().contains(4)) {
@@ -266,7 +266,7 @@ public class xe7 {
                     }
                 }
                 Activity activity = this.a;
-                BdToast.b(activity, activity.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                BdToast.b(activity, activity.getText(R.string.obfuscated_res_0x7f0f116a)).i();
             } else if (view2 == this.e) {
                 if (om8.b(this.a, "com.tencent.mobileqq")) {
                     if (c(b) && b.a() != null && b.a().contains(4)) {
@@ -278,7 +278,7 @@ public class xe7 {
                     }
                 }
                 Activity activity2 = this.a;
-                BdToast.b(activity2, activity2.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                BdToast.b(activity2, activity2.getText(R.string.obfuscated_res_0x7f0f116a)).i();
             } else if (view2 == this.f) {
                 if (c(b) && b.a() != null && b.a().contains(3)) {
                     y25.e(b, this.a, 3, null);

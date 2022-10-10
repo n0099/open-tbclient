@@ -1195,7 +1195,7 @@ public class FrsTabViewController implements du6, TbTabLayout.c {
         RelativeLayout relativeLayout = new RelativeLayout(this.a.getContext());
         this.g = relativeLayout;
         this.o = new xl6(frsFragment, relativeLayout);
-        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091ae7);
+        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091ae8);
         this.q = publishProgressView;
         publishProgressView.setVisibility(8);
     }

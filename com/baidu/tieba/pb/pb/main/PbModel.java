@@ -2251,7 +2251,7 @@ public class PbModel extends DataModel {
                     jv7Var.f = arrayList;
                     arrayList.add(builder.build(false));
                     PbSortType.Builder builder2 = new PbSortType.Builder();
-                    builder2.sort_name = this.Y.getResources().getString(R.string.obfuscated_res_0x7f0f156c);
+                    builder2.sort_name = this.Y.getResources().getString(R.string.obfuscated_res_0x7f0f156d);
                     builder2.sort_type = 1;
                     jv7Var.f.add(builder2.build(false));
                     int i6 = this.n;

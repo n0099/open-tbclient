@@ -400,7 +400,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements wx<yq4> {
                     return;
                 }
                 this.i.setVisibility(8);
-                HomeGroupUbsUIHelper.handleImgMask(this.h, R.drawable.obfuscated_res_0x7f08120e);
+                HomeGroupUbsUIHelper.handleImgMask(this.h, R.drawable.obfuscated_res_0x7f08120f);
                 if (linkedList.size() > 3) {
                     this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0443, new Object[]{Integer.valueOf(linkedList.size() - 3)}));
                     this.h.setVisibility(0);
@@ -546,19 +546,19 @@ public class MultiImgTextPicLayout extends LinearLayout implements wx<yq4> {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c7, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092182);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092183);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
             int k = ((ej.k(getContext()) - (ty.k * 2)) - (ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092178);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092179);
             this.d = relativeLayout;
             HomeGroupUbsUIHelper.handleContentInterval(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(this.a, R.dimen.tbds7, R.dimen.tbds10);
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(this.b, R.dimen.tbds7, R.dimen.tbds10);
             this.d.getLayoutParams().height = k;
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217a);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217b);
             this.e = tbImageView;
             tbImageView.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X12);
@@ -566,7 +566,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements wx<yq4> {
             this.e.setConrers(15);
             this.e.getLayoutParams().height = k;
             this.e.getLayoutParams().width = k;
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217d);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217e);
             this.f = tbImageView2;
             tbImageView2.setDrawCorner(false);
             this.f.setPlaceHolder(2);
@@ -574,7 +574,7 @@ public class MultiImgTextPicLayout extends LinearLayout implements wx<yq4> {
             this.f.setConrers(15);
             this.f.getLayoutParams().height = k;
             this.f.getLayoutParams().width = k;
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217c);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217d);
             this.g = tbImageView3;
             tbImageView3.setDrawCorner(true);
             this.g.setPlaceHolder(2);
@@ -582,13 +582,13 @@ public class MultiImgTextPicLayout extends LinearLayout implements wx<yq4> {
             this.g.setConrers(15);
             this.g.getLayoutParams().height = k;
             this.g.getLayoutParams().width = k;
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092179);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09217a);
             this.h = textView;
             textView.getLayoutParams().height = k;
             this.h.getLayoutParams().width = k;
             hv4.d(this.h).y(R.array.S_O_X001);
             this.h.setTypeface(fv4.H(fv4.E(R.string.F_X02)));
-            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217e);
+            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217f);
             this.i = tbImageView4;
             tbImageView4.setRadiusById(R.string.J_X05);
             this.i.setConrers(15);

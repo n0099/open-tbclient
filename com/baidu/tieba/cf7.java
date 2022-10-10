@@ -726,7 +726,7 @@ public class cf7 {
                 af7 af7Var5 = this.d;
                 af7Var5.H = imageUrlData.userId;
                 if (!imageUrlData.isFirstPost && af7Var5.a() != null) {
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100c);
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100d);
                     try {
                         if (!TextUtils.isEmpty(imageUrlData.richTextArray)) {
                             jSONArray = new JSONArray(imageUrlData.richTextArray);
@@ -779,7 +779,7 @@ public class cf7 {
         af7 af7Var52 = this.d;
         af7Var52.H = imageUrlData.userId;
         if (!imageUrlData.isFirstPost) {
-            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100c);
+            String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100d);
             if (!TextUtils.isEmpty(imageUrlData.richTextArray)) {
             }
             this.d.a().A(new h55(45, 27, String.format(string2, imageUrlData.userNameShow, (jSONArray != null || jSONArray.length() <= 0) ? "" : TbRichTextView.U(jSONArray, false).toString())));

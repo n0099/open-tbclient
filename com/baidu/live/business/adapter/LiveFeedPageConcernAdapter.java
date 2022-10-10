@@ -108,11 +108,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.h = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b6);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b8);
             this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09030c);
             this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09030b);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c37);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c38);
             this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09155b);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09156b);
             this.h = str;
@@ -171,14 +171,14 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.i = "";
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c74);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b6);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c75);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b7);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a2d);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b5);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b6);
             this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09030c);
             this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09030b);
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c37);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c38);
             this.i = str;
             this.j = str2;
             LiveFeedPageConcernAdapter.h(this.c, str2);
@@ -207,12 +207,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
                 if (!LiveFeedPageSdk.IMMERSION.equals(this.j) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.j) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                     if (!"night".equals(uc0.f().r()) && !"dark".equals(uc0.f().r())) {
-                        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf7);
-                    } else {
                         this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf8);
+                    } else {
+                        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf9);
                     }
                 } else {
-                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cf9);
+                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfa);
                 }
                 if (LiveFeedPageSdk.VIDEO_BAR.equals(this.j) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                     ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
@@ -266,7 +266,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.f = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b6);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b7);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a2d);
             this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09030c);
@@ -755,12 +755,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         f(viewHolder2);
                         if (!LiveFeedPageSdk.IMMERSION.equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                             if (!"night".equals(uc0.f().r()) && !"dark".equals(uc0.f().r())) {
-                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cec);
+                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080ced);
                             } else {
-                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cee);
+                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cef);
                             }
                         } else {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080ced);
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080cee);
                         }
                         viewHolder2.e.setVisibility(0);
                         viewHolder2.b.setVisibility(4);

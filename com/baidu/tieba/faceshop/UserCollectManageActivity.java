@@ -416,12 +416,12 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
     public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0400));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
             if (this.a.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.getBackImageView(), R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f03ff), new d(this));
             this.b = addTextButton;
@@ -431,10 +431,10 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09156f);
             this.f = textView;
             textView.setOnClickListener(this.q);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091db3);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091db4);
             this.g = textView2;
             textView2.setOnClickListener(this.q);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0924ee);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0924ef);
             this.j = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
             TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f09078c);
@@ -474,7 +474,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             return;
         }
         TiebaStatic.log(new StatisticItem("c12491").param("obj_param1", arrayList.size()));
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1133), this.o);
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1134), this.o);
         this.m.a(arrayList, this);
     }
 
@@ -578,9 +578,9 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             } else if (i == 2) {
                 ej.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d23));
             } else if (i == 3) {
-                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f10a3), Integer.valueOf(i2));
+                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f10a4), Integer.valueOf(i2));
                 if (i3 != 0) {
-                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f10a4), Integer.valueOf(i2), Integer.valueOf(i3));
+                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f10a5), Integer.valueOf(i2), Integer.valueOf(i3));
                 }
                 ej.N(TbadkCoreApplication.getInst().getContext(), format);
             } else if (i == 4) {

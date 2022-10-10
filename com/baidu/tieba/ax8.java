@@ -181,7 +181,7 @@ public class ax8 {
         }
         ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f090495);
         ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0909e6);
-        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092563);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092564);
         this.d = progressView;
         progressView.setListener(new a(this));
         if (!tw8.f(true)) {

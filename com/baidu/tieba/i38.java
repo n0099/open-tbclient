@@ -320,7 +320,7 @@ public class i38 {
                 AbsVideoPbFragment absVideoPbFragment = this.a.b;
                 if (absVideoPbFragment != null && absVideoPbFragment.isAdded()) {
                     if (view2 != null) {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091c1d) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091c1e) {
                             AbsVideoPbFragment absVideoPbFragment2 = this.a.b;
                             if (absVideoPbFragment2 != null && absVideoPbFragment2.b5(view2)) {
                                 return true;
@@ -329,7 +329,7 @@ public class i38 {
                             if (!(view2.getTag() instanceof SparseArray)) {
                                 return false;
                             }
-                            Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                            Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                             if (!(obj instanceof PostData)) {
                                 return false;
                             }
@@ -338,8 +338,8 @@ public class i38 {
                                 return this.a.n(postData.L());
                             }
                         } else if (view2.getId() == R.id.obfuscated_res_0x7f09180c) {
-                            if (view2.getTag(R.id.obfuscated_res_0x7f09204f) instanceof SparseArray) {
-                                this.a.q((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f09204f));
+                            if (view2.getTag(R.id.obfuscated_res_0x7f092050) instanceof SparseArray) {
+                                this.a.q((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092050));
                             }
                         } else if ((view2 instanceof TbRichTextView) || view2.getId() == R.id.obfuscated_res_0x7f091866) {
                             SparseArray sparseArray = view2.getTag() instanceof SparseArray ? (SparseArray) view2.getTag() : null;
@@ -731,7 +731,7 @@ public class i38 {
     public final void q(SparseArray<Object> sparseArray) {
         PostData postData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, sparseArray) == null) || !this.a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.obfuscated_res_0x7f09203c) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) == null || this.a.K() == null || this.a.K().S1() == null || postData.C() == 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, sparseArray) == null) || !this.a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.obfuscated_res_0x7f09203d) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) == null || this.a.K() == null || this.a.K().S1() == null || postData.C() == 1) {
             return;
         }
         String m2 = this.a.K().m2();

@@ -65,7 +65,7 @@ public class qk6 extends qn<bu4, ThreadCardViewHolder<ThreadData>> {
                 if (z) {
                     bu4 bu4Var = (bu4) cdo;
                     if (bu4Var.t.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                        BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.obfuscated_res_0x7f0f1537));
+                        BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.obfuscated_res_0x7f0f1538));
                         b.f(BdToast.ToastIcon.FAILURE);
                         b.i();
                         return;

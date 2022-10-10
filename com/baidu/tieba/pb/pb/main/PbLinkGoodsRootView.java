@@ -695,8 +695,8 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         this.g = bdRecyclerView;
         bdRecyclerView.setNestedScrollingEnabled(false);
         this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091846);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ed);
-        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5e);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ee);
+        this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c5f);
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff6);
         this.e = (ThreadForumEnterGoodsButton) findViewById(R.id.obfuscated_res_0x7f091889);
         this.i = ej.f(this.f, R.dimen.tbds14);

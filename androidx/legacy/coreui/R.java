@@ -122,18 +122,18 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int notification_action_background = 0x7f080e6c;
-        public static final int notification_bg = 0x7f080e6d;
-        public static final int notification_bg_low = 0x7f080e6e;
-        public static final int notification_bg_low_normal = 0x7f080e6f;
-        public static final int notification_bg_low_pressed = 0x7f080e70;
-        public static final int notification_bg_normal = 0x7f080e71;
-        public static final int notification_bg_normal_pressed = 0x7f080e72;
-        public static final int notification_icon_background = 0x7f080e73;
-        public static final int notification_template_icon_bg = 0x7f080e74;
-        public static final int notification_template_icon_low_bg = 0x7f080e75;
-        public static final int notification_tile_bg = 0x7f080e76;
-        public static final int notify_panel_notification_icon_bg = 0x7f080e78;
+        public static final int notification_action_background = 0x7f080e6d;
+        public static final int notification_bg = 0x7f080e6e;
+        public static final int notification_bg_low = 0x7f080e6f;
+        public static final int notification_bg_low_normal = 0x7f080e70;
+        public static final int notification_bg_low_pressed = 0x7f080e71;
+        public static final int notification_bg_normal = 0x7f080e72;
+        public static final int notification_bg_normal_pressed = 0x7f080e73;
+        public static final int notification_icon_background = 0x7f080e74;
+        public static final int notification_template_icon_bg = 0x7f080e75;
+        public static final int notification_template_icon_low_bg = 0x7f080e76;
+        public static final int notification_tile_bg = 0x7f080e77;
+        public static final int notify_panel_notification_icon_bg = 0x7f080e79;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -177,18 +177,18 @@ public final class R {
         public static final int notification_background = 0x7f091704;
         public static final int notification_main_column = 0x7f091706;
         public static final int notification_main_column_container = 0x7f091707;
-        public static final int right = 0x7f091c23;
-        public static final int right_icon = 0x7f091c3b;
-        public static final int right_side = 0x7f091c41;
-        public static final int start = 0x7f091f72;
-        public static final int tag_transition_group = 0x7f09208d;
-        public static final int tag_unhandled_key_event_manager = 0x7f09208f;
-        public static final int tag_unhandled_key_listeners = 0x7f092090;
-        public static final int text = 0x7f0920ff;
-        public static final int text2 = 0x7f092100;
-        public static final int time = 0x7f0921e7;
-        public static final int title = 0x7f092218;
-        public static final int top = 0x7f092286;
+        public static final int right = 0x7f091c24;
+        public static final int right_icon = 0x7f091c3c;
+        public static final int right_side = 0x7f091c42;
+        public static final int start = 0x7f091f73;
+        public static final int tag_transition_group = 0x7f09208e;
+        public static final int tag_unhandled_key_event_manager = 0x7f092090;
+        public static final int tag_unhandled_key_listeners = 0x7f092091;
+        public static final int text = 0x7f092100;
+        public static final int text2 = 0x7f092101;
+        public static final int time = 0x7f0921e8;
+        public static final int title = 0x7f092219;
+        public static final int top = 0x7f092287;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -256,7 +256,7 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1211;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1212;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

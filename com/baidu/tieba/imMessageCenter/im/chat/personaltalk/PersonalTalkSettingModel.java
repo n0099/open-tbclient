@@ -311,7 +311,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
                     if (this.a.c) {
                         this.a.m.showToast(R.string.obfuscated_res_0x7f0f00d4);
                     } else {
-                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0ff4);
+                        this.a.m.showToast(R.string.obfuscated_res_0x7f0f0ff5);
                     }
                 }
                 if (this.a.n != null) {

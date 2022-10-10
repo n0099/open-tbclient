@@ -1076,8 +1076,8 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, activity) == null) {
             LayoutInflater.from(new ContextThemeWrapper(activity, k5a.a.a(this.n))).inflate(R.layout.obfuscated_res_0x7f0d06ac, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092363);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092364);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242e);
             PayAmountAdapter payAmountAdapter = new PayAmountAdapter(this.a, this.B, this.o, this.n);
             this.m = payAmountAdapter;
             payAmountAdapter.i(this.v);
@@ -1093,11 +1093,11 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
             if (payUIKitConfig != null) {
                 pluginCenterTopBanner.setImageLoaderSupplier(payUIKitConfig.imageLoaderSupplier);
             }
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c7c);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091c7d);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091015);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ae);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092357);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092373);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923af);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092358);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092374);
             t4a.d(this.z, this.A, "1", "", "", "");
         }
     }

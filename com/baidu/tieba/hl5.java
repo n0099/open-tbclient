@@ -82,7 +82,7 @@ public class hl5 {
                     return;
                 }
             }
-            h(R.drawable.obfuscated_res_0x7f080a47);
+            h(R.drawable.obfuscated_res_0x7f080a48);
             i(R.dimen.tbds3);
         }
 
@@ -113,7 +113,7 @@ public class hl5 {
             if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, y95Var) == null) {
                 if (y95Var.n()) {
                     Context context = view2.getContext();
-                    BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1530));
+                    BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1531));
                     b.f(BdToast.ToastIcon.FAILURE);
                     b.i();
                     return;
@@ -231,7 +231,7 @@ public class hl5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f1530));
+                BdToast b = BdToast.b(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f1531));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
             }
@@ -846,14 +846,14 @@ public class hl5 {
                     if (intValue == 5) {
                         a2.h(R.drawable.obfuscated_res_0x7f08080d);
                     } else if (intValue == 6) {
-                        a2.h(R.drawable.obfuscated_res_0x7f080f82);
+                        a2.h(R.drawable.obfuscated_res_0x7f080f83);
                     } else if (intValue != 7) {
-                        a2.h(R.drawable.obfuscated_res_0x7f0809c0);
+                        a2.h(R.drawable.obfuscated_res_0x7f0809c1);
                     }
                 }
-                a2.h(R.drawable.obfuscated_res_0x7f080a4d);
+                a2.h(R.drawable.obfuscated_res_0x7f080a4e);
             } else {
-                a2.h(R.drawable.obfuscated_res_0x7f0809b7);
+                a2.h(R.drawable.obfuscated_res_0x7f0809b8);
             }
             return Pair.create(a2.b(i, tiebaPlusInfo.desc, c2), c2);
         }
@@ -918,13 +918,13 @@ public class hl5 {
                     gVar.j(-1);
                 }
                 if (z) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString2.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
                     spannableString2.setSpan(gVar, 1, (str5.length() + 1) - 1, 33);
                     return spannableString2;
                 } else if (z2) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080afd, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080afe, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString2.setSpan(eMRichTextAnyIconSpan2, str5.length() - 1, str5.length() + 1, 33);
                     spannableString2.setSpan(gVar, 0, str5.length() - 1, 33);
@@ -1003,7 +1003,7 @@ public class hl5 {
     public static void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
-            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0304, R.dimen.M_W_X002));
+            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0304, R.dimen.M_W_X002));
         }
     }
 

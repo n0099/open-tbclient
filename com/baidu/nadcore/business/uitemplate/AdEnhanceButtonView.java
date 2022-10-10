@@ -671,7 +671,7 @@ public class AdEnhanceButtonView extends FrameLayout implements e81<View> {
             if (!TextUtils.isEmpty(yo0Var.c)) {
                 this.e.g(yo0Var.c);
             } else {
-                this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc7));
+                this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc8));
             }
             if (!TextUtils.isEmpty(yo0Var.b)) {
                 this.d.setText(yo0Var.b);
@@ -706,7 +706,7 @@ public class AdEnhanceButtonView extends FrameLayout implements e81<View> {
                     this.b.setStateImageIcon(yo0Var.c);
                     return true;
                 }
-                this.b.setStateImageRes(R.drawable.obfuscated_res_0x7f080dc7);
+                this.b.setStateImageRes(R.drawable.obfuscated_res_0x7f080dc8);
                 return true;
             }
             if (this.f != null) {

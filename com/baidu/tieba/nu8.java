@@ -43,7 +43,7 @@ public class nu8 {
                 if (msgType == 2) {
                     content = a(r9Var, chatMessage.getContent());
                 } else if (msgType == 3) {
-                    content = r9Var.getString(R.string.obfuscated_res_0x7f0f159d);
+                    content = r9Var.getString(R.string.obfuscated_res_0x7f0f159e);
                 } else if (msgType != 30) {
                     if (msgType != 32) {
                         content = msgType != 33 ? "" : r9Var.getString(R.string.obfuscated_res_0x7f0f09de);
@@ -53,18 +53,18 @@ public class nu8 {
                 }
                 if (chatMessage == null && chatMessage.getToUserInfo() != null) {
                     if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f32);
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f33);
                     } else {
-                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f2f);
+                        string = r9Var.getString(R.string.obfuscated_res_0x7f0f0f30);
                     }
-                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.obfuscated_res_0x7f0f0f30) + content;
+                    return string + chatMessage.getToUserInfo().getUserName() + r9Var.getString(R.string.obfuscated_res_0x7f0f0f31) + content;
                 }
-                return r9Var.getString(R.string.obfuscated_res_0x7f0f0f2f);
+                return r9Var.getString(R.string.obfuscated_res_0x7f0f0f30);
             }
             content = chatMessage.getContent();
             if (chatMessage == null) {
             }
-            return r9Var.getString(R.string.obfuscated_res_0x7f0f0f2f);
+            return r9Var.getString(R.string.obfuscated_res_0x7f0f0f30);
         }
         return (String) invokeLL.objValue;
     }

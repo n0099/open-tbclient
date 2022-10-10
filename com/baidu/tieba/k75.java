@@ -43,7 +43,7 @@ public class k75 extends s55 {
         pbNewInputContainer.setTransLink(!z);
         ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
         this.t = ((PbNewInputContainer) this.m).getInputView();
-        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10b3));
+        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10b4));
         ((PbNewInputContainer) this.m).L(z2);
         this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
     }

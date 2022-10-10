@@ -207,7 +207,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
             tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f07a7);
             tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f037a);
             tBAlertBuilder.m(true);
-            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f96, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0f97, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
             tBAlertBuilder.g();
             tBAlertBuilder.h(false);
             tBAlertBuilder.w();

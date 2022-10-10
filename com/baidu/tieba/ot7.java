@@ -113,7 +113,7 @@ public abstract class ot7 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13e0), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13e1), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
@@ -321,7 +321,7 @@ public abstract class ot7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.b.getLoadingDialog() == null || !this.b.getLoadingDialog().c()) {
-                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f106a));
+                this.b.showLoadingDialog(this.a.getString(R.string.obfuscated_res_0x7f0f106b));
                 if (this.b.getLoadingDialog() != null) {
                     this.b.getLoadingDialog().f(false);
                     this.b.getLoadingDialog().g(false);
@@ -344,13 +344,13 @@ public abstract class ot7 {
                 this.b.finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09045b) {
                 this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b23) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b24) {
                 g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09266d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09266e) {
                 o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092670) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092671) {
                 p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0926f3) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0926f4) {
                 q();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f091565) {
                 d();

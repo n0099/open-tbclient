@@ -138,21 +138,21 @@ public abstract class LoadingLayout extends FrameLayout implements zk5 {
         }
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909e3);
         this.a = frameLayout;
-        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091b08);
-        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091b06);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b07);
-        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091b04);
+        this.e = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091b09);
+        this.c = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091b07);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b08);
+        this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091b05);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
         if (a.b[mode.ordinal()] != 1) {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f63);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f64);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f65);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f64);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f65);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f66);
         } else {
             layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f63);
-            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f64);
-            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f65);
+            this.i = context.getString(R.string.obfuscated_res_0x7f0f0f64);
+            this.j = context.getString(R.string.obfuscated_res_0x7f0f0f65);
+            this.k = context.getString(R.string.obfuscated_res_0x7f0f0f66);
         }
         if (typedArray.hasValue(7) && (drawable = typedArray.getDrawable(7)) != null) {
             cl5.b(this, drawable);

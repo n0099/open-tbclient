@@ -190,7 +190,7 @@ public class ImMessageCenterListAdapter extends p87 {
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
                 this.a.setIsLike(0);
                 this.c.Q(this.b, false);
-                ej.N(this.c.a, this.c.a.getString(R.string.obfuscated_res_0x7f0f14bb));
+                ej.N(this.c.a, this.c.a.getString(R.string.obfuscated_res_0x7f0f14bc));
             }
         }
     }
@@ -395,7 +395,7 @@ public class ImMessageCenterListAdapter extends p87 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
             g gVar = new g(this, null);
-            gVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c84);
+            gVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c85);
             gVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e77);
             gVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e7b);
             gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e7c);
@@ -525,7 +525,7 @@ public class ImMessageCenterListAdapter extends p87 {
                 ny4 ny4Var = new ny4();
                 ny4Var.t(R.color.CAM_X0109);
                 gVar.i.setConfig(ny4Var);
-                gVar.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
+                gVar.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
                 gVar.i.setClickState(false);
             } else {
                 ny4 ny4Var2 = new ny4();
@@ -741,7 +741,7 @@ public class ImMessageCenterListAdapter extends p87 {
                 if (!TextUtils.isEmpty(friendBjhAvatar3)) {
                     aVar.b.K(friendBjhAvatar3, 12, false);
                 } else {
-                    aVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f0a), 24, false);
+                    aVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f0b), 24, false);
                 }
                 aVar.b.setTag(imMessageCenterShowItemData.getFriendPortrait());
                 aVar.b.setUserId(imMessageCenterShowItemData.getFriendId());

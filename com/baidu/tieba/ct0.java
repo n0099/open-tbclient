@@ -92,7 +92,7 @@ public class ct0 extends vs0 implements View.OnClickListener {
             layoutParams.gravity = 17;
             this.c = new PlayDrawable();
             this.b.setLayoutParams(layoutParams);
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2c));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2d));
             this.b.setImageDrawable(this.c);
             this.b.setOnClickListener(this);
             this.b.setVisibility(8);

@@ -134,11 +134,11 @@ public class rf7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d003f);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0925ce);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091f7f);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f01);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0925c6);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f98);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0925cf);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091f80);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f02);
+            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0925c7);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f99);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
             }
@@ -208,7 +208,7 @@ public class rf7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             this.f.setEnabled(i > 0);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f120e, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
+            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f120f, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
             this.f.setOnClickListener(i > 0 ? this.j : null);
         }
     }

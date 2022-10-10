@@ -32,7 +32,7 @@ public class q55 extends s55 {
             }
         }
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b02);
-        this.d = i == -1 ? R.drawable.obfuscated_res_0x7f0809c3 : i;
+        this.d = i == -1 ? R.drawable.obfuscated_res_0x7f0809c4 : i;
         this.e = R.drawable.obfuscated_res_0x7f08081e;
         this.i = false;
         this.j = true;
@@ -62,7 +62,7 @@ public class q55 extends s55 {
             }
         }
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b02);
-        this.d = R.drawable.obfuscated_res_0x7f0809c3;
+        this.d = R.drawable.obfuscated_res_0x7f0809c4;
         this.e = R.drawable.obfuscated_res_0x7f08081e;
         this.i = false;
         this.j = true;

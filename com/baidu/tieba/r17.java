@@ -271,9 +271,9 @@ public class r17 extends lw6<x26, ThreadCardViewHolder<x26>> implements to5 {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, yq4Var, view2) == null) || yq4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7) {
                 yq4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 yq4Var.objType = 4;
             } else {
                 yq4Var.objType = 1;
@@ -392,26 +392,26 @@ public class r17 extends lw6<x26, ThreadCardViewHolder<x26>> implements to5 {
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, x26Var) == null) {
             int id = view2.getId();
             int i = 3;
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                 TiebaStatic.log(x26Var.A());
                 ro5.c().i("page_recommend", "clk_", x26Var.A());
                 d37.c(x26Var.a, x26Var.r(), x26Var.n(), 1);
                 i = 1;
-            } else if (id == R.id.obfuscated_res_0x7f092194) {
+            } else if (id == R.id.obfuscated_res_0x7f092195) {
                 TiebaStatic.log(x26Var.A());
                 ro5.c().i("page_recommend", "clk_", x26Var.A());
                 i = 5;
                 d37.c(x26Var.a, x26Var.r(), x26Var.n(), 1);
             } else {
-                if (id == R.id.obfuscated_res_0x7f092182) {
+                if (id == R.id.obfuscated_res_0x7f092183) {
                     TiebaStatic.log(x26Var.T());
                     ro5.c().i("page_recommend", "clk_", x26Var.T());
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f092488) {
+                    if (id == R.id.obfuscated_res_0x7f092489) {
                         TiebaStatic.log(x26Var.S());
                         ro5.c().i("page_recommend", "clk_", x26Var.S());
                         d37.c(x26Var.a, x26Var.r(), x26Var.n(), 4);
-                    } else if (id == R.id.obfuscated_res_0x7f0924b6) {
+                    } else if (id == R.id.obfuscated_res_0x7f0924b7) {
                         TiebaStatic.log(x26Var.S());
                         ro5.c().i("page_recommend", "clk_", x26Var.S());
                         d37.c(x26Var.a, x26Var.r(), x26Var.n(), 4);

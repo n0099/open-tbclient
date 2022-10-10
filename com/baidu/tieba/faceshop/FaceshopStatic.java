@@ -731,7 +731,7 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1123);
+                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1124);
                 }
             }
         }

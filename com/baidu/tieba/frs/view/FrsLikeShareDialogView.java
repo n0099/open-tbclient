@@ -124,7 +124,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.c.setRadiusById(R.string.J_X14);
             this.c.setConrers(3);
             this.c.setIsBitmapPic(true);
-            SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080be8, 0);
+            SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080be9, 0);
             hv4 d = hv4.d(this.t);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0501);

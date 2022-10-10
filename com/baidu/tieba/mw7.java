@@ -144,7 +144,7 @@ public abstract class mw7<V extends sw7, D extends IBaseDialogData> implements r
                 this.f = 17;
             }
             window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081240);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081241);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;

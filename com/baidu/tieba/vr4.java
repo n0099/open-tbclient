@@ -65,7 +65,7 @@ public class vr4 implements Comparable<vr4> {
                 return vr4Var;
             }
             if (TextUtils.isEmpty(zv6Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15b9);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15ba);
             } else {
                 str = zv6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0418);
             }

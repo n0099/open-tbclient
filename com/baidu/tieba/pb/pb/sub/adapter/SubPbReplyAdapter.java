@@ -115,7 +115,7 @@ public class SubPbReplyAdapter extends w18<a28, SubPbReplyViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a28Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1237), String.valueOf(a28Var == null ? 0 : a28Var.a()));
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1238), String.valueOf(a28Var == null ? 0 : a28Var.a()));
             subPbReplyViewHolder.c(this.c);
             ((SubPbReplyViewHolder) this.viewholder).a.setText(format);
             ((SubPbReplyViewHolder) this.viewholder).b();

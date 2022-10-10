@@ -71,10 +71,10 @@ public class mk6 extends dh6<ThreadData, ThreadCardViewHolder<ThreadData>> imple
                 if (view2 == null || threadData == null || StringUtils.isNull(threadData.getTid())) {
                     return;
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                     cs6.k().h(ds6.p0, threadData, 13);
                 }
-                if (view2.getId() != R.id.obfuscated_res_0x7f0924b6 && view2.getId() != R.id.obfuscated_res_0x7f092488) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f0924b7 && view2.getId() != R.id.obfuscated_res_0x7f092489) {
                     if (view2 instanceof ThreadGodReplyLayout) {
                         as6.e(threadData, 15, this.b.mPageId, ds6.p0, this.b.t());
                         if (this.b.b == null || this.b.b.getForum() == null) {
@@ -82,14 +82,14 @@ public class mk6 extends dh6<ThreadData, ThreadCardViewHolder<ThreadData>> imple
                         }
                         as6.c(threadData, this.b.b.getForum().getId());
                         return;
-                    } else if (view2.getId() == R.id.obfuscated_res_0x7f092194) {
+                    } else if (view2.getId() == R.id.obfuscated_res_0x7f092195) {
                         as6.e(threadData, 5, this.b.mPageId, ds6.p0, this.b.t());
                         if (this.b.b == null || this.b.b.getForum() == null) {
                             return;
                         }
                         as6.c(threadData, this.b.b.getForum().getId());
                         return;
-                    } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97) {
+                    } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98) {
                         as6.e(threadData, 14, this.b.mPageId, ds6.p0, this.b.t());
                         return;
                     } else if (view2.getId() == R.id.obfuscated_res_0x7f090ec6) {

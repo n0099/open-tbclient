@@ -213,7 +213,7 @@ public class j49 extends n49<g59> implements t49 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ej.N(TbadkCoreApplication.getInst(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15f8), 31));
+                ej.N(TbadkCoreApplication.getInst(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f15f9), 31));
             }
         }
     }
@@ -406,15 +406,15 @@ public class j49 extends n49<g59> implements t49 {
             if (14 == this.e.getType() && this.h.getText().toString().length() > 31) {
                 u49 u49Var = this.b;
                 if (u49Var != null) {
-                    u49Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0f90));
+                    u49Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0f91));
                 }
                 return false;
             } else if (TextUtils.isEmpty(this.h.getText().toString()) || this.h.getText().toString().trim().length() < 5) {
                 if (this.b != null) {
                     if (14 == this.e.getType()) {
-                        string = this.a.getString(R.string.obfuscated_res_0x7f0f0f94);
+                        string = this.a.getString(R.string.obfuscated_res_0x7f0f0f95);
                     } else {
-                        string = this.a.getString(R.string.obfuscated_res_0x7f0f1441);
+                        string = this.a.getString(R.string.obfuscated_res_0x7f0f1442);
                     }
                     this.b.d(string);
                 }
@@ -472,8 +472,8 @@ public class j49 extends n49<g59> implements t49 {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0514, viewGroup, false);
             this.g = inflate;
             this.h = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f091a5b);
-            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091b38);
-            this.j = this.g.findViewById(R.id.obfuscated_res_0x7f09224b);
+            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091b39);
+            this.j = this.g.findViewById(R.id.obfuscated_res_0x7f09224c);
             EditText editText = this.h;
             if (editText != null) {
                 editText.addTextChangedListener(this.o);
@@ -481,7 +481,7 @@ public class j49 extends n49<g59> implements t49 {
                 WriteData writeData = this.e;
                 if (writeData != null) {
                     if (14 == writeData.getType()) {
-                        this.h.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f0f93));
+                        this.h.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f0f94));
                         this.h.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
                         this.h.setSingleLine(false);
                         TextView textView = this.i;
@@ -492,9 +492,9 @@ public class j49 extends n49<g59> implements t49 {
                     } else {
                         this.h.setFilters(new InputFilter[]{new z29.b(this.h, 31, new d(this))});
                         if (13 == this.e.getType()) {
-                            this.h.setHint(R.string.obfuscated_res_0x7f0f1440);
+                            this.h.setHint(R.string.obfuscated_res_0x7f0f1441);
                         } else {
-                            this.h.setHint(R.string.obfuscated_res_0x7f0f143f);
+                            this.h.setHint(R.string.obfuscated_res_0x7f0f1440);
                         }
                     }
                     if (this.e.getTitle() != null) {

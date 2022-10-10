@@ -197,10 +197,10 @@ public class k71 extends h71 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0623, viewGroup, false);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ca2);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ca3);
             this.j = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06086c));
-            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091ca3);
+            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091ca4);
             this.k = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06086b));
             o();

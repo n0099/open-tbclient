@@ -62,11 +62,11 @@ public class mt8 {
         this.c = inflate;
         this.b.setContentView(inflate);
         this.i = this.c.findViewById(R.id.obfuscated_res_0x7f0903b7);
-        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e8f);
-        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0925c7);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f0905ac);
         this.f = memberRecommendView;
         memberRecommendView.setFromType(9);

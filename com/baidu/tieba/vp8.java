@@ -165,7 +165,7 @@ public class vp8 {
         this.j = new b(this);
         this.k = new c(this);
         this.a = mainTabActivity;
-        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092015);
+        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092016);
     }
 
     public void g() {
@@ -201,12 +201,12 @@ public class vp8 {
         if (this.f == null) {
             View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0892, (ViewGroup) null);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092215);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092216);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092217);
             this.f.setOnClickListener(this.k);
         }
         this.g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
-        this.h.setText(R.string.obfuscated_res_0x7f0f145f);
+        this.h.setText(R.string.obfuscated_res_0x7f0f1460);
         if (this.b == null) {
             this.b = new PopupWindow(this.f, -2, -2);
         } else {

@@ -60,7 +60,7 @@ public class q29 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof CheckResponse)) {
                 r29 checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1172));
+                    httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1173));
                 }
                 if (this.a.b != null) {
                     this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());

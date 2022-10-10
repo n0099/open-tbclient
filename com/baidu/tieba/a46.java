@@ -162,7 +162,7 @@ public class a46 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                     View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0517, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092211);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092212);
                     textView.setText(this.a.a.f);
                     if (this.a.a.A != 0) {
                         textView.setGravity(this.a.a.A);

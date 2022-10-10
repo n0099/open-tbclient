@@ -215,7 +215,7 @@ public class s47 implements he5 {
         }
         LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ae, (ViewGroup) this.b, true);
         this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091426);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f091bba);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f091bbb);
         this.h = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
         this.h.setFadingEdgeLength(0);

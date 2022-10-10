@@ -810,7 +810,7 @@ public class m96 implements g85, vb5 {
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                         this.c.l = true;
                         if (this.c.a.isAdded() && this.c.j != null) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f14df));
+                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f14e0));
                         }
                         TbadkCoreApplication.getInst().setLikeBarChanged(true);
                         this.c.Q(false, this.b.getId());

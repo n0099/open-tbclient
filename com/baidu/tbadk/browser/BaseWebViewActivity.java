@@ -522,7 +522,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.mUrl)) {
-            ej.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14f7));
+            ej.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14f8));
             return;
         }
         if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -745,7 +745,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.mUrlTitle, true)) {
-                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1155);
+                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1156);
             } else {
                 shareItem.v = this.mUrlTitle;
             }
@@ -968,11 +968,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeL(1048605, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091c83) {
+            if (id == R.id.obfuscated_res_0x7f091c84) {
                 if (isTranslucent()) {
                     finish();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f092681) {
+            } else if (id == R.id.obfuscated_res_0x7f092682) {
                 if (this.mView.z) {
                     loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                     gh.a().post(this.mShareRunnable);

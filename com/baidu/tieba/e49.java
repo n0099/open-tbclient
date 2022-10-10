@@ -115,7 +115,7 @@ public class e49 extends n49<c59> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ac, viewGroup, false);
             this.c = inflate;
-            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f0926b9);
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f0926ba);
             this.g = localChannelTopicSelectView;
             if (localChannelTopicSelectView != null) {
                 localChannelTopicSelectView.setLocalChannelTopic(this.h);

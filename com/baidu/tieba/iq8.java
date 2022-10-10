@@ -214,7 +214,7 @@ public class iq8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 xh5.b(this.m);
-                this.m.z0(this.n.a.getString(R.string.obfuscated_res_0x7f0f140d), "SendHelpTipTask", true, false);
+                this.m.z0(this.n.a.getString(R.string.obfuscated_res_0x7f0f140e), "SendHelpTipTask", true, false);
                 this.m.e0(new a(this));
             }
         }
@@ -397,7 +397,7 @@ public class iq8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 xh5.b(this.m);
-                this.m.V(this.n.a.getString(R.string.obfuscated_res_0x7f0f140e), "setVirtualImage", true, false);
+                this.m.V(this.n.a.getString(R.string.obfuscated_res_0x7f0f140f), "setVirtualImage", true, false);
                 this.m.M(new b(this));
             }
         }

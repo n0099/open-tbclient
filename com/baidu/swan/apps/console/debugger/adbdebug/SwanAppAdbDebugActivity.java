@@ -151,7 +151,7 @@ public class SwanAppAdbDebugActivity extends Activity {
             aVar.n(new ti3());
             aVar.m(false);
             aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f12c0, new a(this));
+            aVar.B(R.string.obfuscated_res_0x7f0f12c1, new a(this));
             aVar.X();
         }
     }

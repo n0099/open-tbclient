@@ -375,7 +375,7 @@ public class o18 {
             this.y = f3 - f2;
         }
         this.z = (k - (this.y * 2)) - ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds89);
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.a = navigationBar;
         navigationBar.setOnClickListener(new a(this));
         this.a.hideBottomLine();
@@ -389,7 +389,7 @@ public class o18 {
         this.g.setVisibility(8);
         this.c.setOnClickListener(pbFragment.h2);
         this.g.setOnClickListener(pbFragment.h2);
-        this.r = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09267f);
+        this.r = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092680);
         if (this.i == null) {
             s();
         }
@@ -434,7 +434,7 @@ public class o18 {
             if ((!this.s || TbadkCoreApplication.isLogin()) && !ox4.k().h("show_share", false)) {
                 View inflate = LayoutInflater.from(this.p.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) null);
                 View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902c2);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092215);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
                 layoutParams.gravity = 5;
                 if (!TbadkCoreApplication.isLogin()) {
@@ -442,7 +442,7 @@ public class o18 {
                 } else {
                     layoutParams.rightMargin = ej.f(this.p.getContext(), R.dimen.obfuscated_res_0x7f0701aa);
                 }
-                textView.setText(R.string.obfuscated_res_0x7f0f117e);
+                textView.setText(R.string.obfuscated_res_0x7f0f117f);
                 textView.setOnClickListener(this.J);
                 this.t = new PopupWindow(inflate, -2, -2);
             }
@@ -522,7 +522,7 @@ public class o18 {
             boolean z8 = vy7Var.u;
             uy7Var.w = z8;
             if (z8) {
-                uy7Var.m().setText(R.string.obfuscated_res_0x7f0f1016);
+                uy7Var.m().setText(R.string.obfuscated_res_0x7f0f1017);
                 this.n.G(false);
             }
         }
@@ -635,7 +635,7 @@ public class o18 {
         if (view2 != null && this.D != null) {
             view2.setTag(R.id.obfuscated_res_0x7f090a8e, str);
             this.A.setTag(R.id.obfuscated_res_0x7f090a79, str2);
-            this.A.setTag(R.id.obfuscated_res_0x7f092190, this.D.Q());
+            this.A.setTag(R.id.obfuscated_res_0x7f092191, this.D.Q());
             this.C = z;
         }
         z();
@@ -794,8 +794,8 @@ public class o18 {
             if (barImageView != null) {
                 barImageView.invalidate();
             }
-            WebPManager.setPureDrawable(this.r, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a1c, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.r, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a1d, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
             SkinManager.setNavbarTitleColor(this.c, R.color.CAM_X0105, R.color.s_navbar_title_color);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
             TextView textView = this.F;
@@ -818,8 +818,8 @@ public class o18 {
             this.a.getTopCoverBgView().setVisibility(0);
             this.a.getBarBgView().setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha85));
             this.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0111));
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a1c, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(this.r, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a1d, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.r, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
 

@@ -75,7 +75,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
                     this.a.closeLoadingDialog();
                     this.a.a.l().setTip("");
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1363);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1364);
                 } else if (obj == MoreModel.TaskType.GET_SIZE) {
                     this.a.a.l().setTip((String) objArr[1]);
                 }
@@ -116,7 +116,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.closeLoadingDialog();
-                this.a.showToast(R.string.obfuscated_res_0x7f0f1364);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f1365);
             }
         }
     }

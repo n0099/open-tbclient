@@ -67,7 +67,7 @@ public class pq6 extends PriorityOrganizer.Task {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean booleanValue = ((Boolean) view2.getTag(R.id.obfuscated_res_0x7f090f89)).booleanValue();
-                PrivateForumPopInfoData privateForumPopInfoData = (PrivateForumPopInfoData) view2.getTag(R.id.obfuscated_res_0x7f091a90);
+                PrivateForumPopInfoData privateForumPopInfoData = (PrivateForumPopInfoData) view2.getTag(R.id.obfuscated_res_0x7f091a91);
                 UrlManager.getInstance().dealOneLink(this.b.m.getPageContext(), new String[]{privateForumPopInfoData.D()});
                 as6.f(privateForumPopInfoData, booleanValue, this.b.r, this.b.s, true);
                 this.a.dismiss();
@@ -203,8 +203,8 @@ public class pq6 extends PriorityOrganizer.Task {
                 this.p.H("create_success");
                 this.p.I(String.format(t, this.r, this.s));
                 this.p.G(dh.e(this.r, -1));
-                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f147f));
-                this.p.F(this.m.getString(R.string.obfuscated_res_0x7f0f1480));
+                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f1480));
+                this.p.F(this.m.getString(R.string.obfuscated_res_0x7f0f1481));
                 b2 = this.o.b(this.p, false);
             } else {
                 b2 = this.p.B() == dh.e(this.r, 0) ? this.o.b(this.p, false) : false;

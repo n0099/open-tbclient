@@ -83,14 +83,14 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
                     this.a.L(this.d.avatar, 10, false, false);
                 }
                 if (!dj.isEmpty(this.d.name)) {
-                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11c9));
+                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11ca));
                 } else {
                     this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f091e));
                 }
                 if (!dj.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
-                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11c8));
+                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11c9));
                 }
                 setVisibility(0);
                 return;
@@ -179,8 +179,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092415);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092414);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092416);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092415);
         setOnClickListener(this);
         d();
     }

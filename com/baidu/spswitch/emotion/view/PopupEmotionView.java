@@ -74,7 +74,7 @@ public class PopupEmotionView extends FrameLayout {
             setPadding(0, 0, 0, 0);
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
             this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e20);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
         }
     }
 

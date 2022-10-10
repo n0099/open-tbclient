@@ -100,7 +100,7 @@ public class dt0 extends vs0 {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = -2;
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e07));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e08));
             this.b.setText(getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0c35));
             this.b.setPadding(38, 14, 38, 14);
             this.b.setLayoutParams(layoutParams);
@@ -115,7 +115,7 @@ public class dt0 extends vs0 {
             layoutParams.height = c41.b(35.0f);
             this.b.setPadding(0, 0, c41.b(15.0f), 0);
             this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c32));
-            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e05));
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e06));
             this.b.setLayoutParams(layoutParams);
         }
     }
@@ -127,7 +127,7 @@ public class dt0 extends vs0 {
                 this.c.bottomMargin = c41.b(7.0f);
             } else {
                 this.c.bottomMargin = 2;
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e05));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e06));
             }
             this.b.setLayoutParams(this.c);
         }
@@ -179,7 +179,7 @@ public class dt0 extends vs0 {
             this.c = layoutParams;
             layoutParams.gravity = BadgeDrawable.BOTTOM_END;
             this.b.setLayoutParams(layoutParams);
-            this.b.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e29));
+            this.b.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e2a));
             this.b.setGravity(8388629);
             this.b.setAlpha(0.0f);
             this.b.setPadding(0, 0, c41.b(15.0f), 0);
@@ -263,7 +263,7 @@ public class dt0 extends vs0 {
                 } else if (e2) {
                     if (!TextUtils.isEmpty(this.g)) {
                         this.b.setText(this.g);
-                        this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e05));
+                        this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e06));
                     }
                 } else {
                     this.b.setText(getContext().getResources().getString(this.h));

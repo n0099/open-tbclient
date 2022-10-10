@@ -223,10 +223,10 @@ public class ne7 extends i16<ie7> {
             View h = h();
             this.x = h;
             this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0919be);
-            this.j = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.j = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f0924b7);
             this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09099b);
             this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091a41);
-            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f0921e7);
+            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f0921e8);
             this.n = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090563);
             this.o = (OriginalThreadCardView) this.x.findViewById(R.id.obfuscated_res_0x7f091766);
             this.r = (MessageCardBottomView) this.x.findViewById(R.id.obfuscated_res_0x7f09055f);
@@ -286,7 +286,7 @@ public class ne7 extends i16<ie7> {
                     this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02af));
                 } else if (v()) {
                     if (this.v.F()) {
-                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0ff7));
+                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0ff8));
                     } else {
                         this.l.setText(getContext().getString(R.string.replay_my_theme));
                     }
@@ -300,7 +300,7 @@ public class ne7 extends i16<ie7> {
                 this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02ae));
             } else if (v()) {
                 if (this.v.F()) {
-                    this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0ff8));
+                    this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0ff9));
                 } else {
                     this.l.setText(getContext().getString(R.string.replay_my_thread));
                 }

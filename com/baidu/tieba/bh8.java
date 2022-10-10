@@ -109,9 +109,9 @@ public class bh8 extends p9<SystemHelpSettingActivity> {
         this.q = new a(this);
         this.a = systemHelpSettingActivity;
         systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0841);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.p = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1362));
+        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1363));
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090644);
         this.c = tbSettingTextTipView;
@@ -124,16 +124,16 @@ public class bh8 extends p9<SystemHelpSettingActivity> {
         this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f090fd6);
         ej.b(this.a.getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
         this.e.setOnSwitchStateChangeListener(this.a);
-        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091e6d);
+        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091e6e);
         ej.b(this.a.getPageContext().getPageActivity(), this.f, 10, 10, 10, 10);
         this.f.setOnSwitchStateChangeListener(this.a);
         this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090774);
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092003);
-        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092005);
-        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092004);
+        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092004);
+        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092006);
+        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092005);
         this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fba);
         this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fbb);
-        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092002);
+        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092003);
         if (aq4.h()) {
             this.i.setVisibility(0);
         } else {
@@ -147,11 +147,11 @@ public class bh8 extends p9<SystemHelpSettingActivity> {
         } else {
             this.d.setVisibility(8);
         }
-        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f091fbf);
+        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f091fc0);
         this.g = tbSettingTextNewDotView;
         tbSettingTextNewDotView.setOnClickListener(this.a);
         this.g.setVisibility(0);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091b79);
+        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091b7a);
         this.h = msgSettingItemView;
         msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0f17);
         this.h.setOnSwitchStateChangeListener(this.q);

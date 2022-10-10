@@ -1407,7 +1407,7 @@ public class SwanAppAdLandingFragment extends z22 implements wr3 {
             } else {
                 simpleDraweeView2.setVisibility(8);
             }
-            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081174));
+            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081175));
             String str = this.p1.booleanValue() ? this.A1 : this.g1;
             if (!TextUtils.isEmpty(str)) {
                 simpleDraweeView.setImageURI(jg3.m(str));
@@ -1638,9 +1638,9 @@ public class SwanAppAdLandingFragment extends z22 implements wr3 {
             int optInt = jSONObject.optInt("act", ActionType.LP.value());
             this.b1 = optInt;
             if (optInt == ActionType.DL.value()) {
-                G = G(R.string.obfuscated_res_0x7f0f1297);
+                G = G(R.string.obfuscated_res_0x7f0f1298);
             } else {
-                G = G(R.string.obfuscated_res_0x7f0f12a0);
+                G = G(R.string.obfuscated_res_0x7f0f12a1);
             }
             this.c1 = G;
             this.d1 = jSONObject.optString("appname", "");
@@ -1730,7 +1730,7 @@ public class SwanAppAdLandingFragment extends z22 implements wr3 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
             U1(inflate);
-            this.o1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091fc9);
+            this.o1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091fca);
             this.Q0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ad);
             l4();
             n4();

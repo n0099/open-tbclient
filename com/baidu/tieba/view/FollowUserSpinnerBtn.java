@@ -193,8 +193,8 @@ public class FollowUserSpinnerBtn extends LinearLayout implements qz4 {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029c, this);
             setOrientation(0);
             this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912c1);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c26);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c27);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
             Paint paint = new Paint(1);
             this.e = paint;

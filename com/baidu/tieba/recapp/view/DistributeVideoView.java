@@ -994,7 +994,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         tbVideoViewContainer.getControl().setStageType("23");
         this.l.getControl().setNoBussinessStats();
         this.l.getControl().setLooping(false);
-        this.m = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f092556);
+        this.m = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f092557);
         this.n = (ForeDrawableImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0907eb);
         this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0907e5);
         this.p = this.d.findViewById(R.id.obfuscated_res_0x7f0903a4);
@@ -1006,17 +1006,17 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         this.v = (ImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f0907e8);
         this.r = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f0907ec);
         this.w = (VideoControllerView) this.u.findViewById(R.id.obfuscated_res_0x7f0907e9);
-        FrameLayout frameLayout = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0920ad);
+        FrameLayout frameLayout = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0920ae);
         this.i = frameLayout;
         this.g = new tf8(context, frameLayout);
         TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0903f4);
         this.x = tbImageView;
         tbImageView.setVisibility(8);
-        this.y = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092515);
+        this.y = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092516);
         this.m.setAnimation(R.raw.obfuscated_res_0x7f11001b);
         this.m.setMinFrame(0);
         this.m.setFrame(0);
-        HomeGroupUbsUIHelper.handleImgMask(this.p, R.drawable.obfuscated_res_0x7f081287);
+        HomeGroupUbsUIHelper.handleImgMask(this.p, R.drawable.obfuscated_res_0x7f081288);
     }
 
     public final void a0() {
@@ -1240,7 +1240,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 pi5.e(this.z, true);
             }
             setLoadingAnimShow(false);
-            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b25);
+            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b26);
             this.A = 1;
         }
     }
@@ -1267,10 +1267,10 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 }
                 this.u.setVisibility(0);
                 if (this.A == 1) {
-                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b25);
+                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b26);
                     return;
                 } else {
-                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b24);
+                    SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b25);
                     return;
                 }
             }
@@ -1363,7 +1363,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                 this.l.getControl().setVideoScalingMode(this.Q);
                 this.l.getControl().start();
                 this.l.getControl().getCurrentPosition();
-                SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b25);
+                SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b26);
                 gh.a().postDelayed(this.e0, 100L);
                 this.s.setVisibility(8);
                 this.n.setForegroundDrawable(0);
@@ -1488,7 +1488,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.n.setForegroundDrawable(0);
             this.n.setVisibility(0);
             setLoadingAnimShow(true);
-            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b24);
+            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b25);
             this.w.n();
             this.s.setVisibility(8);
             VideoInfo videoInfo = this.e;
@@ -1513,7 +1513,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                     this.l.getControl().setVolume(1.0f, 1.0f);
                 }
                 SkinManager.setImageResource(this.r, R.drawable.obfuscated_res_0x7f0800c3);
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b04);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b05);
                 if (this.A == 1) {
                     pi5.e(this.z, true);
                 }
@@ -1523,7 +1523,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
                     this.l.getControl().setVolume(0.0f, 0.0f);
                 }
                 SkinManager.setImageResource(this.r, R.drawable.obfuscated_res_0x7f0800c2);
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b02);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b03);
                 pi5.e(this.z, false);
             }
             this.C = z;
@@ -1554,7 +1554,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.l.getControl().pause();
             pi5.e(this.z, false);
             setLoadingAnimShow(true);
-            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b24);
+            SkinManager.setImageResource(this.v, R.drawable.obfuscated_res_0x7f080b25);
             this.A = 2;
         }
     }
@@ -1748,7 +1748,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.o.setText(StringUtils.translateSecondsToString(this.e.video_duration.intValue()));
             if (this.E == 1) {
                 this.C = false;
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b02);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b03);
                 this.q.setVisibility(8);
             } else {
                 this.C = true;
@@ -3216,7 +3216,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
             this.o.setText(StringUtils.translateSecondsToString(this.e.video_duration.intValue()));
             if (this.E == 1) {
                 this.C = false;
-                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b02);
+                SkinManager.setImageResource(this.q, R.drawable.obfuscated_res_0x7f080b03);
                 this.q.setVisibility(8);
             } else {
                 this.C = true;

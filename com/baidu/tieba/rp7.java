@@ -112,7 +112,7 @@ public class rp7 extends qp7 {
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || z) {
                 return;
             }
-            ej.M(this.a.d.getPageActivity(), R.string.obfuscated_res_0x7f0f14c2);
+            ej.M(this.a.d.getPageActivity(), R.string.obfuscated_res_0x7f0f14c3);
         }
     }
 
@@ -346,7 +346,7 @@ public class rp7 extends qp7 {
                     cVar.b.setClickable(false);
                     ((ViewGroup.MarginLayoutParams) cVar.b.getLayoutParams()).setMargins(ej.f(this.d.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
                     cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090f25);
-                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09209d);
+                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09209e);
                     EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091620);
                     cVar.c = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, cVar));
@@ -376,7 +376,7 @@ public class rp7 extends qp7 {
                     inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0646, (ViewGroup) null);
                     cVar.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091847);
                     inflate.setOnClickListener(this.g);
-                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091abc);
+                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091abd);
                     cVar.m = null;
                 }
                 inflate.setTag(cVar);

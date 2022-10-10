@@ -66,7 +66,7 @@ public class RecommendThreadView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ba0);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ba1);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -74,7 +74,7 @@ public class RecommendThreadView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070733));
             this.a.setBorderSurroundContent(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b9f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ba0);
             d();
         }
     }

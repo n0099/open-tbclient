@@ -195,7 +195,7 @@ public class lj7 extends qn<qj7, SearchSuggestLiveViewHolder> {
                 return view2;
             }
             y(searchSuggestLiveViewHolder);
-            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.obfuscated_res_0x7f080a6f, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.obfuscated_res_0x7f080a70, R.color.CAM_X0109, null);
             hv4 d = hv4.d(searchSuggestLiveViewHolder.e);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0308);

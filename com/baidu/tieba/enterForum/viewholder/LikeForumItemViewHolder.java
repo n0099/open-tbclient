@@ -189,10 +189,10 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         }
         this.a = tbPageContext;
         this.h = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091c84);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091c85);
         this.b = findViewById;
         this.c = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091620);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ecf);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ed0);
         this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ce6);
         this.f = (BarImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a4b);
         this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a7d);

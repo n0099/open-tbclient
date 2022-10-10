@@ -240,7 +240,7 @@ public class o35 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fillUsernameResult) == null) {
                 this.a.p();
-                ej.M(this.a.k, R.string.obfuscated_res_0x7f0f1029);
+                ej.M(this.a.k, R.string.obfuscated_res_0x7f0f102a);
                 SapiAccount session = SapiAccountManager.getInstance().getSession();
                 jq4.b().a(session.username, session.bduss, "", null, this.a.A);
             }
@@ -525,7 +525,7 @@ public class o35 {
             if (this.b == null) {
                 View inflate = LayoutInflater.from(this.k).inflate(R.layout.obfuscated_res_0x7f0d056c, (ViewGroup) null);
                 this.a = inflate;
-                this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092206);
+                this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092207);
                 this.w = this.a.findViewById(R.id.obfuscated_res_0x7f09081e);
                 this.x = this.a.findViewById(R.id.obfuscated_res_0x7f090820);
                 this.y = this.a.findViewById(R.id.obfuscated_res_0x7f090824);
@@ -560,7 +560,7 @@ public class o35 {
                 r();
             }
             if (i == 1) {
-                this.p.setText(R.string.obfuscated_res_0x7f0f142b);
+                this.p.setText(R.string.obfuscated_res_0x7f0f142c);
             } else {
                 this.p.setText(R.string.obfuscated_res_0x7f0f02e4);
             }

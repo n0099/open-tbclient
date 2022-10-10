@@ -48,20 +48,20 @@ public class u07 {
                     break;
             }
             if (c == 0) {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f17, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f4a, WebPManager.ResourceStateType.NORMAL);
-            } else if (c == 1) {
                 drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f18, WebPManager.ResourceStateType.NORMAL);
                 drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f4b, WebPManager.ResourceStateType.NORMAL);
+            } else if (c == 1) {
+                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f19, WebPManager.ResourceStateType.NORMAL);
+                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f4c, WebPManager.ResourceStateType.NORMAL);
             } else if (c == 2) {
+                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f17, WebPManager.ResourceStateType.NORMAL);
+                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f4a, WebPManager.ResourceStateType.NORMAL);
+            } else if (c != 3) {
                 drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f16, WebPManager.ResourceStateType.NORMAL);
                 drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f49, WebPManager.ResourceStateType.NORMAL);
-            } else if (c != 3) {
+            } else {
                 drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f15, WebPManager.ResourceStateType.NORMAL);
                 drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f48, WebPManager.ResourceStateType.NORMAL);
-            } else {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f14, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f47, WebPManager.ResourceStateType.NORMAL);
             }
             return drawableArr;
         }

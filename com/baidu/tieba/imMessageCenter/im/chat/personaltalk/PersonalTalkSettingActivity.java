@@ -478,18 +478,18 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0924ae) {
+            if (id == R.id.obfuscated_res_0x7f0924af) {
                 PersonalTalkSettingModel personalTalkSettingModel = this.b;
                 if (personalTalkSettingModel == null || personalTalkSettingModel.K() == null) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.e), this.b.K().name)));
                 ld7.a("c14629");
-            } else if (id == R.id.obfuscated_res_0x7f091f66) {
+            } else if (id == R.id.obfuscated_res_0x7f091f67) {
                 nu4 nu4Var = new nu4(getPageContext().getPageActivity());
-                nu4Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0ff2)).setPositiveButton(R.string.obfuscated_res_0x7f0f026a, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this)).create(getPageContext());
+                nu4Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0ff3)).setPositiveButton(R.string.obfuscated_res_0x7f0f026a, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this)).create(getPageContext());
                 nu4Var.show();
-            } else if (id != R.id.obfuscated_res_0x7f091f67) {
+            } else if (id != R.id.obfuscated_res_0x7f091f68) {
                 if (id != R.id.obfuscated_res_0x7f090125 || (iu8Var = this.d) == null || this.b == null) {
                     return;
                 }

@@ -53,10 +53,10 @@ public class PbFloorComplaint extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e2, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd0);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c3b);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bd1);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bfa);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd1);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c3c);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bd2);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bfb);
             this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a28);
         }
     }
@@ -70,7 +70,7 @@ public class PbFloorComplaint extends RelativeLayout {
             }
             int i = this.f;
             if (i == 1) {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0ffe);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0fff);
                 hv4.d(this.c).v(R.color.CAM_X0301);
             } else if (i == 2) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0653);
@@ -79,16 +79,16 @@ public class PbFloorComplaint extends RelativeLayout {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0654);
                 hv4.d(this.c).v(R.color.CAM_X0301);
             } else {
-                this.c.setText(R.string.obfuscated_res_0x7f0f0ffe);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0fff);
                 hv4.d(this.c).v(R.color.CAM_X0301);
             }
             int i2 = this.g;
             if (i2 == 1 || i2 == 3) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4c, R.color.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0301, null);
             } else if (i2 == 2) {
                 WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0105, null);
             } else {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4c, R.color.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4d, R.color.CAM_X0301, null);
             }
             WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080922, R.color.CAM_X0304, null);
             hv4 d = hv4.d(this.d);

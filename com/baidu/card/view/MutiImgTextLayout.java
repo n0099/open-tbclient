@@ -142,9 +142,9 @@ public class MutiImgTextLayout extends LinearLayout implements wx<yq4> {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cd, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092182);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092183);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
         }

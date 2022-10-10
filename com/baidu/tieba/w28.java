@@ -256,7 +256,7 @@ public class w28 {
         ViewGroup viewGroup = (ViewGroup) fragmentActivity.getWindow().getDecorView();
         this.b = viewGroup;
         this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ab);
-        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f092551);
+        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f092552);
     }
 
     public final void j() {
@@ -266,13 +266,13 @@ public class w28 {
             this.p = viewArr;
             viewArr[0] = this.b.findViewById(R.id.obfuscated_res_0x7f0918a7);
             this.p[1] = this.b.findViewById(R.id.obfuscated_res_0x7f0918a5);
-            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f09254b);
+            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f09254c);
             this.b.findViewById(16908290).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0906d3).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f092551).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f092552).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0918a0).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0902ab).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f091dcd).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f091dce).setBackgroundResource(R.color.transparent);
             if (this.b.getChildAt(0) instanceof SwipeBackLayout) {
                 SwipeBackLayout swipeBackLayout = (SwipeBackLayout) this.b.getChildAt(0);
                 this.c = swipeBackLayout;

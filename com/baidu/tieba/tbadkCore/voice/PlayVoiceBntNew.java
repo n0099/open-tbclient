@@ -335,13 +335,13 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073c, (ViewGroup) this, true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09260f);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092610);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919fa);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919eb);
             this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902e6);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);

@@ -2076,7 +2076,7 @@ public final class VideoVerticalPageFragment extends BaseFragment implements oy8
                 view2.setBackgroundColor(0);
             }
             View view3 = this.e;
-            RelativeLayout relativeLayout = view3 == null ? null : (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f0926e8);
+            RelativeLayout relativeLayout = view3 == null ? null : (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f0926e9);
             this.g = relativeLayout;
             if (relativeLayout != null) {
                 relativeLayout.setOnTouchListener(ey8.a);

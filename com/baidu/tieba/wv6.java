@@ -70,7 +70,7 @@ public class wv6 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view2.getTag(R.id.obfuscated_res_0x7f092046)), (String) view2.getTag(R.id.obfuscated_res_0x7f092080))));
+                    this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf((Long) view2.getTag(R.id.obfuscated_res_0x7f092047)), (String) view2.getTag(R.id.obfuscated_res_0x7f092081))));
                     return;
                 }
                 this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c59);
@@ -148,13 +148,13 @@ public class wv6 extends BaseAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             NoDataViewFactory.c cVar = null;
             View inflate = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016e, (ViewGroup) null);
-            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1126), this.c.G1()));
+            NoDataViewFactory.c a2 = NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1127), this.c.G1()));
             this.c.getResources().getDimension(R.dimen.tbds200);
             this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f070247);
             String H1 = this.c.H1();
             this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c81);
             String string = this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f0407);
-            String format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f112a), H1);
+            String format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f112b), H1);
             Activity pageActivity = this.c.getPageContext().getPageActivity();
             NoDataViewFactory.d a3 = NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA);
             if (!this.f) {
@@ -242,8 +242,8 @@ public class wv6 extends BaseAdapter {
             if (this.d) {
                 return c();
             }
-            if (view2 != null && view2.getTag(R.id.obfuscated_res_0x7f092046) != null) {
-                bVar = (b) view2.getTag(R.id.obfuscated_res_0x7f092046);
+            if (view2 != null && view2.getTag(R.id.obfuscated_res_0x7f092047) != null) {
+                bVar = (b) view2.getTag(R.id.obfuscated_res_0x7f092047);
             } else {
                 view2 = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05d3, viewGroup, false);
                 bVar = new b(null);
@@ -256,13 +256,13 @@ public class wv6 extends BaseAdapter {
                 headImageView.setRadius(ej.d(this.c.getBaseContext(), 50.0f));
                 bVar.c.setOnClickListener(this.h);
                 bVar.c.setPlaceHolder(1);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b6);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b7);
                 bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cb7);
                 bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cc5);
                 bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cb6);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e7);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e8);
                 bVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09178f);
-                view2.setTag(R.id.obfuscated_res_0x7f092046, bVar);
+                view2.setTag(R.id.obfuscated_res_0x7f092047, bVar);
             }
             if (!this.f) {
                 bVar.e.setVisibility(8);
@@ -300,9 +300,9 @@ public class wv6 extends BaseAdapter {
                 }
                 bVar.c.setDrawBorder(false);
                 bVar.d.setText(TextUtils.isEmpty(item.i) ? item.b : item.i);
-                bVar.c.setTag(R.id.obfuscated_res_0x7f092046, Long.valueOf(item.a));
-                bVar.c.setTag(R.id.obfuscated_res_0x7f092080, item.b);
-                bVar.f.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1132));
+                bVar.c.setTag(R.id.obfuscated_res_0x7f092047, Long.valueOf(item.a));
+                bVar.c.setTag(R.id.obfuscated_res_0x7f092081, item.b);
+                bVar.f.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1133));
                 TextView textView2 = bVar.g;
                 textView2.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f07de) + item.g);
                 if (item.f < 1) {

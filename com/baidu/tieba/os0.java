@@ -77,9 +77,9 @@ public class os0 extends hw0 {
             super.B();
             LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05f7, null);
             this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092138);
-            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f092133);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09212a);
+            this.f = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092139);
+            this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f092134);
+            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09212b);
             this.g.setText(PlayerStatus.IDLE.name());
         }
     }

@@ -147,11 +147,11 @@ public class pv6 extends BaseAdapter {
                 bVar = new b(null);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e94);
                 bVar.a = tbImageView;
-                tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+                tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
                 TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914ac);
                 bVar.b = tbImageView2;
-                tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
-                bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+                tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
+                bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
                 bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0914c2);
                 bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091620);
                 bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a76);

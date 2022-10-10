@@ -292,7 +292,7 @@ public class ud7 extends p9<ChatAggregationFragment> implements yx4.g, View.OnCl
                 }
             }
             TiebaStatic.log(statisticItem2);
-            if (TextUtils.isEmpty(item.getFriendName()) || !this.a.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1412).equals(item.getFriendName())) {
+            if (TextUtils.isEmpty(item.getFriendName()) || !this.a.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1413).equals(item.getFriendName())) {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c14446").param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -1451,11 +1451,11 @@ public class ud7 extends p9<ChatAggregationFragment> implements yx4.g, View.OnCl
         if (!(interceptable == null || interceptable.invokeL(1048587, this, imMessageCenterShowItemData) == null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
             return;
         }
-        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14c6, TBAlertConfig.OperateBtnStyle.ALERT);
-        TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14c5, TBAlertConfig.OperateBtnStyle.SECONDARY);
+        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14c7, TBAlertConfig.OperateBtnStyle.ALERT);
+        TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f14c6, TBAlertConfig.OperateBtnStyle.SECONDARY);
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f1444);
-        tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1246);
+        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f1445);
+        tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1247);
         tBAlertBuilder.m(true);
         tBAlertBuilder.r(aVar2, aVar);
         tBAlertBuilder.h(false);
@@ -1547,7 +1547,7 @@ public class ud7 extends p9<ChatAggregationFragment> implements yx4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
             this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090607);
-            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f0925c8);
+            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f0925c9);
             this.i = shutDownValidateTipView;
             shutDownValidateTipView.setVisibility(8);
             this.i.setShutDownClickListener(new u(this));
@@ -1573,15 +1573,15 @@ public class ud7 extends p9<ChatAggregationFragment> implements yx4.g, View.OnCl
             this.A = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090156);
             this.B = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f09015b);
             this.C = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090158);
-            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091bf3);
-            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091bf2);
-            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091bf6);
-            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091bf4);
+            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091bf4);
+            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091bf3);
+            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091bf7);
+            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091bf5);
             this.H = this.u.findViewById(R.id.obfuscated_res_0x7f090998);
             this.I = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090997);
             this.J = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f09099c);
             this.K = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090999);
-            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091e5f);
+            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091e60);
             RelativeLayout relativeLayout = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f090f84);
             this.N = relativeLayout;
             relativeLayout.setOnClickListener(this.r0);
@@ -1608,7 +1608,7 @@ public class ud7 extends p9<ChatAggregationFragment> implements yx4.g, View.OnCl
             this.H.setOnClickListener(this);
             this.f.addHeaderView(this.u);
             S();
-            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bf5);
+            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bf6);
             if (this.e == null) {
                 zx4 zx4Var = new zx4(this.a.getPageContext());
                 this.e = zx4Var;
@@ -1884,7 +1884,7 @@ public class ud7 extends p9<ChatAggregationFragment> implements yx4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, imMessageCenterShowItemData)) == null) {
             String string = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f04c9);
-            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1457);
+            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1458);
             String string3 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0381);
             String string4 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f08c8);
             String string5 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f08c9);

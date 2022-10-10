@@ -97,8 +97,8 @@ public class lj6 extends i16<mj6> {
         this.i.setDrawBorder(true);
         this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
         this.i.setBorderWidth(ej.f(getContext(), R.dimen.tbds1));
-        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+        this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
         this.j.setText(mj6Var.f());
         this.k.setText(mj6Var.c());
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);

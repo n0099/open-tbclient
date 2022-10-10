@@ -64,11 +64,11 @@ public class qw7 extends nw7<CustomDialogData> implements View.OnClickListener {
             this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907c5);
             this.f = (TextView) getViewGroup().findViewById(R.id.dialog_title);
             this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907b3);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0926d7);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0926d8);
             this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0916c6);
             this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f09035d);
             this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090825);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091b63);
+            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091b64);
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);

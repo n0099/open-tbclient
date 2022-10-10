@@ -145,7 +145,7 @@ public class DownloadFlowAdapter<T extends mv4> extends PagerAdapter {
                 it.next();
                 View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0704, (ViewGroup) null);
                 inflate.setOnClickListener(this.d);
-                inflate.findViewById(R.id.obfuscated_res_0x7f091c52).setOnClickListener(this.e);
+                inflate.findViewById(R.id.obfuscated_res_0x7f091c53).setOnClickListener(this.e);
                 this.a.add(inflate);
             }
         }
@@ -215,15 +215,15 @@ public class DownloadFlowAdapter<T extends mv4> extends PagerAdapter {
             View view2 = (View) ListUtils.getItem(arrayList, i);
             ApkDownloadInfoData apkDownloadInfoData = (ApkDownloadInfoData) ListUtils.getItem(this.b, i);
             if (view2 != null && this.b.size() != 0 && apkDownloadInfoData != null) {
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c53);
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c54);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff3);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092368);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092369);
                 ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091028);
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092367);
-                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c52);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092368);
+                RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c53);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, 1, TbadkCoreApplication.getInst().getSkinType());
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0109, 1, TbadkCoreApplication.getInst().getSkinType());
-                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b2), R.color.CAM_X0101, 1, TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b3), R.color.CAM_X0101, 1, TbadkCoreApplication.getInst().getSkinType());
                 SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(imageView, R.color.CAM_X0301);
                 SkinManager.setBackgroundColor(relativeLayout2, R.color.CAM_X0302);

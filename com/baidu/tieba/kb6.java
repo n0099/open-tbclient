@@ -721,9 +721,9 @@ public class kb6 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0769, (ViewGroup) null);
             this.c = inflate;
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091b7a);
-            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f092227);
-            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092218);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091b7b);
+            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f092228);
+            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092219);
             ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090967);
             this.i = imageView;
             imageView.setOnClickListener(new c(this));

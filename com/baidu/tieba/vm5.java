@@ -55,7 +55,7 @@ public class vm5 {
                     if (z2) {
                         ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00d2));
                     } else {
-                        ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0ff1));
+                        ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0ff2));
                     }
                     if (this.a.c != null) {
                         this.a.c.a(z2);
@@ -69,7 +69,7 @@ public class vm5 {
                     }
                     return;
                 }
-                ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14e5));
+                ej.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14e6));
             }
         }
     }

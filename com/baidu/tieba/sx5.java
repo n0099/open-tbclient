@@ -92,10 +92,10 @@ public class sx5 implements View.OnClickListener {
         ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090507);
         this.c = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092136);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092137);
         this.g = (AlaVideoContainer) this.a.findViewById(R.id.obfuscated_res_0x7f090234);
         this.f = this.a.findViewById(R.id.obfuscated_res_0x7f090800);
-        this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09210e);
+        this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09210f);
         this.h = this.a.findViewById(R.id.divider_line);
         this.b.setOnClickListener(this);
         this.e.setOnClickListener(this);
@@ -191,7 +191,7 @@ public class sx5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (view2 != this.b && view2 != this.e.getCommentContainer()) {
-                if (view2.getId() != R.id.obfuscated_res_0x7f092515 || (wx5Var = this.k) == null) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f092516 || (wx5Var = this.k) == null) {
                     return;
                 }
                 wx5Var.a(view2, this.i);

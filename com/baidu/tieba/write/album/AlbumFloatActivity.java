@@ -58,7 +58,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                f29 f29Var = new f29(this, null, linearLayout.getId(), R.id.obfuscated_res_0x7f091c82);
+                f29 f29Var = new f29(this, null, linearLayout.getId(), R.id.obfuscated_res_0x7f091c83);
                 this.k = f29Var;
                 f29Var.S(navigationBar);
             }
@@ -156,7 +156,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             c1();
             super.onCreate(bundle);
-            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb9);
+            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fba);
         }
     }
 

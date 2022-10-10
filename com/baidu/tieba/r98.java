@@ -137,10 +137,10 @@ public class r98 extends i16<n88> {
                         this.a.q.setVisibility(0);
                         r98 r98Var = this.a;
                         r98Var.y(r98Var.r.i);
-                        ej.M(this.a.c, R.string.obfuscated_res_0x7f0f14df);
+                        ej.M(this.a.c, R.string.obfuscated_res_0x7f0f14e0);
                         return;
                     }
-                    ej.M(this.a.c, R.string.obfuscated_res_0x7f0f14de);
+                    ej.M(this.a.c, R.string.obfuscated_res_0x7f0f14df);
                 }
             }
         }
@@ -268,7 +268,7 @@ public class r98 extends i16<n88> {
             } else {
                 if (n88Var.b == 2) {
                     context = this.c;
-                    i = R.string.obfuscated_res_0x7f0f1192;
+                    i = R.string.obfuscated_res_0x7f0f1193;
                 } else {
                     context = this.c;
                     i = R.string.obfuscated_res_0x7f0f0851;
@@ -304,7 +304,7 @@ public class r98 extends i16<n88> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0fdc));
+                this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f0fdd));
                 SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0110);
                 SkinManager.setBackgroundResource(this.q, R.color.transparent);
                 this.q.setClickable(false);
@@ -312,7 +312,7 @@ public class r98 extends i16<n88> {
             }
             this.q.setText(this.c.getString(R.string.obfuscated_res_0x7f0f064f));
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0302, 1);
-            SkinManager.setBackgroundResource(this.q, R.drawable.obfuscated_res_0x7f080fba);
+            SkinManager.setBackgroundResource(this.q, R.drawable.obfuscated_res_0x7f080fbb);
             this.q.setClickable(true);
         }
     }

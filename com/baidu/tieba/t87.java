@@ -291,16 +291,16 @@ public class t87 extends p9<OfficialBarTipActivity> {
     public final void q(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, officialBarTipActivity) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f092201);
+            RelativeLayout relativeLayout = (RelativeLayout) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f092202);
             this.i = relativeLayout;
             TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090793);
             this.l = textView;
             textView.setOnClickListener(new c(this, officialBarTipActivity));
-            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091e38);
+            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091e39);
             int f = ej.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070225);
             Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
             drawable.setBounds(0, 0, f, f);
-            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1102));
+            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1103));
             this.j.setCompoundDrawables(drawable, null, null, null);
             this.j.setOnClickListener(new d(this));
         }
@@ -309,12 +309,12 @@ public class t87 extends p9<OfficialBarTipActivity> {
     public final void r(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, officialBarTipActivity) == null) {
-            NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f123a));
+            navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f123b));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
             this.c.showBottomLine();
-            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091c83);
+            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091c84);
             this.g = viewGroup;
             this.e = (NoNetworkView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0916dc);
             View inflate = LayoutInflater.from(this.f.getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d03bd, (ViewGroup) null);
@@ -408,7 +408,7 @@ public class t87 extends p9<OfficialBarTipActivity> {
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
             drawable2.setBounds(0, 0, f, f);
-            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1102));
+            this.j.setText(this.f.getPageContext().getString(R.string.obfuscated_res_0x7f0f1103));
             this.j.setCompoundDrawables(drawable2, null, null, null);
             v(false);
             this.k = false;

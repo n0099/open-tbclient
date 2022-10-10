@@ -99,16 +99,16 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09233a);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09233b);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ej.f(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09233b);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0925ef);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09233c);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0925f0);
             this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091317);
             this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091318);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e71);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e72);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09233c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e72);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e73);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f09233d);
             this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090656);
         }
     }
@@ -125,7 +125,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f120f));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f1210));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -153,11 +153,11 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080af6);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080af7);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080af7);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080af8);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080af8);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080af9);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);

@@ -395,7 +395,7 @@ public class MsgRemindModel extends BdBaseModel {
                 if (!TextUtils.isEmpty(str)) {
                     this.a.showToast(str);
                 } else {
-                    this.a.showToast((int) R.string.obfuscated_res_0x7f0f113a);
+                    this.a.showToast((int) R.string.obfuscated_res_0x7f0f113b);
                 }
             }
             this.b.a(i, false, z2);

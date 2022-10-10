@@ -62,7 +62,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092407);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092408);
         }
 
         public void a(SmartApp smartApp) {

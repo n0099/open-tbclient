@@ -410,7 +410,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 boolean z = responsedMessage instanceof ScreenLockLoadMoreHttpResponseMessage;
                 if (z || (responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        this.a.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10bc) : responsedMessage.getErrorString());
+                        this.a.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10bd) : responsedMessage.getErrorString());
                         if (this.a.h != null) {
                             this.a.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f048c));
                             this.a.h.setEnabled(true);
@@ -550,7 +550,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             textView.setGravity(17);
             this.h.setText(R.string.obfuscated_res_0x7f0f03ef);
             this.h.setHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.h.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a7);
+            this.h.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a8);
             this.h.setTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f060a31));
             this.h.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
             this.h.setOnClickListener(new e(this));
@@ -563,7 +563,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d29);
             this.b = imageView;
             imageView.setOnClickListener(new b(this));
-            this.d = (DynamicHeightListView) findViewById(R.id.obfuscated_res_0x7f091dc5);
+            this.d = (DynamicHeightListView) findViewById(R.id.obfuscated_res_0x7f091dc6);
             eg8 eg8Var = new eg8(getPageContext().getPageActivity());
             this.e = eg8Var;
             this.d.setAdapter((ListAdapter) eg8Var);

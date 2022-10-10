@@ -241,7 +241,7 @@ public class n17 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
         }
         int id = view2.getId();
         int i = 3;
-        if (view2.getId() == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
             TiebaStatic.log(x26Var.A());
             ro5.c().i("page_recommend", "clk_", x26Var.A());
             d37.c(x26Var.a, x26Var.r(), x26Var.n(), 1);

@@ -425,9 +425,9 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090f15);
             this.a = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fe);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f14);
-            this.d = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.d = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
             f("");
         }
     }

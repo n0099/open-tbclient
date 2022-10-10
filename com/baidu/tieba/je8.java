@@ -262,7 +262,7 @@ public class je8 extends qn<jn8, PbAppLegoViewHolder> implements xd8, sd8 {
                 return true;
             }
             AdvertAppInfo.ILegoAdvert m1 = jn8Var.m1();
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f092046);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f092047);
             if (tag instanceof AdvertAppInfo.ILegoAdvert) {
                 return !m1.isReusable((AdvertAppInfo.ILegoAdvert) tag);
             }
@@ -313,7 +313,7 @@ public class je8 extends qn<jn8, PbAppLegoViewHolder> implements xd8, sd8 {
             }
             pbAppLegoViewHolder.setIsRecyclable(false);
             AdvertAppInfo.ILegoAdvert m1 = jn8Var.m1();
-            view2.setTag(R.id.obfuscated_res_0x7f092046, m1);
+            view2.setTag(R.id.obfuscated_res_0x7f092047, m1);
             this.a.getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
             this.a.getLayoutMode().k(view2);
             dr4.f(jn8Var);

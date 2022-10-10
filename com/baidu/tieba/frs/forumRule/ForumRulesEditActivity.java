@@ -184,7 +184,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
                 Intent intent = getIntent();
                 if (z) {
                     this.b.B();
-                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f10ac));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f10ad));
                     intent.putExtra("from", true);
                 } else {
                     intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f06a5));

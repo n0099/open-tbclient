@@ -244,11 +244,11 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e8, (ViewGroup) this, true);
-            ViewPager viewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091aa3);
+            ViewPager viewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091aa4);
             this.a = viewPager;
             viewPager.setFadingEdgeLength(0);
             this.a.setOnPageChangeListener(this);
-            this.b = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f091aa1);
+            this.b = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f091aa2);
         }
     }
 

@@ -75,12 +75,12 @@ public class ml6 extends dh6<bu4, AutoVideoCardViewHolder<ThreadData>> implement
             if ("c13010".equals(this.b.n)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 2).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180 && threadData.isVideoThreadType()) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181 && threadData.isVideoThreadType()) {
                 cs6.k().h(this.b.p, threadData, 1);
                 this.b.d0(threadData);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09054b) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924b6 || view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924b7 || view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 cs6.k().h(this.b.p, threadData, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090d49) {
                 mt6.a(this.b.p, threadData.getRecomReason());
@@ -94,17 +94,17 @@ public class ml6 extends dh6<bu4, AutoVideoCardViewHolder<ThreadData>> implement
             if (view2.getId() == R.id.obfuscated_res_0x7f091746) {
                 as6.e(threadData, 4, this.b.mPageId, this.b.p, this.b.t());
                 mt6.g(threadData, this.b.b, 2);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092556) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092557) {
                 as6.e(threadData, 4, this.b.mPageId, this.b.p, this.b.t());
                 mt6.g(threadData, this.b.b, 1);
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f0924b6 && view2.getId() != R.id.obfuscated_res_0x7f092488) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092194) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f0924b7 && view2.getId() != R.id.obfuscated_res_0x7f092489) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092195) {
                     as6.e(threadData, 5, this.b.mPageId, this.b.p, this.b.t());
                     mt6.g(threadData, this.b.b, 1);
                 } else if (view2 instanceof ThreadGodReplyLayout) {
                     as6.e(threadData, 15, this.b.mPageId, this.b.p, this.b.t());
                     mt6.g(threadData, this.b.b, 1);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f091e97) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f091e98) {
                     mt6.g(threadData, this.b.b, 1);
                     as6.e(threadData, 1, this.b.mPageId, this.b.p, this.b.t());
                 } else {

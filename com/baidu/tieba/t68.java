@@ -285,7 +285,7 @@ public class t68 extends BaseAdapter {
                     bVar.b.setText(bVar.c);
                     if (this.g) {
                         SkinManager.setImageResource(bVar.f, BitmapHelper.getSmallGradeResourceIdNew(forumData.getUser_level()));
-                        bVar.i.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11a3), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
+                        bVar.i.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11a4), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                         bVar.j.setOnClickListener(this.e);
                         bVar.j.setTag(Integer.valueOf(i));
                         if (i < this.b.k()) {

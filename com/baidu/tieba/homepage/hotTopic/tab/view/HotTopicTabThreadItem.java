@@ -119,7 +119,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             this.d.setVisibility(8);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
             layoutParams.addRule(8, 0);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09221e);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09221f);
             this.i.setLayoutParams(layoutParams);
         } else {
             this.b.K(yz6Var.d, 10, false);
@@ -178,16 +178,16 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b4, (ViewGroup) this, true);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090715);
             this.c = findViewById(R.id.obfuscated_res_0x7f090714);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0924f6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924f4);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f5);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0924f7);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924f5);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f6);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09221f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092034);
             this.b.setPlaceHolder(2);
             this.b.setRadius(ej.f(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c6d);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c6e);
             this.j = findViewById;
             findViewById.setOnClickListener(new a(this));
         }

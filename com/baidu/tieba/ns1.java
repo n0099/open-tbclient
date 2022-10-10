@@ -180,7 +180,7 @@ public class ns1 extends es1 {
             this.e.h.n2(this.e.g);
             ns1 ns1Var = this.e;
             SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.c);
-            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f124f);
+            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f1250);
             ns1Var.f = swanAppWebPopWindow;
             if (TextUtils.equals(this.d, "protect")) {
                 SwanAppWebPopWindow swanAppWebPopWindow2 = this.e.f;

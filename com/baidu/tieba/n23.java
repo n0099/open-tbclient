@@ -253,7 +253,7 @@ public class n23 extends p23 {
             this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e0d);
             this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e0f);
             this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e0e);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a4), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811a5), (Drawable) null, (Drawable) null, (Drawable) null);
             this.k.setVisibility(8);
             this.j.setVisibility(0);
             this.l.setVisibility(0);

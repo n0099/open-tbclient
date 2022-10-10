@@ -302,14 +302,14 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (RelativeLayout) l(linearLayout, R.id.obfuscated_res_0x7f091c55);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091dbf);
+            this.n = (RelativeLayout) l(linearLayout, R.id.obfuscated_res_0x7f091c56);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091dc0);
             this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f090797);
             this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090798);
-            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091c65);
+            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091c66);
             this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0919c7);
             this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0912c9);
-            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091c23);
+            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091c24);
             this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f090456);
             return this.m;
         }

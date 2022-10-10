@@ -237,7 +237,7 @@ public class lm7 extends t75 {
                             }
                         }
                     } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f113d);
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f113e);
                         if (this.a.n != null && this.a.n.getB_info() != null && this.a.n.getB_info().size() > 0) {
                             if (this.a.n.getB_info().get(0).getBcode() == 0) {
                                 this.a.p = 0;

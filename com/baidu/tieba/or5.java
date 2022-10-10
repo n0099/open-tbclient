@@ -158,10 +158,10 @@ public final class or5 {
             View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00da, (ViewGroup) null, true);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ccc);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ccb);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092282);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092281);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092283);
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08121a);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092283);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092282);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092284);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08121b);
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);
             if (vl4Var.g() != 3) {
@@ -169,10 +169,10 @@ public final class or5 {
                 if (!StringUtils.isNull(vl4Var.c())) {
                     tbImageView.K(vl4Var.c(), 10, false);
                 } else {
-                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f08121a);
+                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f08121b);
                 }
             } else {
-                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f08121b);
+                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f08121c);
                 aVar = new a(vl4Var, popupWindow);
             }
             textView.setOnClickListener(aVar);

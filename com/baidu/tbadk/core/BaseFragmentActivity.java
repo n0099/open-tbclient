@@ -663,7 +663,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     intent.setData(Uri.parse("package:" + this.a.getPackageName()));
                     this.a.startActivityForResult(intent, 12016);
                 } catch (Exception unused) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1028);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f1029);
                     if (this.a.mPermissionCallback != null) {
                         this.a.mPermissionCallback.onPermissionResult(false);
                     }
@@ -1435,8 +1435,8 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     if (!h2) {
                         nu4 nu4Var = new nu4(this);
                         nu4Var.setCanceledOnTouchOutside(false);
-                        nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101d);
-                        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1027);
+                        nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101e);
+                        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1028);
                         nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0997, new k(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new j(this)).create(getPageContext());
                         nu4Var.show();
                         ox4.k().u("key_is_window_permission_dialog_shown", true);

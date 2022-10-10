@@ -220,7 +220,7 @@ public class uo3 extends dm1 {
     public final void r(List<t94> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) && list != null && fh3.Q() && rr1.y(AppRuntime.getAppContext())) {
-            list.add(new t94(45, R.string.obfuscated_res_0x7f0f1269, R.drawable.obfuscated_res_0x7f0800df, true));
+            list.add(new t94(45, R.string.obfuscated_res_0x7f0f126a, R.drawable.obfuscated_res_0x7f0800df, true));
         }
     }
 

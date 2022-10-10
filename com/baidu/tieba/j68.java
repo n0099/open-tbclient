@@ -300,8 +300,8 @@ public class j68 extends i16<c68> {
         this.o = tbPageContext;
         View h = h();
         this.i = h;
-        this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091c6b);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092419);
+        this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091c6c);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09241a);
         AutoDownloadBannerView autoDownloadBannerView = (AutoDownloadBannerView) this.i.findViewById(R.id.obfuscated_res_0x7f0918e1);
         this.l = autoDownloadBannerView;
         autoDownloadBannerView.getCoverFlowView().setCallback(this.s);

@@ -87,7 +87,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.b.setLeftBackViewClickListener(new a(this));
-            this.b.setTitle(R.string.obfuscated_res_0x7f0f1316);
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f1317);
             this.b.setRightZoneVisibility(false);
         }
     }

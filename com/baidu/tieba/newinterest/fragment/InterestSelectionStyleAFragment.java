@@ -150,7 +150,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
             my4 my4Var = new my4();
             this.b.setTextSize(R.dimen.T_X06);
             this.b.setConfig(my4Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1110));
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1111));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
             this.l.setColumnWidth(ej.k(getContext()) / 5);

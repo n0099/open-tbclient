@@ -769,12 +769,12 @@ public class iz3 extends r22 implements w34, s23.a {
     public final void A3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09225c);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09225d);
             this.G0 = findViewById;
             findViewById.post(new e(this));
-            this.H0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09225e);
-            this.I0 = view2.findViewById(R.id.obfuscated_res_0x7f09225f);
-            this.J0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09225d);
+            this.H0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09225f);
+            this.I0 = view2.findViewById(R.id.obfuscated_res_0x7f092260);
+            this.J0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09225e);
             this.H0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080124));
             this.J0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08010f));
             this.I0.setBackgroundResource(R.color.obfuscated_res_0x7f060390);

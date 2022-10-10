@@ -197,12 +197,12 @@ public class z77 extends o9<MsglistActivity<?>> {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) j(R.id.obfuscated_res_0x7f0920f9);
+            TextView textView = (TextView) j(R.id.obfuscated_res_0x7f0920fa);
             this.b = textView;
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             this.c = (LinearLayout) j(R.id.obfuscated_res_0x7f09125d);
             this.d = (TextView) j(R.id.obfuscated_res_0x7f090428);
-            this.e = (TextView) j(R.id.obfuscated_res_0x7f092107);
+            this.e = (TextView) j(R.id.obfuscated_res_0x7f092108);
             this.c.setVisibility(8);
         }
     }

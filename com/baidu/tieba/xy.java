@@ -113,8 +113,8 @@ public class xy extends gx<yq4> {
         } else {
             this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) null, false);
         }
-        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092181);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092173);
+        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092182);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092174);
         OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f091766);
         this.i = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.l);

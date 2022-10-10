@@ -52,11 +52,11 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
             this.c.setTextColor(uc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
             String r = uc0.f().r();
             if (r == "day") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d29);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d17);
-            } else if (r == "night") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d33);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d2a);
                 this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
+            } else if (r == "night") {
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d34);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d19);
             }
         }
     }

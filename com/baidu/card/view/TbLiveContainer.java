@@ -193,9 +193,9 @@ public class TbLiveContainer extends FrameLayout implements ka8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ec, (ViewGroup) null);
-            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d5);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f0920d6);
             this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ad4);
-            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091f90);
+            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091f91);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
             this.b.setRoundLayoutRadius(fv4.y(R.string.J_X05));
             this.b.setVisibility(8);

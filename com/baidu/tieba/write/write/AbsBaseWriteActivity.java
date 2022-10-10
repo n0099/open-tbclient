@@ -1175,7 +1175,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             }
             String errorString = postWriteCallBackData.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
-                errorString = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1064);
+                errorString = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1065);
             }
             showToast(errorString);
         } else if (N1(postWriteCallBackData)) {
@@ -1576,7 +1576,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0937, (ViewGroup) null);
             this.v = inflate;
             setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.w = navigationBar;
             navigationBar.showBottomLine();
             this.x = this.w.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -1584,16 +1584,16 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             this.z = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
             C2();
-            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0926c0);
+            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0926c1);
             this.O = scrollView;
             scrollView.setOnTouchListener(new b(this));
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091792);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092285);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092286);
             this.B = linearLayout;
             linearLayout.setContentDescription(IStringUtil.TOP_PATH);
-            this.C = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f09224a);
+            this.C = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f09224b);
             l2();
             k2();
             LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a3f);
@@ -1620,7 +1620,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (interceptable == null || interceptable.invokeL(1048627, this, e15Var) == null) {
             if (((ImageSpan[]) V1().getText().getSpans(0, V1().getText().length(), ImageSpan.class)).length >= 10) {
                 if (this.I == null) {
-                    this.I = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1456, 0);
+                    this.I = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1457, 0);
                 }
                 if (Build.VERSION.SDK_INT >= 28 && this.I.getView().isShown()) {
                     this.I.cancel();
@@ -1871,7 +1871,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             return;
         }
         sx4Var.e(null);
-        this.P.i(R.string.obfuscated_res_0x7f0f1133);
+        this.P.i(R.string.obfuscated_res_0x7f0f1134);
         this.P.h(true);
     }
 

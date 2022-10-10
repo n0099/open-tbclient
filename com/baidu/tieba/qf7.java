@@ -48,7 +48,7 @@ public class qf7 implements View.OnClickListener {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0489, (ViewGroup) null);
         this.a = viewGroup;
         this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09061e);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ba4);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ba5);
         this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091497);
         this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091498);
         this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909b6);

@@ -215,7 +215,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (this.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
                 Context context = this.b;
-                BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1537));
+                BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1538));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
             } else if (StringUtils.isNull(this.a.getForum_name())) {

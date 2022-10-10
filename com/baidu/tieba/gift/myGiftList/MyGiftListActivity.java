@@ -330,7 +330,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e == 2 ? getPageContext().getString(R.string.obfuscated_res_0x7f0f1192) : getPageContext().getString(R.string.obfuscated_res_0x7f0f0851);
+            return this.e == 2 ? getPageContext().getString(R.string.obfuscated_res_0x7f0f1193) : getPageContext().getString(R.string.obfuscated_res_0x7f0f0851);
         }
         return (String) invokeV.objValue;
     }

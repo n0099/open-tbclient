@@ -267,8 +267,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             this.a = 3;
             this.b = view2.findViewById(R.id.obfuscated_res_0x7f090f8f);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092033);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09221f);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092034);
             this.f = view2.findViewById(R.id.obfuscated_res_0x7f091555);
             this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091556);
             this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091554);

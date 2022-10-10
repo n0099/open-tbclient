@@ -241,9 +241,9 @@ public class ItemCardHelper {
         d = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09aa);
         e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0998);
         f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0999);
-        g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1430);
-        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1432);
-        i = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1431);
+        g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1431);
+        h = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1433);
+        i = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1432);
         j = null;
         n = new a(CmdConfigHttp.CMD_GAME_ITEM_ORDER);
     }

@@ -105,11 +105,11 @@ public class cb6 {
         this.b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01bb, (ViewGroup) null);
         this.c = inflate;
-        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0925ae);
+        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0925af);
         this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e1c);
         this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e1d);
-        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091b4e);
-        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091b4f);
+        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091b4f);
+        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091b50);
         this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090ab5);
         this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0916c8);
         this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f090ea6);
@@ -143,7 +143,7 @@ public class cb6 {
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0805f2, SvgManager.SvgResourceStateType.NORMAL);
         }
         SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080650, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080f5a);
+        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080f5b);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.obfuscated_res_0x7f0805ff, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0311);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);

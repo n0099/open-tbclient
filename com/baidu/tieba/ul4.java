@@ -113,7 +113,7 @@ public class ul4 extends Dialog implements View.OnClickListener {
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09057c);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8d);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8e);
             this.e = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(dh.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
             ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();

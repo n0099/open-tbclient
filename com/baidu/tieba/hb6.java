@@ -224,18 +224,18 @@ public class hb6 extends dc5<wr4, a96> {
             }
         }
         this.q = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091c84);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091c85);
         this.f = findViewById;
         this.g = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091620);
         this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091387);
         this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0919db);
-        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092337);
+        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092338);
         this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09086b);
-        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091ecf);
+        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091ed0);
         this.m = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090ce6);
         this.n = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09177f);
         this.r = this.f.findViewById(R.id.obfuscated_res_0x7f09090b);
-        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092360);
+        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092361);
         this.o = (BarImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090a4b);
         this.t = this.f.findViewById(R.id.obfuscated_res_0x7f090abe);
         this.p = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090a7d);

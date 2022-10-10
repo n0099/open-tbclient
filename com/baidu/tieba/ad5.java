@@ -66,8 +66,8 @@ public class ad5 {
             }
             TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04ef, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0faf);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0fae);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0fb0);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f0faf);
             tBAlertBuilder.r(aVar);
             tBAlertBuilder.m(true);
             tBAlertBuilder.h(false);

@@ -331,7 +331,7 @@ public class a29 {
             this.f = findViewById2;
             TextView textView = (TextView) findViewById2.findViewById(R.id.obfuscated_res_0x7f090755);
             this.g = textView;
-            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1133));
+            textView.setText(accountAccessActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1134));
             ux4 ux4Var = new ux4();
             this.i = ux4Var;
             ux4Var.a = 1000L;

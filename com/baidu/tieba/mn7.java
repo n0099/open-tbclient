@@ -68,15 +68,15 @@ public class mn7 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c6c);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f1);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f0);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c5);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f2);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f1);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c6);
             this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a79);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cc1);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cc2);
             this.h.setRoundLayoutRadius(new float[]{mn7Var.g, mn7Var.g, mn7Var.g, mn7Var.g, mn7Var.g, mn7Var.g, 0.0f, mn7Var.g});
             this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a78);
         }

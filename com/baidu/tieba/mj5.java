@@ -316,7 +316,7 @@ public class mj5 implements he5 {
         this.b = linearLayout;
         this.c = floatWebLayout;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049b, (ViewGroup) linearLayout, true);
-        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092653);
+        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092654);
         this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091411);
         wn8 wn8Var = new wn8();
         this.m = wn8Var;
@@ -366,8 +366,8 @@ public class mj5 implements he5 {
             if (this.f == null) {
                 this.f = new g95(this.a, new b(this));
             }
-            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14f8));
-            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0fd6));
+            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14f9));
+            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0fd7));
             this.f.i(R.drawable.new_pic_emotion_08);
             this.f.attachView(this.e, false);
             this.f.p();

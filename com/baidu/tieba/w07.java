@@ -95,7 +95,7 @@ public class w07 implements g07, View.OnClickListener, qp4 {
                     abs = 1.0f;
                 }
                 if (this.a.l == null || abs != 1.0f) {
-                    WebPManager.setPureDrawable(this.a.o, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                    WebPManager.setPureDrawable(this.a.o, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
                     if (this.a.p != null) {
                         this.a.p.setAlpha(0.0f);
                     }
@@ -111,7 +111,7 @@ public class w07 implements g07, View.OnClickListener, qp4 {
                 if (this.a.p != null) {
                     this.a.p.setAlpha(1.0f);
                 }
-                WebPManager.setPureDrawable(this.a.o, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.a.o, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -360,7 +360,7 @@ public class w07 implements g07, View.OnClickListener, qp4 {
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             View addSystemImageButton = this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.n = addSystemImageButton;
-            this.o = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.o = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092680);
             this.p = this.l.getCenterText();
             this.l.setCenterTextTitle(str);
         }

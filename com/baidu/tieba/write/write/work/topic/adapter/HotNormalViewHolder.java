@@ -98,8 +98,8 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092312);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d2);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092313);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922d3);
         this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090e06);
         this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091718);
     }
@@ -118,7 +118,7 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
             }
             if (p77Var.j() && c(str)) {
                 spannableStringBuilder.insert(1, (CharSequence) "v");
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a47, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a48, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
                 eMRichTextAnyIconSpan.d(VideoHotTopicSearchAdapter.h);
                 eMRichTextAnyIconSpan.b(VideoHotTopicSearchAdapter.h);
                 spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 1, 2, 17);
@@ -154,10 +154,10 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1468));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1469));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1467));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1468));
         } else {
             textView.setVisibility(8);
         }

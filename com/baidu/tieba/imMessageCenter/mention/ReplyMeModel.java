@@ -112,10 +112,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13e7);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13e8);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13f2);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13f3);
                             return;
                         } else {
                             return;

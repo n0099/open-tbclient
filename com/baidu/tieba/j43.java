@@ -67,14 +67,14 @@ public class j43 extends i53 {
                 if (a != null && context != null) {
                     JSONObject optJSONObject = a.optJSONObject("abtest");
                     if (optJSONObject != null) {
-                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f12c7 : R.string.obfuscated_res_0x7f0f12c5, 1).show();
+                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f12c8 : R.string.obfuscated_res_0x7f0f12c6, 1).show();
                     } else {
                         j();
-                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c8, 1).show();
+                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c9, 1).show();
                     }
                     return true;
                 }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c6, 1).show();
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12c7, 1).show();
                 return false;
             }
             return false;

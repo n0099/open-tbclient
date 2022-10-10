@@ -100,11 +100,11 @@ public class s96 {
         this.h = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f0924da));
+        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f0924db));
         this.c = rankListViewHolder;
         rankListViewHolder.i(1);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c9b);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b52);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b53);
         this.e = textView;
         textView.setTextSize(0, ej.f(this.a.getPageActivity(), R.dimen.tbfontsize46));
         this.d.setOnClickListener(this.h);

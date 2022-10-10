@@ -172,7 +172,7 @@ public class vt8 implements View.OnClickListener {
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (shareDialogItemView = (ShareDialogItemView) this.a.d.findViewWithTag(16)) == null) {
                 return;
             }
-            shareDialogItemView.c(z ? R.drawable.obfuscated_res_0x7f0809e4 : R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0107));
+            shareDialogItemView.c(z ? R.drawable.obfuscated_res_0x7f0809e5 : R.drawable.obfuscated_res_0x7f0809e4, SkinManager.getColor(R.color.CAM_X0107));
         }
     }
 
@@ -276,61 +276,61 @@ public class vt8 implements View.OnClickListener {
             if (this.k) {
                 if (this.f.p) {
                     l(shareDialogConfig, i, i2);
-                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, 4, i2);
-                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, 3, i2);
-                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, 9, i2);
-                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, 5, i2);
-                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, 7, i2);
-                    c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ec, 13, i3);
+                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, 4, i2);
+                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, 3, i2);
+                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, 9, i2);
+                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, 5, i2);
+                    f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, 7, i2);
+                    c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ed, 13, i3);
                     return;
                 }
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, 4, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, 3, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, 9, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, 5, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, 7, i);
-                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ec, 13, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, 4, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, 3, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, 9, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, 5, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, 7, i);
+                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ed, 13, i);
                 return;
             }
             if (this.f.l0) {
                 l(shareDialogConfig, i, i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, 4, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, 3, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, 9, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, 5, shareDialogConfig.isShowNovelMask(), i2);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, 7, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, 4, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, 3, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, 9, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, 5, shareDialogConfig.isShowNovelMask(), i2);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, 7, shareDialogConfig.isShowNovelMask(), i2);
                 if (!shareDialogConfig.isHideShareCopyLink) {
-                    c(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e5, 10, i3);
+                    c(R.string.obfuscated_res_0x7f0f1150, R.drawable.obfuscated_res_0x7f0809e6, 10, i3);
                 }
             }
             boolean isPrePagePersonalPage = shareDialogConfig.isPrePagePersonalPage();
             boolean z2 = shareDialogConfig.isHost;
             if (shareDialogConfig.isFromImmersionVideo) {
                 if (!isPrePagePersonalPage && t()) {
-                    c(R.string.obfuscated_res_0x7f0f06cd, R.drawable.obfuscated_res_0x7f0809ac, 18, i3);
+                    c(R.string.obfuscated_res_0x7f0f06cd, R.drawable.obfuscated_res_0x7f0809ad, 18, i3);
                 }
                 if (shareDialogConfig.isCollected) {
-                    h(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e4, 0, 16, i2);
+                    h(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e5, 0, 16, i2);
                 } else {
-                    c(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e3, 16, i3);
+                    c(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e4, 16, i3);
                 }
                 if (!z2) {
-                    c(R.string.obfuscated_res_0x7f0f1016, R.drawable.obfuscated_res_0x7f0809ef, 17, i3);
+                    c(R.string.obfuscated_res_0x7f0f1017, R.drawable.obfuscated_res_0x7f0809f0, 17, i3);
                 } else if (isPrePagePersonalPage) {
-                    c(R.string.obfuscated_res_0x7f0f04b0, R.drawable.obfuscated_res_0x7f0809e6, 19, i3);
+                    c(R.string.obfuscated_res_0x7f0f04b0, R.drawable.obfuscated_res_0x7f0809e7, 19, i3);
                 }
             }
             if (shareDialogConfig.showDisLike && !isPrePagePersonalPage) {
-                c(R.string.obfuscated_res_0x7f0f0cbd, R.drawable.obfuscated_res_0x7f0809f0, 14, i3);
+                c(R.string.obfuscated_res_0x7f0f0cbd, R.drawable.obfuscated_res_0x7f0809f1, 14, i3);
             }
             if (this.f.m0) {
-                c(R.string.obfuscated_res_0x7f0f03f9, R.drawable.obfuscated_res_0x7f0809f0, 15, i3);
+                c(R.string.obfuscated_res_0x7f0f03f9, R.drawable.obfuscated_res_0x7f0809f1, 15, i3);
             }
             if (shareDialogConfig.showHeating) {
-                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0854 : R.string.obfuscated_res_0x7f0f0855, R.drawable.obfuscated_res_0x7f0809ea, 23, i3);
+                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0854 : R.string.obfuscated_res_0x7f0f0855, R.drawable.obfuscated_res_0x7f0809eb, 23, i3);
             }
             if (z) {
-                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ec, 13, i3);
+                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ed, 13, i3);
             }
             if (shareDialogConfig.isFromImmersionVideo) {
                 vm5 vm5Var = new vm5(this.c);
@@ -360,12 +360,12 @@ public class vt8 implements View.OnClickListener {
             this.o = shareDialogConfig.isMadeTop;
             this.p = shareDialogConfig.isAddedGood;
             if (this.k) {
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, 4, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, 3, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, 9, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, 5, i);
-                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, 7, i);
-                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ec, 13, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, 4, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, 3, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, 9, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, 5, i);
+                f(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, 7, i);
+                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ed, 13, i);
                 return;
             }
             if (this.f.l0) {
@@ -376,45 +376,45 @@ public class vt8 implements View.OnClickListener {
                     boolean isShowNovelMask = shareDialogConfig.isShowNovelMask();
                     i3 = R.drawable.obfuscated_res_0x7f080835;
                     i4 = R.drawable.obfuscated_res_0x7f080831;
-                    d(R.string.obfuscated_res_0x7f0f1154, R.drawable.obfuscated_res_0x7f08088f, 24, isShowNovelMask, i);
+                    d(R.string.obfuscated_res_0x7f0f1155, R.drawable.obfuscated_res_0x7f08088f, 24, isShowNovelMask, i);
                 }
-                g(new SvgMaskType(i3), R.string.obfuscated_res_0x7f0f118a, 4, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(i4), R.string.obfuscated_res_0x7f0f1191, 3, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, 9, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, 5, shareDialogConfig.isShowNovelMask(), i);
-                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, 7, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(i3), R.string.obfuscated_res_0x7f0f118b, 4, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(i4), R.string.obfuscated_res_0x7f0f1192, 3, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, 9, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, 5, shareDialogConfig.isShowNovelMask(), i);
+                g(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, 7, shareDialogConfig.isShowNovelMask(), i);
                 if (!shareDialogConfig.isHideShareCopyLink) {
-                    c(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e5, 10, i2);
+                    c(R.string.obfuscated_res_0x7f0f1150, R.drawable.obfuscated_res_0x7f0809e6, 10, i2);
                 }
             }
             boolean isPrePagePersonalPage = shareDialogConfig.isPrePagePersonalPage();
             boolean z3 = shareDialogConfig.isHost;
             if (shareDialogConfig.isFromImmersionVideo) {
                 if (!isPrePagePersonalPage && t()) {
-                    c(R.string.obfuscated_res_0x7f0f06cd, R.drawable.obfuscated_res_0x7f0809ac, 18, i2);
+                    c(R.string.obfuscated_res_0x7f0f06cd, R.drawable.obfuscated_res_0x7f0809ad, 18, i2);
                 }
                 if (shareDialogConfig.isCollected) {
-                    h(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e4, 0, 16, i2);
+                    h(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e5, 0, 16, i2);
                 } else {
-                    c(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e3, 16, i2);
+                    c(R.string.obfuscated_res_0x7f0f0aaa, R.drawable.obfuscated_res_0x7f0809e4, 16, i2);
                 }
                 if (!z3) {
-                    c(R.string.obfuscated_res_0x7f0f1016, R.drawable.obfuscated_res_0x7f0809ef, 17, i2);
+                    c(R.string.obfuscated_res_0x7f0f1017, R.drawable.obfuscated_res_0x7f0809f0, 17, i2);
                 } else if (isPrePagePersonalPage) {
-                    c(R.string.obfuscated_res_0x7f0f04b0, R.drawable.obfuscated_res_0x7f0809e6, 19, i2);
+                    c(R.string.obfuscated_res_0x7f0f04b0, R.drawable.obfuscated_res_0x7f0809e7, 19, i2);
                 }
             }
             if (shareDialogConfig.showDisLike && !isPrePagePersonalPage) {
-                c(R.string.obfuscated_res_0x7f0f0cbd, R.drawable.obfuscated_res_0x7f0809f0, 14, i2);
+                c(R.string.obfuscated_res_0x7f0f0cbd, R.drawable.obfuscated_res_0x7f0809f1, 14, i2);
             }
             if (this.f.m0) {
-                c(R.string.obfuscated_res_0x7f0f03f9, R.drawable.obfuscated_res_0x7f0809f0, 15, i2);
+                c(R.string.obfuscated_res_0x7f0f03f9, R.drawable.obfuscated_res_0x7f0809f1, 15, i2);
             }
             if (shareDialogConfig.showHeating) {
-                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0854 : R.string.obfuscated_res_0x7f0f0855, R.drawable.obfuscated_res_0x7f0809ea, 23, i2);
+                c(shareDialogConfig.isSelfHeating ? R.string.obfuscated_res_0x7f0f0854 : R.string.obfuscated_res_0x7f0f0855, R.drawable.obfuscated_res_0x7f0809eb, 23, i2);
             }
             if (z) {
-                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ec, 13, i2);
+                c(R.string.obfuscated_res_0x7f0f0b00, R.drawable.obfuscated_res_0x7f0809ed, 13, i2);
             }
             if (shareDialogConfig.isFromImmersionVideo) {
                 vm5 vm5Var = new vm5(this.c);
@@ -659,9 +659,9 @@ public class vt8 implements View.OnClickListener {
             }
             this.e.a(i);
             if (size >= C) {
-                c(R.string.obfuscated_res_0x7f0f0b01, R.drawable.obfuscated_res_0x7f080a80, 28, i);
+                c(R.string.obfuscated_res_0x7f0f0b01, R.drawable.obfuscated_res_0x7f080a81, 28, i);
             }
-            d(R.string.obfuscated_res_0x7f0f1154, R.drawable.obfuscated_res_0x7f08088f, 24, shareDialogConfig.isShowNovelMask(), i2);
+            d(R.string.obfuscated_res_0x7f0f1155, R.drawable.obfuscated_res_0x7f08088f, 24, shareDialogConfig.isShowNovelMask(), i2);
         }
     }
 
@@ -730,7 +730,7 @@ public class vt8 implements View.OnClickListener {
             if (view2.getTag() instanceof Integer) {
                 Integer num = (Integer) view2.getTag();
                 if (!BdNetTypeUtil.isNetWorkAvailable() && num.intValue() != 10) {
-                    ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                    ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                 } else if (num.intValue() == 14) {
                     View.OnClickListener onClickListener2 = this.h;
                     if (onClickListener2 != null) {
@@ -914,7 +914,7 @@ public class vt8 implements View.OnClickListener {
                     }
                 } else {
                     Context context = this.c;
-                    BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                    BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                 }
             } else if (i == 5) {
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, "qqzone");
@@ -929,7 +929,7 @@ public class vt8 implements View.OnClickListener {
                     }
                 } else {
                     Context context2 = this.c;
-                    BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                    BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                 }
             } else if (i == 7) {
                 statisticItem.param(TiebaStatic.Params.TIEBA_PARAMS, "weibo");

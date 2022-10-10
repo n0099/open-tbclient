@@ -246,7 +246,7 @@ public class SelectTagActivity extends SuspendedActivity {
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.m = new l79(getUniqueId());
-            this.l.d = findViewById(R.id.obfuscated_res_0x7f091fb9);
+            this.l.d = findViewById(R.id.obfuscated_res_0x7f091fba);
             this.l.l();
             this.r.getHttpMessageListener().setSelfListener(true);
             this.r.getSocketMessageListener().setSelfListener(true);

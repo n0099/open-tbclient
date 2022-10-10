@@ -61,7 +61,7 @@ public class WritePrefixItemLayout extends LinearLayout {
             this.e = findViewById(R.id.obfuscated_res_0x7f091a6b);
             this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
             hv4.d(this.c).v(R.color.CAM_X0109);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e2, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e3, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
         }

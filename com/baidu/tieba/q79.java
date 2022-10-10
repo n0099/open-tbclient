@@ -377,46 +377,46 @@ public final class q79 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092480);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092481);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.upgrade_main)");
             u((RelativeLayout) findViewById);
-            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f092482);
+            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f092483);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R.id.upgrade_top)");
             v((LinearLayout) findViewById2);
-            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f09247d);
+            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f09247e);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R.id.upgrade_icon)");
             B((ImageView) findViewById3);
-            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f09247e);
+            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f09247f);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.upgrade_icon_title)");
             E((ImageView) findViewById4);
-            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f092481);
+            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f092482);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.upgrade_tip)");
             D((EMTextView) findViewById5);
-            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f09247c);
+            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f09247d);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
             A((EMTextView) findViewById6);
-            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091e4e);
+            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091e4f);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "mRootView.findViewById(R.id.select_office_ckb)");
             y((TbCheckBox) findViewById7);
-            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091e4f);
+            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091e50);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
             x((EMTextView) findViewById8);
-            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f09247a);
+            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f09247b);
             Intrinsics.checkNotNullExpressionValue(findViewById9, "mRootView.findViewById(R.id.upgrade_bottom_tip)");
             z((EMTextView) findViewById9);
             View findViewById10 = this.b.findViewById(R.id.obfuscated_res_0x7f090461);
             Intrinsics.checkNotNullExpressionValue(findViewById10, "mRootView.findViewById(R.id.btn_upgrade_open)");
             C((EMTextView) findViewById10);
-            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f09247b);
+            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f09247c);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "mRootView.findViewById(R.id.upgrade_content)");
             s((RelativeLayout) findViewById11);
-            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f09247f);
+            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f092480);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "mRootView.findViewById(R.id.upgrade_item)");
             t((LinearLayout) findViewById12);
             View findViewById13 = this.b.findViewById(R.id.obfuscated_res_0x7f09131a);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "mRootView.findViewById(R.id.line_view)");
             r((ImageView) findViewById13);
-            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f092221);
+            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f092222);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "mRootView.findViewById(R.id.title_bar)");
             w((NavigationBar) findViewById14);
             g().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.m79
@@ -431,7 +431,7 @@ public final class q79 {
                     }
                 }
             });
-            g().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a10, SkinManager.getColor(R.color.CAM_X0622), null));
+            g().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a11, SkinManager.getColor(R.color.CAM_X0622), null));
             h().setTagData(new a());
             int i = ej.i(this.a.getPageActivity());
             if (ej.k(this.a.getPageActivity()) == 1080 && i == 1920) {
@@ -447,7 +447,7 @@ public final class q79 {
                     throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
                 }
             }
-            h().setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809fa, R.drawable.obfuscated_res_0x7f0809f9);
+            h().setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809fb, R.drawable.obfuscated_res_0x7f0809fa);
             l().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.n79
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

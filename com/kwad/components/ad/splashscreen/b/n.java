@@ -117,7 +117,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                                         AdInfo.AdSplashInfo adSplashInfo = bQ.adSplashInfo;
                                         String str = z ? adSplashInfo.speakerIconUrl : adSplashInfo.speakerMuteIconUrl;
                                         if (TextUtils.isEmpty(str)) {
-                                            this.zz.zy.eE.setImageDrawable(this.zz.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c89));
+                                            this.zz.zy.eE.setImageDrawable(this.zz.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c8a));
                                         } else {
                                             KSImageLoader.loadImage(this.zz.zy.eE, str, this.zz.zy.yF.mAdTemplate);
                                         }
@@ -431,7 +431,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                     if (TextUtils.isEmpty(str)) {
                         KSImageLoader.loadImage(this.eE, str, this.yF.mAdTemplate);
                     } else {
-                        this.eE.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c89));
+                        this.eE.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c8a));
                     }
                     this.eE.setSelected(this.zu);
                     this.eE.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.splashscreen.b.n.3
@@ -465,7 +465,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                                 nVar.zu = !nVar.zu;
                                 String str2 = this.zy.zu ? this.zy.mAdInfo.adSplashInfo.speakerIconUrl : this.zy.mAdInfo.adSplashInfo.speakerMuteIconUrl;
                                 if (TextUtils.isEmpty(str2)) {
-                                    this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c89));
+                                    this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c8a));
                                 } else {
                                     KSImageLoader.loadImage(this.zy.eE, str2, this.zy.yF.mAdTemplate);
                                 }
@@ -524,7 +524,7 @@ public final class n extends e implements com.kwad.sdk.core.h.b {
                         nVar.zu = !nVar.zu;
                         String str2 = this.zy.zu ? this.zy.mAdInfo.adSplashInfo.speakerIconUrl : this.zy.mAdInfo.adSplashInfo.speakerMuteIconUrl;
                         if (TextUtils.isEmpty(str2)) {
-                            this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c89));
+                            this.zy.eE.setImageDrawable(this.zy.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c8a));
                         } else {
                             KSImageLoader.loadImage(this.zy.eE, str2, this.zy.yF.mAdTemplate);
                         }

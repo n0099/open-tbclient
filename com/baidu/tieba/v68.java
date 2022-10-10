@@ -67,7 +67,7 @@ public class v68 implements d88 {
                     return;
                 }
                 if (this.a.b != null) {
-                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0f2b);
+                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0f2c);
                 }
                 this.a.e = 1;
                 this.a.a.e();

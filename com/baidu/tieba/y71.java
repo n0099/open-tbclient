@@ -93,7 +93,7 @@ public class y71 extends v71 {
                 ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.obfuscated_res_0x7f0602f1));
                 return;
             }
-            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df4));
+            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df5));
         }
     }
 

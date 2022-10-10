@@ -1234,7 +1234,7 @@ public class ni3 {
             return;
         }
         if (!z2) {
-            this.w = textView.getContext().getString(R.string.obfuscated_res_0x7f0f1290);
+            this.w = textView.getContext().getString(R.string.obfuscated_res_0x7f0f1291);
         } else {
             this.w = "";
         }
@@ -1364,15 +1364,15 @@ public class ni3 {
                 io2.a W = k33.K().q().W();
                 this.m.d().n(this.a);
                 B = true;
-                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225e);
-                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225d);
-                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f09225c);
+                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225f);
+                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225e);
+                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f09225d);
                 if (z2) {
                     this.f.setClickable(true);
                     this.f.setImageResource(R.drawable.obfuscated_res_0x7f080124);
                     this.g.setImageResource(R.drawable.obfuscated_res_0x7f08010f);
                     this.k.setBackgroundResource(R.drawable.obfuscated_res_0x7f080120);
-                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09225f);
+                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092260);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(R.color.obfuscated_res_0x7f060390);
                     this.k.post(new c(this));
@@ -1431,15 +1431,15 @@ public class ni3 {
                 s(W.getType());
                 this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0912fc);
                 this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09076a);
-                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225e);
-                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225d);
-                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f09225c);
+                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225f);
+                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09225e);
+                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f09225d);
                 if (z2) {
                     this.f.setClickable(true);
                     this.f.setImageResource(R.drawable.obfuscated_res_0x7f080124);
                     this.g.setImageResource(R.drawable.obfuscated_res_0x7f08010f);
                     this.k.setBackgroundResource(R.drawable.obfuscated_res_0x7f080120);
-                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09225f);
+                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092260);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(R.color.obfuscated_res_0x7f060390);
                     this.k.post(new e(this));

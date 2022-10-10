@@ -276,7 +276,7 @@ public class p84 {
             }
             String str = next.d;
             if (TextUtils.isEmpty(str)) {
-                str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f080faf).build().getSourceUri().toString();
+                str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f080fb0).build().getSourceUri().toString();
             }
             ig3.e(str, new a(next, u84Var, arrayList, context, v84Var, arrayList2, arrayList3, atomicInteger, size));
             it = it;
@@ -287,7 +287,7 @@ public class p84 {
     public static Bitmap f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f080faf) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f080fb0) : (Bitmap) invokeV.objValue;
     }
 
     @Nullable

@@ -774,7 +774,7 @@ public class ux7 {
             }
             arrayList.add(pv7Var);
             h36 h36Var = new h36();
-            h36Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb2);
+            h36Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb3);
             h36Var.needTopMargin = false;
             arrayList.add(h36Var);
             arrayList.addAll(list2);

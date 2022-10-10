@@ -189,7 +189,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                         if (view2 == null || view2.getId() != 1) {
                             View inflate = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                             inflate.setId(1);
-                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092218)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
+                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003c));
                             return inflate;
                         }
                         return view2;
@@ -202,7 +202,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
                 ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
                 ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e20)).setImageDrawable(resolveInfo.loadIcon(packageManager));
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218)).setText(resolveInfo.loadLabel(packageManager));
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219)).setText(resolveInfo.loadLabel(packageManager));
                 if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view2.setActivated(true);
                 } else {
@@ -657,7 +657,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v17 */
     /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
     public void showPopupUnchecked(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {

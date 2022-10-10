@@ -611,7 +611,7 @@ public class jx5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, baseFragment) == null) {
             this.a = baseFragment;
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             navigationBar.setVisibility(this.k ? 0 : 8);
             if (this.k) {
@@ -620,7 +620,7 @@ public class jx5 {
                 this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
                 this.c.setmBackImageViewBg(R.drawable.icon_return_bg_s, R.drawable.icon_return_bg);
             }
-            ScrollBridgeWebview scrollBridgeWebview = (ScrollBridgeWebview) this.b.findViewById(R.id.obfuscated_res_0x7f092659);
+            ScrollBridgeWebview scrollBridgeWebview = (ScrollBridgeWebview) this.b.findViewById(R.id.obfuscated_res_0x7f09265a);
             this.d = scrollBridgeWebview;
             scrollBridgeWebview.setOnScrollChangeListener(new d(this));
             n();
@@ -804,7 +804,7 @@ public class jx5 {
                         this.l.setForumName(optString5);
                         this.l.setThreadId(optString4);
                         this.l.setTitle(optString);
-                        String format = MessageFormat.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f114e), optString, optString2);
+                        String format = MessageFormat.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f114f), optString, optString2);
                         ShareItem shareItem = new ShareItem();
                         shareItem.v = optString;
                         shareItem.w = format;

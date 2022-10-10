@@ -407,7 +407,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.J == null) {
-                NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+                NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
                 this.J = navigationBar;
                 navigationBar.getBarBgView().setAlpha(0.0f);
             }
@@ -426,7 +426,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 View addSystemImageButton = this.J.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
                 this.M = addSystemImageButton;
                 addSystemImageButton.setOnClickListener(this.a0);
-                this.N = (ImageView) this.M.findViewById(R.id.obfuscated_res_0x7f09267f);
+                this.N = (ImageView) this.M.findViewById(R.id.obfuscated_res_0x7f092680);
             }
             if (this.O == null) {
                 this.O = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09162f);
@@ -601,8 +601,8 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (noNetworkView != null) {
                 noNetworkView.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             }
-            SkinManager.setBackgroundResource(this.K, R.drawable.obfuscated_res_0x7f08121e);
-            SkinManager.setBackgroundResource(this.L, R.drawable.obfuscated_res_0x7f08121e);
+            SkinManager.setBackgroundResource(this.K, R.drawable.obfuscated_res_0x7f08121f);
+            SkinManager.setBackgroundResource(this.L, R.drawable.obfuscated_res_0x7f08121f);
             SkinManager.setBackgroundColor(this.H, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.G, R.color.CAM_X0201);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.O, R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -638,8 +638,8 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             this.a.w(true);
             h2();
             this.S = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b0c);
-            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f091f7f);
-            this.G = this.c.findViewById(R.id.obfuscated_res_0x7f091f80);
+            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f091f80);
+            this.G = this.c.findViewById(R.id.obfuscated_res_0x7f091f81);
             AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090af1);
             this.T = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.c0);

@@ -537,7 +537,7 @@ public class PassManagerStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         Context context = TbadkApplication.getInst().getContext();
-                        BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f10b5));
+                        BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f10b6));
                         b.f(BdToast.ToastIcon.SUCCESS);
                         b.i();
                     }

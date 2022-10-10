@@ -75,7 +75,7 @@ public class d98 implements cz8 {
                 if (userData == null) {
                     return;
                 }
-                yo4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
+                yo4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f150a), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
                 return;
             case 4:
                 if (userData == null) {

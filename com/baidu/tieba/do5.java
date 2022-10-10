@@ -629,53 +629,53 @@ public class do5 {
             if (this.p == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a7, (ViewGroup) null);
                 this.p = viewGroup;
-                EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09245c);
+                EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09245d);
                 this.s = eMTextView;
                 if (this.H) {
-                    eMTextView.setText(R.string.obfuscated_res_0x7f0f1197);
+                    eMTextView.setText(R.string.obfuscated_res_0x7f0f1198);
                 } else {
                     eMTextView.setText(R.string.obfuscated_res_0x7f0f04bd);
                 }
                 hv4 d2 = hv4.d(this.s);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0105);
-                EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092457);
+                EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092458);
                 this.t = eMTextView2;
                 hv4.d(eMTextView2).z(R.dimen.T_X08);
-                EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092455);
+                EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092456);
                 this.q = eMTextView3;
                 eMTextView3.setOnClickListener(new d(this));
-                EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092456);
+                EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092457);
                 this.r = eMTextView4;
                 if (this.H) {
-                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f1194);
+                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f1195);
                 } else {
                     eMTextView4.setText(R.string.obfuscated_res_0x7f0f04b0);
                 }
                 this.r.setOnClickListener(new e(this));
             }
-            this.v = (LinearLayout) this.p.findViewById(R.id.obfuscated_res_0x7f092459);
+            this.v = (LinearLayout) this.p.findViewById(R.id.obfuscated_res_0x7f09245a);
             View g2 = this.l.g();
             if (g2 != null && g2.getParent() == null) {
                 int f2 = ej.f(this.a, R.dimen.M_W_X009);
                 g2.setPadding(f2, 0, f2, 0);
                 this.v.addView(g2);
             }
-            EMTextView eMTextView5 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09245b);
+            EMTextView eMTextView5 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09245c);
             this.u = eMTextView5;
             eMTextView5.setHighlightColor(SelectorHelper.getResources().getColor(17170445));
             if (this.E) {
                 this.u.setVisibility(0);
                 if (1 == this.F) {
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    spannableStringBuilder.append((CharSequence) this.a.getString(R.string.obfuscated_res_0x7f0f1137));
+                    spannableStringBuilder.append((CharSequence) this.a.getString(R.string.obfuscated_res_0x7f0f1138));
                     f fVar = new f(this);
                     this.G = fVar;
                     spannableStringBuilder.setSpan(fVar, 13, 17, 18);
                     this.u.setText(spannableStringBuilder);
                     this.u.setMovementMethod(LinkMovementMethod.getInstance());
                 } else {
-                    this.u.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1136));
+                    this.u.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1137));
                 }
             } else {
                 this.u.setVisibility(8);

@@ -34,9 +34,9 @@ public class m55 extends s55 {
             this.f = R.color.CAM_X0105;
             this.j = true;
         } else {
-            this.d = R.drawable.obfuscated_res_0x7f0809bf;
+            this.d = R.drawable.obfuscated_res_0x7f0809c0;
             this.i = true;
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f135c);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f135d);
     }
 }

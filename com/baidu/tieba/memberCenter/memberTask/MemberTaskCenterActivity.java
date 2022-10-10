@@ -184,7 +184,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 MemberCenterStatic.a(this.a.getPageContext(), new String[]{this.a.c});
                 this.a.g = true;
                 TiebaStatic.log(new StatisticItem("c11747"));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920d0 && (view2.getTag() instanceof fn7)) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0920d1 && (view2.getTag() instanceof fn7)) {
                 fn7 fn7Var = (fn7) view2.getTag();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(this.a.getPageContext().getPageActivity());
@@ -393,7 +393,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
         if (!TbadkCoreApplication.isLogin()) {
             nu4 nu4Var = new nu4(getPageContext().getPageActivity());
-            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f1438);
+            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f1439);
             nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a75, new d(this, nu4Var));
             nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new e(this, nu4Var));
             nu4Var.create(getPageContext());
@@ -405,7 +405,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             }
         } else {
             nu4 nu4Var2 = new nu4(getPageContext().getPageActivity());
-            nu4Var2.setTitle(R.string.obfuscated_res_0x7f0f1439);
+            nu4Var2.setTitle(R.string.obfuscated_res_0x7f0f143a);
             nu4Var2.setButtonTextColor(R.color.CAM_X0305);
             nu4Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0d13, new f(this, nu4Var2));
             nu4Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new g(this, nu4Var2));
@@ -421,9 +421,9 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
         int i2 = this.e;
         if (i2 == 1) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1437), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1438), Integer.valueOf(i)));
         } else if (i2 == 2) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1436), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1437), Integer.valueOf(i)));
         }
     }
 

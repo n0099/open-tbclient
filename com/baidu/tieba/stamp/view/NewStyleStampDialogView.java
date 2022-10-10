@@ -384,17 +384,17 @@ public class NewStyleStampDialogView extends LinearLayout {
             this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0652, this);
             setOrientation(1);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f08);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092408);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09240b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092409);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092409);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09240c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09240b);
             this.i = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090282);
             this.j = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090283);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f07);
             this.k = tbImageView;
             tbImageView.setDefaultResource(0);
             this.k.setDefaultBgResource(0);
-            this.l = (SignStampIconsView) findViewById(R.id.obfuscated_res_0x7f091f69);
+            this.l = (SignStampIconsView) findViewById(R.id.obfuscated_res_0x7f091f6a);
             o();
             p();
             gh.a().postDelayed(new a(this), 80L);
@@ -420,9 +420,9 @@ public class NewStyleStampDialogView extends LinearLayout {
                 wt4 wt4Var = (wt4) el8Var;
                 List<wt4.a> a2 = wt4Var.a();
                 if (wt4Var.b() == -1) {
-                    this.f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11ff));
+                    this.f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1200));
                 } else {
-                    this.f.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1203), Integer.valueOf(wt4Var.b())));
+                    this.f.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1204), Integer.valueOf(wt4Var.b())));
                 }
                 if (ListUtils.isEmpty(a2)) {
                     return;
@@ -451,7 +451,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             hv4 d4 = hv4.d(this.h);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0302);
-            WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
 

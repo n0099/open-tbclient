@@ -197,18 +197,18 @@ public class t71 extends Dialog {
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = null;
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05e8, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092372);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092373);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091306);
             textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0bab));
             textView.setOnClickListener(new a(this, arrayList, adBaseModel));
-            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da4));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da5));
             Resources resources = inflate.getContext().getResources();
             int i2 = R.color.obfuscated_res_0x7f060266;
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060266));
             findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602bf));
             LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09128a);
             LayoutInflater from = LayoutInflater.from(inflate.getContext());
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09242b);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09242c);
             if (adBaseModel != null && (to0Var = adBaseModel.g) != null && !TextUtils.isEmpty(to0Var.c)) {
                 if (!TextUtils.isEmpty(adBaseModel.g.a)) {
                     textView2.setText(adBaseModel.g.a);
@@ -231,7 +231,7 @@ public class t71 extends Dialog {
                     i = i3;
                 } else {
                     View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d05f5, viewGroup);
-                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092394);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f092395);
                     textView3.setText(aVar.a());
                     textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
                     i = i3;

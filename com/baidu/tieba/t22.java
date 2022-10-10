@@ -987,7 +987,7 @@ public class t22 extends r22 implements s23.a {
             View b2 = h23.b();
             if (b2 != null) {
                 b2.setVisibility(0);
-                b2.findViewById(R.id.obfuscated_res_0x7f092240).setVisibility(8);
+                b2.findViewById(R.id.obfuscated_res_0x7f092241).setVisibility(8);
             }
             SwanAppActionBar K1 = K1();
             if (K1 != null) {

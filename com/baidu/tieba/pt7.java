@@ -54,11 +54,11 @@ public abstract class pt7 {
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d = addSystemImageButton;
         addSystemImageButton.setId(R.id.obfuscated_res_0x7f09042f);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11c1));
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11c2));
         this.e = addTextButton;
         addTextButton.setId(R.id.obfuscated_res_0x7f09045b);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b3);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b2);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b4);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b3);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eed);
         this.f = imageView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
@@ -69,10 +69,10 @@ public abstract class pt7 {
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) textView.getLayoutParams();
         layoutParams2.topMargin = (ej.i(tbPageContext.getPageActivity()) / 2) + ej.f(tbPageContext.getPageActivity(), R.dimen.tbds239);
         this.g.setLayoutParams(layoutParams2);
-        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b23);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09266d);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092670);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926f3);
+        this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b24);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09266e);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092671);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926f4);
         this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091565);
     }
 

@@ -133,8 +133,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 this.a.l.setText(this.a.h);
                 int i = forbidTplData.type;
                 if (i == 1 || i == 2) {
+                    this.a.findViewById(R.id.obfuscated_res_0x7f091b49).setVisibility(0);
                     this.a.findViewById(R.id.obfuscated_res_0x7f091b48).setVisibility(0);
-                    this.a.findViewById(R.id.obfuscated_res_0x7f091b47).setVisibility(0);
                 }
                 this.a.n = new d(forbidTplData.reason);
                 this.a.m.setAdapter((ListAdapter) this.a.n);
@@ -400,7 +400,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                 if (view2 == null) {
                     view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null);
                     eVar = new e(null);
-                    eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b65);
+                    eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b66);
                     eVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090610);
                     view2.setTag(eVar);
                     view2.setOnClickListener(this.c);
@@ -504,7 +504,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             boolean z = i == 1;
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c6c);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c6d);
             getLayoutMode().l(z);
             getLayoutMode().k(findViewById);
             this.a.onChangeSkinType(getPageContext(), i);
@@ -522,7 +522,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d0021);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+                NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
                 this.a = navigationBar;
                 navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0663));
                 this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

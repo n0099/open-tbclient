@@ -117,7 +117,7 @@ public class PersonalCardItemView extends LinearLayout {
             this.e.setVisibility(0);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setImageBitmap(null);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
             this.c.K(ns8Var.e(), 10, false);
         }
         if (ns8Var.g() == 1) {
@@ -144,15 +144,15 @@ public class PersonalCardItemView extends LinearLayout {
             this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e97);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
             this.e = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7c);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7d);
             this.f = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
             this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090620);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092438);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ab);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ac);
             this.i = this.b.findViewById(R.id.obfuscated_res_0x7f0903a5);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = this.m;

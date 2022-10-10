@@ -356,9 +356,9 @@ public class xw6 extends qn<p26, ThreadCardViewHolder<p26>> implements to5 {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, yq4Var, view2) == null) || yq4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7) {
                 yq4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 yq4Var.objType = 4;
             } else {
                 yq4Var.objType = 1;
@@ -492,7 +492,7 @@ public class xw6 extends qn<p26, ThreadCardViewHolder<p26>> implements to5 {
                     wn wnVar = (wn) cdo;
                     if ((wnVar.c() instanceof p26) && cdo != null && wnVar.c() != null && (p26Var = (p26) wnVar.c()) != null && (threadData = p26Var.a) != null && p26Var.u && threadData.getItem() != null) {
                         if (p26Var.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                            BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.obfuscated_res_0x7f0f1537));
+                            BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.obfuscated_res_0x7f0f1538));
                             b.f(BdToast.ToastIcon.FAILURE);
                             b.i();
                             return;
@@ -778,9 +778,9 @@ public class xw6 extends qn<p26, ThreadCardViewHolder<p26>> implements to5 {
         int id = view2.getId();
         int i2 = 1;
         if (p26Var.m) {
-            if (id == R.id.obfuscated_res_0x7f092180) {
+            if (id == R.id.obfuscated_res_0x7f092181) {
                 sw6.b(view2, p26Var, 2);
-            } else if (id != R.id.obfuscated_res_0x7f092488 && id != R.id.obfuscated_res_0x7f0924b6) {
+            } else if (id != R.id.obfuscated_res_0x7f092489 && id != R.id.obfuscated_res_0x7f0924b7) {
                 if (view2 instanceof TbImageView) {
                     sw6.b(view2, p26Var, 3);
                 }
@@ -811,13 +811,13 @@ public class xw6 extends qn<p26, ThreadCardViewHolder<p26>> implements to5 {
                     threadCardViewHolder.a().o(new dz.a(1));
                 }
             } else if (p26Var.x) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                     sw6.b(view2, p26Var, 2);
                 } else if (id == R.id.obfuscated_res_0x7f090a8f) {
                     sw6.b(view2, p26Var, 7);
                 }
             } else if (p26Var.y) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                     sw6.b(view2, p26Var, 2);
                 } else if (id == R.id.obfuscated_res_0x7f090cd9) {
                     StatisticItem statisticItem = new StatisticItem("c13423");
@@ -865,17 +865,17 @@ public class xw6 extends qn<p26, ThreadCardViewHolder<p26>> implements to5 {
                     }
                     TiebaStatic.log(statisticItem5);
                 }
-            } else if (p26Var.A && (view2.getId() == R.id.obfuscated_res_0x7f092180 || view2.getId() == R.id.obfuscated_res_0x7f092194)) {
+            } else if (p26Var.A && (view2.getId() == R.id.obfuscated_res_0x7f092181 || view2.getId() == R.id.obfuscated_res_0x7f092195)) {
                 sw6.b(view2, p26Var, 2);
             }
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
             sw6.b(view2, p26Var, 2);
         } else if (view2 instanceof TbImageView) {
             sw6.b(view2, p26Var, 3);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092181 || view2.getId() == R.id.obfuscated_res_0x7f092173) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092182 || view2.getId() == R.id.obfuscated_res_0x7f092174) {
             sw6.b(view2, p26Var, 2);
         }
-        if (id == R.id.obfuscated_res_0x7f092194 || id == R.id.obfuscated_res_0x7f092196 || id == R.id.obfuscated_res_0x7f092197) {
+        if (id == R.id.obfuscated_res_0x7f092195 || id == R.id.obfuscated_res_0x7f092197 || id == R.id.obfuscated_res_0x7f092198) {
             sw6.b(view2, p26Var, 8);
         }
     }

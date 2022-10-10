@@ -205,7 +205,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d084c, this);
             float f = l;
             setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
-            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f092702);
+            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f092703);
             this.h = tabLiveStageLiveZanLottieView;
             tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090713);
@@ -220,8 +220,8 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             this.b.setIsRound(true);
             this.b.setBorderWidth(ej.f(getContext(), R.dimen.tbds1));
             this.c = findViewById(R.id.obfuscated_res_0x7f090d33);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e5);
             this.g = findViewById(R.id.obfuscated_res_0x7f0903ea);
             GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.k);
@@ -280,7 +280,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                     }
                 }
                 this.d.setText(sdkLiveInfoData.title);
-                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11fb, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
+                this.f.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f11fc, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
                 return;
             }
             setVisibility(4);

@@ -130,9 +130,9 @@ public class SelectTopicToolItem extends RelativeLayout {
                     this.b.setVisibility(8);
                 }
                 if (this.e.h()) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a47, SkinManager.getColor(R.color.CAM_X0304), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a48, SkinManager.getColor(R.color.CAM_X0304), null));
                 } else {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a47, SkinManager.getColor(R.color.CAM_X0105), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a48, SkinManager.getColor(R.color.CAM_X0105), null));
                 }
             } else {
                 this.b.setVisibility(8);
@@ -172,9 +172,9 @@ public class SelectTopicToolItem extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07b3, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092317);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092319);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092318);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092318);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09231a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092319);
             this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913fd);
             setOnClickListener(new a(this));
             d();

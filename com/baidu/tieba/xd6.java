@@ -188,7 +188,7 @@ public class xd6 implements View.OnClickListener, wd6 {
         linearLayout.setClickable(false);
         this.q.setOnClickListener(this);
         this.q.setVisibility(8);
-        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092483);
+        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092484);
         this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09010f);
         t();
     }

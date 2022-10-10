@@ -1585,7 +1585,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.n = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new u(this));
-            this.j = (ImageView) this.n.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.j = (ImageView) this.n.findViewById(R.id.obfuscated_res_0x7f092680);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.n.setVisibility(0);
         }
@@ -1851,7 +1851,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public final void V2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && DeviceInfoUtil.isfullScreen()) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f88);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f89);
             this.i = findViewById;
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -1886,7 +1886,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             MultiImageView multiImageView = this.h;
             if (multiImageView == null) {
-                this.h = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925d9);
+                this.h = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925da);
             } else {
                 multiImageView.q();
             }
@@ -1936,7 +1936,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             if (this.H && E2()) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080a12, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080a13, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }

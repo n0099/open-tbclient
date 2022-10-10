@@ -256,7 +256,7 @@ public class yg5 {
                 return false;
             }
             try {
-                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f09207e);
+                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f09207f);
                 ViewGroup viewGroup = 0;
                 ViewGroup viewGroup2 = tag instanceof ViewGroup ? (ViewGroup) tag : null;
                 if (viewGroup2 == null || viewGroup2.getParent() == null) {
@@ -264,7 +264,7 @@ public class yg5 {
                 } else if (viewGroup2.getParent() == frameLayout) {
                     return false;
                 } else {
-                    frameLayout.setTag(R.id.obfuscated_res_0x7f09207e, null);
+                    frameLayout.setTag(R.id.obfuscated_res_0x7f09207f, null);
                 }
                 if (viewGroup == null) {
                     viewGroup = n(frameLayout.getContext());
@@ -273,7 +273,7 @@ public class yg5 {
                     return false;
                 }
                 frameLayout.addView(viewGroup);
-                frameLayout.setTag(R.id.obfuscated_res_0x7f09207e, viewGroup);
+                frameLayout.setTag(R.id.obfuscated_res_0x7f09207f, viewGroup);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds339), ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds89));
                 layoutParams.gravity = 83;
                 layoutParams.bottomMargin = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds442) + UtilHelper.getNavigationBarHeight(frameLayout.getContext());
@@ -335,11 +335,11 @@ public class yg5 {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, context) == null) || viewGroup == null || context == null) {
             return;
         }
-        SkinManager.setViewTextColor((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092371), (int) R.color.CAM_X0101);
+        SkinManager.setViewTextColor((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092372), (int) R.color.CAM_X0101);
         float f2 = ej.f(context, R.dimen.tbds424);
         TBSelector.makeDrawableSelector().setShape(0).setType(1).trRadius(f2).brRadius(f2).defaultColor(R.color.topic_disagree_des_color).into(viewGroup);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ebf), R.drawable.obfuscated_res_0x7f080610, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec0), R.drawable.obfuscated_res_0x7f0805f0, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec0), R.drawable.obfuscated_res_0x7f080610, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ec1), R.drawable.obfuscated_res_0x7f0805f0, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public final boolean p(View view2) {
@@ -387,7 +387,7 @@ public class yg5 {
             while (it.hasNext()) {
                 WeakReference<Activity> next = it.next();
                 if (next != null && next.get() != null && !next.get().isFinishing() && (l = l(next.get())) != null) {
-                    Object tag = l.getTag(R.id.obfuscated_res_0x7f09207e);
+                    Object tag = l.getTag(R.id.obfuscated_res_0x7f09207f);
                     if (tag instanceof ViewGroup) {
                         o((ViewGroup) tag, l.getContext());
                     }
@@ -416,11 +416,11 @@ public class yg5 {
                 return false;
             }
             try {
-                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f09207e);
+                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f09207f);
                 ViewGroup viewGroup = tag instanceof ViewGroup ? (ViewGroup) tag : null;
                 if (viewGroup != null && viewGroup.getParent() != null && viewGroup.getParent() == frameLayout && p(frameLayout) && p(viewGroup)) {
                     frameLayout.removeView(viewGroup);
-                    frameLayout.setTag(R.id.obfuscated_res_0x7f09207e, null);
+                    frameLayout.setTag(R.id.obfuscated_res_0x7f09207f, null);
                     return true;
                 }
             } catch (Exception unused) {

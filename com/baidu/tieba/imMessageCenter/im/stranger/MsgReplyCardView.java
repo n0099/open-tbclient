@@ -89,7 +89,7 @@ public class MsgReplyCardView extends a87 {
             if (i == 1) {
                 return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f00c5);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f146a);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f146b);
         }
         return (String) invokeI.objValue;
     }
@@ -125,9 +125,9 @@ public class MsgReplyCardView extends a87 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
                 string = Y(aVar.a);
-                Y = this.mContext.getString(R.string.obfuscated_res_0x7f0f1628);
+                Y = this.mContext.getString(R.string.obfuscated_res_0x7f0f1629);
             } else {
-                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f1628);
+                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f1629);
                 Y = Y(aVar.a);
             }
             return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c4), string, getType(aVar.h), Y);
@@ -143,9 +143,9 @@ public class MsgReplyCardView extends a87 {
                 return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0851);
             }
             if (i == 2) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1192);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1193);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1365);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1366);
         }
         return (String) invokeI.objValue;
     }
@@ -153,11 +153,11 @@ public class MsgReplyCardView extends a87 {
     public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.F = (LinearLayout) j(R.id.obfuscated_res_0x7f091be8);
-            this.G = (TextView) j(R.id.obfuscated_res_0x7f091bfc);
-            this.H = (TextView) j(R.id.obfuscated_res_0x7f091bea);
-            this.I = (TextView) j(R.id.obfuscated_res_0x7f091bf9);
-            this.J = (TextView) j(R.id.obfuscated_res_0x7f091bed);
+            this.F = (LinearLayout) j(R.id.obfuscated_res_0x7f091be9);
+            this.G = (TextView) j(R.id.obfuscated_res_0x7f091bfd);
+            this.H = (TextView) j(R.id.obfuscated_res_0x7f091beb);
+            this.I = (TextView) j(R.id.obfuscated_res_0x7f091bfa);
+            this.J = (TextView) j(R.id.obfuscated_res_0x7f091bee);
             this.F.setOnClickListener(new a(this));
         }
     }

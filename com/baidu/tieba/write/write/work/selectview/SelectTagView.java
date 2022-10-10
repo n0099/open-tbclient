@@ -127,7 +127,7 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f3, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0926a6);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0926a7);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_tag_sign)");
             setMTagTitleRightSign((ImageView) findViewById);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091796);
@@ -139,7 +139,7 @@ public final class SelectTagView extends RelativeLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905dd);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_card_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c30);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow_view)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0906e8);

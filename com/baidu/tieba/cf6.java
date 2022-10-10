@@ -528,7 +528,7 @@ public class cf6 implements ji6 {
                 f = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07026c);
             }
             gh6Var.f(i - (((f2 + f3) + f) + (f4 * size)));
-            gh6Var.c(R.drawable.obfuscated_res_0x7f081240);
+            gh6Var.c(R.drawable.obfuscated_res_0x7f081241);
             return gh6Var;
         }
         return (gh6) invokeV.objValue;

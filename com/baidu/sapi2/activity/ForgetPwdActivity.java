@@ -96,7 +96,7 @@ public class ForgetPwdActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
             setBtnVisibility(4, 0, 4);
-            setTitleText(R.string.obfuscated_res_0x7f0f1091);
+            setTitleText(R.string.obfuscated_res_0x7f0f1092);
             this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback(this) { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

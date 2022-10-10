@@ -117,7 +117,7 @@ public class zx5 extends h16<ThreadData> implements g26, so5 {
         RelativeLayout relativeLayout = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0912a7);
         this.w = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092511);
+        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092512);
         this.v = linearLayout;
         linearLayout.setOnClickListener(this);
         RelativeLayout relativeLayout2 = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090230);
@@ -133,15 +133,15 @@ public class zx5 extends h16<ThreadData> implements g26, so5 {
         this.A.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.A.setAutoChangeStyle(false);
         this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090232);
-        this.y = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092136);
+        this.y = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092137);
         this.z = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901f7);
         AlaVideoContainer alaVideoContainer = (AlaVideoContainer) h.findViewById(R.id.obfuscated_res_0x7f090234);
         this.C = alaVideoContainer;
         alaVideoContainer.setOnVideoClickListener(this);
-        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f0921a0);
+        View findViewById = h.findViewById(R.id.obfuscated_res_0x7f0921a1);
         this.J = findViewById;
         findViewById.setClickable(true);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f09210e);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f09210f);
         this.l = threadCommentAndPraiseInfoLayout;
         t(threadCommentAndPraiseInfoLayout);
         this.l.setSelectVisible(false);
@@ -161,7 +161,7 @@ public class zx5 extends h16<ThreadData> implements g26, so5 {
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09210f);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f092110);
         this.F = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.F.b.getCommentContainer().setOnClickListener(this);
@@ -429,7 +429,7 @@ public class zx5 extends h16<ThreadData> implements g26, so5 {
         }
         int i = 1;
         if (view2 != this.w && view2 != this.l.getCommentContainer() && this.v != view2 && view2 != this.F.b.getCommentContainer() && view2 != this.m.getCommentContainer()) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092515) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092516) {
                 if (e() != null) {
                     e().a(view2, this.k);
                 }

@@ -98,7 +98,7 @@ public class g27 extends qn<r27, CardViewHolder<b>> {
                     return;
                 }
             }
-            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f091b43);
+            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f091b44);
             this.i = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.i.setRadiusById(R.string.J_X06);

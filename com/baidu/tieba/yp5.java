@@ -158,7 +158,7 @@ public class yp5 extends BaseAdapter implements View.OnClickListener {
         d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d9));
         d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d50));
         d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d7e));
-        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f15b4));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f15b5));
         e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
         e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
         f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));

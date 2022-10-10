@@ -183,7 +183,7 @@ public class g98 {
                     return;
                 }
                 if (!updateAttentionMessage.getData().j) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f14df);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f14e0);
                 }
                 this.a.c.setLike(false);
                 return;
@@ -195,7 +195,7 @@ public class g98 {
             this.a.d.N(this.a.c.isLike());
             if (updateAttentionMessage.getData() == null || dj.isEmpty(updateAttentionMessage.getData().b)) {
                 if (this.a.c.getIsLike()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f14de);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f14df);
                     return;
                 } else {
                     this.a.a.showToast(R.string.obfuscated_res_0x7f0f02b9);
@@ -522,7 +522,7 @@ public class g98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "4"));
-            yo4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.c.getUserId() + "&opacity=0", true, true, true);
+            yo4.s(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f150a), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.c.getUserId() + "&opacity=0", true, true, true);
         }
     }
 }

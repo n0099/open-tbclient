@@ -138,7 +138,7 @@ public class gt7 implements View.OnClickListener, BaseInterestSelectionFragment.
             this.g = inflate;
             NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091657);
             this.j = navigationBar;
-            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f11c1));
+            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f11c2));
             this.i = addTextButton;
             addTextButton.setId(R.id.obfuscated_res_0x7f09045b);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0108);

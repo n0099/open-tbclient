@@ -45,18 +45,18 @@ public class mp8 {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) null);
             inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090962);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb0);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb1);
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a63);
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
             TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090675);
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091faf);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb0);
             if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080a01, R.color.CAM_X0101, null));
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080a02, R.color.CAM_X0101, null));
             }
             if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f1130);
+                str = context.getString(R.string.obfuscated_res_0x7f0f1131);
             }
             textView.setText(str);
             if (str2 != null || str3 != null) {

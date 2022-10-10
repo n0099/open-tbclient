@@ -115,7 +115,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             } else {
                 setBtnVisibility(4, 0, 4);
                 setTitleDrawable(null, null, null, null);
-                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08102e), null, null, null);
+                setLeftBtnDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08102f), null, null, null);
             }
             b();
             if (this.configuration.showBottomBack) {
@@ -130,7 +130,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (sapiConfiguration = this.configuration) != null && sapiConfiguration.isDarkMode) {
             if (this.useTitle) {
                 setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                setLeftBtnImage(R.drawable.obfuscated_res_0x7f08102f);
+                setLeftBtnImage(R.drawable.obfuscated_res_0x7f081030);
                 setLeftBtnTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 setRightBtnColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
@@ -140,7 +140,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 }
                 ImageView imageView = this.mRightBtnClose;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08109f);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f0810a0);
                 }
                 View view2 = this.dividerLine;
                 if (view2 != null) {
@@ -149,7 +149,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             }
             ImageView imageView2 = this.mBottomBackBtnIv;
             if (imageView2 != null) {
-                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08102f);
+                imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081030);
             }
             RelativeLayout relativeLayout = this.mBottomBgLayout;
             if (relativeLayout != null) {
@@ -558,7 +558,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
                 childAt.setFitsSystemWindows(true);
             }
             if (this.useTitle) {
-                this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
+                this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
                 this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.title_left_btn_layout);
                 this.mLeftBtnTv = (TextView) findViewById(R.id.title_btn_left_tv);
                 this.mLeftBtnIv = (ImageView) findViewById(R.id.title_btn_left_iv);

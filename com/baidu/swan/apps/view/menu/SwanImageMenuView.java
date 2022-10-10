@@ -157,9 +157,9 @@ public class SwanImageMenuView extends FrameLayout implements v23.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116b));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116c));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116a));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116b));
                 }
             }
         }
@@ -202,7 +202,7 @@ public class SwanImageMenuView extends FrameLayout implements v23.g {
                     ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091620)).setText(item.e());
                 } else {
                     inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00ce, null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920ff);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092100);
                     textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060395));
                     textView.setText(item.e());
                 }
@@ -251,7 +251,7 @@ public class SwanImageMenuView extends FrameLayout implements v23.g {
             if (sm2.M().a()) {
                 View view2 = new View(this.c);
                 this.f = view2;
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08116c);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08116d);
                 this.f.setVisibility(8);
                 addView(this.f);
             }

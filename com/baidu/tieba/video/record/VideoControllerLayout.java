@@ -478,18 +478,18 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
             } else if (i == 3) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081276);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b13);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081277);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b14);
             } else if (i == 4) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081276);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081279);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f081277);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08127a);
             } else if (i == 5) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08127a);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f08127b);
                 ax8 ax8Var = this.e;
                 if (ax8Var != null && ax8Var.g() >= 3000.0f) {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f081279);
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f08127a);
                 } else {
-                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b13);
+                    this.d.setImageResource(R.drawable.obfuscated_res_0x7f080b14);
                 }
             }
         }
@@ -627,8 +627,8 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906cd);
             this.d = imageView2;
             imageView2.setOnClickListener(this);
-            this.p.add(0, new ww8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b44), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b44)), R.drawable.obfuscated_res_0x7f080b28));
-            this.p.add(1, new ww8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b42), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b42)), R.drawable.obfuscated_res_0x7f080b12));
+            this.p.add(0, new ww8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b44), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getResources().getString(R.string.obfuscated_res_0x7f0f0b44)), R.drawable.obfuscated_res_0x7f080b29));
+            this.p.add(1, new ww8(3, getResources().getString(R.string.obfuscated_res_0x7f0f0b42), new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getResources().getString(R.string.obfuscated_res_0x7f0f0b42)), R.drawable.obfuscated_res_0x7f080b13));
         }
     }
 
@@ -747,7 +747,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             B(false);
             this.c.getLayer1().setVisibility(8);
-            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f1552));
+            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f1553));
             this.c.getTvTip().setVisibility(0);
             f fVar = this.k;
             if (fVar != null) {
@@ -847,7 +847,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.c.setAlpha(1.0f);
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
-                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f1553));
+                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f1554));
                 ax8 ax8Var = this.e;
                 if (ax8Var != null) {
                     ax8Var.n();

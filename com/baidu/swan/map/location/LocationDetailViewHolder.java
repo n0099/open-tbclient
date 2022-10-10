@@ -52,8 +52,8 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09148f);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa1);
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091e36);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa2);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091e37);
             this.c = findViewById;
             findViewById.setVisibility(8);
             this.itemView.setOnClickListener(this);

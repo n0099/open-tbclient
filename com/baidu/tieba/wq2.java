@@ -474,7 +474,7 @@ public class wq2 extends BaseAdapter {
             view2.setBackgroundColor(-1);
             jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a94));
             jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a9f));
-            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081183));
+            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081184));
             jVar.g.setTextColor(-1);
             jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060aa2));
             jVar.a.setLayoutParams(this.f);
@@ -484,7 +484,7 @@ public class wq2 extends BaseAdapter {
             jVar.f.setVisibility(8);
             jVar.h.setVisibility(8);
             jVar.f.setVisibility(0);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081191);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081192);
             jVar.h.setVisibility(0);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
             layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706b6);
@@ -594,7 +594,7 @@ public class wq2 extends BaseAdapter {
             if (cr2.d() >= br2.c) {
                 br2.j(br2.d);
             } else if (zg3.c() < 52428800) {
-                d33.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f12aa)).G();
+                d33.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f12ab)).G();
             } else {
                 p(this.a);
             }
@@ -610,10 +610,10 @@ public class wq2 extends BaseAdapter {
                     br2.j(br2.d);
                     return;
                 } else if (d2 > 0 && TextUtils.equals(br2.d, "single") && !TextUtils.equals(cr2.b(), mediaModel.getType())) {
-                    d33.f(this.a, R.string.obfuscated_res_0x7f0f12b2).G();
+                    d33.f(this.a, R.string.obfuscated_res_0x7f0f12b3).G();
                     return;
                 } else if (mediaModel.getSize() <= 52428800 || !TextUtils.equals(mediaModel.getType(), "image")) {
-                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08118f);
+                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081190);
                     jVar.c.setVisibility(0);
                     jVar.c.setText(String.valueOf(cr2.c(mediaModel) + 1));
                     cr2.i(mediaModel);
@@ -625,12 +625,12 @@ public class wq2 extends BaseAdapter {
                     notifyDataSetChanged();
                     return;
                 } else {
-                    d33.f(this.a, R.string.obfuscated_res_0x7f0f12b1).G();
+                    d33.f(this.a, R.string.obfuscated_res_0x7f0f12b2).G();
                     return;
                 }
             }
             cr2.h(mediaModel);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081191);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081192);
             jVar.c.setVisibility(8);
             ir2 ir2Var2 = this.c;
             if (ir2Var2 != null) {
@@ -656,10 +656,10 @@ public class wq2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
             if (j2 < 3000) {
-                d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12b8)).G();
+                d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12b9)).G();
                 return true;
             } else if (j2 > 300000) {
-                d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12b7)).G();
+                d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12b8)).G();
                 return true;
             } else {
                 return false;
@@ -677,7 +677,7 @@ public class wq2 extends BaseAdapter {
             long j5 = j3 % 3600;
             String format = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 / 60));
             String format2 = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 % 60));
-            return j4 == 0 ? this.a.getString(R.string.obfuscated_res_0x7f0f1338, new Object[]{format, format2}) : this.a.getString(R.string.obfuscated_res_0x7f0f1339, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
+            return j4 == 0 ? this.a.getString(R.string.obfuscated_res_0x7f0f1339, new Object[]{format, format2}) : this.a.getString(R.string.obfuscated_res_0x7f0f133a, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
         }
         return (String) invokeJ.objValue;
     }
@@ -704,11 +704,11 @@ public class wq2 extends BaseAdapter {
             view2.setClickable(true);
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09023a);
             if (TextUtils.equals(br2.b, "Image")) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081179);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08117a);
                 view2.setOnClickListener(new a(this));
                 return;
             }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08117d);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08117e);
             view2.setOnClickListener(new b(this));
         }
     }
@@ -744,7 +744,7 @@ public class wq2 extends BaseAdapter {
                 }
                 if (TextUtils.isEmpty(str2)) {
                 }
-                d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12b9)).G();
+                d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12ba)).G();
                 return false;
             }
             if (mediaMetadataRetriever != null) {
@@ -759,7 +759,7 @@ public class wq2 extends BaseAdapter {
             if (TextUtils.isEmpty(str2) && str2.startsWith(FileUtils.VIDEO_FILE_START)) {
                 return TextUtils.equals(MimeTypes.VIDEO_MP4, str2) || TextUtils.equals("video/3gp", str2) || TextUtils.equals(MimeTypes.VIDEO_WEBM, str2) || TextUtils.equals("video/mkv", str2);
             }
-            d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12b9)).G();
+            d33.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f12ba)).G();
             return false;
         }
         return invokeL.booleanValue;
@@ -783,7 +783,7 @@ public class wq2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
             if (cr2.f(mediaModel)) {
-                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08118f);
+                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081190);
                 jVar.c.setVisibility(0);
                 jVar.c.setText(String.valueOf(cr2.c(mediaModel) + 1));
             }
@@ -795,9 +795,9 @@ public class wq2 extends BaseAdapter {
             if (!ar2.d) {
                 jVar.h.setVisibility(8);
             } else if (br2.d(mediaModel.getPath())) {
-                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12ae));
-            } else if (br2.e(mediaModel.getPath())) {
                 jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12af));
+            } else if (br2.e(mediaModel.getPath())) {
+                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12b0));
             } else {
                 jVar.h.setVisibility(8);
             }

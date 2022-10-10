@@ -67,9 +67,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
             if (this.a == null) {
                 ba8 ba8Var = new ba8(getPageContext().getPageActivity(), getNetRefreshListener());
                 this.a = ba8Var;
-                ba8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+                ba8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
+                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }

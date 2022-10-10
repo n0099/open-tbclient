@@ -55,14 +55,14 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0506, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d58);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091d83);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d84);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d59);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091d84);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d85);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
                 this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e0));
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081098);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f081096);
-                this.a.findViewById(R.id.obfuscated_res_0x7f091d82).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a28));
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081099);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f081097);
+                this.a.findViewById(R.id.obfuscated_res_0x7f091d83).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a28));
             }
         }
     }

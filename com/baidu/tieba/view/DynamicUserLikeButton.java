@@ -111,7 +111,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements qz4 {
                     ny4Var.q();
                     setConfig(ny4Var);
                     setClickable(true);
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
                 } else {
                     ny4 ny4Var2 = new ny4();
                     ny4Var2.u(R.color.CAM_X0105);
@@ -127,7 +127,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements qz4 {
                 ny4Var3.t(R.color.CAM_X0109);
                 setConfig(ny4Var3);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
             } else {
                 ny4 ny4Var4 = new ny4();
                 ny4Var4.r(R.color.CAM_X0302);

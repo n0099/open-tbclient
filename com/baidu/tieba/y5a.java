@@ -302,7 +302,7 @@ public final class y5a {
         }
         Window window = dialog.getWindow();
         Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
-        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091c7c);
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f091c7d);
         ImageView imageView = (ImageView) window.findViewById(R.id.obfuscated_res_0x7f091015);
         if (viewGroup == null || imageView == null) {
             return;
@@ -333,10 +333,10 @@ public final class y5a {
             window.setAttributes(attributes);
             window.setWindowAnimations(R.style.obfuscated_res_0x7f100150);
             window.setContentView(R.layout.obfuscated_res_0x7f0d06a0);
-            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f092419);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f09241a);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
-            window.findViewById(R.id.obfuscated_res_0x7f091c66).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, z5aVar));
+            window.findViewById(R.id.obfuscated_res_0x7f091c67).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, z5aVar));
             ((Button) window.findViewById(R.id.obfuscated_res_0x7f09042f)).setOnClickListener(new b(payDialogType, dialog, iViewEventListener, z5aVar));
             ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f0906d3)).addView(view2);
         }

@@ -162,7 +162,7 @@ public class w39 extends n49<v49> implements p49 {
             return;
         }
         if (!writeData.canAddItem()) {
-            ej.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1619);
+            ej.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f161a);
             return;
         }
         RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(this.a.getPageActivity(), 0);

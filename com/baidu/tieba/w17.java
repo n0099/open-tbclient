@@ -316,7 +316,7 @@ public class w17 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
         }
         int id = view2.getId();
         int i = 5;
-        if (view2.getId() == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
             if (y26.R(x26Var.a)) {
                 A = x26Var.C();
                 TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(A));
@@ -326,14 +326,14 @@ public class w17 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
             }
             ro5.c().i("page_recommend", "clk_", A);
             d37.c(x26Var.a, x26Var.r(), x26Var.n(), 1);
-        } else if (id == R.id.obfuscated_res_0x7f092182) {
+        } else if (id == R.id.obfuscated_res_0x7f092183) {
             TiebaStatic.log(x26Var.T());
             ro5.c().i("page_recommend", "clk_", x26Var.T());
         } else {
-            if (id == R.id.obfuscated_res_0x7f092488) {
+            if (id == R.id.obfuscated_res_0x7f092489) {
                 TiebaStatic.log(x26Var.S());
                 ro5.c().i("page_recommend", "clk_", x26Var.S());
-            } else if (id != R.id.obfuscated_res_0x7f0924b6) {
+            } else if (id != R.id.obfuscated_res_0x7f0924b7) {
                 if (id == R.id.obfuscated_res_0x7f090a8f) {
                     TiebaStatic.log(x26Var.j());
                     ro5.c().i("page_recommend", "clk_", x26Var.j());

@@ -280,7 +280,7 @@ public class nu4 {
         this.mActivity = activity;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0223, (ViewGroup) null);
         this.mRootView = viewGroup;
-        this.mRealView = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091b63);
+        this.mRealView = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091b64);
     }
 
     private void changeContentWithNoTipAgainSkinType() {
@@ -434,7 +434,7 @@ public class nu4 {
                     this.mDialogGravity = 17;
                 }
                 window.setGravity(this.mDialogGravity);
-                window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081240);
+                window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081241);
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.7f;
                 attributes.width = -1;
@@ -482,7 +482,7 @@ public class nu4 {
             }
             ViewGroup viewGroup = this.mRootView;
             if (viewGroup != null) {
-                viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+                viewGroup.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
             }
             if (this.mRealView != null && ((i = this.dialogSize) == 2 || i == 5 || i == 10 || i == 9)) {
                 this.mRealView.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804a1);
@@ -507,7 +507,7 @@ public class nu4 {
             boolean z2 = true;
             this.mDialogCreated = true;
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0907bc);
-            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0926d7);
+            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0926d8);
             this.noButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0916c6);
             this.dividerWithButton = this.mRootView.findViewById(R.id.obfuscated_res_0x7f090825);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09035d);
@@ -592,7 +592,7 @@ public class nu4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092218);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219);
             this.titleTextView = textView;
             textView.setText(this.mTitle);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f74);
@@ -689,7 +689,7 @@ public class nu4 {
             if (z || z2) {
                 if (z && z2) {
                     linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0152, (ViewGroup) null);
-                    textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09224a);
+                    textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09224b);
                     textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09152d);
                     if (this.isMessageShowCenter) {
                         textView2.setGravity(17);

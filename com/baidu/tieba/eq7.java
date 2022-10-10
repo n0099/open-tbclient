@@ -50,12 +50,12 @@ public class eq7 extends dc5<dq7, yb5> {
             }
         }
         this.f = view2;
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
         TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906e3);
         this.h = textView;
         textView.setSingleLine();
         this.h.setEllipsize(TextUtils.TruncateAt.END);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e7);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e8);
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913b2);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f091306);
     }

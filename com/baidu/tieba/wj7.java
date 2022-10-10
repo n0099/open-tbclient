@@ -312,17 +312,17 @@ public class wj7 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             navigationBar.showBottomLine();
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07fa, (View.OnClickListener) null);
             this.u = addCustomView;
-            this.g = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091de0);
+            this.g = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091de1);
             this.d = (EditText) this.u.findViewById(R.id.obfuscated_res_0x7f090d8a);
             this.e = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090d7a);
             this.f = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090d79);
             this.h = (LinearLayout) this.u.findViewById(R.id.obfuscated_res_0x7f0913fc);
-            this.i = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091c79);
+            this.i = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091c7a);
             this.e.setOnClickListener(new c(this));
             r(false);
             this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0375));
@@ -332,17 +332,17 @@ public class wj7 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091df8);
+            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091df9);
             this.o = quickWebView;
             quickWebView.l(true);
-            this.p = this.b.findViewById(R.id.obfuscated_res_0x7f091e1a);
+            this.p = this.b.findViewById(R.id.obfuscated_res_0x7f091e1b);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091e0a);
+            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091e0b);
             this.n = quickWebView;
             quickWebView.l(true);
         }
@@ -372,7 +372,7 @@ public class wj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             h();
-            LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = (LinearLayoutDetectsSoftKeyboard) this.b.findViewById(R.id.obfuscated_res_0x7f091de7);
+            LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = (LinearLayoutDetectsSoftKeyboard) this.b.findViewById(R.id.obfuscated_res_0x7f091de8);
             this.k = linearLayoutDetectsSoftKeyboard;
             linearLayoutDetectsSoftKeyboard.setOnTouchListener(new b(this));
             this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090ad1);
@@ -410,9 +410,9 @@ public class wj7 {
                 this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             }
             this.c.onChangeSkinType(r9Var, i);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a69, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a6a, R.color.CAM_X0109, null);
             SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080a6f, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080a70, R.color.CAM_X0109, null);
             SkinManager.setBackgroundResource(this.l, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0107, 1);
             I(this.q);

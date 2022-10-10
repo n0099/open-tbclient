@@ -137,7 +137,7 @@ public class f48 extends p9 {
             if (i == 0) {
                 this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0b49));
             } else if (i == 1) {
-                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f14bc));
+                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f14bd));
             }
         }
     }
@@ -146,12 +146,12 @@ public class f48 extends p9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (z) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0ff0);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0ff1);
             } else {
                 this.b.setText(R.string.obfuscated_res_0x7f0f0754);
             }
             if (z2) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f0fea);
+                this.d.setText(R.string.obfuscated_res_0x7f0f0feb);
             } else {
                 this.d.setText(R.string.obfuscated_res_0x7f0f031e);
             }

@@ -64,7 +64,7 @@ public class PbRecomChildTitleAdapter extends ay7<h36, ViewHolder> {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092419);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09241a);
                 this.b = textView;
                 hv4.d(textView).A(R.string.F_X02);
             }

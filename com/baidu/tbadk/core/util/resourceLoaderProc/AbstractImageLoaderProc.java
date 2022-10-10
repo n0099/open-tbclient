@@ -427,7 +427,7 @@ public abstract class AbstractImageLoaderProc implements ah<on> {
                     webClient2 = webClient3;
                 }
                 try {
-                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be3, new TypedValue());
+                    InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080be4, new TypedValue());
                     byte[] d2 = sg.d(openRawResource);
                     Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
                     WebClient webClient4 = webClient2;

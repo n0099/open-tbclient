@@ -1032,7 +1032,7 @@ public class a87 extends o9<MsglistActivity<?>> {
                 this.A.setTagData(new r(this));
                 this.A.setBackgroundDrawableIdIsWebP(true);
                 this.A.setClickable(false);
-                this.A.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809f8, R.drawable.obfuscated_res_0x7f0809f7);
+                this.A.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809f9, R.drawable.obfuscated_res_0x7f0809f8);
                 this.A.setChecked(((Boolean) this.B.getTag()).booleanValue());
                 this.B.setOnClickListener(new h(this, chatMessage));
                 return;
@@ -1068,8 +1068,8 @@ public class a87 extends o9<MsglistActivity<?>> {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fc);
-            TbRichTextView tbRichTextView = (TbRichTextView) j(R.id.obfuscated_res_0x7f0920fb);
+            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fd);
+            TbRichTextView tbRichTextView = (TbRichTextView) j(R.id.obfuscated_res_0x7f0920fc);
             this.j = tbRichTextView;
             tbRichTextView.setLinkTextColor(-14845754);
             this.j.setFaceSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X04));
@@ -1086,7 +1086,7 @@ public class a87 extends o9<MsglistActivity<?>> {
             chatVoiceView.setClickable(true);
             ChatVoiceView chatVoiceView2 = this.k;
             chatVoiceView2.setOnClickListener(chatVoiceView2);
-            this.r = (ChatShareCard) j(R.id.obfuscated_res_0x7f091e7d);
+            this.r = (ChatShareCard) j(R.id.obfuscated_res_0x7f091e7e);
             t();
             this.j.setOnClickListener(new i(this));
             this.k.setLongClickable(true);

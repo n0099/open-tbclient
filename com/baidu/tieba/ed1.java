@@ -58,13 +58,13 @@ public class ed1 extends BaseAdapter {
             }
             this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090711);
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090710);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e41);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e42);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905a2);
             this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090712);
             this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09070e);
             this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09070b);
             this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09070f);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e4b);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e4c);
         }
     }
 

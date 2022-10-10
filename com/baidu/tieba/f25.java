@@ -503,7 +503,7 @@ public class f25 {
             this.k = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090b48);
             this.l = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090b4a);
             this.m = (HeadImageView) this.t.findViewById(R.id.obfuscated_res_0x7f090b40);
-            this.B = (TBLottieAnimationView) this.t.findViewById(R.id.obfuscated_res_0x7f0924b4);
+            this.B = (TBLottieAnimationView) this.t.findViewById(R.id.obfuscated_res_0x7f0924b5);
             this.o = (TBSpecificationBtn) this.t.findViewById(R.id.obfuscated_res_0x7f090b43);
             this.l.setText(this.i);
             this.k.setText(this.j);

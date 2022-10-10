@@ -308,7 +308,7 @@ public class DetailInfoFragment extends BaseFragment implements s28 {
             L1();
         } else {
             A1();
-            this.d.D(getString(R.string.obfuscated_res_0x7f0f0fcb));
+            this.d.D(getString(R.string.obfuscated_res_0x7f0f0fcc));
         }
     }
 

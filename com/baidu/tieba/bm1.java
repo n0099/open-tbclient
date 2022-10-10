@@ -107,7 +107,7 @@ public class bm1 implements jo1 {
                         fh3.a0(new RunnableC0213a(this, file2));
                     } catch (Exception e) {
                         l02.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        d33.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f1281)).G();
+                        d33.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f1282)).G();
                     }
                 }
             }

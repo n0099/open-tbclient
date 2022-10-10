@@ -188,7 +188,7 @@ public class k39 extends BaseAdapter {
             headImageView.setIsRound(true);
             UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
             bVar.b = (LinearLayout) bVar.a.findViewById(R.id.obfuscated_res_0x7f0919bf);
-            bVar.d = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f092445);
+            bVar.d = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f092446);
             TextView textView = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f091252);
             bVar.f = textView;
             hv4 d = hv4.d(textView);
@@ -200,7 +200,7 @@ public class k39 extends BaseAdapter {
             TbCheckBox tbCheckBox = (TbCheckBox) bVar.a.findViewById(R.id.obfuscated_res_0x7f090641);
             bVar.e = tbCheckBox;
             tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-            bVar.e.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809f8, R.drawable.obfuscated_res_0x7f0809f7);
+            bVar.e.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809f9, R.drawable.obfuscated_res_0x7f0809f8);
             TbCheckBox.b bVar2 = this.d;
             if (bVar2 != null) {
                 bVar.e.setStatedChangedListener(bVar2);

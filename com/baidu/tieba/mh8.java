@@ -335,9 +335,9 @@ public class mh8 extends lh8 {
         bundle.putString("title", shareEntity.getTitle());
         if (shareEntity.getReadCount() >= 0) {
             if (shareEntity.getReadCount() < 10000) {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1167));
+                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1168));
             } else {
-                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.b.getString(R.string.obfuscated_res_0x7f0f1166));
+                bundle.putString("summary", StringHelper.numberUniformFormatExtra(shareEntity.getReadCount()) + this.b.getString(R.string.obfuscated_res_0x7f0f1167));
             }
         } else {
             bundle.putString("summary", shareEntity.getContent());
@@ -376,7 +376,7 @@ public class mh8 extends lh8 {
         } else if (!StringUtils.isNull(shareEntity.getContent())) {
             bundle.putString("summary", shareEntity.getContent());
         } else {
-            bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1167));
+            bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1168));
         }
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         if (!StringUtils.isNull(shareEntity.getImgUrl())) {

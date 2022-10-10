@@ -184,11 +184,11 @@ public class bx7 extends qn<x26, ThreadCardViewHolder<x26>> {
     public final void w(View view2, x26 x26Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, x26Var) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                 j28.m(x26Var, 1, this.b);
             } else if (view2 instanceof TbImageView) {
                 j28.m(x26Var, 3, this.b);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092181 || view2.getId() == R.id.obfuscated_res_0x7f092173) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092182 || view2.getId() == R.id.obfuscated_res_0x7f092174) {
                 j28.m(x26Var, 1, this.b);
             }
         }

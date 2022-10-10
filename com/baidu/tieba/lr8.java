@@ -46,6 +46,6 @@ public class lr8 extends CustomMessageListener {
             return;
         }
         MainTabActivity mainTabActivity = this.a;
-        new l65(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092015), m65Var).m();
+        new l65(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092016), m65Var).m();
     }
 }

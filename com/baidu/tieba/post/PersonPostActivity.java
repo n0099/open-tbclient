@@ -285,7 +285,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             this.p = TbadkCoreApplication.getInst().getSkinType();
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.g = navigationBar;
             navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b6c));
             View view2 = (View) this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
@@ -294,7 +294,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             RelativeLayout relativeLayout = (RelativeLayout) this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d072c, (View.OnClickListener) null);
             this.i = relativeLayout;
             relativeLayout.setOnClickListener(new b(this));
-            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0923f9);
+            this.j = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0923fa);
             this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091027);
             if (ox4.k().h(ox4.o("key_person_post_recycle_bin_red_tip_show"), false)) {
                 this.k.setVisibility(0);
@@ -304,7 +304,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             this.l = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091987);
             this.b = new int[]{0, 1};
             this.n = new PersonPostAdapter(this);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092015);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092016);
             this.m = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.m.setOnPageChangeListener(this);
@@ -369,7 +369,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                 if (b2 == 0) {
                     O0(item, 0, getPageContext().getString(R.string.obfuscated_res_0x7f0f0e82));
                 } else if (b2 == 1) {
-                    O0(item, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0ffd));
+                    O0(item, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0ffe));
                 }
             }
         }
@@ -450,9 +450,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
                 if (intExtra == 1) {
                     this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f0851);
                 } else if (intExtra != 2) {
-                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1365);
+                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1366);
                 } else {
-                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1192);
+                    this.d = getPageContext().getString(R.string.obfuscated_res_0x7f0f1193);
                 }
             }
             TbadkCoreApplication.isMyLive = false;

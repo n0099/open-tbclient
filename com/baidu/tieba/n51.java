@@ -695,7 +695,7 @@ public class n51 {
     public final void d(LinearLayout linearLayout, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, linearLayout, i2) == null) {
-            e(linearLayout, i2, R.drawable.obfuscated_res_0x7f080dd1);
+            e(linearLayout, i2, R.drawable.obfuscated_res_0x7f080dd2);
         }
     }
 
@@ -703,10 +703,10 @@ public class n51 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, i2, i3) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0616, (ViewGroup) linearLayout, false);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f65);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f66);
             textView.setTextColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06086c));
             textView.setText(i2);
-            ((BdBaseImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f64)).setImageResource(i3);
+            ((BdBaseImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f65)).setImageResource(i3);
             linearLayout.addView(inflate);
         }
     }
@@ -714,7 +714,7 @@ public class n51 {
     public final void f(LinearLayout linearLayout, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, linearLayout, i2) == null) {
-            e(linearLayout, i2, R.drawable.obfuscated_res_0x7f080dd0);
+            e(linearLayout, i2, R.drawable.obfuscated_res_0x7f080dd1);
         }
     }
 
@@ -779,7 +779,7 @@ public class n51 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, sslCertificate, sslError)) == null) {
             View n2 = n(sslCertificate);
             LinearLayout linearLayout = (LinearLayout) n2.findViewById(R.id.obfuscated_res_0x7f0919e9);
-            n2.findViewById(R.id.obfuscated_res_0x7f091f63).setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060833));
+            n2.findViewById(R.id.obfuscated_res_0x7f091f64).setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060833));
             if (sslError == null) {
                 d(linearLayout, R.string.obfuscated_res_0x7f0f0c09);
             } else {
@@ -872,9 +872,9 @@ public class n51 {
             }
             SslCertificate.DName issuedTo = sslCertificate.getIssuedTo();
             if (issuedTo != null) {
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226b)).setText(issuedTo.getCName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226e)).setText(issuedTo.getOName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092270)).setText(issuedTo.getUName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226c)).setText(issuedTo.getCName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226f)).setText(issuedTo.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092271)).setText(issuedTo.getUName());
             }
             SslCertificate.DName issuedBy = sslCertificate.getIssuedBy();
             if (issuedBy != null) {
@@ -987,7 +987,7 @@ public class n51 {
                 return false;
             } else {
                 View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05f6, null);
-                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0924e8);
+                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0924e9);
                 editText.setText(str3);
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091515)).setText(str2);
                 j71.a aVar = new j71.a(this.a);

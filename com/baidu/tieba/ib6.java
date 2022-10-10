@@ -102,7 +102,7 @@ public class ib6 extends wu4 {
             return;
         }
         list.clear();
-        this.p.add(new uu4(1, p(this.o.l() == 1 ? R.string.obfuscated_res_0x7f0f0381 : R.string.obfuscated_res_0x7f0f1457, new Object[0]), this.n));
+        this.p.add(new uu4(1, p(this.o.l() == 1 ? R.string.obfuscated_res_0x7f0f0381 : R.string.obfuscated_res_0x7f0f1458, new Object[0]), this.n));
         this.p.add(new uu4(2, p(R.string.obfuscated_res_0x7f0f04b0, new Object[0]), this.n));
         this.n.j(this.p);
     }

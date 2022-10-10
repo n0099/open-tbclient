@@ -781,8 +781,8 @@ public class CameraActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
             nu4 nu4Var = new nu4(activity);
             nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101d);
-            nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1019);
+            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101e);
+            nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f101a);
             nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0997, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(this, activity)).create(getPageContext());
             nu4Var.show();
         }
@@ -886,7 +886,7 @@ public class CameraActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d014c);
-            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0920ca);
+            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0920cb);
             this.f = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0906cb);
             CameraView cameraView = (CameraView) findViewById(R.id.obfuscated_res_0x7f090496);
             this.h = cameraView;
@@ -894,13 +894,13 @@ public class CameraActivity extends BaseActivity {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912fb);
             this.g = imageView;
             imageView.setOnClickListener(this.p);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920c9);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920ca);
             findViewById(R.id.obfuscated_res_0x7f090238).setOnClickListener(this.o);
             this.m.setOnClickListener(this.q);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907e3);
             this.f.findViewById(R.id.obfuscated_res_0x7f0906c6).setOnClickListener(this.v);
             this.f.findViewById(R.id.obfuscated_res_0x7f090499).setOnClickListener(this.w);
-            findViewById(R.id.obfuscated_res_0x7f091c87).setOnClickListener(this.x);
+            findViewById(R.id.obfuscated_res_0x7f091c88).setOnClickListener(this.x);
             this.j = (CropView) findViewById(R.id.obfuscated_res_0x7f090736);
             this.e = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090734);
             this.k = (FrameOverlayView) findViewById(R.id.obfuscated_res_0x7f09177e);
@@ -938,7 +938,7 @@ public class CameraActivity extends BaseActivity {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             if (i2 != 800) {
                 if (i2 == 801 && (iArr.length <= 0 || iArr[0] != 0)) {
-                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1224);
+                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1225);
                 }
             } else if (iArr.length > 0 && iArr[0] == 0) {
                 this.h.getCameraControl().g();

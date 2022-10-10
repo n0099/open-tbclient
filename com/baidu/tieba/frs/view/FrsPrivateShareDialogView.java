@@ -205,7 +205,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             TextView textView2 = this.k;
             textView2.setText(frsViewData.getForum().getMember_num() + getResources().getString(R.string.obfuscated_res_0x7f0f02e5));
         } else {
-            this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15b3));
+            this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15b4));
         }
         ArrayList arrayList = new ArrayList();
         if (frsViewData.userList != null) {
@@ -277,7 +277,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090be6);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080f39);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080f3a);
             this.d.setRadius(ej.f(this.s.getPageActivity(), R.dimen.tbds30));
             this.d.setConrers(3);
             h();
@@ -302,7 +302,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
             this.h.setTag(null);
-            SkinManager.setBackgroundResource(this.i, R.drawable.obfuscated_res_0x7f081270);
+            SkinManager.setBackgroundResource(this.i, R.drawable.obfuscated_res_0x7f081271);
             TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090be2);
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);

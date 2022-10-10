@@ -401,9 +401,9 @@ public class ScrollLabelTabHost extends RelativeLayout {
             layoutParams.addRule(10);
             TextView e = this.l.e();
             if (i == 0) {
-                e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0fc4));
+                e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0fc5));
             } else {
-                e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0fc5), Integer.valueOf(i)));
+                e.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0fc6), Integer.valueOf(i)));
             }
             addView(e, layoutParams);
             this.l.d();

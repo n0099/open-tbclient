@@ -380,9 +380,9 @@ public class TaskBuoyView extends up implements iv {
         View view2 = this.d;
         this.f = view2 != null ? (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09047e) : null;
         View view3 = this.d;
-        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0920cb) : null;
+        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0920cc) : null;
         View view4 = this.d;
-        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f0920d1) : null;
+        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f0920d2) : null;
         this.i = new jv();
         this.k = new ConcurrentLinkedQueue();
         this.l = 1000;

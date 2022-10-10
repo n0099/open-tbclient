@@ -119,10 +119,10 @@ public class he8 extends dh6<AdvertAppInfo, FrsAppLegoViewHolder> {
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.l == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f092046) instanceof AdvertAppInfo.ILegoAdvert)) {
+            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.l == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f092047) instanceof AdvertAppInfo.ILegoAdvert)) {
                 return true;
             }
-            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f092046));
+            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f092047));
         }
         return invokeL.booleanValue;
     }
@@ -138,7 +138,7 @@ public class he8 extends dh6<AdvertAppInfo, FrsAppLegoViewHolder> {
             if (this.l == null || (view2 = (View) og7.h().a(this.c, this.l, 1)) == null) {
                 return null;
             }
-            view2.setTag(R.id.obfuscated_res_0x7f092046, this.l);
+            view2.setTag(R.id.obfuscated_res_0x7f092047, this.l);
             return new FrsAppLegoViewHolder((jh7) view2);
         }
         return (FrsAppLegoViewHolder) invokeL.objValue;

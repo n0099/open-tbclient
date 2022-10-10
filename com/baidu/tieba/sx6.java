@@ -312,7 +312,7 @@ public class sx6 extends qn<y26, AutoVideoCardViewHolder<y26>> implements to5 {
         }
         if (view2.getId() == this.f.p().getMainView().getId()) {
             sw6.b(view2, y26Var, 4);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
             sw6.b(view2, y26Var, 2);
         }
     }

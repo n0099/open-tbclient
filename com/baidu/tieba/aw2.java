@@ -390,7 +390,7 @@ public class aw2 implements hw2 {
             }
             CallbackHandler callbackHandler = this.f.c;
             String str2 = this.f.i;
-            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.w().getString(R.string.obfuscated_res_0x7f0f128b) + str).toString());
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.w().getString(R.string.obfuscated_res_0x7f0f128c) + str).toString());
         }
 
         @Override // com.baidu.tieba.aw2.k
@@ -1067,11 +1067,11 @@ public class aw2 implements hw2 {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (l33Var = this.a) == null) {
             return;
         }
-        d33.f(l33Var.w(), R.string.obfuscated_res_0x7f0f12f8).G();
+        d33.f(l33Var.w(), R.string.obfuscated_res_0x7f0f12f9).G();
         if (TextUtils.isEmpty(this.i)) {
             return;
         }
-        this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.w().getString(R.string.obfuscated_res_0x7f0f12f8)).toString());
+        this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.w().getString(R.string.obfuscated_res_0x7f0f12f9)).toString());
     }
 
     public final void O(int i2, String str, String str2) {

@@ -291,13 +291,13 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         LayoutInflater.from(new ContextThemeWrapper(activity, k5a.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) this, true);
         this.a = activity;
         this.n = cVar;
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fd);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fe);
         Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090430);
         this.b = i;
         this.c = i2;
         this.k = l4aVar;
         this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f01);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923af);
         m(cVar != null ? cVar.a : null);
         button.setOnClickListener(new a(this));
         this.f.setOnClickListener(new b(this));
@@ -415,7 +415,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                 str4 = o4a.d().successMsg;
             }
             this.f.setText(str4);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ed6);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ed7);
             t4a.b(this.b, this.c, PayUIEventType.successpageshow);
             RLog.info("YYPayResultView", PayUIEventType.successpageshow);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
@@ -429,7 +429,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             }
             this.d.setText(str);
             this.f.setText((o4a.d() == null || o4a.d().customerServiceMsg == null || o4a.d().customerServiceMsg.isEmpty()) ? "如有问题可以联系客服 " : o4a.d().customerServiceMsg);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ed3);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080ed4);
             RLog.info("YYPayResultView", PayUIEventType.failpageshow);
             t4a.b(this.b, this.c, PayUIEventType.failpageshow);
         }

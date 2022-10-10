@@ -136,8 +136,8 @@ public class RichTextLayout extends LinearLayout implements wx<yq4>, View.OnClic
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
         }
     }
 

@@ -100,7 +100,7 @@ public class s38 {
                 if (this.a.b != null) {
                     this.a.b.setVisibility(4);
                 }
-                WebPManager.setPureDrawable(this.a.a, R.drawable.obfuscated_res_0x7f080981, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.a.a, R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             }
         }
     }
@@ -237,7 +237,7 @@ public class s38 {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.d && TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
             int b2 = d35.b();
             if (d35.c() > 0) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080981, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             } else if (b2 > 0) {
                 SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, b2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }

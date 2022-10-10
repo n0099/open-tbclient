@@ -310,7 +310,7 @@ public class u57 {
                     this.a.b.R(this.a.i);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f155b);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f155c);
                 } else {
                     this.a.c.showToast(str);
                 }
@@ -409,9 +409,9 @@ public class u57 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i <= 0) {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f155c);
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f155d);
             } else {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f155a, Integer.valueOf(i));
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f155b, Integer.valueOf(i));
             }
             return new yx4.i(string, 1000);
         }

@@ -905,8 +905,8 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements u
     public final void initHeaderTip(TalkableActivity talkableActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, talkableActivity) == null) {
-            this.viewHeader = (LinearLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0925bc);
-            this.mNetworkView = (NoNetworkView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.viewHeader = (LinearLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0925bd);
+            this.mNetworkView = (NoNetworkView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0925c7);
             PersonalFollowTipLayout personalFollowTipLayout = (PersonalFollowTipLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09193c);
             this.followTipLayout = personalFollowTipLayout;
             personalFollowTipLayout.f(getPageContext());
@@ -983,7 +983,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements u
             this.mMsgListBgView = msglistActivity.findViewById(R.id.obfuscated_res_0x7f09132f);
             this.mMsgListBgViewMask = msglistActivity.findViewById(R.id.obfuscated_res_0x7f091330);
             this.mLisMsg = (BdTypeListView) msglistActivity.findViewById(R.id.obfuscated_res_0x7f091327);
-            this.transparentView = msglistActivity.findViewById(R.id.obfuscated_res_0x7f092332);
+            this.transparentView = msglistActivity.findViewById(R.id.obfuscated_res_0x7f092333);
             ProgressBar progressBar = (ProgressBar) msglistActivity.findViewById(R.id.obfuscated_res_0x7f09158a);
             this.mPrgLisMsg = progressBar;
             progressBar.setVisibility(8);
@@ -1015,7 +1015,7 @@ public abstract class AbsMsglistView extends p9<MsglistActivity<?>> implements u
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, talkableActivity) == null) {
             this.mLayNewMsg = (LinearLayout) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091262);
-            this.mTextNewMsg = (TextView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f092121);
+            this.mTextNewMsg = (TextView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f092122);
             this.mLayNewMsg.setOnClickListener(talkableActivity);
         }
     }

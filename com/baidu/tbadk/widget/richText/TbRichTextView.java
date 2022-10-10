@@ -677,8 +677,8 @@ public class TbRichTextView extends LinearLayout implements ll {
                     str = (String) tag;
                 } else {
                     boolean z = view2 instanceof TbImageView;
-                    if (z && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextMemeInfo)) {
-                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                    if (z && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextMemeInfo)) {
+                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                         String str2 = (tbRichTextMemeInfo == null || (memeInfo = tbRichTextMemeInfo.memeInfo) == null) ? "" : memeInfo.pic_url;
                         int childCount2 = this.a.getChildCount();
                         while (i < childCount2) {
@@ -952,7 +952,7 @@ public class TbRichTextView extends LinearLayout implements ll {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) {
                 if (view3 instanceof GifView) {
-                    Object tag = view3.getTag(R.id.obfuscated_res_0x7f09207a);
+                    Object tag = view3.getTag(R.id.obfuscated_res_0x7f09207b);
                     if (!(tag instanceof t) || !((t) tag).a) {
                         if (this.a.h != null) {
                             this.a.h.e((GifView) view3);
@@ -965,7 +965,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                         this.a.b.e((ImageView) view3);
                     }
                 } else if (view3 instanceof ImageView) {
-                    Object tag2 = view3.getTag(R.id.obfuscated_res_0x7f09207a);
+                    Object tag2 = view3.getTag(R.id.obfuscated_res_0x7f09207b);
                     if (!(tag2 instanceof t) || !((t) tag2).a) {
                         if (this.a.c != null) {
                             this.a.c.e((ImageView) view3);
@@ -1717,7 +1717,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                 if (!tbRichTextData.F().G()) {
                     tbImageView.setAdjustViewBounds(false);
                 }
-                tbImageView.setTag(R.id.obfuscated_res_0x7f092078, null);
+                tbImageView.setTag(R.id.obfuscated_res_0x7f092079, null);
             }
             return e0(imageView, tbRichTextData.F().getWidth(), tbRichTextData.F().getHeight(), i2, i3, this.b0);
         }
@@ -1805,7 +1805,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                 }
                 tbImageView.K(tbRichTextData.I().memeInfo.pic_url, this.v ? 17 : 18, false);
                 tbImageView.setAdjustViewBounds(false);
-                tbImageView.setTag(R.id.obfuscated_res_0x7f092078, tbRichTextData.I());
+                tbImageView.setTag(R.id.obfuscated_res_0x7f092079, tbRichTextData.I());
             }
             return f0(imageView, tbRichTextData.I().memeInfo.width.intValue(), tbRichTextData.I().memeInfo.height.intValue(), i2, i3, this.b0);
         }
@@ -1991,7 +1991,7 @@ public class TbRichTextView extends LinearLayout implements ll {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, view2)) == null) {
             if (view2 instanceof ImageView) {
                 if (view2 instanceof GifView) {
-                    return view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof r) && ((r) view2.getTag(R.id.obfuscated_res_0x7f092079)).a;
+                    return view2.getTag(R.id.obfuscated_res_0x7f09207a) != null && (view2.getTag(R.id.obfuscated_res_0x7f09207a) instanceof r) && ((r) view2.getTag(R.id.obfuscated_res_0x7f09207a)).a;
                 }
                 if ((view2 instanceof TbImageView) && view2.getTag() != null) {
                     if (view2.getTag() instanceof u) {
@@ -3090,12 +3090,12 @@ public class TbRichTextView extends LinearLayout implements ll {
                                                         gifView2 = obj2;
                                                         r rVar = new r(hVar);
                                                         rVar.a = z8;
-                                                        gifView2.setTag(R.id.obfuscated_res_0x7f092079, rVar);
+                                                        gifView2.setTag(R.id.obfuscated_res_0x7f09207a, rVar);
                                                         P = O(next, gifView2, z7);
                                                         if (z3) {
                                                             t tVar = new t(hVar);
                                                             tVar.a = z8;
-                                                            gifView2.setTag(R.id.obfuscated_res_0x7f09207a, tVar);
+                                                            gifView2.setTag(R.id.obfuscated_res_0x7f09207b, tVar);
                                                         }
                                                         tbRichTextData2 = next;
                                                         view3 = gifView2;
@@ -3112,7 +3112,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                                         gifView2 = gifView3;
                                         r rVar2 = new r(hVar);
                                         rVar2.a = z8;
-                                        gifView2.setTag(R.id.obfuscated_res_0x7f092079, rVar2);
+                                        gifView2.setTag(R.id.obfuscated_res_0x7f09207a, rVar2);
                                         P = O(next, gifView2, z7);
                                         if (z3) {
                                         }
@@ -3143,7 +3143,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                                         if (z3) {
                                             t tVar2 = new t(hVar);
                                             tVar2.a = z8;
-                                            r10.setTag(R.id.obfuscated_res_0x7f09207a, tVar2);
+                                            r10.setTag(R.id.obfuscated_res_0x7f09207b, tVar2);
                                         }
                                         P = K;
                                         view3 = r10;
@@ -3152,7 +3152,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                                     gifView = view3;
                                     gifView = view3;
                                     if (view3 != null && tbRichTextData != null) {
-                                        view3.setTag(R.id.obfuscated_res_0x7f092077, tbRichTextData.F());
+                                        view3.setTag(R.id.obfuscated_res_0x7f092078, tbRichTextData.F());
                                         gifView = view3;
                                     }
                                 }

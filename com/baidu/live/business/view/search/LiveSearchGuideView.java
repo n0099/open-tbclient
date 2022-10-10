@@ -59,16 +59,16 @@ public class LiveSearchGuideView extends FrameLayout {
             return;
         }
         if (z) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d00);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfe);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d01);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cff);
             this.b.setTextColor(-1);
         } else if ("day".equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cff);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfd);
-            this.b.setTextColor(-1);
-        } else if ("night".equals(str)) {
             this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d00);
             this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfe);
+            this.b.setTextColor(-1);
+        } else if ("night".equals(str)) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d01);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cff);
             this.b.setTextColor(-1);
         }
     }

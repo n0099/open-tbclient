@@ -141,7 +141,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         matrix.postTranslate(0.0f, -lz7.i());
         this.d.setImageMatrix(matrix);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f0903a8);
-        this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1d);
+        this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1e);
         this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917ff);
         this.h = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09014e);
         this.c = view2;
@@ -158,7 +158,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.f.setDisplayImage(z, false);
         this.f.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d0906);
         this.i = view2.findViewById(R.id.obfuscated_res_0x7f090804);
-        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924a3);
+        this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924a4);
         this.l = (ThreadSkinView) view2.findViewById(R.id.obfuscated_res_0x7f091838);
         this.p = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09183d);
         this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091837);
@@ -180,10 +180,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.B = new m18(tbPageContext);
         this.A = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f0917e0);
         this.x = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091764);
-        VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f09264a);
+        VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f09264b);
         this.C = voteView;
         voteView.setPageContext(tbPageContext);
-        this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09242c);
+        this.D = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09242d);
         PbFirstFloorQuestionThreadView pbFirstFloorQuestionThreadView = (PbFirstFloorQuestionThreadView) view2.findViewById(R.id.obfuscated_res_0x7f0917da);
         this.E = pbFirstFloorQuestionThreadView;
         pbFirstFloorQuestionThreadView.setPageContext(tbPageContext);

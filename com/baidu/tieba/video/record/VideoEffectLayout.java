@@ -564,10 +564,10 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             HListView hListView = (HListView) findViewById(R.id.obfuscated_res_0x7f09088b);
             this.a = hListView;
             hListView.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
-            this.a.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
-            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091f8a);
+            this.a.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
+            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091f8b);
             this.b = hListView2;
-            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
+            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
             vw8 vw8Var = new vw8();
             this.c = vw8Var;
             this.a.setAdapter((ListAdapter) vw8Var);

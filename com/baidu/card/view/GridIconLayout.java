@@ -123,7 +123,7 @@ public class GridIconLayout extends FrameLayout implements xx, wx<ks4> {
                 tbImageView.setPlaceHolder(1);
                 tbImageView.K(lr4Var.b(), 10, false);
                 tbImageView.setUseNightOrDarkMask(false);
-                TextView textView = (TextView) ij5Var.b(R.id.obfuscated_res_0x7f092419);
+                TextView textView = (TextView) ij5Var.b(R.id.obfuscated_res_0x7f09241a);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
                 textView.setText(lr4Var.c());
                 if (this.g.b != null) {

@@ -219,8 +219,8 @@ public class H5Activity extends Activity implements L1 {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d092c);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092694);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f09268b);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092695);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f09268c);
             this.h = 0L;
             this.i = new m2(this);
             M1.a("hcl", this);

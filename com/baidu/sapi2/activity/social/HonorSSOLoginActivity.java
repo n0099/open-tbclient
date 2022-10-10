@@ -72,7 +72,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str2 = HonorSSOLoginActivity.o;
                 Log.i(str2, "silentSignIn onFail :" + exc.getMessage());
                 HonorSSOLoginActivity honorSSOLoginActivity = this.a;
-                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1081));
+                honorSSOLoginActivity.a(-202, honorSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1082));
             }
         }
     }
@@ -153,7 +153,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.obfuscated_res_0x7f0f108d));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f108e));
             } else if (this.sapiWebView == null) {
             } else {
                 SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
@@ -172,7 +172,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                 String str = o;
                 Log.i(str, "doFrontLogin Exception: " + e.getMessage());
                 e.printStackTrace();
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1081));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1082));
             }
         }
     }
@@ -211,12 +211,12 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
                     b(signInAccountInfo.getAuthorizationCode());
                     return;
                 }
-                a(-202, getString(R.string.obfuscated_res_0x7f0f1081));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1082));
                 String str3 = o;
                 Log.i(str3, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                 return;
             }
-            a(-202, getString(R.string.obfuscated_res_0x7f0f108d));
+            a(-202, getString(R.string.obfuscated_res_0x7f0f108e));
         }
     }
 
@@ -234,7 +234,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1095);
+            setTitleText(R.string.obfuscated_res_0x7f0f1096);
             try {
                 e();
             } catch (Exception e) {

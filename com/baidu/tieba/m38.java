@@ -651,10 +651,10 @@ public class m38 extends ib8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.d0();
-            this.N0 = (PbVideoFullscreenAttentionLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f092524);
-            this.O0 = (PbNextVideoLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f092548);
-            this.P0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f09255f);
-            this.Q0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092547);
+            this.N0 = (PbVideoFullscreenAttentionLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f092525);
+            this.O0 = (PbNextVideoLayout) this.Q.findViewById(R.id.obfuscated_res_0x7f092549);
+            this.P0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092560);
+            this.Q0 = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092548);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.P0, R.drawable.obfuscated_res_0x7f08063b, R.color.CAM_X0101, null);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.Q0, R.drawable.obfuscated_res_0x7f08062d, R.color.CAM_X0101, null);
             this.u.s();
@@ -819,15 +819,15 @@ public class m38 extends ib8 {
         if (id == R.id.obfuscated_res_0x7f0906c4) {
             Q0();
             gh.a().post(this.j1);
-        } else if (id == R.id.obfuscated_res_0x7f092547 || id == R.id.obfuscated_res_0x7f092548) {
+        } else if (id == R.id.obfuscated_res_0x7f092548 || id == R.id.obfuscated_res_0x7f092549) {
             VideoPbViewModel videoPbViewModel = this.V0;
             if (videoPbViewModel != null) {
-                videoPbViewModel.p(id == R.id.obfuscated_res_0x7f092548);
+                videoPbViewModel.p(id == R.id.obfuscated_res_0x7f092549);
             }
-            if (id == R.id.obfuscated_res_0x7f092547) {
+            if (id == R.id.obfuscated_res_0x7f092548) {
                 TiebaStatic.log(new StatisticItem("c13595"));
             }
-        } else if (id == R.id.obfuscated_res_0x7f09255f) {
+        } else if (id == R.id.obfuscated_res_0x7f092560) {
             VideoPbViewModel videoPbViewModel2 = this.V0;
             if (videoPbViewModel2 != null) {
                 videoPbViewModel2.q();
@@ -927,19 +927,19 @@ public class m38 extends ib8 {
     public void t0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            if (i == R.id.obfuscated_res_0x7f092522) {
+            if (i == R.id.obfuscated_res_0x7f092523) {
                 if (!isFullScreen()) {
                     TiebaStatic.log(new StatisticItem("c13598"));
                 } else {
                     TiebaStatic.log(new StatisticItem("c13599"));
                 }
-            } else if (i == R.id.obfuscated_res_0x7f092565) {
+            } else if (i == R.id.obfuscated_res_0x7f092566) {
                 TiebaStatic.log(K0("c13602"));
-            } else if (i == R.id.obfuscated_res_0x7f092556) {
+            } else if (i == R.id.obfuscated_res_0x7f092557) {
                 TiebaStatic.log(new StatisticItem("c13597"));
-            } else if (i == R.id.obfuscated_res_0x7f092549) {
+            } else if (i == R.id.obfuscated_res_0x7f09254a) {
                 TiebaStatic.log(new StatisticItem("c13596"));
-            } else if (i == R.id.obfuscated_res_0x7f092548) {
+            } else if (i == R.id.obfuscated_res_0x7f092549) {
                 TiebaStatic.log(K0("c13601").param("obj_type", this.O0.h ? 1 : 2));
             }
         }

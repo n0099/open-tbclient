@@ -187,7 +187,7 @@ public class rk8 extends p9<Object> {
         this.f = null;
         this.a = tbPageContext;
         this.b = view2;
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091f56);
+        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091f57);
         this.c = bdListView;
         bdListView.setOnKeyListener(onKeyListener);
         if (this.a.getOrignalPage() instanceof SquareActivity) {
@@ -199,6 +199,6 @@ public class rk8 extends p9<Object> {
         zx4 zx4Var = new zx4(tbPageContext);
         this.e = zx4Var;
         this.c.setPullRefresh(zx4Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
     }
 }

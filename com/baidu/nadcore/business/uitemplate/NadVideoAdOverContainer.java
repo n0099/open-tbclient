@@ -383,7 +383,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             if (getResources() == null) {
                 return new SpannableStringBuilder(str);
             }
-            return i81.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dfc), (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070530));
+            return i81.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080dfd), (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070530));
         }
         return (SpannableStringBuilder) invokeL.objValue;
     }

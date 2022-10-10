@@ -322,17 +322,17 @@ public class MutiImgMoreLayout extends LinearLayout implements wx<yq4> {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092182);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092183);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092178);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092179);
             this.d = relativeLayout;
             HomeGroupUbsUIHelper.handleContentInterval(relativeLayout, R.dimen.tbds26, R.dimen.tbds14);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217a);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217d);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217c);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217b);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217e);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09217d);
             this.m = new b(this);
         }
     }

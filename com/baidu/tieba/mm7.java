@@ -30,10 +30,10 @@ public class mm7 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809b4;
+        this.d = R.drawable.obfuscated_res_0x7f0809b5;
         this.h = R.drawable.icon_pure_post_more_bubble64;
         this.e = R.drawable.obfuscated_res_0x7f08081e;
-        this.r = R.drawable.obfuscated_res_0x7f0809b0;
+        this.r = R.drawable.obfuscated_res_0x7f0809b1;
         this.i = false;
         this.j = true;
         this.o = true;

@@ -470,7 +470,7 @@ public class LoginActivity extends BaseActivity {
                 return;
             }
             sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.obfuscated_res_0x7f0f109f);
+            setTitleText(R.string.obfuscated_res_0x7f0f10a0);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
@@ -793,7 +793,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.obfuscated_res_0x7f0f109f);
+                    setTitleText(R.string.obfuscated_res_0x7f0f10a0);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -809,7 +809,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair("loginUserName", this.x));
                     }
-                    setTitleText(R.string.obfuscated_res_0x7f0f1092);
+                    setTitleText(R.string.obfuscated_res_0x7f0f1093);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }

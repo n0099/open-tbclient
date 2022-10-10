@@ -165,7 +165,7 @@ public class lr6 extends ir6 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
             o();
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091f2d);
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091f2e);
         }
     }
 
@@ -173,21 +173,21 @@ public class lr6 extends ir6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.c.findViewById(R.id.obfuscated_res_0x7f090b5a).setVisibility(8);
-            this.c.findViewById(R.id.obfuscated_res_0x7f09267d).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f09267e).setVisibility(8);
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0923bf);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0923c0);
             this.d = tBSpecificationBtn;
             tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02b0));
             this.d.setTextSize(R.dimen.T_X08);
             ny4 ny4Var = new ny4();
             ny4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
             this.d.setConfig(ny4Var);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092403);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092404);
             this.e = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
             ny4 ny4Var2 = new ny4();
@@ -195,7 +195,7 @@ public class lr6 extends ir6 {
             ny4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
             ny4Var2.i(R.drawable.obfuscated_res_0x7f080958, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.e.setConfig(ny4Var2);
-            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f119c));
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f119d));
         }
     }
 }

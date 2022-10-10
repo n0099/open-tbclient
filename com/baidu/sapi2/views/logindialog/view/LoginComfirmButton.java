@@ -39,7 +39,7 @@ public class LoginComfirmButton extends TextView {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c8));
+            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810c9));
         }
     }
 

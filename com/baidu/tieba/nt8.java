@@ -84,35 +84,35 @@ public class nt8 {
         this.x = ej.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
         this.y = ej.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201);
         this.u = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e90);
-        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091998);
         this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091997);
         this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091997);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0906f5);
-        this.s = this.b.findViewById(R.id.obfuscated_res_0x7f09229e);
+        this.s = this.b.findViewById(R.id.obfuscated_res_0x7f09229f);
         TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090553);
         this.f = tbImageView;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
-        this.f.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924bb);
-        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a5);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
+        this.f.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924bc);
+        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a6);
         this.k = headImageView;
         headImageView.setIsRound(true);
         this.k.setDrawBorder(false);
         this.q = (UserIconBox) this.b.findViewById(R.id.obfuscated_res_0x7f090597);
-        this.p = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924dc);
+        this.p = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924dd);
         this.r = this.b.findViewById(R.id.obfuscated_res_0x7f090821);
         this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090566);
         this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0904fe);
         this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090596);
         TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090599);
         this.h = tbImageView2;
-        tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-        this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+        tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+        this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
         this.j.setOnClickListener(this.u);
     }
 
@@ -291,18 +291,18 @@ public class nt8 {
         } else if (this.t.c() == 1) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f14fb);
+            this.j.setText(R.string.obfuscated_res_0x7f0f14fc);
         } else if (f == 0) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f14fa);
+            this.j.setText(R.string.obfuscated_res_0x7f0f14fb);
         } else if (f == 100) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);
             if (this.t.h() == 0) {
                 this.j.setText(R.string.obfuscated_res_0x7f0f008c);
             } else {
-                this.j.setText(R.string.obfuscated_res_0x7f0f14fb);
+                this.j.setText(R.string.obfuscated_res_0x7f0f14fc);
             }
         } else if (f == 101) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);

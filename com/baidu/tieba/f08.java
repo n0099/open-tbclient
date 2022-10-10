@@ -749,8 +749,8 @@ public class f08 {
                     this.q.h(tShowInfoNew, 3, f2, f2, ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
                 }
                 this.k.setText(t(s.getSealPrefix(), string));
-                this.k.setTag(R.id.obfuscated_res_0x7f092091, s.getUserId());
-                this.k.setTag(R.id.obfuscated_res_0x7f092099, s.getName_show());
+                this.k.setTag(R.id.obfuscated_res_0x7f092092, s.getUserId());
+                this.k.setTag(R.id.obfuscated_res_0x7f09209a, s.getName_show());
                 if (ListUtils.isEmpty(tShowInfoNew) && !s.isBigV()) {
                     SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
                 } else {
@@ -816,7 +816,7 @@ public class f08 {
                     String r = r(postData);
                     if (!TextUtils.isEmpty(r)) {
                         this.D.setVisibility(0);
-                        this.D.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a) + r);
+                        this.D.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150b) + r);
                     } else if (S != null && !TextUtils.isEmpty(S.b()) && !TextUtils.isEmpty(S.b().trim())) {
                         this.D.setVisibility(0);
                         this.D.setText(S.b());
@@ -870,7 +870,7 @@ public class f08 {
                 if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                     this.k.setText(ju7.b(this.a.getPageContext().getPageActivity(), this.k.getText().toString()));
                     this.k.setGravity(16);
-                    this.k.setTag(R.id.obfuscated_res_0x7f092066, ju7.a());
+                    this.k.setTag(R.id.obfuscated_res_0x7f092067, ju7.a());
                     SkinManager.setViewTextColor(this.k, R.color.CAM_X0312, 1);
                 }
                 if (TbSingleton.getInstance().isUserGrowthOpen() && s.getUserGrowthData() != null) {
@@ -1010,7 +1010,7 @@ public class f08 {
         ArrayList<IconData> iconInfo = s.getIconInfo();
         UserIconBox userIconBox = this.r;
         if (userIconBox != null) {
-            userIconBox.setTag(R.id.obfuscated_res_0x7f092091, s.getUserId());
+            userIconBox.setTag(R.id.obfuscated_res_0x7f092092, s.getUserId());
             if (this.a.P() != null) {
                 this.r.setOnClickListener(this.a.P().d.c);
             }
@@ -1041,19 +1041,19 @@ public class f08 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{jv7Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (jv7Var != null && jv7Var.j) {
-                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f3a);
+                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f3b);
                 this.g.setVisibility(0);
                 x(this.g);
             } else if (z && z2) {
-                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f7b);
+                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f7c);
                 this.g.setVisibility(0);
                 x(this.g);
             } else if (z) {
-                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f79);
+                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f7a);
                 this.g.setVisibility(0);
                 x(this.g);
             } else if (z2) {
-                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f7a);
+                this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f7b);
                 this.g.setVisibility(0);
                 x(this.g);
             } else {
@@ -1147,7 +1147,7 @@ public class f08 {
             HeadCustomImageView headCustomImageView = (HeadCustomImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090753);
             this.t = headCustomImageView;
             headCustomImageView.setBigWidthAndHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds94), UtilHelper.getDimenPixelSize(R.dimen.tbds120));
-            this.u = (VirtualImageStatusTip) this.f.findViewById(R.id.obfuscated_res_0x7f092607);
+            this.u = (VirtualImageStatusTip) this.f.findViewById(R.id.obfuscated_res_0x7f092608);
             HeadPendantView headPendantView = (HeadPendantView) this.i.findViewById(R.id.obfuscated_res_0x7f091864);
             this.o = headPendantView;
             headPendantView.setHasPendantStyle();
@@ -1160,8 +1160,8 @@ public class f08 {
                 this.o.getHeadView().setDrawBorder(true);
                 this.o.getHeadView().setPlaceHolder(1);
             }
-            this.q = (UserIconBox) this.i.findViewById(R.id.obfuscated_res_0x7f091ec6);
-            this.r = (UserIconBox) this.i.findViewById(R.id.obfuscated_res_0x7f091ec7);
+            this.q = (UserIconBox) this.i.findViewById(R.id.obfuscated_res_0x7f091ec7);
+            this.r = (UserIconBox) this.i.findViewById(R.id.obfuscated_res_0x7f091ec8);
             this.v = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091828);
             this.w = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091800);
             this.y = (PbFirstFloorUserLikeButton) this.i.findViewById(R.id.obfuscated_res_0x7f09183a);

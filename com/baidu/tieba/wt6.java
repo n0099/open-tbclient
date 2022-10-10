@@ -517,7 +517,7 @@ public class wt6 {
                     next.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af0), Integer.valueOf(i)));
                     styleConfig.i(R.drawable.obfuscated_res_0x7f080959, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 } else {
-                    next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11bb));
+                    next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11bc));
                     styleConfig.i(R.drawable.obfuscated_res_0x7f080958, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 }
                 styleConfig.o(TBSpecificationButtonConfig.WebpType.PURE);
@@ -539,7 +539,7 @@ public class wt6 {
                 next.getLayoutParams().width = -2;
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119c));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119d));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.f(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
@@ -573,7 +573,7 @@ public class wt6 {
                 next.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119c));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119d));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.i(R.drawable.obfuscated_res_0x7f080958, 0, TBSpecificationButtonConfig.IconType.WEBP);
@@ -593,7 +593,7 @@ public class wt6 {
                 next.getLayoutParams().width = -2;
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119c));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f119d));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.f(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));

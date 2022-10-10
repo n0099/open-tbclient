@@ -113,7 +113,7 @@ public class eu7 extends p9<PaymentConfirmActivity> {
         } else {
             viewGroup.setVisibility(0);
             this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dbd));
-            this.v.setText(R.string.obfuscated_res_0x7f0f1069);
+            this.v.setText(R.string.obfuscated_res_0x7f0f106a);
         }
     }
 

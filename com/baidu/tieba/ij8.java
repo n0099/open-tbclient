@@ -105,13 +105,13 @@ public class ij8 extends p9<SignAllForumActivity> {
         this.g = null;
         this.a = signAllForumActivity;
         signAllForumActivity.setContentView(R.layout.obfuscated_res_0x7f0d07cc);
-        this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ed1);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ed2);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11ab));
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11ac));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         this.b.showBottomLine();
-        BdListView bdListView = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091ef1);
+        BdListView bdListView = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091ef2);
         this.f = bdListView;
         bdListView.setOnItemClickListener(signAllForumActivity);
         zx4 zx4Var = new zx4(signAllForumActivity.getPageContext());

@@ -264,9 +264,9 @@ public class q36 extends BaseAdapter {
             spannableString2 = spannableString5;
             spannableString4 = d2;
         } else if (i3 == 3) {
-            String string = this.b.getString(R.string.obfuscated_res_0x7f0f0fac);
+            String string = this.b.getString(R.string.obfuscated_res_0x7f0f0fad);
             if (CurrencySwitchUtil.isYyIsConvert(o36Var.e())) {
-                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1627), g(Double.valueOf(o36Var.i())));
+                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1628), g(Double.valueOf(o36Var.i())));
             } else {
                 l = o36Var.l();
             }
@@ -274,16 +274,16 @@ public class q36 extends BaseAdapter {
             spannableString4 = new SpannableString(str3);
             UtilHelper.setSpan(spannableString4, str3, str3, foregroundColorSpan);
             UtilHelper.setSpan(spannableString4, str3, l, foregroundColorSpan2);
-            String str4 = ("" + o36Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f0fb1);
-            String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f0fab) + "    " + str4;
+            String str4 = ("" + o36Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f0fb2);
+            String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f0fac) + "    " + str4;
             SpannableString spannableString6 = new SpannableString(str5);
             UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
             UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
             UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
             spannableString3 = spannableString6;
-            SpannableString c2 = c(R.string.obfuscated_res_0x7f0f0fb0, o36Var.f(), foregroundColorSpan, foregroundColorSpan2);
+            SpannableString c2 = c(R.string.obfuscated_res_0x7f0f0fb1, o36Var.f(), foregroundColorSpan, foregroundColorSpan2);
             String str6 = "" + o36Var.j();
-            String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f0faa) + "    " + str6;
+            String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f0fab) + "    " + str6;
             spannableString2 = new SpannableString(str7);
             UtilHelper.setSpan(spannableString2, str7, str7, foregroundColorSpan);
             UtilHelper.setSpan(spannableString2, str7, str6, foregroundColorSpan2);

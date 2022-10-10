@@ -139,8 +139,8 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             if (!dj.isEmpty(str2)) {
                 shareItem.z = Uri.parse(str2);
                 shareItem.h0 = 2;
-                shareItem.v = this.a.v(R.string.obfuscated_res_0x7f0f10ae);
-                shareItem.w = this.a.v(R.string.obfuscated_res_0x7f0f10ae);
+                shareItem.v = this.a.v(R.string.obfuscated_res_0x7f0f10af);
+                shareItem.w = this.a.v(R.string.obfuscated_res_0x7f0f10af);
                 shareItem.A = str2;
                 Bundle bundle = new Bundle();
                 bundle.putString("path", "images");
@@ -236,7 +236,7 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 if (!TextUtils.isEmpty(picId)) {
                     this.c.q.put(picId, Boolean.TRUE);
                 }
-                if (this.c.a != null && (imageView = (ImageView) this.c.a.findViewById(R.id.obfuscated_res_0x7f091e87)) != null) {
+                if (this.c.a != null && (imageView = (ImageView) this.c.a.findViewById(R.id.obfuscated_res_0x7f091e88)) != null) {
                     WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080950, R.color.CAM_X0104, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
                 }
                 return true;
@@ -609,8 +609,8 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     nu4 nu4Var = new nu4(this.b.a.a.getPageContext().getPageActivity());
                     nu4Var.setTitle((String) null);
                     nu4Var.setMessageShowCenter(true);
-                    nu4Var.setMessage(this.b.a.v(R.string.obfuscated_res_0x7f0f0f87));
-                    nu4Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f0f88), new c(this));
+                    nu4Var.setMessage(this.b.a.v(R.string.obfuscated_res_0x7f0f0f88));
+                    nu4Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f0f89), new c(this));
                     nu4Var.setCancelable(false);
                     nu4Var.setCanceledOnTouchOutside(false);
                     nu4Var.create(this.b.a.a.getPageContext()).show();
@@ -623,9 +623,9 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     nu4 nu4Var = new nu4(this.b.a.a.getPageContext().getPageActivity());
                     nu4Var.setTitleShowCenter(true);
-                    nu4Var.setTitle(this.b.a.v(R.string.obfuscated_res_0x7f0f0f86));
+                    nu4Var.setTitle(this.b.a.v(R.string.obfuscated_res_0x7f0f0f87));
                     nu4Var.setMessageShowCenter(true);
-                    nu4Var.setMessage(this.b.a.v(R.string.obfuscated_res_0x7f0f0f85));
+                    nu4Var.setMessage(this.b.a.v(R.string.obfuscated_res_0x7f0f0f86));
                     nu4Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f0436), new C0480a(this));
                     nu4Var.setNegativeButton(this.b.a.v(R.string.obfuscated_res_0x7f0f0375), new b(this));
                     nu4Var.setCancelable(false);
@@ -646,7 +646,7 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             public void onError(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                    ej.N(this.b.a.a.getPageContext().getPageActivity(), this.b.a.v(R.string.obfuscated_res_0x7f0f0f84));
+                    ej.N(this.b.a.a.getPageContext().getPageActivity(), this.b.a.v(R.string.obfuscated_res_0x7f0f0f85));
                 }
             }
         }
@@ -756,7 +756,7 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                         String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + StorageFile.getInstance().getDirectoryName(nameMd5FromUrl) + "/" + TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl);
                         int[] imageFileWH = FileHelper.getImageFileWH(str);
                         if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && FileHelper.copyImageFile(str, this.a, this.c.a.getPageContext().getPageActivity()) == 0) {
-                            return this.c.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10aa);
+                            return this.c.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ab);
                         }
                     }
                 }
@@ -767,10 +767,10 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                         return FileHelper.getSdErrorString();
                     }
                     if (saveImageFileByUser == 0) {
-                        return this.c.v(R.string.obfuscated_res_0x7f0f10aa);
+                        return this.c.v(R.string.obfuscated_res_0x7f0f10ab);
                     }
                 }
-                return this.c.v(R.string.obfuscated_res_0x7f0f10a9);
+                return this.c.v(R.string.obfuscated_res_0x7f0f10aa);
             }
             return (String) invokeL.objValue;
         }
@@ -781,7 +781,7 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((k) str);
-                if (!UbsABTestHelper.isImageViewerTestB() || this.c.v(R.string.obfuscated_res_0x7f0f10a9).equals(str)) {
+                if (!UbsABTestHelper.isImageViewerTestB() || this.c.v(R.string.obfuscated_res_0x7f0f10aa).equals(str)) {
                     this.c.a.showToast(str);
                 } else if (this.c.p != null) {
                     this.c.p.g(this.c.b, this.c.b.getBottomHeight(), this.c.z);
@@ -954,13 +954,13 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 uu4Var.m(this.t);
                 this.i.add(this.j);
             }
-            uu4 uu4Var2 = new uu4(v(R.string.obfuscated_res_0x7f0f10af), this.h);
+            uu4 uu4Var2 = new uu4(v(R.string.obfuscated_res_0x7f0f10b0), this.h);
             this.l = uu4Var2;
             uu4Var2.m(this.w);
             this.i.add(this.l);
             ImageViewerActivity imageViewerActivity = this.a;
             if (imageViewerActivity != null && !imageViewerActivity.Y2()) {
-                uu4 uu4Var3 = new uu4(v(R.string.obfuscated_res_0x7f0f10ae), this.h);
+                uu4 uu4Var3 = new uu4(v(R.string.obfuscated_res_0x7f0f10af), this.h);
                 this.m = uu4Var3;
                 uu4Var3.m(this.v);
                 this.i.add(this.m);
@@ -1001,7 +1001,7 @@ public class ze7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
             String currentImageUrl = this.b.getCurrentImageUrl();
             String currentPicId = this.b.getCurrentPicId();
             if (this.q.containsKey(currentPicId) && this.q.get(currentPicId).booleanValue()) {
-                ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f10a5);
+                ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f10a6);
                 return;
             }
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {

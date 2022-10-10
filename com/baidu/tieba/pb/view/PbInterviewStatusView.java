@@ -397,12 +397,12 @@ public class PbInterviewStatusView extends FrameLayout {
             return;
         }
         View inflate = LayoutInflater.from(pbFragment.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03e5, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092323);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092324);
         View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091312);
         View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091315);
         SkinManager.setBackgroundResource((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a2f), R.drawable.pic_pop_live_n);
-        SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092324), (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092325), (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092326), (int) R.color.CAM_X0105);
         SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
         SkinManager.setBackgroundColor(findViewById2, R.color.CAM_X0204);
         SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);

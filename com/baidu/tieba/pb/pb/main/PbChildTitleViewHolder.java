@@ -43,8 +43,8 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
         }
         this.a = view2;
         this.b = view2.findViewById(R.id.obfuscated_res_0x7f0917e5);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c63);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923db);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c64);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923dc);
         this.d = textView;
         hv4.d(textView).A(R.string.F_X02);
     }

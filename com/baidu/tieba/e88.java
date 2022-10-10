@@ -286,7 +286,7 @@ public class e88 implements i98 {
                 if (i == 1) {
                     this.e.d(this.c.getString(R.string.obfuscated_res_0x7f0f0b4e));
                 } else if (i == 2) {
-                    this.e.d(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14be));
+                    this.e.d(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14bf));
                 }
             } else if (i3 == 220017) {
                 if (TextUtils.isEmpty(str2)) {
@@ -300,7 +300,7 @@ public class e88 implements i98 {
                     if (i == 1) {
                         str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0b4b);
                     } else if (i == 2) {
-                        str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14bd);
+                        str2 = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14be);
                     }
                 }
                 this.e.c(str2);

@@ -515,16 +515,16 @@ public class yh8 implements View.OnClickListener {
         this.h = new ArrayList();
         View B = B();
         this.b = B;
-        this.c = B.findViewById(R.id.obfuscated_res_0x7f091e81);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e82);
+        this.c = B.findViewById(R.id.obfuscated_res_0x7f091e82);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e83);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
             this.d.setText(sharePanelText);
         }
-        ShareScrollableLayout shareScrollableLayout = (ShareScrollableLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e9f);
+        ShareScrollableLayout shareScrollableLayout = (ShareScrollableLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ea0);
         this.e = shareScrollableLayout;
         if (shareScrollableLayout == null) {
-            ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e86);
+            ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e87);
             this.f = shareGridLayout;
             ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -974,7 +974,7 @@ public class yh8 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             this.I = false;
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
             } else if (!e35.m()) {
                 ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f0ed2);
             } else {
@@ -1045,28 +1045,28 @@ public class yh8 implements View.OnClickListener {
             ArrayList arrayList = new ArrayList(this.h);
             this.h.clear();
             if (!L(this.K)) {
-                l(R.string.obfuscated_res_0x7f0f118a, new SvgMaskType(R.drawable.obfuscated_res_0x7f080835));
+                l(R.string.obfuscated_res_0x7f0f118b, new SvgMaskType(R.drawable.obfuscated_res_0x7f080835));
             }
             if (!M(this.K)) {
-                l(R.string.obfuscated_res_0x7f0f1191, new SvgMaskType(R.drawable.obfuscated_res_0x7f080831));
+                l(R.string.obfuscated_res_0x7f0f1192, new SvgMaskType(R.drawable.obfuscated_res_0x7f080831));
             }
             if (!I(this.K)) {
-                l(R.string.obfuscated_res_0x7f0f1168, new SvgMaskType(R.drawable.obfuscated_res_0x7f080832));
+                l(R.string.obfuscated_res_0x7f0f1169, new SvgMaskType(R.drawable.obfuscated_res_0x7f080832));
             }
             if (!K(this.K)) {
-                l(R.string.obfuscated_res_0x7f0f116c, new SvgMaskType(R.drawable.obfuscated_res_0x7f080833));
+                l(R.string.obfuscated_res_0x7f0f116d, new SvgMaskType(R.drawable.obfuscated_res_0x7f080833));
             }
             if (!N(this.K)) {
-                l(R.string.obfuscated_res_0x7f0f1177, new SvgMaskType(R.drawable.obfuscated_res_0x7f080836));
+                l(R.string.obfuscated_res_0x7f0f1178, new SvgMaskType(R.drawable.obfuscated_res_0x7f080836));
             }
             if (P(this.K)) {
-                i(R.string.obfuscated_res_0x7f0f1170, R.drawable.obfuscated_res_0x7f0809e8);
+                i(R.string.obfuscated_res_0x7f0f1171, R.drawable.obfuscated_res_0x7f0809e9);
             }
             if (arrayList.size() > 0) {
                 this.h.addAll(arrayList);
             }
             if (this.F) {
-                i(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e5);
+                i(R.string.obfuscated_res_0x7f0f1150, R.drawable.obfuscated_res_0x7f0809e6);
             }
         }
     }
@@ -1091,25 +1091,25 @@ public class yh8 implements View.OnClickListener {
             ArrayList arrayList = new ArrayList(this.h);
             this.h.clear();
             if (TbadkCoreApplication.getCurrentAccount() != null && !N(this.K)) {
-                k(R.string.obfuscated_res_0x7f0f1154, R.drawable.obfuscated_res_0x7f08088f, 24, false, i2);
+                k(R.string.obfuscated_res_0x7f0f1155, R.drawable.obfuscated_res_0x7f08088f, 24, false, i2);
             }
             if (!L(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, i2);
             }
             if (!M(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, i2);
             }
             if (!I(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, i2);
             }
             if (!K(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, i2);
             }
             if (!N(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, i2);
             }
             if (P(this.K)) {
-                j(R.string.obfuscated_res_0x7f0f1170, R.drawable.obfuscated_res_0x7f0809e8, 17, i3);
+                j(R.string.obfuscated_res_0x7f0f1171, R.drawable.obfuscated_res_0x7f0809e9, 17, i3);
             }
             if (arrayList.size() > 0 && arrayList.size() > 0) {
                 for (int i4 = 0; i4 < arrayList.size(); i4++) {
@@ -1117,7 +1117,7 @@ public class yh8 implements View.OnClickListener {
                 }
             }
             if (this.F) {
-                j(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e5, 27, i3);
+                j(R.string.obfuscated_res_0x7f0f1150, R.drawable.obfuscated_res_0x7f0809e6, 27, i3);
             }
         }
     }
@@ -1130,11 +1130,11 @@ public class yh8 implements View.OnClickListener {
             this.I = true;
             int id = view2.getId();
             int intValue = view2.getTag() != null ? ((Integer) view2.getTag()).intValue() : -1;
-            if (id != R.id.obfuscated_res_0x7f09041f && intValue != R.drawable.obfuscated_res_0x7f0809e5 && l0()) {
+            if (id != R.id.obfuscated_res_0x7f09041f && intValue != R.drawable.obfuscated_res_0x7f0809e6 && l0()) {
                 this.C = false;
                 return;
             }
-            if (intValue != R.drawable.obfuscated_res_0x7f0809e8) {
+            if (intValue != R.drawable.obfuscated_res_0x7f0809e9) {
                 v();
             }
             if (this.B.size() == 0) {
@@ -1177,7 +1177,7 @@ public class yh8 implements View.OnClickListener {
                 statisticItem3.param("obj_param1", this.u);
                 if (intValue == R.drawable.obfuscated_res_0x7f080835) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     t0("share_to_weixin", new Object[0]);
@@ -1196,7 +1196,7 @@ public class yh8 implements View.OnClickListener {
                     statisticItem3.param("obj_type", 2);
                 } else if (intValue == R.drawable.obfuscated_res_0x7f080831) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     t0("share_to_pyq", new Object[0]);
@@ -1218,7 +1218,7 @@ public class yh8 implements View.OnClickListener {
                     statisticItem3.param("obj_type", 3);
                 } else if (intValue == R.drawable.obfuscated_res_0x7f080833) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     if (om8.b(this.a, "com.tencent.mobileqq")) {
@@ -1235,12 +1235,12 @@ public class yh8 implements View.OnClickListener {
                         }
                     } else {
                         Context context = this.a;
-                        BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                        BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                     }
                     statisticItem3.param("obj_type", 5);
                 } else if (intValue == R.drawable.icon_qq_weibo) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     t0("share_to_qweibo", new Object[0]);
@@ -1254,7 +1254,7 @@ public class yh8 implements View.OnClickListener {
                     }
                 } else if (intValue == R.drawable.obfuscated_res_0x7f080836) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     t0("share_to_sweibo", new Object[0]);
@@ -1274,7 +1274,7 @@ public class yh8 implements View.OnClickListener {
                     statisticItem3.param("obj_type", 6);
                 } else if (intValue == R.drawable.icon_renren) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     t0("share_to_renren", new Object[0]);
@@ -1288,7 +1288,7 @@ public class yh8 implements View.OnClickListener {
                     }
                 } else if (intValue == R.drawable.obfuscated_res_0x7f080832) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+                        ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
                         return;
                     }
                     if (om8.b(this.a, "com.tencent.mobileqq")) {
@@ -1305,10 +1305,10 @@ public class yh8 implements View.OnClickListener {
                         }
                     } else {
                         Context context2 = this.a;
-                        BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                        BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                     }
                     statisticItem3.param("obj_type", 4);
-                } else if (intValue == R.drawable.obfuscated_res_0x7f0809e8) {
+                } else if (intValue == R.drawable.obfuscated_res_0x7f0809e9) {
                     if (this.n == null) {
                         this.n = new PermissionJudgePolicy();
                     }
@@ -1339,7 +1339,7 @@ public class yh8 implements View.OnClickListener {
                         new InsertGalleryAsyncTask(currentActivity, uri2, new f(this)).execute(new String[0]);
                     }
                     statisticItem3.param("obj_type", 1);
-                } else if (intValue == R.drawable.obfuscated_res_0x7f0809e5) {
+                } else if (intValue == R.drawable.obfuscated_res_0x7f0809e6) {
                     x0(D, 10);
                     View.OnClickListener onClickListener = this.i;
                     if (onClickListener != null) {
@@ -1413,26 +1413,26 @@ public class yh8 implements View.OnClickListener {
             }
             this.e.a(i2);
             if (size >= N) {
-                j(R.string.obfuscated_res_0x7f0f0b01, R.drawable.obfuscated_res_0x7f080a80, 28, i2);
+                j(R.string.obfuscated_res_0x7f0f0b01, R.drawable.obfuscated_res_0x7f080a81, 28, i2);
             }
-            k(R.string.obfuscated_res_0x7f0f1154, R.drawable.obfuscated_res_0x7f08088f, 24, false, i3);
+            k(R.string.obfuscated_res_0x7f0f1155, R.drawable.obfuscated_res_0x7f08088f, 24, false, i3);
             if (!L(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, i3);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, i3);
             }
             if (!M(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, i3);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, i3);
             }
             if (!I(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, i3);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, i3);
             }
             if (!K(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, i3);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, i3);
             }
             if (!N(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, i3);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, i3);
             }
             if (P(this.K)) {
-                j(R.string.obfuscated_res_0x7f0f1170, R.drawable.obfuscated_res_0x7f0809e8, 26, i4);
+                j(R.string.obfuscated_res_0x7f0f1171, R.drawable.obfuscated_res_0x7f0809e9, 26, i4);
             }
             if (arrayList.size() > 0) {
                 for (int i7 = 0; i7 < arrayList.size(); i7++) {
@@ -1440,7 +1440,7 @@ public class yh8 implements View.OnClickListener {
                 }
             }
             if (this.F) {
-                j(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e5, 27, i4);
+                j(R.string.obfuscated_res_0x7f0f1150, R.drawable.obfuscated_res_0x7f0809e6, 27, i4);
             }
         }
     }
@@ -1465,25 +1465,25 @@ public class yh8 implements View.OnClickListener {
             ArrayList arrayList = new ArrayList(this.h);
             this.h.clear();
             if (TbadkCoreApplication.getCurrentAccount() != null && !z) {
-                k(R.string.obfuscated_res_0x7f0f1154, R.drawable.obfuscated_res_0x7f08088f, 24, false, i2);
+                k(R.string.obfuscated_res_0x7f0f1155, R.drawable.obfuscated_res_0x7f08088f, 24, false, i2);
             }
             if (!L(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118a, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080835), R.string.obfuscated_res_0x7f0f118b, i2);
             }
             if (!M(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1191, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080831), R.string.obfuscated_res_0x7f0f1192, i2);
             }
             if (!I(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1168, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080832), R.string.obfuscated_res_0x7f0f1169, i2);
             }
             if (!K(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116c, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080833), R.string.obfuscated_res_0x7f0f116d, i2);
             }
             if (!N(this.K)) {
-                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1177, i2);
+                o(new SvgMaskType(R.drawable.obfuscated_res_0x7f080836), R.string.obfuscated_res_0x7f0f1178, i2);
             }
             if (P(this.K)) {
-                j(R.string.obfuscated_res_0x7f0f1170, R.drawable.obfuscated_res_0x7f0809e8, 17, i3);
+                j(R.string.obfuscated_res_0x7f0f1171, R.drawable.obfuscated_res_0x7f0809e9, 17, i3);
             }
             if (arrayList.size() > 0) {
                 for (int i4 = 0; i4 < arrayList.size(); i4++) {
@@ -1491,7 +1491,7 @@ public class yh8 implements View.OnClickListener {
                 }
             }
             if (this.F) {
-                i(R.string.obfuscated_res_0x7f0f114f, R.drawable.obfuscated_res_0x7f0809e5);
+                i(R.string.obfuscated_res_0x7f0f1150, R.drawable.obfuscated_res_0x7f0809e6);
             }
         }
     }
@@ -1524,8 +1524,8 @@ public class yh8 implements View.OnClickListener {
             nu4Var.setAutoNight(false);
             nu4Var.setCancelable(true);
             nu4Var.setTitleShowCenter(true);
-            nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f114f, new g(this, shareItem));
-            nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f114a, new h(this)).create(w9.a(activity));
+            nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1150, new g(this, shareItem));
+            nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f114b, new h(this)).create(w9.a(activity));
             nu4Var.show();
         }
     }
@@ -1566,7 +1566,7 @@ public class yh8 implements View.OnClickListener {
                 hv4 d3 = hv4.d(this.o);
                 d3.n(R.string.J_X05);
                 d3.f(R.color.CAM_X0201);
-                this.p.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1a, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.p.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1b, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
                 hv4 d4 = hv4.d(this.q);
                 d4.A(R.string.F_X01);
                 d4.v(R.color.CAM_X0105);

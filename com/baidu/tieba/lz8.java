@@ -153,7 +153,7 @@ public class lz8 {
                     this.a.o(2, 100);
                     this.a.h = gz8.p(TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst()), this.a.a, this.a.d.c(), new C0333a(this));
                 } else if (this.a.c != null) {
-                    this.a.c.onError(-1, this.a.b.getString(R.string.obfuscated_res_0x7f0f1222));
+                    this.a.c.onError(-1, this.a.b.getString(R.string.obfuscated_res_0x7f0f1223));
                     gh.a().postDelayed(new b(this), 2000L);
                 }
             }
@@ -268,7 +268,7 @@ public class lz8 {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.c.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f1218));
+            this.c.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f1219));
             return;
         }
         if (str.startsWith("http")) {
@@ -289,7 +289,7 @@ public class lz8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (TextUtils.isEmpty(str) && (hz8Var = this.c) != null) {
-                hz8Var.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f121e));
+                hz8Var.onError(-1, this.b.getString(R.string.obfuscated_res_0x7f0f121f));
                 return;
             }
             iz8 iz8Var = new iz8(j(), str, this.i);

@@ -1084,7 +1084,7 @@ public class e46 implements c46 {
             this.d.setZOrderMediaOverlay(true);
             this.d.setMultiMediaDataSourceViewAdapter(this.c, true);
             this.e = (NavigationBar) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091657);
-            this.f = (FrameLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092284);
+            this.f = (FrameLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092285);
             this.g.setPageContext(this.a);
             this.g.setOnlyOneVideo();
             this.g.setLocalAlbumInfoData(this.b, this.p);

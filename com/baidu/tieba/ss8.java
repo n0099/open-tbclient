@@ -64,11 +64,11 @@ public class ss8 extends p9<AvatarPendantActivity> {
         this.f = 0;
         this.i = avatarPendantActivity;
         avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0128);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091c83);
+        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091c84);
         this.f = ej.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
         this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09030e);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0925c6);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0925c7);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.setTitleText(R.string.obfuscated_res_0x7f0f02c9);

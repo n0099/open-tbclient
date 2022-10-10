@@ -340,7 +340,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
                 K1();
             } else {
-                showToast(R.string.obfuscated_res_0x7f0f15f1);
+                showToast(R.string.obfuscated_res_0x7f0f15f2);
             }
         }
     }

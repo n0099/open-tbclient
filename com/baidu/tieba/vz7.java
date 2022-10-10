@@ -153,7 +153,7 @@ public class vz7 extends ay7<ev7, b> {
             } else {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0dce);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
                 this.c.setClickable(false);
             }
             d();
@@ -196,10 +196,10 @@ public class vz7 extends ay7<ev7, b> {
             }
             this.f = view2.findViewById(R.id.obfuscated_res_0x7f090382);
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec5);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092432);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092433);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090425);
-            this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abe);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092436);
+            this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abf);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092437);
             this.b.setRadius(ej.f(getView().getContext(), R.dimen.tbds20));
             this.b.setConrers(5);
             this.b.setDefaultBgResource(R.color.cp_atp_a);

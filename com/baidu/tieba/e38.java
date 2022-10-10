@@ -102,7 +102,7 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090463 || view2.getId() == R.id.obfuscated_res_0x7f09258b) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090463 || view2.getId() == R.id.obfuscated_res_0x7f09258c) {
                     if (this.a.viewholder != null) {
                         int f = ((VideoPbVideoInfoViewHolder) this.a.viewholder).f();
                         if (f == 1) {
@@ -122,7 +122,7 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
                     }
                     return;
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f0925ee) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0925ef) {
                     if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         r7 = view2.getTag() != null ? (String) view2.getTag() : null;
                         if (r7 != null) {
@@ -130,9 +130,9 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
                         }
                         TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0924de) {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String) {
-                        yo4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f092091)) + "&opacity=0", true, true, true);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0924df) {
+                    if (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String) {
+                        yo4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f092092)) + "&opacity=0", true, true, true);
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
                     }
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090d3e) {
@@ -175,10 +175,10 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
                     if (userId != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, userId, userName, fName, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0924bc) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0924bd) {
                     TiebaStatic.log(new StatisticItem("c11923").param("obj_id", 2));
-                    String str = view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092091) : null;
-                    String str2 = view2.getTag(R.id.obfuscated_res_0x7f092099) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092099) : null;
+                    String str = view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092092) : null;
+                    String str2 = view2.getTag(R.id.obfuscated_res_0x7f09209a) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f09209a) : null;
                     if (this.a.c != null && this.a.c.l() != null) {
                         r7 = this.a.c.l().getName();
                     }
@@ -405,9 +405,9 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
             formatTime = StringHelper.getFormatTime(postData.f0());
         }
         TextView textView3 = videoPbVideoInfoViewHolder.w;
-        textView3.setText(formatTime + this.mContext.getString(R.string.obfuscated_res_0x7f0f112c));
+        textView3.setText(formatTime + this.mContext.getString(R.string.obfuscated_res_0x7f0f112d));
         TextView textView4 = videoPbVideoInfoViewHolder.D;
-        textView4.setText(formatTime + this.mContext.getString(R.string.obfuscated_res_0x7f0f112c));
+        textView4.setText(formatTime + this.mContext.getString(R.string.obfuscated_res_0x7f0f112d));
         j45 S = postData.S();
         if (S != null && !TextUtils.isEmpty(S.b()) && !TextUtils.isEmpty(S.b().trim())) {
             videoPbVideoInfoViewHolder.x.setText(S.b());
@@ -789,8 +789,8 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
             return;
         }
         videoPbVideoInfoViewHolder.g.setText(metaData.getName_show());
-        videoPbVideoInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f092091, metaData.getUserId());
-        videoPbVideoInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f092099, metaData.getName_show());
+        videoPbVideoInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f092092, metaData.getUserId());
+        videoPbVideoInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f09209a, metaData.getName_show());
         this.j = metaData.isBigV();
         this.k = metaData.isNewGod();
     }
@@ -801,7 +801,7 @@ public class e38 extends qn<PostData, VideoPbVideoInfoViewHolder> {
             return;
         }
         ArrayList<IconData> iconInfo = metaData.getIconInfo();
-        videoPbVideoInfoViewHolder.j.setTag(R.id.obfuscated_res_0x7f092091, metaData.getUserId());
+        videoPbVideoInfoViewHolder.j.setTag(R.id.obfuscated_res_0x7f092092, metaData.getUserId());
         videoPbVideoInfoViewHolder.j.g(iconInfo, 4, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
     }
 

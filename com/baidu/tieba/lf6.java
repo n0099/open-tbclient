@@ -28,7 +28,7 @@ public class lf6 extends dh6<mf6, PrivateMgrApplyViewHolder> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: n */
-    public static final int obfuscated = 2131303049;
+    public static final int obfuscated = 2131303050;
     public transient /* synthetic */ FieldHolder $fh;
     public o35 l;
     public View.OnClickListener m;
@@ -138,12 +138,12 @@ public class lf6 extends dh6<mf6, PrivateMgrApplyViewHolder> {
                     SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
                 }
                 int a2 = mf6Var.a();
-                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13c2);
+                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13c3);
                 if (a2 == -1) {
                     int c = mf6Var.c();
                     String numberUniformFormat = StringHelper.numberUniformFormat(c);
                     if (c > 0) {
-                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13bc), numberUniformFormat);
+                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13bd), numberUniformFormat);
                         privateMgrApplyViewHolder.c.setOnClickListener(this.m);
                         privateMgrApplyViewHolder.b.setText(string);
                         privateMgrApplyViewHolder.c.setTag(obfuscated, mf6Var.b());
@@ -162,12 +162,12 @@ public class lf6 extends dh6<mf6, PrivateMgrApplyViewHolder> {
                     privateMgrApplyViewHolder.f = this.f;
                 } else {
                     if (a2 == 0) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13c0);
+                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13c1);
                     } else if (a2 == 1) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13be);
+                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13bf);
                     } else {
                         if (a2 == 2) {
-                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13bd);
+                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13be);
                         }
                         z = false;
                     }

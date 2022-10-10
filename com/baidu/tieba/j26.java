@@ -407,7 +407,7 @@ public class j26 extends wu4 {
                         if (bVar.h) {
                             BdTopToast bdTopToast = new BdTopToast(this.a.getContext());
                             bdTopToast.h(false);
-                            bdTopToast.g(this.a.Z(R.string.obfuscated_res_0x7f0f1196, new Object[0]));
+                            bdTopToast.g(this.a.Z(R.string.obfuscated_res_0x7f0f1197, new Object[0]));
                             bdTopToast.i(viewGroup);
                             return;
                         }
@@ -421,7 +421,7 @@ public class j26 extends wu4 {
                         if (bVar.h) {
                             BdTopToast bdTopToast3 = new BdTopToast(this.a.getContext());
                             bdTopToast3.h(true);
-                            bdTopToast3.g(this.a.Z(R.string.obfuscated_res_0x7f0f1198, new Object[0]));
+                            bdTopToast3.g(this.a.Z(R.string.obfuscated_res_0x7f0f1199, new Object[0]));
                             bdTopToast3.i(viewGroup);
                             return;
                         }
@@ -606,7 +606,7 @@ public class j26 extends wu4 {
         this.r = new ArrayList();
         yu4 yu4Var = new yu4(this.l);
         this.m = yu4Var;
-        yu4Var.q(Z(R.string.obfuscated_res_0x7f0f13ef, new Object[0]));
+        yu4Var.q(Z(R.string.obfuscated_res_0x7f0f13f0, new Object[0]));
         this.m.n(this.A);
         ForumManageModel forumManageModel = new ForumManageModel(this.k);
         this.w = forumManageModel;
@@ -681,11 +681,11 @@ public class j26 extends wu4 {
                 this.r.add(new uu4(9, Z(R.string.obfuscated_res_0x7f0f06cd, new Object[0]), this.m));
             }
             if (!UtilHelper.isCurrentAccount(this.v.getAuthor() != null ? this.v.getAuthor().getUserId() : "") && ((this.v.getAuthor() == null || !this.v.getAuthor().isForumBusinessAccount()) && !this.v.isTiePlusCantDeleteUnion())) {
-                this.r.add(new uu4(2, Z(R.string.obfuscated_res_0x7f0f13ea, new Object[0]), this.m));
+                this.r.add(new uu4(2, Z(R.string.obfuscated_res_0x7f0f13eb, new Object[0]), this.m));
             }
         }
         if (ch6.e() || ch6.f()) {
-            this.r.add(new uu4(3, Z(this.v.getIs_top() == 1 ? R.string.obfuscated_res_0x7f0f0381 : R.string.obfuscated_res_0x7f0f1457, new Object[0]), this.m));
+            this.r.add(new uu4(3, Z(this.v.getIs_top() == 1 ? R.string.obfuscated_res_0x7f0f0381 : R.string.obfuscated_res_0x7f0f1458, new Object[0]), this.m));
         }
         if (ch6.e() || ch6.h()) {
             this.r.add(new uu4(4, Z(this.v.getIs_good() == 1 ? R.string.obfuscated_res_0x7f0f037b : R.string.obfuscated_res_0x7f0f0414, new Object[0]), this.m));
@@ -768,7 +768,7 @@ public class j26 extends wu4 {
                     if (ch6.e()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, zr4Var));
                     } else {
-                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f1138);
+                        str = a0(gVar.b, R.string.obfuscated_res_0x7f0f1139);
                         z = false;
                     }
                 } else {
@@ -897,7 +897,7 @@ public class j26 extends wu4 {
             if (this.k == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1194, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1195, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0375, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.k.getPageActivity());
             tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0b45);
@@ -958,7 +958,7 @@ public class j26 extends wu4 {
             LinearLayout linearLayout = (LinearLayout) this.q.findViewById(R.id.obfuscated_res_0x7f090cdd);
             linearLayout.removeAllViews();
             this.u = new ArrayList();
-            BlueCheckRadioButton Q = Q(this.s, Z(R.string.obfuscated_res_0x7f0f13eb, new Object[0]));
+            BlueCheckRadioButton Q = Q(this.s, Z(R.string.obfuscated_res_0x7f0f13ec, new Object[0]));
             Q.setChecked(true);
             linearLayout.addView(Q);
             this.u.add(Q);

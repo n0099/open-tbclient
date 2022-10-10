@@ -105,7 +105,7 @@ public class nh8 extends mh8 {
             } else if (!StringUtils.isNull(shareEntity.getContent())) {
                 bundle.putString("summary", shareEntity.getContent());
             } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1167));
+                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f1168));
             }
             bundle.putString("targetUrl", shareEntity.getLinkUrl());
             ArrayList<String> arrayList = new ArrayList<>();

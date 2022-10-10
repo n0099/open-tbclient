@@ -106,15 +106,15 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242a);
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092488);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242b);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092489);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
             this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce6);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092629);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09262a);
             this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0915cc);
         }
     }

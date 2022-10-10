@@ -338,7 +338,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             rk8 rk8Var = new rk8(getPageContext(), this.h, this.k);
             this.a = rk8Var;
             rk8Var.s(this.l);
-            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02cd));

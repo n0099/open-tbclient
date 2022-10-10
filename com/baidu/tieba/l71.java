@@ -118,7 +118,7 @@ public class l71 extends h71 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0624, viewGroup, false);
-            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f62);
+            this.i = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f63);
             n();
             return inflate;
         }

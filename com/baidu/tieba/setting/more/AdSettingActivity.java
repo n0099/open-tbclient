@@ -232,7 +232,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             MemberCloseAdRequestMessage memberCloseAdRequestMessage = new MemberCloseAdRequestMessage(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
             memberCloseAdRequestMessage.setVipClose(i);
             MessageManager.getInstance().sendMessage(memberCloseAdRequestMessage);
-            this.c.i(R.string.obfuscated_res_0x7f0f1140);
+            this.c.i(R.string.obfuscated_res_0x7f0f1141);
             this.c.h(true);
         }
     }
@@ -254,7 +254,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                 this.a.l();
             }
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f113d);
+                showToast(R.string.obfuscated_res_0x7f0f113e);
             }
             this.b = g;
             this.c.h(false);

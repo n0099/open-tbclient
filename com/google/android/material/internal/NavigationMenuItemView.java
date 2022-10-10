@@ -262,7 +262,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
                 drawable.setBounds(0, 0, i, i);
             } else if (this.needsEmptyIcon) {
                 if (this.emptyDrawable == null) {
-                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e43, getContext().getTheme());
+                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e44, getContext().getTheme());
                     this.emptyDrawable = drawable2;
                     if (drawable2 != null) {
                         int i2 = this.iconSize;

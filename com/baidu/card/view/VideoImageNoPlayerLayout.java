@@ -152,15 +152,15 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<yq4> 
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d3, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091746);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092515);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092516);
             new WeakReference(TbadkCoreApplication.getInst());
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092588);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092589);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092556);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092549);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092558);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09255a);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09251d);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092589);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09258a);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092557);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09254a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092559);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09251e);
             this.c.setConrers(15);
             this.c.setRadiusById(R.string.J_X05);
             this.c.setDrawCorner(true);
@@ -207,7 +207,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements wx<yq4> 
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
                 this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a42, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a43, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             }
             this.b = i;
         }

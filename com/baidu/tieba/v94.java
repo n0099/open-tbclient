@@ -36,8 +36,8 @@ public class v94 {
         a.put(37, new t94(37, R.string.obfuscated_res_0x7f0f00f1, R.drawable.obfuscated_res_0x7f0800d8, true));
         a.put(38, new t94(38, R.string.obfuscated_res_0x7f0f00fa, R.drawable.obfuscated_res_0x7f0800d4, true));
         a.put(42, new t94(42, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800f8, true));
-        a.put(49, new t94(49, R.string.obfuscated_res_0x7f0f126a, R.drawable.obfuscated_res_0x7f081157, true));
-        a.put(50, new t94(50, R.string.obfuscated_res_0x7f0f12ee, R.drawable.obfuscated_res_0x7f081156, true));
+        a.put(49, new t94(49, R.string.obfuscated_res_0x7f0f126b, R.drawable.obfuscated_res_0x7f081158, true));
+        a.put(50, new t94(50, R.string.obfuscated_res_0x7f0f12ef, R.drawable.obfuscated_res_0x7f081157, true));
         a.put(43, new t94(43, R.string.obfuscated_res_0x7f0f00f0, R.drawable.obfuscated_res_0x7f0800d9, true));
         a.put(9, new t94(9, R.string.obfuscated_res_0x7f0f00fb, R.drawable.obfuscated_res_0x7f0800e5, true));
         a.put(46, new t94(46, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800ea, true));

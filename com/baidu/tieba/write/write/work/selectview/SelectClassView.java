@@ -111,7 +111,7 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08f2, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0926a3);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0926a4);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
             setMClassTitleSign((ImageView) findViewById);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912da);
@@ -123,7 +123,7 @@ public class SelectClassView extends LinearLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905de);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2e);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2f);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ee);

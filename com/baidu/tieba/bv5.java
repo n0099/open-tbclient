@@ -80,7 +80,7 @@ public class bv5 extends i16<zt5> {
             int[] b = qt5.b(getContext());
             int i = b[0];
             int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091f68);
+            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091f69);
             this.j = tabLiveStageLiveView;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
             if (layoutParams == null) {

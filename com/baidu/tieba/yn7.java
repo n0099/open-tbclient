@@ -57,17 +57,17 @@ public class yn7 {
         this.e = baseActivity;
         Window window = baseActivity.getWindow();
         this.f = window;
-        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f0920a5);
-        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f0920a3);
-        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0920a6);
+        this.d = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f0920a6);
+        this.a = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f0920a4);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0920a7);
         this.b = imageView;
         imageView.setOnClickListener(onClickListener);
-        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09209e);
+        ImageView imageView2 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09209f);
         this.g = imageView2;
         imageView2.setOnClickListener(onClickListener2);
-        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0920a7);
-        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0920a2);
-        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f0920a4);
+        this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0920a8);
+        this.i = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0920a3);
+        this.j = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f0920a5);
     }
 
     public void a(i55 i55Var, String str) {

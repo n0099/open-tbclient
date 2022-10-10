@@ -172,7 +172,7 @@ public class s18 extends BaseAdapter {
             b bVar = new b();
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0651, (ViewGroup) null);
             bVar.b = inflate;
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f9d);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f9e);
             bVar.c = linearLayout;
             if (this.h) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
@@ -203,7 +203,7 @@ public class s18 extends BaseAdapter {
             bVar.e.setOnClickListener(this.m);
             bVar.d.setOnClickListener(this.b);
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.obfuscated_res_0x7f092051, bVar);
+            sparseArray.put(R.id.obfuscated_res_0x7f092052, bVar);
             inflate.setTag(sparseArray);
             return inflate;
         }
@@ -259,11 +259,11 @@ public class s18 extends BaseAdapter {
                 bVar.b.setTag(sparseArray2);
                 bVar.e.setTag(sparseArray2);
             }
-            sparseArray2.put(R.id.obfuscated_res_0x7f092071, name_show);
-            sparseArray2.put(R.id.obfuscated_res_0x7f092070, userId);
-            sparseArray2.put(R.id.obfuscated_res_0x7f09206f, portrait);
-            sparseArray2.put(R.id.obfuscated_res_0x7f09203c, postData);
-            sparseArray2.put(R.id.obfuscated_res_0x7f092055, Boolean.TRUE);
+            sparseArray2.put(R.id.obfuscated_res_0x7f092072, name_show);
+            sparseArray2.put(R.id.obfuscated_res_0x7f092071, userId);
+            sparseArray2.put(R.id.obfuscated_res_0x7f092070, portrait);
+            sparseArray2.put(R.id.obfuscated_res_0x7f09203d, postData);
+            sparseArray2.put(R.id.obfuscated_res_0x7f092056, Boolean.TRUE);
         }
         bVar.e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0108));
         bVar.e.setTextColor(SkinManager.getColor(R.color.CAM_X0106));
@@ -310,47 +310,47 @@ public class s18 extends BaseAdapter {
                     bVar.b.setTag(sparseArray);
                     bVar.e.setTag(sparseArray);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f092089, this.j);
+                sparseArray.put(R.id.obfuscated_res_0x7f09208a, this.j);
                 if (!z4) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(this.c));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(this.c));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092049, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.s().getPortrait());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f09204d, postData.L());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.L());
-                sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
+                sparseArray.put(R.id.obfuscated_res_0x7f09204d, postData.L());
+                sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
                 if (!z6) {
                     if (this.g != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                        sparseArray.put(R.id.obfuscated_res_0x7f092053, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                        sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                        sparseArray.put(R.id.obfuscated_res_0x7f092054, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                         if (postData.s() != null) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getUserId());
-                            sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserName());
-                            sparseArray.put(R.id.obfuscated_res_0x7f092093, postData.s().getName_show());
+                            sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserId());
+                            sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.s().getUserName());
+                            sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getName_show());
                         }
                         if (this.g.getId() != null) {
-                            sparseArray.put(R.id.obfuscated_res_0x7f092097, this.g.getId());
+                            sparseArray.put(R.id.obfuscated_res_0x7f092098, this.g.getId());
                         }
-                        sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.L());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092097, postData.L());
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                 }
                 if (!z7) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(this.c));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z8));
-                    sparseArray.put(R.id.obfuscated_res_0x7f092040, 2);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203e, postData.L());
-                    sparseArray.put(R.id.obfuscated_res_0x7f092050, Boolean.valueOf(postData.o0()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(this.c));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z8));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092041, 2);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092051, Boolean.valueOf(postData.o0()));
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                 }
                 if (this.h && z2 && this.i) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
@@ -383,11 +383,11 @@ public class s18 extends BaseAdapter {
         sparseArray = (SparseArray) bVar.b.getTag();
         if (sparseArray == null) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f092089, this.j);
+        sparseArray.put(R.id.obfuscated_res_0x7f09208a, this.j);
         if (!z4) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.L());
-        sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09204d, postData.L());
+        sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
         if (!z6) {
         }
         if (!z7) {
@@ -542,7 +542,7 @@ public class s18 extends BaseAdapter {
             if ((view2.getTag() instanceof SparseArray) && postData.getType() == PostData.R0) {
                 view2 = a();
             }
-            if ((view2.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f092051)) != null && postData != null) {
+            if ((view2.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f092052)) != null && postData != null) {
                 boolean z = !this.e && i + 1 >= getCount();
                 boolean z2 = i == this.k;
                 c(bVar, postData, !z, i == 0, z2);

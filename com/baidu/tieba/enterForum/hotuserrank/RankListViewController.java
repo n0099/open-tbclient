@@ -152,7 +152,7 @@ public class RankListViewController {
             this.l = "";
             this.n = 0;
             this.j = d(view2.getContext());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b52);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b53);
             this.a = textView;
             textView.getPaint().setFakeBoldText(true);
             HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d2c);
@@ -161,10 +161,10 @@ public class RankListViewController {
             this.b.setPlaceHolder(1);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090d2b);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b6);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b7);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b1);
             this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ce6);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924aa);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ab);
             this.h = (HotUserRankLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0912ff);
         }
 

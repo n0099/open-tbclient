@@ -210,7 +210,7 @@ public class TiePlusEventController implements LifecycleObserver {
                 TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder(this.a);
                 builder.is_appoint = 1;
                 this.b.r(builder.build(true));
-                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f1432);
+                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f1433);
             }
         }
 
@@ -218,7 +218,7 @@ public class TiePlusEventController implements LifecycleObserver {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f1431);
+                UtilHelper.showToast(this.c.a, (int) R.string.obfuscated_res_0x7f0f1432);
             }
         }
     }

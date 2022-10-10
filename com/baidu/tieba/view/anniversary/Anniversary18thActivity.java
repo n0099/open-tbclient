@@ -132,7 +132,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
                 if (this.a.o == 100 && !TextUtils.isEmpty(this.a.k)) {
                     gz8.n(this.a.getPageContext(), this.a.k, this.a.l, this.a.n, this.a.m);
                 } else {
-                    ej.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f121d));
+                    ej.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f121e));
                 }
             }
         }
@@ -344,8 +344,8 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0ea2), TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0375, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
-            tBAlertBuilder.u(getString(R.string.obfuscated_res_0x7f0f121c));
-            tBAlertBuilder.o(getString(R.string.obfuscated_res_0x7f0f121b));
+            tBAlertBuilder.u(getString(R.string.obfuscated_res_0x7f0f121d));
+            tBAlertBuilder.o(getString(R.string.obfuscated_res_0x7f0f121c));
             tBAlertBuilder.m(true);
             tBAlertBuilder.r(aVar2, aVar);
             tBAlertBuilder.h(false);
@@ -385,7 +385,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.n = str3;
             this.m = str4;
             this.q.setVisibility(8);
-            this.e.setText(getString(R.string.obfuscated_res_0x7f0f121f));
+            this.e.setText(getString(R.string.obfuscated_res_0x7f0f1220));
         }
     }
 
@@ -405,10 +405,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
             this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914ca);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920d7);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920d8);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915c2);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091eb2);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eb3);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091eb3);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eb4);
             this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915c1);
             MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0914d3);
             this.q = maxureLayerView;
@@ -418,7 +418,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.q.f(ol8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), fv4.a(R.string.A_X05)));
             this.q.e(ol8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.q.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2e);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2f);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090077);
             this.d.setAutoChangeStyle(false);
             this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);

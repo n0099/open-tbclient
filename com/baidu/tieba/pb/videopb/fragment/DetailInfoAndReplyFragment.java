@@ -907,7 +907,7 @@ public class DetailInfoAndReplyFragment extends BaseVideoPBReplyFragment impleme
             }
             this.s = new PbChildTitleViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06ba, (ViewGroup) null));
             iv7 iv7Var = new iv7();
-            iv7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
+            iv7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fde));
             this.s.a(iv7Var);
             this.s.d(8);
             if (this.b.v4()) {
@@ -921,7 +921,7 @@ public class DetailInfoAndReplyFragment extends BaseVideoPBReplyFragment impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.y = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
-            this.d = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092550);
+            this.d = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092551);
             e eVar = new e(this, getContext());
             this.e = eVar;
             this.d.setLayoutManager(eVar);
@@ -935,7 +935,7 @@ public class DetailInfoAndReplyFragment extends BaseVideoPBReplyFragment impleme
             this.f.y(B().T3());
             this.f.x(this.g.j());
             this.f.E(this.g.m());
-            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091bf8);
+            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091bf9);
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.h = pbListView;
             View findViewById = pbListView.b().findViewById(R.id.obfuscated_res_0x7f09184a);
@@ -966,7 +966,7 @@ public class DetailInfoAndReplyFragment extends BaseVideoPBReplyFragment impleme
                 this.t.setEnabled(false);
                 SkinManager.setBackgroundColor(this.t, R.color.CAM_X0205);
             }
-            this.q = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092553);
+            this.q = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092554);
             R1();
             this.f.z(B().K1);
             registerListener(this.F);

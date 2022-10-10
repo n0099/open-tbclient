@@ -224,7 +224,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
             p01.b(textView, Font.F_F_X02);
             this.e = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f090105);
             this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090103);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092504);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092505);
             g();
         }
     }

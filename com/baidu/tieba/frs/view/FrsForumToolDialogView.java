@@ -48,7 +48,7 @@ public class FrsForumToolDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030a, this);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09100e);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092381);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092382);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09042c);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090448);
             this.a.setText(R.string.obfuscated_res_0x7f0f0375);

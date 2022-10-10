@@ -7,7 +7,7 @@ import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebCardGetDataResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final String TAG = "WebCardGetDataResponse";
     public static final long serialVersionUID = 2407409365862659643L;

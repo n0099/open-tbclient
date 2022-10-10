@@ -214,8 +214,8 @@ public class tm6 extends p9<ForumRulesShowActivity> implements View.OnClickListe
             if (this.b == i) {
                 this.e.getCenterText().setTextSize((float) R.dimen.L_X06);
                 SkinManager.setNavbarTitleColor(this.e.getCenterText(), R.color.CAM_X0611, R.color.CAM_X0611);
-                WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
-                WebPManager.setPureDrawable(this.i, R.drawable.obfuscated_res_0x7f080a1c, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.i, R.drawable.obfuscated_res_0x7f080a1d, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL_PRESS);
                 this.k.c(i);
                 this.l.c(i);
                 this.j.b(i);
@@ -231,7 +231,7 @@ public class tm6 extends p9<ForumRulesShowActivity> implements View.OnClickListe
         if (!(interceptable == null || interceptable.invokeL(1048587, this, view2) == null) || this.a == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f091c7f) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f091c80) {
             int i = -1;
             lm6 lm6Var = this.s;
             if (lm6Var == null || lm6Var.g() == null) {
@@ -331,7 +331,7 @@ public class tm6 extends p9<ForumRulesShowActivity> implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048595, this, navigationBar) == null) {
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.f = addSystemImageButton;
-            this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092680);
             this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06c8));
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062e, this);
             this.h = addCustomView;

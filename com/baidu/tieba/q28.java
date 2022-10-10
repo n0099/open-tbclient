@@ -422,7 +422,7 @@ public class q28 {
                 ImageView imageView = new ImageView(this.a.d.getActivity());
                 if (this.a.K == null) {
                     try {
-                        this.a.K = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080eef);
+                        this.a.K = BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080ef0);
                         imageView.setImageBitmap(this.a.K);
                     } catch (Throwable unused) {
                     }

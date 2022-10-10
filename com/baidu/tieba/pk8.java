@@ -306,7 +306,7 @@ public class pk8 {
     }
 
     /* JADX WARN: Type inference failed for: r2v11 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r2v3, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r2v8 */
     public final void i(JSONArray jSONArray) {
         int optInt;

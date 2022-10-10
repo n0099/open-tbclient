@@ -58,7 +58,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f09160a);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09160b);
             c();
-            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dc9);
+            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dca);
         }
     }
 

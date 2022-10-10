@@ -89,7 +89,7 @@ public class DomainErrorView extends CommonEmptyView {
             StringBuffer stringBuffer = new StringBuffer();
             boolean d = dh3.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(R.drawable.obfuscated_res_0x7f0811a0);
+            setIcon(R.drawable.obfuscated_res_0x7f0811a1);
             setTitle(R.string.obfuscated_res_0x7f0f0159);
             ef3 ef3Var = new ef3();
             ef3Var.k(5L);
@@ -106,7 +106,7 @@ public class DomainErrorView extends CommonEmptyView {
                 this.g.setVisibility(0);
                 this.g.setOnClickListener(new a(this, format, stringBuffer2, b0));
             }
-            this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f12c9));
+            this.b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f12ca));
             this.c.setPadding(ch3.g(70.0f), 0, ch3.g(70.0f), 0);
             String e = fh3.n().e();
             String a2 = fh3.v().a();

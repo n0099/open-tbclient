@@ -86,7 +86,7 @@ public class b95 extends z85 {
         }
         this.h = 0;
         this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091dd8);
+        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091dd9);
         this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906d3);
         this.c = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09167a);
         this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091679);
@@ -94,7 +94,7 @@ public class b95 extends z85 {
         this.g = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09167b);
         this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091678);
         my4 my4Var = new my4();
-        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
+        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
         this.f.setTextSize(R.dimen.tbds42);
         this.f.setConfig(my4Var);
         this.f.setOnClickListener(onClickListener);

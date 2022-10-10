@@ -244,8 +244,8 @@ public class fc8 extends BaseAdapter {
                 bVar.a = (TextView) view2.findViewById(R.id.title_text);
                 bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906f1);
                 bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091250);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b6);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ec);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b7);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ed);
                 view2.setTag(bVar);
             }
             b bVar2 = (b) view2.getTag();
@@ -262,7 +262,7 @@ public class fc8 extends BaseAdapter {
             if (aVar.g == 1) {
                 bVar2.c.setText(R.string.obfuscated_res_0x7f0f064e);
             } else if (aVar.h == 1) {
-                bVar2.c.setText(R.string.obfuscated_res_0x7f0f1006);
+                bVar2.c.setText(R.string.obfuscated_res_0x7f0f1007);
             } else {
                 bVar2.c.setVisibility(8);
             }

@@ -225,15 +225,15 @@ public class FullBrowseHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, r9Var, iAcceptPrivacyConfirm) == null) {
             View inflate = LayoutInflater.from(r9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d035b, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a91);
-            inflate.findViewById(R.id.obfuscated_res_0x7f091ad6).setVisibility(0);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ad7);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a92);
+            inflate.findViewById(R.id.obfuscated_res_0x7f091ad7).setVisibility(0);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ad8);
             hv4.d(textView2).v(R.color.CAM_X0107);
             textView2.setHighlightColor(0);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a92);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8d);
-            textView.setText(R.string.obfuscated_res_0x7f0f10ed);
-            String string = r9Var.getResources().getString(R.string.obfuscated_res_0x7f0f10ee);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a93);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a8e);
+            textView.setText(R.string.obfuscated_res_0x7f0f10ee);
+            String string = r9Var.getResources().getString(R.string.obfuscated_res_0x7f0f10ef);
             SpannableString spannableString = new SpannableString(string);
             spannableString.setSpan(new NoLineClickableSpan(r9Var, r9Var) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.1
                 public static /* synthetic */ Interceptable $ic;

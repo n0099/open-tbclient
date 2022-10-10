@@ -335,7 +335,7 @@ public class fo2 {
     public static void k(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, str2) == null) {
-            String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f12e2), str, str2);
+            String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f12e3), str, str2);
             if (a) {
                 Log.d("LaunchError", "show normal err toast: " + format);
             }

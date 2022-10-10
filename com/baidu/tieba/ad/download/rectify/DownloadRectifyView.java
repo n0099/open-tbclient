@@ -170,13 +170,13 @@ public class DownloadRectifyView extends RelativeLayout {
             this.b = tbImageView;
             tbImageView.setRadius(ej.d(context, 9.0f));
             this.b.setConrers(15);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09236b);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09236d);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092425);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09237c);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923f2);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923e2);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09236c);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09236e);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092426);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923f3);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923e3);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092390);
             this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090843);
         }
     }

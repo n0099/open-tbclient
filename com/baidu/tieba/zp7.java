@@ -186,7 +186,7 @@ public class zp7 {
         this.n = new a(this);
         this.a = threadFragment.getBaseFragmentActivity();
         this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091644);
-        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abc);
+        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abd);
         this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091792);
         this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, ej.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07027b)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0ab0, R.string.obfuscated_res_0x7f0f0ab1), null);
         yp7 yp7Var = new yp7(threadFragment.getPageContext());
@@ -304,19 +304,19 @@ public class zp7 {
     public int g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091e8e : R.id.obfuscated_res_0x7f090d8f : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091e8f : R.id.obfuscated_res_0x7f090d8f : invokeZ.intValue;
     }
 
     public int h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091e90 : R.id.obfuscated_res_0x7f0914bd : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091e91 : R.id.obfuscated_res_0x7f0914bd : invokeZ.intValue;
     }
 
     public int i(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091e8f : R.id.obfuscated_res_0x7f090d91 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091e90 : R.id.obfuscated_res_0x7f090d91 : invokeZ.intValue;
     }
 
     public void j() {
@@ -432,10 +432,10 @@ public class zp7 {
             if (this.j == null) {
                 nu4 nu4Var = new nu4(this.a.getPageContext().getPageActivity());
                 this.j = nu4Var;
-                nu4Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f135e));
+                nu4Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f135f));
                 this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c59));
                 if (this.k != null) {
-                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f102b), this.k);
+                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f102c), this.k);
                 }
                 this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0436), new b(this));
                 this.j.create(this.a.getPageContext());

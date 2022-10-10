@@ -503,12 +503,12 @@ public class NewGridImageLayout extends LinearLayout implements wx<yq4>, View.On
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092182);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092183);
             this.d = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.obfuscated_res_0x7f092178);
+            GridImageLayout gridImageLayout = (GridImageLayout) findViewById(R.id.obfuscated_res_0x7f092179);
             this.f = gridImageLayout;
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
@@ -520,7 +520,7 @@ public class NewGridImageLayout extends LinearLayout implements wx<yq4>, View.On
             this.f.setLayoutStrategy(this.p);
             this.o = new LinkedList<>();
             this.f.setOnImageClickListener(new c(this));
-            VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f092183);
+            VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f092184);
             this.e = voteView;
             voteView.setBgColor(R.color.CAM_X0207);
         }

@@ -266,8 +266,8 @@ public class j27 extends sn implements BigdaySwipeRefreshLayout.k, PersonalizePa
             this.g = (TbImageView) inflate.findViewById(R.id.pull_image);
             ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090391);
             this.h = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090393);
-            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092123);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f7d);
+            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092124);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f7e);
             if (UtilHelper.canUseStyleImmersiveSticky() && (imageView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070287));
             }

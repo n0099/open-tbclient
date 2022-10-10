@@ -49,9 +49,9 @@ public class po7 {
             this.a = inflate;
             this.b = context;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c3);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c2);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0920c1);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c4);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c3);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0920c2);
             this.f = findViewById;
             findViewById.setTag(this);
             return this.a;

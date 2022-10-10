@@ -321,7 +321,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.l = (BdSwipeRefreshLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0913bd);
-            this.b = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f092298);
+            this.b = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f092299);
             zx4 zx4Var = new zx4(getPageContext());
             this.o = zx4Var;
             this.l.setProgressView(zx4Var);
@@ -405,7 +405,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             }
             this.mRefreshView.p();
             this.mRefreshView.m(null);
-            this.mRefreshView.n(getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+            this.mRefreshView.n(getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
             this.mRefreshView.i(R.drawable.new_pic_emotion_08);
             this.mRefreshView.l(0);
             this.mRefreshView.onChangeSkinType();

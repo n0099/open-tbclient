@@ -59,7 +59,7 @@ public class fq8 {
         public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081289));
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08128a));
                 wa8 wa8Var = new wa8();
                 wa8Var.a = 2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, wa8Var));
@@ -70,7 +70,7 @@ public class fq8 {
         public void onStopTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08128a));
+                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08128b));
                 wa8 wa8Var = new wa8();
                 wa8Var.a = 3;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, wa8Var));
@@ -135,7 +135,7 @@ public class fq8 {
         this.e = new b(this);
         this.a = baseFragmentActivity;
         this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f092568);
+        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f092569);
         this.b = seekBar;
         seekBar.setOnSeekBarChangeListener(new a(this));
         view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);

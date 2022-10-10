@@ -119,10 +119,10 @@ public class s5a extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a9, viewGroup, false);
                 aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092652);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092653);
                 aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f05);
-                aVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b7b);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092418);
+                aVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b7c);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092419);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
@@ -131,25 +131,25 @@ public class s5a extends BaseAdapter {
             aVar.a.setText(item.a());
             PayType payType = item.a;
             if (PayType.ALI_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecf);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ed0);
             } else if (PayType.WECHAT_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ece);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecf);
             } else if (PayType.DXM_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080eca);
-            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
                 aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecb);
-            } else if (PayType.UNION_PAY.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecd);
-            } else if (PayType.QQ_PAY.equals(payType)) {
+            } else if (PayType.DXM_PAY_KJ.equals(payType)) {
                 aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecc);
+            } else if (PayType.UNION_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ece);
+            } else if (PayType.QQ_PAY.equals(payType)) {
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecd);
             } else if (PayType.DXM_PAY_H5.equals(payType)) {
-                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080eca);
+                aVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ecb);
             }
             aVar.a.setTextColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0608e6));
             if (this.b == i) {
-                aVar.c.setBackgroundResource(k5a.a.b(this.d) ? R.drawable.obfuscated_res_0x7f080ed7 : R.drawable.obfuscated_res_0x7f080ed8);
+                aVar.c.setBackgroundResource(k5a.a.b(this.d) ? R.drawable.obfuscated_res_0x7f080ed8 : R.drawable.obfuscated_res_0x7f080ed9);
             } else {
-                aVar.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ed9);
+                aVar.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080eda);
             }
             if (TextUtils.isEmpty(item.c)) {
                 aVar.d.setVisibility(8);

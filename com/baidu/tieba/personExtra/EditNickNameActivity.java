@@ -347,11 +347,11 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c7b);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092659);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c7c);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09265a);
             this.b = baseWebView;
             baseWebView.setWebViewClient(new e(this, null));
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             if (this.j == 0) {
                 navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0afa));
@@ -428,7 +428,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 nu4 nu4Var = new nu4(getActivity());
                 this.i = nu4Var;
                 nu4Var.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0afc));
-                this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f10a2, new c(this));
+                this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f10a3, new c(this));
                 this.i.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(this));
                 this.i.create(getPageContext());
             }

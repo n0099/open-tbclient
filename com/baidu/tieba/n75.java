@@ -536,7 +536,7 @@ public class n75 extends l55 {
                 this.h.S().setVoiceDuringTime(-1);
             }
             if (!this.h.Q()) {
-                getContext().showToast((int) R.string.obfuscated_res_0x7f0f15f3);
+                getContext().showToast((int) R.string.obfuscated_res_0x7f0f15f4);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 12).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                 return;
             }
@@ -691,7 +691,7 @@ public class n75 extends l55 {
         if (!(interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) || str == null) {
             return;
         }
-        String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100b).replace("%s", str);
+        String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100c).replace("%s", str);
         p75 p75Var = this.c;
         if (p75Var != null) {
             if (TextUtils.isEmpty(p75Var.b) && TextUtils.isEmpty(this.c.a)) {
@@ -845,7 +845,7 @@ public class n75 extends l55 {
             Y(true);
             a().j();
             if (str != null && str.length() != 0) {
-                String replace = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f100b).replace("%s", str);
+                String replace = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f100c).replace("%s", str);
                 p75 p75Var = new p75();
                 p75Var.b = replace;
                 p75Var.d = str2;

@@ -166,10 +166,10 @@ public class NgWebView extends BdSailorWebView implements sp1, SlideInterceptor,
             int i2 = popTopY - g2;
             if (i2 < 0) {
                 g = ch3.g(22.0f) + popBottomY;
-                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081199);
+                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119a);
             } else {
                 g = ch3.g(22.0f) + i2;
-                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081198);
+                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081199);
             }
             if (g + g2 > height) {
                 g = (popBottomY - popTopY) - g2;
@@ -236,12 +236,12 @@ public class NgWebView extends BdSailorWebView implements sp1, SlideInterceptor,
             SwanAppSelectPopView swanAppSelectPopView = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d083b, (ViewGroup) null);
             this.mSelectPopWindow = swanAppSelectPopView;
             if (z) {
-                swanAppSelectPopView.findViewById(R.id.obfuscated_res_0x7f091e51).setVisibility(8);
+                swanAppSelectPopView.findViewById(R.id.obfuscated_res_0x7f091e52).setVisibility(8);
                 this.mSelectPopWindow.findViewById(R.id.obfuscated_res_0x7f090465).setVisibility(8);
             }
             getCurrentWebView().addView(this.mSelectPopWindow, new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(-2, -2)));
             this.mSelectPopWindow.setEventListener(this);
-            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f081198);
+            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f081199);
             this.mSelectPopWindow.setVisibility(4);
         }
     }

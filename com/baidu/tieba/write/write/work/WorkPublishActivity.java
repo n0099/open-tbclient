@@ -898,13 +898,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
                 if (this$0.d1(String.valueOf(this$0.m1().getText()).length()) < 5) {
                     BdTopToast bdTopToast = new BdTopToast(this$0);
                     bdTopToast.h(false);
-                    bdTopToast.g(this$0.getString(R.string.obfuscated_res_0x7f0f15e2));
+                    bdTopToast.g(this$0.getString(R.string.obfuscated_res_0x7f0f15e3));
                     bdTopToast.i(this$0.u1());
                 }
                 if (this$0.d1(String.valueOf(this$0.m1().getText()).length()) > this$0.O) {
                     BdTopToast bdTopToast2 = new BdTopToast(this$0);
                     bdTopToast2.h(false);
-                    bdTopToast2.g(this$0.getString(R.string.obfuscated_res_0x7f0f15e1));
+                    bdTopToast2.g(this$0.getString(R.string.obfuscated_res_0x7f0f15e2));
                     bdTopToast2.i(this$0.u1());
                 }
             }
@@ -1112,15 +1112,15 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
                     throw new NullPointerException("null cannot be cast to non-null type kotlin.Boolean");
                 }
                 boolean booleanValue = ((Boolean) tag).booleanValue();
-                if (id == R.id.obfuscated_res_0x7f091daf) {
+                if (id == R.id.obfuscated_res_0x7f091db0) {
                     if (booleanValue) {
                         TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 2));
                         this$0.f1();
                     }
                     this$0.setResult(100);
                     this$0.finish();
-                } else if (id != R.id.obfuscated_res_0x7f091db0) {
-                    if (id == R.id.obfuscated_res_0x7f091dae && booleanValue) {
+                } else if (id != R.id.obfuscated_res_0x7f091db1) {
+                    if (id == R.id.obfuscated_res_0x7f091daf && booleanValue) {
                         TiebaStatic.log(new StatisticItem("c14260").param("obj_locate", 0));
                     }
                 } else if (booleanValue) {
@@ -1234,7 +1234,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0925c4);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0925c5);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.view_navigation_bar)");
             setNavigationBar((NavigationBar) findViewById);
             t1().showBottomLine();
@@ -1274,7 +1274,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
                         }
                     }
                 });
-                TextView centerTextTitle = t1().setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f15d9));
+                TextView centerTextTitle = t1().setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f15da));
                 Intrinsics.checkNotNullExpressionValue(centerTextTitle, "navigationBar.setCenterT…g(R.string.work_publish))");
                 n2(centerTextTitle);
                 ViewGroup.LayoutParams layoutParams2 = r1().getLayoutParams();
@@ -1369,10 +1369,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
             View findViewById = findViewById(16908290);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(android.R.id.content)");
             p2((ViewGroup) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0924f8);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0924f9);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.videoViewLayout)");
             m2((ViewGroup) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0924f7);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0924f8);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.videoView)");
             l2((WorkPublishMixVideoView) findViewById3);
             WorkPublishMixVideoView o1 = o1();
@@ -1380,7 +1380,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             o1.setPageContext(pageContext);
             o1().setIWorkVideoMixListener(this);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0926a5);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0926a6);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.work_publish_edtTitle)");
             k2((SpanGroupEditText) findViewById4);
             m1().setTransLink(false);
@@ -1388,19 +1388,19 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
             View findViewById5 = findViewById(R.id.obfuscated_res_0x7f09086d);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.edit_content)");
             j2((RelativeLayout) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0926a2);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0926a3);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.work_publish_bg)");
             v2((ViewGroup) findViewById6);
-            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f0926a4);
+            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f0926a5);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.work_publish_container)");
             w2((ViewGroup) findViewById7);
-            View findViewById8 = findViewById(R.id.obfuscated_res_0x7f091e39);
+            View findViewById8 = findViewById(R.id.obfuscated_res_0x7f091e3a);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "findViewById(R.id.select_bar_view)");
             q2((SelectBarView) findViewById8);
-            View findViewById9 = findViewById(R.id.obfuscated_res_0x7f091e3c);
+            View findViewById9 = findViewById(R.id.obfuscated_res_0x7f091e3d);
             Intrinsics.checkNotNullExpressionValue(findViewById9, "findViewById(R.id.select_class_view)");
             r2((SelectClassView) findViewById9);
-            View findViewById10 = findViewById(R.id.obfuscated_res_0x7f091e5a);
+            View findViewById10 = findViewById(R.id.obfuscated_res_0x7f091e5b);
             Intrinsics.checkNotNullExpressionValue(findViewById10, "findViewById(R.id.select_topic_view)");
             t2((SelectTopicView) findViewById10);
             if (WorkAddTopicSwitch.isOn()) {
@@ -1408,7 +1408,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
             } else {
                 z1().setVisibility(8);
             }
-            View findViewById11 = findViewById(R.id.obfuscated_res_0x7f091e54);
+            View findViewById11 = findViewById(R.id.obfuscated_res_0x7f091e55);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "findViewById(R.id.select_tag_view)");
             s2((SelectTagView) findViewById11);
             l1().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g79
@@ -1423,13 +1423,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
                     }
                 }
             });
-            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f091e60);
+            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f091e61);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "findViewById(R.id.sep_line_content)");
             setContentBottomLine(findViewById12);
-            View findViewById13 = findViewById(R.id.obfuscated_res_0x7f0926a7);
+            View findViewById13 = findViewById(R.id.obfuscated_res_0x7f0926a8);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "findViewById(R.id.work_publish_title_counter)");
             i2((TextView) findViewById13);
-            View findViewById14 = findViewById(R.id.obfuscated_res_0x7f091e55);
+            View findViewById14 = findViewById(R.id.obfuscated_res_0x7f091e56);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "findViewById(R.id.select_topic_layout)");
             this.s = (SelectTopicLayout) findViewById14;
             t1().post(new Runnable() { // from class: com.baidu.tieba.f79
@@ -1462,13 +1462,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
                     }
                 }
             });
-            View findViewById15 = findViewById(R.id.obfuscated_res_0x7f092315);
+            View findViewById15 = findViewById(R.id.obfuscated_res_0x7f092316);
             Intrinsics.checkNotNullExpressionValue(findViewById15, "findViewById(R.id.topic_tool_layout)");
             this.t = findViewById15;
-            View findViewById16 = findViewById(R.id.obfuscated_res_0x7f092316);
+            View findViewById16 = findViewById(R.id.obfuscated_res_0x7f092317);
             Intrinsics.checkNotNullExpressionValue(findViewById16, "findViewById(R.id.topic_tool_shadow)");
             this.u = findViewById16;
-            View findViewById17 = findViewById(R.id.obfuscated_res_0x7f092314);
+            View findViewById17 = findViewById(R.id.obfuscated_res_0x7f092315);
             Intrinsics.checkNotNullExpressionValue(findViewById17, "findViewById(R.id.topic_tool_bar)");
             SelectTopicToolBar selectTopicToolBar = (SelectTopicToolBar) findViewById17;
             this.v = selectTopicToolBar;
@@ -1782,7 +1782,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
             saveDraftDialogView3.setCancelVisible(d2 ? 0 : 8);
             SaveDraftDialogView saveDraftDialogView4 = this.C;
             Intrinsics.checkNotNull(saveDraftDialogView4);
-            saveDraftDialogView4.setText(getString(d2 ? R.string.obfuscated_res_0x7f0f15fc : R.string.obfuscated_res_0x7f0f15fd), getString(d2 ? R.string.obfuscated_res_0x7f0f10a2 : R.string.obfuscated_res_0x7f0f15ff), getString(d2 ? R.string.obfuscated_res_0x7f0f0cc3 : R.string.obfuscated_res_0x7f0f15fe));
+            saveDraftDialogView4.setText(getString(d2 ? R.string.obfuscated_res_0x7f0f15fd : R.string.obfuscated_res_0x7f0f15fe), getString(d2 ? R.string.obfuscated_res_0x7f0f10a3 : R.string.obfuscated_res_0x7f0f1600), getString(d2 ? R.string.obfuscated_res_0x7f0f0cc3 : R.string.obfuscated_res_0x7f0f15ff));
             wu4 wu4Var2 = this.B;
             Intrinsics.checkNotNull(wu4Var2);
             wu4Var2.k();
@@ -1906,7 +1906,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
                 if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && ox4.k().l("key_home_concern_all_status", 0) == 1) {
                     createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f02bc));
                 } else {
-                    createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f136b));
+                    createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f136c));
                 }
                 createNormalCfg.start();
             } else if (ep8.k().i() == null) {
@@ -2165,7 +2165,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements r
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
             hv4.d(D1()).f(R.color.CAM_X0201);
             t1().onChangeSkinType(getPageContext(), i2);
-            t1().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a10, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            t1().getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a11, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             hv4 d2 = hv4.d(s1());
             d2.v(R.color.CAM_X0101);
             d2.n(R.string.J_X01);

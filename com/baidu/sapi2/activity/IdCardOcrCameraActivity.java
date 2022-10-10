@@ -106,12 +106,12 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d70);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d36);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d99);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091da1);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d46);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d45);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d71);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d37);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091da2);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d47);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d46);
             if ("1".equals(this.B)) {
                 this.f.setVisibility(8);
                 this.g.setVisibility(0);
@@ -123,7 +123,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             } else {
                 a(true, IdCardOcrResult.CODE_PAGE_PARAMS_ERROR, IdCardOcrResult.MESSAGE_PAGE_PARAMS_ERROR, "", "");
             }
-            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d38)).setOnClickListener(this);
+            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d39)).setOnClickListener(this);
         }
     }
 
@@ -452,7 +452,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public void onClick(View view2) {
         Camera.Parameters parameters;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091d38 || this.j == null || (parameters = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091d39 || this.j == null || (parameters = this.i) == null) {
             return;
         }
         Camera.Size previewSize = parameters.getPreviewSize();

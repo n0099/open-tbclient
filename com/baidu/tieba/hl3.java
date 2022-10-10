@@ -224,7 +224,7 @@ public class hl3 {
                 viewGroup = null;
             } else {
                 viewGroup = (ViewGroup) w.findViewById(16908290);
-                t23.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f12e8));
+                t23.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f12e9));
             }
             ul3.b(new a(this, viewGroup, xj1Var));
         }

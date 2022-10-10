@@ -30,7 +30,7 @@ public class so7 {
                 return;
             }
         }
-        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0920c4);
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0920c5);
         View view2 = new View(viewGroup.getContext());
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)));
         this.a.addHeaderView(view2);

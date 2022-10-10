@@ -124,13 +124,13 @@ public class y25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
             if (i == 3 || i == 2) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f040b), context.getString(R.string.obfuscated_res_0x7f0f15be));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f040b), context.getString(R.string.obfuscated_res_0x7f0f15bf));
             }
             if (i == 8 || i == 4) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f040b), context.getString(R.string.obfuscated_res_0x7f0f0f7f));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f040b), context.getString(R.string.obfuscated_res_0x7f0f0f80));
             }
             if (i == 6) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f040b), context.getString(R.string.obfuscated_res_0x7f0f11bd));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f040b), context.getString(R.string.obfuscated_res_0x7f0f11be));
             }
             return null;
         }
@@ -143,7 +143,7 @@ public class y25 {
         if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
             if (i == 3 || i == 2) {
                 if (!b(context, i)) {
-                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1187)).i();
+                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1188)).i();
                     return;
                 }
                 intent = new Intent("android.intent.action.MAIN");
@@ -154,7 +154,7 @@ public class y25 {
                 context.startActivity(intent);
             } else if (i == 8 || i == 4) {
                 if (!b(context, i)) {
-                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+                    BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f116a)).i();
                     return;
                 }
                 intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
@@ -163,7 +163,7 @@ public class y25 {
             } else if (i != 6) {
                 intent = null;
             } else if (!b(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1178)).i();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1179)).i();
                 return;
             } else {
                 intent = new Intent();
