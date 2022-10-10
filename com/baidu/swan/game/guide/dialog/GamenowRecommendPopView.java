@@ -338,7 +338,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
             int i2 = this.m;
             if (i2 == 0 || i2 == 1) {
                 LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ab, this);
-                this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9d);
+                this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9e);
                 this.e.setLayoutManager(new GridLayoutManager(this.a, 3));
             } else if (i2 == 2) {
                 LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ad, this);
@@ -366,7 +366,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
                         }
                         this.b.setTextColor(parseColor);
                         this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8c);
-                        this.d = findViewById(R.id.obfuscated_res_0x7f091c58);
+                        this.d = findViewById(R.id.obfuscated_res_0x7f091c59);
                         this.j = new a(this);
                         i = this.m;
                         str = "2";
@@ -388,7 +388,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
             }
             this.b.setTextColor(parseColor);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8c);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c58);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c59);
             this.j = new a(this);
             i = this.m;
             str = "2";

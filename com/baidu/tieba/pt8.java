@@ -125,10 +125,10 @@ public class pt8 extends BaseAdapter {
                 aVar = new a();
                 HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09085a);
                 aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
                 aVar.a.setDefaultBgResource(R.color.CAM_X0204);
                 aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090859);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092214);
+                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092215);
                 aVar.d = view2.findViewById(R.id.divider_line);
                 view2.setTag(aVar);
             }

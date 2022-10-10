@@ -451,20 +451,20 @@ public class SingleImageTextView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a8, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091eff);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091efb);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091efc);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f00);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091efc);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091efd);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(false);
             this.d.setRadius(ej.f(getContext(), R.dimen.tbds20));
             this.d.setConrers(15);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b60);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b61);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091efd);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091ecd);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091efe);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091ece);
             this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912a3);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f6);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f7);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f7);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f8);
             setOnLongClickListener(new a(this));
             int dimension = (int) this.a.getResources().getDimension(R.dimen.tbds38);
             int dimension2 = (int) this.a.getResources().getDimension(R.dimen.tbds10);

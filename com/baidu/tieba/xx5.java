@@ -167,9 +167,9 @@ public class xx5 extends i16<sl8> implements g26 {
         this.m = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090b04);
         this.n = h().findViewById(R.id.divider_line);
         this.p.setDividerWidth(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-        this.p.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+        this.p.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
         this.p.setOnItemClickListener(this.u);
-        this.p.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
+        this.p.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
         nx5 nx5Var = new nx5(tbPageContext);
         this.q = nx5Var;
         this.p.setAdapter((ListAdapter) nx5Var);

@@ -65,21 +65,21 @@ public class gc8 {
             PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
             this.e = postSearchListFragment;
             bVar.c = postSearchListFragment;
-            bVar.b = c(R.string.obfuscated_res_0x7f0f10eb);
+            bVar.b = c(R.string.obfuscated_res_0x7f0f10ec);
             bVar.a = 1;
             this.c.a(bVar);
             FragmentTabHost.b bVar2 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
             this.f = postSearchListFragment2;
             bVar2.c = postSearchListFragment2;
-            bVar2.b = c(R.string.obfuscated_res_0x7f0f10ea);
+            bVar2.b = c(R.string.obfuscated_res_0x7f0f10eb);
             bVar2.a = 2;
             this.c.a(bVar2);
             FragmentTabHost.b bVar3 = new FragmentTabHost.b();
             PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
             this.g = postSearchListFragment3;
             bVar3.c = postSearchListFragment3;
-            bVar3.b = c(R.string.obfuscated_res_0x7f0f10e9);
+            bVar3.b = c(R.string.obfuscated_res_0x7f0f10ea);
             bVar3.a = 3;
             this.c.a(bVar3);
         }
@@ -127,7 +127,7 @@ public class gc8 {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091e12)).inflate();
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091e13)).inflate();
             inflate.setVisibility(0);
             FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091a4e);
             this.c = fragmentTabHost;

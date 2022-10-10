@@ -347,12 +347,12 @@ public class qh8 extends lh8 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             try {
                 if (z) {
-                    k = f(R.drawable.obfuscated_res_0x7f080d75);
+                    k = f(R.drawable.obfuscated_res_0x7f080d76);
                 } else {
                     k = k(bitmap, i);
                 }
                 if (k == null) {
-                    k = f(R.drawable.obfuscated_res_0x7f080d75);
+                    k = f(R.drawable.obfuscated_res_0x7f080d76);
                 }
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 k.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -409,7 +409,7 @@ public class qh8 extends lh8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                Bitmap f = f(R.drawable.obfuscated_res_0x7f080d75);
+                Bitmap f = f(R.drawable.obfuscated_res_0x7f080d76);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 f.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -436,7 +436,7 @@ public class qh8 extends lh8 {
                     if (sh8Var2 != null) {
                         sh8Var2.d1(this.k, 2);
                     }
-                    BdToast.b(d(), d().getText(R.string.obfuscated_res_0x7f0f1190)).i();
+                    BdToast.b(d(), d().getText(R.string.obfuscated_res_0x7f0f1191)).i();
                     return;
                 }
                 on r = r(shareEntity);

@@ -165,7 +165,7 @@ public class MsgActivityView extends a87 {
                 return;
             }
         }
-        this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fc);
+        this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fd);
         this.G = (TextView) j(R.id.obfuscated_res_0x7f091587);
         this.H = (TextView) j(R.id.obfuscated_res_0x7f091586);
         this.I = (TextView) j(R.id.obfuscated_res_0x7f091585);
@@ -229,16 +229,16 @@ public class MsgActivityView extends a87 {
                 String str = "";
                 switch (i3) {
                     case 0:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1144);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1145);
                         break;
                     case 1:
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0cff);
                         break;
                     case 2:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f14b3);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f14b4);
                         break;
                     case 3:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13f5);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13f6);
                         break;
                     case 4:
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06df);
@@ -247,7 +247,7 @@ public class MsgActivityView extends a87 {
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0644);
                         break;
                     case 6:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f11bf);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f11c0);
                         break;
                 }
                 if (i > 12) {

@@ -433,8 +433,8 @@ public class RecommendForumView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091b98);
-            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0921aa);
+            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091b99);
+            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0921ab);
         }
     }
 

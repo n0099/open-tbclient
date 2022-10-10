@@ -1165,7 +1165,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public final void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.e = navigationBar;
             if (navigationBar == null) {
                 return;

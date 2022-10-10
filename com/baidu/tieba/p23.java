@@ -994,7 +994,7 @@ public class p23 extends k23 {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09223a);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09223b);
             this.b = (TextView) viewGroup.findViewById(R.id.dialog_title);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c9);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ca);
@@ -1005,7 +1005,7 @@ public class p23 extends k23 {
             this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907fd);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.q = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c4);
-            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1c);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.s = (SwanAppScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091527);
             this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09044c);

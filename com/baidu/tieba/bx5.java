@@ -325,7 +325,7 @@ public class bx5 {
                 this.l.setWidth(-2);
                 this.l.setHeight(-2);
                 this.l.setAnimationStyle(16973826);
-                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc1));
+                this.l.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc2));
                 this.l.setOutsideTouchable(true);
                 this.l.setFocusable(true);
                 this.l.setTouchable(true);
@@ -343,7 +343,7 @@ public class bx5 {
             this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090b26);
             this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090b2c);
             this.k = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f09132a);
-            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0924e2);
+            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0924e3);
             zx4 zx4Var = new zx4(this.a);
             this.q = zx4Var;
             zx4Var.b0(this.f);

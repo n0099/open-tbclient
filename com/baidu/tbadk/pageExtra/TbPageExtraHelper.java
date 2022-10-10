@@ -179,7 +179,7 @@ public class TbPageExtraHelper {
                     printLog(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
                 }
                 if (mc5Var == null) {
-                    Object tag = viewGroup.getTag(R.id.obfuscated_res_0x7f09208a);
+                    Object tag = viewGroup.getTag(R.id.obfuscated_res_0x7f09208b);
                     if (tag instanceof mc5) {
                         mc5Var = (mc5) tag;
                         printLog(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");

@@ -52,15 +52,15 @@ public class jg6 {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ddd);
-        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091de0);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091dde);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091de1);
         this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d8a);
         this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d7a);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f10d7);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f10d8);
         TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d79);
         this.f = textView;
         textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0375));
-        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091de1);
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091de2);
         a();
         b(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -88,7 +88,7 @@ public class jg6 {
         }
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
         SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809df, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809e0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         if (i == 2) {
             this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
         } else {

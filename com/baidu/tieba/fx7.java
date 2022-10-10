@@ -224,7 +224,7 @@ public class fx7 extends qn<y26, AutoVideoCardViewHolder<y26>> {
         }
         if (view2.getId() == this.d.p().getMainView().getId()) {
             j28.m(y26Var, 4, this.b);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
             j28.m(y26Var, 1, this.b);
         }
     }

@@ -1100,7 +1100,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             public void b(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f13ba);
+                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f13bb);
                 }
             }
         }
@@ -1151,7 +1151,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 this.c.clear();
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f10af));
+                arrayList.add(this.d.getPageContext().getString(R.string.obfuscated_res_0x7f0f10b0));
                 this.c.add(Integer.valueOf(this.a));
                 return (String[]) arrayList.toArray(new String[0]);
             }

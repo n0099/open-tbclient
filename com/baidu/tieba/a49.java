@@ -225,7 +225,7 @@ public class a49 extends n49<y49> {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d049a, viewGroup, false);
             this.c = inflate;
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f0926b3);
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f0926b4);
             this.g = writeEvaluationHeaderView;
             if (writeEvaluationHeaderView != null) {
                 writeEvaluationHeaderView.setItemCloseListener(new b(this));

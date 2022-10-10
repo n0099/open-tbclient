@@ -359,7 +359,7 @@ public abstract class az extends gx<yq4> implements ka8 {
                 } else {
                     this.f = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null, true);
                 }
-                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09256a);
+                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09256b);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ad4);
                 fb8 q = q();
                 this.j = q;

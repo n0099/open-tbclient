@@ -265,7 +265,7 @@ public class c94 extends r22 implements x84, OnGetPoiSearchResultListener, View.
                 }
                 this.T0 = string;
             }
-            this.F0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091e13);
+            this.F0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091e14);
             this.I0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091434);
             this.G0 = view2.findViewById(R.id.obfuscated_res_0x7f0916e2);
             this.H0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904a0);

@@ -561,10 +561,10 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
         activityResStringMap.put(new Point(1, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a91));
         activityResStringMap.put(new Point(1, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a90));
         activityResStringMap.put(new Point(1, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0a8f));
-        activityResStringMap.put(new Point(2, 1), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f115f));
-        activityResStringMap.put(new Point(2, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1162));
-        activityResStringMap.put(new Point(2, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1161));
-        activityResStringMap.put(new Point(2, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1160));
+        activityResStringMap.put(new Point(2, 1), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1160));
+        activityResStringMap.put(new Point(2, 2), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1163));
+        activityResStringMap.put(new Point(2, 3), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1162));
+        activityResStringMap.put(new Point(2, 4), Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1161));
         mInterviewResMap.put(1, Integer.valueOf((int) R.drawable.label_interview_no));
         mInterviewResMap.put(2, Integer.valueOf((int) R.drawable.label_interview_live));
         mInterviewResMap.put(3, Integer.valueOf((int) R.drawable.label_interview_off));
@@ -958,7 +958,7 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             if ((this instanceof ws4) && "0".equals(getId())) {
-                this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1539);
+                this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f153a);
                 return;
             }
             int i = 36;
@@ -974,7 +974,7 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
                         if (StringHelper.isThisYear(formatTimeForJustNow)) {
                             formatTimeForJustNow = StringHelper.getFormatTimeShort(last_time_int);
                         }
-                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ffc);
+                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ffd);
                         if (showWeakenName()) {
                             formatTimeForJustNow = StringHelper.getFormatTimeForHomeC(last_time_int);
                         }
@@ -1112,7 +1112,7 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
             if (inflate == null) {
                 return null;
             }
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092184);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092185);
             textView.setText(str);
             textView.setTextColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(R.color.CAM_X0106_1));
             inflate.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
@@ -1167,12 +1167,12 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
                 if (getAuthor().getGender() == 1) {
                     sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0851));
                 } else if (getAuthor().getGender() == 2) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1192));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1193));
                 } else {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1365));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1366));
                 }
             } else {
-                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1365));
+                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1366));
             }
             sb.insert(0, "[icon]");
             SpannableString spannableString = new SpannableString(sb.toString());
@@ -1970,7 +1970,7 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
         if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             ArrayList<el5> arrayList = new ArrayList<>();
             if (this.isSCard) {
-                arrayList.add(new el5(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f103a)));
+                arrayList.add(new el5(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f103b)));
             }
             return arrayList;
         }
@@ -5047,7 +5047,7 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
                         arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f07ff));
                     }
                     if (getIs_top() == 1) {
-                        arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f1457));
+                        arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f1458));
                     }
                     if (isInterviewLive() && getTaskInfoData() != null && getTaskInfoStatus() == 2) {
                         arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f0957));
@@ -5064,7 +5064,7 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
                         arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f038b));
                     }
                     if (getAppCodeData() != null) {
-                        arrayList.add(new t16.a(R.string.obfuscated_res_0x7f0f1122, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new t16.a(R.string.obfuscated_res_0x7f0f1123, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
                     if (getYulePostActivityData() != null) {
                         arrayList.add(new t16.a(R.string.obfuscated_res_0x7f0f038a, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
@@ -5078,10 +5078,10 @@ public class ThreadData extends yq4 implements PreLoadImageProvider, Cdo, IVideo
                     if (z3 && isLiveRecordThread()) {
                         arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f0a29));
                     } else if (isRealVideoThread()) {
-                        arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f155e));
+                        arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f155f));
                     }
                     if (z4) {
-                        arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f1554));
+                        arrayList.add(new t16.a((int) R.string.obfuscated_res_0x7f0f1555));
                     }
                 }
             }

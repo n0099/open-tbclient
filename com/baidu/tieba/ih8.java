@@ -67,7 +67,7 @@ public class ih8 {
             return;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115d);
+            ej.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f115e);
             return;
         }
         if (z && (b = b()) != null) {
@@ -77,7 +77,7 @@ public class ih8 {
         if (i == 3) {
             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
             if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1190)).i();
+                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1191)).i();
                 return;
             }
             e(shareItem, 4);
@@ -85,7 +85,7 @@ public class ih8 {
         } else if (i == 2) {
             IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
             if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1190)).i();
+                BdToast.b(this.a, TbadkCoreApplication.getInst().getText(R.string.obfuscated_res_0x7f0f1191)).i();
                 return;
             }
             e(shareItem, 3);
@@ -100,7 +100,7 @@ public class ih8 {
                 return;
             }
             Context context = this.a;
-            BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+            BdToast.b(context, context.getText(R.string.obfuscated_res_0x7f0f116a)).i();
         } else if (i == 5) {
             if (!shareItem.a) {
                 shareItem.w = a(shareItem);
@@ -124,7 +124,7 @@ public class ih8 {
                 return;
             }
             Context context2 = this.a;
-            BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f1169)).i();
+            BdToast.b(context2, context2.getText(R.string.obfuscated_res_0x7f0f116a)).i();
         }
     }
 

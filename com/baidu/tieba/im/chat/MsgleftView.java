@@ -172,7 +172,7 @@ public class MsgleftView extends a87 {
         this.L = tbPageContext;
         r();
         this.J = (ImageView) j(R.id.obfuscated_res_0x7f091013);
-        this.G = (TextView) j(R.id.obfuscated_res_0x7f0920fa);
+        this.G = (TextView) j(R.id.obfuscated_res_0x7f0920fb);
         this.H = (ViewGroup) j(R.id.obfuscated_res_0x7f090407);
         HeadImageView headImageView = (HeadImageView) j(R.id.obfuscated_res_0x7f090ef3);
         this.F = headImageView;
@@ -180,7 +180,7 @@ public class MsgleftView extends a87 {
         this.F.setDrawerType(1);
         this.F.setRadius(ej.d(this.L.getContext(), 4.0f));
         this.F.setPlaceHolder(1);
-        this.I = (UserIconBox) j(R.id.obfuscated_res_0x7f0924d8);
+        this.I = (UserIconBox) j(R.id.obfuscated_res_0x7f0924d9);
         this.F.setLongClickable(true);
         this.F.setOnLongClickListener(this.N);
         this.F.setOnTouchListener(new a(this));

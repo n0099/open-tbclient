@@ -112,7 +112,7 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f1120);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f1121);
                 } else {
                     this.a.d.setText(R.string.obfuscated_res_0x7f0f0270);
                 }
@@ -438,8 +438,8 @@ public class ConcernSelectView extends FrameLayout {
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091514);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09026b);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f1120);
-                this.e.setText(R.string.obfuscated_res_0x7f0f1120);
+                this.d.setText(R.string.obfuscated_res_0x7f0f1121);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1121);
             }
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090865);
             this.g = findViewById(R.id.obfuscated_res_0x7f090f9d);

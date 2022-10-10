@@ -782,7 +782,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
             if (context == null) {
                 return null;
             }
-            return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080c74);
+            return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080c75);
         }
         return (Bitmap) invokeV.objValue;
     }

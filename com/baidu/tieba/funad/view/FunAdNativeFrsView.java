@@ -269,16 +269,16 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
             this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c3a);
-            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09228c);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09228d);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09228b);
+            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09228d);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09228e);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09228c);
             this.x = (FunAdAgreeView) findViewById(R.id.obfuscated_res_0x7f090084);
-            this.y = findViewById(R.id.obfuscated_res_0x7f091e97);
-            this.B = findViewById(R.id.obfuscated_res_0x7f092194);
-            this.C = (ImageView) findViewById(R.id.obfuscated_res_0x7f092196);
-            this.D = (TextView) findViewById(R.id.obfuscated_res_0x7f092197);
-            this.z = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e98);
-            this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f091e96);
+            this.y = findViewById(R.id.obfuscated_res_0x7f091e98);
+            this.B = findViewById(R.id.obfuscated_res_0x7f092195);
+            this.C = (ImageView) findViewById(R.id.obfuscated_res_0x7f092197);
+            this.D = (TextView) findViewById(R.id.obfuscated_res_0x7f092198);
+            this.z = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e99);
+            this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f091e97);
             this.E = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09127b);
             this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c38);
             this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090c4c);

@@ -694,11 +694,11 @@ public class RecordEffectLayout extends RelativeLayout {
             this.j = "-1";
             QmFilterItem qmFilterItem = new QmFilterItem();
             qmFilterItem.id = "-1";
-            qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a3b + "";
+            qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a3c + "";
             qmFilterItem.name = getResources().getString(R.string.obfuscated_res_0x7f0f063a);
             qmFilterItem.isSelect = true;
             qmFilterItem.localPath = "origin";
-            this.m = m(R.drawable.obfuscated_res_0x7f080a3b, 2, p(R.string.obfuscated_res_0x7f0f063a), qmFilterItem);
+            this.m = m(R.drawable.obfuscated_res_0x7f080a3c, 2, p(R.string.obfuscated_res_0x7f0f063a), qmFilterItem);
             this.f = new ArrayList();
             QmStickerItem qmStickerItem = new QmStickerItem();
             qmStickerItem.id = -1;
@@ -724,10 +724,10 @@ public class RecordEffectLayout extends RelativeLayout {
             this.b = hListView;
             hListView.setDividerWidth(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
             this.b.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0);
-            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
-            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091f8a);
+            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
+            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f091f8b);
             this.c = hListView2;
-            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
+            hListView2.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
             e19 e19Var = new e19();
             this.d = e19Var;
             this.b.setAdapter((ListAdapter) e19Var);

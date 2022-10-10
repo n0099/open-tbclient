@@ -746,7 +746,7 @@ public class GamePersonalChatView extends PersonalChatView {
             layoutParams3.height = ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070749);
             layoutParams3.addRule(12);
             this.originListContainer.setLayoutParams(layoutParams3);
-            View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f092332);
+            View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f092333);
             this.x = findViewById;
             findViewById.setVisibility(8);
             this.originListContainer.setVisibility(8);

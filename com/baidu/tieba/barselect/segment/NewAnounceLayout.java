@@ -107,8 +107,8 @@ public class NewAnounceLayout extends CardBasicLayout {
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909cd);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091e1e);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e29);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091e1f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e2a);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090287);
         }
     }

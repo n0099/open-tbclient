@@ -187,10 +187,10 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06bf, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091b34);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b31);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b35);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b36);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091b35);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b32);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b36);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b37);
             h();
         }
     }

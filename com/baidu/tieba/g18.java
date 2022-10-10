@@ -99,10 +99,10 @@ public class g18 {
                     arrayList.add(uu4Var6);
                 }
             }
-            uu4 uu4Var7 = new uu4(-3, lz7.j(R.string.obfuscated_res_0x7f0f0ffd, new Object[0]), yu4Var);
+            uu4 uu4Var7 = new uu4(-3, lz7.j(R.string.obfuscated_res_0x7f0f0ffe, new Object[0]), yu4Var);
             uu4Var7.d.setTag(sparseArray);
             arrayList.add(uu4Var7);
-            uu4 uu4Var8 = new uu4(-4, lz7.j(R.string.obfuscated_res_0x7f0f1146, new Object[0]), yu4Var);
+            uu4 uu4Var8 = new uu4(-4, lz7.j(R.string.obfuscated_res_0x7f0f1147, new Object[0]), yu4Var);
             uu4Var8.d.setTag(sparseArray);
             arrayList.add(uu4Var8);
             list.addAll(0, arrayList);
@@ -136,10 +136,10 @@ public class g18 {
                 uu4Var3.d.setTag(sparseArray);
                 arrayList.add(uu4Var3);
             }
-            uu4 uu4Var4 = new uu4(-3, lz7.j(R.string.obfuscated_res_0x7f0f0ffd, new Object[0]), yu4Var);
+            uu4 uu4Var4 = new uu4(-3, lz7.j(R.string.obfuscated_res_0x7f0f0ffe, new Object[0]), yu4Var);
             uu4Var4.d.setTag(sparseArray);
             arrayList.add(0, uu4Var4);
-            uu4 uu4Var5 = new uu4(-4, lz7.j(R.string.obfuscated_res_0x7f0f1146, new Object[0]), yu4Var);
+            uu4 uu4Var5 = new uu4(-4, lz7.j(R.string.obfuscated_res_0x7f0f1147, new Object[0]), yu4Var);
             uu4Var5.d.setTag(sparseArray);
             arrayList.add(1, uu4Var5);
             list.addAll(0, arrayList);
@@ -200,75 +200,75 @@ public class g18 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, uu4Var)) == null) {
             switch (uu4Var.f()) {
                 case -4:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a5, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a6, SkinManager.getColor(R.color.CAM_X0107), null);
                 case -3:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098f, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080990, SkinManager.getColor(R.color.CAM_X0107), null);
                 case -2:
                     if (lz7.j(R.string.obfuscated_res_0x7f0f0363, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080993, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080994, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080994, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080995, SkinManager.getColor(R.color.CAM_X0107), null);
                 case -1:
                     if (lz7.j(R.string.obfuscated_res_0x7f0f0361, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099c, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099d, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099d, SkinManager.getColor(R.color.CAM_X0301), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099e, SkinManager.getColor(R.color.CAM_X0301), null);
                 case 0:
                 default:
                     return null;
                 case 1:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080995, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080996, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 2:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a4, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a5, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 3:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080990, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080991, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 4:
                     if (lz7.j(R.string.obfuscated_res_0x7f0f0aaa, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098d, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098e, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098e, SkinManager.getColor(R.color.CAM_X0305), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098f, SkinManager.getColor(R.color.CAM_X0305), null);
                 case 5:
-                    if (lz7.j(R.string.obfuscated_res_0x7f0f1016, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a3, SkinManager.getColor(R.color.CAM_X0107), null);
+                    if (lz7.j(R.string.obfuscated_res_0x7f0f1017, new Object[0]).equals(uu4Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a4, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     if (lz7.j(R.string.obfuscated_res_0x7f0f0b4d, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a2, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
                 case 6:
-                    if (lz7.j(R.string.obfuscated_res_0x7f0f1016, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a3, SkinManager.getColor(R.color.CAM_X0107), null);
+                    if (lz7.j(R.string.obfuscated_res_0x7f0f1017, new Object[0]).equals(uu4Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a4, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     if (lz7.j(R.string.obfuscated_res_0x7f0f04b0, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080992, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080993, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
                 case 7:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080988, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080989, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 8:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080998, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080999, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 9:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08097b, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08097c, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 10:
                     if (lz7.j(R.string.obfuscated_res_0x7f0f04bb, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080992, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080993, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     if (lz7.j(R.string.obfuscated_res_0x7f0f04b0, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080992, SkinManager.getColor(R.color.CAM_X0107), null);
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080993, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
                 case 11:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098c, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098d, SkinManager.getColor(R.color.CAM_X0107), null);
                 case 12:
                     if (lz7.j(R.string.obfuscated_res_0x7f0f0b49, new Object[0]).equals(uu4Var.g())) {
-                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099f, SkinManager.getColor(R.color.CAM_X0107), null);
-                    }
-                    if (lz7.j(R.string.obfuscated_res_0x7f0f14bc, new Object[0]).equals(uu4Var.g())) {
                         return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a0, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (lz7.j(R.string.obfuscated_res_0x7f0f14bd, new Object[0]).equals(uu4Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a1, SkinManager.getColor(R.color.CAM_X0107), null);
                     }
                     return null;
                 case 13:
-                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08097a, SkinManager.getColor(R.color.CAM_X0107), null);
+                    return WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08097b, SkinManager.getColor(R.color.CAM_X0107), null);
             }
         }
         return (Drawable) invokeL.objValue;

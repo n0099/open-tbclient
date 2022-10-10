@@ -58,11 +58,11 @@ public class vy6 extends qn<x26, ThreadCardViewHolder<x26>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, x26Var) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+                if (id == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
                     cz6.e(x26Var, this.b.d);
-                } else if (id == R.id.obfuscated_res_0x7f092488) {
+                } else if (id == R.id.obfuscated_res_0x7f092489) {
                     cz6.f(x26Var, this.b.d);
-                } else if (id == R.id.obfuscated_res_0x7f0924b6) {
+                } else if (id == R.id.obfuscated_res_0x7f0924b7) {
                     cz6.f(x26Var, this.b.d);
                 }
             }

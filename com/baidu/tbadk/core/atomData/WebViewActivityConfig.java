@@ -102,7 +102,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                ej.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15bb));
+                ej.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15bc));
                 return false;
             }
             return true;

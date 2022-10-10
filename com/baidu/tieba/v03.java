@@ -162,8 +162,8 @@ public class v03 extends i53 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             p23.a aVar = new p23.a(context);
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12ff);
-            aVar.v(R.string.obfuscated_res_0x7f0f1303);
+            aVar.U(R.string.obfuscated_res_0x7f0f1300);
+            aVar.v(R.string.obfuscated_res_0x7f0f1304);
             aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this));
             aVar.X();
         }

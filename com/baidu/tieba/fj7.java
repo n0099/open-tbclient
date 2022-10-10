@@ -135,9 +135,9 @@ public class fj7 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07a1, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091c84);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ddc);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091ddb);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091c85);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ddd);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091ddc);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

@@ -303,7 +303,7 @@ public class ox7 implements z95 {
             }
             this.g.removeAllViews();
             this.d = new ArrayList();
-            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.obfuscated_res_0x7f0f13eb));
+            CustomBlueCheckRadioButton l = l("0", this.a.getString(R.string.obfuscated_res_0x7f0f13ec));
             this.d.add(l);
             l.setChecked(true);
             this.g.addView(l);

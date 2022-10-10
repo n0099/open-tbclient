@@ -258,7 +258,7 @@ public class fy6 {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.d.getString(R.string.obfuscated_res_0x7f0f1374).equals(this.b)) {
+            if (this.d.getString(R.string.obfuscated_res_0x7f0f1375).equals(this.b)) {
                 View childAt = this.i.getChildAt(0);
                 if (childAt == null || childAt != this.h) {
                     return;
@@ -282,7 +282,7 @@ public class fy6 {
     public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.getString(R.string.obfuscated_res_0x7f0f136c).equals(this.b) || this.d.getString(R.string.obfuscated_res_0x7f0f136f).equals(this.b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d.getString(R.string.obfuscated_res_0x7f0f136d).equals(this.b) || this.d.getString(R.string.obfuscated_res_0x7f0f1370).equals(this.b) : invokeV.booleanValue;
     }
 
     public void n() {

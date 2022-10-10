@@ -198,9 +198,9 @@ public class dk6 {
                 if (!h) {
                     this.a.j(i);
                 } else if (this.a.b == 1) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1459);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f145a);
                 } else if (this.a.b == 2) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1138);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1139);
                 }
             }
         }
@@ -268,13 +268,13 @@ public class dk6 {
             nu4Var.setNegativeTextColor(R.color.CAM_X0105);
             int i2 = this.b;
             if (i2 == 1) {
-                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f1459);
+                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f145a);
             } else if (i2 == 2) {
-                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f1138);
+                nu4Var.setTitle(R.string.obfuscated_res_0x7f0f1139);
             }
             nu4Var.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0673), Integer.valueOf(i)));
             nu4Var.setContentViewSize(1);
-            nu4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f1125), new a(this, nu4Var, i));
+            nu4Var.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f1126), new a(this, nu4Var, i));
             nu4Var.setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f0c65), new b(this, nu4Var));
             nu4Var.create(this.a).show();
         }

@@ -98,7 +98,7 @@ public class dp implements ap8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     dp dpVar = this.a.c;
-                    dpVar.a.onShowErr(4, dpVar.g.getString(R.string.obfuscated_res_0x7f0f158d));
+                    dpVar.a.onShowErr(4, dpVar.g.getString(R.string.obfuscated_res_0x7f0f158e));
                     wj.a = 1;
                 }
             }
@@ -430,7 +430,7 @@ public class dp implements ap8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = wj.a(R.string.obfuscated_res_0x7f0f158e);
+                    sdErrorString = wj.a(R.string.obfuscated_res_0x7f0f158f);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;

@@ -274,14 +274,14 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0512, (ViewGroup) this, false);
             this.e = inflate;
-            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09202c);
+            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09202d);
             this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091251);
             this.h = this.e.findViewById(R.id.obfuscated_res_0x7f09124a);
             this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09124d);
             this.j = this.e.findViewById(R.id.obfuscated_res_0x7f09124c);
             this.k = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09124f);
-            this.l = (BarImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091b96);
-            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091ba3);
+            this.l = (BarImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091b97);
+            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091ba4);
             this.e.setOnClickListener(this);
             addView(this.e);
         }

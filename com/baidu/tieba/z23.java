@@ -455,9 +455,9 @@ public final class z23 {
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912d2);
         TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912db);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c44);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c45);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091c46);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c45);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c46);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091c47);
         if (!TextUtils.isEmpty(charSequence)) {
             textView.setTextColor(a33.a);
             if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
@@ -483,7 +483,7 @@ public final class z23 {
                     } else {
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c3c)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
+                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c3d)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
                         textView2.setText(charSequence2);
                         textView2.setTextColor(a33.a);
                         findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f06023e));

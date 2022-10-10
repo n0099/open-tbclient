@@ -132,12 +132,16 @@ public class ug8 extends p9<AboutActivity> {
                                             if (view2 != this.b.g) {
                                                 if (view2 != this.b.n) {
                                                     if (view2 == this.b.o) {
-                                                        UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{ug8.u});
+                                                        UrlManager urlManager = UrlManager.getInstance();
+                                                        TbPageContext<AboutActivity> pageContext = this.b.a.getPageContext();
+                                                        urlManager.dealOneLink(pageContext, new String[]{ug8.u + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
                                                         return;
                                                     }
                                                     return;
                                                 }
-                                                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{ug8.t});
+                                                UrlManager urlManager2 = UrlManager.getInstance();
+                                                TbPageContext<AboutActivity> pageContext2 = this.b.a.getPageContext();
+                                                urlManager2.dealOneLink(pageContext2, new String[]{ug8.t + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
                                                 return;
                                             }
                                             this.a.a(4);
@@ -157,32 +161,28 @@ public class ug8 extends p9<AboutActivity> {
                                     this.a.a(1);
                                     return;
                                 } else if (CurrencySwitchUtil.isYyIsConvert()) {
-                                    UrlManager urlManager = UrlManager.getInstance();
-                                    TbPageContext<AboutActivity> pageContext = this.b.a.getPageContext();
-                                    urlManager.dealOneLink(pageContext, new String[]{TbConfig.TIEBA_ADDRESS + "tb/yy/agreement.html"});
+                                    UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/yy/agreement.html"});
                                     return;
                                 } else {
-                                    UrlManager urlManager2 = UrlManager.getInstance();
-                                    TbPageContext<AboutActivity> pageContext2 = this.b.a.getPageContext();
-                                    urlManager2.dealOneLink(pageContext2, new String[]{TbConfig.TIEBA_ADDRESS + "tb/tdou_mobile.html"});
+                                    UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/tdou_mobile.html"});
                                     return;
                                 }
                             }
-                            UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{ug8.s});
+                            UrlManager urlManager3 = UrlManager.getInstance();
+                            TbPageContext<AboutActivity> pageContext3 = this.b.a.getPageContext();
+                            urlManager3.dealOneLink(pageContext3, new String[]{ug8.s + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
                             return;
                         }
-                        UrlManager urlManager3 = UrlManager.getInstance();
-                        TbPageContext<AboutActivity> pageContext3 = this.b.a.getPageContext();
-                        urlManager3.dealOneLink((TbPageContext<?>) pageContext3, new String[]{TbConfig.TIEBA_ADDRESS + "tb/mobile/wisemainstatic/secretright.html"}, true);
+                        UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.b.a.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/mobile/wisemainstatic/secretright.html"}, true);
                         TbSingleton.getInstance().needRefreshForumSquare = true;
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{ug8.r});
+                    UrlManager urlManager4 = UrlManager.getInstance();
+                    TbPageContext<AboutActivity> pageContext4 = this.b.a.getPageContext();
+                    urlManager4.dealOneLink(pageContext4, new String[]{ug8.r + ("?curskintype=" + SkinManager.getCurrentSkinTypeString())});
                     return;
                 }
-                UrlManager urlManager4 = UrlManager.getInstance();
-                TbPageContext<AboutActivity> pageContext4 = this.b.a.getPageContext();
-                urlManager4.dealOneLink(pageContext4, new String[]{TbConfig.TIEBA_ADDRESS + "tb/eula_mobile.html"});
+                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "tb/eula_mobile.html"});
             }
         }
     }
@@ -314,38 +314,38 @@ public class ug8 extends p9<AboutActivity> {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d001c);
             this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091792);
             this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ea2);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1522));
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09213a);
+            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1523));
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09213b);
             this.f = (SettingTextTestNewView) this.a.findViewById(R.id.obfuscated_res_0x7f090026);
             TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090024);
             this.h = tbSettingTextTipView;
             tbSettingTextTipView.c();
-            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d7);
+            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d8);
             this.i = tbSettingTextTipView2;
             tbSettingTextTipView2.c();
-            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d6);
+            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d7);
             this.j = tbSettingTextTipView3;
             tbSettingTextTipView3.c();
-            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d5);
+            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d6);
             this.k = tbSettingTextTipView4;
             tbSettingTextTipView4.c();
-            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d4);
+            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d5);
             this.l = tbSettingTextTipView5;
             tbSettingTextTipView5.c();
-            this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d8);
+            this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d9);
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                this.m.setText(R.string.obfuscated_res_0x7f0f1626);
+                this.m.setText(R.string.obfuscated_res_0x7f0f1627);
             } else {
-                this.m.setText(R.string.obfuscated_res_0x7f0f13ce);
+                this.m.setText(R.string.obfuscated_res_0x7f0f13cf);
             }
             this.m.c();
             TbSettingTextTipView tbSettingTextTipView6 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09199a);
             this.n = tbSettingTextTipView6;
             tbSettingTextTipView6.c();
-            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09216d);
+            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09216e);
             this.o = tbSettingTextTipView7;
             tbSettingTextTipView7.c();
             this.q = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f090025);
@@ -353,7 +353,7 @@ public class ug8 extends p9<AboutActivity> {
             if (TbConfig.getVersionType() == 1 && !dj.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
-            String str = this.a.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1141) + " " + version;
+            String str = this.a.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1142) + " " + version;
             if (TbadkCoreApplication.getInst().isDebugMode()) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
@@ -368,7 +368,7 @@ public class ug8 extends p9<AboutActivity> {
             } else {
                 this.e.setText(str);
             }
-            this.p = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092139);
+            this.p = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09213a);
             I(TbadkCoreApplication.getInst().getSkinType());
             this.h.setVisibility(8);
             if (ox4.k().h("debug_plugin_switcher", false)) {

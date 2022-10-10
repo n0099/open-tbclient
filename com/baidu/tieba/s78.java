@@ -60,7 +60,7 @@ public class s78 extends qn<s26, ThreadCardViewHolder<s26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f0903f0) {
+            if (id == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f0903f0) {
                 a78.a(view2, s26Var, 2);
             } else if (id == R.id.obfuscated_res_0x7f090a8f) {
                 a78.a(view2, s26Var, 7);
@@ -214,7 +214,7 @@ public class s78 extends qn<s26, ThreadCardViewHolder<s26>> implements to5 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0924b6 || id == R.id.obfuscated_res_0x7f092488) {
+        if (id == R.id.obfuscated_res_0x7f0924b7 || id == R.id.obfuscated_res_0x7f092489) {
             a78.a(view2, yq4Var, 1);
         } else if (id == R.id.obfuscated_res_0x7f090718 || id == R.id.obfuscated_res_0x7f0903f0) {
             a78.a(view2, yq4Var, 3);

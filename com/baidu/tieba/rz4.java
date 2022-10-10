@@ -165,7 +165,7 @@ public class rz4 implements View.OnClickListener {
                         if (!this.a.i || this.a.k) {
                             fansNum--;
                             if (!this.a.h) {
-                                this.a.c.showToast(R.string.obfuscated_res_0x7f0f14bb);
+                                this.a.c.showToast(R.string.obfuscated_res_0x7f0f14bc);
                             }
                         } else {
                             this.a.k = false;

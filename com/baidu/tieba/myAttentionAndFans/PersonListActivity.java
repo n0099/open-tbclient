@@ -384,7 +384,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 int i = i.a[this.a.H.ordinal()];
                 if (i == 1) {
                     this.a.H = AttentionMode.TIEBA;
-                    this.a.s.setText(R.string.obfuscated_res_0x7f0f1403);
+                    this.a.s.setText(R.string.obfuscated_res_0x7f0f1404);
                     this.a.p2(2);
                 } else if (i != 2) {
                 } else {
@@ -763,7 +763,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 PersonListActivity personListActivity = this.a;
-                personListActivity.showLoadingDialog(personListActivity.getString(R.string.obfuscated_res_0x7f0f0fee));
+                personListActivity.showLoadingDialog(personListActivity.getString(R.string.obfuscated_res_0x7f0f0fef));
             }
         }
 
@@ -1154,16 +1154,16 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 str2 = null;
             } else if (i2 == 2) {
                 spannableStringBuilder.append((CharSequence) "，");
-                str2 = getString(R.string.obfuscated_res_0x7f0f0fe8);
+                str2 = getString(R.string.obfuscated_res_0x7f0f0fe9);
                 spannableStringBuilder.append((CharSequence) str2);
             } else if (i2 != 3) {
                 str2 = null;
             } else {
                 str3 = getString(R.string.obfuscated_res_0x7f0f03e9);
-                str2 = getString(R.string.obfuscated_res_0x7f0f0fe8);
+                str2 = getString(R.string.obfuscated_res_0x7f0f0fe9);
                 spannableStringBuilder.append((CharSequence) "，");
                 spannableStringBuilder.append((CharSequence) str3);
-                spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f142f));
+                spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f1430));
                 spannableStringBuilder.append((CharSequence) str2);
             }
             if (!StringUtils.isNull(str3)) {
@@ -1204,7 +1204,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (this.D == null) {
                 View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d02a2, (ViewGroup) null);
                 this.D = inflate;
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b7);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925b8);
                 this.E = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.D, R.color.CAM_X0201);
@@ -1249,20 +1249,20 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.l = (NoPressedRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091792);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.o = navigationBar;
             this.s = navigationBar.setCenterTextTitle("");
             this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.q = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f091642);
             this.r = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f091645);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091fa2);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091fa3);
             this.d = findViewById;
             this.e = findViewById.findViewById(R.id.obfuscated_res_0x7f0916ab);
             this.d.setVisibility(8);
             this.d.setClickable(false);
             this.d.setEnabled(false);
             this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09197c);
-            this.A = (ConcernSelectView) findViewById(R.id.obfuscated_res_0x7f091e45);
+            this.A = (ConcernSelectView) findViewById(R.id.obfuscated_res_0x7f091e46);
             this.p = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f091634);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String id = this.j.getId();
@@ -1400,7 +1400,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.A.setVisibility(8);
                 int i2 = this.v;
                 if (i2 == 2) {
-                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1193);
+                    string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1194);
                 } else if (i2 == 1) {
                     string = getPageContext().getString(R.string.obfuscated_res_0x7f0f0852);
                 } else {
@@ -1411,7 +1411,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 z = !ListUtils.isEmpty(gt4Var.a());
                 if (!z) {
                     textView.setVisibility(0);
-                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f15b8));
+                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f15b9));
                     return;
                 }
                 textView.setText(string + StringHelper.numberUniformFormat(gt4Var.e) + string2);
@@ -1558,7 +1558,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.G.d();
             this.c.F(SkinManager.getColor(R.color.CAM_X0109));
             this.c.d(i2);
-            WebPManager.setPureDrawable(this.t, R.drawable.obfuscated_res_0x7f080a18, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.t, R.drawable.obfuscated_res_0x7f080a19, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -1803,7 +1803,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         } else {
             this.H = AttentionMode.TIEBA;
             this.u.setVisibility(0);
-            this.s.setText(R.string.obfuscated_res_0x7f0f1403);
+            this.s.setText(R.string.obfuscated_res_0x7f0f1404);
         }
     }
 

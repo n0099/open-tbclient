@@ -223,7 +223,7 @@ public class f29 implements ie5, View.OnClickListener, k29.d {
                         }
                     }
                 }
-                BdToast b = BdToast.b(this.a.f, this.a.f.getString(R.string.obfuscated_res_0x7f0f14f4));
+                BdToast b = BdToast.b(this.a.f, this.a.f.getString(R.string.obfuscated_res_0x7f0f14f5));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
                 return false;
@@ -714,7 +714,7 @@ public class f29 implements ie5, View.OnClickListener, k29.d {
                     BdTopToast bdTopToast = new BdTopToast(this.f);
                     bdTopToast.h(false);
                     bdTopToast.g(format);
-                    bdTopToast.i((ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f091fb9));
+                    bdTopToast.i((ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f091fba));
                 } else {
                     this.f.showToast(format);
                 }

@@ -238,12 +238,12 @@ public class MultiImgLayout extends LinearLayout implements wx<yq4> {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c9, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092182);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092174);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092182);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f092183);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            this.d = (ConstrainImageGroup) findViewById(R.id.obfuscated_res_0x7f092177);
+            this.d = (ConstrainImageGroup) findViewById(R.id.obfuscated_res_0x7f092178);
             this.d.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
             ak5 ak5Var = new ak5(3);
             ak5Var.d(1.0d);

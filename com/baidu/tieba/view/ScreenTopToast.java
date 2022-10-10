@@ -169,10 +169,10 @@ public class ScreenTopToast extends LinearLayout {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078e, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc2);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dc1);
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc3);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dc2);
             this.d.setConfig(new my4());
             f();
             h();

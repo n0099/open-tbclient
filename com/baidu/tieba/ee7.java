@@ -745,7 +745,7 @@ public class ee7 extends p9 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && view2 != null && (baseCardInfo instanceof ie7)) {
                 ie7 ie7Var = (ie7) baseCardInfo;
-                if (ie7Var.E() && view2.getId() != R.id.obfuscated_res_0x7f0919be && view2.getId() != R.id.obfuscated_res_0x7f0924b6) {
+                if (ie7Var.E() && view2.getId() != R.id.obfuscated_res_0x7f0919be && view2.getId() != R.id.obfuscated_res_0x7f0924b7) {
                     ie7Var.J(false);
                     this.b.T();
                 }
@@ -1238,10 +1238,10 @@ public class ee7 extends p9 {
             this.b.F(SkinManager.getColor(R.color.CAM_X0109));
             this.b.B(R.color.CAM_X0110);
             this.b.C(this.p);
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091bf5);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091bf6);
             this.e = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.i);
-            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f091c01);
+            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f091c02);
             oe7 oe7Var = new oe7(this.a.getPageContext(), this.f);
             this.d = oe7Var;
             oe7Var.h(new m(this));

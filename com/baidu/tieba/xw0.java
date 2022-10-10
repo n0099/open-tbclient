@@ -153,10 +153,10 @@ public class xw0 extends pw0 {
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05d7, (ViewGroup) null);
                 this.b = viewGroup;
-                this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923d1);
-                this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d2);
+                this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923d2);
+                this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
                 this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091619);
-                this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
+                this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d4);
                 this.g = (Button) this.b.findViewById(R.id.obfuscated_res_0x7f090412);
             }
         }

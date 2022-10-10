@@ -122,7 +122,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d31);
                 headImageView.setIsRound(true);
                 headImageView.K(mv6Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09266f)).K(mv6Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092670)).K(mv6Var.b(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0375, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
@@ -130,10 +130,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 headImageView2.setIsRound(true);
                 headImageView2.K(mv6Var.f(), 10, false);
                 ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0916f3)).K(mv6Var.f(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0924b6)).setText(mv6Var.e());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b53)).setText(mv6Var.g());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0924c5)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f07b6, mv6Var.d()));
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b4c)).setText(mv6Var.a());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0924b7)).setText(mv6Var.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b54)).setText(mv6Var.g());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0924c6)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f07b6, mv6Var.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b4d)).setText(mv6Var.a());
             }
             if (roundAngleRelativeLayout != null) {
                 roundAngleRelativeLayout.setOnClickListener(new a(this, mv6Var, i));

@@ -1546,7 +1546,7 @@ public class ma7 {
             if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
                 return;
             }
-            c2.setLast_content(str + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1518) + str2);
+            c2.setLast_content(str + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1519) + str2);
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

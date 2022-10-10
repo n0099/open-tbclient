@@ -303,7 +303,7 @@ public class t39 {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.o.onChangeSkinType(this.i, i);
         SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0302, R.color.s_navbar_title_color);
-        this.f.setRemoveRes(R.drawable.obfuscated_res_0x7f080a9e);
+        this.f.setRemoveRes(R.drawable.obfuscated_res_0x7f080a9f);
         this.c.n();
         this.d.l();
         Iterator<FragmentTabIndicator> it = this.p.iterator();
@@ -353,7 +353,7 @@ public class t39 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f092023);
+            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f092024);
             Resources resources = this.i.getResources();
             String[] stringArray = resources.getStringArray(R.array.obfuscated_res_0x7f03000f);
             this.p.clear();
@@ -376,10 +376,10 @@ public class t39 {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f0926bb);
-            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091f8b);
+            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f0926bc);
+            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091f8c);
             Resources resources = this.i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.i.getResources();
-            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f0926ba);
+            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f0926bb);
             this.o = navigationBar;
             navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e98));
             this.o.showBottomLine();

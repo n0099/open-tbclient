@@ -114,10 +114,10 @@ public class r5a extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(new ContextThemeWrapper(this.a, k5a.a.a(this.c))).inflate(getCount() <= 2 ? R.layout.obfuscated_res_0x7f0d06a7 : R.layout.obfuscated_res_0x7f0d06a8, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a6);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a7);
                 aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee6);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d5);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09241f);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d6);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092420);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();

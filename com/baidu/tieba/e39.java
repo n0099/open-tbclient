@@ -109,7 +109,7 @@ public class e39 implements c39 {
             if (z) {
                 this.a.g = true;
                 if (writeData != null && writeData.isAddThread()) {
-                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1130);
+                    String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1131);
                     String str2 = null;
                     if (postWriteCallBackData != null) {
                         str2 = postWriteCallBackData.getPreMsg();

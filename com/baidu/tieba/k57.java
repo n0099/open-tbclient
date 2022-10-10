@@ -295,7 +295,7 @@ public class k57 extends i16<c57> {
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0107);
         if (this.q != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080a2d, R.color.CAM_X0107, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080a2e, R.color.CAM_X0107, null);
         }
         this.o.L(i);
         this.r.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
@@ -361,7 +361,7 @@ public class k57 extends i16<c57> {
             dl5Var.v(ej.f(getContext(), R.dimen.tbds44));
             dl5Var.o(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
             this.r.setLayoutStrategy(dl5Var);
-            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0922ce);
+            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0922cf);
             this.s = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f090587);
             this.s.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
             ak5 ak5Var = new ak5(3);
@@ -370,8 +370,8 @@ public class k57 extends i16<c57> {
             AgreeView agreeView = (AgreeView) h.findViewById(R.id.obfuscated_res_0x7f090583);
             this.o = agreeView;
             agreeView.v();
-            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922c0);
-            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0922c1);
+            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922c1);
+            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0922c2);
             this.u = h.findViewById(R.id.obfuscated_res_0x7f090585);
             TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09058e);
             this.v = tbImageView;
@@ -504,7 +504,7 @@ public class k57 extends i16<c57> {
         } else {
             this.n.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0488), StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 10, StringHelper.STRING_MORE), formatTime));
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080a2d, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080a2e, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         String numFormatOverWan = StringHelper.numFormatOverWan(reply_num);
         if (reply_num > 0) {
             this.p.setVisibility(0);

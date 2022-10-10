@@ -34,7 +34,7 @@ public class gp extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809d4;
+        this.d = R.drawable.obfuscated_res_0x7f0809d5;
         this.e = R.drawable.obfuscated_res_0x7f08081e;
         this.i = false;
         this.j = true;
@@ -52,7 +52,7 @@ public class gp extends s55 {
             if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
                 String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
                 if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14b6);
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14b7);
                 }
                 UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
                 return false;

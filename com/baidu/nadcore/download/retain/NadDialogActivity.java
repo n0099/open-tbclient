@@ -135,15 +135,15 @@ public abstract class NadDialogActivity extends BaseActivity {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cd);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ec);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ed);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900a2);
             this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f6);
             this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f5);
             LayoutInflater.from(this).inflate(C1(), (ViewGroup) this.x, true);
-            this.w.setBackground(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbd));
-            this.w.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbf));
-            this.y.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc0));
+            this.w.setBackground(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbe));
+            this.w.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc0));
+            this.y.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc1));
             if (G1()) {
                 this.u.setText(I1());
                 this.u.setOnClickListener(new a(this));

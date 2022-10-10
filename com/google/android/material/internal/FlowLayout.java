@@ -94,7 +94,7 @@ public class FlowLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            Object tag = view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c92);
+            Object tag = view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c93);
             if (tag instanceof Integer) {
                 return ((Integer) tag).intValue();
             }
@@ -130,7 +130,7 @@ public class FlowLayout extends ViewGroup {
             for (int i10 = 0; i10 < getChildCount(); i10++) {
                 View childAt = getChildAt(i10);
                 if (childAt.getVisibility() == 8) {
-                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c92, -1);
+                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c93, -1);
                 } else {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -147,7 +147,7 @@ public class FlowLayout extends ViewGroup {
                         this.rowCount++;
                         i8 = paddingRight;
                     }
-                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c92, Integer.valueOf(this.rowCount - 1));
+                    childAt.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091c93, Integer.valueOf(this.rowCount - 1));
                     int i11 = i8 + i6;
                     int measuredWidth2 = childAt.getMeasuredWidth() + i11;
                     int measuredHeight = childAt.getMeasuredHeight() + i9;

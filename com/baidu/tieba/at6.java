@@ -227,14 +227,14 @@ public class at6 {
                 int is_manager = zl8Var.getUserData().getIs_manager();
                 boolean h = ox4.k().h("key_forum_tool_find_dialog_show", false);
                 if (is_manager == 1 && !h) {
-                    c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f06d9), String.valueOf((int) R.drawable.obfuscated_res_0x7f080f6d), "", frsFragment);
+                    c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f06d9), String.valueOf((int) R.drawable.obfuscated_res_0x7f080f6e), "", frsFragment);
                     ox4.k().u("key_forum_tool_find_dialog_show", true);
                     if (frsFragment != null) {
                         frsFragment.z4(true);
                     }
                     return true;
                 } else if (!h && is_manager == 2) {
-                    c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f06d8), String.valueOf((int) R.drawable.obfuscated_res_0x7f080f6d), "", frsFragment);
+                    c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f06d8), String.valueOf((int) R.drawable.obfuscated_res_0x7f080f6e), "", frsFragment);
                     ox4.k().u("key_forum_tool_find_dialog_show", true);
                     if (frsFragment != null) {
                         frsFragment.z4(true);
@@ -262,8 +262,8 @@ public class at6 {
             return;
         }
         View inflate = View.inflate(frsFragment.getActivity(), R.layout.obfuscated_res_0x7f0d093c, null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c8);
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f091e87);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926c9);
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f091e88);
         if (TextUtils.isEmpty(str)) {
             textView.setText("吧主您好，本吧考核新制度上线啦");
         } else {

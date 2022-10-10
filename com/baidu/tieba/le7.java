@@ -233,11 +233,11 @@ public class le7 extends i16<ie7> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View h = h();
             this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0919be);
-            this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0924b7);
             this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09099b);
             this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091a41);
             this.m = h.findViewById(R.id.obfuscated_res_0x7f090801);
-            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921e7);
+            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921e8);
             this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090563);
             this.p = h.findViewById(R.id.obfuscated_res_0x7f090560);
             this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090562);

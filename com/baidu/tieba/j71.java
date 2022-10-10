@@ -438,7 +438,7 @@ public class j71 extends i71 {
                 int color3 = b().getColor(R.color.obfuscated_res_0x7f060831);
                 int color4 = b().getColor(R.color.obfuscated_res_0x7f060823);
                 int color5 = b().getColor(R.color.obfuscated_res_0x7f060833);
-                this.a.s.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080dba));
+                this.a.s.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080dbb));
                 this.a.b.setTextColor(color);
                 this.a.c.setTextColor(color4);
                 b bVar = this.a;
@@ -459,12 +459,12 @@ public class j71 extends i71 {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080db9));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080db7));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080dba));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080db8));
                 this.a.g.setBackgroundColor(b().getColor(R.color.obfuscated_res_0x7f06082f));
                 TextView e = e();
                 if (e != null) {
-                    e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080db5));
+                    e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080db6));
                 }
             }
         }
@@ -531,7 +531,7 @@ public class j71 extends i71 {
             this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c0);
             this.p = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.r = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c4);
-            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1c);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.t = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091527);
             this.u = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0915d6);

@@ -296,9 +296,9 @@ public class jo5 implements zm5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d050e, (ViewGroup) this.b, true);
-            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e43);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e44);
-            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091e42);
+            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e44);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e45);
+            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091e43);
             this.g = attentionView;
             if (attentionView != null) {
                 attentionView.setForumSelectStateChangedListener(j());

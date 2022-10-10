@@ -190,11 +190,11 @@ public class z28 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091b24) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091b25) {
                     if (this.a.f(11009)) {
                         this.a.i(8);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98) {
                     if (this.a.f(11009)) {
                         this.a.i(3);
                     }
@@ -394,7 +394,7 @@ public class z28 {
             }
             if (jv7Var.f() != null) {
                 iv7 iv7Var = new iv7();
-                iv7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd));
+                iv7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fde));
                 this.e.add(iv7Var);
                 if (TbSingleton.getInstance().isBrowseMode()) {
                     this.e.add(new yv7());

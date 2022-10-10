@@ -65,16 +65,16 @@ public class wj6 extends qn<yj6, CardViewHolder<tj6>> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, yj6Var) == null) || view2 == null || yj6Var == null) {
                 return;
             }
-            if ((view2.getId() == R.id.obfuscated_res_0x7f092515 || view2.getId() == R.id.obfuscated_res_0x7f092509 || view2.getId() == R.id.obfuscated_res_0x7f091545) && view2.getTag() != null && (view2.getTag() instanceof tj6)) {
+            if ((view2.getId() == R.id.obfuscated_res_0x7f092516 || view2.getId() == R.id.obfuscated_res_0x7f09250a || view2.getId() == R.id.obfuscated_res_0x7f091545) && view2.getTag() != null && (view2.getTag() instanceof tj6)) {
                 tj6 tj6Var = (tj6) view2.getTag();
-                if (this.b.b != null && this.b.b != tj6Var && (view2.getId() == R.id.obfuscated_res_0x7f092515 || view2.getId() == R.id.obfuscated_res_0x7f091545)) {
+                if (this.b.b != null && this.b.b != tj6Var && (view2.getId() == R.id.obfuscated_res_0x7f092516 || view2.getId() == R.id.obfuscated_res_0x7f091545)) {
                     this.b.b.P();
                 }
                 if (this.b.b != tj6Var) {
                     this.b.b = tj6Var;
                 }
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f092218) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092219) {
                 StatisticItem statisticItem = new StatisticItem("c12411");
                 statisticItem.param("fid", yj6Var.a);
                 if (TbadkCoreApplication.isLogin()) {
@@ -88,8 +88,8 @@ public class wj6 extends qn<yj6, CardViewHolder<tj6>> {
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 }
                 TiebaStatic.log(statisticItem2);
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f092194 && view2.getId() != R.id.obfuscated_res_0x7f09057d) {
-                if (view2.getId() != R.id.obfuscated_res_0x7f0924a6 && view2.getId() != R.id.obfuscated_res_0x7f0924b6) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f092195 && view2.getId() != R.id.obfuscated_res_0x7f09057d) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f0924a7 && view2.getId() != R.id.obfuscated_res_0x7f0924b7) {
                     if (view2.getId() == R.id.obfuscated_res_0x7f0902d4) {
                         StatisticItem statisticItem3 = new StatisticItem("c12413");
                         statisticItem3.param("fid", yj6Var.a);

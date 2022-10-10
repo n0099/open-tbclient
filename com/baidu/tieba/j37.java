@@ -71,22 +71,22 @@ public class j37 implements fb8 {
         if (inflate != null) {
             inflate.setOnClickListener(this);
         }
-        ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092556);
+        ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092557);
         if (imageView != null) {
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             imageView.setOnClickListener(this);
         }
-        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09251d);
+        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09251e);
         this.f = textView;
         if (textView != null) {
             hv4.d(textView).y(R.array.S_O_X001);
         }
-        TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092558);
+        TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092559);
         this.e = textView2;
         if (textView2 != null) {
             hv4.d(textView2).y(R.array.S_O_X001);
         }
-        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092588);
+        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092589);
         this.d = tbImageView;
         if (tbImageView != null) {
             tbImageView.s();

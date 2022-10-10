@@ -73,12 +73,12 @@ public class x16 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) null);
             this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091c83);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091c84);
             this.c = findViewById;
             findViewById.setOnClickListener(this);
             this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f0c);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0925cb);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092228);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0925cc);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092229);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090656);
             this.g = imageView;
             imageView.setClickable(true);
@@ -107,11 +107,11 @@ public class x16 implements View.OnClickListener {
                 hv4.d(this.f).v(R.color.CAM_X0108);
                 this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f93, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f94, WebPManager.ResourceStateType.NORMAL);
                 } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f92, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f93, WebPManager.ResourceStateType.NORMAL);
                 } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f91, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f080f92, WebPManager.ResourceStateType.NORMAL);
                 }
             }
             this.h = i;

@@ -88,9 +88,9 @@ public class th7 {
         this.i = new a(this);
         this.b = view2;
         this.e = context;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092027);
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092025);
-        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092026);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092028);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092026);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f092027);
     }
 
     public void d() {

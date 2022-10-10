@@ -50,7 +50,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
         this.c = view2.findViewById(R.id.obfuscated_res_0x7f0916f7);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fc);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921fd);
     }
 
     public void a(Cdo cdo) {
@@ -67,7 +67,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                     this.a.K(b, 25, false);
                 }
             } else {
-                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
                 this.b.setVisibility(8);
                 this.a.K(u45Var.b(), 10, false);
             }

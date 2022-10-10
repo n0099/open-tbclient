@@ -208,18 +208,18 @@ public class nv5 extends lv5 {
             if (view2 == null) {
                 dVar = new d(this, null);
                 view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d07f8, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091b73);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091b74);
                 dVar.a = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
                 dVar.a.setIsRound(true);
                 dVar.a.setAutoChangeStyle(false);
                 dVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                dVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b78);
-                dVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b75);
-                dVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b76);
-                dVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b74);
-                dVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b72);
-                dVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b77);
+                dVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b79);
+                dVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b76);
+                dVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b77);
+                dVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b75);
+                dVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b73);
+                dVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091b78);
                 SkinManager.setBackgroundColor(view3, R.color.CAM_X0201);
                 SkinManager.setViewTextColor(dVar.b, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(dVar.e, (int) R.color.CAM_X0109);

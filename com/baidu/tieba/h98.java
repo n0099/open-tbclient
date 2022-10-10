@@ -161,7 +161,7 @@ public class h98 extends BaseAdapter {
                 view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
                 if (((Boolean) view2.getTag()).booleanValue()) {
                     if (this.d.e.size() < 10) {
-                        this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f8, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                        this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f9, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                         this.d.e.add(this.b);
                         TiebaStatic.log(new StatisticItem("c14574").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.c.getFid()).param("fname", this.c.getForum_name()).param("tid", this.c.getTid()));
                     } else {
@@ -169,7 +169,7 @@ public class h98 extends BaseAdapter {
                         h98Var.f = h98Var.e.size() + 1;
                     }
                 } else {
-                    this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f7, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f8, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                     this.d.e.remove(this.b);
                 }
                 new a(this).start();
@@ -255,7 +255,7 @@ public class h98 extends BaseAdapter {
                 cVar.a = inflate;
                 cVar.b = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09132d);
                 cVar.c = (TbImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f090715);
-                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f09221e);
+                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f09221f);
                 cVar.e = (ImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f090611);
                 cVar.f = (LinearLayout) cVar.a.findViewById(R.id.obfuscated_res_0x7f090612);
                 hv4.d(cVar.a).k(R.color.CAM_X0101);
@@ -289,9 +289,9 @@ public class h98 extends BaseAdapter {
                 }
                 cVar.f.setTag(Boolean.valueOf(z));
                 if (((Boolean) cVar.f.getTag()).booleanValue()) {
-                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f8, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f9, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
                 } else {
-                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f7, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
+                    cVar.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809f8, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL));
                 }
                 cVar.f.setOnClickListener(new b(this, cVar, tid, threadData));
             }

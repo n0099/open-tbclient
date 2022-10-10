@@ -204,9 +204,9 @@ public class ev8 {
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b4, (ViewGroup) null);
         this.a = inflate;
-        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb1);
-        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0924fc);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09256b);
+        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fb2);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0924fd);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09256c);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, ej.f(context, R.dimen.obfuscated_res_0x7f0701aa));
         if (this.a.getParent() == null) {
             viewGroup.addView(this.a, layoutParams);
@@ -252,7 +252,7 @@ public class ev8 {
         this.a.setVisibility(0);
         this.a.postDelayed(new c(this), 5000L);
         if (this.f) {
-            this.d.setText(R.string.obfuscated_res_0x7f0f1524);
+            this.d.setText(R.string.obfuscated_res_0x7f0f1525);
         } else if (!StringUtils.isNull(postWriteCallBackData.getErrorString())) {
             this.d.setText(postWriteCallBackData.getErrorString());
         } else {

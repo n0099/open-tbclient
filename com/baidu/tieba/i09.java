@@ -38,7 +38,7 @@ public class i09 extends View {
             }
         }
         this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f08126b);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f08126c);
     }
 
     public boolean a(int i, int i2) {

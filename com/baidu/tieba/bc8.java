@@ -355,13 +355,13 @@ public class bc8 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d074b, (View.OnClickListener) null);
             this.d = addCustomView;
-            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091e13);
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091de8);
+            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091e14);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091de9);
             this.f = imageView;
             imageView.setVisibility(8);
             this.e.requestFocus();
@@ -380,7 +380,7 @@ public class bc8 {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.c.onChangeSkinType(this.a.getPageContext(), i);
             ge5.a(this.a.getPageContext(), this.d);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809df, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0809e0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 

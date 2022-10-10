@@ -130,9 +130,9 @@ public class tb8 extends BaseAdapter {
                 int id = view2.getId();
                 if (id == R.id.obfuscated_res_0x7f091a34) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if (id == R.id.obfuscated_res_0x7f0924e0) {
+                } else if (id == R.id.obfuscated_res_0x7f0924e1) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if ((id == R.id.obfuscated_res_0x7f090faa || id == R.id.obfuscated_res_0x7f09175f || id == R.id.obfuscated_res_0x7f090fa0 || id == R.id.obfuscated_res_0x7f091bec) && (strArr = (String[]) view2.getTag()) != null) {
+                } else if ((id == R.id.obfuscated_res_0x7f090faa || id == R.id.obfuscated_res_0x7f09175f || id == R.id.obfuscated_res_0x7f090fa0 || id == R.id.obfuscated_res_0x7f091bed) && (strArr = (String[]) view2.getTag()) != null) {
                     if (!"0".equals(strArr[2]) && strArr[1] != null) {
                         SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.a.f.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false);
                         createSubPbActivityConfig.setKeyPageStartFrom(4);

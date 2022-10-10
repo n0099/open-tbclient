@@ -245,7 +245,7 @@ public class ay5 extends i16<tl8> implements g26 {
         ux5 ux5Var = new ux5(tbPageContext, this.i);
         this.s = ux5Var;
         ux5Var.d(f());
-        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
         this.j.setOnPageChangeListener(this.y);
         FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.b, f());
         this.k = frsAlaStageLiveViewItemAdapter;
@@ -292,7 +292,7 @@ public class ay5 extends i16<tl8> implements g26 {
             if (view2.getId() == R.id.obfuscated_res_0x7f0912a7) {
                 customMessage = new CustomMessage(2921018);
             } else if (view2.getId() != R.id.obfuscated_res_0x7f09054e && view2.getId() != R.id.obfuscated_res_0x7f09054a) {
-                customMessage = view2.getId() == R.id.obfuscated_res_0x7f092515 ? new CustomMessage(2921019) : null;
+                customMessage = view2.getId() == R.id.obfuscated_res_0x7f092516 ? new CustomMessage(2921019) : null;
             } else {
                 customMessage = new CustomMessage(2921016);
             }

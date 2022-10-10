@@ -162,8 +162,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
     public final void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f119b));
-            this.a.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f0809b6 : R.drawable.obfuscated_res_0x7f0809b5, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.a.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f119c));
+            this.a.getStyleConfig().i(z ? R.drawable.obfuscated_res_0x7f0809b7 : R.drawable.obfuscated_res_0x7f0809b6, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.a.getStyleConfig().h(z ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.a.a = Boolean.valueOf(z);
             K(new h55(67, -1, Boolean.valueOf(z)));

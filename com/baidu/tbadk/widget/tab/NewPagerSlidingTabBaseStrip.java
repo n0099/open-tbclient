@@ -1089,7 +1089,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.I = 17;
         this.J = 17;
         this.T = 0;
-        this.U = R.drawable.obfuscated_res_0x7f080e85;
+        this.U = R.drawable.obfuscated_res_0x7f080e86;
         this.V = false;
         this.W = false;
         this.c0 = 0;

@@ -115,7 +115,7 @@ public class AdProgressButton extends View implements el0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dca));
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dcb));
             e();
         }
     }

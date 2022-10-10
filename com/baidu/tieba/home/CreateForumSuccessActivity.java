@@ -147,24 +147,24 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c83);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c84);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(R.string.obfuscated_res_0x7f0f046e);
-            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
             int f = ej.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
             NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0908ae), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
             this.e = a2;
             a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092134);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092135);
             this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0cab) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0cac));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09210a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09210b);
             String string = getResources().getString(R.string.obfuscated_res_0x7f0f0ca7);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }
-            findViewById(R.id.obfuscated_res_0x7f092117).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f092118).setOnClickListener(new a(this));
         }
     }
 }

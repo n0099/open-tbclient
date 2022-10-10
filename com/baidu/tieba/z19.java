@@ -69,7 +69,7 @@ public class z19 {
             if (z) {
                 this.a.c = true;
                 if (postWriteCallBackData == null) {
-                    mp8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1130), null, null);
+                    mp8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1131), null, null);
                 } else {
                     mp8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                 }

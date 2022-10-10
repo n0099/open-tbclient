@@ -576,7 +576,7 @@ public class GuidePopupWindow extends Dialog {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(1000L);
             this.b.startAnimation(alphaAnimation);
-            HeadPendantView headPendantView = (HeadPendantView) this.b.findViewById(R.id.obfuscated_res_0x7f09249f);
+            HeadPendantView headPendantView = (HeadPendantView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a0);
             this.c = headPendantView;
             headPendantView.setHasPendantStyle();
             this.c.setDefalutResid(R.drawable.obfuscated_res_0x7f080480);
@@ -584,10 +584,10 @@ public class GuidePopupWindow extends Dialog {
             this.c.getHeadView().setDrawBorder(true);
             this.c.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setShowSimpleIcon(true);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b2);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b6);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d3);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d2);
+            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b3);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924b7);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d4);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d3);
             this.h = this.b.findViewById(R.id.obfuscated_res_0x7f090d08);
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c54);
             this.r = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0919a3);
@@ -615,7 +615,7 @@ public class GuidePopupWindow extends Dialog {
             this.w.setConfig(oy4Var2);
             this.w.setTextSize(R.dimen.tbds42);
             this.w.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0828));
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f091e7b);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f091e7c);
             this.y = findViewById;
             findViewById.setAlpha(0.0f);
             HeadBorder headBorder = (HeadBorder) this.b.findViewById(R.id.obfuscated_res_0x7f090d28);

@@ -61,8 +61,8 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0882, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921c5);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092188);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921c6);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092189);
             this.c = context;
         }
     }

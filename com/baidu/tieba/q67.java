@@ -97,7 +97,7 @@ public class q67 {
                 sb.append(StringUtils.lineSeparator);
             }
             if (j > 0) {
-                sb.append(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f1469));
+                sb.append(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f146a));
                 sb.append(StringHelper.numFormatOver10000(j));
             }
             shareItem.H0 = sb.toString();

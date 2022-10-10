@@ -366,7 +366,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             layoutParams.gravity = 17;
             this.h.setLayoutParams(layoutParams);
             this.i = this.h.findViewById(R.id.obfuscated_res_0x7f0906d6);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.h.findViewById(R.id.obfuscated_res_0x7f0925a8);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.h.findViewById(R.id.obfuscated_res_0x7f0925a9);
             this.j = tBLottieAnimationView;
             tBLottieAnimationView.setSpeed(1.1f);
             this.j.m();
@@ -377,7 +377,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             this.m.setDefaultBgResource(R.color.transparent);
             this.m.setConrers(15);
             this.n = (TbImageView) this.h.findViewById(R.id.obfuscated_res_0x7f090864);
-            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0925a9);
+            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0925aa);
             this.k = textView;
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
             marginLayoutParams.topMargin = -ej.f(getContext(), R.dimen.M_H_X001);
@@ -648,7 +648,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             SkinManager.setLottieAnimation(this.j, R.raw.icon_refresh2);
-            setText(R.string.obfuscated_res_0x7f0f0fd6);
+            setText(R.string.obfuscated_res_0x7f0f0fd7);
             this.j.loop(true);
             u();
         }
@@ -685,7 +685,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             SkinManager.setLottieAnimation(this.j, R.raw.icon_refresh1);
-            setText(R.string.obfuscated_res_0x7f0f0fd6);
+            setText(R.string.obfuscated_res_0x7f0f0fd7);
             this.j.loop(false);
             u();
         }

@@ -275,7 +275,7 @@ public class gb6 extends dc5<e96, a96> implements v86 {
                             blockPopInfoData.ahead_url = AntiHelper.a;
                             AntiHelper.s(this.a.b().getPageActivity(), blockPopInfoData);
                         } else if (A == 2121002) {
-                            f35.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f047a), this.a.b().getString(R.string.obfuscated_res_0x7f0f1448), this.a.b().getString(R.string.obfuscated_res_0x7f0f13de), new a(this), new b(this)).show();
+                            f35.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f047a), this.a.b().getString(R.string.obfuscated_res_0x7f0f1449), this.a.b().getString(R.string.obfuscated_res_0x7f0f13df), new a(this), new b(this)).show();
                         }
                         z2 = true;
                     }
@@ -316,9 +316,9 @@ public class gb6 extends dc5<e96, a96> implements v86 {
             }
         }
         this.f = view2.findViewById(R.id.obfuscated_res_0x7f091300);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f18);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091bba);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f19);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091bbb);
         this.i = recyclerView;
         this.l = enterForumModel;
         this.m = viewEventCenter;

@@ -205,10 +205,10 @@ public class db6 extends PopupWindow {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d050f, (ViewGroup) null);
             this.d = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f1b);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f1c);
             this.e = textView;
             hv4.d(textView).A(R.string.F_X01);
-            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091f1c);
+            TextView textView2 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091f1d);
             this.f = textView2;
             hv4.d(textView2).A(R.string.F_X01);
             this.e.setOnClickListener(this.h);

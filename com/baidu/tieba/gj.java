@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
@@ -123,35 +124,41 @@ public class gj {
             } else if (str.equals(CacheDeviceInfo.JSON_KEY_ANDROID_ID)) {
                 c2 = 0;
             }
-            String str3 = "";
+            String str3 = Config.NULL_DEVICE_ID;
             switch (c2) {
                 case 0:
                     androidId = b.getAndroidId(a, "初始化", "定位问题，安全保障，个性化展示");
                     break;
                 case 1:
                     androidId = b.getIMEI(a, "初始化", "定位问题，安全保障，个性化展示");
-                    str3 = Config.NULL_DEVICE_ID;
                     break;
                 case 2:
                     androidId = b.getMacAddress(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case 3:
                     androidId = b.getOperator(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case 4:
                     androidId = b.getHarmonyVersion(a, "初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case 5:
                     androidId = b.getManufacturer("初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case 6:
                     androidId = b.getModel("初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case 7:
                     androidId = b.getOAID("初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case '\b':
                     androidId = b.getOsVersion("初始化", "定位问题，安全保障，个性化展示");
+                    str3 = "";
                     break;
                 case '\t':
                     androidId = new DeviceIdBag();
@@ -160,12 +167,11 @@ public class gj {
                         if (tbadkCore.permissionUtilIsAgreePrivacyPolicy() && tbadkCore.permissionUtilCheckReadPhoneState(a) && (telephonyManager = (TelephonyManager) a.getSystemService("phone")) != null) {
                             androidId.deviceId = ApiReplaceUtil.getSubscriberId(telephonyManager);
                             ((IBehaviorApi) ServiceManager.getService(IBehaviorApi.SERVICE_REFERENCE)).addBehavior(1, "isi", "tieba", "tieba");
-                            break;
                         }
                     } catch (Exception e) {
                         BdLog.e(e);
-                        break;
                     }
+                    str3 = "";
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + str);
@@ -201,11 +207,7 @@ public class gj {
     public static String h(@NonNull DeviceIdBag deviceIdBag, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, deviceIdBag, str)) == null) {
-            String str2 = deviceIdBag.deviceId;
-            return str2 != null ? str2 : str;
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, deviceIdBag, str)) == null) ? !TextUtils.isEmpty(deviceIdBag.deviceId) ? deviceIdBag.deviceId : str : (String) invokeLL.objValue;
     }
 
     @NonNull

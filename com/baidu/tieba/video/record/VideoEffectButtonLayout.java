@@ -66,9 +66,9 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b26);
-            } else {
                 this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b27);
+            } else {
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b28);
             }
         }
     }

@@ -125,7 +125,7 @@ public class BubbleItemView extends LinearLayout {
                 this.i.setVisibility(8);
             }
             this.d.setVisibility(0);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
             this.d.K(dressItemData.getExampleImgUrl(), 10, false);
         }
         if (inUse) {
@@ -160,12 +160,12 @@ public class BubbleItemView extends LinearLayout {
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090385);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
             this.f = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7c);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7d);
             this.g = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
-            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
+            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090620);
             this.e = new TextView(this.a);
             this.d.setOnClickListener(this.m);

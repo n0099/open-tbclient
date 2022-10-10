@@ -195,10 +195,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             if (TextUtils.isEmpty(com.kwad.components.ad.fullscreen.kwai.b.bD())) {
                 if (com.kwad.components.ad.fullscreen.kwai.b.bC() == 0) {
                     imageView = this.eI;
-                    i = R.drawable.obfuscated_res_0x7f080c4e;
+                    i = R.drawable.obfuscated_res_0x7f080c4f;
                 } else {
                     imageView = this.eI;
-                    i = R.drawable.obfuscated_res_0x7f080caa;
+                    i = R.drawable.obfuscated_res_0x7f080cab;
                 }
                 imageView.setImageResource(i);
                 this.eJ.setVisibility(8);

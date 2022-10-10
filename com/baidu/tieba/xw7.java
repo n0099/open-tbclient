@@ -186,7 +186,7 @@ public class xw7 {
         if (z2) {
             imageView.setVisibility(8);
             if (z) {
-                pbCommenFloorItemViewHolder.G.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffd));
+                pbCommenFloorItemViewHolder.G.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ffe));
                 return;
             }
             return;
@@ -282,7 +282,7 @@ public class xw7 {
         if (z) {
             pbCommenFloorItemViewHolder.p.k0(null);
             pbCommenFloorItemViewHolder.p.setBackgroundDrawable(null);
-            pbCommenFloorItemViewHolder.p.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f081240);
+            pbCommenFloorItemViewHolder.p.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f081241);
         } else {
             pbCommenFloorItemViewHolder.p.getLayoutStrategy().g(R.drawable.icon_click);
         }
@@ -299,9 +299,9 @@ public class xw7 {
         if (sparseArray == null) {
             sparseArray = new SparseArray();
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z3));
-        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f09204f, sparseArray);
+        sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f092056, Boolean.valueOf(z3));
+        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f092050, sparseArray);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:57:0x0102  */
@@ -331,10 +331,10 @@ public class xw7 {
             return;
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f09205b, view2);
-        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.L());
+        sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205a, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205c, view2);
+        sparseArray.put(R.id.obfuscated_res_0x7f09204d, postData.L());
         sparseArray.put(R.id.obfuscated_res_0x7f0917ef, pbCommenFloorItemViewHolder.n);
         sparseArray.put(R.id.obfuscated_res_0x7f0917ed, pbCommenFloorItemViewHolder.x);
         sparseArray.put(R.id.obfuscated_res_0x7f0917ee, pbCommenFloorItemViewHolder.y);
@@ -387,44 +387,44 @@ public class xw7 {
                 }
                 int i = postData.C() != 1 ? 0 : 1;
                 if (!z2) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(ww7Var.T()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(ww7Var.T()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092049, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.s().getPortrait());
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
                 }
                 if (!z5) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092053, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092054, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092093, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getName_show());
                     }
                     if (threadData != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092097, threadData.getId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092098, threadData.getId());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092097, postData.L());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                 }
                 if (!z3) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092050, Boolean.valueOf(postData.o0()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(ww7Var.T()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z6));
-                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203e, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092051, Boolean.valueOf(postData.o0()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(ww7Var.T()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z6));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i));
+                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, postData.L());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.valueOf(z4));
-                sparseArray.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(z7));
-                sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(pbCommenFloorItemViewHolder.d0 != 0));
+                sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.valueOf(z4));
+                sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z7));
+                sparseArray.put(R.id.obfuscated_res_0x7f092056, Boolean.valueOf(pbCommenFloorItemViewHolder.d0 != 0));
                 pbCommenFloorItemViewHolder.p.setTag(sparseArray);
                 pbCommenFloorItemViewHolder.r.setTag(sparseArray);
                 if (!z) {
@@ -453,9 +453,9 @@ public class xw7 {
         }
         if (!z3) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.valueOf(z4));
-        sparseArray.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(z7));
-        sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(pbCommenFloorItemViewHolder.d0 != 0));
+        sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.valueOf(z4));
+        sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z7));
+        sparseArray.put(R.id.obfuscated_res_0x7f092056, Boolean.valueOf(pbCommenFloorItemViewHolder.d0 != 0));
         pbCommenFloorItemViewHolder.p.setTag(sparseArray);
         pbCommenFloorItemViewHolder.r.setTag(sparseArray);
         if (!z) {
@@ -490,8 +490,8 @@ public class xw7 {
                 postData.Q0(false);
             }
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
-            sparseArray.put(R.id.obfuscated_res_0x7f09205b, view2);
+            sparseArray.put(R.id.obfuscated_res_0x7f09205a, postData);
+            sparseArray.put(R.id.obfuscated_res_0x7f09205c, view2);
             pbCommenFloorItemViewHolder.m0.setTag(sparseArray);
             pbCommenFloorItemViewHolder.q0.setTag(sparseArray);
             pbCommenFloorItemViewHolder.q0.setAlpha(0.5f);
@@ -505,7 +505,7 @@ public class xw7 {
                 int i = R.color.CAM_X0304;
                 SkinManager.setViewTextColor(eMTextView, q0 ? R.color.CAM_X0304 : R.color.CAM_X0107);
                 ImageView imageView = pbCommenFloorItemViewHolder.p0;
-                int i2 = postData.q0() ? R.drawable.obfuscated_res_0x7f080983 : R.drawable.obfuscated_res_0x7f080982;
+                int i2 = postData.q0() ? R.drawable.obfuscated_res_0x7f080984 : R.drawable.obfuscated_res_0x7f080983;
                 if (!postData.q0()) {
                     i = R.color.CAM_X0107;
                 }
@@ -575,15 +575,15 @@ public class xw7 {
             ArrayList<IconData> tShowInfoNew = postData.s().getTShowInfoNew();
             UserIconBox userIconBox = pbCommenFloorItemViewHolder.M;
             if (userIconBox != null) {
-                userIconBox.setTag(R.id.obfuscated_res_0x7f092091, postData.s().getUserId());
+                userIconBox.setTag(R.id.obfuscated_res_0x7f092092, postData.s().getUserId());
                 pbCommenFloorItemViewHolder.M.setOnClickListener(ww7Var.z0().c);
                 int f = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds40);
                 int f2 = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
                 UserIconBox userIconBox2 = pbCommenFloorItemViewHolder.M;
-                i2 = R.id.obfuscated_res_0x7f092091;
+                i2 = R.id.obfuscated_res_0x7f092092;
                 userIconBox2.g(iconInfo, 2, f, f, f2);
             } else {
-                i2 = R.id.obfuscated_res_0x7f092091;
+                i2 = R.id.obfuscated_res_0x7f092092;
             }
             if (pbCommenFloorItemViewHolder.L != null) {
                 if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
@@ -609,14 +609,14 @@ public class xw7 {
             }
             String avater = postData.s().getAvater();
             pbCommenFloorItemViewHolder.f.setTag(i2, postData.s().getUserId());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092099, postData.s().getUserName());
-            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f09209b, postData.s().getVirtualUserUrl());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f09209a, postData.s().getUserName());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f09209c, postData.s().getVirtualUserUrl());
             String name_show = postData.s().getName_show();
             String userName = postData.s().getUserName();
             if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
                 pbCommenFloorItemViewHolder.f.setText(ju7.b(ww7Var.getPageContext().getPageActivity(), pbCommenFloorItemViewHolder.f.getText().toString()));
                 pbCommenFloorItemViewHolder.f.setGravity(16);
-                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092066, ju7.a());
+                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f092067, ju7.a());
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0312, 1);
             }
             if (postData.s().getPendantData() != null && !StringUtils.isNull(postData.s().getPendantData().getImgUrl())) {
@@ -633,7 +633,7 @@ public class xw7 {
                 UtilHelper.showHeadImageViewBigV(pbCommenFloorItemViewHolder.o, postData.s(), 4);
                 pbCommenFloorItemViewHolder.o.setUserId(postData.s().getUserId());
                 pbCommenFloorItemViewHolder.o.setUserName(postData.s().getUserName(), postData.h0());
-                pbCommenFloorItemViewHolder.o.setTag(R.id.obfuscated_res_0x7f09209b, postData.s().getVirtualUserUrl());
+                pbCommenFloorItemViewHolder.o.setTag(R.id.obfuscated_res_0x7f09209c, postData.s().getVirtualUserUrl());
                 pbCommenFloorItemViewHolder.o.setImageDrawable(null);
                 pbCommenFloorItemViewHolder.o.K(avater, 28, false);
                 pbCommenFloorItemViewHolder.o.setVisibility(0);
@@ -674,12 +674,12 @@ public class xw7 {
             pbCommenFloorItemViewHolder.e.post(new a(pbCommenFloorItemViewHolder, name_show2));
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.put(R.id.obfuscated_res_0x7f09203c, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f092059, postData);
-        sparseArray.put(R.id.obfuscated_res_0x7f09205b, view2);
-        sparseArray.put(R.id.obfuscated_res_0x7f09206a, Integer.valueOf(i));
-        sparseArray.put(R.id.obfuscated_res_0x7f092069, Integer.valueOf(postData.C()));
-        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.L());
+        sparseArray.put(R.id.obfuscated_res_0x7f09203d, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205a, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205c, view2);
+        sparseArray.put(R.id.obfuscated_res_0x7f09206b, Integer.valueOf(i));
+        sparseArray.put(R.id.obfuscated_res_0x7f09206a, Integer.valueOf(postData.C()));
+        sparseArray.put(R.id.obfuscated_res_0x7f09204d, postData.L());
         boolean z10 = (postData.s() == null || StringUtils.isNull(postData.s().getVirtualUserUrl())) ? false : true;
         if (threadData == null || ww7Var.T() == 0 || o(threadData)) {
             z3 = false;
@@ -733,41 +733,41 @@ public class xw7 {
                     z6 = false;
                 }
                 if (!z3) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(ww7Var.T()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(ww7Var.T()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092049, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getName_show());
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getPortrait());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204a, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204b, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f09204c, postData.s().getPortrait());
                     }
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
                 }
                 if (!z6) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092053, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092054, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
                     if (postData.s() != null) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getUserId());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserName());
-                        sparseArray.put(R.id.obfuscated_res_0x7f092093, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092095, postData.s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f092094, postData.s().getName_show());
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f092097, threadData.getId());
-                    sparseArray.put(R.id.obfuscated_res_0x7f092096, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092098, threadData.getId());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092097, postData.L());
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                 }
                 if (!z4 && threadData != null) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(ww7Var.T()));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z7));
-                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i4));
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203e, postData.L());
-                    sparseArray.put(R.id.obfuscated_res_0x7f092050, Boolean.valueOf((z2 || postData.o0()) ? true : true));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(ww7Var.T()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z7));
+                    sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i4));
+                    sparseArray.put(R.id.obfuscated_res_0x7f09203f, postData.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f092051, Boolean.valueOf((z2 || postData.o0()) ? true : true));
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.valueOf(z5));
-                sparseArray.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(z8));
+                sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.valueOf(z5));
+                sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z8));
                 pbCommenFloorItemViewHolder.p.setTag(sparseArray);
                 pbCommenFloorItemViewHolder.r.setTag(sparseArray);
                 if (z) {
@@ -798,9 +798,9 @@ public class xw7 {
         }
         if (!z4) {
         }
-        sparseArray.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
-        sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.valueOf(z5));
-        sparseArray.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(z8));
+        sparseArray.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
+        sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.valueOf(z5));
+        sparseArray.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(z8));
         pbCommenFloorItemViewHolder.p.setTag(sparseArray);
         pbCommenFloorItemViewHolder.r.setTag(sparseArray);
         if (z) {
@@ -877,13 +877,13 @@ public class xw7 {
             }
             if (z) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(pbCommenFloorItemViewHolder.N, R.drawable.obfuscated_res_0x7f080603, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.F, R.drawable.obfuscated_res_0x7f0809a9, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-                WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.D, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.F, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.D, R.drawable.obfuscated_res_0x7f0809ab, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.E, (int) R.color.CAM_X0109);
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.G, (int) R.color.CAM_X0109);
             }
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.x, R.drawable.obfuscated_res_0x7f0809a9, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.y, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.x, R.drawable.obfuscated_res_0x7f0809aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.y, R.drawable.obfuscated_res_0x7f0809ab, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
             if (jv7Var != null) {
                 SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.v, (int) R.color.CAM_X0108);
                 pbCommenFloorItemViewHolder.v.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right, SkinManager.getColor(R.color.CAM_X0108), null), (Drawable) null);

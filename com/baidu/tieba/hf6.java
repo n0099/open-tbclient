@@ -63,7 +63,7 @@ public class hf6 extends dh6<if6, FrsMemberTeamViewHolder> {
                 if (view2.getTag() instanceof BawuRoleInfoPub) {
                     BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
                     this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092245) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092246) {
                     Object tag = view2.getTag();
                     if (tag instanceof Integer) {
                         Integer num = (Integer) tag;

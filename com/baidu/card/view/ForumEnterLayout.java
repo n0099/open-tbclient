@@ -151,7 +151,7 @@ public class ForumEnterLayout extends RelativeLayout {
         String str = null;
         if (id == R.id.obfuscated_res_0x7f090a67) {
             str = "c13693";
-        } else if (id == R.id.obfuscated_res_0x7f09212d) {
+        } else if (id == R.id.obfuscated_res_0x7f09212e) {
             str = "c13695";
         }
         int i = 0;
@@ -174,7 +174,7 @@ public class ForumEnterLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0198, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09212d);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09212e);
             this.d = textView;
             textView.setCompoundDrawablePadding(ej.f(context, R.dimen.tbds10));
             this.b = (ThreadForumEnterButton) inflate.findViewById(R.id.obfuscated_res_0x7f090a67);
@@ -182,7 +182,7 @@ public class ForumEnterLayout extends RelativeLayout {
             this.b.setAfterClickListener(this.m);
             this.c.setAfterClickListener(this.m);
             this.d.setOnClickListener(this.m);
-            this.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092420);
+            this.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092421);
         }
     }
 
@@ -249,7 +249,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 this.d.setTextSize(0, ej.f(getContext(), R.dimen.tbds32));
                 this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-                this.d.setText(R.string.obfuscated_res_0x7f0f0f2e);
+                this.d.setText(R.string.obfuscated_res_0x7f0f0f2f);
                 this.d.setOnClickListener(null);
                 z = true;
             } else {

@@ -191,9 +191,9 @@ public class vm8 {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 TextView textView = new TextView(this.a.getPageActivity());
                 if (this.b) {
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fbd);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fbe);
                 } else {
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fbb);
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fbc);
                 }
                 int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
                 int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070279);
@@ -315,7 +315,7 @@ public class vm8 {
     /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: com.baidu.tieba.wf */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r12v3 */
-    /* JADX WARN: Type inference failed for: r12v4, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r12v4, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r12v7 */
     public static void c(TbPageContext tbPageContext, View view2, boolean z, f fVar) {
         int i;
@@ -339,8 +339,8 @@ public class vm8 {
                 nu4 nu4Var = new nu4(tbPageContext.getPageActivity());
                 nu4Var.setCanceledOnTouchOutside(false);
                 View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0166, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f0);
-                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f1);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f1);
+                TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f2);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
                 textView.setText(tbPageContext.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0354));

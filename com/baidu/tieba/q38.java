@@ -66,7 +66,7 @@ public class q38 {
         textView.setText(spannableStringBuilder);
         textView.setTextColor(smallTailInfo.showColorId);
         if (HasUseGlideSwitch.isSwitchOn()) {
-            simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse("res://drawable/" + R.drawable.obfuscated_res_0x7f080ee6)).setAutoPlayAnimations(true).build());
+            simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse("res://drawable/" + R.drawable.obfuscated_res_0x7f080ee7)).setAutoPlayAnimations(true).build());
             simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
             simpleDraweeView.setLayoutParams(layoutParams2);
             simpleDraweeView.setPadding(0, 0, b(R.dimen.obfuscated_res_0x7f070201), 0);

@@ -402,7 +402,7 @@ public class tw0 extends pw0 implements View.OnClickListener, ru0 {
             this.e.addView(this.l, layoutParams2);
             LockImageView lockImageView = new LockImageView(this.c);
             this.m = lockImageView;
-            lockImageView.setBackground(this.c.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2c));
+            lockImageView.setBackground(this.c.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2d));
             this.m.e(nr0.W0() ? 1000 : 2000);
             this.m.setOnClickListener(this);
             this.m.setVisibility(4);
@@ -414,7 +414,7 @@ public class tw0 extends pw0 implements View.OnClickListener, ru0 {
             if (W == null) {
                 BdVideoSeekbarImageView bdVideoSeekbarImageView = new BdVideoSeekbarImageView(this.c);
                 this.f = bdVideoSeekbarImageView;
-                bdVideoSeekbarImageView.setIcon(R.drawable.obfuscated_res_0x7f080e32);
+                bdVideoSeekbarImageView.setIcon(R.drawable.obfuscated_res_0x7f080e33);
                 this.f.setWidth(c41.a(124.0f));
                 this.f.setHeight(c41.a(85.0f));
             }
@@ -425,7 +425,7 @@ public class tw0 extends pw0 implements View.OnClickListener, ru0 {
             if (V == null) {
                 BdVideoSeekbarImageView bdVideoSeekbarImageView2 = new BdVideoSeekbarImageView(this.c);
                 this.g = bdVideoSeekbarImageView2;
-                bdVideoSeekbarImageView2.setIcon(R.drawable.obfuscated_res_0x7f080e31);
+                bdVideoSeekbarImageView2.setIcon(R.drawable.obfuscated_res_0x7f080e32);
                 this.g.setWidth(c41.a(124.0f));
                 this.g.setHeight(c41.a(85.0f));
             }
@@ -434,21 +434,21 @@ public class tw0 extends pw0 implements View.OnClickListener, ru0 {
             if (!this.r) {
                 BdVideoPopImageView bdVideoPopImageView = new BdVideoPopImageView(this.c);
                 this.h = bdVideoPopImageView;
-                bdVideoPopImageView.setIcon(R.drawable.obfuscated_res_0x7f080e34);
+                bdVideoPopImageView.setIcon(R.drawable.obfuscated_res_0x7f080e35);
                 this.h.setMsg("100%");
                 this.h.setVisibility(4);
                 this.e.addView(this.h, layoutParams3);
                 BdVideoPopImageView bdVideoPopImageView2 = new BdVideoPopImageView(this.c);
                 this.i = bdVideoPopImageView2;
                 bdVideoPopImageView2.setMsg("0%");
-                this.i.setIcon(R.drawable.obfuscated_res_0x7f080e33);
+                this.i.setIcon(R.drawable.obfuscated_res_0x7f080e34);
                 this.i.setVisibility(4);
                 this.e.addView(this.i, layoutParams3);
             }
             BdVideoPopImageView bdVideoPopImageView3 = new BdVideoPopImageView(this.c);
             this.j = bdVideoPopImageView3;
             bdVideoPopImageView3.setMsg("0%");
-            this.j.setIcon(R.drawable.obfuscated_res_0x7f080e2e);
+            this.j.setIcon(R.drawable.obfuscated_res_0x7f080e2f);
             this.j.setVisibility(4);
             this.e.addView(this.j, layoutParams3);
         }

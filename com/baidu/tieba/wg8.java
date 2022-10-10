@@ -314,13 +314,13 @@ public class wg8 extends p9<BrowseSettingActivity> {
             this.l = new ru4(this.a.getPageContext());
             this.p = new ArrayList<>();
             int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-            this.p.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f152c), (String) null, autoPlaySwitch == 2));
-            this.p.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f152d), (String) null, autoPlaySwitch == 1));
+            this.p.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f152d), (String) null, autoPlaySwitch == 2));
+            this.p.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f152e), (String) null, autoPlaySwitch == 1));
             this.p.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03f8), (String) null, autoPlaySwitch == 3));
             if (RichTextGifViewSwitch.isOn()) {
-                this.l.l(R.string.obfuscated_res_0x7f0f1536);
+                this.l.l(R.string.obfuscated_res_0x7f0f1537);
             } else {
-                this.l.l(R.string.obfuscated_res_0x7f0f152b);
+                this.l.l(R.string.obfuscated_res_0x7f0f152c);
             }
             this.l.k(this.p, this.u);
             this.l.c();
@@ -405,11 +405,11 @@ public class wg8 extends p9<BrowseSettingActivity> {
             if (!hq4.c().g()) {
                 this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f03f8));
             } else if (hq4.c().e() == 1) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1564));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1565));
             } else if (hq4.c().e() == 2) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f156b));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f156c));
             } else {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1567));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1568));
             }
         }
     }
@@ -432,11 +432,11 @@ public class wg8 extends p9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 1) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f152d));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f152e));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 3) {
                 this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f03f8));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f152c));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f152d));
             }
         }
     }
@@ -536,11 +536,11 @@ public class wg8 extends p9<BrowseSettingActivity> {
             int e2 = hq4.c().e();
             boolean g = hq4.c().g();
             boolean z = false;
-            this.n.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1567), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1568), g && e2 == 0));
-            this.n.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1564), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1569), g && e2 == 1));
+            this.n.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1568), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1569), g && e2 == 0));
+            this.n.add(new av4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1565), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f156a), g && e2 == 1));
             ArrayList<av4> arrayList = this.n;
-            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f156b);
-            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f156a);
+            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f156c);
+            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f156b);
             if (g && e2 == 2) {
                 z = true;
             }
@@ -569,7 +569,7 @@ public class wg8 extends p9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0163);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0349));
@@ -577,15 +577,15 @@ public class wg8 extends p9<BrowseSettingActivity> {
             this.d = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090ecf);
             this.e = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09011a);
             this.f = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090a37);
-            this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09250c);
+            this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09250d);
             if (RichTextGifViewSwitch.isOn()) {
-                this.g.setText(R.string.obfuscated_res_0x7f0f1536);
+                this.g.setText(R.string.obfuscated_res_0x7f0f1537);
             } else {
-                this.g.setText(R.string.obfuscated_res_0x7f0f152b);
+                this.g.setText(R.string.obfuscated_res_0x7f0f152c);
             }
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091f04);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091f05);
             this.h = msgSettingItemView;
-            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f11c6);
+            msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f11c7);
             this.h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
             this.h.setOnSwitchStateChangeListener(new a(this));
             this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091792);

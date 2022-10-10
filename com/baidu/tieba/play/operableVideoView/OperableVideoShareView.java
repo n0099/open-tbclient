@@ -200,15 +200,15 @@ public class OperableVideoShareView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091eb6);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eb7);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091eb8);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eb9);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091e9b);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e9c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091eb7);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eb8);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091eb9);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091eba);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091e9c);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e9d);
             this.h = findViewById(R.id.divider_line);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092565);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd8);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092566);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd9);
             this.b.setOnClickListener(this.m);
             this.d.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
@@ -240,7 +240,7 @@ public class OperableVideoShareView extends LinearLayout {
         String f = f(this.k);
         Uri parse = f == null ? null : Uri.parse(f);
         String str2 = this.k.getAbstract();
-        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f114e), title, str2);
+        String format = MessageFormat.format(getResources().getString(R.string.obfuscated_res_0x7f0f114f), title, str2);
         ShareItem shareItem = new ShareItem();
         shareItem.v = title;
         shareItem.w = format;

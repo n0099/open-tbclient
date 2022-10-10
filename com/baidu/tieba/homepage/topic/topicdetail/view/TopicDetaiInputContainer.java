@@ -484,7 +484,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements t55, View.
             if (!this.g || e15Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
                 if (this.h && mc6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
                 } else {
                     nc6.b(getContext(), e15Var, this.b);
                 }
@@ -499,7 +499,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements t55, View.
         }
         String obj = this.b.getText().toString();
         if (this.h && mc6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
         } else {
             nc6.c(getContext(), e15Var, this.b);
         }

@@ -415,26 +415,26 @@ public class tj6 extends i16<yj6> implements uj6 {
         this.N = z;
         View h = h();
         this.z = tbPageContext;
-        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092509);
-        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092515);
+        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09250a);
+        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092516);
         this.j = frameLayout;
         ia8 ia8Var = new ia8(tbPageContext, frameLayout, false);
         this.y = ia8Var;
         ia8Var.z1("2005");
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092218);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092219);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090860);
         this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091544);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091546);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091545);
-        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0924a6);
-        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0924b6);
+        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0924a7);
+        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0924b7);
         this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902d4);
-        this.w = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092194);
+        this.w = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092195);
         this.x = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090161);
-        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092197);
-        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09219c);
-        this.u = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092196);
-        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f09219b);
+        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092198);
+        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09219d);
+        this.u = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092197);
+        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f09219c);
         this.w.setOnClickListener(this);
         this.x.setOnClickListener(this);
         this.k.setOnClickListener(this);
@@ -563,9 +563,9 @@ public class tj6 extends i16<yj6> implements uj6 {
         this.l.setText(StringHelper.stringForVideoTime(yj6Var.n.e * 1000));
         long j = yj6Var.n.h;
         if (j == 0) {
-            format = this.z.getString(R.string.obfuscated_res_0x7f0f1541);
+            format = this.z.getString(R.string.obfuscated_res_0x7f0f1542);
         } else {
-            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f1540), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
+            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f1541), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
         }
         this.n.setText(format);
         this.m.setVisibility(8);
@@ -688,7 +688,7 @@ public class tj6 extends i16<yj6> implements uj6 {
         if (yj6Var.m.e) {
             SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0109);
             this.r.setCompoundDrawables(null, null, null, null);
-            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f0fdc));
+            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f0fdd));
             return;
         }
         SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);

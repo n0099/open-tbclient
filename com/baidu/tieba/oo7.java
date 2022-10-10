@@ -40,7 +40,7 @@ public class oo7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0860, (ViewGroup) null);
             this.a = inflate;
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c0);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c1);
             this.a.setTag(this);
             return this.a;
         }

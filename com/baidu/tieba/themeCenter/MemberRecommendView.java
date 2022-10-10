@@ -177,12 +177,12 @@ public class MemberRecommendView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d057b, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ed);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ee);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081241);
             this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224a);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224b);
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091033);
             this.e = textView;
             textView.setOnClickListener(new a(this));

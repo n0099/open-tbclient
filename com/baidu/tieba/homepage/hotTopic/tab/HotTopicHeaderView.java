@@ -191,7 +191,7 @@ public class HotTopicHeaderView extends LinearLayout {
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             d.A(R.string.F_X01);
-            textView.setId(R.id.obfuscated_res_0x7f0922d9);
+            textView.setId(R.id.obfuscated_res_0x7f0922da);
             textView.setPadding(ej.f(getContext(), R.dimen.M_W_X002), 0, 0, 0);
             textView.setText(innerTabInfo.name);
             linearLayout.addView(textView);
@@ -258,13 +258,13 @@ public class HotTopicHeaderView extends LinearLayout {
                 LinearLayout linearLayout2 = new LinearLayout(getContext());
                 this.e = linearLayout2;
                 linearLayout2.setOrientation(0);
-                this.e.setDividerDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080fe3, getContext().getTheme()));
+                this.e.setDividerDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080fe4, getContext().getTheme()));
                 this.e.setShowDividers(2);
                 addView(this.e, new ViewGroup.LayoutParams(-1, -2));
             }
             TextView textView = new TextView(getContext());
             this.d = textView;
-            textView.setId(R.id.obfuscated_res_0x7f09222e);
+            textView.setId(R.id.obfuscated_res_0x7f09222f);
             hv4 d = hv4.d(this.d);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
@@ -272,7 +272,7 @@ public class HotTopicHeaderView extends LinearLayout {
             if (!UbsABTestHelper.isNewHomeHotTopicTab()) {
                 this.d.setText(d(R.string.obfuscated_res_0x7f0f08aa));
             } else {
-                this.d.setText(d(R.string.obfuscated_res_0x7f0f0fd1));
+                this.d.setText(d(R.string.obfuscated_res_0x7f0f0fd2));
             }
             this.d.setMaxLines(1);
             this.d.setEllipsize(TextUtils.TruncateAt.END);
@@ -415,7 +415,7 @@ public class HotTopicHeaderView extends LinearLayout {
         }
         if (this.e != null) {
             for (int i2 = 0; i2 < this.e.getChildCount(); i2++) {
-                hv4 d3 = hv4.d((TextView) ((ViewGroup) this.e.getChildAt(i2)).findViewById(R.id.obfuscated_res_0x7f0922d9));
+                hv4 d3 = hv4.d((TextView) ((ViewGroup) this.e.getChildAt(i2)).findViewById(R.id.obfuscated_res_0x7f0922da));
                 d3.v(R.color.CAM_X0105);
                 d3.z(R.dimen.T_X06);
                 d3.A(R.string.F_X01);

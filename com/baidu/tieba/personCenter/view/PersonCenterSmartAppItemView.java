@@ -214,7 +214,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         headImageView.setIsRound(true);
         this.a.setDefaultResource(R.color.CAM_X0204);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e9);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091470);
         c();
     }

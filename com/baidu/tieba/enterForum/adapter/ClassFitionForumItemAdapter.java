@@ -143,7 +143,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
             return;
         }
         b bVar = (b) viewHolder;
-        bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f0809cf);
+        bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f0809d0);
         bVar.a.setImageDrawable(WebPManager.getMaskDrawable(this.a.get(i).a(), true));
         bVar.b.setText(this.a.get(i).b());
         hv4 d = hv4.d(bVar.b);

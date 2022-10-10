@@ -460,13 +460,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l = new a(this);
             this.m = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.u = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f046e));
             this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922b7)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0922b8)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090925);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f25);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090727);
@@ -491,12 +491,12 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             frameLayout.setOnClickListener(this.l);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ac3);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ac4);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f091ec8).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f091ec9).setOnTouchListener(new c(this));
         }
     }
 

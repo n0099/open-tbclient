@@ -200,7 +200,7 @@ public class PeriodView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f1, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c7b);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091c7c);
             this.d = findViewById(R.id.obfuscated_res_0x7f0918c9);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090621);
             this.h = findViewById;

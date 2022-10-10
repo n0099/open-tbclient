@@ -76,7 +76,7 @@ public class bl6 extends dh6<bu4, FrsCardVideoViewHolder<zl6>> implements g26, d
                     }
                     as6.c(threadData, this.b.b.getForum().getId());
                     return;
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092194) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092195) {
                     as6.e(threadData, 5, this.b.mPageId, this.b.n, this.b.t());
                     if (this.b.b == null || this.b.b.getForum() == null) {
                         return;

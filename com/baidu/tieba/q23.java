@@ -288,12 +288,12 @@ public class q23 extends k23 {
             }
             this.l = viewGroup;
             this.j = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907d0);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09223b);
+            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09223c);
             this.a = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a39);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091673);
             this.d = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c0);
             this.e = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c1);
-            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091e1c);
             this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09044c);
             this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907c0);
             this.i = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907d0);

@@ -722,7 +722,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             n08Var.f(this);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setDividerWidth(ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702f6));
-            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
+            this.b.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
             this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0912a8);
             this.r = (EditText) findViewById(R.id.obfuscated_res_0x7f090881);
             this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102a);

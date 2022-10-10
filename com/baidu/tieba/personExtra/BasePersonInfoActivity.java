@@ -173,7 +173,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                         oq4.c(this.a.m1(), BasePersonInfoActivity.t[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.l, BasePersonInfoActivity.r[this.a.c], BasePersonInfoActivity.q[this.a.c]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
-                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.obfuscated_res_0x7f080acc);
+                        basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.obfuscated_res_0x7f080acd);
                         return;
                     }
                     this.a.showToast(httpResponsedMessage.getErrorString());
@@ -371,9 +371,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 if (i == 1) {
                     this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0851);
                 } else if (i != 2) {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1365);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1366);
                 } else {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1192);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1193);
                 }
             }
             if (dj.isEmpty(this.d)) {
@@ -459,7 +459,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             } else if (this.m == 23011) {
                 navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0a07));
             } else {
-                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f114c));
+                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f114d));
             }
             this.k.showBottomLine();
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));

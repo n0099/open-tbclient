@@ -325,12 +325,12 @@ public class dv5 implements pt5 {
         this.e.setDrawBorder(true);
         this.e.setPlaceHolder(2);
         this.e.setBorderWidth(ej.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.f = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092351);
-        this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235e);
-        this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092350);
+        this.f = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092352);
+        this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235f);
+        this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092351);
         this.j = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091387);
         this.k = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0913b3);
-        this.h = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092353);
+        this.h = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092354);
         this.d.setOnClickListener(this.r);
         this.q = ((ej.k(TbadkCoreApplication.getInst()) - u) - (v * 2)) / 2;
     }

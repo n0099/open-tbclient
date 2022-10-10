@@ -186,7 +186,7 @@ public class p39 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0736, (ViewGroup) null);
                 cVar = new c();
-                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
+                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922b2);
                 cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903fa);
                 view2.setTag(cVar);
             } else {

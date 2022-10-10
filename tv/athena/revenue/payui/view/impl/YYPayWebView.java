@@ -344,7 +344,7 @@ public class YYPayWebView extends LinearLayout implements n5a, f6a.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, attributeSet) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b0, (ViewGroup) this, true);
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092659);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09265a);
             this.b = webView;
             this.e = context;
             WebSettings settings = webView.getSettings();

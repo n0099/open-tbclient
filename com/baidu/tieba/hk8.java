@@ -204,11 +204,11 @@ public class hk8 extends BaseAdapter implements View.OnClickListener {
                 barImageView.setGifIconSupport(false);
                 aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091620);
                 aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914eb);
-                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09218c);
-                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f05);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09218d);
+                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f06);
                 aVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912fd);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b4a);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c4b);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b4b);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c4c);
                 view2.setTag(aVar);
             }
             View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090362);
@@ -235,7 +235,7 @@ public class hk8 extends BaseAdapter implements View.OnClickListener {
             TextView textView = aVar2.e;
             textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02b0) + " " + b(forumInfoData.member_count));
             TextView textView2 = aVar2.f;
-            textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f13d5) + " " + b(forumInfoData.thread_count));
+            textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f13d6) + " " + b(forumInfoData.thread_count));
             aVar2.g.setText(forumInfoData.slogan);
             if (this.e == 0) {
                 aVar2.c.setVisibility(8);
@@ -261,7 +261,7 @@ public class hk8 extends BaseAdapter implements View.OnClickListener {
                 aVar2.c.setText((CharSequence) null);
                 aVar2.c.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
                 TextView textView3 = aVar2.c;
-                textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f102f) + String.valueOf(forumInfoData.mbr_inter_rank) + this.a.getString(R.string.obfuscated_res_0x7f0f0ce4));
+                textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1030) + String.valueOf(forumInfoData.mbr_inter_rank) + this.a.getString(R.string.obfuscated_res_0x7f0f0ce4));
             }
             aVar2.h.setOnClickListener(this);
             view2.setOnClickListener(this);

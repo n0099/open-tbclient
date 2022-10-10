@@ -134,7 +134,7 @@ public class y16 {
                 }
                 return;
             }
-            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0f2c);
+            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0f2d);
             if (this.a.g.getThreadData() != null) {
                 this.a.p.d(i, 3, this.a.g.getThreadData().getTid());
             }
@@ -257,9 +257,9 @@ public class y16 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (this.a.g.o) {
                     this.a.g.o = false;
-                    ej.M(this.a.b, R.string.obfuscated_res_0x7f0f13ed);
+                    ej.M(this.a.b, R.string.obfuscated_res_0x7f0f13ee);
                     if (this.a.i != null) {
-                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f113b));
+                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f113c));
                     }
                     if (this.a.f != null) {
                         this.a.f.a(false);
@@ -269,7 +269,7 @@ public class y16 {
                 }
                 this.a.g.o = true;
                 if (this.a.i != null) {
-                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f113c));
+                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f113d));
                 }
                 if (this.a.f != null) {
                     this.a.f.a(true);
@@ -519,7 +519,7 @@ public class y16 {
                 return;
             }
             if (cardPersonDynamicThreadData.o) {
-                uu4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f113c));
+                uu4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f113d));
             } else {
                 ThreadData threadData = cardPersonDynamicThreadData.p;
                 if (threadData != null && threadData.notShowHideThreadBtn()) {
@@ -528,7 +528,7 @@ public class y16 {
                         this.d.j(this.h);
                     }
                 } else {
-                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f113b));
+                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f113c));
                 }
             }
             this.i.r(z);

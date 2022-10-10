@@ -70,7 +70,7 @@ public class hc8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0748);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091e0c);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091e0d);
             this.b = findViewById;
             this.c = new bc8(this.a, findViewById);
             this.d = new dc8(this.a, this.b);

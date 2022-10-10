@@ -230,7 +230,7 @@ public class gq7 extends qn<l45, NearbyForumFriendItemViewHolder> {
             hv4.d(nearbyForumFriendItemViewHolder.i).v(R.color.CAM_X0109);
             hv4.d(nearbyForumFriendItemViewHolder.o).v(R.color.CAM_X0109);
             hv4.d(nearbyForumFriendItemViewHolder.p).v(R.color.CAM_X0109);
-            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f0809dd, R.color.CAM_X0302, null);
+            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f0809de, R.color.CAM_X0302, null);
             hv4.d(nearbyForumFriendItemViewHolder.m).v(R.color.CAM_X0302);
             hv4 d4 = hv4.d(nearbyForumFriendItemViewHolder.k);
             d4.n(R.string.J_X01);

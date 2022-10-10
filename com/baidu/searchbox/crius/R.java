@@ -207,24 +207,24 @@ public final class R {
         public static final int none = 0x7f0916ea;
 
         /* renamed from: relative */
-        public static final int obfuscated = 0x7f091bcb;
-        public static final int root = 0x7f091c6c;
+        public static final int obfuscated = 0x7f091bcc;
+        public static final int root = 0x7f091c6d;
 
         /* renamed from: row */
-        public static final int obfuscated = 0x7f091c91;
-        public static final int row_reverse = 0x7f091c93;
+        public static final int obfuscated = 0x7f091c92;
+        public static final int row_reverse = 0x7f091c94;
 
         /* renamed from: rtl */
-        public static final int obfuscated = 0x7f091c94;
+        public static final int obfuscated = 0x7f091c95;
 
         /* renamed from: scroll */
-        public static final int obfuscated = 0x7f091dc9;
-        public static final int space_around = 0x7f091f1f;
-        public static final int space_between = 0x7f091f20;
-        public static final int stretch = 0x7f091f8f;
-        public static final int text = 0x7f0920ff;
-        public static final int visible = 0x7f09260b;
-        public static final int wrap = 0x7f0926a9;
+        public static final int obfuscated = 0x7f091dca;
+        public static final int space_around = 0x7f091f20;
+        public static final int space_between = 0x7f091f21;
+        public static final int stretch = 0x7f091f90;
+        public static final int text = 0x7f092100;
+        public static final int visible = 0x7f09260c;
+        public static final int wrap = 0x7f0926aa;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -277,7 +277,7 @@ public final class R {
         public static final int child_3_text = 0x7f0f03c0;
         public static final int child_4_text = 0x7f0f03c1;
         public static final int child_5_text = 0x7f0f03c2;
-        public static final int run_benchmark = 0x7f0f1039;
+        public static final int run_benchmark = 0x7f0f103a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

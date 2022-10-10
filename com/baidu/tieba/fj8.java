@@ -84,7 +84,7 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
             }
             this.b.i.setVisibility(4);
             this.b.j.setVisibility(0);
-            this.b.k.setText(R.string.obfuscated_res_0x7f0f11b7);
+            this.b.k.setText(R.string.obfuscated_res_0x7f0f11b8);
             this.a.t(true);
             SignSingleModel signSingleModel = new SignSingleModel(this.c.c);
             signSingleModel.I(this.c);
@@ -209,7 +209,7 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View inflate = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c6, (ViewGroup) null);
-            NoDataView a2 = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ed0), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, this.c.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.e.d(null, this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0c6d)), null);
+            NoDataView a2 = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ed1), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, this.c.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.e.d(null, this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0c6d)), null);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.c.getLayoutMode().l(skinType == 1);
             this.c.getLayoutMode().k(inflate);
@@ -228,29 +228,29 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
             if (i == 0) {
                 View inflate = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c9, (ViewGroup) null);
                 c cVar = new c(this);
-                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee3);
+                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee4);
                 cVar.a = barImageView;
                 barImageView.setIsRound(false);
                 cVar.a.setGifIconSupport(false);
-                cVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091eea);
-                cVar.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee8);
-                cVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee6);
-                cVar.f = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091eeb);
-                cVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee4);
-                cVar.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091eec);
-                cVar.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091eed);
-                cVar.j = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091eef);
-                cVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ef0);
-                cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee5);
-                cVar.b = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ee9);
-                cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee7);
+                cVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091eeb);
+                cVar.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee9);
+                cVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee7);
+                cVar.f = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091eec);
+                cVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee5);
+                cVar.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091eed);
+                cVar.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091eee);
+                cVar.j = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091ef0);
+                cVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ef1);
+                cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee6);
+                cVar.b = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091eea);
+                cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee8);
                 inflate.setTag(cVar);
                 return inflate;
             }
             View inflate2 = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c8, (ViewGroup) null);
             b bVar = new b(this);
-            bVar.a = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f091ee1);
-            bVar.b = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f091ee0);
+            bVar.a = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f091ee2);
+            bVar.b = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f091ee1);
             inflate2.setTag(bVar);
             return inflate2;
         }
@@ -293,9 +293,9 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
                 cVar.l.setVisibility(8);
                 cVar.g.setVisibility(0);
                 cVar.h.setVisibility(8);
-                cVar.g.setText(String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11b0), Integer.valueOf(cj8Var.b())));
+                cVar.g.setText(String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11b1), Integer.valueOf(cj8Var.b())));
                 if (cj8Var.m()) {
-                    cVar.e.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11ba));
+                    cVar.e.setText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11bb));
                     cVar.m.setVisibility(8);
                 } else {
                     cVar.e.setText(cj8Var.h() + "/" + cj8Var.g());
@@ -317,11 +317,11 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
                 if (cj8Var.k()) {
                     cVar.i.setVisibility(4);
                     cVar.j.setVisibility(0);
-                    cVar.k.setText(R.string.obfuscated_res_0x7f0f11b7);
+                    cVar.k.setText(R.string.obfuscated_res_0x7f0f11b8);
                 } else {
                     cVar.i.setVisibility(0);
                     cVar.j.setVisibility(4);
-                    cVar.k.setText(R.string.obfuscated_res_0x7f0f11b6);
+                    cVar.k.setText(R.string.obfuscated_res_0x7f0f11b7);
                 }
                 cVar.h.setOnClickListener(new a(this, cj8Var, cVar));
             } else {
@@ -399,7 +399,7 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
                     bVar = (b) view2.getTag();
                 }
                 this.c.getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.c.getLayoutMode().k(view2.findViewById(R.id.obfuscated_res_0x7f091ed2));
+                this.c.getLayoutMode().k(view2.findViewById(R.id.obfuscated_res_0x7f091ed3));
                 bVar.a.setText(((aj8) getItem(i)).x());
                 j(bVar.b, i);
             } else {
@@ -512,9 +512,9 @@ public class fj8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
                 }
             }
             if (i == 0 && i2 + i3 > 0) {
-                format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11b5), Integer.valueOf(i2), Integer.valueOf(i3));
+                format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11b6), Integer.valueOf(i2), Integer.valueOf(i3));
             } else {
-                format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11b5), Integer.valueOf(i4), Integer.valueOf(i5));
+                format = String.format(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f11b6), Integer.valueOf(i4), Integer.valueOf(i5));
             }
             textView.setText(format);
         }

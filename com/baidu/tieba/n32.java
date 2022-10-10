@@ -342,7 +342,7 @@ public final class n32 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                StringBuilder sb = new StringBuilder(sm2.c().getText(R.string.obfuscated_res_0x7f0f1329));
+                StringBuilder sb = new StringBuilder(sm2.c().getText(R.string.obfuscated_res_0x7f0f132a));
                 sb.append(str);
                 String e = i32.e();
                 if (!TextUtils.isEmpty(e)) {

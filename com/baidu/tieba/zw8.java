@@ -664,7 +664,7 @@ public class zw8 {
             return;
         }
         nu4 nu4Var = new nu4(recordVideoActivity.getPageContext().getPageActivity());
-        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1550);
+        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1551);
         nu4Var.setPositiveButton(R.string.dialog_ok, new g(this));
         nu4Var.setNegativeButton(R.string.dialog_cancel, new h(this));
         nu4Var.setCancelable(true);
@@ -1031,8 +1031,8 @@ public class zw8 {
         if (interceptable == null || interceptable.invokeL(1048609, this, activity) == null) {
             nu4 nu4Var = new nu4(activity);
             nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101d);
-            nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1019);
+            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101e);
+            nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f101a);
             nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0997, new c(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this, activity)).create(w9.a(activity));
             nu4Var.show();
         }

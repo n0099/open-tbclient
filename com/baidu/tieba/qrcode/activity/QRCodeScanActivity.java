@@ -232,7 +232,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isFinishing() || this.a.a.getScanBoxView() == null) {
                 return;
             }
-            this.a.a.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f82));
+            this.a.a.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
             this.a.a.getScanBoxView().setTipTextColor(this.a.getResources().getColor(R.color.CAM_X0201));
             this.a.a.getScanBoxView().m();
         }
@@ -417,13 +417,13 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.h.dismiss();
         }
         View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0746, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b28);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b29);
         tbImageView.setDrawBorder(true);
         tbImageView.setBorderWidth(1);
         tbImageView.setDrawCorner(true);
         tbImageView.setRadius(ej.f(this, R.dimen.tbds5));
         tbImageView.setConrers(15);
-        SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b29), (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b2a), (int) R.color.CAM_X0106);
         tbImageView.K(str, 36, false);
         inflate.setOnClickListener(new f(this, str2));
         inflate.measure(0, 0);
@@ -432,11 +432,11 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         popupWindow2.setContentView(inflate);
         this.h.setWidth(-2);
         this.h.setHeight(-2);
-        this.h.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc1));
+        this.h.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc2));
         this.h.setOutsideTouchable(true);
         this.h.setFocusable(false);
         this.h.setTouchable(true);
-        gh.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f7)));
+        gh.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f8)));
     }
 
     @Override // com.baidu.tieba.rc8
@@ -446,8 +446,8 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             nu4 nu4Var = new nu4(getPageContext().getPageActivity());
             nu4Var.setTitle((String) null);
             nu4Var.setMessageShowCenter(true);
-            nu4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f87));
-            nu4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f88), new c(this));
+            nu4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f88));
+            nu4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f89), new c(this));
             nu4Var.setCancelable(false);
             nu4Var.setCanceledOnTouchOutside(false);
             nu4Var.create(getPageContext()).show();
@@ -476,7 +476,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c1();
             if (this.a.getScanBoxView() != null) {
-                this.a.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f0f89));
+                this.a.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f0f8a));
                 this.a.getScanBoxView().setTipTextColor(getResources().getColor(R.color.CAM_X0301));
                 this.a.getScanBoxView().m();
             }
@@ -513,7 +513,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
             if (this.b.getBackImageView() != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
@@ -555,15 +555,15 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                 this.l = getIntent().getBooleanExtra(QRCodeScanActivityConfig.IS_AIAPP, false);
             }
             this.k = (ScanLoadingView) findViewById(R.id.obfuscated_res_0x7f091423);
-            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f092705);
+            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f092706);
             this.a = zXingView;
             if (zXingView.getScanBoxView() != null) {
                 this.a.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
                 this.a.getScanBoxView().requestLayout();
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b2d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b2e);
             this.b = navigationBar;
-            this.d = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f8a));
+            this.d = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f8b));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
@@ -571,7 +571,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams.rightMargin = ej.f(this, R.dimen.tbds18);
             this.e.setLayoutParams(marginLayoutParams);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080a19, R.color.white_alpha100, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080a1a, R.color.white_alpha100, null);
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e, this);
             sc8 sc8Var = new sc8(this, getPageContext());
@@ -636,9 +636,9 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             nu4 nu4Var = new nu4(getPageContext().getPageActivity());
             nu4Var.setTitleShowCenter(true);
-            nu4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0f86));
+            nu4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0f87));
             nu4Var.setMessageShowCenter(true);
-            nu4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f85));
+            nu4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f86));
             nu4Var.setNegativeTextColor(R.color.CAM_X0105);
             nu4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0436), new a(this, str));
             nu4Var.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0375), new b(this));

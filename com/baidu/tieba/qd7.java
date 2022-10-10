@@ -226,7 +226,7 @@ public class qd7 extends p9<StrangerListActivity> {
             if (z) {
                 Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08035c, SkinManager.getColor(R.color.CAM_X0304), null);
                 pureDrawable.setBounds(0, 0, f, f);
-                this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f1102));
+                this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f1103));
                 this.k.setCompoundDrawables(pureDrawable, null, null, null);
                 B(true);
                 this.l = true;
@@ -235,7 +235,7 @@ public class qd7 extends p9<StrangerListActivity> {
             }
             Drawable pureDrawable2 = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08035a, SkinManager.getColor(R.color.CAM_X0111), null);
             pureDrawable2.setBounds(0, 0, f, f);
-            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f1102));
+            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f1103));
             this.k.setCompoundDrawables(pureDrawable2, null, null, null);
             B(false);
             this.l = false;
@@ -260,8 +260,8 @@ public class qd7 extends p9<StrangerListActivity> {
             hv4 d = hv4.d(this.q);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0209);
-            WebPManager.setPureDrawable(this.p, R.drawable.obfuscated_res_0x7f080a15, R.color.CAM_X0105, null);
-            WebPManager.setPureDrawable(this.q, R.drawable.obfuscated_res_0x7f080a0f, R.color.CAM_X0105, null);
+            WebPManager.setPureDrawable(this.p, R.drawable.obfuscated_res_0x7f080a16, R.color.CAM_X0105, null);
+            WebPManager.setPureDrawable(this.q, R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0105, null);
             NoDataView noDataView = this.h;
             if (noDataView != null) {
                 noDataView.f(this.e.getPageContext(), i);
@@ -314,13 +314,13 @@ public class qd7 extends p9<StrangerListActivity> {
     public final void w(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, strangerListActivity) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f092201);
+            RelativeLayout relativeLayout = (RelativeLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f092202);
             this.j = relativeLayout;
-            this.k = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091e38);
+            this.k = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091e39);
             int f = ej.f(this.e.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026f);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08035a, SkinManager.getColor(R.color.CAM_X0111), null);
             pureDrawable.setBounds(0, 0, f, f);
-            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f1102));
+            this.k.setText(this.e.getPageContext().getString(R.string.obfuscated_res_0x7f0f1103));
             this.k.setCompoundDrawables(pureDrawable, null, null, null);
             this.k.setOnClickListener(new a(this));
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0904a1);
@@ -345,7 +345,7 @@ public class qd7 extends p9<StrangerListActivity> {
     public final void x(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, strangerListActivity) == null) {
-            NavigationBar navigationBar = (NavigationBar) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.d = navigationBar;
             navigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0652));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -368,9 +368,9 @@ public class qd7 extends p9<StrangerListActivity> {
             centerText.setLayoutParams(layoutParams2);
             ImageView imageView2 = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0801, this.e);
             this.p = imageView2;
-            WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080a15, R.color.CAM_X0105, null);
-            WebPManager.setPureDrawable(this.q, R.drawable.obfuscated_res_0x7f080a0f, R.color.CAM_X0105, null);
-            LinearLayout linearLayout = (LinearLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f091c83);
+            WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080a16, R.color.CAM_X0105, null);
+            WebPManager.setPureDrawable(this.q, R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0105, null);
+            LinearLayout linearLayout = (LinearLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f091c84);
             this.f = linearLayout;
             this.g = (NoNetworkView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0916dc);
         }

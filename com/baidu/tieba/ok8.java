@@ -387,7 +387,7 @@ public class ok8 extends BaseAdapter {
             if (i2 == 2) {
                 inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07f2, (ViewGroup) null);
                 h hVar = new h(null);
-                hVar.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092231);
+                hVar.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092232);
                 hVar.j = (TextView) inflate.findViewById(R.id.title_text);
                 hVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091568);
                 inflate.setTag(hVar);
@@ -406,9 +406,9 @@ public class ok8 extends BaseAdapter {
                 hVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a95);
                 hVar2.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a7d);
                 hVar2.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091304);
-                hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a3);
+                hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a4);
                 hVar2.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905b0);
-                hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f0924ef);
+                hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f0924f0);
                 hVar2.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908fe);
                 hVar2.l = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090901);
                 inflate.setTag(hVar2);
@@ -513,7 +513,7 @@ public class ok8 extends BaseAdapter {
                 long j2 = bVar2.k;
                 long j3 = j2 >= 0 ? j2 : 0L;
                 hVar2.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02b0) + StringHelper.numFormatOver10000wan(j));
-                hVar2.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f13d5) + StringHelper.numFormatOver10000wan(j3));
+                hVar2.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f13d6) + StringHelper.numFormatOver10000wan(j3));
                 if (bVar2.c && !StringUtils.isNull(bVar2.g)) {
                     hVar2.g.setText(UtilHelper.getFixedText(bVar2.g, 5));
                     hVar2.g.setVisibility(0);

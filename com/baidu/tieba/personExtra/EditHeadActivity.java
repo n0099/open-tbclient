@@ -340,7 +340,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     Intent intent = this.a.a.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14f3, false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14f4, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -434,7 +434,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 j85Var.n(this.a.z);
                 j85Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f5));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f6));
             }
         }
     }
@@ -843,7 +843,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EditHeadActivity editHeadActivity = this.b;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f1));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f2));
             }
         }
 
@@ -1013,7 +1013,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.c.setOnSizeChangedListener(new b(this));
             this.c.setOnImageScrollListener(new c(this));
             this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091ec5);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091ec6);
             this.l = button;
             button.setOnClickListener(new e(this));
             Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090d5f);
@@ -1024,7 +1024,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.j = addCustomView;
             addCustomView.setOnClickListener(new g(this));
             this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091dac);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091dad);
             this.E = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f0505);
             if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
@@ -1034,17 +1034,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.u.setText(R.string.obfuscated_res_0x7f0f03ce);
             }
             this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090377);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c85);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c86);
             this.p = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090376);
-            this.q = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091c86);
+            this.q = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091c87);
             h hVar = new h(this);
             this.p.setOnCheckedChangeListener(hVar);
             this.q.setOnCheckedChangeListener(hVar);
             this.p.setChecked(true);
-            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091c88);
-            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8a);
-            Button button5 = (Button) findViewById(R.id.obfuscated_res_0x7f091c89);
-            Button button6 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8b);
+            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091c89);
+            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8b);
+            Button button5 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8a);
+            Button button6 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8c);
             button3.setTag(0);
             button4.setTag(1);
             button5.setTag(2);

@@ -421,7 +421,7 @@ public class mz5 extends Dialog {
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0914ad);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f60);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080f61);
             this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0914ae);
             this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914b9);
             this.f = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0914ab);
@@ -434,8 +434,8 @@ public class mz5 extends Dialog {
             this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914b4);
             this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914b7);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b8);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924d4);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d5);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924d5);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d6);
         }
     }
 
@@ -530,7 +530,7 @@ public class mz5 extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             if (StringUtils.isNull(str)) {
-                this.c.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f60), 24, false);
+                this.c.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f61), 24, false);
             } else {
                 this.c.K(str, 10, false);
             }
@@ -572,7 +572,7 @@ public class mz5 extends Dialog {
                                 this.j.setText(R.string.obfuscated_res_0x7f0f0239);
                                 this.j.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060405));
                             } else {
-                                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+                                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
                                 this.j.setTextSize(0, u);
                                 this.j.setText(R.string.obfuscated_res_0x7f0f01f2);
                                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
@@ -589,23 +589,23 @@ public class mz5 extends Dialog {
                         this.j.setText(R.string.obfuscated_res_0x7f0f01fe);
                         this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f060405));
                     } else {
-                        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d51);
+                        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d52);
                         this.j.setTextSize(0, v);
                         this.j.setText(R.string.obfuscated_res_0x7f0f01fe);
                         this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f0607af));
                     }
                 } else if (this.k.m()) {
-                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4e);
+                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
                     this.j.setTextSize(0, v);
                     this.j.setText(R.string.obfuscated_res_0x7f0f01fd);
                     this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f0607ae));
                 } else if (this.k.l()) {
-                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4e);
+                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
                     this.j.setTextSize(0, v);
                     this.j.setText(R.string.obfuscated_res_0x7f0f01fd);
                     this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f0607ae));
                 } else {
-                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4e);
+                    this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
                     this.j.setTextSize(0, v);
                     this.j.setText(R.string.obfuscated_res_0x7f0f01fd);
                     this.j.setTextColor(getContext().getResources().getColorStateList(R.color.obfuscated_res_0x7f0607ae));
@@ -624,7 +624,7 @@ public class mz5 extends Dialog {
                 this.j.setText(R.string.obfuscated_res_0x7f0f0239);
                 this.j.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060405));
             } else {
-                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
                 this.j.setTextSize(0, u);
                 this.j.setText(R.string.obfuscated_res_0x7f0f01f4);
                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));

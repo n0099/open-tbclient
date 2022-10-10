@@ -161,7 +161,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f143c);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f143d);
             }
             nu4 nu4Var = new nu4(getActivity());
             nu4Var.setTitle(str);

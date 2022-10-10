@@ -129,11 +129,11 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         this.g = context;
         setContentView(R.layout.obfuscated_res_0x7f0d04f7);
         this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090387);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d33);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d32);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d30);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d31);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d2f);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d34);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d33);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d31);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d32);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d30);
         a();
         ViewUtility.setViewClickAlpha(this.d, 0.2f);
         ViewUtility.setViewClickAlpha(this.e, 0.2f);
@@ -221,14 +221,14 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105f);
-                this.f.setImageResource(R.drawable.obfuscated_res_0x7f08105d);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081060);
+                this.f.setImageResource(R.drawable.obfuscated_res_0x7f08105e);
                 this.b.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 this.c.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f060a0c));
                 this.d.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609df));
-                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081061));
+                this.d.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081062));
                 this.e.setTextColor(this.g.getResources().getColor(R.color.obfuscated_res_0x7f0609df));
-                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081063));
+                this.e.setBackground(this.g.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081064));
             }
         }
     }

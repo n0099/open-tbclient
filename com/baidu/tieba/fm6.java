@@ -57,12 +57,12 @@ public class fm6 extends qn<km6, ForumRuleDetailBottomVH> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, forumRuleDetailBottomVH, km6Var) == null) || forumRuleDetailBottomVH == null) {
             return;
         }
-        forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080be2);
+        forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080be3);
         forumRuleDetailBottomVH.b.K(km6Var.a(), 10, false);
         String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06c3);
         EMTextView eMTextView = forumRuleDetailBottomVH.d;
         eMTextView.setText(km6Var.b() + string);
-        forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080be2);
+        forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080be3);
         forumRuleDetailBottomVH.f.K(km6Var.f(), 12, false);
         forumRuleDetailBottomVH.g.setText(km6Var.c());
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {

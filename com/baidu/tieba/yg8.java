@@ -296,12 +296,12 @@ public class yg8 extends p9<MoreActivity> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View.OnClickListener C = C();
             this.u = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091792);
-            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f091dc9);
+            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f091dca);
             this.a.findViewById(R.id.obfuscated_res_0x7f090d3c).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             this.w = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1142));
+            this.c.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1143));
             this.c.showBottomLine();
             this.i = (SettingTextNormalImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090053);
             this.j = (SettingTextImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0918d4);
@@ -310,13 +310,13 @@ public class yg8 extends p9<MoreActivity> {
             this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090411);
             this.n = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090083);
             this.o = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091516);
-            SettingTextRedDotView settingTextRedDotView = (SettingTextRedDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091e32);
+            SettingTextRedDotView settingTextRedDotView = (SettingTextRedDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091e33);
             this.p = settingTextRedDotView;
             settingTextRedDotView.i();
-            this.q = (SettingTextVersionView) this.a.findViewById(R.id.obfuscated_res_0x7f0924ec);
+            this.q = (SettingTextVersionView) this.a.findViewById(R.id.obfuscated_res_0x7f0924ed);
             this.r = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a5);
-            this.s = (TbSettingTextNewDotView) this.a.findViewById(R.id.obfuscated_res_0x7f092006);
-            this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b42);
+            this.s = (TbSettingTextNewDotView) this.a.findViewById(R.id.obfuscated_res_0x7f092007);
+            this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b43);
             if (!TbadkCoreApplication.isLogin()) {
                 this.t.setVisibility(8);
             }
@@ -537,9 +537,9 @@ public class yg8 extends p9<MoreActivity> {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             yu4 yu4Var = new yu4(getPageContext().getPageActivity());
             this.e = yu4Var;
-            yu4Var.q(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f97));
+            yu4Var.q(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f98));
             ArrayList arrayList = new ArrayList();
-            uu4 uu4Var = new uu4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f99), this.e);
+            uu4 uu4Var = new uu4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f9a), this.e);
             uu4Var.q(R.color.CAM_X0301);
             arrayList.add(uu4Var);
             this.a.getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4);

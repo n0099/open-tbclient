@@ -326,7 +326,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f006d, TBAlertConfig.OperateBtnStyle.MAIN);
                     TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getActivity());
                     tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f006e);
-                    tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1455);
+                    tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1456);
                     tBAlertBuilder.r(aVar);
                     tBAlertBuilder.h(false);
                     aVar.a(new a(this, tBAlertBuilder.w()));
@@ -628,7 +628,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 int i = this.b;
                 if (i == 0) {
                     AccountActivity accountActivity = this.d;
-                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f123d));
+                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f123e));
                     this.d.a.remove(this.a);
                     this.a = null;
                     this.d.b.notifyDataSetChanged();
@@ -859,12 +859,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090056);
             this.h = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f007a));
             View addCustomView = this.f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, (View.OnClickListener) null);
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c43);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c44);
             this.g = textView;
             textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0534));
             SkinManager.setViewTextColor(this.g, R.color.navi_op_text, 1);

@@ -813,7 +813,7 @@ public class xj7 implements uj7 {
             HotSearchInfoData hotSearchInfoData = this.e;
             if (hotSearchInfoData == null) {
                 BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f15f5));
+                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f15f6));
                 return;
             }
             if (hotSearchInfoData.getType() != 0 && this.e.getType() != 2) {
@@ -839,7 +839,7 @@ public class xj7 implements uj7 {
         }
         HotSearchInfoData hotSearchInfoData = this.e;
         if (hotSearchInfoData == null) {
-            wj7Var.z(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10d4));
+            wj7Var.z(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10d5));
         } else {
             wj7Var.z(hotSearchInfoData.A());
         }

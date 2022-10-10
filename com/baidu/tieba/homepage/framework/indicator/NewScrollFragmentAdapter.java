@@ -525,7 +525,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && ox4.k().l("key_home_concern_all_status", 0) == 1) {
                     this.w.add(y(this.g, 0, w(R.string.obfuscated_res_0x7f0f02bc)));
                 } else {
-                    this.w.add(y(this.g, 0, w(R.string.obfuscated_res_0x7f0f136b)));
+                    this.w.add(y(this.g, 0, w(R.string.obfuscated_res_0x7f0f136c)));
                 }
             }
             if (UbsABTestHelper.isHomeTabModifyABTestA() && !this.u) {
@@ -533,7 +533,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     this.i = new PersonalizeWrapperFragment(context, this.t.f());
                     e(1);
                 }
-                this.w.add(y(this.i, 1, w(R.string.obfuscated_res_0x7f0f1372)));
+                this.w.add(y(this.i, 1, w(R.string.obfuscated_res_0x7f0f1373)));
                 return;
             }
             if (this.h == null) {
@@ -546,7 +546,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             if (this.u) {
                 w = w(R.string.obfuscated_res_0x7f0f026d);
             } else {
-                w = w(R.string.obfuscated_res_0x7f0f1372);
+                w = w(R.string.obfuscated_res_0x7f0f1373);
             }
             list.add(y(personalizeFragment, 1, w));
         }
@@ -705,7 +705,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
             b bVar = (b) ListUtils.getItem(this.v, i);
-            return bVar != null ? bVar.c : w(R.string.obfuscated_res_0x7f0f1372);
+            return bVar != null ? bVar.c : w(R.string.obfuscated_res_0x7f0f1373);
         }
         return (String) invokeI.objValue;
     }

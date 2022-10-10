@@ -84,7 +84,7 @@ public class LoadingView extends FrameLayout implements u23<LoadingView> {
             } else {
                 LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b9, (ViewGroup) this, true);
             }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091c74);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091c75);
             this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091416);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091515);
             setPageResources();

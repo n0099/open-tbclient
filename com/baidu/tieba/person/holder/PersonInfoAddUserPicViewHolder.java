@@ -47,7 +47,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f090120);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090119);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09220b);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09220c);
     }
 
     public void a(Cdo cdo) {

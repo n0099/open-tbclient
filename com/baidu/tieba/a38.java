@@ -81,11 +81,11 @@ public class a38 extends x28 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f091b24) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091b25) {
                     if (this.a.L(11009)) {
                         this.a.N(8);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97 && this.a.L(11009)) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98 && this.a.L(11009)) {
                     this.a.N(3);
                 }
             }

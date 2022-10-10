@@ -197,8 +197,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923da);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234a);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923db);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234b);
             }
         }
 

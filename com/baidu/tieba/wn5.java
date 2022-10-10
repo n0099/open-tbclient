@@ -400,7 +400,7 @@ public class wn5 {
                 if (!dj.isEmpty(G)) {
                     this.s.setText(G);
                 } else {
-                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13d0));
+                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13d1));
                 }
             }
             TBSpecificationBtn tBSpecificationBtn2 = this.t;
@@ -476,7 +476,7 @@ public class wn5 {
                 if (!dj.isEmpty(G)) {
                     this.s.setText(G);
                 }
-                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f09246d);
+                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f09246e);
                 ny4 ny4Var = new ny4();
                 this.u = ny4Var;
                 ny4Var.r(R.color.CAM_X0304);
@@ -630,7 +630,7 @@ public class wn5 {
         }
         l();
         new ux4().a = 1500L;
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fd5);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fd6);
         if (o != null && "7".equals(o.optString("dislike_ids"))) {
             string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0666);
         }

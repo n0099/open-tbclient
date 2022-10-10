@@ -100,16 +100,16 @@ public class oy6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f1374), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f1370), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136f), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136c), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136d), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136e), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136a), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1369), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1373), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f1371), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
+            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f1375), ""));
+            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f1371), ""));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1370), "game"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136d), "digital"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136e), "entertainment"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136f), "films"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136b), "campus"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f136a), "animes"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1374), "sports"));
+            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f1372), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -117,7 +117,7 @@ public class ij7 extends qn<nj7, SearchSuggestCommonViewHolder> {
                 return view2;
             }
             u(searchSuggestCommonViewHolder);
-            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a6f, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(searchSuggestCommonViewHolder.c, R.drawable.obfuscated_res_0x7f080a70, R.color.CAM_X0109, null);
             hj7.a(searchSuggestCommonViewHolder.b, nj7Var.b(), nj7Var.a());
             return view2;
         }

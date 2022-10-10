@@ -306,10 +306,10 @@ public class o77 extends BaseExpandableListAdapter {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1468));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1469));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1467));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1468));
         } else {
             textView.setVisibility(8);
         }

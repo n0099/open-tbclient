@@ -461,9 +461,9 @@ public class ao5 {
                 TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d36);
                 this.x = textView;
                 if (this.h) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f1197);
+                    textView.setText(R.string.obfuscated_res_0x7f0f1198);
                 }
-                this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091f97);
+                this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091f98);
             }
             View g2 = this.o.g();
             if (g2 != null && g2.getParent() == null) {
@@ -476,7 +476,7 @@ public class ao5 {
                 this.s = linearLayout;
                 this.w = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0907b4);
                 this.v = (TextView) this.s.findViewById(R.id.obfuscated_res_0x7f0907b5);
-                this.z = this.s.findViewById(R.id.obfuscated_res_0x7f0922a9);
+                this.z = this.s.findViewById(R.id.obfuscated_res_0x7f0922aa);
                 this.A = this.s.findViewById(R.id.obfuscated_res_0x7f091532);
                 this.d.addView(this.s);
                 this.w.setOnClickListener(new d(this));

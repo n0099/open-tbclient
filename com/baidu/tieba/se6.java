@@ -133,8 +133,8 @@ public class se6 {
         View inflate = LayoutInflater.from(bawuTeamInfoActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0149, (ViewGroup) null);
         this.e = inflate;
         this.a.setContentView(inflate);
-        this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091c6f);
-        NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091c70);
+        NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f02fe));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -147,7 +147,7 @@ public class se6 {
         this.k.setOnClickListener(new a(this, j, bawuTeamInfoActivity));
         this.d.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT).addView(this.k);
         this.d.showBottomLine();
-        this.f = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.f = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f091334);
         te6 te6Var = new te6(this.a.getPageContext());
         this.c = te6Var;

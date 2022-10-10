@@ -115,14 +115,14 @@ public class e68 extends i16<p58> {
         View h = h();
         this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902d6);
         this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902d7);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921a2);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921b9);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921a3);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921ba);
         this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090d6b);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090d6c);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09066d);
         this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09066e);
         this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0902d5);
-        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09216f);
+        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092170);
         this.t = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090d6a);
         this.s = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09066c);
     }
@@ -174,7 +174,7 @@ public class e68 extends i16<p58> {
         } else if (view2.getId() == R.id.obfuscated_res_0x7f0902d5) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f09216f) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092170) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
         } else if (view2.getId() == R.id.obfuscated_res_0x7f09066c) {

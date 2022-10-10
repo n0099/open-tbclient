@@ -171,11 +171,11 @@ public abstract class gt3 {
                 return;
             }
             if (this.a.c.d()) {
-                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e61);
+                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e62);
                 this.a.c.e(false);
                 return;
             }
-            this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e60);
+            this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e61);
             this.a.c.e(true);
         }
     }
@@ -281,11 +281,11 @@ public abstract class gt3 {
                     if (i > streamMinVolume || this.a.c.d()) {
                         return;
                     }
-                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e60);
+                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e61);
                     this.a.c.e(true);
                     return;
                 }
-                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e61);
+                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f080e62);
                 this.a.c.e(false);
             }
         }
@@ -431,7 +431,7 @@ public abstract class gt3 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && this.y) {
             if (j <= 15000 || i > 15000) {
-                this.j.setText(R.string.obfuscated_res_0x7f0f1350);
+                this.j.setText(R.string.obfuscated_res_0x7f0f1351);
                 this.i.setVisibility(0);
                 this.k.setVisibility(0);
                 this.j.setVisibility(0);
@@ -464,8 +464,8 @@ public abstract class gt3 {
         int min = Math.min(this.q.getRewardTime(), this.e / 1000);
         int skipTime = this.q.getSkipTime();
         int currentPosition = this.d.getCurrentPosition() / 1000;
-        String string = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1352);
-        String string2 = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1353);
+        String string = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1353);
+        String string2 = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1354);
         if (currentPosition <= min) {
             this.j.setText(String.format(string, Integer.valueOf(min - currentPosition)));
         } else {
@@ -485,7 +485,7 @@ public abstract class gt3 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             TextView textView = new TextView(this.p);
             this.l = textView;
-            textView.setBackground(this.w.getDrawable(R.drawable.obfuscated_res_0x7f080e5d));
+            textView.setBackground(this.w.getDrawable(R.drawable.obfuscated_res_0x7f080e5e));
             this.l.setTextColor(this.w.getColor(R.color.obfuscated_res_0x7f06045d));
             this.l.setText(this.w.getString(R.string.obfuscated_res_0x7f0f03fa));
             this.l.setTextSize(2, 16.0f);
@@ -525,15 +525,15 @@ public abstract class gt3 {
         } else {
             View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d065f, (ViewGroup) null);
             this.a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
-            ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091c17)).setImageUrl(this.q.getIconUrl());
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092218)).setText(this.q.getTitle());
+            ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091c18)).setImageUrl(this.q.getIconUrl());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219)).setText(this.q.getTitle());
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090797)).setText(this.q.getDescription());
             Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09082e);
             if (this.q.getActionType() == 1) {
-                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1100));
+                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1101));
             }
             if (this.q.getActionType() == 2) {
-                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1297));
+                button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1298));
             }
             inflate.findViewById(R.id.obfuscated_res_0x7f0906ea).setOnClickListener(this.F);
             button.setOnClickListener(this.F);
@@ -581,7 +581,7 @@ public abstract class gt3 {
                 this.f.setVisibility(4);
             }
             if (this.j != null && this.d != null && (adElementInfo = this.q) != null) {
-                this.j.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1352), Integer.valueOf(Math.max(this.q.getSkipTime(), Math.min(adElementInfo.getRewardTime(), this.d.getDuration())) / 1000)));
+                this.j.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1353), Integer.valueOf(Math.max(this.q.getSkipTime(), Math.min(adElementInfo.getRewardTime(), this.d.getDuration())) / 1000)));
                 if (this.q.getSkipTime() >= 0) {
                     this.i.setVisibility(8);
                     this.k.setVisibility(8);
@@ -644,18 +644,18 @@ public abstract class gt3 {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.b = u();
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
-            this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c1b);
-            RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.obfuscated_res_0x7f092594);
+            this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c1c);
+            RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.obfuscated_res_0x7f092595);
             this.c = rewardVideoView;
             rewardVideoView.setVolumeChangeListener(o());
             if (this.y) {
                 this.c.setOnClickListener(this.F);
             }
-            this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f091ff0);
-            this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09261c);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09261d);
+            this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f091ff1);
+            this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09261d);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09261e);
             if (this.c.d()) {
-                this.h.setImageResource(R.drawable.obfuscated_res_0x7f080e60);
+                this.h.setImageResource(R.drawable.obfuscated_res_0x7f080e61);
             }
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090658);
             this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09065b);
@@ -669,15 +669,15 @@ public abstract class gt3 {
             } else {
                 View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d065e, (ViewGroup) null);
                 this.m.addView(inflate);
-                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091c17)).setImageUrl(this.q.getIconUrl());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092218)).setText(this.q.getTitle());
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091c18)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092219)).setText(this.q.getTitle());
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090797)).setText(this.q.getDescription());
                 Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09082e);
                 if (this.q.getActionType() == 1) {
-                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1100));
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1101));
                 }
                 if (this.q.getActionType() == 2) {
-                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1297));
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1298));
                 }
                 this.m.setOnClickListener(this.F);
                 button.setOnClickListener(this.F);

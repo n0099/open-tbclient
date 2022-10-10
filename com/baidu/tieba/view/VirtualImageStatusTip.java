@@ -74,7 +74,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     private void setBackground(String str) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b3c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b3d)) == null) {
             return;
         }
         DrawableCompat.setTint(drawable, ol8.a(ol8.f(str), 0.3f));
@@ -168,7 +168,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 str4 = "";
             } else {
-                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f157b), str2);
+                str4 = String.format(getContext().getString(R.string.obfuscated_res_0x7f0f157c), str2);
                 if (!TextUtils.isEmpty(this.e)) {
                     str4 = " " + str4;
                 }
@@ -237,7 +237,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f157b), str2);
+            this.e += String.format(getContext().getString(R.string.obfuscated_res_0x7f0f157c), str2);
         }
     }
 }

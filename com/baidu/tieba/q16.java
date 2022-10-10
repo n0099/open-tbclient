@@ -254,7 +254,7 @@ public class q16 extends h16<w26> implements so5 {
             this.x = cardUserInfoLayout;
             cardUserInfoLayout.setPageContext(this.i);
             this.x.setPageUniqueId(this.j);
-            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092136);
+            this.y = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092137);
             this.z = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ad4);
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eae);
             this.A = tbImageView;

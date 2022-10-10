@@ -1149,7 +1149,7 @@ public class o85 implements Callable<Boolean> {
                 return Boolean.FALSE;
             }
             errorData.setError_code(-52);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f0));
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f1));
             fp8.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
             this.a.a(errorData);
             return Boolean.FALSE;

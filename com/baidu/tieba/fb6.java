@@ -107,10 +107,10 @@ public class fb6 extends dc5<y86, a96> {
         }
         this.m = false;
         this.f = tbPageContext;
-        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
+        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
         this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902bf);
         this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090493);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091bba);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091bbb);
         this.h = recyclerView;
         recyclerView.setNestedScrollingEnabled(false);
         this.h.setLayoutManager(new GridLayoutManager(getContext(), 5));

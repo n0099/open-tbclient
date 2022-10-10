@@ -65,7 +65,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b9);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ba);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);
@@ -87,7 +87,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oh6Var) == null) || oh6Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f0f9e);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0f9f);
         a();
     }
 }

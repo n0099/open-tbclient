@@ -237,12 +237,12 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090390);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c6);
             this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090fd7);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ea);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0921eb);
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090939);
-            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09249f);
+            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0924a0);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09064c);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091f71);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2e);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091f72);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2f);
             this.o = findViewById(R.id.obfuscated_res_0x7f0903ee);
             this.b.setText(R.string.obfuscated_res_0x7f0f06ec);
             this.l.setText(R.string.obfuscated_res_0x7f0f06ea);

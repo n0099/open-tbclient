@@ -248,8 +248,8 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f09204e);
-                String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204d));
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f09204f);
+                String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204e));
                 EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2;
                 if (dj.isForumName(str)) {
                     if (!TextUtils.isEmpty(this.a.g)) {
@@ -291,8 +291,8 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f09204e);
-                String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204d));
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f09204f);
+                String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204e));
                 if (dj.isForumName(str)) {
                     if (!TextUtils.isEmpty(this.a.h)) {
                         TiebaStatic.log(new StatisticItem(this.a.h).param("fid", valueOf));
@@ -357,7 +357,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         }
         this.f = itemViewHolder.getView();
         itemViewHolder.d.setVisibility(8);
-        itemViewHolder.b.setText(this.d.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0fc1));
+        itemViewHolder.b.setText(this.d.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0fc2));
         itemViewHolder.c.setVisibility(8);
         itemViewHolder.a.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         SkinManager.setImageResource(itemViewHolder.a, R.drawable.icon_pic_more);
@@ -376,13 +376,13 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         itemViewHolder.a.setTag(rj5Var.b);
         itemViewHolder.a.K(rj5Var.b, 10, false);
         itemViewHolder.b.setText(rj5Var.c);
-        itemViewHolder.b.setTag(R.id.obfuscated_res_0x7f09204d, Long.valueOf(rj5Var.d));
+        itemViewHolder.b.setTag(R.id.obfuscated_res_0x7f09204e, Long.valueOf(rj5Var.d));
         itemViewHolder.c.setDefaultBgResource(0);
         itemViewHolder.c.setDefaultResource(0);
-        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f09204d, Long.valueOf(rj5Var.d));
-        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f09204e, rj5Var.c);
-        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f09204d, Long.valueOf(rj5Var.d));
-        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f09204e, rj5Var.c);
+        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f09204e, Long.valueOf(rj5Var.d));
+        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f09204f, rj5Var.c);
+        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f09204e, Long.valueOf(rj5Var.d));
+        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f09204f, rj5Var.c);
         o(itemViewHolder.d, rj5Var.e);
         int i = rj5Var.a;
         if (i == 1) {
@@ -491,9 +491,9 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
             Iterator<ItemViewHolder> it = this.b.iterator();
             while (it.hasNext()) {
                 ItemViewHolder next = it.next();
-                if (next != null && next.getView() != null && next.b.getTag(R.id.obfuscated_res_0x7f09204d) != null) {
+                if (next != null && next.getView() != null && next.b.getTag(R.id.obfuscated_res_0x7f09204e) != null) {
                     EntelechyUserLikeButton entelechyUserLikeButton = next.d;
-                    if (((Long) next.b.getTag(R.id.obfuscated_res_0x7f09204d)).longValue() == j) {
+                    if (((Long) next.b.getTag(R.id.obfuscated_res_0x7f09204e)).longValue() == j) {
                         o(entelechyUserLikeButton, z);
                         return;
                     }

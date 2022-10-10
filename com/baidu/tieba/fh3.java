@@ -692,7 +692,7 @@ public final class fh3 {
             if (c2 == null) {
                 return false;
             }
-            String str = c2.getString(R.string.obfuscated_res_0x7f0f1285) + "\n" + c2.getString(i);
+            String str = c2.getString(R.string.obfuscated_res_0x7f0f1286) + "\n" + c2.getString(i);
             if (sm2.y0().d()) {
                 d33 g2 = d33.g(c2, str);
                 g2.l(4);
@@ -816,9 +816,9 @@ public final class fh3 {
                         if (TextUtils.isEmpty(charSequence)) {
                             str2 = "";
                         } else {
-                            str2 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12f7) + charSequence;
+                            str2 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12f8) + charSequence;
                         }
-                        String str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12f6) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str2;
+                        String str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12f7) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str2;
                         String string = context.getString(R.string.obfuscated_res_0x7f0f011a);
                         String string2 = context.getString(R.string.obfuscated_res_0x7f0f0112);
                         p23.a aVar = new p23.a(context);

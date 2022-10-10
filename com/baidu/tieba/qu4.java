@@ -84,7 +84,7 @@ public class qu4 extends AlertDialog {
                     layoutParams.topMargin = ej.f(getContext(), R.dimen.tbds50);
                     findViewById.setLayoutParams(layoutParams);
                 }
-                TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09212e);
+                TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09212f);
                 this.c = textView;
                 if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
                     RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
@@ -94,7 +94,7 @@ public class qu4 extends AlertDialog {
                 if (!StringUtils.isNull(this.a)) {
                     this.c.setText(this.a);
                 }
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09212f);
+                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092130);
                 this.d = (CircleView1080) window.findViewById(R.id.obfuscated_res_0x7f090640);
             }
         }

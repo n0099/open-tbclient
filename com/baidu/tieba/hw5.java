@@ -212,7 +212,7 @@ public class hw5 {
                     this.a.setWidth(-2);
                     this.a.setHeight(-2);
                     this.a.setAnimationStyle(16973826);
-                    this.a.setBackgroundDrawable(this.j.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc1));
+                    this.a.setBackgroundDrawable(this.j.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fc2));
                     this.a.setOutsideTouchable(true);
                     this.a.setFocusable(true);
                     this.a.setTouchable(true);
@@ -283,7 +283,7 @@ public class hw5 {
             if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.c == null) {
                 return;
             }
-            this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fc, StringHelper.numberUniformFormatExtra(i)));
+            this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f11fd, StringHelper.numberUniformFormatExtra(i)));
             this.b.setVisibility(0);
         }
 
@@ -304,7 +304,7 @@ public class hw5 {
                         this.h = str;
                         if (str.contains("距离")) {
                             if (!d()) {
-                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f11f9);
+                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f11fa);
                                 return;
                             } else {
                                 zf.n().k(false, this.i);
@@ -344,7 +344,7 @@ public class hw5 {
         this.e = (LinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d064a, (ViewGroup) null);
         this.k = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0110, (ViewGroup) null);
         this.f = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091341);
-        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091f99);
+        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091f9a);
         this.g = findViewById;
         b bVar = new b(this, findViewById);
         this.r = bVar;

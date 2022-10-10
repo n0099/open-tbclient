@@ -144,10 +144,10 @@ public class lv8 extends BaseAdapter implements View.OnClickListener {
                 aVar.a.setBorderWidth(ej.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
                 aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
                 aVar.a.setConrers(15);
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0923ce);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0923cf);
                 aVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
-                aVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0923ce);
+                aVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0923cf);
                 view3.setTag(aVar);
             } else {
                 view3 = view2;

@@ -451,8 +451,8 @@ public class ThreadAgreeAndShareLayout extends LinearLayout implements Animator.
             this.f = f(dimenPixelSize);
             this.e.j(ImageView.ScaleType.FIT_XY);
             this.f.j(ImageView.ScaleType.FIT_XY);
-            this.e.k(R.string.obfuscated_res_0x7f0f118d);
-            this.f.k(R.string.obfuscated_res_0x7f0f1191);
+            this.e.k(R.string.obfuscated_res_0x7f0f118e);
+            this.f.k(R.string.obfuscated_res_0x7f0f1192);
             this.c.j(ImageView.ScaleType.CENTER_INSIDE);
             this.c.c(this);
             this.d.j(ImageView.ScaleType.CENTER_INSIDE);

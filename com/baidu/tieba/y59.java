@@ -110,7 +110,7 @@ public class y59 {
             }
             String errorString = postWriteCallBackData.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
-                errorString = this.a.getString(R.string.obfuscated_res_0x7f0f1064);
+                errorString = this.a.getString(R.string.obfuscated_res_0x7f0f1065);
             }
             this.a.showToast(errorString);
         } else if (a(postWriteCallBackData)) {

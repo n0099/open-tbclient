@@ -191,7 +191,7 @@ public class f49 extends n49<d59> implements p49 {
             nu4 nu4Var = new nu4(this.a.a.getPageActivity());
             nu4Var.setNegativeTextColor(R.color.CAM_X0105);
             nu4Var.setTitle("");
-            nu4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0f50));
+            nu4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0f51));
             nu4Var.setContentViewSize(1);
             nu4Var.setPositiveButton("同意", new a(this));
             nu4Var.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new C0242b(this));
@@ -262,9 +262,9 @@ public class f49 extends n49<d59> implements p49 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             EBusinessProtocolView eBusinessProtocolView = new EBusinessProtocolView(this.a.getPageActivity(), EBusinessProtocolView.WindowType.PROTOCOL);
             this.j = eBusinessProtocolView;
-            eBusinessProtocolView.o(this.a.getString(R.string.obfuscated_res_0x7f0f0f51));
+            eBusinessProtocolView.o(this.a.getString(R.string.obfuscated_res_0x7f0f0f52));
             this.j.i("file:///android_asset/protocol.html");
-            SpannableString spannableString = new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0fa0));
+            SpannableString spannableString = new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0fa1));
             spannableString.setSpan(new a(this), 6, 17, 34);
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), 6, 17, 34);
             TextView textView = this.i;
@@ -300,7 +300,7 @@ public class f49 extends n49<d59> implements p49 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ((d59) this.d).a = false;
-            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a31, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.h, R.drawable.obfuscated_res_0x7f080a32, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -356,7 +356,7 @@ public class f49 extends n49<d59> implements p49 {
                 return true;
             }
             TbPageContext<?> tbPageContext = this.a;
-            tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0f57));
+            tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0f58));
             return false;
         }
         return invokeV.booleanValue;
@@ -394,9 +394,9 @@ public class f49 extends n49<d59> implements p49 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ca, viewGroup, false);
             this.c = inflate;
-            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ad3);
-            this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091ad8);
-            this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091ad5);
+            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ad4);
+            this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091ad9);
+            this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091ad6);
             I();
             return this.c;
         }

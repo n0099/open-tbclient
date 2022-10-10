@@ -58,7 +58,7 @@ public class PbPrivateTitleAdapter extends ay7<vv7, PbPrivateTitleViewHolder> {
                 return;
             }
             this.b = view2.findViewById(R.id.obfuscated_res_0x7f09031a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e05));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08092d, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.f(ej.f(tbPageContext.getContext(), R.dimen.tbds31));

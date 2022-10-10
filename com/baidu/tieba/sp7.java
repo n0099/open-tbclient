@@ -386,12 +386,12 @@ public class sp7 extends qp7 {
                     dVar.c.setGodIconWidth(R.dimen.tbds36);
                     dVar.c.setOnClickListener(this.o);
                     dVar.c.setTag(Integer.valueOf(i));
-                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0924b4);
+                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0924b5);
                     dVar.b = tBLottieAnimationView;
                     SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
                     j((UserData) ListUtils.getItem(this.a, i), dVar, i);
                     dVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f25);
-                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09209d);
+                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09209e);
                     EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091620);
                     dVar.d = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, dVar));
@@ -425,7 +425,7 @@ public class sp7 extends qp7 {
                     view2 = LayoutInflater.from(this.d.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0646, (ViewGroup) null);
                     dVar.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091847);
                     view2.setOnClickListener(this.m);
-                    dVar.l = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abc);
+                    dVar.l = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091abd);
                     dVar.n = null;
                     dVar.o = null;
                 }

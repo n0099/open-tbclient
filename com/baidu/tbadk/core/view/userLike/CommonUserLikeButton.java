@@ -50,7 +50,7 @@ public class CommonUserLikeButton extends TextView implements qz4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
         this.c = false;
         this.f = false;
@@ -186,7 +186,7 @@ public class CommonUserLikeButton extends TextView implements qz4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
         this.c = false;
         this.f = false;
@@ -212,7 +212,7 @@ public class CommonUserLikeButton extends TextView implements qz4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
         this.c = false;
         this.f = false;

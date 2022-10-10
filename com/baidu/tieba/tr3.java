@@ -221,7 +221,7 @@ public class tr3 implements rr3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.b = new SwanAdDownloadButtonView(this.a);
-            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1297);
+            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1298);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
             layoutParams.bottomMargin = (int) (this.a.getResources().getDisplayMetrics().heightPixels * 0.14d);
@@ -322,17 +322,17 @@ public class tr3 implements rr3 {
             switch (b.a[downloadState.ordinal()]) {
                 case 1:
                 default:
-                    return R.string.obfuscated_res_0x7f0f1297;
-                case 2:
-                    return R.string.obfuscated_res_0x7f0f129c;
-                case 3:
                     return R.string.obfuscated_res_0x7f0f1298;
-                case 4:
-                    return R.string.obfuscated_res_0x7f0f129a;
-                case 5:
+                case 2:
+                    return R.string.obfuscated_res_0x7f0f129d;
+                case 3:
                     return R.string.obfuscated_res_0x7f0f1299;
-                case 6:
+                case 4:
                     return R.string.obfuscated_res_0x7f0f129b;
+                case 5:
+                    return R.string.obfuscated_res_0x7f0f129a;
+                case 6:
+                    return R.string.obfuscated_res_0x7f0f129c;
             }
         }
         return invokeL.intValue;
@@ -391,10 +391,10 @@ public class tr3 implements rr3 {
                 SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
                 if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
                     if (this.c.c < this.b.getMax()) {
-                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1296);
+                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1297);
                         string = String.format(string2, this.c.c + "%");
                     } else {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f129a);
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f129b);
                     }
                     this.b.setText(string);
                     this.b.setProgress(this.c.c);

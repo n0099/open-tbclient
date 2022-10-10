@@ -392,7 +392,7 @@ public class uq8 {
         thread2GroupShareView.setData(shareFromPBMsgData);
         nu4Var.setContentViewSize(1);
         nu4Var.setContentView(thread2GroupShareView);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new c(this, thread2GroupShareView));
         nu4Var.setCanceledOnTouchOutside(true);
         nu4Var.create(this.a.getPageContext()).show();

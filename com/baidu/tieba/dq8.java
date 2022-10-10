@@ -82,7 +82,7 @@ public class dq8 {
         SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
         this.a = new WeakReference<>(splashAdView);
         mainTabActivity.getWindow().setFlags(1024, 1024);
-        ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091f33);
+        ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091f34);
         if (viewGroup != null) {
             viewGroup.setVisibility(0);
             viewGroup.addView(splashAdView);

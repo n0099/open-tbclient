@@ -177,13 +177,13 @@ public class bd6 {
         this.a = tbPageContext;
         tbPageContext.getOrignalPage().setContentView(R.layout.obfuscated_res_0x7f0d0284);
         this.b = tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090973);
-        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.g = this.c.setTitleText("");
-        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.o = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090975);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922b7);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922b8);
         this.p = textView;
         ((LinearLayout.LayoutParams) textView.getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070282);
         this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090976);

@@ -461,7 +461,7 @@ public class i49 extends x39<f59> implements p49, q49 {
             this.c = inflate;
             this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091a3e);
             this.h = (TbAlphaVideo) this.c.findViewById(R.id.obfuscated_res_0x7f09014e);
-            RichTextEditor richTextEditor = (RichTextEditor) this.c.findViewById(R.id.obfuscated_res_0x7f091c1f);
+            RichTextEditor richTextEditor = (RichTextEditor) this.c.findViewById(R.id.obfuscated_res_0x7f091c20);
             this.t = richTextEditor;
             richTextEditor.setWriteImagesInfo(this.v.f());
             this.t.setOutImageOperateListener(this.w);

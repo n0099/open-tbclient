@@ -332,7 +332,7 @@ public class u86 extends BaseAdapter {
                         blockPopInfoData.ahead_url = AntiHelper.a;
                         AntiHelper.s(this.a.a.getPageActivity(), blockPopInfoData);
                     } else if (A == 2121002) {
-                        f35.b(this.a.a, null, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f047a), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f1448), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f13de), new a(this), new b(this)).show();
+                        f35.b(this.a.a, null, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f047a), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f1449), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f13df), new a(this), new b(this)).show();
                     }
                     z = true;
                 }
@@ -611,8 +611,8 @@ public class u86 extends BaseAdapter {
                     } else {
                         view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0273, viewGroup, false);
                         iVar = new i(this, null);
-                        iVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
-                        iVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f18);
+                        iVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
+                        iVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f19);
                         iVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d3);
                         view2.setTag(iVar);
                     }
@@ -694,7 +694,7 @@ public class u86 extends BaseAdapter {
                     } else {
                         view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0270, (ViewGroup) null);
                         hVar = new h(this, null);
-                        hVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091c6c);
+                        hVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091c6d);
                         hVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e94);
                         hVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d67);
                         hVar.d = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090a3d);

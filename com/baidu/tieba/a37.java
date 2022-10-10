@@ -181,7 +181,7 @@ public class a37 extends i16<b37> {
         this.i = tbPageContext;
         View h = h();
         this.j = h;
-        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b62);
+        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b63);
         this.k = textView;
         int i3 = p;
         textView.setPadding(0, i3, 0, i3 - o);

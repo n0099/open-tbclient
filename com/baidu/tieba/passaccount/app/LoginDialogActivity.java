@@ -413,7 +413,7 @@ public class LoginDialogActivity extends SuspendedActivity implements ie5 {
             return;
         }
         if (getLoadingDialog() == null || !getLoadingDialog().c()) {
-            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f106a));
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f106b));
             if (getLoadingDialog() != null) {
                 getLoadingDialog().f(false);
                 getLoadingDialog().g(false);

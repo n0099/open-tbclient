@@ -1231,8 +1231,8 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                     if (!ox4.k().h("key_is_window_permission_dialog_shown", false)) {
                         nu4 nu4Var = new nu4(this);
                         nu4Var.setCanceledOnTouchOutside(false);
-                        nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101d);
-                        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1027);
+                        nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101e);
+                        nu4Var.setMessageId(R.string.obfuscated_res_0x7f0f1028);
                         nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0997, new nu4.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -1266,7 +1266,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                                         intent.setData(Uri.parse("package:" + this.this$0.getPackageName()));
                                         this.this$0.startActivityForResult(intent, 12016);
                                     } catch (Exception unused) {
-                                        this.this$0.showToast(R.string.obfuscated_res_0x7f0f1028);
+                                        this.this$0.showToast(R.string.obfuscated_res_0x7f0f1029);
                                         if (this.this$0.mPermissionCallback != null) {
                                             this.this$0.mPermissionCallback.onPermissionResult(false);
                                         }

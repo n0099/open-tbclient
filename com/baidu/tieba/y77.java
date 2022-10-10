@@ -170,7 +170,7 @@ public class y77 extends o9<MsglistActivity<?>> {
             }
             ImageView imageView = this.c;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080964, R.color.CAM_X0111, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0111, null);
             }
         }
     }

@@ -97,9 +97,9 @@ public class w98 extends i16<u88> {
                 String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e7f);
                 Object[] objArr = new Object[1];
                 if (u88Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1628);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1629);
                 } else if (u88Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1192);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1193);
                 } else {
                     string = this.c.getString(R.string.obfuscated_res_0x7f0f0851);
                 }

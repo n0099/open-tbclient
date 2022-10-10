@@ -343,7 +343,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.d = new ArrayList();
         this.f = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE", PermissionRequest.RESOURCE_AUDIO_CAPTURE, h.g};
         this.g = new String[]{getString(R.string.obfuscated_res_0x7f0f0279), getString(R.string.obfuscated_res_0x7f0f027c), getString(R.string.obfuscated_res_0x7f0f027b), getString(R.string.obfuscated_res_0x7f0f027a)};
-        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f0f12), getString(R.string.obfuscated_res_0x7f0f0f24), getString(R.string.obfuscated_res_0x7f0f0f23), getString(R.string.obfuscated_res_0x7f0f0f19)};
+        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f0f12), getString(R.string.obfuscated_res_0x7f0f0f25), getString(R.string.obfuscated_res_0x7f0f0f24), getString(R.string.obfuscated_res_0x7f0f0f19)};
         this.i = new a(this);
     }
 
@@ -364,13 +364,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0752);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c83);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c84);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.a = navigationBar;
             navigationBar.showBottomLine();
             this.b = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1b));
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
             this.c = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             this.c.setAdapter(this.i);

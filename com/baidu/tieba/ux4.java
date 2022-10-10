@@ -95,12 +95,12 @@ public class ux4 {
         if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c7, (ViewGroup) null);
             this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092210);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092203);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092211);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092204);
             this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080aca);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080acb);
             e(this.c);
         }
     }
@@ -110,12 +110,12 @@ public class ux4 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03c7, (ViewGroup) null);
             this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092210);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092203);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092211);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092204);
             this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080acb);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080acc);
             e(this.c);
         }
     }

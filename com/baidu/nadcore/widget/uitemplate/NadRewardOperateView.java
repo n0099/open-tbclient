@@ -346,13 +346,13 @@ public class NadRewardOperateView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0610, (ViewGroup) this, true);
             this.c = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09160d);
-            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091c0e);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c0f);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c12);
+            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091c0f);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c10);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c11);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c13);
             this.e = relativeLayout;
             f(relativeLayout);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c11);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c12);
             this.h = textView;
             f(textView);
         }
@@ -459,7 +459,7 @@ public class NadRewardOperateView extends FrameLayout {
             ((GradientDrawable) this.h.getBackground()).setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602f0));
             ((GradientDrawable) this.h.getBackground()).setStroke(2, getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602f1));
         } else {
-            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df4));
+            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df5));
         }
         if (!TextUtils.isEmpty(adBaseModel.h.c)) {
             this.h.setText(adBaseModel.h.c);

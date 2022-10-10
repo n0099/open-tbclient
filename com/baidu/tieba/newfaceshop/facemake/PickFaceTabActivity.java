@@ -234,7 +234,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements vr7 {
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
             this.c.setLayoutParams(new RelativeLayout.LayoutParams(ej.k(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0925c7);
             this.c.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             V0(0);
@@ -313,7 +313,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements vr7 {
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
             setContentView(R.layout.obfuscated_res_0x7f0d0738);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092015);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092016);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);

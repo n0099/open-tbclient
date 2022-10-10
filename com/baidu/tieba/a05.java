@@ -100,7 +100,7 @@ public class a05 implements ah<yz4> {
                 return yz4Var;
             } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
                 yz4Var.c = 4;
-                yz4Var.d = wj.a(R.string.obfuscated_res_0x7f0f1580);
+                yz4Var.d = wj.a(R.string.obfuscated_res_0x7f0f1581);
                 return yz4Var;
             } else {
                 if (str == null) {

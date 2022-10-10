@@ -183,7 +183,7 @@ public class fx6 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, x26Var) == null) {
             int id = view2.getId();
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
                 sw6.b(view2, x26Var, 2);
             } else if (id == R.id.obfuscated_res_0x7f090a8f) {
                 sw6.b(view2, x26Var, 7);

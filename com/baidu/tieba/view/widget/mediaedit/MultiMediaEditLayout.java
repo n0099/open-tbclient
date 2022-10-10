@@ -316,10 +316,10 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                 } else {
                     this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
                 }
-                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14b7, Float.valueOf(f)));
+                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14b8, Float.valueOf(f)));
                 return;
             }
-            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14ba, Float.valueOf(f)));
+            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14bb, Float.valueOf(f)));
             this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
         }
     }
@@ -786,9 +786,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1e, getResources().getColor(R.color.CAM_X0302), null));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1f, getResources().getColor(R.color.CAM_X0302), null));
         } else {
-            imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1e));
+            imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1f));
         }
     }
 
@@ -797,9 +797,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         if (!(interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f == null) {
             return;
         }
-        int i = R.drawable.obfuscated_res_0x7f080a02;
+        int i = R.drawable.obfuscated_res_0x7f080a03;
         if (z) {
-            i = R.drawable.obfuscated_res_0x7f080a03;
+            i = R.drawable.obfuscated_res_0x7f080a04;
         }
         if (z2) {
             this.f.setImageDrawable(WebPManager.getPureDrawable(i, getResources().getColor(R.color.CAM_X0302), null));
@@ -903,9 +903,9 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f04);
         this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed5);
         this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f0915a3);
-        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091efa);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092391);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ff);
+        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091efb);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092392);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092400);
         this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090eab);
         ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed4);
         this.e = imageView;

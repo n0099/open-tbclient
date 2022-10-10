@@ -274,7 +274,7 @@ public class ev6 {
             if (e instanceof TTDrawFeedAd) {
                 TTDrawFeedAd tTDrawFeedAd = (TTDrawFeedAd) e;
                 tTDrawFeedAd.setCanInterruptVideoPlay(true);
-                tTDrawFeedAd.setPauseIcon(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080a43), 67);
+                tTDrawFeedAd.setPauseIcon(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getResources(), R.drawable.obfuscated_res_0x7f080a44), 67);
             }
         }
     }

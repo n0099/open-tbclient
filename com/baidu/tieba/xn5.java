@@ -394,7 +394,7 @@ public class xn5 {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0634, (ViewGroup) null);
                 this.d = viewGroup;
                 this.m = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d36);
-                this.n = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f09246d);
+                this.n = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f09246e);
                 ny4 ny4Var = new ny4();
                 this.o = ny4Var;
                 ny4Var.r(R.color.CAM_X0304);
@@ -413,7 +413,7 @@ public class xn5 {
             if (this.p == null) {
                 LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0632, (ViewGroup) null);
                 this.p = linearLayout;
-                this.s = linearLayout.findViewById(R.id.obfuscated_res_0x7f0922a9);
+                this.s = linearLayout.findViewById(R.id.obfuscated_res_0x7f0922aa);
                 this.r = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f0907b4);
                 this.q = (TextView) this.p.findViewById(R.id.obfuscated_res_0x7f0907b5);
                 View findViewById = this.p.findViewById(R.id.obfuscated_res_0x7f091532);
@@ -462,7 +462,7 @@ public class xn5 {
             }
         }
         h();
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fd5);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fd6);
         if (j != null && "7".equals(j.optString("dislike_ids"))) {
             string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0667);
         }

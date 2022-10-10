@@ -135,7 +135,7 @@ public final class v5a extends t5a<BannerConfigItem.BannerInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
             a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09228f));
+            aVar.c((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092290));
             ImageView a2 = aVar.a();
             if (a2 == null) {
                 Intrinsics.throwNpe();

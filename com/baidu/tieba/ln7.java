@@ -275,9 +275,9 @@ public class ln7 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             on7.e c2 = this.o.c();
             if (c2 == null) {
-                ej.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13b5);
+                ej.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f13b6);
             } else if (c2.j == 1 && c2.k) {
-                ej.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1435);
+                ej.M(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1436);
             } else {
                 u(c2.e, c2.f / 100, c2.h, c2.j);
                 if (this.H == 26) {
@@ -318,24 +318,24 @@ public class ln7 {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c6c);
+            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.d = (HListView) this.b.findViewById(R.id.obfuscated_res_0x7f091a77);
-            this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091bd3);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091bd4);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa5);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a9d);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c95);
-            this.i = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f091a93);
-            this.l = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091bd4);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091bd5);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa6);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a9e);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c96);
+            this.i = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f091a94);
+            this.l = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
             this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914f6);
             this.n = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0914f7);
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923c3);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923c4);
             this.w = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909c3);
-            this.x = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e1d);
-            this.y = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092166);
-            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+            this.x = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e1e);
+            this.y = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092167);
+            this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
             this.d.setOnItemClickListener(this.M);
-            this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
+            this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081241));
             this.i.setVerticalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
             this.i.setHorizontalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds80));
             this.k.setOnClickListener(this.N);
@@ -352,7 +352,7 @@ public class ln7 {
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
             WebPManager.setPureDrawable(this.h, R.drawable.icon_tbvip_arrow_right, R.color.CAM_X0109, null);
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080ab2);
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080ab3);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0311);
             TBSelector.makeDrawableSelector().setShape(0).radius((float) R.dimen.tbds31).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.obfuscated_res_0x7f0607d5, R.color.CAM_X0335).into(this.n);
             hv4 d = hv4.d(this.w);
@@ -504,7 +504,7 @@ public class ln7 {
     public final void y(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.k.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f13b3, "" + (j / 100)));
+            this.k.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f13b4, "" + (j / 100)));
         }
     }
 

@@ -69,12 +69,12 @@ public class PublishButton extends TBSpecificationBtn {
                 oy4Var.p(R.color.CAM_X0101);
                 oy4Var.v(R.dimen.tbds6);
                 oy4Var.u(R.string.A_X01);
-                oy4Var.i(R.drawable.obfuscated_res_0x7f08096a, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                oy4Var.i(R.drawable.obfuscated_res_0x7f08096b, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 oy4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
                 setConfig(oy4Var);
             } else {
                 ny4 ny4Var = new ny4();
-                ny4Var.i(R.drawable.obfuscated_res_0x7f08096a, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                ny4Var.i(R.drawable.obfuscated_res_0x7f08096b, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 ny4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
                 ny4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(ny4Var);

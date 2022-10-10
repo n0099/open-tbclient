@@ -1058,8 +1058,8 @@ public class AcceleratorFragment extends BaseFragment {
             this.v = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903c7);
             this.w = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903c8);
             this.x = view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
-            WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080971, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080a2e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.v, R.drawable.obfuscated_res_0x7f080972, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080a2f, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             hv4 d2 = hv4.d(this.t);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0302);

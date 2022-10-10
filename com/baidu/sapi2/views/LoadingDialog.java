@@ -56,7 +56,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) null);
                 LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f1003e8);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f2);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921f3);
                 if (this.c) {
                     textView.setText(this.b);
                 } else {

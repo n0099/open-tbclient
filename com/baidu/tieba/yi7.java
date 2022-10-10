@@ -188,7 +188,7 @@ public class yi7 extends BaseAdapter {
                 bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091620);
                 bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8a);
                 bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab6);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f05);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f06);
                 bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f09171d);
                 view2.setTag(bVar);
             } else {
@@ -213,7 +213,7 @@ public class yi7 extends BaseAdapter {
             TextView textView = bVar.d;
             textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02b0) + " " + b(item.member_num));
             TextView textView2 = bVar.e;
-            textView2.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13d5) + " " + b(item.thread_num));
+            textView2.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13d6) + " " + b(item.thread_num));
             if (!this.b && TextUtils.isEmpty(item.slogan)) {
                 bVar.f.setVisibility(8);
             } else {

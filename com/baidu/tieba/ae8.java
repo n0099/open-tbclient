@@ -361,7 +361,7 @@ public class ae8 {
             String str2 = adCloseInfo.title;
             this.q = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.q = this.b.getString(R.string.obfuscated_res_0x7f0f13d0);
+                this.q = this.b.getString(R.string.obfuscated_res_0x7f0f13d1);
             }
             this.r = adCloseInfo.confirm_title;
         }
@@ -483,7 +483,7 @@ public class ae8 {
             }
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0067, (ViewGroup) null);
             this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d36);
-            this.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09228e);
+            this.i = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09228f);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0900e8);
             this.j = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e7);
             this.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902c1);
@@ -509,7 +509,7 @@ public class ae8 {
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0107, 1);
             this.k.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b64);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b65);
             this.m = new ArrayList();
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090499);
             this.l = textView;

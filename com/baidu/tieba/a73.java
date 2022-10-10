@@ -133,7 +133,7 @@ public class a73 {
                     a73.k(this.b, this.e, this.d, this.c, this.f, true);
                     return;
                 }
-                d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f132c).G();
+                d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f132d).G();
                 a73.h(this.a, this.b.b, "pkg_retry_fail", String.valueOf(ef3Var == null ? 0L : ef3Var.a()));
                 this.c.b(2113, ef3Var);
             }
@@ -350,7 +350,7 @@ public class a73 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.c.b) {
-                        d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f132c).G();
+                        d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f132d).G();
                     }
                     this.c.a.b(this.a, this.b);
                 }

@@ -282,13 +282,13 @@ public class ReplyPrivacyCheckController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (i == PRIVACY_MY_ATTENTION) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa2);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa3);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa2);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa3);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f22);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f23);
                 return false;
             } else {
                 return true;
@@ -310,13 +310,13 @@ public class ReplyPrivacyCheckController {
                 showAttentionDialog();
                 return false;
             } else if (i == PRIVACY_MY_ATTENTION) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa2);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa3);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa2);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa3);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f22);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f23);
                 return false;
             } else {
                 return true;
@@ -366,13 +366,13 @@ public class ReplyPrivacyCheckController {
                 ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0ae5);
                 return false;
             } else if (i == PRIVACY_MY_ATTENTION) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa2);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa3);
                 return false;
             } else if (i == PRIVACY_MYSELF) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa2);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0fa3);
                 return false;
             } else if (i == PRIVACY_READ_ONLY) {
-                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f22);
+                ej.M(this.mContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f23);
                 return false;
             } else {
                 return true;

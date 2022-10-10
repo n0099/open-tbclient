@@ -335,7 +335,7 @@ public class d27 extends qn<y26, AutoVideoCardViewHolder<y26>> implements to5 {
             d37.d(y26Var.a, this.a, y26Var.n(), 4);
             TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(y26Var.P()));
             d37.c(y26Var.a, y26Var.r(), y26Var.n(), 2);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
             TbSingleton.getInstance().setCurrentClickTime(TiebaStatic.logWithBackTime(y26Var.N(y26Var.a)));
             d37.c(y26Var.a, y26Var.r(), y26Var.n(), 1);
         }

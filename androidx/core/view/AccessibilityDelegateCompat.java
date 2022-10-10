@@ -182,7 +182,7 @@ public class AccessibilityDelegateCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f092034);
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f092035);
             return list == null ? Collections.emptyList() : list;
         }
         return (List) invokeL.objValue;
@@ -210,7 +210,7 @@ public class AccessibilityDelegateCompat {
         WeakReference weakReference;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, view2)) == null) {
-            SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092035);
+            SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092036);
             if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i)) == null) {
                 return false;
             }

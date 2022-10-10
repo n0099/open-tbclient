@@ -109,8 +109,8 @@ public class g68 extends i16<r58> {
         }
         this.x = new a(this);
         View h = h();
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092218);
-        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092125);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092219);
+        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092126);
         this.k = textView;
         textView.setOnClickListener(this.x);
         View findViewById = h.findViewById(R.id.obfuscated_res_0x7f0918f1);
@@ -120,12 +120,12 @@ public class g68 extends i16<r58> {
         this.m = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090439);
         this.n = h.findViewById(R.id.obfuscated_res_0x7f0908f3);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908f4);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922b3);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922b4);
         this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090400);
         this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090275);
         this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0903d4);
         this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090276);
-        this.u = h.findViewById(R.id.obfuscated_res_0x7f091bbc);
+        this.u = h.findViewById(R.id.obfuscated_res_0x7f091bbd);
         this.v = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090ef7);
         j(g(), this.a);
     }

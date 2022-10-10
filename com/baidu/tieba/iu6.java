@@ -401,8 +401,8 @@ public class iu6 extends BaseAdapter implements ds6 {
                     gVar.b = view2;
                     gVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b58);
                     gVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b59);
-                    gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a7);
-                    gVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a5);
+                    gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a8);
+                    gVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a6);
                     view2.setTag(gVar);
                 }
                 m(gVar, (Cdo) ListUtils.getItem(this.a, i));
@@ -413,10 +413,10 @@ public class iu6 extends BaseAdapter implements ds6 {
                     fVar = new f(this);
                     view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d031e, (ViewGroup) null, false);
                     fVar.b = view2;
-                    fVar.f = view2.findViewById(R.id.obfuscated_res_0x7f0922a8);
-                    fVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a7);
-                    fVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a6);
-                    fVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a5);
+                    fVar.f = view2.findViewById(R.id.obfuscated_res_0x7f0922a9);
+                    fVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a8);
+                    fVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a7);
+                    fVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a6);
                     view2.setTag(fVar);
                 }
                 Cdo cdo = (Cdo) ListUtils.getItem(this.a, i);
@@ -457,7 +457,7 @@ public class iu6 extends BaseAdapter implements ds6 {
         if (!(interceptable == null || interceptable.invokeLLI(1048583, this, fVar, threadData, i) == null) || fVar == null || threadData == null) {
             return;
         }
-        fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1457));
+        fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1458));
         ur6.b(fVar.d, this.h);
         threadData.parserTitleFrsForTop();
         SpannableStringBuilder span_str = threadData.getSpan_str();
@@ -483,10 +483,10 @@ public class iu6 extends BaseAdapter implements ds6 {
                 if (wl8Var.c() == -1) {
                     fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0c9b));
                 } else if (wl8Var.c() > 999) {
-                    fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9c));
+                    fVar.e.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9d));
                 } else {
                     TextView textView = fVar.e;
-                    textView.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9b) + wl8Var.c());
+                    textView.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9c) + wl8Var.c());
                 }
                 if (!StringUtils.isNull(wl8Var.f())) {
                     fVar.c.setText(wl8Var.f());
@@ -547,7 +547,7 @@ public class iu6 extends BaseAdapter implements ds6 {
                 span_str = new SpannableStringBuilder(threadData.getAbstractText());
                 TiePlusEventController.o(threadData.getTiePlusLinkOriginData());
             }
-            gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1457));
+            gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1458));
             gVar.c.setOnTouchListener(new fz8(span_str));
             gVar.c.setText(span_str);
             if (StringUtils.isNull(this.i)) {
@@ -583,10 +583,10 @@ public class iu6 extends BaseAdapter implements ds6 {
                 if (wl8Var.c() == -1) {
                     gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0c9b));
                 } else if (wl8Var.c() > 999) {
-                    gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9c));
+                    gVar.f.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9d));
                 } else {
                     TextView textView2 = gVar.f;
-                    textView2.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9b) + wl8Var.c());
+                    textView2.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f9c) + wl8Var.c());
                 }
                 if (!StringUtils.isNull(wl8Var.f())) {
                     gVar.c.setText(wl8Var.f());
@@ -625,9 +625,9 @@ public class iu6 extends BaseAdapter implements ds6 {
                 return wl8Var.g();
             }
             if (wl8Var.a() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f1);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13f2);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1458);
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1459);
         }
         return (String) invokeL.objValue;
     }
@@ -723,7 +723,7 @@ public class iu6 extends BaseAdapter implements ds6 {
             if (StringUtils.isNull(riskTipNotice)) {
                 return false;
             }
-            fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1030));
+            fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1031));
             ur6.b(fVar.d, this.h);
             fVar.c.setText(riskTipNotice);
             fVar.c.setOnClickListener(new c(this, fVar, riskTipPop, riskTipPopTitle));

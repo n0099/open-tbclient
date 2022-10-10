@@ -60,8 +60,8 @@ public class jf4 {
             }
         }
         this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f128e);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f128f);
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f128f);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1290);
     }
 
     public static jf4 b() {

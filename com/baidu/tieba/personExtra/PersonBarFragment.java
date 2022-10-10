@@ -207,7 +207,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                             this.a.e.notifyDataSetChanged();
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f123d);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f123e);
                     if (this.a.p == null || TextUtils.isEmpty(this.a.p.getId())) {
                         return;
                     }
@@ -859,7 +859,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 SkinManager.setBackgroundColor(this.g, this.b);
                 SkinManager.setBackgroundColor(this.h, this.b);
                 this.h.setVisibility(8);
-                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091abc);
+                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091abd);
                 h(TbadkCoreApplication.getInst().getSkinType());
                 this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
                 return this.g;
@@ -1177,7 +1177,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             this.y = W1().r1();
             this.i = inflate.findViewById(R.id.obfuscated_res_0x7f090ad7);
             if (this.w && !this.y) {
-                TextView textView = (TextView) W1().h1().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, W1()).findViewById(R.id.obfuscated_res_0x7f091c43);
+                TextView textView = (TextView) W1().h1().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, W1()).findViewById(R.id.obfuscated_res_0x7f091c44);
                 this.l = textView;
                 textView.postDelayed(new e(this), 100L);
                 this.l.setText(R.string.obfuscated_res_0x7f0f0534);
@@ -1218,7 +1218,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 }
             }
             if (this.y) {
-                this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.e.d(string, getString(R.string.obfuscated_res_0x7f0f114b)), null);
+                this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.e.d(string, getString(R.string.obfuscated_res_0x7f0f114c)), null);
             } else {
                 this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, dimension), NoDataViewFactory.e.d(null, string), null);
             }

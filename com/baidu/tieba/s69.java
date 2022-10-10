@@ -142,7 +142,7 @@ public class s69 implements ie5, View.OnClickListener {
             }
             String replace = obj.replace(" ", "");
             if (ji5.d(replace) > 40) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1616), 20));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1617), 20));
             }
             String n = ji5.n(replace, 40);
             if (!n.equals(editable.toString())) {
@@ -369,7 +369,7 @@ public class s69 implements ie5, View.OnClickListener {
                 for (int i = 0; i < size; i++) {
                     WriteVoteItemData writeVoteItemData = w.get(i);
                     if (hashMap.containsKey(writeVoteItemData.getText())) {
-                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1614), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
+                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1615), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
                         return;
                     }
                     hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
@@ -437,8 +437,8 @@ public class s69 implements ie5, View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08fc, (ViewGroup) null);
             this.f = linearLayout;
-            this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092630);
-            this.i = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f092641);
+            this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092631);
+            this.i = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f092642);
         }
     }
 
@@ -461,7 +461,7 @@ public class s69 implements ie5, View.OnClickListener {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15e7));
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15e8));
             TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0505));
             this.v = addTextButton;
             addTextButton.setTextSize(0, ej.f(this.a.getPageActivity(), R.dimen.tbds44));
@@ -584,22 +584,22 @@ public class s69 implements ie5, View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f092643) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092644) {
                 this.w = 0;
                 I();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092642) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092643) {
                 this.w = 1;
                 I();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092640) {
                 this.x = -1;
                 H();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263d) {
                 this.x = 1;
                 H();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263f) {
                 this.x = 7;
                 H();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263d) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09263e) {
                 this.x = 30;
                 H();
             }
@@ -686,14 +686,14 @@ public class s69 implements ie5, View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08fb, (ViewGroup) null);
             this.g = linearLayout;
-            this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0926d3);
-            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092643);
-            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092642);
-            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0926d2);
-            this.r = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263f);
-            this.s = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263c);
-            this.t = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263e);
-            this.u = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263d);
+            this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0926d4);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092644);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092643);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0926d3);
+            this.r = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092640);
+            this.s = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263d);
+            this.t = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263f);
+            this.u = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09263e);
         }
     }
 }

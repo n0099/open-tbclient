@@ -163,7 +163,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0045);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8d);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8e);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ej.f(this, R.dimen.tbds31));
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecd);

@@ -265,7 +265,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             this.c = null;
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(multiImagePagerAdapter.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0758, (ViewGroup) null);
             this.a = frameLayout;
-            TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091ac6);
+            TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091ac7);
             this.b = tbImageView;
             tbImageView.setClickable(true);
             this.b.setDefaultResource(0);
@@ -274,7 +274,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             this.b.setPadding(0, 0, 0, 0);
             this.d = new k85();
             this.b.setOnClickListener(new a(this, multiImagePagerAdapter));
-            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091ac7);
+            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091ac8);
             this.c = progressBar;
             progressBar.setVisibility(8);
         }
@@ -677,7 +677,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             this.h = i;
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a);
             tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0e98);
-            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1033);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f1034);
             tBAlertBuilder.r(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f0375), TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f026a), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
             tBAlertBuilder.g();
             tBAlertBuilder.w();

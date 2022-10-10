@@ -109,7 +109,7 @@ public class n96 {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new g96(this.a.c.getString(R.string.obfuscated_res_0x7f0f09ee), 2));
-                arrayList.add(new g96(this.a.c.getString(R.string.obfuscated_res_0x7f0f14e9), 1));
+                arrayList.add(new g96(this.a.c.getString(R.string.obfuscated_res_0x7f0f14ea), 1));
                 this.a.d.k(arrayList, this.a.b);
                 this.a.d.n(this.a.a);
             }
@@ -231,7 +231,7 @@ public class n96 {
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && n() && (textView = this.a) != null) {
             int i = this.b;
             if (i == 1) {
-                textView.setText(R.string.obfuscated_res_0x7f0f14e9);
+                textView.setText(R.string.obfuscated_res_0x7f0f14ea);
             } else if (i == 2) {
                 textView.setText(R.string.obfuscated_res_0x7f0f09ee);
             }

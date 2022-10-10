@@ -46,8 +46,8 @@ public class vl4 {
                 return;
             }
         }
-        l = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b8);
-        m = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1397);
+        l = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b9);
+        m = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1398);
         n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0375);
         o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03b8);
     }

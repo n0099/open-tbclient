@@ -34,7 +34,7 @@ public class f71 extends g71 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageView = this.t) == null) {
             return;
         }
-        imageView.setBackground(g61.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db2));
+        imageView.setBackground(g61.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db3));
         this.t.setVisibility(0);
     }
 

@@ -203,8 +203,8 @@ public class fm5 extends em5 implements View.OnClickListener {
             vl5 vl5Var = this.e.c;
             if (vl5Var == null) {
                 LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073a, this.b);
-                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f09235d);
-                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.obfuscated_res_0x7f091ca1);
+                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f09235e);
+                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.obfuscated_res_0x7f091ca2);
                 Button button = (Button) i(R.id.obfuscated_res_0x7f090420);
                 Button button2 = (Button) i(R.id.obfuscated_res_0x7f09041c);
                 button.setTag("submit");
@@ -224,7 +224,7 @@ public class fm5 extends em5 implements View.OnClickListener {
             } else {
                 vl5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
             }
-            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f0921ed);
+            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f0921ee);
             linearLayout.setBackgroundColor(this.e.H);
             z(linearLayout);
         }

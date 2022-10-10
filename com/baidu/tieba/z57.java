@@ -55,7 +55,7 @@ public class z57 extends qn<x26, ThreadCardViewHolder<x26>> {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+            if (id == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
                 e67.f(x26Var);
             }
         }

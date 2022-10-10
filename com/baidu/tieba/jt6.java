@@ -357,7 +357,7 @@ public class jt6 {
         frsShareCardView.setData(d2);
         nu4Var.setContentViewSize(1);
         nu4Var.setContentView(frsShareCardView);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new c(frsFragment, frsShareCardView, j, str, j2, d2));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new c(frsFragment, frsShareCardView, j, str, j2, d2));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(frsFragment, frsShareCardView));
         nu4Var.setCanceledOnTouchOutside(true);
         nu4Var.create(frsFragment.getPageContext()).show();
@@ -396,7 +396,7 @@ public class jt6 {
             shareDialogConfig.setSpecialShareItems(3, a(tbPageContext, frsViewData, str, c2, parse, slogan));
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.setCustomCopyTitle(R.string.obfuscated_res_0x7f0f0454);
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0f06, R.drawable.obfuscated_res_0x7f0809ee, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0f06, R.drawable.obfuscated_res_0x7f0809ef, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
             shareDialogConfig.setCopyLinkListener(new b(c2, tbPageContext));
             shareDialogConfig.experimentId = hr6.c();
             tbPageContext.sendMessage(new CustomMessage(2001276, shareDialogConfig));

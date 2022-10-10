@@ -72,7 +72,7 @@ public class BjhArticleLayout extends RelativeLayout implements wx<yq4>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015c, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.obfuscated_res_0x7f090398);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
             this.a = textView;
             hv4 d = hv4.d(textView);
             d.A(R.string.F_X01);

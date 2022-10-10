@@ -566,7 +566,7 @@ public class nq5 implements er5 {
             if (viewGroup == null) {
                 return;
             }
-            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f35);
+            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f36);
             r();
             this.g = xo4Var.a();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ej.k(context), (int) (ej.i(this.b.get().getContext()) * 0.85d));
@@ -604,15 +604,15 @@ public class nq5 implements er5 {
     public final void r() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c != null && FunAdSplashClickRegionSwitch.isOpen()) {
-            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091f34);
+            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091f35);
             this.e = viewGroup;
             hv4 d2 = hv4.d(this.e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            hv4 d3 = hv4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f37));
+            hv4 d3 = hv4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091f38));
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091f36), R.drawable.obfuscated_res_0x7f08095c, R.color.CAM_X0201, null);
+            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091f37), R.drawable.obfuscated_res_0x7f08095c, R.color.CAM_X0201, null);
         }
     }
 

@@ -175,8 +175,8 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913fe);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091400);
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913ff);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092400);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092401);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f41);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091a19);
             setOnClickListener(this);
@@ -277,7 +277,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08126c);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08126d);
                 this.m = false;
             }
             if (1 == enable) {

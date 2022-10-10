@@ -90,7 +90,7 @@ public class ls6 implements fs6 {
         this.b = js6Var.d();
         View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0849, (ViewGroup) null);
         this.d = inflate;
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0922a9);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0922aa);
         TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905b1);
         this.f = tabMenuPopView;
         tabMenuPopView.setOnItemClickCallBack(this.h);

@@ -145,7 +145,7 @@ public class vh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d051e, (ViewGroup) null);
-            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091dcf);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091dd0);
             gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
             uh7 uh7Var = new uh7(context, i);
             this.f = uh7Var;

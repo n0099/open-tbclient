@@ -119,9 +119,9 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
             this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c3a);
-            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09228c);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09228d);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09228b);
+            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f09228d);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09228e);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09228c);
             this.x = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09127b);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090c44);
             this.A = findViewById;

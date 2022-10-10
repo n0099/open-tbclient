@@ -110,7 +110,7 @@ public class rt7 extends ot7 {
                 t();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09016a) {
                 r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a85) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a86) {
                 u();
             }
         }

@@ -30,7 +30,7 @@ public class u55 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809b3;
+        this.d = R.drawable.obfuscated_res_0x7f0809b4;
         this.h = R.drawable.icon_pure_post_more_at64;
         this.i = false;
         this.j = true;

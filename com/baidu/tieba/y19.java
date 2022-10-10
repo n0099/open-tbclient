@@ -214,16 +214,16 @@ public class y19 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{r9Var, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) || r9Var == null || r9Var.getPageActivity() == null) {
             return;
         }
-        String string = r9Var.getString(R.string.obfuscated_res_0x7f0f15dd);
+        String string = r9Var.getString(R.string.obfuscated_res_0x7f0f15de);
         wu4 wu4Var = new wu4(r9Var);
         yu4 yu4Var = new yu4(r9Var.getPageActivity());
         yu4Var.q(string);
         ArrayList arrayList = new ArrayList();
-        uu4 uu4Var = new uu4(0, r9Var.getString(R.string.obfuscated_res_0x7f0f15dc), yu4Var);
+        uu4 uu4Var = new uu4(0, r9Var.getString(R.string.obfuscated_res_0x7f0f15dd), yu4Var);
         uu4Var.q(R.color.CAM_X0105);
         uu4Var.o(R.color.CAM_X0204);
         arrayList.add(uu4Var);
-        uu4 uu4Var2 = new uu4(1, r9Var.getString(R.string.obfuscated_res_0x7f0f15db), yu4Var);
+        uu4 uu4Var2 = new uu4(1, r9Var.getString(R.string.obfuscated_res_0x7f0f15dc), yu4Var);
         uu4Var2.q(R.color.CAM_X0105);
         uu4Var2.o(R.color.CAM_X0204);
         arrayList.add(uu4Var2);

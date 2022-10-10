@@ -138,10 +138,10 @@ public class jj7 extends qn<oj7, SearchSuggestForumViewHolder> {
             searchSuggestForumViewHolder.b.K(oj7Var.a(), 10, false);
             searchSuggestForumViewHolder.c.setText(oj7Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f066e));
             if (!StringUtils.isNull(oj7Var.g())) {
-                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f10da, oj7Var.g()));
+                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f10db, oj7Var.g()));
             } else {
                 Context context = this.a;
-                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f10da, context.getString(R.string.obfuscated_res_0x7f0f10db)));
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f10db, context.getString(R.string.obfuscated_res_0x7f0f10dc)));
             }
             searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0429), StringHelper.numberUniformFormatExtraWithRoundInt(oj7Var.f().intValue())));
             searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06d7), StringHelper.numberUniformFormatExtraWithRoundInt(oj7Var.h().intValue())));

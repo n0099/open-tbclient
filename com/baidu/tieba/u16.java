@@ -167,9 +167,9 @@ public class u16 implements wx<z26>, xx {
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f092614);
-            this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092615);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092618);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f092615);
+            this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092616);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092619);
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905a0);
             TbImageSwitch tbImageSwitch = (TbImageSwitch) view2.findViewById(R.id.obfuscated_res_0x7f09059f);
             this.g = tbImageSwitch;
@@ -195,8 +195,8 @@ public class u16 implements wx<z26>, xx {
             return;
         }
         this.f.setText(z26Var.c0());
-        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f159b), z26Var.d0()));
-        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1599), z26Var.Z()));
+        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f159c), z26Var.d0()));
+        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f159a), z26Var.Z()));
         if (!ListUtils.isEmpty(z26Var.a0())) {
             if (z26Var.a0().size() > 10) {
                 this.l = z26Var.a0().subList(0, 10);

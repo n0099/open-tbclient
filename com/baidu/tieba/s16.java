@@ -294,7 +294,7 @@ public class s16 extends i16<y26> implements View.OnClickListener, so5 {
                 if ((y26Var2 == null || (threadData2 = y26Var2.a) == null || threadData2.getThreadVideoInfo() == null || this.E.a.getThreadVideoInfo().is_vertical.intValue() != 1) ? false : true) {
                     this.O.setVisibility(0);
                     if (B()) {
-                        this.O.setText(String.format("%s | %s", this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0c49), this.p.getResources().getString(R.string.obfuscated_res_0x7f0f154f)));
+                        this.O.setText(String.format("%s | %s", this.p.getResources().getString(R.string.obfuscated_res_0x7f0f0c49), this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1550)));
                         return;
                     } else {
                         this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f0c49));
@@ -302,7 +302,7 @@ public class s16 extends i16<y26> implements View.OnClickListener, so5 {
                     }
                 } else if (B()) {
                     this.O.setVisibility(0);
-                    this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f154f));
+                    this.O.setText(this.p.getString(R.string.obfuscated_res_0x7f0f1550));
                     return;
                 } else {
                     this.O.setVisibility(8);
@@ -529,10 +529,10 @@ public class s16 extends i16<y26> implements View.OnClickListener, so5 {
         TextView textView = this.O;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.O, R.drawable.obfuscated_res_0x7f08128c);
+            SkinManager.setBackgroundResource(this.O, R.drawable.obfuscated_res_0x7f08128d);
         }
         if (this.B != null) {
-            this.B.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aca), (Drawable) null, (Drawable) null);
+            this.B.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080acb), (Drawable) null, (Drawable) null);
         }
         this.l.k();
         NEGFeedBackView nEGFeedBackView = this.m;

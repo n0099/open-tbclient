@@ -389,7 +389,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements ie5, Ho
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091e0b);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091e0c);
             this.s = editText;
             editText.setCompoundDrawablePadding(ej.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070302));
             this.s.setOnFocusChangeListener(new e(this));
@@ -420,7 +420,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements ie5, Ho
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.r = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090ad2);
             this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f090430);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09230f);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092310);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f090646);
             this.m = findViewById(R.id.obfuscated_res_0x7f090d9d);
             this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090d93);
@@ -488,7 +488,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements ie5, Ho
                 this.u.setVisibility(0);
             } else if (TextUtils.isEmpty(str)) {
             } else {
-                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0fd9));
+                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0fda));
                 this.u.setVisibility(0);
                 showToast(str);
             }

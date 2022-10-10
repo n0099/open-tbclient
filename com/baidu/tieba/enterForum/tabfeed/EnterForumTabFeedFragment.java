@@ -325,7 +325,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements ka6 {
             if (bb6Var != null) {
                 bb6Var.r(false);
             }
-            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fd9), str, null, z, getNetRefreshListener());
+            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0fda), str, null, z, getNetRefreshListener());
             setNetRefreshViewTopMargin(ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ab));
         }
     }

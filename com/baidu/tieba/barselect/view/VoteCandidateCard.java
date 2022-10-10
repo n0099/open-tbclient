@@ -107,22 +107,22 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.f = findViewById(R.id.obfuscated_res_0x7f091535);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091537);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091536);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09242b);
             this.i = (CandidateInfoLayout) findViewById(R.id.obfuscated_res_0x7f0904a6);
             this.j = (NewAnounceLayout) findViewById(R.id.obfuscated_res_0x7f090286);
-            this.k = (VoteAreaLayout) findViewById(R.id.obfuscated_res_0x7f092622);
-            this.l = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f09264d);
+            this.k = (VoteAreaLayout) findViewById(R.id.obfuscated_res_0x7f092623);
+            this.l = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f09264e);
             this.p = findViewById(R.id.divider_line);
             this.q = findViewById(R.id.obfuscated_res_0x7f090807);
             this.r = findViewById(R.id.obfuscated_res_0x7f090812);
             this.s = findViewById(R.id.obfuscated_res_0x7f0908e5);
             this.t = findViewById(R.id.obfuscated_res_0x7f091482);
             this.u = findViewById(R.id.obfuscated_res_0x7f090f29);
-            this.m = findViewById(R.id.obfuscated_res_0x7f092647);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f092648);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f092649);
+            this.m = findViewById(R.id.obfuscated_res_0x7f092648);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f092649);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09264a);
             this.x = findViewById(R.id.obfuscated_res_0x7f09081d);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092236);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092237);
             this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0916fc);
         }
     }

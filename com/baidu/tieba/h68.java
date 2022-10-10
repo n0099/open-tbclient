@@ -133,9 +133,9 @@ public class h68 extends i16<y58> {
         }
         View h = h();
         this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091471);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091f0c);
-        this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f09264e);
-        this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f09264f);
+        this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091f0e);
         this.l = h.findViewById(R.id.obfuscated_res_0x7f0903aa);
         ArrayList arrayList = new ArrayList();
         this.j = arrayList;

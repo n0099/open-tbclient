@@ -41,8 +41,8 @@ public class qf3 {
         AbsoluteLayout webView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = oh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081146);
-            Drawable d2 = oh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081145);
+            Drawable d = oh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081147);
+            Drawable d2 = oh4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081146);
             if (BdZeusUtil.isWebkitLoaded()) {
                 webView = bdSailorWebView.getCurrentWebView();
             } else {

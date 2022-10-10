@@ -223,16 +223,16 @@ public class bo8 {
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             this.b = i;
             if (i == 0) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b9));
-            } else if (i == 101) {
                 u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10ba));
+            } else if (i == 101) {
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10bb));
             } else if (i == 301) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b8));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b9));
             } else if (i == 201) {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b7));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b8));
             } else if (i != 202) {
             } else {
-                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b6));
+                u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b7));
             }
         }
     }

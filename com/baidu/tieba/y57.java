@@ -130,7 +130,7 @@ public class y57 extends qn<x26, ThreadCardViewHolder<x26>> {
             return;
         }
         int id = view2.getId();
-        if (view2.getId() == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
             e67.f(x26Var);
         } else if (id == R.id.obfuscated_res_0x7f090a72 || id == R.id.obfuscated_res_0x7f090a71 || id == R.id.obfuscated_res_0x7f090a73 || id == R.id.obfuscated_res_0x7f090a74) {
             e67.g(x26Var);

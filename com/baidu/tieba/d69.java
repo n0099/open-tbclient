@@ -176,14 +176,14 @@ public class d69 extends z59 {
             if (this.q) {
                 navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0c6b));
                 o0(0, 0);
-                p0(R.drawable.obfuscated_res_0x7f0809ad, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                p0(R.drawable.obfuscated_res_0x7f0809ae, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
                 this.j.setOnClickListener(new a(this));
             } else if ("1".equals(this.p.getCallFrom())) {
                 navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f02));
             } else if ("2".equals(this.p.getCallFrom())) {
                 navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f04));
                 if (this.p.getProZone() == 1) {
-                    navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f161c));
+                    navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f161d));
                 }
             } else if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.p.getFrom())) {
                 navigationBar.setCenterTextTitle(this.a.getString(R.string.share_to) + this.p.getForumName() + this.a.getString(R.string.obfuscated_res_0x7f0f02de));

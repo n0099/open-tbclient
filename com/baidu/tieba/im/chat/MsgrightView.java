@@ -203,11 +203,11 @@ public class MsgrightView extends a87 {
         this.O = p18Var;
         r();
         this.H = (TextView) j(R.id.obfuscated_res_0x7f090ef4);
-        this.F = (ProgressBar) j(R.id.obfuscated_res_0x7f091abc);
+        this.F = (ProgressBar) j(R.id.obfuscated_res_0x7f091abd);
         this.G = (ImageView) j(R.id.obfuscated_res_0x7f090449);
         this.I = (HeadImageView) j(R.id.obfuscated_res_0x7f090ef3);
-        this.M = (CenterTextView) j(R.id.obfuscated_res_0x7f0923c9);
-        this.N = (RelativeLayout) j(R.id.obfuscated_res_0x7f091c57);
+        this.M = (CenterTextView) j(R.id.obfuscated_res_0x7f0923ca);
+        this.N = (RelativeLayout) j(R.id.obfuscated_res_0x7f091c58);
         this.J = (FrameLayout) j(R.id.obfuscated_res_0x7f091529);
         hv4 d = hv4.d(this.N);
         d.n(R.string.J_X05);
@@ -292,7 +292,7 @@ public class MsgrightView extends a87 {
             try {
                 N(chatMessage);
                 T(chatMessage);
-                this.I.setDefaultResource(R.drawable.obfuscated_res_0x7f080f10);
+                this.I.setDefaultResource(R.drawable.obfuscated_res_0x7f080f11);
                 if (chatMessage.getUserInfo() != null) {
                     this.I.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;

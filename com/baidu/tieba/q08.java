@@ -124,28 +124,28 @@ public class q08 {
                     str4 = tid;
                     str2 = str5;
                 } else {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String) {
-                        str = (String) view2.getTag(R.id.obfuscated_res_0x7f092091);
+                    if (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String) {
+                        str = (String) view2.getTag(R.id.obfuscated_res_0x7f092092);
                     } else {
                         str = view2.getTag() instanceof String ? (String) view2.getTag() : null;
                     }
-                    String str6 = view2.getTag(R.id.obfuscated_res_0x7f092099) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092099) : null;
-                    str2 = ((view2.getTag() instanceof SparseArray) && (((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f092091) instanceof String)) ? (String) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f092091) : str;
+                    String str6 = view2.getTag(R.id.obfuscated_res_0x7f09209a) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f09209a) : null;
+                    str2 = ((view2.getTag() instanceof SparseArray) && (((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f092092) instanceof String)) ? (String) ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f092092) : str;
                     str3 = str6;
                     alaInfoData = null;
                     str4 = null;
                 }
-                if (view2.getTag(R.id.obfuscated_res_0x7f092087) instanceof StatisticItem) {
-                    TiebaStatic.log((StatisticItem) view2.getTag(R.id.obfuscated_res_0x7f092087));
+                if (view2.getTag(R.id.obfuscated_res_0x7f092088) instanceof StatisticItem) {
+                    TiebaStatic.log((StatisticItem) view2.getTag(R.id.obfuscated_res_0x7f092088));
                 }
-                if (view2.getTag(R.id.obfuscated_res_0x7f092066) != null && (view2.getTag(R.id.obfuscated_res_0x7f092066) instanceof String)) {
-                    String str7 = (String) view2.getTag(R.id.obfuscated_res_0x7f092066);
+                if (view2.getTag(R.id.obfuscated_res_0x7f092067) != null && (view2.getTag(R.id.obfuscated_res_0x7f092067) instanceof String)) {
+                    String str7 = (String) view2.getTag(R.id.obfuscated_res_0x7f092067);
                     if (!TextUtils.isEmpty(str7) && ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a.getPageContext().getPageActivity(), null, str7, true)));
                         return;
                     }
                 }
-                String str8 = view2.getTag(R.id.obfuscated_res_0x7f09209b) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f09209b) : null;
+                String str8 = view2.getTag(R.id.obfuscated_res_0x7f09209c) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f09209c) : null;
                 if (str8 != null) {
                     if (!ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         return;
@@ -177,7 +177,7 @@ public class q08 {
                     statisticItem3.param("obj_locate", ((PbCommentFloatActivity) this.a.a).D1());
                     TiebaStatic.log(statisticItem3);
                 }
-                if ((view2.getId() == R.id.obfuscated_res_0x7f0925d4 || view2.getId() == R.id.obfuscated_res_0x7f0916fa || view2.getId() == R.id.obfuscated_res_0x7f0918c5) && (view2.getTag(R.id.obfuscated_res_0x7f092056) instanceof Boolean)) {
+                if ((view2.getId() == R.id.obfuscated_res_0x7f0925d5 || view2.getId() == R.id.obfuscated_res_0x7f0916fa || view2.getId() == R.id.obfuscated_res_0x7f0918c5) && (view2.getTag(R.id.obfuscated_res_0x7f092057) instanceof Boolean)) {
                     j28.o(1);
                 }
             }
@@ -208,8 +208,8 @@ public class q08 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String)) {
-                yo4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), q08.g + "?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f092091)) + "&opacity=0", true, true, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String)) {
+                yo4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a), q08.g + "?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f092092)) + "&opacity=0", true, true, true);
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
             }
         }
@@ -328,9 +328,9 @@ public class q08 {
         String str;
         boolean z = view2 instanceof HeadCustomImageView;
         String str2 = null;
-        if ((z || (view2 instanceof VirtualImageStatusTip)) && (view2.getTag(R.id.obfuscated_res_0x7f092099) instanceof String) && (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String)) {
-            str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f092091);
-            str = (String) view2.getTag(R.id.obfuscated_res_0x7f092099);
+        if ((z || (view2 instanceof VirtualImageStatusTip)) && (view2.getTag(R.id.obfuscated_res_0x7f09209a) instanceof String) && (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String)) {
+            str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f092092);
+            str = (String) view2.getTag(R.id.obfuscated_res_0x7f09209a);
         } else {
             str = null;
         }

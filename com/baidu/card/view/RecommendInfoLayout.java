@@ -113,9 +113,9 @@ public class RecommendInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0887, (ViewGroup) this, true);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ba7);
-            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b96);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba3);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ba8);
+            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b97);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba4);
         }
     }
 

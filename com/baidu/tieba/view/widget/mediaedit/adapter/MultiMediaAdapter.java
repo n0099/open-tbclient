@@ -112,8 +112,8 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             this.d.add(this.b);
             this.d.add(this.c);
             this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914db);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092379);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0924e4);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237a);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0924e5);
             view2.setOnClickListener(new a(this, aVar));
         }
 

@@ -150,7 +150,7 @@ public class bp4 {
             View view3 = this.c;
             if (view3 != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c4);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c5);
                 this.c.setLayoutParams(layoutParams);
             }
             b(true);

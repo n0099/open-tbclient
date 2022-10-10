@@ -670,7 +670,7 @@ public class RichTextEditor extends LinearLayout {
         this.l = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fe7));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fe8));
         setShowDividers(2);
         this.a = new a(this);
     }

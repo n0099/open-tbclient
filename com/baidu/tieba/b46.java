@@ -261,7 +261,7 @@ public class b46 implements View.OnClickListener {
         String c = c(this.i);
         Uri parse = c == null ? null : Uri.parse(c);
         String str2 = this.i.getAbstract();
-        String format = MessageFormat.format(this.j.getResources().getString(R.string.obfuscated_res_0x7f0f114e), title, str2);
+        String format = MessageFormat.format(this.j.getResources().getString(R.string.obfuscated_res_0x7f0f114f), title, str2);
         ShareItem shareItem = new ShareItem();
         shareItem.v = title;
         shareItem.w = format;
@@ -307,14 +307,14 @@ public class b46 implements View.OnClickListener {
         }
         this.m = false;
         if (this.b == null) {
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.j).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e8);
+            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(this.j).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e9);
             this.b = shadowLinearLayout;
-            this.c = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920ea);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920e7);
-            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0920e6);
-            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1609));
-            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1603));
-            this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1149));
+            this.c = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920eb);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920e8);
+            this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f0920e7);
+            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f160a));
+            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1604));
+            this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f114a));
             this.e.setConfig(new my4());
         }
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);

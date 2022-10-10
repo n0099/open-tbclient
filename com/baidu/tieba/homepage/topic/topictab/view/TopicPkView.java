@@ -379,7 +379,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 this.c.setVisibility(0);
-                this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1464), TbadkCoreApplication.getCurrentAccountNameShow()));
+                this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1465), TbadkCoreApplication.getCurrentAccountNameShow()));
                 this.b.d.c = TbadkCoreApplication.getCurrentAccountNameShow();
                 q57.a aVar = this.b.d;
                 aVar.e = true;
@@ -424,7 +424,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1464), TbadkCoreApplication.getCurrentAccountNameShow()));
+                this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1465), TbadkCoreApplication.getCurrentAccountNameShow()));
                 this.d.setVisibility(0);
                 this.b.e.c = TbadkCoreApplication.getCurrentAccountNameShow();
                 this.q.setVisibility(0);
@@ -682,21 +682,21 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0898, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ec);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f4);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922e7);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922ef);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922e9);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922f1);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922eb);
-            this.j = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922f3);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ea);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f2);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922ed);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0922e8);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f0);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922e6);
-            this.q = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922ee);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ed);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f5);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922e8);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922f0);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922ea);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922f2);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922ec);
+            this.j = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0922f4);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0922eb);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f3);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922ee);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0922e9);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f1);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922e7);
+            this.q = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922ef);
             this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080411);
             this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080414);
             this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080410);
@@ -758,23 +758,23 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 this.n.setLayoutParams(this.R);
                 this.o.setLayoutParams(this.S);
                 if (q57Var.f == 3) {
-                    this.n.setText(StringUtils.isNull(q57Var.d.b) ? getResources().getString(R.string.obfuscated_res_0x7f0f1462) : q57Var.d.b);
-                    this.o.setText(StringUtils.isNull(q57Var.e.b) ? getResources().getString(R.string.obfuscated_res_0x7f0f1463) : q57Var.e.b);
+                    this.n.setText(StringUtils.isNull(q57Var.d.b) ? getResources().getString(R.string.obfuscated_res_0x7f0f1463) : q57Var.d.b);
+                    this.o.setText(StringUtils.isNull(q57Var.e.b) ? getResources().getString(R.string.obfuscated_res_0x7f0f1464) : q57Var.e.b);
                     if (StringUtils.isNull(q57Var.d.c)) {
                         this.c.setVisibility(4);
                     } else {
-                        this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1464), q57Var.d.c));
+                        this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1465), q57Var.d.c));
                     }
                     if (StringUtils.isNull(q57Var.e.c)) {
                         this.d.setVisibility(4);
                     } else {
-                        this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1464), q57Var.e.c));
+                        this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1465), q57Var.e.c));
                     }
                 } else {
                     this.n.setText(q57Var.d.b);
                     this.o.setText(q57Var.e.b);
-                    this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1464), q57Var.d.c));
-                    this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1464), q57Var.e.c));
+                    this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1465), q57Var.d.c));
+                    this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1465), q57Var.e.c));
                 }
                 this.g.K(q57Var.d.d, 10, false);
                 this.h.K(q57Var.e.d, 10, false);

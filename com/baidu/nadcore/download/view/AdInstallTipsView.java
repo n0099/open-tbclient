@@ -157,7 +157,7 @@ public class AdInstallTipsView extends LinearLayout implements wl0, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f3, this));
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd4));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd5));
             setOrientation(0);
             setGravity(16);
             this.i = new ul0<>(this);

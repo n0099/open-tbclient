@@ -118,13 +118,13 @@ public class HotTopicRankLayout extends LinearLayout implements xx, wx<o47>, Vie
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0385, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091010);
             this.e = findViewById(R.id.obfuscated_res_0x7f091294);
             this.g = findViewById(R.id.obfuscated_res_0x7f090817);
             this.h = findViewById(R.id.obfuscated_res_0x7f090811);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906e3);
-            this.c = findViewById(R.id.obfuscated_res_0x7f092231);
+            this.c = findViewById(R.id.obfuscated_res_0x7f092232);
             int f = ej.f(getContext(), R.dimen.M_H_X004);
             int f2 = ej.f(getContext(), R.dimen.M_H_X004);
             int f3 = ej.f(getContext(), R.dimen.M_W_X005);
@@ -177,7 +177,7 @@ public class HotTopicRankLayout extends LinearLayout implements xx, wx<o47>, Vie
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096d, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         HomeGroupUbsUIHelper.handleLineColor(this.g);
         this.a = i;
         hv4 d2 = hv4.d(this.i);

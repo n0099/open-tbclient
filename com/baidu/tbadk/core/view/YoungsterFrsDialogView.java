@@ -57,11 +57,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d093d, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0926e5);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0926e6);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f18);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092448);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092447);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0926e4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092449);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092448);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0926e5);
             this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090467);
             oy4 oy4Var = new oy4();
             oy4Var.r(R.color.CAM_X0105);
@@ -78,8 +78,8 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f081240);
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f69, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f081241);
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f6a, WebPManager.ResourceStateType.NORMAL));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
             this.h.b();

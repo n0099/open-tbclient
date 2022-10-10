@@ -534,7 +534,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, viewGroup) == null) {
             this.c = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092014);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092015);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.e.setFadingEdgeLength(0);
@@ -561,7 +561,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
             this.f.s();
             this.f.C(this.v);
             if (this.d == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092013);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092014);
                 this.d = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.g);
             }
@@ -575,7 +575,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 qa8Var.p(2);
                 this.k.u(this.a.getUniqueId());
             }
-            this.q = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0920cc);
+            this.q = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0920cd);
             this.l = (PostAnimateFloatView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a3c);
         }
     }
@@ -618,7 +618,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public final boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f136c).equals(this.a.E1()) || this.a.getResources().getString(R.string.obfuscated_res_0x7f0f136f).equals(this.a.E1()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f136d).equals(this.a.E1()) || this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1370).equals(this.a.E1()) : invokeV.booleanValue;
     }
 
     public boolean w() {

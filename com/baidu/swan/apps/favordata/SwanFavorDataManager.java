@@ -277,7 +277,7 @@ public class SwanFavorDataManager implements zj1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ef2Var) == null) {
             sm2.t().a();
-            if (fh3.T(R.string.obfuscated_res_0x7f0f1283) || !sm2.t().b()) {
+            if (fh3.T(R.string.obfuscated_res_0x7f0f1284) || !sm2.t().b()) {
                 return;
             }
             if (!SwanAppNetworkUtils.h()) {
@@ -285,7 +285,7 @@ public class SwanFavorDataManager implements zj1 {
                     ef2Var.a();
                 }
             } else if (TextUtils.equals(str, k33.K().q().O()) && k33.K().q().W().getType() != 0) {
-                d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1256).G();
+                d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1257).G();
                 ef2Var.b(true);
             } else {
                 SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
@@ -301,7 +301,7 @@ public class SwanFavorDataManager implements zj1 {
 
     public void c(String str, ff2 ff2Var, fd2.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, ff2Var, bVar) == null) || fh3.T(R.string.obfuscated_res_0x7f0f1283)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, ff2Var, bVar) == null) || fh3.T(R.string.obfuscated_res_0x7f0f1284)) {
             return;
         }
         if (!SwanAppNetworkUtils.h()) {
@@ -309,7 +309,7 @@ public class SwanFavorDataManager implements zj1 {
                 ff2Var.a();
             }
         } else if (TextUtils.equals(str, k33.K().q().O()) && k33.K().q().W().getType() != 0) {
-            d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1256).G();
+            d33.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1257).G();
             ff2Var.c(true);
         } else {
             if (ja2.g(str, ff2Var, bVar)) {

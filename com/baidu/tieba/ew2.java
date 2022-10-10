@@ -286,13 +286,13 @@ public class ew2 {
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 2) {
-                        return context.getString(R.string.obfuscated_res_0x7f0f126d);
+                        return context.getString(R.string.obfuscated_res_0x7f0f126e);
                     }
-                    return context.getString(R.string.obfuscated_res_0x7f0f126c);
+                    return context.getString(R.string.obfuscated_res_0x7f0f126d);
                 }
-                return context.getString(R.string.obfuscated_res_0x7f0f126e);
+                return context.getString(R.string.obfuscated_res_0x7f0f126f);
             }
-            return context.getString(R.string.obfuscated_res_0x7f0f126f);
+            return context.getString(R.string.obfuscated_res_0x7f0f1270);
         }
         return (String) invokeIL.objValue;
     }

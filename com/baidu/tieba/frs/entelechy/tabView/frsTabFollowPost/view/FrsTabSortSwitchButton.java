@@ -729,8 +729,8 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             this.B = new ArrayList();
             this.u = 0;
             this.C = new GestureDetector(context, this.D);
-            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f1007);
-            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f112c);
+            this.l = getResources().getString(R.string.obfuscated_res_0x7f0f1008);
+            this.m = getResources().getString(R.string.obfuscated_res_0x7f0f112d);
             z();
         }
     }

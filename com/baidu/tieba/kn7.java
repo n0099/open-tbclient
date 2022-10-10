@@ -53,9 +53,9 @@ public class kn7 {
         }
         this.i = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0582);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091c83);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0925c6);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091c84);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0925c7);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setTitleText(R.string.obfuscated_res_0x7f0f0adc);

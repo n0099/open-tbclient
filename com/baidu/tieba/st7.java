@@ -43,22 +43,22 @@ public class st7 extends pt7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e4);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e5);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = ((ej.i(tbPageContext.getPageActivity()) / 2) + ej.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - ej.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
         this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924bd);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e1);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924be);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0925e2);
         this.p = viewStub2;
         viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f3);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f4);
         this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091747);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f4);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f5);
         this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09016a);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f5);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a85);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f6);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a86);
     }
 
     @Override // com.baidu.tieba.pt7

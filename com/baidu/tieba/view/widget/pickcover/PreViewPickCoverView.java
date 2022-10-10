@@ -229,7 +229,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                     }
                     this.b.setVisibility(0);
                     this.b.setRotation(0.0f);
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f08126a);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f08126b);
                 } else {
                     this.b.setVisibility(4);
                 }
@@ -248,7 +248,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
                 if (this.c.isRunning()) {
                     return;
                 }
-                this.b.setImageResource(R.drawable.obfuscated_res_0x7f081269);
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f08126a);
                 this.c.start();
             }
         }
@@ -538,9 +538,9 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f0924f3);
+            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f0924f4);
             this.i = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0919cf);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092555);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092556);
             this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090ea7);
             p();
             TextEditToolView textEditToolView = new TextEditToolView(getContext());
@@ -560,7 +560,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             f(i);
         } else if (!styleBackgroudInfoEntity.isNeedDown() && !styleBackgroudInfoEntity.isLoaded()) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                yg9.a(R.string.obfuscated_res_0x7f0f14b8);
+                yg9.a(R.string.obfuscated_res_0x7f0f14b9);
                 return;
             }
             String str = styleBackgroudInfoEntity.mBackgroudImageUrl;

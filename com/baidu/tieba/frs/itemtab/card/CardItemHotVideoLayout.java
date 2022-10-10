@@ -456,7 +456,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements xx {
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b06);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080b07);
                 SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080812);
                 hv4 d = hv4.d(this.f);
                 d.z(R.dimen.T_X12);

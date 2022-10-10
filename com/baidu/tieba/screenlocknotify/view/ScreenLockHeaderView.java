@@ -61,14 +61,14 @@ public class ScreenLockHeaderView extends LinearLayout {
         this.c = findViewById(R.id.obfuscated_res_0x7f09157e);
         this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091258);
         this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09173a);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092472);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092473);
         this.g = findViewById(R.id.obfuscated_res_0x7f091306);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a7);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0810a8);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dc7);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc8);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091dc6);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dc8);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc9);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091dc7);
         this.k.setVisibility(8);
     }
 

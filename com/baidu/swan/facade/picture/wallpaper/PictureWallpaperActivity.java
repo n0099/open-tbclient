@@ -188,9 +188,9 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.b.n.setVisibility(8);
                 if (this.a) {
-                    d33.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1275).v();
+                    d33.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1276).v();
                 } else {
-                    d33.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1274).v();
+                    d33.f(this.b.getApplicationContext(), R.string.obfuscated_res_0x7f0f1275).v();
                 }
                 this.b.finish();
             }
@@ -250,7 +250,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             this.m = (PictureCropView) findViewById(R.id.obfuscated_res_0x7f0919d6);
             LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f0919d4);
             this.n = loadingView;
-            loadingView.setMsg(R.string.obfuscated_res_0x7f0f1272);
+            loadingView.setMsg(R.string.obfuscated_res_0x7f0f1273);
             findViewById(R.id.obfuscated_res_0x7f0919d7).setOnClickListener(this);
             findViewById(R.id.obfuscated_res_0x7f0919d8).setOnClickListener(this);
             this.m.post(new a(this));

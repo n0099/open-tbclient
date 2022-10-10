@@ -82,9 +82,9 @@ public class av5 extends i16<wt5> {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f091f68);
-                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091b7e);
-                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091b7f);
+                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f091f69);
+                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091b7f);
+                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091b80);
                 }
             }
 
@@ -261,10 +261,10 @@ public class av5 extends i16<wt5> {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.k = h().findViewById(R.id.obfuscated_res_0x7f091b7d);
-            this.m = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091b80);
-            this.l = h().findViewById(R.id.obfuscated_res_0x7f091b7c);
-            this.i = (AlaBannerRecyclerView) h().findViewById(R.id.obfuscated_res_0x7f091bb7);
+            this.k = h().findViewById(R.id.obfuscated_res_0x7f091b7e);
+            this.m = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091b81);
+            this.l = h().findViewById(R.id.obfuscated_res_0x7f091b7d);
+            this.i = (AlaBannerRecyclerView) h().findViewById(R.id.obfuscated_res_0x7f091bb8);
             this.i.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
             z();
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(getContext(), this.r, false);

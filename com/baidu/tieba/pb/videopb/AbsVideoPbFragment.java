@@ -635,25 +635,25 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (sparseArray = (SparseArray) view2.getTag()) == null) {
                 return;
             }
-            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
+            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
             h38 h38Var = this.a.N;
             if (h38Var != null) {
                 if (booleanValue) {
                     if (booleanValue2) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f09204f, 1);
+                        sparseArray.put(R.id.obfuscated_res_0x7f092050, 1);
                         this.a.N.B(sparseArray);
                         return;
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.TRUE);
                     this.a.N.l0(view2);
                 } else if (booleanValue2) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f09204f, 0);
-                    sparseArray.put(R.id.obfuscated_res_0x7f092038, 1);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092050, 0);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092039, 1);
                     this.a.N.B(sparseArray);
                 } else if (booleanValue3) {
-                    h38Var.g0(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f09203e), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                    h38Var.g0(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f09203f), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                 }
             }
         }
@@ -1117,19 +1117,19 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                     String str = dataRes.mute_confirm;
                     r3 = e == 1;
                     if (dj.isEmpty(str)) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092092, "确定禁言？");
+                        sparseArray.put(R.id.obfuscated_res_0x7f092093, "确定禁言？");
                     } else {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092092, str);
+                        sparseArray.put(R.id.obfuscated_res_0x7f092093, str);
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                 }
-                int intValue = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09204f)).intValue();
+                int intValue = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092050)).intValue();
                 if (intValue == 0) {
                     this.a.N.F0(r3, sparseArray);
                 } else if (intValue == 1) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f09205d, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f09205e, Boolean.TRUE);
                     this.a.N.k0(sparseArray, r3);
                 }
             }
@@ -1413,12 +1413,12 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                 h38Var.V();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    this.a.O.d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14be));
+                    this.a.O.d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14bf));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (dj.isEmpty(muteMessage)) {
-                    muteMessage = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14bd);
+                    muteMessage = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14be);
                 }
                 this.a.O.c(muteMessage);
             }
@@ -3072,11 +3072,11 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                         return;
                     }
                     AbsVideoPbFragment absVideoPbFragment2 = this.a;
-                    absVideoPbFragment2.showToast(absVideoPbFragment2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff1));
+                    absVideoPbFragment2.showToast(absVideoPbFragment2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff2));
                     return;
                 }
                 AbsVideoPbFragment absVideoPbFragment3 = this.a;
-                absVideoPbFragment3.showToast(absVideoPbFragment3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e5));
+                absVideoPbFragment3.showToast(absVideoPbFragment3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e6));
             }
         }
     }
@@ -4913,9 +4913,9 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                     }
                     return;
                 }
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f092046);
+                Object tag = view2.getTag(R.id.obfuscated_res_0x7f092047);
                 if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) {
-                    view2.setTag(R.id.obfuscated_res_0x7f092046, null);
+                    view2.setTag(R.id.obfuscated_res_0x7f092047, null);
                 } else if ((view2 instanceof TbListTextView) && (view2.getParent() instanceof TbRichTextView)) {
                     StatisticItem statisticItem2 = new StatisticItem("c13398");
                     statisticItem2.param("tid", this.a.K().m2());
@@ -4940,7 +4940,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                     }
                     TbRichTextView tbRichTextView = (TbRichTextView) view2.getParent();
                     if (tbRichTextView.getTag() instanceof SparseArray) {
-                        Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                        Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                         if (obj instanceof PostData) {
                             PostData postData = (PostData) obj;
                             if (this.a.K() == null || this.a.K().S1() == null || this.a.J0 == null || postData.s() == null || postData.C() == 1 || !this.a.checkUpIsLogin()) {
@@ -5010,7 +5010,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                         return;
                     }
                     h38 h38Var2 = this.a.N;
-                    if ((h38Var2 == null || ((h38Var2.Q() == null || view2 != this.a.N.Q().p()) && view2.getId() != R.id.obfuscated_res_0x7f091780 && view2.getId() != R.id.obfuscated_res_0x7f09026e)) && view2.getId() != R.id.obfuscated_res_0x7f090a0f && view2.getId() != R.id.obfuscated_res_0x7f091bfc) {
+                    if ((h38Var2 == null || ((h38Var2.Q() == null || view2 != this.a.N.Q().p()) && view2.getId() != R.id.obfuscated_res_0x7f091780 && view2.getId() != R.id.obfuscated_res_0x7f09026e)) && view2.getId() != R.id.obfuscated_res_0x7f090a0f && view2.getId() != R.id.obfuscated_res_0x7f091bfd) {
                         AbsVideoPbFragment absVideoPbFragment2 = this.a;
                         if (view2 == absVideoPbFragment2.p) {
                             if (absVideoPbFragment2.K() == null || this.a.K().S1() == null) {
@@ -5175,7 +5175,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                     if (R3 == null) {
                                         return;
                                     }
-                                    this.a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.a.getPageContext().getPageActivity(), this.a.K().S1().l().getId(), this.a.K().S1().l().getName(), this.a.K().S1().O().getId(), String.valueOf(this.a.K().S1().V().getUserId()), (String) R3.get(R.id.obfuscated_res_0x7f092049), (String) R3.get(R.id.obfuscated_res_0x7f09204a), (String) R3.get(R.id.obfuscated_res_0x7f09204c), (String) R3.get(R.id.obfuscated_res_0x7f09204b))));
+                                    this.a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.a.getPageContext().getPageActivity(), this.a.K().S1().l().getId(), this.a.K().S1().l().getName(), this.a.K().S1().O().getId(), String.valueOf(this.a.K().S1().V().getUserId()), (String) R3.get(R.id.obfuscated_res_0x7f09204a), (String) R3.get(R.id.obfuscated_res_0x7f09204b), (String) R3.get(R.id.obfuscated_res_0x7f09204d), (String) R3.get(R.id.obfuscated_res_0x7f09204c))));
                                     return;
                                 }
                                 h38 h38Var12 = this.a.N;
@@ -5187,7 +5187,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                     AbsVideoPbFragment absVideoPbFragment6 = this.a;
                                     SparseArray<Object> R32 = absVideoPbFragment6.R3(absVideoPbFragment6.K().S1(), this.a.K().k2(), 1);
                                     if (R32 != null) {
-                                        this.a.N.j0(((Integer) R32.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) R32.get(R.id.obfuscated_res_0x7f09203e), ((Integer) R32.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) R32.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                        this.a.N.j0(((Integer) R32.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) R32.get(R.id.obfuscated_res_0x7f09203f), ((Integer) R32.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) R32.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                     }
                                     this.a.N.I();
                                     if (this.a.K() == null || this.a.K().S1() == null || this.a.K().S1().O() == null) {
@@ -5221,21 +5221,21 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                     AbsVideoPbFragment absVideoPbFragment7 = this.a;
                                     SparseArray<Object> R33 = absVideoPbFragment7.R3(absVideoPbFragment7.K().S1(), this.a.K().k2(), 1);
                                     if (R33 != null) {
-                                        if (StringUtils.isNull((String) R33.get(R.id.obfuscated_res_0x7f09203d))) {
-                                            this.a.N.g0(((Integer) R33.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) R33.get(R.id.obfuscated_res_0x7f09203e), ((Integer) R33.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) R33.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                        if (StringUtils.isNull((String) R33.get(R.id.obfuscated_res_0x7f09203e))) {
+                                            this.a.N.g0(((Integer) R33.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) R33.get(R.id.obfuscated_res_0x7f09203f), ((Integer) R33.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) R33.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                         } else {
-                                            this.a.N.h0(((Integer) R33.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) R33.get(R.id.obfuscated_res_0x7f09203e), ((Integer) R33.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) R33.get(R.id.obfuscated_res_0x7f09203f)).booleanValue(), (String) R33.get(R.id.obfuscated_res_0x7f09203d));
+                                            this.a.N.h0(((Integer) R33.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) R33.get(R.id.obfuscated_res_0x7f09203f), ((Integer) R33.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) R33.get(R.id.obfuscated_res_0x7f092040)).booleanValue(), (String) R33.get(R.id.obfuscated_res_0x7f09203e));
                                         }
                                     }
                                     this.a.N.I();
-                                } else if (view2.getId() != R.id.obfuscated_res_0x7f091f9e && view2.getId() != R.id.obfuscated_res_0x7f091f9c && view2.getId() != R.id.obfuscated_res_0x7f09180d && view2.getId() != R.id.obfuscated_res_0x7f09169e && view2.getId() != R.id.obfuscated_res_0x7f09186f) {
+                                } else if (view2.getId() != R.id.obfuscated_res_0x7f091f9f && view2.getId() != R.id.obfuscated_res_0x7f091f9d && view2.getId() != R.id.obfuscated_res_0x7f09180d && view2.getId() != R.id.obfuscated_res_0x7f09169e && view2.getId() != R.id.obfuscated_res_0x7f09186f) {
                                     if (view2.getId() != R.id.obfuscated_res_0x7f09186d && view2.getId() != R.id.obfuscated_res_0x7f091a43 && view2.getId() != R.id.obfuscated_res_0x7f091807) {
                                         if (view2.getId() != R.id.obfuscated_res_0x7f0917f5 && view2.getId() != R.id.obfuscated_res_0x7f090670) {
                                             if (view2.getId() == R.id.obfuscated_res_0x7f0917fa) {
                                                 this.a.c4(true);
                                                 return;
-                                            } else if (view2.getId() != R.id.obfuscated_res_0x7f0917f7 && view2.getId() != R.id.obfuscated_res_0x7f092194) {
-                                                if (view2.getId() == R.id.obfuscated_res_0x7f0923dd) {
+                                            } else if (view2.getId() != R.id.obfuscated_res_0x7f0917f7 && view2.getId() != R.id.obfuscated_res_0x7f092195) {
+                                                if (view2.getId() == R.id.obfuscated_res_0x7f0923de) {
                                                     if (this.a.P0 >= 0) {
                                                         if (this.a.K() != null) {
                                                             this.a.K().m3();
@@ -5290,7 +5290,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                                                 this.a.t.d(3, i5, this.a.K().S1().Q());
                                                                 return;
                                                             }
-                                                            this.a.showToast(R.string.obfuscated_res_0x7f0f0f2c);
+                                                            this.a.showToast(R.string.obfuscated_res_0x7f0f0f2d);
                                                             if (this.a.K().S1() != null) {
                                                                 this.a.t.d(3, 3, this.a.K().S1().Q());
                                                                 return;
@@ -5322,11 +5322,11 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                                         }
                                                     } else {
                                                         SparseArray sparseArray2 = (SparseArray) view2.getTag();
-                                                        if (sparseArray2 == null || !(sparseArray2.get(R.id.obfuscated_res_0x7f092059) instanceof PostData)) {
+                                                        if (sparseArray2 == null || !(sparseArray2.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData)) {
                                                             return;
                                                         }
-                                                        PostData postData2 = (PostData) sparseArray2.get(R.id.obfuscated_res_0x7f092059);
-                                                        View view3 = (View) sparseArray2.get(R.id.obfuscated_res_0x7f09205b);
+                                                        PostData postData2 = (PostData) sparseArray2.get(R.id.obfuscated_res_0x7f09205a);
+                                                        View view3 = (View) sparseArray2.get(R.id.obfuscated_res_0x7f09205c);
                                                         if (postData2 == null || view3 == null) {
                                                             return;
                                                         }
@@ -5344,11 +5344,11 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                                         }
                                                         SkinManager.setBackgroundColor(findViewById, postData2.q0() ? R.color.CAM_X0201 : R.color.transparent);
                                                         SkinManager.setViewTextColor(eMTextView, postData2.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107);
-                                                        WebPManager.setPureDrawable(imageView, postData2.q0() ? R.drawable.obfuscated_res_0x7f080983 : R.drawable.obfuscated_res_0x7f080982, postData2.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
+                                                        WebPManager.setPureDrawable(imageView, postData2.q0() ? R.drawable.obfuscated_res_0x7f080984 : R.drawable.obfuscated_res_0x7f080983, postData2.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
                                                         return;
                                                     }
                                                 } else if (ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
-                                                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1389);
+                                                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f138a);
                                                     String q = ox4.k().q("tail_link", "");
                                                     if (!StringUtils.isNull(q)) {
                                                         TiebaStatic.log("c10056");
@@ -5554,8 +5554,8 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                     }
                                     if (this.a.checkUpIsLogin() && (view2.getTag() instanceof SparseArray)) {
                                         SparseArray sparseArray3 = (SparseArray) view2.getTag();
-                                        if (sparseArray3.get(R.id.obfuscated_res_0x7f092059) instanceof PostData) {
-                                            PostData postData3 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f092059);
+                                        if (sparseArray3.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData) {
+                                            PostData postData3 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f09205a);
                                             if (view2.getId() == R.id.obfuscated_res_0x7f09186d && (statisticItem = postData3.d0) != null) {
                                                 StatisticItem copy = statisticItem.copy();
                                                 copy.delete("obj_locate");
@@ -5632,8 +5632,8 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                                             h38Var14.F();
                                         }
                                         SparseArray sparseArray4 = (SparseArray) view2.getTag();
-                                        PostData postData4 = (PostData) sparseArray4.get(R.id.obfuscated_res_0x7f092059);
-                                        PostData postData5 = (PostData) sparseArray4.get(R.id.obfuscated_res_0x7f09205a);
+                                        PostData postData4 = (PostData) sparseArray4.get(R.id.obfuscated_res_0x7f09205a);
+                                        PostData postData5 = (PostData) sparseArray4.get(R.id.obfuscated_res_0x7f09205b);
                                         if (postData4 == null) {
                                             return;
                                         }
@@ -6120,7 +6120,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z2), str, Boolean.valueOf(z3)}) == null) {
             hideProgressBar();
             if (z2 && z3) {
-                showToast(getPageContext().getString(R.string.obfuscated_res_0x7f0f123d));
+                showToast(getPageContext().getString(R.string.obfuscated_res_0x7f0f123e));
             } else if (z3) {
                 if (dj.isEmpty(str)) {
                     str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c59);
@@ -6217,7 +6217,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             return;
         }
         z3();
-        this.e0.setImageResource(R.drawable.obfuscated_res_0x7f0809ba);
+        this.e0.setImageResource(R.drawable.obfuscated_res_0x7f0809bb);
     }
 
     public final void D5() {
@@ -6267,7 +6267,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             this.M0 = ((View) view2.getParent()).getMeasuredHeight();
         }
         if (this.I0 != null && postData != null) {
-            this.I0.j(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100c), postData.s().getName_show(), postData.W() != null ? postData.W().toString() : ""));
+            this.I0.j(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100d), postData.s().getName_show(), postData.W() != null ? postData.W().toString() : ""));
         }
         if (K() != null && K().S1() != null && K().S1().i0()) {
             gh.a().postDelayed(new i1(this, str, str2), 0L);
@@ -7031,7 +7031,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                 layoutParams.height = -2;
                 layoutParams.width = -2;
                 this.i0.setLayoutParams(layoutParams);
-                WebPManager.setPureDrawable(this.i0, R.drawable.obfuscated_res_0x7f080981, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.i0, R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
                 return;
             }
             s38 s38Var2 = this.j0;
@@ -7040,7 +7040,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                 layoutParams2.height = -2;
                 layoutParams2.width = -2;
                 this.i0.setLayoutParams(layoutParams2);
-                WebPManager.setPureDrawable(this.i0, R.drawable.obfuscated_res_0x7f080981, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.i0, R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -7082,23 +7082,23 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             boolean z3 = userId != null && userId.equals(TbadkCoreApplication.getCurrentAccount());
             SparseArray<Object> sparseArray = new SparseArray<>();
             if (i2 == 0) {
-                sparseArray.put(R.id.obfuscated_res_0x7f09203e, K3.L());
-                sparseArray.put(R.id.obfuscated_res_0x7f092040, 0);
-                sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z3));
-                sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(jv7Var.W()));
-                sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
+                sparseArray.put(R.id.obfuscated_res_0x7f09203f, K3.L());
+                sparseArray.put(R.id.obfuscated_res_0x7f092041, 0);
+                sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z3));
+                sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(jv7Var.W()));
+                sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
             } else if (i2 == 1) {
                 if (K3.s() != null) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092049, K3.s().getUserName());
-                    sparseArray.put(R.id.obfuscated_res_0x7f09204a, K3.s().getName_show());
-                    sparseArray.put(R.id.obfuscated_res_0x7f09204b, K3.s().getPortrait());
-                    sparseArray.put(R.id.obfuscated_res_0x7f09204c, K3.L());
+                    sparseArray.put(R.id.obfuscated_res_0x7f09204a, K3.s().getUserName());
+                    sparseArray.put(R.id.obfuscated_res_0x7f09204b, K3.s().getName_show());
+                    sparseArray.put(R.id.obfuscated_res_0x7f09204c, K3.s().getPortrait());
+                    sparseArray.put(R.id.obfuscated_res_0x7f09204d, K3.L());
                 }
-                sparseArray.put(R.id.obfuscated_res_0x7f09203e, K3.L());
-                sparseArray.put(R.id.obfuscated_res_0x7f092040, 0);
-                sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z3));
-                sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(jv7Var.W()));
-                sparseArray.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
+                sparseArray.put(R.id.obfuscated_res_0x7f09203f, K3.L());
+                sparseArray.put(R.id.obfuscated_res_0x7f092041, 0);
+                sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z3));
+                sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(jv7Var.W()));
+                sparseArray.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
             }
             if (!z3) {
                 List<xt4> p2 = jv7Var.p();
@@ -7113,7 +7113,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                     }
                 }
                 if (sb != null && !StringUtils.isNull(sb.toString())) {
-                    sparseArray.put(R.id.obfuscated_res_0x7f09203d, String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a8), sb.toString().substring(0, sb.length() - 1)));
+                    sparseArray.put(R.id.obfuscated_res_0x7f09203e, String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a8), sb.toString().substring(0, sb.length() - 1)));
                 }
             }
             return sparseArray;
@@ -7188,9 +7188,9 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
         Q5(jv7Var);
         this.h0.setVisibility(jv7Var.i0() ? 8 : 0);
         if (jv7Var.r()) {
-            WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097e, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
         } else {
-            WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097c, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
         String E3 = E3(jv7Var.O().getReply_num());
         TextView textView = this.q0;
@@ -7555,7 +7555,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, view2)) == null) {
             if (view2 != null && (view2.getTag() instanceof SparseArray)) {
-                Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                 if (obj instanceof PostData) {
                     PostData postData = (PostData) obj;
                     if (!TextUtils.isEmpty(postData.t()) && hq4.c().g()) {
@@ -8259,8 +8259,8 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
     public final void k4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048692, this) == null) {
-            this.a0 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09254b);
-            this.b0 = this.c.findViewById(R.id.obfuscated_res_0x7f0925ac);
+            this.a0 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09254c);
+            this.b0 = this.c.findViewById(R.id.obfuscated_res_0x7f0925ad);
             this.c0 = this.c.findViewById(R.id.obfuscated_res_0x7f0917f6);
             ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
             ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070284);
@@ -8703,12 +8703,12 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
                 linearLayout.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.f(getContext(), R.dimen.tbds47), SkinManager.getColor(R.color.CAM_X0209)));
             }
             if (K() != null && K().D1()) {
-                WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097e, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else {
-                WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097c, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(this.h0, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
-            WebPManager.setPureDrawable(this.g0, R.drawable.obfuscated_res_0x7f08097f, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setPureDrawable(this.e0, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.g0, R.drawable.obfuscated_res_0x7f080980, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.e0, R.drawable.obfuscated_res_0x7f0809bb, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.E, R.drawable.obfuscated_res_0x7f08093d, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (K() != null) {
                 Q5(K().S1());
@@ -8976,14 +8976,14 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
     public final void p4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048722, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09254e);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09254f);
             this.m = navigationBar;
             navigationBar.setOnClickListener(new x0(this));
             this.m.hideBottomLine();
             this.m.getTopCoverBgView().setBackgroundResource(R.drawable.obfuscated_res_0x7f0802ca);
             this.m.getTopCoverBgView().setVisibility(0);
-            this.n = this.c.findViewById(R.id.obfuscated_res_0x7f091f7e);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091f85);
+            this.n = this.c.findViewById(R.id.obfuscated_res_0x7f091f7f);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091f86);
             this.o = findViewById;
             if (this.o1) {
                 ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
@@ -8998,7 +8998,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             }
             View addSystemImageButton = this.m.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.B1);
             this.p = addSystemImageButton;
-            this.q = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.q = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092680);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080628, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             View addCustomView = this.m.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062e, this.B1);
             this.r = addCustomView;
@@ -9225,7 +9225,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             p4();
             this.i = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0902ab);
             this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0918a1);
-            this.U0 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091c3d);
+            this.U0 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091c3e);
             this.j = (VideoContainerLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09188f);
             m38 m38Var = new m38(getContext(), this.j);
             this.k = m38Var;
@@ -9234,7 +9234,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             this.k.X0(this);
             this.k.V0(P().getRootView());
             this.k.W0(this.o);
-            ((RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091dcd)).setMinimumHeight(((int) Math.ceil((ej.k(getContext()) * 9) / 16.0d)) + getResources().getDimensionPixelOffset(R.dimen.tbds118));
+            ((RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091dce)).setMinimumHeight(((int) Math.ceil((ej.k(getContext()) * 9) / 16.0d)) + getResources().getDimensionPixelOffset(R.dimen.tbds118));
             this.d = (NewPagerSlidingTabBaseStrip) this.c.findViewById(R.id.obfuscated_res_0x7f0918a5);
             this.v = this.c.findViewById(R.id.obfuscated_res_0x7f09189c);
             this.e = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f0918a7);
@@ -9249,7 +9249,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             this.e.setAdapter(videoPbFragmentAdapter);
             this.d.setViewPager(this.e);
             this.d.setOnPageChangeListener(new q0(this));
-            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f0925e2);
+            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f0925e3);
             this.K = (FallingView) this.c.findViewById(R.id.obfuscated_res_0x7f090994);
             f5();
             this.K.setAnimationListener(new s0(this));
@@ -9398,11 +9398,11 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
             } else if (this.R.S()) {
             } else {
                 showProgressBar();
-                String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f09203e);
-                int intValue2 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205c)).intValue();
-                boolean booleanValue = ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue();
-                int intValue3 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092040)).intValue();
-                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092052) != null ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092052)).booleanValue() : false;
+                String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f09203f);
+                int intValue2 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).intValue();
+                boolean booleanValue = ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue();
+                int intValue3 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092041)).intValue();
+                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092053) != null ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092053)).booleanValue() : false;
                 if (jSONArray != null) {
                     this.R.U(StringHelper.JsonArrayToString(jSONArray));
                 }
@@ -9486,10 +9486,10 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ll5, Vo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048751, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z2)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f09203e, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i2));
-            sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(i3));
-            sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09203f, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(i3));
+            sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z2));
             sparseArray.put(0, 3);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {

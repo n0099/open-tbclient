@@ -456,9 +456,9 @@ public class aw8 extends p9 {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f1108));
+            this.b.setCenterTextTitle(this.e.getString(R.string.obfuscated_res_0x7f0f1109));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f1109), new e(this)), (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e.getString(R.string.obfuscated_res_0x7f0f110a), new e(this)), (int) R.color.CAM_X0106);
         }
     }
 
@@ -488,7 +488,7 @@ public class aw8 extends p9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091657);
-            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f092594);
+            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f092595);
             this.c = maskVideoView;
             maskVideoView.setPreserveEGLContextOnPause(true);
             this.c.setZOrderMediaOverlay(true);
@@ -496,7 +496,7 @@ public class aw8 extends p9 {
             FrameLayout frameLayout = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09086c);
             this.j = frameLayout;
             frameLayout.addView(this.g.p());
-            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f092023);
+            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f092024);
             D();
             E();
             this.j.addView(this.h.A());
@@ -750,11 +750,11 @@ public class aw8 extends p9 {
                 return;
             }
             if (this.f == null) {
-                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f10a2), getPageContext().getString(R.string.obfuscated_res_0x7f0f0cc3)};
+                String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f10a3), getPageContext().getString(R.string.obfuscated_res_0x7f0f0cc3)};
                 wu4 wu4Var = new wu4(getPageContext());
                 this.f = wu4Var;
-                wu4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10b0));
-                this.f.i(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10b0), strArr, this.p);
+                wu4Var.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10b1));
+                this.f.i(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f10b1), strArr, this.p);
             }
             this.f.k();
         }

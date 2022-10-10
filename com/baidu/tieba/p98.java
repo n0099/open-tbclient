@@ -336,7 +336,7 @@ public class p98 {
             alignTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
             this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091966);
             this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09196c);
-            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f091f21);
+            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f091f22);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091968);
             this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091967);
             this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091969);

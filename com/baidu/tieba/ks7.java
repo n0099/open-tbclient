@@ -55,10 +55,10 @@ public class ks7 implements Object<List<EmotionPackageData>> {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e7, (ViewGroup) null, false);
         this.e = inflate;
-        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.j = noNetworkView;
         noNetworkView.a(this);
-        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091efe);
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091eff);
         this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0908d3);
         this.d = new gs7(this.e.findViewById(R.id.obfuscated_res_0x7f0908d2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0563));
         this.b.setDivider(null);

@@ -136,9 +136,9 @@ public class HostMarketView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039a, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fac);
-            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091ffe);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
+            SwitchButton switchButton = (SwitchButton) findViewById(R.id.obfuscated_res_0x7f091fff);
             this.c = switchButton;
             switchButton.setOnCheckedChangeListener(new a(this));
         }

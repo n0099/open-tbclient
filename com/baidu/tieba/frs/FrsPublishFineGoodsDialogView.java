@@ -102,7 +102,7 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bf1);
             this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bf0);
             this.f = (LocalBannerLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090326);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226d);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226e);
             this.e = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f0677);
             ArrayList arrayList = new ArrayList();

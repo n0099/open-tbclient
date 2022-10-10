@@ -288,7 +288,7 @@ public class x34 {
                 a44Var.a = this.a.y("clipMaxDuration", 30L);
                 a44Var.b = this.a.y("clipMinDuration", 3L);
                 a44Var.c = this.a.B("topicSource");
-                a44Var.d = this.a.C("publishTitle", sm2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1357));
+                a44Var.d = this.a.C("publishTitle", sm2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1358));
                 a44Var.e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
                 a44Var.i = this.a.r("sourceType", 1);
                 a44Var.j = this.a.C("sourceFrom", "tiny");

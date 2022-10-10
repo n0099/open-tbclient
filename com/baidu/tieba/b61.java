@@ -118,7 +118,7 @@ public class b61 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = View.inflate(this.d, R.layout.obfuscated_res_0x7f0d05f9, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091bce);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091bcf);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091528);
             this.b = textView;
             textView.setTextColor(this.d.getResources().getColor(R.color.obfuscated_res_0x7f060823));

@@ -101,16 +101,16 @@ public class d08 {
             return;
         }
         if (jv7Var.j) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f3a);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f3b);
             this.e.setVisibility(0);
         } else if (z && z2) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f7b);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f7c);
             this.e.setVisibility(0);
         } else if (z) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f79);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f7a);
             this.e.setVisibility(0);
         } else if (z2) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f7a);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080f7b);
             this.e.setVisibility(0);
         } else {
             this.e.setVisibility(8);
@@ -169,7 +169,7 @@ public class d08 {
             Matrix matrix = new Matrix();
             matrix.postTranslate(0.0f, -lz7.i());
             this.e.setImageMatrix(matrix);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923de);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923df);
             this.d = textView;
             hv4 d = hv4.d(textView);
             d.z(R.dimen.T_X03);

@@ -76,14 +76,14 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092389);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092365);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092366);
             this.c = view2.findViewById(R.id.obfuscated_res_0x7f09027a);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090279);
             this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913f4);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d9);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235c);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092410);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923da);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235d);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092411);
         }
     }
 
@@ -120,7 +120,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f0f);
             this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ece);
             this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed1);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092377);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092378);
             this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed2);
         }
     }
@@ -416,10 +416,10 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public final void q(CampaignViewHolder campaignViewHolder, m4a m4aVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048596, this, campaignViewHolder, m4aVar, i) == null) {
-            int i2 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ebf : R.drawable.obfuscated_res_0x7f080ec0;
-            int i3 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ebd : R.drawable.obfuscated_res_0x7f080ebe;
-            int i4 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ec1 : R.drawable.obfuscated_res_0x7f080ec2;
-            int i5 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ebb : R.drawable.obfuscated_res_0x7f080ebc;
+            int i2 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ec0 : R.drawable.obfuscated_res_0x7f080ec1;
+            int i3 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ebe : R.drawable.obfuscated_res_0x7f080ebf;
+            int i4 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ec2 : R.drawable.obfuscated_res_0x7f080ec3;
+            int i5 = k5a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080ebc : R.drawable.obfuscated_res_0x7f080ebd;
             campaignViewHolder.b.setBackgroundResource(i4);
             campaignViewHolder.c.setBackgroundResource(i5);
             campaignViewHolder.d.setImageResource(i2);

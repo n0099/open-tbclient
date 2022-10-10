@@ -101,7 +101,7 @@ public class bq6 extends hq6 {
                     if (ch6.g()) {
                         BdTopToast bdTopToast = new BdTopToast(this.a.b.getContext());
                         bdTopToast.h(true);
-                        bdTopToast.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f1198));
+                        bdTopToast.g(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f1199));
                         bdTopToast.i((ViewGroup) this.a.b.C3());
                         return;
                     }

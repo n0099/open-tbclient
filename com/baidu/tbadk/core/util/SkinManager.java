@@ -963,7 +963,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            ej.M(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f13dc);
+            ej.M(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f13dd);
         } catch (Throwable th) {
             BdLog.e(th);
         }

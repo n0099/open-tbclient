@@ -98,7 +98,7 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092586) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092587) {
                     if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         String str = view2.getTag() != null ? (String) view2.getTag() : null;
                         if (str != null) {
@@ -106,12 +106,12 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                         }
                         TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092581) {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String) {
-                        yo4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f092091)) + "&opacity=0", true, true, true);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092582) {
+                    if (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String) {
+                        yo4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f092092)) + "&opacity=0", true, true, true);
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092574) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092575) {
                     HeadImageView headView = ((HeadPendantClickableView) view2).getHeadView();
                     String userId = headView.getUserId();
                     String userName = headView.getUserName();
@@ -151,10 +151,10 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                     if (userId != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, userId, userName, fName, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092580) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092581) {
                     TiebaStatic.log(new StatisticItem("c11923").param("obj_id", 2));
-                    String str2 = view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092091) : null;
-                    String str3 = view2.getTag(R.id.obfuscated_res_0x7f092099) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092099) : null;
+                    String str2 = view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092092) : null;
+                    String str3 = view2.getTag(R.id.obfuscated_res_0x7f09209a) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f09209a) : null;
                     String name = (this.a.b == null || this.a.b.l() == null) ? null : this.a.b.l().getName();
                     StatisticItem statisticItem3 = new StatisticItem("c13267");
                     statisticItem3.param("uid", str2);
@@ -167,7 +167,7 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                     if (str2 != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, str2, str3, name, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09256f && (this.a.a instanceof VideoPbCommentFloatFragment)) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092570 && (this.a.a instanceof VideoPbCommentFloatFragment)) {
                     StatisticItem statisticItem4 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
                     statisticItem4.param("fid", this.a.b.m());
                     statisticItem4.param("tid", this.a.b.Q());
@@ -177,7 +177,7 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                     statisticItem4.param("obj_type", 15);
                     statisticItem4.param("obj_locate", ((VideoPbCommentFloatFragment) this.a.a).L3());
                     TiebaStatic.log(statisticItem4);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09254c || this.a.mContext == null) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09254d || this.a.mContext == null) {
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.mContext, null, TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL, true)));
                 }
@@ -544,7 +544,7 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
         String ipAddress = metaData.getIpAddress();
         if (!TextUtils.isEmpty(ipAddress)) {
             TextView textView = videoTabPbFloatUserInfoViewHolder.t;
-            textView.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a) + ipAddress);
+            textView.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150b) + ipAddress);
             return;
         }
         videoTabPbFloatUserInfoViewHolder.t.setVisibility(8);
@@ -598,8 +598,8 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
             return;
         }
         videoTabPbFloatUserInfoViewHolder.g.setText(metaData.getName_show());
-        videoTabPbFloatUserInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f092091, metaData.getUserId());
-        videoTabPbFloatUserInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f092099, metaData.getName_show());
+        videoTabPbFloatUserInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f092092, metaData.getUserId());
+        videoTabPbFloatUserInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f09209a, metaData.getName_show());
         this.i = metaData.isBigV();
         this.j = metaData.isNewGod();
     }
@@ -610,7 +610,7 @@ public class g38 extends qn<PostData, VideoTabPbFloatUserInfoViewHolder> {
             return;
         }
         ArrayList<IconData> iconInfo = metaData.getIconInfo();
-        videoTabPbFloatUserInfoViewHolder.k.setTag(R.id.obfuscated_res_0x7f092091, metaData.getUserId());
+        videoTabPbFloatUserInfoViewHolder.k.setTag(R.id.obfuscated_res_0x7f092092, metaData.getUserId());
         videoTabPbFloatUserInfoViewHolder.k.g(iconInfo, 4, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
     }
 

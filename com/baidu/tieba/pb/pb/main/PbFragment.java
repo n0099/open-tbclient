@@ -567,7 +567,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
                 if (StringUtils.isNull(str)) {
                     if (i == 0) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f14ef);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f14f0);
                     } else {
                         this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                     }
@@ -1110,8 +1110,8 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     View view4 = (View) sparseArray2.get(R.id.obfuscated_res_0x7f0917ed);
                     this.a.O6(view4);
                     if (view4 != null) {
-                        if (sparseArray2 != null && (sparseArray2.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean)) {
-                            if (((Boolean) sparseArray2.get(R.id.obfuscated_res_0x7f092056)).booleanValue()) {
+                        if (sparseArray2 != null && (sparseArray2.get(R.id.obfuscated_res_0x7f092057) instanceof Boolean)) {
+                            if (((Boolean) sparseArray2.get(R.id.obfuscated_res_0x7f092057)).booleanValue()) {
                                 this.a.a7(true);
                             } else {
                                 this.a.a7(false);
@@ -1221,9 +1221,9 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                             } else if (tag instanceof SparseArray) {
                                 TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
                                 SparseArray<Object> sparseArray3 = (SparseArray) tag;
-                                if ((sparseArray3.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean) && ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092098)).booleanValue()) {
-                                    sparseArray3.put(R.id.obfuscated_res_0x7f09204f, 0);
-                                    sparseArray3.put(R.id.obfuscated_res_0x7f092038, 2);
+                                if ((sparseArray3.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean) && ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092099)).booleanValue()) {
+                                    sparseArray3.put(R.id.obfuscated_res_0x7f092050, 0);
+                                    sparseArray3.put(R.id.obfuscated_res_0x7f092039, 2);
                                     this.a.b5(sparseArray3);
                                     return;
                                 }
@@ -1233,24 +1233,24 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                             }
                         case 6:
                             SparseArray sparseArray4 = (SparseArray) view2.getTag();
-                            if (sparseArray4 != null && (sparseArray4.get(R.id.obfuscated_res_0x7f092040) instanceof Integer) && (sparseArray4.get(R.id.obfuscated_res_0x7f09203e) instanceof String) && (sparseArray4.get(R.id.obfuscated_res_0x7f09205c) instanceof Integer) && (sparseArray4.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean) && (sparseArray4.get(R.id.obfuscated_res_0x7f092050) instanceof Boolean)) {
-                                boolean booleanValue = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f09203f)).booleanValue();
-                                int intValue = ((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f09205c)).intValue();
-                                boolean booleanValue2 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092050)).booleanValue();
+                            if (sparseArray4 != null && (sparseArray4.get(R.id.obfuscated_res_0x7f092041) instanceof Integer) && (sparseArray4.get(R.id.obfuscated_res_0x7f09203f) instanceof String) && (sparseArray4.get(R.id.obfuscated_res_0x7f09205d) instanceof Integer) && (sparseArray4.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean) && (sparseArray4.get(R.id.obfuscated_res_0x7f092051) instanceof Boolean)) {
+                                boolean booleanValue = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).booleanValue();
+                                int intValue = ((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f09205d)).intValue();
+                                boolean booleanValue2 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092051)).booleanValue();
                                 boolean F = this.a.P().F(TbadkCoreApplication.getCurrentAccount());
                                 if (F) {
                                     if (!booleanValue2) {
                                         this.a.l7(sparseArray4, intValue, booleanValue);
                                         return;
                                     } else {
-                                        this.a.E0.v2(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203e), intValue, booleanValue, null, F);
+                                        this.a.E0.v2(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203f), intValue, booleanValue, null, F);
                                         return;
                                     }
                                 } else if (booleanValue && !booleanValue2) {
                                     this.a.l7(sparseArray4, intValue, booleanValue);
                                     return;
                                 } else {
-                                    this.a.E0.t2(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203e), intValue, booleanValue);
+                                    this.a.E0.t2(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203f), intValue, booleanValue);
                                     return;
                                 }
                             }
@@ -1264,31 +1264,31 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                             if (sparseArray5 == null) {
                                 return;
                             }
-                            boolean booleanValue3 = ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092084)).booleanValue();
-                            boolean booleanValue4 = ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092082)).booleanValue();
-                            boolean booleanValue5 = ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092098)).booleanValue();
-                            boolean booleanValue6 = sparseArray5.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
+                            boolean booleanValue3 = ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092085)).booleanValue();
+                            boolean booleanValue4 = ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092083)).booleanValue();
+                            boolean booleanValue5 = ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092099)).booleanValue();
+                            boolean booleanValue6 = sparseArray5.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
                             if (!booleanValue3) {
                                 if (booleanValue4) {
-                                    this.a.E0.t2(((Integer) sparseArray5.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray5.get(R.id.obfuscated_res_0x7f09203e), ((Integer) sparseArray5.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                    this.a.E0.t2(((Integer) sparseArray5.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray5.get(R.id.obfuscated_res_0x7f09203f), ((Integer) sparseArray5.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) sparseArray5.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                     return;
                                 }
                                 return;
                             } else if (!booleanValue5) {
                                 if (booleanValue6) {
-                                    sparseArray5.put(R.id.obfuscated_res_0x7f092038, 2);
+                                    sparseArray5.put(R.id.obfuscated_res_0x7f092039, 2);
                                 }
                                 this.a.E0.y2(view2);
                                 return;
                             } else {
-                                sparseArray5.put(R.id.obfuscated_res_0x7f09204f, 1);
-                                sparseArray5.put(R.id.obfuscated_res_0x7f092038, 2);
+                                sparseArray5.put(R.id.obfuscated_res_0x7f092050, 1);
+                                sparseArray5.put(R.id.obfuscated_res_0x7f092039, 2);
                                 this.a.b5(sparseArray5);
                                 return;
                             }
                         case 8:
                             if (this.a.checkUpIsLogin() && (sparseArray = (SparseArray) view2.getTag()) != null) {
-                                PostData postData2 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+                                PostData postData2 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
                                 if (postData2.q() == null) {
                                     return;
                                 }
@@ -1556,7 +1556,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                 if (nu4Var != null) {
                     nu4Var.dismiss();
                 }
-                this.d.l5(((Integer) this.a.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203e), this.b, this.c);
+                this.d.l5(((Integer) this.a.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203f), this.b, this.c);
             }
         }
     }
@@ -2077,15 +2077,15 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     this.e.J0.dismiss();
                 }
                 if (i == 0) {
-                    this.e.E0.t2(((Integer) this.a.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203e), ((Integer) this.a.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) this.a.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                    this.e.E0.t2(((Integer) this.a.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203f), ((Integer) this.a.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) this.a.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                 } else if (i == 1) {
-                    String str = (String) this.a.get(R.id.obfuscated_res_0x7f092095);
-                    String str2 = (String) this.a.get(R.id.obfuscated_res_0x7f092097);
-                    String str3 = (String) this.a.get(R.id.obfuscated_res_0x7f092096);
+                    String str = (String) this.a.get(R.id.obfuscated_res_0x7f092096);
+                    String str2 = (String) this.a.get(R.id.obfuscated_res_0x7f092098);
+                    String str3 = (String) this.a.get(R.id.obfuscated_res_0x7f092097);
                     UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
                     userMuteAddAndDelCustomMessage.setData(this.b, this.c, str, str2, str3, 1, this.d, this.e.g1);
                     userMuteAddAndDelCustomMessage.setTag(this.e.g1);
-                    this.e.z7(this.b, userMuteAddAndDelCustomMessage, this.d, str, (String) this.a.get(R.id.obfuscated_res_0x7f092093));
+                    this.e.z7(this.b, userMuteAddAndDelCustomMessage, this.d, str, (String) this.a.get(R.id.obfuscated_res_0x7f092094));
                 }
             }
         }
@@ -3113,7 +3113,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
             String name2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.isAdded()) {
-                if (this.a.r0 && (view2 == this.a.E0.h.c || view2 == this.a.E0.h.d || view2.getId() == R.id.obfuscated_res_0x7f09185c || view2.getId() == R.id.obfuscated_res_0x7f090a0f || view2.getId() == R.id.obfuscated_res_0x7f091bfc || view2.getId() == R.id.obfuscated_res_0x7f0917fa)) {
+                if (this.a.r0 && (view2 == this.a.E0.h.c || view2 == this.a.E0.h.d || view2.getId() == R.id.obfuscated_res_0x7f09185c || view2.getId() == R.id.obfuscated_res_0x7f090a0f || view2.getId() == R.id.obfuscated_res_0x7f091bfd || view2.getId() == R.id.obfuscated_res_0x7f0917fa)) {
                     return;
                 }
                 if (!(view2 instanceof TbListTextView) || !(view2.getParent() instanceof TbRichTextView)) {
@@ -3188,10 +3188,10 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                 return;
                                             }
                                         } else if (view2.getId() != R.id.obfuscated_res_0x7f0917f5) {
-                                            if ((this.a.E0.h.n() == null || view2 != this.a.E0.h.n().p()) && view2.getId() != R.id.obfuscated_res_0x7f090a0f && view2.getId() != R.id.obfuscated_res_0x7f091bfc) {
+                                            if ((this.a.E0.h.n() == null || view2 != this.a.E0.h.n().p()) && view2.getId() != R.id.obfuscated_res_0x7f090a0f && view2.getId() != R.id.obfuscated_res_0x7f091bfd) {
                                                 if (this.a.E0.h.n() != null && view2 == this.a.E0.h.n().l()) {
                                                     this.a.E0.h.k();
-                                                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97) {
+                                                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98) {
                                                     if (!this.a.a5(11009)) {
                                                         return;
                                                     }
@@ -3221,10 +3221,10 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                 if (BdNetTypeUtil.isNetWorkAvailable()) {
                                                                                     SparseArray<Object> V0 = this.a.E0.V0(this.a.w0.S1(), this.a.w0.k2(), 1);
                                                                                     if (V0 != null) {
-                                                                                        if (StringUtils.isNull((String) V0.get(R.id.obfuscated_res_0x7f09203d))) {
-                                                                                            this.a.E0.t2(((Integer) V0.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) V0.get(R.id.obfuscated_res_0x7f09203e), ((Integer) V0.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) V0.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                                                                        if (StringUtils.isNull((String) V0.get(R.id.obfuscated_res_0x7f09203e))) {
+                                                                                            this.a.E0.t2(((Integer) V0.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) V0.get(R.id.obfuscated_res_0x7f09203f), ((Integer) V0.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) V0.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                                                                         } else {
-                                                                                            this.a.E0.u2(((Integer) V0.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) V0.get(R.id.obfuscated_res_0x7f09203e), ((Integer) V0.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) V0.get(R.id.obfuscated_res_0x7f09203f)).booleanValue(), (String) V0.get(R.id.obfuscated_res_0x7f09203d));
+                                                                                            this.a.E0.u2(((Integer) V0.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) V0.get(R.id.obfuscated_res_0x7f09203f), ((Integer) V0.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) V0.get(R.id.obfuscated_res_0x7f092040)).booleanValue(), (String) V0.get(R.id.obfuscated_res_0x7f09203e));
                                                                                         }
                                                                                     }
                                                                                     this.a.E0.h.k();
@@ -3232,7 +3232,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                     this.a.showToast(R.string.obfuscated_res_0x7f0f0c5a);
                                                                                     return;
                                                                                 }
-                                                                            } else if (view2.getId() != R.id.obfuscated_res_0x7f091f9e && view2.getId() != R.id.obfuscated_res_0x7f091f9c && view2.getId() != R.id.obfuscated_res_0x7f09180d && view2.getId() != R.id.obfuscated_res_0x7f09169e) {
+                                                                            } else if (view2.getId() != R.id.obfuscated_res_0x7f091f9f && view2.getId() != R.id.obfuscated_res_0x7f091f9d && view2.getId() != R.id.obfuscated_res_0x7f09180d && view2.getId() != R.id.obfuscated_res_0x7f09169e) {
                                                                                 if (view2.getId() == R.id.obfuscated_res_0x7f09186f) {
                                                                                     if (this.a.w0 == null) {
                                                                                         return;
@@ -3250,10 +3250,10 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                         return;
                                                                                     } else {
                                                                                         SparseArray sparseArray2 = (SparseArray) view2.getTag();
-                                                                                        if (!(sparseArray2.get(R.id.obfuscated_res_0x7f092059) instanceof PostData)) {
+                                                                                        if (!(sparseArray2.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData)) {
                                                                                             return;
                                                                                         }
-                                                                                        PostData postData = (PostData) sparseArray2.get(R.id.obfuscated_res_0x7f092059);
+                                                                                        PostData postData = (PostData) sparseArray2.get(R.id.obfuscated_res_0x7f09205a);
                                                                                         StatisticItem statisticItem4 = postData.d0;
                                                                                         if (statisticItem4 != null) {
                                                                                             StatisticItem copy = statisticItem4.copy();
@@ -3322,10 +3322,10 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                         return;
                                                                                     }
                                                                                     SparseArray sparseArray3 = (SparseArray) view2.getTag();
-                                                                                    if (!(sparseArray3.get(R.id.obfuscated_res_0x7f092059) instanceof PostData)) {
+                                                                                    if (!(sparseArray3.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData)) {
                                                                                         return;
                                                                                     }
-                                                                                    PostData postData2 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f092059);
+                                                                                    PostData postData2 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f09205a);
                                                                                     if (view2.getId() == R.id.obfuscated_res_0x7f09186d && (statisticItem = postData2.d0) != null) {
                                                                                         StatisticItem copy2 = statisticItem.copy();
                                                                                         copy2.delete("obj_locate");
@@ -3374,15 +3374,15 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                     }
                                                                                                     TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
                                                                                                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{eu4Var.j1()});
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f091bff || id == R.id.obfuscated_res_0x7f09071b || id == R.id.obfuscated_res_0x7f091c00 || id == R.id.obfuscated_res_0x7f09071c) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f091c00 || id == R.id.obfuscated_res_0x7f09071b || id == R.id.obfuscated_res_0x7f091c01 || id == R.id.obfuscated_res_0x7f09071c) {
                                                                                                     if (!this.a.checkUpIsLogin()) {
                                                                                                         return;
                                                                                                     }
                                                                                                     TiebaStatic.log(new StatisticItem("c11740"));
                                                                                                     if (view2 != null && view2.getTag() != null) {
                                                                                                         SparseArray sparseArray4 = (SparseArray) view2.getTag();
-                                                                                                        PostData postData3 = (PostData) sparseArray4.get(R.id.obfuscated_res_0x7f092059);
-                                                                                                        if (id == R.id.obfuscated_res_0x7f091c00 || id == R.id.obfuscated_res_0x7f09071c) {
+                                                                                                        PostData postData3 = (PostData) sparseArray4.get(R.id.obfuscated_res_0x7f09205a);
+                                                                                                        if (id == R.id.obfuscated_res_0x7f091c01 || id == R.id.obfuscated_res_0x7f09071c) {
                                                                                                             TiebaStatic.log(new StatisticItem("c12006").param("tid", this.a.w0.b));
                                                                                                         }
                                                                                                         if (this.a.K0 == null) {
@@ -3395,21 +3395,21 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                         if (this.a.m6(view2) && this.a.j1 != null) {
                                                                                                             this.a.j1.t();
                                                                                                         }
-                                                                                                        if (sparseArray4.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean) {
-                                                                                                            ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092055)).booleanValue();
+                                                                                                        if (sparseArray4.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean) {
+                                                                                                            ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092056)).booleanValue();
                                                                                                         }
-                                                                                                        boolean booleanValue = sparseArray4.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f09203f)).booleanValue() : false;
-                                                                                                        boolean booleanValue2 = sparseArray4.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-                                                                                                        boolean booleanValue3 = sparseArray4.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-                                                                                                        boolean booleanValue4 = sparseArray4.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-                                                                                                        boolean booleanValue5 = sparseArray4.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
-                                                                                                        String str = sparseArray4.get(R.id.obfuscated_res_0x7f09204c) instanceof String ? (String) sparseArray4.get(R.id.obfuscated_res_0x7f09204c) : null;
-                                                                                                        boolean booleanValue6 = sparseArray4.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
+                                                                                                        boolean booleanValue = sparseArray4.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).booleanValue() : false;
+                                                                                                        boolean booleanValue2 = sparseArray4.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+                                                                                                        boolean booleanValue3 = sparseArray4.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+                                                                                                        boolean booleanValue4 = sparseArray4.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+                                                                                                        boolean booleanValue5 = sparseArray4.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
+                                                                                                        String str = sparseArray4.get(R.id.obfuscated_res_0x7f09204d) instanceof String ? (String) sparseArray4.get(R.id.obfuscated_res_0x7f09204d) : null;
+                                                                                                        boolean booleanValue6 = sparseArray4.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
                                                                                                         if (postData3 != null) {
                                                                                                             if (postData3.W() != null && postData3.W().toString().length() > 0) {
                                                                                                                 uu4 uu4Var8 = new uu4(3, this.a.getString(R.string.obfuscated_res_0x7f0f0452), this.a.K0);
                                                                                                                 SparseArray sparseArray5 = new SparseArray();
-                                                                                                                sparseArray5.put(R.id.obfuscated_res_0x7f09203c, postData3);
+                                                                                                                sparseArray5.put(R.id.obfuscated_res_0x7f09203d, postData3);
                                                                                                                 uu4Var8.d.setTag(sparseArray5);
                                                                                                                 arrayList.add(uu4Var8);
                                                                                                             }
@@ -3420,64 +3420,64 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                             if (postData3 != null && !dj.isEmpty(u) && u.equals(postData3.L())) {
                                                                                                                 z = true;
                                                                                                                 if (!z) {
-                                                                                                                    uu4Var4 = new uu4(4, this.a.getString(R.string.obfuscated_res_0x7f0f0ff1), this.a.K0);
+                                                                                                                    uu4Var4 = new uu4(4, this.a.getString(R.string.obfuscated_res_0x7f0f0ff2), this.a.K0);
                                                                                                                 } else {
                                                                                                                     uu4Var4 = new uu4(4, this.a.getString(R.string.obfuscated_res_0x7f0f0aaa), this.a.K0);
                                                                                                                 }
                                                                                                                 SparseArray sparseArray6 = new SparseArray();
-                                                                                                                sparseArray6.put(R.id.obfuscated_res_0x7f09203c, this.a.B2);
-                                                                                                                sparseArray6.put(R.id.obfuscated_res_0x7f092055, Boolean.FALSE);
+                                                                                                                sparseArray6.put(R.id.obfuscated_res_0x7f09203d, this.a.B2);
+                                                                                                                sparseArray6.put(R.id.obfuscated_res_0x7f092056, Boolean.FALSE);
                                                                                                                 uu4Var4.d.setTag(sparseArray6);
                                                                                                                 arrayList.add(uu4Var4);
                                                                                                                 if (this.a.mIsLogin) {
                                                                                                                     if (g18.i(this.a.w0) || booleanValue3 || !booleanValue2) {
                                                                                                                         if (this.a.q6(booleanValue) && TbadkCoreApplication.isLogin()) {
-                                                                                                                            uu4 uu4Var9 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f1016), this.a.K0);
+                                                                                                                            uu4 uu4Var9 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f1017), this.a.K0);
                                                                                                                             uu4Var9.d.setTag(str);
                                                                                                                             arrayList.add(uu4Var9);
                                                                                                                         }
                                                                                                                     } else {
                                                                                                                         uu4 uu4Var10 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f0b4d), this.a.K0);
                                                                                                                         SparseArray sparseArray7 = new SparseArray();
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092053, sparseArray4.get(R.id.obfuscated_res_0x7f092053));
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092094, sparseArray4.get(R.id.obfuscated_res_0x7f092094));
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092054, sparseArray4.get(R.id.obfuscated_res_0x7f092054));
                                                                                                                         sparseArray7.put(R.id.obfuscated_res_0x7f092095, sparseArray4.get(R.id.obfuscated_res_0x7f092095));
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092093, sparseArray4.get(R.id.obfuscated_res_0x7f092093));
                                                                                                                         sparseArray7.put(R.id.obfuscated_res_0x7f092096, sparseArray4.get(R.id.obfuscated_res_0x7f092096));
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092094, sparseArray4.get(R.id.obfuscated_res_0x7f092094));
                                                                                                                         sparseArray7.put(R.id.obfuscated_res_0x7f092097, sparseArray4.get(R.id.obfuscated_res_0x7f092097));
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f09203f, sparseArray4.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092098, sparseArray4.get(R.id.obfuscated_res_0x7f092098));
                                                                                                                         sparseArray7.put(R.id.obfuscated_res_0x7f092040, sparseArray4.get(R.id.obfuscated_res_0x7f092040));
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f09203e, sparseArray4.get(R.id.obfuscated_res_0x7f09203e));
-                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f09205c, sparseArray4.get(R.id.obfuscated_res_0x7f09205c));
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f092041, sparseArray4.get(R.id.obfuscated_res_0x7f092041));
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f09203f, sparseArray4.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                                        sparseArray7.put(R.id.obfuscated_res_0x7f09205d, sparseArray4.get(R.id.obfuscated_res_0x7f09205d));
                                                                                                                         uu4Var4.d.setTag(sparseArray7);
                                                                                                                         arrayList.add(uu4Var10);
                                                                                                                     }
                                                                                                                     if (booleanValue3) {
                                                                                                                         SparseArray sparseArray8 = new SparseArray();
-                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f09205c, sparseArray4.get(R.id.obfuscated_res_0x7f09205c));
-                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f092049, sparseArray4.get(R.id.obfuscated_res_0x7f092049));
+                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f09205d, sparseArray4.get(R.id.obfuscated_res_0x7f09205d));
                                                                                                                         sparseArray8.put(R.id.obfuscated_res_0x7f09204a, sparseArray4.get(R.id.obfuscated_res_0x7f09204a));
                                                                                                                         sparseArray8.put(R.id.obfuscated_res_0x7f09204b, sparseArray4.get(R.id.obfuscated_res_0x7f09204b));
-                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f09204c, str);
+                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f09204c, sparseArray4.get(R.id.obfuscated_res_0x7f09204c));
+                                                                                                                        sparseArray8.put(R.id.obfuscated_res_0x7f09204d, str);
                                                                                                                         if (booleanValue4) {
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092053, sparseArray4.get(R.id.obfuscated_res_0x7f092053));
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092094, sparseArray4.get(R.id.obfuscated_res_0x7f092094));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092054, sparseArray4.get(R.id.obfuscated_res_0x7f092054));
                                                                                                                             sparseArray8.put(R.id.obfuscated_res_0x7f092095, sparseArray4.get(R.id.obfuscated_res_0x7f092095));
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092093, sparseArray4.get(R.id.obfuscated_res_0x7f092093));
                                                                                                                             sparseArray8.put(R.id.obfuscated_res_0x7f092096, sparseArray4.get(R.id.obfuscated_res_0x7f092096));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092094, sparseArray4.get(R.id.obfuscated_res_0x7f092094));
                                                                                                                             sparseArray8.put(R.id.obfuscated_res_0x7f092097, sparseArray4.get(R.id.obfuscated_res_0x7f092097));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092098, sparseArray4.get(R.id.obfuscated_res_0x7f092098));
                                                                                                                         } else {
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                                                                                                                         }
                                                                                                                         if (booleanValue5) {
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue));
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f09203e, sparseArray4.get(R.id.obfuscated_res_0x7f09203e));
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092040, sparseArray4.get(R.id.obfuscated_res_0x7f092040));
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092050, sparseArray4.get(R.id.obfuscated_res_0x7f092050));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f09203f, sparseArray4.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092041, sparseArray4.get(R.id.obfuscated_res_0x7f092041));
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092051, sparseArray4.get(R.id.obfuscated_res_0x7f092051));
                                                                                                                             if (booleanValue6) {
                                                                                                                                 uu4 uu4Var11 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), this.a.K0);
                                                                                                                                 uu4Var11.d.setTag(sparseArray8);
@@ -3486,23 +3486,23 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                                                 uu4Var5.d.setTag(sparseArray8);
                                                                                                                             }
                                                                                                                         } else {
-                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                                                                                                                            sparseArray8.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                                                                                                                         }
                                                                                                                         uu4Var6 = null;
                                                                                                                         uu4Var5 = new uu4(7, this.a.getString(R.string.obfuscated_res_0x7f0f02e8), this.a.K0);
                                                                                                                         uu4Var5.d.setTag(sparseArray8);
                                                                                                                     } else if (booleanValue5) {
                                                                                                                         SparseArray sparseArray9 = new SparseArray();
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f09205c, sparseArray4.get(R.id.obfuscated_res_0x7f09205c));
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue));
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f09203e, sparseArray4.get(R.id.obfuscated_res_0x7f09203e));
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092040, sparseArray4.get(R.id.obfuscated_res_0x7f092040));
-                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092050, sparseArray4.get(R.id.obfuscated_res_0x7f092050));
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f09205d, sparseArray4.get(R.id.obfuscated_res_0x7f09205d));
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue));
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f09203f, sparseArray4.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092041, sparseArray4.get(R.id.obfuscated_res_0x7f092041));
+                                                                                                                        sparseArray9.put(R.id.obfuscated_res_0x7f092051, sparseArray4.get(R.id.obfuscated_res_0x7f092051));
                                                                                                                         if (this.a.w0.S1().W() == 1002 && !booleanValue) {
-                                                                                                                            uu4Var7 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f1016), this.a.K0);
+                                                                                                                            uu4Var7 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f1017), this.a.K0);
                                                                                                                         } else {
                                                                                                                             uu4Var7 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), this.a.K0);
                                                                                                                         }
@@ -3529,8 +3529,8 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                         if (!z) {
                                                                                                         }
                                                                                                         SparseArray sparseArray62 = new SparseArray();
-                                                                                                        sparseArray62.put(R.id.obfuscated_res_0x7f09203c, this.a.B2);
-                                                                                                        sparseArray62.put(R.id.obfuscated_res_0x7f092055, Boolean.FALSE);
+                                                                                                        sparseArray62.put(R.id.obfuscated_res_0x7f09203d, this.a.B2);
+                                                                                                        sparseArray62.put(R.id.obfuscated_res_0x7f092056, Boolean.FALSE);
                                                                                                         uu4Var4.d.setTag(sparseArray62);
                                                                                                         arrayList.add(uu4Var4);
                                                                                                         if (this.a.mIsLogin) {
@@ -3551,8 +3551,8 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                         }
                                                                                                     }
                                                                                                 } else if (id == R.id.obfuscated_res_0x7f091452) {
-                                                                                                    if (view2.getTag(R.id.obfuscated_res_0x7f09206b) instanceof String) {
-                                                                                                        String str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f09206b);
+                                                                                                    if (view2.getTag(R.id.obfuscated_res_0x7f09206c) instanceof String) {
+                                                                                                        String str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f09206c);
                                                                                                         TiebaStatic.log(new StatisticItem("c10912").param("fid", this.a.w0.S1().m()).param("tid", this.a.w0.S1().Q()).param("lotterytail", StringUtils.string(str2, "_", TbadkCoreApplication.getCurrentAccount())));
                                                                                                         if (this.a.w0.S1().Q().equals(str2)) {
                                                                                                             this.a.E0.y3(0);
@@ -3562,7 +3562,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                     }
                                                                                                 } else if (id == R.id.obfuscated_res_0x7f091837 || id == R.id.obfuscated_res_0x7f091802) {
                                                                                                     if (ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
-                                                                                                        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1389);
+                                                                                                        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f138a);
                                                                                                         String q = ox4.k().q("tail_link", "");
                                                                                                         if (!StringUtils.isNull(q)) {
                                                                                                             TiebaStatic.log("c10056");
@@ -3590,19 +3590,19 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                     this.a.v6();
                                                                                                 } else if (id == R.id.obfuscated_res_0x7f0914a4) {
                                                                                                     this.a.s6();
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f0926ee) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f0926ef) {
                                                                                                     if (this.a.w0 != null && this.a.w0.S1() != null && this.a.w0.S1().A() != null) {
                                                                                                         jv7 S13 = this.a.w0.S1();
                                                                                                         TiebaStatic.log(new StatisticItem("c11679").param("fid", S13.m()));
                                                                                                         UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{S13.A().b()});
                                                                                                     }
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f0926eb) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f0926ec) {
                                                                                                     if (this.a.w0 != null && this.a.w0.S1() != null && this.a.w0.S1().A() != null) {
                                                                                                         jv7 S14 = this.a.w0.S1();
                                                                                                         TiebaStatic.log(new StatisticItem("c11678").param("fid", S14.m()));
                                                                                                         UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{S14.A().b()});
                                                                                                     }
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f0923dd) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f0923de) {
                                                                                                     if (this.a.o1 >= 0) {
                                                                                                         if (this.a.w0 != null) {
                                                                                                             this.a.w0.m3();
@@ -3619,7 +3619,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                             this.a.w0.q3(0, 0);
                                                                                                         }
                                                                                                     }
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f091b24) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f091b25) {
                                                                                                     if (!this.a.a5(11009)) {
                                                                                                         return;
                                                                                                     }
@@ -3839,18 +3839,18 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                         statisticItem8.param("obj_locate", 7);
                                                                                                         TiebaStatic.log(statisticItem8);
                                                                                                         SparseArray sparseArray11 = (SparseArray) view2.getTag();
-                                                                                                        if (sparseArray11 != null && (sparseArray11.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean) && ((Boolean) sparseArray11.get(R.id.obfuscated_res_0x7f092056)).booleanValue()) {
+                                                                                                        if (sparseArray11 != null && (sparseArray11.get(R.id.obfuscated_res_0x7f092057) instanceof Boolean) && ((Boolean) sparseArray11.get(R.id.obfuscated_res_0x7f092057)).booleanValue()) {
                                                                                                             j28.o(6);
                                                                                                         }
                                                                                                         PbFragment pbFragment5 = this.a;
                                                                                                         pbFragment5.b = false;
                                                                                                         pbFragment5.g5(view2);
-                                                                                                    } else if (id == R.id.obfuscated_res_0x7f0923fb) {
-                                                                                                        if (view2.getTag(R.id.obfuscated_res_0x7f092056) instanceof Boolean) {
+                                                                                                    } else if (id == R.id.obfuscated_res_0x7f0923fc) {
+                                                                                                        if (view2.getTag(R.id.obfuscated_res_0x7f092057) instanceof Boolean) {
                                                                                                             j28.o(5);
                                                                                                         }
                                                                                                         this.a.a7(false);
-                                                                                                        this.a.C7((PostData) view2.getTag(R.id.obfuscated_res_0x7f09206c), false);
+                                                                                                        this.a.C7((PostData) view2.getTag(R.id.obfuscated_res_0x7f09206d), false);
                                                                                                     }
                                                                                                 } else if (!(view2.getTag() instanceof ThreadData)) {
                                                                                                     return;
@@ -3872,11 +3872,11 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                 }
                                                                                             } else {
                                                                                                 SparseArray sparseArray12 = (SparseArray) view2.getTag();
-                                                                                                if (sparseArray12 == null || !(sparseArray12.get(R.id.obfuscated_res_0x7f092059) instanceof PostData)) {
+                                                                                                if (sparseArray12 == null || !(sparseArray12.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData)) {
                                                                                                     return;
                                                                                                 }
-                                                                                                PostData postData4 = (PostData) sparseArray12.get(R.id.obfuscated_res_0x7f092059);
-                                                                                                View view3 = (View) sparseArray12.get(R.id.obfuscated_res_0x7f09205b);
+                                                                                                PostData postData4 = (PostData) sparseArray12.get(R.id.obfuscated_res_0x7f09205a);
+                                                                                                View view3 = (View) sparseArray12.get(R.id.obfuscated_res_0x7f09205c);
                                                                                                 if (postData4 == null || view3 == null) {
                                                                                                     return;
                                                                                                 }
@@ -3891,7 +3891,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                 }
                                                                                                 SkinManager.setBackgroundColor(findViewById, postData4.q0() ? R.color.CAM_X0201 : R.color.transparent);
                                                                                                 SkinManager.setViewTextColor(eMTextView, postData4.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107);
-                                                                                                WebPManager.setPureDrawable(imageView, postData4.q0() ? R.drawable.obfuscated_res_0x7f080983 : R.drawable.obfuscated_res_0x7f080982, postData4.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
+                                                                                                WebPManager.setPureDrawable(imageView, postData4.q0() ? R.drawable.obfuscated_res_0x7f080984 : R.drawable.obfuscated_res_0x7f080983, postData4.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
                                                                                             }
                                                                                         } else {
                                                                                             this.a.E0.h.l();
@@ -3907,7 +3907,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                         e.printStackTrace();
                                                                                         sparseArray = null;
                                                                                     }
-                                                                                    PostData postData5 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+                                                                                    PostData postData5 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
                                                                                     if (postData5 == null) {
                                                                                         return;
                                                                                     }
@@ -3919,13 +3919,13 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                     ArrayList arrayList2 = new ArrayList();
                                                                                     boolean z5 = this.a.K().S1() != null && this.a.K().S1().i0();
                                                                                     if (view2 != null && sparseArray != null) {
-                                                                                        boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue() : false;
-                                                                                        boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-                                                                                        boolean booleanValue9 = sparseArray.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-                                                                                        boolean booleanValue10 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-                                                                                        boolean booleanValue11 = sparseArray.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
-                                                                                        String str3 = sparseArray.get(R.id.obfuscated_res_0x7f09204c) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204c) : null;
-                                                                                        boolean booleanValue12 = sparseArray.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
+                                                                                        boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue() : false;
+                                                                                        boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+                                                                                        boolean booleanValue9 = sparseArray.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+                                                                                        boolean booleanValue10 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+                                                                                        boolean booleanValue11 = sparseArray.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
+                                                                                        String str3 = sparseArray.get(R.id.obfuscated_res_0x7f09204d) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204d) : null;
+                                                                                        boolean booleanValue12 = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
                                                                                         if (postData5.q() != null) {
                                                                                             boolean z6 = postData5.q().hasAgree;
                                                                                             int r = postData5.r();
@@ -3938,59 +3938,59 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                             }
                                                                                             uu4 uu4Var12 = new uu4(8, pbFragment.getString(i), this.a.K0);
                                                                                             SparseArray sparseArray13 = new SparseArray();
-                                                                                            sparseArray13.put(R.id.obfuscated_res_0x7f09203c, postData5);
+                                                                                            sparseArray13.put(R.id.obfuscated_res_0x7f09203d, postData5);
                                                                                             uu4Var12.d.setTag(sparseArray13);
                                                                                             arrayList2.add(uu4Var12);
                                                                                         }
                                                                                         if (this.a.mIsLogin) {
                                                                                             if (g18.i(this.a.w0) || booleanValue9 || !booleanValue8) {
                                                                                                 if ((this.a.q6(booleanValue7) && TbadkCoreApplication.isLogin()) && !z5) {
-                                                                                                    uu4 uu4Var13 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f1016), this.a.K0);
+                                                                                                    uu4 uu4Var13 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f1017), this.a.K0);
                                                                                                     uu4Var13.d.setTag(str3);
                                                                                                     arrayList2.add(uu4Var13);
                                                                                                 }
                                                                                             } else {
                                                                                                 uu4 uu4Var14 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f0b4d), this.a.K0);
                                                                                                 SparseArray sparseArray14 = new SparseArray();
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                                                                                                 sparseArray14.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                                                                                                 sparseArray14.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                                                                                                 sparseArray14.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                                                                                                 sparseArray14.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                sparseArray14.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                                                                                                 uu4Var14.d.setTag(sparseArray14);
                                                                                                 arrayList2.add(uu4Var14);
                                                                                             }
                                                                                             if (booleanValue9) {
                                                                                                 SparseArray sparseArray15 = new SparseArray();
-                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f092049, sparseArray.get(R.id.obfuscated_res_0x7f092049));
+                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                                                                                                 sparseArray15.put(R.id.obfuscated_res_0x7f09204a, sparseArray.get(R.id.obfuscated_res_0x7f09204a));
                                                                                                 sparseArray15.put(R.id.obfuscated_res_0x7f09204b, sparseArray.get(R.id.obfuscated_res_0x7f09204b));
-                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f09204c, str3);
+                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f09204c, sparseArray.get(R.id.obfuscated_res_0x7f09204c));
+                                                                                                sparseArray15.put(R.id.obfuscated_res_0x7f09204d, str3);
                                                                                                 if (booleanValue10) {
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                                                                                                     sparseArray15.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                                                                                                     sparseArray15.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                                                                                                     sparseArray15.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                                                                                                 } else {
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                                                                                                 }
                                                                                                 if (booleanValue11) {
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue7));
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue7));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                                                                                                     if (booleanValue12) {
                                                                                                         uu4 uu4Var15 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), this.a.K0);
                                                                                                         uu4Var15.d.setTag(sparseArray15);
@@ -3999,23 +3999,23 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                                         uu4Var.d.setTag(sparseArray15);
                                                                                                     }
                                                                                                 } else {
-                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                                                                                                    sparseArray15.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                                                                                                 }
                                                                                                 uu4Var2 = null;
                                                                                                 uu4Var = new uu4(7, this.a.getString(R.string.obfuscated_res_0x7f0f02e8), this.a.K0);
                                                                                                 uu4Var.d.setTag(sparseArray15);
                                                                                             } else if (booleanValue11) {
                                                                                                 SparseArray sparseArray16 = new SparseArray();
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue7));
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue7));
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                                                                                                sparseArray16.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                                                                                                 if (this.a.w0.S1().W() == 1002 && !booleanValue7) {
-                                                                                                    uu4Var3 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f1016), this.a.K0);
+                                                                                                    uu4Var3 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f1017), this.a.K0);
                                                                                                 } else {
                                                                                                     uu4Var3 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), this.a.K0);
                                                                                                 }
@@ -4056,9 +4056,9 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                     }
                                                                                     this.a.E0.p0();
                                                                                     SparseArray sparseArray17 = (SparseArray) view2.getTag();
-                                                                                    PostData postData6 = (PostData) sparseArray17.get(R.id.obfuscated_res_0x7f092059);
-                                                                                    PostData postData7 = (PostData) sparseArray17.get(R.id.obfuscated_res_0x7f09205a);
-                                                                                    View view4 = (View) sparseArray17.get(R.id.obfuscated_res_0x7f09205b);
+                                                                                    PostData postData6 = (PostData) sparseArray17.get(R.id.obfuscated_res_0x7f09205a);
+                                                                                    PostData postData7 = (PostData) sparseArray17.get(R.id.obfuscated_res_0x7f09205b);
+                                                                                    View view4 = (View) sparseArray17.get(R.id.obfuscated_res_0x7f09205c);
                                                                                     if (postData6 == null || view4 == null) {
                                                                                         return;
                                                                                     }
@@ -4081,7 +4081,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                                     String L3 = postData7 != null ? postData7.L() : "";
                                                                                     int W2 = this.a.w0.S1() != null ? this.a.w0.S1().W() : 0;
                                                                                     this.a.D7();
-                                                                                    if (view2.getId() == R.id.obfuscated_res_0x7f091bff) {
+                                                                                    if (view2.getId() == R.id.obfuscated_res_0x7f091c00) {
                                                                                         AbsPbActivity.e M62 = this.a.M6(L2);
                                                                                         if (this.a.w0 == null || this.a.w0.S1() == null || M62 == null) {
                                                                                             return;
@@ -4127,7 +4127,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                         } else if (BdNetTypeUtil.isNetWorkAvailable()) {
                                                                             SparseArray<Object> V02 = this.a.E0.V0(this.a.w0.S1(), this.a.w0.k2(), 1);
                                                                             if (V02 != null) {
-                                                                                this.a.E0.w2(((Integer) V02.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) V02.get(R.id.obfuscated_res_0x7f09203e), ((Integer) V02.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) V02.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                                                                this.a.E0.w2(((Integer) V02.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) V02.get(R.id.obfuscated_res_0x7f09203f), ((Integer) V02.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) V02.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                                                             }
                                                                             this.a.E0.h.k();
                                                                             if (this.a.K() != null && this.a.K().S1() != null && this.a.K().S1().O() != null) {
@@ -4156,7 +4156,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                         if (V03 == null) {
                                                                             return;
                                                                         }
-                                                                        this.a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.a.getPageContext().getPageActivity(), this.a.w0.S1().l().getId(), this.a.w0.S1().l().getName(), this.a.w0.S1().O().getId(), String.valueOf(this.a.w0.S1().V().getUserId()), (String) V03.get(R.id.obfuscated_res_0x7f092049), (String) V03.get(R.id.obfuscated_res_0x7f09204a), (String) V03.get(R.id.obfuscated_res_0x7f09204c), (String) V03.get(R.id.obfuscated_res_0x7f09204b))));
+                                                                        this.a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.a.getPageContext().getPageActivity(), this.a.w0.S1().l().getId(), this.a.w0.S1().l().getName(), this.a.w0.S1().O().getId(), String.valueOf(this.a.w0.S1().V().getUserId()), (String) V03.get(R.id.obfuscated_res_0x7f09204a), (String) V03.get(R.id.obfuscated_res_0x7f09204b), (String) V03.get(R.id.obfuscated_res_0x7f09204d), (String) V03.get(R.id.obfuscated_res_0x7f09204c))));
                                                                     } else {
                                                                         this.a.showToast(R.string.obfuscated_res_0x7f0f0c5a);
                                                                         return;
@@ -4195,11 +4195,11 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                 this.a.E0.u3();
                                                                 wu4 wu4Var = new wu4(this.a.getPageContext());
                                                                 if (this.a.w0.S1().f == null || this.a.w0.S1().f.size() <= 0) {
-                                                                    strArr = new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11d1), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11d2)};
+                                                                    strArr = new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11d2), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11d3)};
                                                                 } else {
                                                                     strArr = new String[this.a.w0.S1().f.size()];
                                                                     for (int i11 = 0; i11 < this.a.w0.S1().f.size(); i11++) {
-                                                                        strArr[i11] = this.a.w0.S1().f.get(i11).sort_name + this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11cf);
+                                                                        strArr[i11] = this.a.w0.S1().f.get(i11).sort_name + this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11d0);
                                                                     }
                                                                 }
                                                                 wu4Var.i(null, strArr, new a(this, wu4Var, view2));
@@ -4242,7 +4242,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                         statisticItem14.param("tid", this.a.w0.m2());
                                                         statisticItem14.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                         statisticItem14.param("fid", this.a.w0.getForumId());
-                                                        if (view2.getId() != R.id.obfuscated_res_0x7f091e97) {
+                                                        if (view2.getId() != R.id.obfuscated_res_0x7f091e98) {
                                                             statisticItem14.param("obj_locate", 5);
                                                         } else {
                                                             statisticItem14.param("obj_locate", 6);
@@ -4320,7 +4320,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                                     if (view2.getId() == R.id.obfuscated_res_0x7f0917fa) {
                                                                         i6 = 2;
                                                                     } else {
-                                                                        i6 = view2.getId() == R.id.obfuscated_res_0x7f091e97 ? 1 : 6;
+                                                                        i6 = view2.getId() == R.id.obfuscated_res_0x7f091e98 ? 1 : 6;
                                                                     }
                                                                     if ((!UbsABTestHelper.isResizeInduceSharingABTest() && !UbsABTestHelper.isResizeInduceSharingABTestA()) || !this.a.E0.W1() || S1.m0()) {
                                                                         this.a.x7(i6);
@@ -4348,7 +4348,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                     statisticItem142.param("tid", this.a.w0.m2());
                                                     statisticItem142.param("uid", TbadkCoreApplication.getCurrentAccount());
                                                     statisticItem142.param("fid", this.a.w0.getForumId());
-                                                    if (view2.getId() != R.id.obfuscated_res_0x7f091e97) {
+                                                    if (view2.getId() != R.id.obfuscated_res_0x7f091e98) {
                                                     }
                                                     statisticItem142.param("obj_name", i5);
                                                     statisticItem142.param("obj_type", 1);
@@ -4375,7 +4375,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                                     if (view2.getId() == R.id.obfuscated_res_0x7f090a0f) {
                                                         K3 = this.a.w0.K3(true, this.a.x5());
                                                     } else {
-                                                        K3 = view2.getId() == R.id.obfuscated_res_0x7f091bfc ? this.a.w0.K3(false, this.a.x5()) : this.a.w0.J3(this.a.x5());
+                                                        K3 = view2.getId() == R.id.obfuscated_res_0x7f091bfd ? this.a.w0.K3(false, this.a.x5()) : this.a.w0.J3(this.a.x5());
                                                     }
                                                     view2.setTag(Boolean.valueOf(K3));
                                                     if (K3) {
@@ -4484,7 +4484,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                         this.a.t1.d(3, i14, this.a.K().S1().Q());
                                     }
                                 } else {
-                                    this.a.showToast(R.string.obfuscated_res_0x7f0f0f2c);
+                                    this.a.showToast(R.string.obfuscated_res_0x7f0f0f2d);
                                     if (this.a.K() == null || this.a.K().S1() == null) {
                                         return;
                                     }
@@ -4511,14 +4511,14 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     } else {
                         String str4 = (String) view2.getTag(R.id.obfuscated_res_0x7f090a8e);
                         String str5 = (String) view2.getTag(R.id.obfuscated_res_0x7f090a79);
-                        String str6 = (String) view2.getTag(R.id.obfuscated_res_0x7f092190);
+                        String str6 = (String) view2.getTag(R.id.obfuscated_res_0x7f092191);
                         if (this.a.P != null) {
                             this.a.P.Q(str4, str5);
                         }
                         TbPageTag l2 = tc5.l(this.a.getContext());
                         j18.a("c14278", str5, str6, TbadkCoreApplication.getCurrentAccount(), l2 != null ? l2.locatePage : "");
                     }
-                    if (this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0deb).equals(view2.getTag()) && view2.getId() == R.id.obfuscated_res_0x7f091bef) {
+                    if (this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0deb).equals(view2.getTag()) && view2.getId() == R.id.obfuscated_res_0x7f091bf0) {
                         String w5 = this.a.w5();
                         if (TextUtils.isEmpty(w5)) {
                             return;
@@ -4533,7 +4533,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     statisticItem15.param("obj_locate", 1);
                     TiebaStatic.log(statisticItem15);
                     SparseArray sparseArray18 = (SparseArray) ((TbRichTextView) view2.getParent()).getTag();
-                    if (sparseArray18 != null && (sparseArray18.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean) && ((Boolean) sparseArray18.get(R.id.obfuscated_res_0x7f092056)).booleanValue()) {
+                    if (sparseArray18 != null && (sparseArray18.get(R.id.obfuscated_res_0x7f092057) instanceof Boolean) && ((Boolean) sparseArray18.get(R.id.obfuscated_res_0x7f092057)).booleanValue()) {
                         j28.o(2);
                     }
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 1).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
@@ -4547,7 +4547,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 20).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                         return;
                     }
-                    Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                    Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                     if (!(obj instanceof PostData)) {
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 20).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
                         return;
@@ -5691,7 +5691,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                 if (z) {
                     if (this.a.E5()) {
                         this.a.a7(false);
-                        nu7.e(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f122b));
+                        nu7.e(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f122c));
                     }
                     qz7 qz7Var = this.a.I0;
                     if (qz7Var != null) {
@@ -5927,7 +5927,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
                 if (this.a.isAdded()) {
                     if (view2 != null) {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091c1d) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091c1e) {
                             if (this.a.V6(view2)) {
                                 return true;
                             }
@@ -5935,7 +5935,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                             if (!(view2.getTag() instanceof SparseArray)) {
                                 return false;
                             }
-                            Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                            Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                             if (!(obj instanceof PostData)) {
                                 return false;
                             }
@@ -5944,13 +5944,13 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                 return this.a.D6(postData.L());
                             }
                         } else if (view2.getId() == R.id.obfuscated_res_0x7f09180c) {
-                            if (view2.getTag(R.id.obfuscated_res_0x7f09204f) instanceof SparseArray) {
-                                this.a.B7((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f09204f));
+                            if (view2.getTag(R.id.obfuscated_res_0x7f092050) instanceof SparseArray) {
+                                this.a.B7((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092050));
                             }
                         } else if (!(view2 instanceof TbRichTextView) && view2.getId() != R.id.obfuscated_res_0x7f091866) {
                             if (this.a.E0.P1() && view2.getId() == R.id.obfuscated_res_0x7f09182b) {
-                                if (view2.getTag(R.id.obfuscated_res_0x7f092091) instanceof String) {
-                                    TiebaStatic.log(new StatisticItem("c10630").param("obj_id", (String) view2.getTag(R.id.obfuscated_res_0x7f092091)));
+                                if (view2.getTag(R.id.obfuscated_res_0x7f092092) instanceof String) {
+                                    TiebaStatic.log(new StatisticItem("c10630").param("obj_id", (String) view2.getTag(R.id.obfuscated_res_0x7f092092)));
                                 }
                                 if (this.a.z0() != null && this.a.z0().b != null) {
                                     this.a.z0().b.onClick(view2);
@@ -6028,7 +6028,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
             }
             if (((responsedMessage instanceof ThreadPublishHttpResMeesage) || (responsedMessage instanceof ThreadPublishSocketResMessage)) && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag().getId() == this.a.a.getPageId()) {
                 if (responsedMessage.getError() == 0) {
-                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f13e9);
+                    ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f13ea);
                     if (this.a.E0 == null || (n1 = this.a.E0.n1()) == null || this.a.E0.U0() == null) {
                         return;
                     }
@@ -7056,8 +7056,8 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     statisticItem.param("obj_type", z2 ? 1 : 2);
                     TiebaStatic.log(statisticItem);
                     TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "pic_pb", "");
-                    if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextMemeInfo) && (view2 instanceof TbImageView)) {
-                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                    if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextMemeInfo) && (view2 instanceof TbImageView)) {
+                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                         boolean w = ((TbImageView) view2).w();
                         if (tbRichTextMemeInfo != null && tbRichTextMemeInfo.memeInfo != null) {
                             this.a.sendMessage(new CustomMessage(2002001, new EmotionDetailActivityConfig(this.a.getPageContext().getPageActivity(), tbRichTextMemeInfo.memeInfo.pck_id.intValue(), tbRichTextMemeInfo.memeInfo.pic_id.longValue(), 25033, w)));
@@ -7396,11 +7396,11 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                         return;
                     }
                     PbFragment pbFragment2 = this.a;
-                    pbFragment2.showToast(pbFragment2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff1));
+                    pbFragment2.showToast(pbFragment2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff2));
                     return;
                 }
                 PbFragment pbFragment3 = this.a;
-                pbFragment3.showToast(pbFragment3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e5));
+                pbFragment3.showToast(pbFragment3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e6));
             }
         }
     }
@@ -7529,12 +7529,12 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                 this.a.E0.v1();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    this.a.f1.d(this.a.e1.getResources().getString(R.string.obfuscated_res_0x7f0f14be));
+                    this.a.f1.d(this.a.e1.getResources().getString(R.string.obfuscated_res_0x7f0f14bf));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (dj.isEmpty(muteMessage)) {
-                    muteMessage = this.a.e1.getResources().getString(R.string.obfuscated_res_0x7f0f14bd);
+                    muteMessage = this.a.e1.getResources().getString(R.string.obfuscated_res_0x7f0f14be);
                 }
                 this.a.f1.c(muteMessage);
             }
@@ -7877,15 +7877,15 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     String str = dataRes.mute_confirm;
                     r3 = e == 1;
                     if (dj.isEmpty(str)) {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092092, "确定禁言？");
+                        sparseArray.put(R.id.obfuscated_res_0x7f092093, "确定禁言？");
                     } else {
-                        sparseArray.put(R.id.obfuscated_res_0x7f092092, str);
+                        sparseArray.put(R.id.obfuscated_res_0x7f092093, str);
                     }
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
                 } else {
-                    sparseArray.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                 }
-                int intValue = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09204f)).intValue();
+                int intValue = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092050)).intValue();
                 if (intValue == 0) {
                     this.a.s7(r3, sparseArray);
                 } else if (intValue == 1) {
@@ -9001,7 +9001,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                 e4.printStackTrace();
                 sparseArray = null;
             }
-            if (sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) == null) {
+            if (sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) == null) {
                 return;
             }
             C6(postData);
@@ -9011,7 +9011,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
     public final void B7(SparseArray<Object> sparseArray) {
         PostData postData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, sparseArray) == null) && checkUpIsLogin() && sparseArray != null && (sparseArray.get(R.id.obfuscated_res_0x7f09203c) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, sparseArray) == null) && checkUpIsLogin() && sparseArray != null && (sparseArray.get(R.id.obfuscated_res_0x7f09203d) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) != null) {
             C7(postData, false);
         }
     }
@@ -9614,7 +9614,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
             }
             if (O.getPraise() != null) {
                 if (O.getPraise().getNum() < 1) {
-                    getResources().getString(R.string.obfuscated_res_0x7f0f1662);
+                    getResources().getString(R.string.obfuscated_res_0x7f0f1663);
                 } else {
                     StringHelper.numFormatOver10000(O.getPraise().getNum());
                 }
@@ -9637,7 +9637,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                 }
             }
             if (O.getPraise().getNum() < 1) {
-                getResources().getString(R.string.obfuscated_res_0x7f0f1662);
+                getResources().getString(R.string.obfuscated_res_0x7f0f1663);
             } else {
                 String str = O.getPraise().getNum() + "";
             }
@@ -10130,7 +10130,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, view2)) == null) {
             if (view2 != null && (view2.getTag() instanceof SparseArray)) {
-                Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                 if (obj instanceof PostData) {
                     PostData postData = (PostData) obj;
                     if (postData.getType() != PostData.O0 && !TextUtils.isEmpty(postData.t()) && hq4.c().g()) {
@@ -10432,11 +10432,11 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
     public void Y5(boolean z3, String str, SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Boolean.valueOf(z3), str, sparseArray}) == null) {
-            String str2 = sparseArray.get(R.id.obfuscated_res_0x7f092095) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092095) : "";
-            String str3 = sparseArray.get(R.id.obfuscated_res_0x7f092097) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092097) : "";
-            String str4 = sparseArray.get(R.id.obfuscated_res_0x7f092096) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092096) : "";
-            String str5 = sparseArray.get(R.id.obfuscated_res_0x7f092092) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092092) : "";
-            String str6 = sparseArray.get(R.id.obfuscated_res_0x7f092093) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092093) : "";
+            String str2 = sparseArray.get(R.id.obfuscated_res_0x7f092096) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092096) : "";
+            String str3 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092098) : "";
+            String str4 = sparseArray.get(R.id.obfuscated_res_0x7f092097) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092097) : "";
+            String str5 = sparseArray.get(R.id.obfuscated_res_0x7f092093) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092093) : "";
+            String str6 = sparseArray.get(R.id.obfuscated_res_0x7f092094) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092094) : "";
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
             userMuteAddAndDelCustomMessage.setData(z3, str, str2, str3, str4, 1, str5, this.g1);
             userMuteAddAndDelCustomMessage.setTag(this.g1);
@@ -10533,7 +10533,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
             this.E0.P3();
             UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001429);
             userMuteCheckCustomMessage.userIdF = dh.g(currentAccount, 0L);
-            userMuteCheckCustomMessage.userIdT = dh.g((String) sparseArray.get(R.id.obfuscated_res_0x7f092094), 0L);
+            userMuteCheckCustomMessage.userIdT = dh.g((String) sparseArray.get(R.id.obfuscated_res_0x7f092095), 0L);
             BdUniqueId bdUniqueId = this.g1;
             userMuteCheckCustomMessage.mId = bdUniqueId;
             userMuteCheckCustomMessage.setTag(bdUniqueId);
@@ -10921,13 +10921,13 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                             if (this.j1 == null || TextUtils.isEmpty(url)) {
                                 return true;
                             }
-                            if (view2.getTag(R.id.obfuscated_res_0x7f092077) != null && (view2.getTag(R.id.obfuscated_res_0x7f092077) instanceof TbRichTextImageInfo)) {
-                                this.l1 = (TbRichTextImageInfo) view2.getTag(R.id.obfuscated_res_0x7f092077);
+                            if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
+                                this.l1 = (TbRichTextImageInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
                             } else {
                                 this.l1 = null;
                             }
-                            if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
-                                this.m1 = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                            if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextImageInfo)) {
+                                this.m1 = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                             } else {
                                 this.m1 = null;
                             }
@@ -10940,8 +10940,8 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                             if (!TextUtils.isEmpty(gifView.getBdImage().q())) {
                                 this.k1 = gifView.getBdImage().q();
                             }
-                            if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
-                                this.m1 = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                            if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextImageInfo)) {
+                                this.m1 = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                             } else {
                                 this.m1 = null;
                             }
@@ -10952,8 +10952,8 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                 if (!TextUtils.isEmpty(tbMemeImageView.getBdImage().q())) {
                                     this.k1 = tbMemeImageView.getBdImage().q();
                                 }
-                                if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
-                                    this.m1 = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                                if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextImageInfo)) {
+                                    this.m1 = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                                 } else {
                                     this.m1 = null;
                                 }
@@ -10980,7 +10980,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                         return true;
                     }
                 }
-                PostData postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+                PostData postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
                 this.B2 = postData;
                 if (postData == null) {
                     return true;
@@ -11014,44 +11014,44 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                 }
                 boolean z10 = m6(view2) && !z7;
                 boolean z11 = (!m6(view2) || (onVar = this.j1) == null || onVar.t()) ? false : true;
-                boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
-                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue() : false;
-                boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-                boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-                boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-                boolean booleanValue6 = sparseArray.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
-                String str = sparseArray.get(R.id.obfuscated_res_0x7f09204c) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204c) : null;
-                boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
-                boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f09205d) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).booleanValue() : false;
+                boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092056)).booleanValue() : false;
+                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue() : false;
+                boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+                boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+                boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+                boolean booleanValue6 = sparseArray.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
+                String str = sparseArray.get(R.id.obfuscated_res_0x7f09204d) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204d) : null;
+                boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
+                boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f09205e) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205e)).booleanValue() : false;
                 if (z10) {
                     z3 = booleanValue8;
                     z5 = booleanValue6;
                     z4 = booleanValue5;
-                    arrayList.add(new uu4(1, getString(R.string.obfuscated_res_0x7f0f10ae), this.K0));
+                    arrayList.add(new uu4(1, getString(R.string.obfuscated_res_0x7f0f10af), this.K0));
                 } else {
                     z3 = booleanValue8;
                     z4 = booleanValue5;
                     z5 = booleanValue6;
                 }
                 if (z11) {
-                    arrayList.add(new uu4(2, getString(R.string.obfuscated_res_0x7f0f10af), this.K0));
+                    arrayList.add(new uu4(2, getString(R.string.obfuscated_res_0x7f0f10b0), this.K0));
                 }
                 if (!z10 && !z11) {
                     uu4 uu4Var7 = new uu4(3, getString(R.string.obfuscated_res_0x7f0f0452), this.K0);
                     SparseArray sparseArray3 = new SparseArray();
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09203c, this.B2);
+                    sparseArray3.put(R.id.obfuscated_res_0x7f09203d, this.B2);
                     uu4Var7.d.setTag(sparseArray3);
                     arrayList.add(uu4Var7);
                 }
                 if (!booleanValue && !z7) {
                     if (z6) {
-                        uu4Var6 = new uu4(4, getString(R.string.obfuscated_res_0x7f0f0ff1), this.K0);
+                        uu4Var6 = new uu4(4, getString(R.string.obfuscated_res_0x7f0f0ff2), this.K0);
                     } else {
                         uu4Var6 = new uu4(4, getString(R.string.obfuscated_res_0x7f0f0aaa), this.K0);
                     }
                     SparseArray sparseArray4 = new SparseArray();
-                    sparseArray4.put(R.id.obfuscated_res_0x7f09203c, this.B2);
-                    sparseArray4.put(R.id.obfuscated_res_0x7f092055, Boolean.FALSE);
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09203d, this.B2);
+                    sparseArray4.put(R.id.obfuscated_res_0x7f092056, Boolean.FALSE);
                     uu4Var6.d.setTag(sparseArray4);
                     arrayList.add(uu4Var6);
                 }
@@ -11059,53 +11059,53 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     if (!g18.i(this.w0) && !booleanValue4 && booleanValue3) {
                         uu4 uu4Var8 = new uu4(5, getString(R.string.obfuscated_res_0x7f0f0b4d), this.K0);
                         SparseArray sparseArray5 = new SparseArray();
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                         sparseArray5.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                         sparseArray5.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                         sparseArray5.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                         sparseArray5.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                         uu4Var8.d.setTag(sparseArray5);
                         arrayList.add(uu4Var8);
                     } else {
                         if ((q6(booleanValue2) && TbadkCoreApplication.isLogin()) && !z7) {
-                            uu4 uu4Var9 = new uu4(5, getString(R.string.obfuscated_res_0x7f0f1016), this.K0);
+                            uu4 uu4Var9 = new uu4(5, getString(R.string.obfuscated_res_0x7f0f1017), this.K0);
                             uu4Var9.d.setTag(str);
                             arrayList.add(uu4Var9);
                         }
                     }
                     if (booleanValue4) {
                         SparseArray sparseArray6 = new SparseArray();
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                        sparseArray6.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092049, sparseArray.get(R.id.obfuscated_res_0x7f092049));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                        sparseArray6.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                         sparseArray6.put(R.id.obfuscated_res_0x7f09204a, sparseArray.get(R.id.obfuscated_res_0x7f09204a));
                         sparseArray6.put(R.id.obfuscated_res_0x7f09204b, sparseArray.get(R.id.obfuscated_res_0x7f09204b));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f09204c, str);
-                        sparseArray6.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f09204c, sparseArray.get(R.id.obfuscated_res_0x7f09204c));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f09204d, str);
+                        sparseArray6.put(R.id.obfuscated_res_0x7f09205e, sparseArray.get(R.id.obfuscated_res_0x7f09205e));
                         if (!g18.i(this.w0) && z4) {
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                             sparseArray6.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                             sparseArray6.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                             sparseArray6.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                         } else {
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                         }
                         if (z5) {
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                            sparseArray6.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue2));
-                            sparseArray6.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092054, Boolean.valueOf(booleanValue7));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue2));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092055, Boolean.valueOf(booleanValue7));
                             if (booleanValue7) {
                                 uu4Var5 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f04b0), this.K0);
                                 uu4Var5.d.setTag(sparseArray6);
@@ -11115,7 +11115,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                                 uu4Var = null;
                             }
                         } else {
-                            sparseArray6.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                            sparseArray6.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                         }
                         uu4Var5 = null;
                         uu4Var2 = new uu4(7, getString(R.string.obfuscated_res_0x7f0f02e8), this.K0);
@@ -11124,16 +11124,16 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                         uu4Var = null;
                     } else if (z5) {
                         SparseArray sparseArray7 = new SparseArray();
-                        sparseArray7.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
-                        sparseArray7.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
-                        sparseArray7.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                        sparseArray7.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                        sparseArray7.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue2));
-                        sparseArray7.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                        sparseArray7.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                        sparseArray7.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                        sparseArray7.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
+                        sparseArray7.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
+                        sparseArray7.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                        sparseArray7.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                        sparseArray7.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue2));
+                        sparseArray7.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray7.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                        sparseArray7.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                         if (this.w0.S1().W() == 1002 && !booleanValue2) {
-                            uu4Var4 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f1016), this.K0);
+                            uu4Var4 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f1017), this.K0);
                         } else {
                             uu4Var4 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f04b0), this.K0);
                         }
@@ -11236,7 +11236,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048692, this) == null) && this.l == null) {
             this.l = new pu4(getPageContext().getPageActivity());
-            String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f036a), getPageContext().getString(R.string.obfuscated_res_0x7f0f11cb), getPageContext().getString(R.string.obfuscated_res_0x7f0f10e0)};
+            String[] strArr = {getPageContext().getString(R.string.obfuscated_res_0x7f0f036a), getPageContext().getString(R.string.obfuscated_res_0x7f0f11cc), getPageContext().getString(R.string.obfuscated_res_0x7f0f10e1)};
             pu4 pu4Var = this.l;
             pu4Var.j(strArr, new p0(this));
             pu4Var.g(pu4.b.obfuscated_res_0x7f1003ad);
@@ -11324,11 +11324,11 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                     return;
                 }
                 this.E0.i4();
-                String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f09203e);
-                int intValue2 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205c)).intValue();
-                boolean booleanValue = ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue();
-                int intValue3 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092040)).intValue();
-                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092052) != null ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092052)).booleanValue() : false;
+                String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f09203f);
+                int intValue2 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).intValue();
+                boolean booleanValue = ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue();
+                int intValue3 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092041)).intValue();
+                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092053) != null ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092053)).booleanValue() : false;
                 if (jSONArray != null) {
                     this.z0.U(StringHelper.JsonArrayToString(jSONArray));
                 }
@@ -11381,7 +11381,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                         nu7.f(errorString + " " + preMsg, colorMsg);
                         return;
                     } else if (StringUtils.isNull(errorString)) {
-                        nu7.e(getResources().getString(R.string.obfuscated_res_0x7f0f122b));
+                        nu7.e(getResources().getString(R.string.obfuscated_res_0x7f0f122c));
                         return;
                     } else {
                         nu7.e(errorString);
@@ -11444,10 +11444,10 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048704, this, new Object[]{Integer.valueOf(i4), str, Integer.valueOf(i5), Boolean.valueOf(z3)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f09203e, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i4));
-            sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(i5));
-            sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z3));
+            sparseArray.put(R.id.obfuscated_res_0x7f09203f, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i4));
+            sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(i5));
+            sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z3));
             sparseArray.put(nz7.k2, Integer.valueOf(nz7.l2));
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
@@ -12644,23 +12644,23 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
 
     public final void s7(boolean z3, SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048749, this, z3, sparseArray) == null) && (sparseArray.get(R.id.obfuscated_res_0x7f092094) instanceof String) && (sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean) && (sparseArray.get(R.id.obfuscated_res_0x7f092038) instanceof Integer)) {
+        if ((interceptable == null || interceptable.invokeZL(1048749, this, z3, sparseArray) == null) && (sparseArray.get(R.id.obfuscated_res_0x7f092095) instanceof String) && (sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean) && (sparseArray.get(R.id.obfuscated_res_0x7f092039) instanceof Integer)) {
             wu4 wu4Var = this.J0;
             if (wu4Var != null && wu4Var.isShowing()) {
                 this.J0.dismiss();
                 this.J0 = null;
             }
-            String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f092092);
-            String str2 = (String) sparseArray.get(R.id.obfuscated_res_0x7f092094);
-            if (((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue()) {
+            String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f092093);
+            String str2 = (String) sparseArray.get(R.id.obfuscated_res_0x7f092095);
+            if (((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue()) {
                 yu4 yu4Var = new yu4(getContext());
                 yu4Var.n(new g0(this, sparseArray, z3, str2, str));
                 ArrayList arrayList = new ArrayList();
-                if ((sparseArray.get(R.id.obfuscated_res_0x7f092038) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092038)).intValue() : -1) == 1) {
+                if ((sparseArray.get(R.id.obfuscated_res_0x7f092039) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092039)).intValue() : -1) == 1) {
                     arrayList.add(new uu4(0, getResources().getString(R.string.obfuscated_res_0x7f0f04b0), yu4Var));
                 }
                 if (z3) {
-                    arrayList.add(new uu4(1, getResources().getString(R.string.obfuscated_res_0x7f0f14bc), yu4Var));
+                    arrayList.add(new uu4(1, getResources().getString(R.string.obfuscated_res_0x7f0f14bd), yu4Var));
                 } else {
                     arrayList.add(new uu4(1, getResources().getString(R.string.obfuscated_res_0x7f0f0b49), yu4Var));
                 }
@@ -12863,7 +12863,7 @@ public class PbFragment extends BaseFragment implements ll5, VoiceManager.j, Use
                         this.Y = ((View) view2.getParent()).getMeasuredHeight();
                     }
                     if (P5().e1() != null && postData != null) {
-                        P5().e1().j(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100c), postData.s().getName_show(), postData.W() != null ? postData.W().toString() : ""));
+                        P5().e1().j(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100d), postData.s().getName_show(), postData.W() != null ? postData.W().toString() : ""));
                     }
                     if (this.w0.S1() != null && this.w0.S1().i0()) {
                         gh.a().postDelayed(new h1(this, str, str2), 0L);

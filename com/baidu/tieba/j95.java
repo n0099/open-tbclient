@@ -81,7 +81,7 @@ public class j95 extends z85 {
             hv4 d2 = hv4.d(this.c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e59, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e5a, null);
             TBSpecificationBtn tBSpecificationBtn = this.d;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.k();

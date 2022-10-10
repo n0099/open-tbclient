@@ -180,7 +180,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             }
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03ec, this);
             this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091620);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0924e8);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0924e9);
             this.c = findViewById(R.id.obfuscated_res_0x7f0907f9);
             this.b.setOnClickListener(new a(this));
         }

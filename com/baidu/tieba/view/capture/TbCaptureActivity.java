@@ -191,7 +191,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 if (this.a.V != null) {
                     QmFilterItem qmFilterItem = new QmFilterItem();
                     qmFilterItem.id = "-1";
-                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a3b + "";
+                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a3c + "";
                     qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f063a);
                     qmFilterItem.isSelect = true;
                     qmFilterItem.localPath = "origin";
@@ -202,7 +202,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     this.a.V.setDownLoadFilter(null);
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1215);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1216);
                 }
                 this.a.showToast(str);
                 this.a.F.b(5, str);
@@ -272,7 +272,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     this.a.V.setDownLoadSticker(qmStickerItem, false);
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1215);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1216);
                 }
                 this.a.showToast(str);
                 this.a.F.b(5, str);
@@ -1337,7 +1337,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     }
                     QmFilterItem qmFilterItem = new QmFilterItem();
                     qmFilterItem.id = "-1";
-                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a3b + "";
+                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a3c + "";
                     qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f063a);
                     qmFilterItem.isSelect = true;
                     qmFilterItem.localPath = "origin";
@@ -1363,8 +1363,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         }
         this.P = new ArrayList<>();
         this.Q = false;
-        this.T = R.drawable.obfuscated_res_0x7f080a1e;
-        this.U = R.drawable.obfuscated_res_0x7f080a1f;
+        this.T = R.drawable.obfuscated_res_0x7f080a1f;
+        this.U = R.drawable.obfuscated_res_0x7f080a20;
         this.W = new k(this);
         this.X = new n(this);
         this.Y = new o(this);
@@ -1382,24 +1382,24 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void A2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.T = R.drawable.obfuscated_res_0x7f080a1e;
-            this.U = R.drawable.obfuscated_res_0x7f080a1f;
+            this.T = R.drawable.obfuscated_res_0x7f080a1f;
+            this.U = R.drawable.obfuscated_res_0x7f080a20;
             b16 b16Var = this.J;
             if (b16Var == null) {
                 return;
             }
             if (b16Var.d() == 1.0f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a06;
-                this.U = R.drawable.obfuscated_res_0x7f080a07;
+                this.T = R.drawable.obfuscated_res_0x7f080a07;
+                this.U = R.drawable.obfuscated_res_0x7f080a08;
             } else if (this.J.d() == 1.3333334f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a0a;
-                this.U = R.drawable.obfuscated_res_0x7f080a0b;
+                this.T = R.drawable.obfuscated_res_0x7f080a0b;
+                this.U = R.drawable.obfuscated_res_0x7f080a0c;
             } else if (this.J.d() == 1.7777778f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a0c;
-                this.U = R.drawable.obfuscated_res_0x7f080a0d;
+                this.T = R.drawable.obfuscated_res_0x7f080a0d;
+                this.U = R.drawable.obfuscated_res_0x7f080a0e;
             } else if (this.J.d() == 0.5625f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a08;
-                this.U = R.drawable.obfuscated_res_0x7f080a09;
+                this.T = R.drawable.obfuscated_res_0x7f080a09;
+                this.U = R.drawable.obfuscated_res_0x7f080a0a;
             }
             if (this.J.a() == 0) {
                 this.h.setImageDrawable(getResources().getDrawable(this.U));
@@ -1416,11 +1416,11 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             e16 e16Var = this.I;
             if (e16Var == null || !e16Var.c()) {
-                i2 = R.drawable.obfuscated_res_0x7f080a02;
-                i3 = R.drawable.obfuscated_res_0x7f080a04;
-            } else {
                 i2 = R.drawable.obfuscated_res_0x7f080a03;
                 i3 = R.drawable.obfuscated_res_0x7f080a05;
+            } else {
+                i2 = R.drawable.obfuscated_res_0x7f080a04;
+                i3 = R.drawable.obfuscated_res_0x7f080a06;
             }
             if (z) {
                 this.g.setImageDrawable(getResources().getDrawable(i3));
@@ -1444,7 +1444,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             y06 y06Var = this.H;
             if (y06Var != null && y06Var.getProgress() > 0.0f) {
                 wu4 wu4Var = new wu4(getPageContext(), new yu4(getPageContext().getPageActivity()));
-                wu4Var.i(null, new String[]{getString(R.string.obfuscated_res_0x7f0f0385), getResources().getString(R.string.obfuscated_res_0x7f0f0f96)}, new d(this, wu4Var));
+                wu4Var.i(null, new String[]{getString(R.string.obfuscated_res_0x7f0f0385), getResources().getString(R.string.obfuscated_res_0x7f0f0f97)}, new d(this, wu4Var));
                 wu4Var.k();
                 return;
             }
@@ -1486,7 +1486,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             this.L = lc6Var;
             lc6Var.c(this.g0);
             this.L.e();
-            this.V = (VideoControllerLayout) findViewById(R.id.obfuscated_res_0x7f091bad);
+            this.V = (VideoControllerLayout) findViewById(R.id.obfuscated_res_0x7f091bae);
             ec6 ec6Var = new ec6(this.G, null, this.V);
             this.K = ec6Var;
             ec6Var.d(this.f0);
@@ -1533,7 +1533,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void o2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c83);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c84);
             this.C = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904c7);
             this.D = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904b7);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904c6);
@@ -1606,8 +1606,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             this.R = new HashMap();
             this.S.add(getString(R.string.obfuscated_res_0x7f0f0646));
             this.R.put(getString(R.string.obfuscated_res_0x7f0f0646), 300);
-            this.S.add(getString(R.string.obfuscated_res_0x7f0f11c0));
-            this.R.put(getString(R.string.obfuscated_res_0x7f0f11c0), 60);
+            this.S.add(getString(R.string.obfuscated_res_0x7f0f11c1));
+            this.R.put(getString(R.string.obfuscated_res_0x7f0f11c1), 60);
             this.S.add(getString(R.string.obfuscated_res_0x7f0f0625));
             this.R.put(getString(R.string.obfuscated_res_0x7f0f0625), 15);
             this.A.setOnItemSelected(new h(this));
@@ -1617,15 +1617,15 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             this.y = relativeLayout6;
             relativeLayout6.setOnClickListener(this);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090433);
-            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a13));
+            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a14));
             B2(false);
             A2();
-            this.i.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a0e));
-            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3a));
-            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3d));
-            this.l.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a40));
-            this.m.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a34));
-            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3f));
+            this.i.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a0f));
+            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3b));
+            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3e));
+            this.l.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a41));
+            this.m.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a35));
+            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a40));
             hv4 d3 = hv4.d(this.a);
             d3.n(R.string.J_X01);
             d3.f(R.color.CAM_X0302);
@@ -1667,8 +1667,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             super.onChangeSkinType(i2);
             if (this.H != null) {
-                this.b.setImageDrawable(getResources().getDrawable(this.H.b() ? R.drawable.obfuscated_res_0x7f080a37 : R.drawable.obfuscated_res_0x7f080a45));
-                this.r.setText(getResources().getString(this.H.b() ? R.string.obfuscated_res_0x7f0f04b0 : R.string.obfuscated_res_0x7f0f14c0));
+                this.b.setImageDrawable(getResources().getDrawable(this.H.b() ? R.drawable.obfuscated_res_0x7f080a38 : R.drawable.obfuscated_res_0x7f080a46));
+                this.r.setText(getResources().getString(this.H.b() ? R.string.obfuscated_res_0x7f0f04b0 : R.string.obfuscated_res_0x7f0f14c1));
             }
         }
     }
@@ -1724,9 +1724,9 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 }
                 v2();
                 if (this.V.q()) {
-                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3a));
+                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3b));
                 } else {
-                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3c));
+                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3d));
                 }
                 this.V.v();
                 if (this.V.t()) {
@@ -1736,9 +1736,9 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 if (ListUtils.isEmpty(this.P)) {
                     v2();
                     if (this.V.s()) {
-                        this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3d));
-                    } else {
                         this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3e));
+                    } else {
+                        this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3f));
                     }
                     this.V.w();
                 }
@@ -1756,12 +1756,12 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 if (y06Var != null) {
                     if (y06Var.b()) {
                         this.H.a();
-                        this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a45));
-                        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c0));
+                        this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a46));
+                        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c1));
                         return;
                     }
                     this.H.setShowDeleteLastTip(true);
-                    this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a37));
+                    this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a38));
                     this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04b0));
                 }
             } else if (view2.getId() != R.id.obfuscated_res_0x7f0904ab || (cVar = this.Y) == null) {
@@ -1954,8 +1954,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             return;
         }
         y06Var.setShowDeleteLastTip(false);
-        this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a45));
-        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c0));
+        this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a46));
+        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c1));
     }
 
     public final void u2() {
@@ -1969,8 +1969,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void v2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3a));
-            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3d));
+            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3b));
+            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3e));
         }
     }
 

@@ -867,12 +867,12 @@ public class jg9 extends BaseEffectProcessor implements SurfaceTexture.OnFrameAv
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sticker)) == null) {
-            int i2 = !sticker.isSupport(te0.a0()) ? R.string.obfuscated_res_0x7f0f1221 : 0;
+            int i2 = !sticker.isSupport(te0.a0()) ? R.string.obfuscated_res_0x7f0f1222 : 0;
             if (TextUtils.isEmpty(sticker.getPath()) || !new File(sticker.getPath()).exists()) {
-                i2 = R.string.obfuscated_res_0x7f0f1216;
+                i2 = R.string.obfuscated_res_0x7f0f1217;
             }
             if (!te0.k1(sticker.getPath())) {
-                i2 = R.string.obfuscated_res_0x7f0f1217;
+                i2 = R.string.obfuscated_res_0x7f0f1218;
             }
             if (i2 != 0) {
                 ih9.a().post(new g(this, i2));

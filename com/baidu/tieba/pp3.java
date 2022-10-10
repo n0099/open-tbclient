@@ -165,7 +165,7 @@ public class pp3 implements fo1 {
         public final void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                d33.f(this.a, z ? R.string.obfuscated_res_0x7f0f1262 : R.string.obfuscated_res_0x7f0f125f).v();
+                d33.f(this.a, z ? R.string.obfuscated_res_0x7f0f1263 : R.string.obfuscated_res_0x7f0f1260).v();
             }
         }
 

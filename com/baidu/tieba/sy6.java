@@ -181,7 +181,7 @@ public class sy6 extends qn<y26, AutoVideoCardViewHolder<y26>> {
         }
         if (view2.getId() == this.d.p().getMainView().getId()) {
             cz6.d(y26Var, this.e);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f092180) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f092181) {
             cz6.d(y26Var, this.e);
         }
     }

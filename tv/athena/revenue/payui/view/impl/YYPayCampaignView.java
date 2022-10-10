@@ -70,8 +70,8 @@ public class YYPayCampaignView extends LinearLayout implements o5a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(new ContextThemeWrapper(context, k5a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d06ab, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9c);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c55);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9d);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c56);
             this.h = new LinearLayoutManager(context, 0, false);
             this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
             this.b.setLayoutManager(this.h);

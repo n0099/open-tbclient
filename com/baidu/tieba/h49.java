@@ -302,7 +302,7 @@ public class h49 extends n49<e59> implements p49 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04cd, viewGroup, false);
             this.i = inflate;
-            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091b37);
+            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091b38);
             NormalItemCell.a aVar = new NormalItemCell.a();
             aVar.b = 1;
             aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f03d4);

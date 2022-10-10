@@ -48,9 +48,9 @@ public class LiveSearchDeleteEntranceViewHolder extends RecyclerView.ViewHolder 
             this.b.setTextColor(uc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
             String r = uc0.f().r();
             if ("day".equals(r)) {
-                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2a);
-            } else if ("night".equals(r)) {
                 this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2b);
+            } else if ("night".equals(r)) {
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2c);
             }
         }
     }

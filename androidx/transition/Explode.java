@@ -168,7 +168,7 @@ public class Explode extends Visibility {
             int i2 = rect.top;
             float translationX = view2.getTranslationX();
             float translationY = view2.getTranslationY();
-            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232b);
+            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232c);
             if (iArr != null) {
                 f = (iArr[0] - rect.left) + translationX;
                 f2 = (iArr[1] - rect.top) + translationY;

@@ -83,7 +83,7 @@ public class fz6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
             int id = view2.getId();
-            return id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194;
+            return id == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195;
         }
         return invokeL.booleanValue;
     }

@@ -378,7 +378,7 @@ public class i35 {
             this.s = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090b44);
             this.n.setText(this.k);
             this.m.setText(this.l);
-            this.r.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f72));
+            this.r.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0f73));
             FrameLayout frameLayout = this.s;
             if (frameLayout != null) {
                 ViewGroup.LayoutParams layoutParams = frameLayout.getLayoutParams();
@@ -510,7 +510,7 @@ public class i35 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
-            this.o.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080acd, (WebPManager.ResourceStateType) null));
+            this.o.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ace, (WebPManager.ResourceStateType) null));
             TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(ej.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(ej.f(this.b, R.dimen.tbds10)).setOffsetX(0).setOffsetY(ej.f(this.b, R.dimen.tbds5)).into(this.p);
             View view2 = this.p;
             if (view2 != null) {

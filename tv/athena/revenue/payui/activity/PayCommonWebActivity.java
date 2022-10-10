@@ -571,10 +571,10 @@ public class PayCommonWebActivity extends YYPayBaseActivity implements YYPayWebV
             String str = this.a;
             RLog.info(str, "onCreate mPayFlowType:" + this.q);
             s();
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f3);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f8);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f4);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f0920f9);
             this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909e2);
-            SimpleNavigationBar simpleNavigationBar = (SimpleNavigationBar) findViewById(R.id.obfuscated_res_0x7f091ef6);
+            SimpleNavigationBar simpleNavigationBar = (SimpleNavigationBar) findViewById(R.id.obfuscated_res_0x7f091ef7);
             this.c = simpleNavigationBar;
             simpleNavigationBar.setCallback(new a(this));
             B();

@@ -185,7 +185,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f094b));
             this.j.setEnabled(false);
             oy4 oy4Var = new oy4();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091e37);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091e38);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
             oy4Var.r(R.color.CAM_X0105);

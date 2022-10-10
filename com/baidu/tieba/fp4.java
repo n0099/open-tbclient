@@ -394,7 +394,7 @@ public class fp4 {
                 return;
             }
             this.a.x.dismiss();
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.a).createNormalCfg(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f14fe), null);
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.a).createNormalCfg(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f14ff), null);
             createNormalCfg.setCallFrom(12);
             this.a.a.sendMessage(new CustomMessage(2003000, createNormalCfg));
         }
@@ -581,7 +581,7 @@ public class fp4 {
             }
             navigationBar.setBackgroundDrawable(null);
             this.c.setBackgroundColor(R.color.transparent);
-            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+            this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
             this.j.setVisibility(8);
             this.k.setVisibility(0);
             this.k.setOnClickListener(this.a);
@@ -589,9 +589,9 @@ public class fp4 {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.width = ej.f(this.a, R.dimen.tbds100);
             layoutParams.height = ej.f(this.a, R.dimen.tbds100);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a27, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a28, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -615,7 +615,7 @@ public class fp4 {
             if (this.x == null) {
                 yy8 yy8Var = new yy8(this.a);
                 ArrayList arrayList = new ArrayList();
-                yy8.b bVar = new yy8.b(this.a.getString(R.string.obfuscated_res_0x7f0f1016), yy8Var);
+                yy8.b bVar = new yy8.b(this.a.getString(R.string.obfuscated_res_0x7f0f1017), yy8Var);
                 bVar.h(new i(this));
                 arrayList.add(bVar);
                 yy8Var.g(new j(this));
@@ -643,7 +643,7 @@ public class fp4 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             if (this.o == null) {
-                this.o = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f8)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fd6), this.p)));
+                this.o = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f9)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fd7), this.p)));
             }
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 this.o.g(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, a2), this.a.getPageContext());
@@ -664,7 +664,7 @@ public class fp4 {
                 ArrayList arrayList = new ArrayList();
                 if (this.s) {
                     uu4 uu4Var = new uu4(yu4Var);
-                    uu4Var.n(this.a.getString(R.string.obfuscated_res_0x7f0f1180));
+                    uu4Var.n(this.a.getString(R.string.obfuscated_res_0x7f0f1181));
                     uu4Var.m(new f(this));
                     arrayList.add(uu4Var);
                 }
@@ -791,10 +791,10 @@ public class fp4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0143);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091c83);
-            this.c = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.c = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.A = this.a.findViewById(R.id.obfuscated_res_0x7f0916c4);
-            this.r = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092669);
+            this.r = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09266a);
             this.c.showBottomLine();
             E("");
             if (this.a.isTranslucent()) {
@@ -802,23 +802,23 @@ public class fp4 {
                 this.b.setOnClickListener(this.a);
                 this.c.setVisibility(8);
             }
-            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09265b);
+            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09265c);
             this.l = linearLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c4);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c5);
             this.l.setLayoutParams(layoutParams);
-            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09265d);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f092668);
+            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09265e);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f092669);
             this.n = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_full_screen_refresh);
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0920, new b(this));
             this.f = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09267f);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092680);
             this.g = imageView;
             imageView.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02ce));
             View addCustomView2 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0923, new c(this));
             this.h = addCustomView2;
-            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f09267f);
+            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f092680);
             this.i = imageView2;
             imageView2.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03f8));
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
@@ -826,11 +826,11 @@ public class fp4 {
             this.i.setLayoutParams(layoutParams2);
             View addCustomView3 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0924, new d(this));
             this.q = addCustomView3;
-            this.j = (ImageView) addCustomView3.findViewById(R.id.obfuscated_res_0x7f092680);
-            this.k = (ImageView) this.q.findViewById(R.id.obfuscated_res_0x7f092681);
+            this.j = (ImageView) addCustomView3.findViewById(R.id.obfuscated_res_0x7f092681);
+            this.k = (ImageView) this.q.findViewById(R.id.obfuscated_res_0x7f092682);
             bp4 bp4Var = new bp4(this.c, this.l);
             this.B = bp4Var;
-            bp4Var.a(new ap4(this.g, R.drawable.obfuscated_res_0x7f080628), new ap4(this.i, R.drawable.obfuscated_res_0x7f080a12), new ap4(this.j, R.drawable.icon_pure_topbar_more44_svg), new ap4(this.k, R.drawable.obfuscated_res_0x7f080a27), new ap4(this.c.getCenterText(), 0));
+            bp4Var.a(new ap4(this.g, R.drawable.obfuscated_res_0x7f080628), new ap4(this.i, R.drawable.obfuscated_res_0x7f080a13), new ap4(this.j, R.drawable.icon_pure_topbar_more44_svg), new ap4(this.k, R.drawable.obfuscated_res_0x7f080a28), new ap4(this.c.getCenterText(), 0));
         }
     }
 
@@ -886,9 +886,9 @@ public class fp4 {
                     navigationBar.onChangeSkinType(this.a.getPageContext(), i2);
                 }
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a27, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080a28, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else if (i2 == 1) {
                 this.A.setVisibility(0);
             }
@@ -898,7 +898,7 @@ public class fp4 {
             }
             ImageView imageView = this.e;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f081216, R.color.CAM_X0105, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f081217, R.color.CAM_X0105, null);
             }
         }
     }
@@ -935,7 +935,7 @@ public class fp4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c4);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0925c5);
             this.l.setLayoutParams(layoutParams);
             ImageView imageView = this.g;
             if (imageView != null) {

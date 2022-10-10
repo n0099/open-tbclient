@@ -235,7 +235,7 @@ public class TopicListView extends FrameLayout {
             this.k.f();
             this.k.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.k.t(ej.f(this.b.getPageActivity(), R.dimen.tbds150));
-            this.k.D(getResources().getString(R.string.obfuscated_res_0x7f0f0fa1));
+            this.k.D(getResources().getString(R.string.obfuscated_res_0x7f0f0fa2));
         }
     }
 

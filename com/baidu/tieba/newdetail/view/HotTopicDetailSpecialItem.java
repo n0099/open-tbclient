@@ -112,16 +112,16 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a6, (ViewGroup) this, true);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c6d);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091c6e);
             this.b = viewGroup;
             viewGroup.setOnClickListener(this);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090715);
             this.d = findViewById(R.id.obfuscated_res_0x7f090714);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0924f6);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924f4);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f5);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0924f7);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924f5);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f6);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09079a);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092034);
             this.c.setPlaceHolder(2);
             this.c.setRadius(ej.f(getContext(), R.dimen.tbds10));
             this.c.setConrers(15);

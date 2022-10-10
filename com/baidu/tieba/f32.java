@@ -212,10 +212,10 @@ public class f32 extends j23 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00cc, viewGroup, false);
             this.k = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ca2);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ca3);
             this.l = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603ee));
-            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091ca3);
+            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091ca4);
             this.m = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603ed));
             q();

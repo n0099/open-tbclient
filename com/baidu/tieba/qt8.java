@@ -282,11 +282,11 @@ public class qt8 {
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d023d, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f052a));
-        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09085b);
         this.f = (CoverFlowView) this.b.findViewById(R.id.obfuscated_res_0x7f09085c);
         j();

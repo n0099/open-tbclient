@@ -60,7 +60,7 @@ public class x22 extends r22 implements View.OnClickListener {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f126a));
+            v2(G(R.string.obfuscated_res_0x7f0f126b));
             x2(true);
             J2(false);
         }

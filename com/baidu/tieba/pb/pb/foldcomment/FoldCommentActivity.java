@@ -761,7 +761,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 TiebaStatic.log(statisticItem2);
                 TbRichTextView tbRichTextView = (TbRichTextView) view2.getParent();
                 if (tbRichTextView.getTag() instanceof SparseArray) {
-                    Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                    Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                     if (obj instanceof PostData) {
                         PostData postData = (PostData) obj;
                         if (this.a.a == null || this.a.a.S1() == null || postData.s() == null || postData.C() == 1 || !this.a.checkUpIsLogin()) {
@@ -785,7 +785,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     }
                 }
             } else if (view2.getId() != R.id.obfuscated_res_0x7f09180f && view2.getId() != R.id.obfuscated_res_0x7f091867) {
-                if (view2.getId() != R.id.obfuscated_res_0x7f091f9e && view2.getId() != R.id.obfuscated_res_0x7f091f9c && view2.getId() != R.id.obfuscated_res_0x7f09180d && view2.getId() != R.id.obfuscated_res_0x7f09169e) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f091f9f && view2.getId() != R.id.obfuscated_res_0x7f091f9d && view2.getId() != R.id.obfuscated_res_0x7f09180d && view2.getId() != R.id.obfuscated_res_0x7f09169e) {
                     if (view2.getId() == R.id.obfuscated_res_0x7f09186d || view2.getId() == R.id.obfuscated_res_0x7f091a43 || view2.getId() == R.id.obfuscated_res_0x7f091807) {
                         if (this.a.a == null) {
                             return;
@@ -809,8 +809,8 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                         if (this.a.checkUpIsLogin() && (view2.getTag() instanceof SparseArray)) {
                             SparseArray sparseArray2 = (SparseArray) view2.getTag();
-                            if (sparseArray2.get(R.id.obfuscated_res_0x7f092059) instanceof PostData) {
-                                PostData postData2 = (PostData) sparseArray2.get(R.id.obfuscated_res_0x7f092059);
+                            if (sparseArray2.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData) {
+                                PostData postData2 = (PostData) sparseArray2.get(R.id.obfuscated_res_0x7f09205a);
                                 if (view2.getId() == R.id.obfuscated_res_0x7f09186d && (statisticItem = postData2.d0) != null) {
                                     StatisticItem copy = statisticItem.copy();
                                     copy.delete("obj_locate");
@@ -845,9 +845,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             return;
                         }
                         return;
-                    } else if ((view2.getId() == R.id.obfuscated_res_0x7f090786 || view2.getId() == R.id.obfuscated_res_0x7f090a0c) && (sparseArray = (SparseArray) view2.getTag()) != null && (sparseArray.get(R.id.obfuscated_res_0x7f092059) instanceof PostData)) {
-                        PostData postData3 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f092059);
-                        View view3 = (View) sparseArray.get(R.id.obfuscated_res_0x7f09205b);
+                    } else if ((view2.getId() == R.id.obfuscated_res_0x7f090786 || view2.getId() == R.id.obfuscated_res_0x7f090a0c) && (sparseArray = (SparseArray) view2.getTag()) != null && (sparseArray.get(R.id.obfuscated_res_0x7f09205a) instanceof PostData)) {
+                        PostData postData3 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09205a);
+                        View view3 = (View) sparseArray.get(R.id.obfuscated_res_0x7f09205c);
                         if (postData3 == null || view3 == null) {
                             return;
                         }
@@ -861,7 +861,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                         SkinManager.setBackgroundColor(findViewById, postData3.q0() ? R.color.CAM_X0201 : R.color.transparent);
                         SkinManager.setViewTextColor(eMTextView, postData3.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107);
-                        WebPManager.setPureDrawable(imageView, postData3.q0() ? R.drawable.obfuscated_res_0x7f080983 : R.drawable.obfuscated_res_0x7f080982, postData3.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
+                        WebPManager.setPureDrawable(imageView, postData3.q0() ? R.drawable.obfuscated_res_0x7f080984 : R.drawable.obfuscated_res_0x7f080983, postData3.q0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
                         return;
                     } else {
                         return;
@@ -883,9 +883,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     }
                     this.a.c.u();
                     SparseArray sparseArray3 = (SparseArray) view2.getTag();
-                    PostData postData4 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f092059);
-                    PostData postData5 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f09205a);
-                    View view4 = (View) sparseArray3.get(R.id.obfuscated_res_0x7f09205b);
+                    PostData postData4 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f09205a);
+                    PostData postData5 = (PostData) sparseArray3.get(R.id.obfuscated_res_0x7f09205b);
+                    View view4 = (View) sparseArray3.get(R.id.obfuscated_res_0x7f09205c);
                     if (postData4 == null || view4 == null) {
                         return;
                     }
@@ -911,7 +911,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     String L2 = postData5 != null ? postData5.L() : "";
                     int W = this.a.a.S1() != null ? this.a.a.S1().W() : 0;
                     this.a.x();
-                    if (view2.getId() == R.id.obfuscated_res_0x7f091bff) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f091c00) {
                         AbsPbActivity.e C2 = this.a.C2(L);
                         if (this.a.a == null || this.a.a.S1() == null || C2 == null) {
                             return;
@@ -1495,11 +1495,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                     FoldCommentActivity foldCommentActivity2 = this.a;
-                    foldCommentActivity2.showToast(foldCommentActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff1));
+                    foldCommentActivity2.showToast(foldCommentActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff2));
                     return;
                 }
                 FoldCommentActivity foldCommentActivity3 = this.a;
-                foldCommentActivity3.showToast(foldCommentActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e5));
+                foldCommentActivity3.showToast(foldCommentActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f14e6));
             }
         }
     }
@@ -1661,8 +1661,8 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 try {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextMemeInfo) && (view2 instanceof TbImageView)) {
-                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                    if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextMemeInfo) && (view2 instanceof TbImageView)) {
+                        TbRichTextMemeInfo tbRichTextMemeInfo = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                         boolean w = ((TbImageView) view2).w();
                         if (tbRichTextMemeInfo != null && tbRichTextMemeInfo.memeInfo != null) {
                             this.a.sendMessage(new CustomMessage(2002001, new EmotionDetailActivityConfig(this.a.getPageContext().getPageActivity(), tbRichTextMemeInfo.memeInfo.pck_id.intValue(), tbRichTextMemeInfo.memeInfo.pic_id.longValue(), 25033, w)));
@@ -1929,13 +1929,13 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
                 if (view2 != null) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f091c1d) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f091c1e) {
                         if (this.a.E2(view2)) {
                             return true;
                         }
                     } else if (view2.getId() == R.id.obfuscated_res_0x7f09180c) {
-                        if (view2.getTag(R.id.obfuscated_res_0x7f09204f) instanceof SparseArray) {
-                            this.a.K2((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f09204f));
+                        if (view2.getTag(R.id.obfuscated_res_0x7f092050) instanceof SparseArray) {
+                            this.a.K2((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092050));
                         }
                     } else if ((view2 instanceof TbRichTextView) || view2.getId() == R.id.obfuscated_res_0x7f091866) {
                         SparseArray sparseArray = view2.getTag() instanceof SparseArray ? (SparseArray) view2.getTag() : null;
@@ -2156,9 +2156,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         } else if (tag instanceof SparseArray) {
                             TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
                             SparseArray<Object> sparseArray2 = (SparseArray) tag;
-                            if ((sparseArray2.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean) && ((Boolean) sparseArray2.get(R.id.obfuscated_res_0x7f092098)).booleanValue()) {
-                                sparseArray2.put(R.id.obfuscated_res_0x7f09204f, 0);
-                                sparseArray2.put(R.id.obfuscated_res_0x7f092038, 2);
+                            if ((sparseArray2.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean) && ((Boolean) sparseArray2.get(R.id.obfuscated_res_0x7f092099)).booleanValue()) {
+                                sparseArray2.put(R.id.obfuscated_res_0x7f092050, 0);
+                                sparseArray2.put(R.id.obfuscated_res_0x7f092039, 2);
                                 this.a.O1(sparseArray2);
                                 return;
                             }
@@ -2168,24 +2168,24 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                     case 6:
                         SparseArray sparseArray3 = (SparseArray) view2.getTag();
-                        if (sparseArray3 != null && (sparseArray3.get(R.id.obfuscated_res_0x7f092040) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f09203e) instanceof String) && (sparseArray3.get(R.id.obfuscated_res_0x7f09205c) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean) && (sparseArray3.get(R.id.obfuscated_res_0x7f092050) instanceof Boolean)) {
-                            boolean booleanValue = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f09203f)).booleanValue();
-                            int intValue = ((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f09205c)).intValue();
-                            boolean booleanValue2 = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092050)).booleanValue();
+                        if (sparseArray3 != null && (sparseArray3.get(R.id.obfuscated_res_0x7f092041) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f09203f) instanceof String) && (sparseArray3.get(R.id.obfuscated_res_0x7f09205d) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean) && (sparseArray3.get(R.id.obfuscated_res_0x7f092051) instanceof Boolean)) {
+                            boolean booleanValue = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092040)).booleanValue();
+                            int intValue = ((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f09205d)).intValue();
+                            boolean booleanValue2 = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092051)).booleanValue();
                             boolean F = this.a.F(TbadkCoreApplication.getCurrentAccount());
                             if (F) {
                                 if (!booleanValue2) {
                                     this.a.I2(sparseArray3, intValue, booleanValue);
                                     return;
                                 } else {
-                                    this.a.c.N(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203e), intValue, booleanValue, null, F);
+                                    this.a.c.N(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203f), intValue, booleanValue, null, F);
                                     return;
                                 }
                             } else if (booleanValue && !booleanValue2) {
                                 this.a.I2(sparseArray3, intValue, booleanValue);
                                 return;
                             } else {
-                                this.a.c.L(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203e), intValue, booleanValue);
+                                this.a.c.L(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203f), intValue, booleanValue);
                                 return;
                             }
                         }
@@ -2199,28 +2199,28 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         if (sparseArray4 == null) {
                             return;
                         }
-                        boolean booleanValue3 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092084)).booleanValue();
-                        boolean booleanValue4 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092082)).booleanValue();
-                        boolean booleanValue5 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092098)).booleanValue();
+                        boolean booleanValue3 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092085)).booleanValue();
+                        boolean booleanValue4 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092083)).booleanValue();
+                        boolean booleanValue5 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092099)).booleanValue();
                         if (!booleanValue3) {
                             if (booleanValue4) {
-                                this.a.c.L(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203e), ((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                this.a.c.L(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203f), ((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                 return;
                             }
                             return;
                         } else if (booleanValue5) {
-                            sparseArray4.put(R.id.obfuscated_res_0x7f09204f, 1);
-                            sparseArray4.put(R.id.obfuscated_res_0x7f092038, 2);
+                            sparseArray4.put(R.id.obfuscated_res_0x7f092050, 1);
+                            sparseArray4.put(R.id.obfuscated_res_0x7f092039, 2);
                             this.a.O1(sparseArray4);
                             return;
                         } else {
-                            sparseArray4.put(R.id.obfuscated_res_0x7f092038, 2);
+                            sparseArray4.put(R.id.obfuscated_res_0x7f092039, 2);
                             this.a.c.P(view2);
                             return;
                         }
                     case 8:
                         if (this.a.checkUpIsLogin() && (sparseArray = (SparseArray) view2.getTag()) != null) {
-                            PostData postData2 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+                            PostData postData2 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
                             if (postData2.q() == null) {
                                 return;
                             }
@@ -2276,7 +2276,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 if (nu4Var != null) {
                     nu4Var.dismiss();
                 }
-                this.d.W1(((Integer) this.a.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203e), this.b, this.c);
+                this.d.W1(((Integer) this.a.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203f), this.b, this.c);
             }
         }
     }
@@ -2514,7 +2514,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
             if (view2 != null && (view2.getTag() instanceof SparseArray)) {
-                Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203c);
+                Object obj = ((SparseArray) view2.getTag()).get(R.id.obfuscated_res_0x7f09203d);
                 if (obj instanceof PostData) {
                     PostData postData = (PostData) obj;
                     if (checkUpIsLogin() && (pbModel = this.a) != null && pbModel.S1() != null) {
@@ -2629,7 +2629,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     public final void K2(SparseArray<Object> sparseArray) {
         PostData postData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, sparseArray) == null) && checkUpIsLogin() && sparseArray != null && (sparseArray.get(R.id.obfuscated_res_0x7f09203c) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, sparseArray) == null) && checkUpIsLogin() && sparseArray != null && (sparseArray.get(R.id.obfuscated_res_0x7f09203d) instanceof PostData) && (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) != null) {
             L2(postData, false);
         }
     }
@@ -2792,7 +2792,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001429);
             userMuteCheckCustomMessage.userIdF = dh.g(currentAccount, 0L);
-            userMuteCheckCustomMessage.userIdT = dh.g((String) sparseArray.get(R.id.obfuscated_res_0x7f092094), 0L);
+            userMuteCheckCustomMessage.userIdT = dh.g((String) sparseArray.get(R.id.obfuscated_res_0x7f092095), 0L);
             BdUniqueId bdUniqueId = this.k;
             userMuteCheckCustomMessage.mId = bdUniqueId;
             userMuteCheckCustomMessage.setTag(bdUniqueId);
@@ -2989,7 +2989,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (sparseArray == null) {
                 return true;
             }
-            PostData postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+            PostData postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
             this.O = postData;
             if (postData == null || (qo4Var = this.A) == null) {
                 return true;
@@ -3008,30 +3008,30 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             }
             boolean r2 = r2(view2);
             boolean z3 = (!r2(view2) || (onVar = this.L) == null || onVar.t()) ? false : true;
-            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-            boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue6 = sparseArray.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
-            String str = sparseArray.get(R.id.obfuscated_res_0x7f09204c) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204c) : null;
-            boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
-            boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f09205d) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).booleanValue() : false;
+            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092056)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+            boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue6 = sparseArray.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
+            String str = sparseArray.get(R.id.obfuscated_res_0x7f09204d) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204d) : null;
+            boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
+            boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f09205e) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205e)).booleanValue() : false;
             if (r2) {
                 z = booleanValue;
                 z2 = booleanValue8;
-                arrayList.add(new uu4(1, getString(R.string.obfuscated_res_0x7f0f10ae), this.i));
+                arrayList.add(new uu4(1, getString(R.string.obfuscated_res_0x7f0f10af), this.i));
             } else {
                 z = booleanValue;
                 z2 = booleanValue8;
             }
             if (z3) {
-                arrayList.add(new uu4(2, getString(R.string.obfuscated_res_0x7f0f10af), this.i));
+                arrayList.add(new uu4(2, getString(R.string.obfuscated_res_0x7f0f10b0), this.i));
             }
             if (!r2 && !z3) {
                 uu4 uu4Var4 = new uu4(3, getString(R.string.obfuscated_res_0x7f0f0452), this.i);
                 SparseArray sparseArray2 = new SparseArray();
-                sparseArray2.put(R.id.obfuscated_res_0x7f09203c, this.O);
+                sparseArray2.put(R.id.obfuscated_res_0x7f09203d, this.O);
                 uu4Var4.d.setTag(sparseArray2);
                 arrayList.add(uu4Var4);
             }
@@ -3039,51 +3039,51 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 if (!g18.i(this.a) && !booleanValue4 && booleanValue3) {
                     uu4 uu4Var5 = new uu4(5, getString(R.string.obfuscated_res_0x7f0f0b4d), this.i);
                     SparseArray sparseArray3 = new SparseArray();
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                     uu4Var5.d.setTag(sparseArray3);
                     arrayList.add(uu4Var5);
                 } else {
                     if (s2(booleanValue2) && TbadkCoreApplication.isLogin()) {
-                        uu4 uu4Var6 = new uu4(5, getString(R.string.obfuscated_res_0x7f0f1016), this.i);
+                        uu4 uu4Var6 = new uu4(5, getString(R.string.obfuscated_res_0x7f0f1017), this.i);
                         uu4Var6.d.setTag(str);
                         arrayList.add(uu4Var6);
                     }
                 }
                 if (booleanValue4) {
                     SparseArray sparseArray4 = new SparseArray();
-                    sparseArray4.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray4.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                    sparseArray4.put(R.id.obfuscated_res_0x7f092049, sparseArray.get(R.id.obfuscated_res_0x7f092049));
+                    sparseArray4.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                     sparseArray4.put(R.id.obfuscated_res_0x7f09204a, sparseArray.get(R.id.obfuscated_res_0x7f09204a));
                     sparseArray4.put(R.id.obfuscated_res_0x7f09204b, sparseArray.get(R.id.obfuscated_res_0x7f09204b));
-                    sparseArray4.put(R.id.obfuscated_res_0x7f09204c, str);
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09204c, sparseArray.get(R.id.obfuscated_res_0x7f09204c));
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09204d, str);
                     if (!g18.i(this.a) && booleanValue5) {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                         sparseArray4.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                         sparseArray4.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                         sparseArray4.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                     } else {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                     }
                     if (booleanValue6) {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                        sparseArray4.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue2));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue2));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                         if (booleanValue7) {
                             uu4Var = new uu4(6, getString(R.string.obfuscated_res_0x7f0f04b0), this.i);
                             uu4Var.d.setTag(sparseArray4);
@@ -3091,7 +3091,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             uu4Var2.d.setTag(sparseArray4);
                         }
                     } else {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                     }
                     uu4Var = null;
                     uu4Var2 = new uu4(7, getString(R.string.obfuscated_res_0x7f0f02e8), this.i);
@@ -3099,16 +3099,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 } else {
                     if (booleanValue6) {
                         SparseArray sparseArray5 = new SparseArray();
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                        sparseArray5.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue2));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                        sparseArray5.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                        sparseArray5.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue2));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                        sparseArray5.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                         if (this.a.S1().W() == 1002 && !booleanValue2) {
-                            uu4Var3 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f1016), this.i);
+                            uu4Var3 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f1017), this.i);
                         } else {
                             uu4Var3 = new uu4(6, getString(R.string.obfuscated_res_0x7f0f04b0), this.i);
                         }
@@ -3160,11 +3160,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 if (this.n.S()) {
                     return;
                 }
-                String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f09203e);
-                int intValue2 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205c)).intValue();
-                boolean booleanValue = ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue();
-                int intValue3 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092040)).intValue();
-                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092052) != null ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092052)).booleanValue() : false;
+                String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f09203f);
+                int intValue2 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).intValue();
+                boolean booleanValue = ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue();
+                int intValue3 = ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092041)).intValue();
+                boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092053) != null ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092053)).booleanValue() : false;
                 if (jSONArray != null) {
                     this.n.U(StringHelper.JsonArrayToString(jSONArray));
                 }
@@ -3208,10 +3208,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f09203e, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i2));
-            sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(i3));
-            sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z));
+            sparseArray.put(R.id.obfuscated_res_0x7f09203f, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(i3));
+            sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z));
             sparseArray.put(nz7.k2, Integer.valueOf(nz7.l2));
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
@@ -3656,11 +3656,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     public void l2(boolean z, String str, SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Boolean.valueOf(z), str, sparseArray}) == null) {
-            String str2 = sparseArray.get(R.id.obfuscated_res_0x7f092095) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092095) : "";
-            String str3 = sparseArray.get(R.id.obfuscated_res_0x7f092097) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092097) : "";
-            String str4 = sparseArray.get(R.id.obfuscated_res_0x7f092096) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092096) : "";
-            String str5 = sparseArray.get(R.id.obfuscated_res_0x7f092092) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092092) : "";
-            String str6 = sparseArray.get(R.id.obfuscated_res_0x7f092093) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092093) : "";
+            String str2 = sparseArray.get(R.id.obfuscated_res_0x7f092096) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092096) : "";
+            String str3 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092098) : "";
+            String str4 = sparseArray.get(R.id.obfuscated_res_0x7f092097) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092097) : "";
+            String str5 = sparseArray.get(R.id.obfuscated_res_0x7f092093) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092093) : "";
+            String str6 = sparseArray.get(R.id.obfuscated_res_0x7f092094) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092094) : "";
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
             userMuteAddAndDelCustomMessage.setData(z, str, str2, str3, str4, 1, str5, this.k);
             userMuteAddAndDelCustomMessage.setTag(this.k);
@@ -4004,7 +4004,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.x = ((View) view2.getParent()).getMeasuredHeight();
         }
         if (this.c.y() != null && postData != null) {
-            this.c.y().j(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100c), postData.s().getName_show(), postData.W() != null ? postData.W().toString() : ""));
+            this.c.y().j(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100d), postData.s().getName_show(), postData.W() != null ? postData.W().toString() : ""));
         }
         if (this.a.S1() != null && this.a.S1().i0()) {
             gh.a().postDelayed(new l(this, str, str2), 0L);
@@ -4065,7 +4065,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 e2.printStackTrace();
                 sparseArray = null;
             }
-            if (sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) == null) {
+            if (sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) == null) {
                 return;
             }
             y2(postData);
@@ -4131,7 +4131,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (this.a.t2()) {
                 showToast(str);
             } else if (!ej.D()) {
-                this.c.f0(R.string.obfuscated_res_0x7f0f0fcc);
+                this.c.f0(R.string.obfuscated_res_0x7f0f0fcd);
             } else if (i2 == 4) {
                 ix7 ix7Var = this.c;
                 ix7Var.g0(str + "(4" + SmallTailInfo.EMOTION_SUFFIX, true);

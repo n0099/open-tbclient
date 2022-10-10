@@ -96,7 +96,7 @@ public class SettingTextImageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b7, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
             this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090e20);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
         }

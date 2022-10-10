@@ -64,11 +64,11 @@ public class qx6 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+            if (id == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
                 sw6.b(view2, x26Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f092182) {
+            } else if (id == R.id.obfuscated_res_0x7f092183) {
                 sw6.b(view2, x26Var, 6);
-            } else if (id == R.id.obfuscated_res_0x7f092488 || id == R.id.obfuscated_res_0x7f0924b6) {
+            } else if (id == R.id.obfuscated_res_0x7f092489 || id == R.id.obfuscated_res_0x7f0924b7) {
                 sw6.b(view2, x26Var, 1);
             } else if (id == R.id.obfuscated_res_0x7f090cd9) {
                 StatisticItem statisticItem = new StatisticItem("c13423");
@@ -162,9 +162,9 @@ public class qx6 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, yq4Var, view2) == null) || yq4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7) {
                 yq4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 yq4Var.objType = 4;
             } else {
                 yq4Var.objType = 1;

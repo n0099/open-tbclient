@@ -258,17 +258,17 @@ public class ga7 extends p9<ForumDetailActivity> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091dbc);
+            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091dbd);
             TextView textView = new TextView(this.a.getActivity());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.c.addView(textView, 0);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.d = navigationBar;
             navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0682));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
             this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0916dc);
-            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091dbb);
+            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091dbc);
             this.g = customScrollView;
             customScrollView.setOnTouchListener(new c(this, null));
             this.h = (ItemHeaderView) this.a.findViewById(R.id.obfuscated_res_0x7f090faa);
@@ -279,7 +279,7 @@ public class ga7 extends p9<ForumDetailActivity> {
             ItemFootNavView itemFootNavView = (ItemFootNavView) this.a.findViewById(R.id.obfuscated_res_0x7f090f9f);
             this.m = itemFootNavView;
             itemFootNavView.setClickable(true);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091c81);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091c82);
             this.j.setMsgOnClickListener(this.a);
             this.k.setEmotionOnClickListener(this.a);
             this.j.setSwitchChangeListener(this.a);

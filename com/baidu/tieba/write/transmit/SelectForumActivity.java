@@ -221,7 +221,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, s29Var) == null) {
                 if (s29Var == null) {
                     SelectForumActivity selectForumActivity = this.a;
-                    selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f1176));
+                    selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f1177));
                     Intent intent = new Intent();
                     intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                     this.a.setResult(1008, intent);
@@ -467,9 +467,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public final void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = findViewById(R.id.obfuscated_res_0x7f091c83);
-            this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092330);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092331);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.b = navigationBar;
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f0375));
             this.c = addTextButton;
@@ -478,17 +478,17 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 layoutParams.leftMargin = ej.f(getActivity(), R.dimen.obfuscated_res_0x7f070230);
                 this.c.setLayoutParams(layoutParams);
             }
-            this.d = this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1114));
+            this.d = this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1115));
             this.c.setOnClickListener(this.E);
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912a8);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e32);
             this.k = imageView;
             imageView.setOnClickListener(this.E);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092156);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092157);
             this.l = textView;
             textView.setOnClickListener(this.E);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0925b1);
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f092333);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0925b2);
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f092334);
             this.a = bdListView;
             bdListView.setOnItemClickListener(this.F);
             v29 v29Var = new v29(getActivity());

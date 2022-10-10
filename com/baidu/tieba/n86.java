@@ -32,9 +32,9 @@ public class n86 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809ba;
-        this.e = R.drawable.obfuscated_res_0x7f0809bb;
-        this.h = R.drawable.obfuscated_res_0x7f0809bc;
+        this.d = R.drawable.obfuscated_res_0x7f0809bb;
+        this.e = R.drawable.obfuscated_res_0x7f0809bc;
+        this.h = R.drawable.obfuscated_res_0x7f0809bd;
         this.i = false;
         this.j = true;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
@@ -81,9 +81,9 @@ public class n86 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809ba;
+        this.d = R.drawable.obfuscated_res_0x7f0809bb;
         this.e = R.drawable.obfuscated_res_0x7f08081e;
-        this.h = R.drawable.obfuscated_res_0x7f0809bc;
+        this.h = R.drawable.obfuscated_res_0x7f0809bd;
         this.i = false;
         this.j = true;
         this.m = new EmotionTabHost(context);

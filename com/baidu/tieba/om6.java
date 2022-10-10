@@ -64,15 +64,15 @@ public class om6 {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.b == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c3, (ViewGroup) null);
             this.b = inflate;
-            this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092464);
-            this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092466);
+            this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092465);
+            this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092467);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f06cc));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08092d, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.b(ej.f(context, R.dimen.tbds0));
             eMRichTextAnyIconSpan.d(ej.f(context, R.dimen.M_W_X002));
             spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
             this.d.setText(spannableStringBuilder);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092465);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092466);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

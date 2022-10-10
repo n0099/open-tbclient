@@ -310,7 +310,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements xx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0332, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091c6c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b85);
             this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090b84);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b81);

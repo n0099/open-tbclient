@@ -109,7 +109,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a8e);
             this.b = textView;
             textView.setOnClickListener(this.h);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b8);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b9);
             this.d = (ForumLikeBotton) inflate.findViewById(R.id.obfuscated_res_0x7f0912ff);
             if (context instanceof TbPageContextSupport) {
                 this.e = new sy4(((TbPageContextSupport) context).getPageContext(), this.d);
@@ -202,7 +202,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) || threadData == null || StringUtils.isNull(this.f.getAuthor().getName_show())) {
             return;
         }
-        this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f150f, e(this.f.getAuthor().getName_show())));
+        this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1510, e(this.f.getAuthor().getName_show())));
         this.c.setVisibility(0);
     }
 

@@ -210,11 +210,11 @@ public class qj6 implements xx {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) null);
             this.b = inflate;
             this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c41);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c8e);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c8f);
             this.f = roundRelativeLayout;
             roundRelativeLayout.setRoundCount(8);
             this.k = this.b.findViewById(R.id.obfuscated_res_0x7f0914c3);
-            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ebc);
+            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ebd);
             this.l = linearLayout;
             linearLayout.setOnClickListener(this.p);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f091458);
@@ -248,7 +248,7 @@ public class qj6 implements xx {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0302, (ViewGroup) null);
             this.b = inflate;
             this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c41);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c8e);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c8f);
             this.e = roundLinearLayout;
             roundLinearLayout.setRoundCount(8);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ae2);

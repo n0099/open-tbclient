@@ -59,8 +59,8 @@ public class TipView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f7, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09220c);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092211);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09220d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092212);
         }
     }
 

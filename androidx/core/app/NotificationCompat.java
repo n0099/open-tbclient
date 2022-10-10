@@ -2332,7 +2332,7 @@ public class NotificationCompat {
                 if (i4 == 0) {
                     i4 = 0;
                 }
-                Bitmap createColoredBitmap = createColoredBitmap(R.drawable.obfuscated_res_0x7f080e73, i4, i2);
+                Bitmap createColoredBitmap = createColoredBitmap(R.drawable.obfuscated_res_0x7f080e74, i4, i2);
                 Canvas canvas = new Canvas(createColoredBitmap);
                 Drawable mutate = this.mBuilder.mContext.getResources().getDrawable(i).mutate();
                 mutate.setFilterBitmap(true);
@@ -2349,9 +2349,9 @@ public class NotificationCompat {
         private void hideNormalContent(RemoteViews remoteViews) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65542, this, remoteViews) == null) {
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092218, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092219, 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092101, 8);
                 remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092100, 8);
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0920ff, 8);
             }
         }
 
@@ -2399,11 +2399,11 @@ public class NotificationCompat {
                 int i2 = Build.VERSION.SDK_INT;
                 if (i2 >= 16 && i2 < 21) {
                     if (z8) {
+                        remoteViews.setInt(R.id.obfuscated_res_0x7f091704, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e6f);
+                        remoteViews.setInt(R.id.obfuscated_res_0x7f090e20, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e76);
+                    } else {
                         remoteViews.setInt(R.id.obfuscated_res_0x7f091704, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e6e);
                         remoteViews.setInt(R.id.obfuscated_res_0x7f090e20, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e75);
-                    } else {
-                        remoteViews.setInt(R.id.obfuscated_res_0x7f091704, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e6d);
-                        remoteViews.setInt(R.id.obfuscated_res_0x7f090e20, "setBackgroundResource", R.drawable.obfuscated_res_0x7f080e74);
                     }
                 }
                 Builder builder = this.mBuilder;
@@ -2419,11 +2419,11 @@ public class NotificationCompat {
                         int dimensionPixelSize2 = dimensionPixelSize - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e7) * 2);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Builder builder2 = this.mBuilder;
-                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c3b, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
+                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c3c, createIconWithBackground(builder2.mNotification.icon, dimensionPixelSize, dimensionPixelSize2, builder2.getColor()));
                         } else {
-                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c3b, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
+                            remoteViews.setImageViewBitmap(R.id.obfuscated_res_0x7f091c3c, createColoredBitmap(this.mBuilder.mNotification.icon, -1));
                         }
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c3b, 0);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c3c, 0);
                     }
                 } else if (z && builder.mNotification.icon != 0) {
                     remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090e20, 0);
@@ -2438,11 +2438,11 @@ public class NotificationCompat {
                 }
                 CharSequence charSequence3 = this.mBuilder.mContentTitle;
                 if (charSequence3 != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092218, charSequence3);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092219, charSequence3);
                 }
                 CharSequence charSequence4 = this.mBuilder.mContentText;
                 if (charSequence4 != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0920ff, charSequence4);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence4);
                     z3 = true;
                 } else {
                     z3 = false;
@@ -2455,7 +2455,7 @@ public class NotificationCompat {
                     remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f090f25, 0);
                 } else if (builder4.mNumber > 0) {
                     if (this.mBuilder.mNumber > resources.getInteger(R.integer.obfuscated_res_0x7f0a0027)) {
-                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f25, resources.getString(R.string.obfuscated_res_0x7f0f1211));
+                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f25, resources.getString(R.string.obfuscated_res_0x7f0f1212));
                     } else {
                         remoteViews.setTextViewText(R.id.obfuscated_res_0x7f090f25, NumberFormat.getIntegerInstance().format(this.mBuilder.mNumber));
                     }
@@ -2466,15 +2466,15 @@ public class NotificationCompat {
                     z5 = z9;
                     charSequence = this.mBuilder.mSubText;
                     if (charSequence != null && Build.VERSION.SDK_INT >= 16) {
-                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0920ff, charSequence);
+                        remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence);
                         charSequence2 = this.mBuilder.mContentText;
                         if (charSequence2 == null) {
-                            remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence2);
-                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092100, 0);
+                            remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092101, charSequence2);
+                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092101, 0);
                             z6 = true;
                             if (z6 && Build.VERSION.SDK_INT >= 16) {
                                 if (z2) {
-                                    remoteViews.setTextViewTextSize(R.id.obfuscated_res_0x7f0920ff, 0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e9));
+                                    remoteViews.setTextViewTextSize(R.id.obfuscated_res_0x7f092100, 0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705e9));
                                 }
                                 remoteViews.setViewPadding(R.id.obfuscated_res_0x7f091308, 0, 0, 0, 0);
                             }
@@ -2489,14 +2489,14 @@ public class NotificationCompat {
                                     remoteViews.setChronometerCountDown(R.id.obfuscated_res_0x7f09063e, z10);
                                 }
                             } else {
-                                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0921e7, 0);
-                                remoteViews.setLong(R.id.obfuscated_res_0x7f0921e7, "setTime", this.mBuilder.getWhenIfShowing());
+                                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f0921e8, 0);
+                                remoteViews.setLong(R.id.obfuscated_res_0x7f0921e8, "setTime", this.mBuilder.getWhenIfShowing());
                             }
-                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c41, z7 ? 0 : 8);
+                            remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c42, z7 ? 0 : 8);
                             remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09130a, z4 ? 0 : 8);
                             return remoteViews;
                         }
-                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092100, 8);
+                        remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f092101, 8);
                     }
                     z6 = false;
                     if (z6) {
@@ -2506,7 +2506,7 @@ public class NotificationCompat {
                     }
                     if (this.mBuilder.getWhenIfShowing() == 0) {
                     }
-                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c41, z7 ? 0 : 8);
+                    remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c42, z7 ? 0 : 8);
                     remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09130a, z4 ? 0 : 8);
                     return remoteViews;
                 }
@@ -2514,7 +2514,7 @@ public class NotificationCompat {
                 z5 = true;
                 charSequence = this.mBuilder.mSubText;
                 if (charSequence != null) {
-                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f0920ff, charSequence);
+                    remoteViews.setTextViewText(R.id.obfuscated_res_0x7f092100, charSequence);
                     charSequence2 = this.mBuilder.mContentText;
                     if (charSequence2 == null) {
                     }
@@ -2524,7 +2524,7 @@ public class NotificationCompat {
                 }
                 if (this.mBuilder.getWhenIfShowing() == 0) {
                 }
-                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c41, z7 ? 0 : 8);
+                remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f091c42, z7 ? 0 : 8);
                 remoteViews.setViewVisibility(R.id.obfuscated_res_0x7f09130a, z4 ? 0 : 8);
                 return remoteViews;
             }

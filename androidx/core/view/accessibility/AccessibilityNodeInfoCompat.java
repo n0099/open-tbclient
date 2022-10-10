@@ -690,7 +690,7 @@ public class AccessibilityNodeInfoCompat {
             SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view2.setTag(R.id.obfuscated_res_0x7f092035, sparseArray);
+                view2.setTag(R.id.obfuscated_res_0x7f092036, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -701,7 +701,7 @@ public class AccessibilityNodeInfoCompat {
     private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) ? (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092035) : (SparseArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) ? (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092036) : (SparseArray) invokeL.objValue;
     }
 
     private boolean hasSpans() {

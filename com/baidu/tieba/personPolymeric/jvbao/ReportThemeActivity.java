@@ -443,11 +443,11 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             j1();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091c6d);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091c6e);
             this.j = findViewById(R.id.obfuscated_res_0x7f09132c);
             this.k = findViewById(R.id.obfuscated_res_0x7f091331);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09061f);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091c02);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091c03);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c9);
             h98 h98Var = new h98(this, this.t);
             this.g = h98Var;
@@ -469,9 +469,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public final void j1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1018));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f1019));
             this.e = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0436));
             this.d = this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setOnClickListener(new d(this));
@@ -634,9 +634,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if (this.a == null) {
                 ba8 ba8Var = new ba8(getPageContext().getPageActivity(), getNetRefreshListener());
                 this.a = ba8Var;
-                ba8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+                ba8Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
+                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }

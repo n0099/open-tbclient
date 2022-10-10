@@ -244,8 +244,8 @@ public class McnVideoAdView extends FrameLayout {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e45);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e44);
             this.b.setConrers(5);
-            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d5d);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d5d);
+            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d5e);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d5e);
             this.b.setRadius(ej.f(this.a, R.dimen.tbds20));
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009e);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f01009d);

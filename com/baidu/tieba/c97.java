@@ -142,7 +142,7 @@ public class c97 {
                 if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
                     return "";
                 }
-                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1518) + optString2;
+                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1519) + optString2;
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return "";

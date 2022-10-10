@@ -108,12 +108,12 @@ public class CaptureRecordButton extends FrameLayout implements f09 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0491, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091bae);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091bb1);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091baf);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091bb2);
             this.c = findViewById;
             findViewById.setAlpha(0.0f);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091baf);
-            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091bb2);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091bb0);
+            this.d = (RecordCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f091bb3);
             AnimatorSet animatorSet = new AnimatorSet();
             this.g = animatorSet;
             animatorSet.play(ObjectAnimator.ofFloat(this.a, Key.SCALE_X, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.a, Key.SCALE_Y, 1.0f, 0.388f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_X, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.SCALE_Y, 0.8f, 1.0f)).with(ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.66f));

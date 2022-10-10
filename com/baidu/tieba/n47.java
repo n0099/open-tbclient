@@ -143,7 +143,7 @@ public class n47 {
             ot4 ot4Var2 = this.f;
             ot4Var2.f = recommendForumList.class_name;
             ot4Var2.floorPosition = recommendForumList.floor_position.intValue();
-            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
             this.f.e = R.color.CAM_X0108;
         }
         RecommendUserList recommendUserList = dataRes.recommend_user;
@@ -152,7 +152,7 @@ public class n47 {
             this.g = st4Var;
             st4Var.f(recommendUserList.user_list);
             this.g.floorPosition = recommendUserList.floor_position.intValue();
-            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd2);
+            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd3);
             this.g.b = R.color.CAM_X0108;
         }
         HotTopic hotTopic = dataRes.hot_topic;

@@ -52,7 +52,7 @@ public class LiveTabConcernTitleView extends i16<wv5> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09201f);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092020);
         }
     }
 

@@ -180,7 +180,7 @@ public class o28 {
             }
             ImageView imageView = this.g;
             if (imageView != null) {
-                SkinManager.setBackgroundResource(imageView, R.drawable.obfuscated_res_0x7f080b4e);
+                SkinManager.setBackgroundResource(imageView, R.drawable.obfuscated_res_0x7f080b4f);
             }
         }
     }

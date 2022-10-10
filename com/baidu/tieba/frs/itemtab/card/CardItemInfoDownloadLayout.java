@@ -239,7 +239,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements xx {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032a, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092220);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092221);
             this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fba);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002a);
             this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fd0);

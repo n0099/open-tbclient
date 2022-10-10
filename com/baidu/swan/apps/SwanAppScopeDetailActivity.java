@@ -99,7 +99,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092218)).setText(str);
+                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092219)).setText(str);
             }
         }
     }
@@ -154,7 +154,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         c.Y(new b(this));
         this.m = c.r();
         c.loadUrl(this.n);
-        c.j((FrameLayout) findViewById(R.id.obfuscated_res_0x7f09265b), this.m.covertToView());
+        c.j((FrameLayout) findViewById(R.id.obfuscated_res_0x7f09265c), this.m.covertToView());
     }
 
     public void C(Intent intent) {

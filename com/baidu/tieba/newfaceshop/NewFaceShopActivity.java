@@ -654,7 +654,7 @@ public class NewFaceShopActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.a.getErrorCode() == 22) {
-                    this.c.showToast(R.string.obfuscated_res_0x7f0f14c3);
+                    this.c.showToast(R.string.obfuscated_res_0x7f0f14c4);
                     this.c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else if (AntiHelper.m(this.a.getErrorCode(), this.a.getErrorString())) {
                     AntiHelper.u(this.c.getPageContext().getPageActivity(), this.a.getErrorString());
@@ -1033,8 +1033,8 @@ public class NewFaceShopActivity extends BaseActivity {
     public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c7b);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09265b);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c7c);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09265c);
             BaseWebView baseWebView = new BaseWebView(getPageContext().getPageActivity());
             this.c = baseWebView;
             baseWebView.setWebViewClient(new r(this, null));

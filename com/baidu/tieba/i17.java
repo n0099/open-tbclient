@@ -230,16 +230,16 @@ public class i17 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
         if (interceptable == null || interceptable.invokeLL(1048583, this, view2, x26Var) == null) {
             int id = view2.getId();
             int i = 3;
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f092195) {
                 TiebaStatic.log(x26Var.A());
                 ro5.c().i("page_recommend", "clk_", x26Var.A());
                 d37.c(x26Var.a, x26Var.r(), x26Var.n(), 1);
                 i = 1;
             } else {
-                if (id == R.id.obfuscated_res_0x7f092488) {
+                if (id == R.id.obfuscated_res_0x7f092489) {
                     TiebaStatic.log(x26Var.S());
                     ro5.c().i("page_recommend", "clk_", x26Var.S());
-                } else if (id == R.id.obfuscated_res_0x7f0924b6) {
+                } else if (id == R.id.obfuscated_res_0x7f0924b7) {
                     TiebaStatic.log(x26Var.S());
                     ro5.c().i("page_recommend", "clk_", x26Var.S());
                 } else if (id == R.id.obfuscated_res_0x7f090a8f) {

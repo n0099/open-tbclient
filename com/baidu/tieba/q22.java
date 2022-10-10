@@ -249,7 +249,7 @@ public class q22 extends r22 implements AdapterView.OnItemClickListener {
                     view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d00d1, null);
                     g gVar = new g(this.a);
                     gVar.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f090611);
-                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
+                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092219);
                     view2.setTag(gVar);
                 }
                 g gVar2 = (g) view2.getTag();
@@ -530,7 +530,7 @@ public class q22 extends r22 implements AdapterView.OnItemClickListener {
             return;
         }
         boolean isEmpty = this.G0.isEmpty();
-        TextView textView = (TextView) V.findViewById(R.id.obfuscated_res_0x7f092215);
+        TextView textView = (TextView) V.findViewById(R.id.obfuscated_res_0x7f092216);
         textView.setVisibility(isEmpty ? 8 : 0);
         if (!isEmpty) {
             textView.setText(H(R.string.obfuscated_res_0x7f0f01c7, d3().Z()));

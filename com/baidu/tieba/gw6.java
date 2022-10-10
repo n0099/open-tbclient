@@ -149,16 +149,16 @@ public class gw6 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903b7);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0925c5);
         this.f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setTitleText(R.string.obfuscated_res_0x7f0f046e);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c6);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09211c);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09211b);
-        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f87);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0925c7);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09211d);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09211c);
+        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f88);
         this.g.setOnClickListener(new a(this));
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092116);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092117);
         this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091671);
         MessageManager.getInstance().registerListener(new b(this, 2016458));
     }

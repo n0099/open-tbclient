@@ -620,7 +620,7 @@ public class o69 implements ie5, no {
                 this.o.f(R.color.CAM_X0201);
             }
             if (this.b.getBackImageView() != null) {
-                this.b.getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a10, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                this.b.getBackImageView().setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a11, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
         }
     }
@@ -685,15 +685,15 @@ public class o69 implements ie5, no {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d04cc, (ViewGroup) this.a, true);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091de7);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091df9);
-            this.f = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f091e13);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091de8);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091dfa);
+            this.f = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f091e14);
             this.g = (NestedScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091676);
             this.h = (ConstraintLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090730);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092067);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092068);
             this.j = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09072f);
-            this.k = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e05);
-            this.l = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091e0d);
+            this.k = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e06);
+            this.l = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091e0e);
             A();
             C();
             y();

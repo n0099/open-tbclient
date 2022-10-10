@@ -49,10 +49,10 @@ public class i39 extends h39 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0734, (ViewGroup) null);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c88);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c8a);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c89);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c8b);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c89);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c8b);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c8a);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c8c);
         }
     }
 

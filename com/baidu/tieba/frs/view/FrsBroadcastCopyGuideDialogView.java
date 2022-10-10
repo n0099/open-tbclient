@@ -57,7 +57,7 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
             this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090aff);
             this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090afd);
             this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d0c);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226d);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09226e);
             this.c.setText(R.string.obfuscated_res_0x7f0f0671);
             this.d.setText(R.string.obfuscated_res_0x7f0f0670);
             this.f.setText(R.string.obfuscated_res_0x7f0f0411);

@@ -1041,7 +1041,7 @@ public class yl6 extends i16<ThreadData> implements g26, Object {
         this.u = h2.findViewById(R.id.divider_line);
         this.x = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f0912a7);
         this.R = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090bc6);
-        this.y = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092511);
+        this.y = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092512);
         this.x.setOnClickListener(this);
         HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) this.x.findViewById(R.id.obfuscated_res_0x7f090552);
         this.m = headPendantClickableView;
@@ -1056,15 +1056,15 @@ public class yl6 extends i16<ThreadData> implements g26, Object {
             this.m.getPendantView().setIsRound(true);
             this.m.getPendantView().setDrawBorder(false);
         }
-        TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f092193);
+        TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f092194);
         this.o = textView;
         textView.setVisibility(8);
         this.o.setOnClickListener(this.g0);
         xa8 xa8Var = new xa8((ViewGroup) h2.findViewById(R.id.obfuscated_res_0x7f090302));
         this.F = xa8Var;
         xa8Var.f(this.Z);
-        this.z = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f092136);
-        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f09210e);
+        this.z = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f092137);
+        ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f09210f);
         this.i = threadCommentAndPraiseInfoLayout;
         threadCommentAndPraiseInfoLayout.setForumAfterClickListener(this.i0);
         ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f09053a);
@@ -1087,7 +1087,7 @@ public class yl6 extends i16<ThreadData> implements g26, Object {
         this.i.setStType("frs_page");
         this.i.setFrom(2);
         this.i.Q = 3;
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h2.findViewById(R.id.obfuscated_res_0x7f092111);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h2.findViewById(R.id.obfuscated_res_0x7f092112);
         this.j = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.j.setFrom(2);
@@ -1121,13 +1121,13 @@ public class yl6 extends i16<ThreadData> implements g26, Object {
         this.H = h2.findViewById(R.id.obfuscated_res_0x7f0902ff);
         this.D = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f090301);
         this.E = h2.findViewById(R.id.obfuscated_res_0x7f090300);
-        this.q = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092511);
+        this.q = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f092512);
         this.r = (ThreadSkinView) h2.findViewById(R.id.obfuscated_res_0x7f090c0d);
         Animation loadAnimation = AnimationUtils.loadAnimation(this.w.getPageActivity(), R.anim.obfuscated_res_0x7f01006a);
         this.P = loadAnimation;
         loadAnimation.setAnimationListener(this.q0);
-        this.s = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09213b);
-        this.I = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09213c);
+        this.s = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09213c);
+        this.I = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09213d);
         this.t = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f090861);
         yt6 yt6Var = new yt6(tbPageContext, this.x);
         this.Q = yt6Var;
@@ -1135,7 +1135,7 @@ public class yl6 extends i16<ThreadData> implements g26, Object {
         ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f090536);
         this.l = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this);
-        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f0921a0);
+        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f0921a1);
         this.V = findViewById;
         findViewById.setOnClickListener(new n(this));
         this.i.setOnSelectStatusChangeListener(new o(this));
@@ -1681,7 +1681,7 @@ public class yl6 extends i16<ThreadData> implements g26, Object {
         SkinManager.setBackgroundColor(this.E, R.color.common_color_10014);
         SkinManager.setBackgroundColor(this.u, R.color.CAM_X0204);
         if (this.D != null) {
-            this.D.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080aca), (Drawable) null, (Drawable) null);
+            this.D.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080acb), (Drawable) null, (Drawable) null);
         }
         ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.j;
         if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {

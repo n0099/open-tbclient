@@ -78,7 +78,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b8, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
             this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e20);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
         }

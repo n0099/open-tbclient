@@ -322,7 +322,7 @@ public class PbNewInputContainer extends LinearLayout implements t55, View.OnCli
                     this.a.K(new h55(8, -1, null));
                     return;
                 }
-                ej.N(this.a.getContext(), String.format(fv4.E(R.string.obfuscated_res_0x7f0f1003), new Object[0]));
+                ej.N(this.a.getContext(), String.format(fv4.E(R.string.obfuscated_res_0x7f0f1004), new Object[0]));
             }
         }
     }
@@ -849,7 +849,7 @@ public class PbNewInputContainer extends LinearLayout implements t55, View.OnCli
             if (!this.p || e15Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
                 if (this.q && mc6.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
                     return;
                 }
                 this.x.add(e15Var);
@@ -865,7 +865,7 @@ public class PbNewInputContainer extends LinearLayout implements t55, View.OnCli
         }
         String obj = this.b.getText().toString();
         if (this.q && mc6.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1457);
             return;
         }
         this.x.add(e15Var);
@@ -889,8 +889,8 @@ public class PbNewInputContainer extends LinearLayout implements t55, View.OnCli
     public final void I(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z2) == null) {
-            this.h.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f119b));
-            this.h.getStyleConfig().i(z2 ? R.drawable.obfuscated_res_0x7f0809b6 : R.drawable.obfuscated_res_0x7f0809b5, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.h.setText(BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f119c));
+            this.h.getStyleConfig().i(z2 ? R.drawable.obfuscated_res_0x7f0809b7 : R.drawable.obfuscated_res_0x7f0809b6, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.h.getStyleConfig().h(z2 ? R.color.CAM_X0302 : R.color.CAM_X0110);
             this.h.a = Boolean.valueOf(z2);
             gh.a().postDelayed(new d(this, z2), 200L);

@@ -490,7 +490,7 @@ public class fa7 {
             int f3 = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             SkinManager.setNavbarIconSrc(this.j, R.drawable.obfuscated_res_0x7f0805eb, R.drawable.obfuscated_res_0x7f0805eb);
             this.d.showBottomLine();
-            this.m = this.d.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1239));
+            this.m = this.d.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f123a));
             this.j.setPadding(f2, f2, f2, f2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.m.getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.j.getLayoutParams();

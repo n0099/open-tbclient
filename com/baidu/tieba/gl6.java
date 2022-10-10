@@ -85,11 +85,11 @@ public class gl6 extends dh6<bu4, ThreadCardViewHolder<bu4>> implements g26, ds6
             if ("c13010".equals(this.b.o)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", bu4Var.t.getFid()).param("tid", bu4Var.t.getTid()));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f0924b6 && view2.getId() != R.id.obfuscated_res_0x7f092488) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f092194) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f0924b7 && view2.getId() != R.id.obfuscated_res_0x7f092489) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f092195) {
                     as6.e(bu4Var.t, 5, this.b.mPageId, this.b.r, this.b.t());
                     mt6.g(bu4Var.t, this.b.b, 1);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e97) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091e98) {
                     as6.e(bu4Var.t, 14, this.b.mPageId, this.b.r, this.b.t());
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090ec6) {
                     as6.e(bu4Var.t, 12, this.b.mPageId, this.b.r, this.b.t());
@@ -114,7 +114,7 @@ public class gl6 extends dh6<bu4, ThreadCardViewHolder<bu4>> implements g26, ds6
             } else {
                 as6.e(bu4Var.t, 2, this.b.mPageId, this.b.r, this.b.t());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6 || view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7 || view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 cs6.k().h(this.b.r, bu4Var.t, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090502) {
                 mt6.a(this.b.r, bu4Var.getRecomReason());
@@ -128,7 +128,7 @@ public class gl6 extends dh6<bu4, ThreadCardViewHolder<bu4>> implements g26, ds6
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09054b) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092182) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092183) {
                 cs6.k().h(this.b.r, bu4Var.t, 5);
             } else if (!(view2 instanceof ThreadGodReplyLayout)) {
                 cs6.k().h(this.b.r, bu4Var.t, 1);
@@ -383,9 +383,9 @@ public class gl6 extends dh6<bu4, ThreadCardViewHolder<bu4>> implements g26, ds6
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, yq4Var, view2) == null) || yq4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924b6) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924b7) {
                 yq4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092488) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092489) {
                 yq4Var.objType = 4;
             } else {
                 yq4Var.objType = 1;

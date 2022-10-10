@@ -53,9 +53,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d028a, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092588);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092589);
             this.b = findViewById(R.id.obfuscated_res_0x7f0903a3);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092556);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092557);
             this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090990);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             hv4 d = hv4.d(this.d);
@@ -72,7 +72,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1537));
+            BdToast b = BdToast.b(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1538));
             b.f(BdToast.ToastIcon.FAILURE);
             b.i();
         }

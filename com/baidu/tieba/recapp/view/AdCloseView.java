@@ -388,7 +388,7 @@ public class AdCloseView extends FrameLayout {
             }
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0067, (ViewGroup) null);
             this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d36);
-            this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09228e);
+            this.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09228f);
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0900e8);
             this.i = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900e7);
             this.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0902c1);
@@ -414,7 +414,7 @@ public class AdCloseView extends FrameLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0107, 1);
             this.j.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_ad_dislike_arrow20_right_n));
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b64);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b65);
             this.m = new ArrayList();
             return inflate;
         }
@@ -621,7 +621,7 @@ public class AdCloseView extends FrameLayout {
             String str2 = adCloseInfo.title;
             this.q = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.q = this.a.getString(R.string.obfuscated_res_0x7f0f13d0);
+                this.q = this.a.getString(R.string.obfuscated_res_0x7f0f13d1);
             }
             this.r = adCloseInfo.confirm_title;
         }

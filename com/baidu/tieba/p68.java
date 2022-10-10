@@ -61,7 +61,7 @@ public class p68 extends i16<PersonVipCardData> {
         this.k = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091993);
         this.l = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091994);
         this.m = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091992);
-        this.n = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091bbe);
+        this.n = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091bbf);
         this.j.setOnClickListener(this);
         this.m.setOnClickListener(this);
         j(g(), this.a);
@@ -182,7 +182,7 @@ public class p68 extends i16<PersonVipCardData> {
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             if (StringHelper.equals(this.r, getContext().getString(R.string.obfuscated_res_0x7f0f0d13))) {
                 statisticItem.param("obj_type", 1);
-            } else if (StringHelper.equals(this.r, getContext().getString(R.string.obfuscated_res_0x7f0f0ff5))) {
+            } else if (StringHelper.equals(this.r, getContext().getString(R.string.obfuscated_res_0x7f0f0ff6))) {
                 statisticItem.param("obj_type", 2);
             }
             TiebaStatic.log(statisticItem);

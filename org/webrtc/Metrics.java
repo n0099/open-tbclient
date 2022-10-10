@@ -14,7 +14,7 @@ public class Metrics {
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, HistogramInfo> map;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class HistogramInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

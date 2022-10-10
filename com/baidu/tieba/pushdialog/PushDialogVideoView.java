@@ -1032,7 +1032,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             int k = ej.k(context) - ej.f(context, R.dimen.tbds132);
             this.c = k;
             this.d = (int) (k * 0.5625f);
-            TbVideoView control = ((TbVideoViewContainer) findViewById(R.id.obfuscated_res_0x7f0924f7)).getControl();
+            TbVideoView control = ((TbVideoViewContainer) findViewById(R.id.obfuscated_res_0x7f0924f8)).getControl();
             this.f = control;
             control.setPlayMode("2");
             this.f.setStageType(null);
@@ -1046,9 +1046,9 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.i = findViewById(R.id.obfuscated_res_0x7f0903a3);
             this.j = findViewById(R.id.obfuscated_res_0x7f09128b);
             this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090efa);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09243f);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091b17);
-            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092588);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092440);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091b18);
+            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092589);
             this.q = (PbVideoWifiTipLayout) findViewById(R.id.obfuscated_res_0x7f0912b1);
             this.p.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             CallStateReceiver callStateReceiver = new CallStateReceiver();

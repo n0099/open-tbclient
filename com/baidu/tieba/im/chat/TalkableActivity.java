@@ -809,9 +809,9 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.getPageContext().getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10a9);
+                        return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10aa);
                     }
-                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10aa);
+                    return this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ab);
                 }
                 return FileHelper.getSdErrorString();
             }
@@ -987,7 +987,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 if (!z) {
                     arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b0a));
                 }
-                arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a2));
+                arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a3));
                 arrayList.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b0));
             } else if (i2 != 5) {
                 switch (i2) {
@@ -1093,7 +1093,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             if (FileHelper.checkSD()) {
                 return true;
             }
-            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f158e));
+            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f158f));
             return false;
         }
         return invokeV.booleanValue;
@@ -1220,7 +1220,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                 }
                 this.c.markDeleteMsg(i2);
                 showToast((int) R.string.obfuscated_res_0x7f0f04be);
-            } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a2))) {
+            } else if (str.equals(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a3))) {
                 String i3 = tc7.i(msg.getContent(), true);
                 if (i3 == null) {
                     return;
@@ -1542,13 +1542,13 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
             if (PermissionUtil.checkCamera(getApplicationContext())) {
                 SelectImageHelper.takePhoto(getPageContext());
             } else {
-                showToast((int) R.string.obfuscated_res_0x7f0f1361);
+                showToast((int) R.string.obfuscated_res_0x7f0f1362);
             }
             ArrayMap<String, Boolean> transformPermissionResult = PermissionUtil.transformPermissionResult(strArr, iArr);
             if (!transformPermissionResult.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") || transformPermissionResult.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
                 return;
             }
-            showToast((int) R.string.obfuscated_res_0x7f0f10bd);
+            showToast((int) R.string.obfuscated_res_0x7f0f10be);
         }
     }
 
@@ -1737,7 +1737,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         return;
                     case 11:
                         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9a));
+                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9b));
                             return;
                         }
                         ChatMessage msg6 = this.c.getMsg(i3);
@@ -1753,7 +1753,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         return;
                     case 12:
                         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9a));
+                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9b));
                             return;
                         }
                         ChatMessage msg7 = this.c.getMsg(i3);
@@ -1769,7 +1769,7 @@ public abstract class TalkableActivity<T> extends BaseFragmentActivity implement
                         return;
                     case 13:
                         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9a));
+                            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f9b));
                             return;
                         }
                         ChatMessage msg8 = this.c.getMsg(i3);

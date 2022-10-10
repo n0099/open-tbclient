@@ -71,11 +71,11 @@ public class w78 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180) {
+            if (id == R.id.obfuscated_res_0x7f092181) {
                 a78.a(view2, x26Var, 2);
             } else if (view2 instanceof TbImageView) {
                 a78.a(view2, x26Var, 6);
-            } else if (id == R.id.obfuscated_res_0x7f092181 || view2.getId() == R.id.obfuscated_res_0x7f092173) {
+            } else if (id == R.id.obfuscated_res_0x7f092182 || view2.getId() == R.id.obfuscated_res_0x7f092174) {
                 a78.a(view2, x26Var, 2);
             } else if (id == R.id.obfuscated_res_0x7f090a8f) {
                 a78.a(view2, x26Var, 7);

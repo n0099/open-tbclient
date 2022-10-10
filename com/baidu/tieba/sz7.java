@@ -70,9 +70,9 @@ public class sz7 {
                 int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.a.getPageActivity());
                 if (saveImageFileByUser != -2) {
                     if (saveImageFileByUser != 0) {
-                        return this.c.a.getString(R.string.obfuscated_res_0x7f0f10a9);
+                        return this.c.a.getString(R.string.obfuscated_res_0x7f0f10aa);
                     }
-                    return this.c.a.getString(R.string.obfuscated_res_0x7f0f10aa);
+                    return this.c.a.getString(R.string.obfuscated_res_0x7f0f10ab);
                 }
                 return FileHelper.getSdErrorString();
             }

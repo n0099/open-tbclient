@@ -368,7 +368,7 @@ public class z39 extends x39<x49> implements p49 {
             if (14 == this.e.getType() && this.t.getText().toString().length() > 500) {
                 u49 u49Var = this.b;
                 if (u49Var != null) {
-                    u49Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0f90));
+                    u49Var.d(this.a.getString(R.string.obfuscated_res_0x7f0f0f91));
                 }
                 return false;
             } else if (this.t.getText().toString().length() > 1000) {
@@ -471,7 +471,7 @@ public class z39 extends x39<x49> implements p49 {
             this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091a3e);
             this.h = (TbAlphaVideo) this.c.findViewById(R.id.obfuscated_res_0x7f09014e);
             this.t = (SpanGroupEditText) this.c.findViewById(R.id.obfuscated_res_0x7f091a3d);
-            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091b32);
+            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091b33);
             this.v = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091a40);
             SpanGroupEditText spanGroupEditText = this.t;
             if (spanGroupEditText != null) {
@@ -493,15 +493,15 @@ public class z39 extends x39<x49> implements p49 {
                         }
                     }
                     if (12 == this.e.getType()) {
-                        SpannableString spannableString = new SpannableString(" " + this.a.getString(R.string.obfuscated_res_0x7f0f15f0));
-                        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809cd, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
+                        SpannableString spannableString = new SpannableString(" " + this.a.getString(R.string.obfuscated_res_0x7f0f15f1));
+                        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ce, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
                         if (pureDrawable != null && this.a.getPageActivity() != null) {
                             pureDrawable.setBounds(0, 0, pureDrawable.getIntrinsicWidth(), pureDrawable.getIntrinsicHeight());
                             spannableString.setSpan(new qc6(pureDrawable, 1, ej.f(this.a.getPageActivity(), R.dimen.tbds4)), 0, 1, 17);
                         }
                         this.t.setHint(spannableString);
                     } else if (14 == this.e.getType()) {
-                        this.t.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f0f8f));
+                        this.t.setHint(this.a.getString(R.string.obfuscated_res_0x7f0f0f90));
                         TextView textView = this.u;
                         if (textView != null) {
                             textView.setVisibility(0);

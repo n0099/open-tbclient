@@ -128,7 +128,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080fac;
+        this.a = R.drawable.obfuscated_res_0x7f080fad;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -407,7 +407,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080fac;
+        this.a = R.drawable.obfuscated_res_0x7f080fad;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();
@@ -434,7 +434,7 @@ public class SlideBarView extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080fac;
+        this.a = R.drawable.obfuscated_res_0x7f080fad;
         this.e = 12.0f;
         this.m = new Rect();
         this.n = new RectF();

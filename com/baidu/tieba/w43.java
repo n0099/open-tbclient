@@ -228,7 +228,7 @@ public class w43 extends i53 {
                 c.a("invoke", optString3, null, optString2);
                 if (optString2.startsWith("baiduboxapp")) {
                     if (!sm2.a().c()) {
-                        d33.f(context, R.string.obfuscated_res_0x7f0f124e).G();
+                        d33.f(context, R.string.obfuscated_res_0x7f0f124f).G();
                         return false;
                     }
                     l(context, a2, callbackHandler, optString, optString3);

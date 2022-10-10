@@ -50,7 +50,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "basketball".equals(stringExtra2) ? "bkb" : "";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f11e4), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f11e5), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

@@ -158,7 +158,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         }
         this.a = 3;
         this.b = absPbActivity;
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091c6d);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091c6e);
         this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090715);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0901b1);
         this.f = tBLottieAnimationView;
@@ -166,7 +166,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         SkinManager.setLottieAnimation(this.f, R.raw.ala_live2);
         this.f.addOnAttachStateChangeListener(new a(this));
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09079a);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092486);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092487);
         this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902e4);
         this.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091296);
         this.l = view2.findViewById(R.id.obfuscated_res_0x7f0901e8);
@@ -350,7 +350,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             int id = view2.getId();
             oy7 oy7Var = this.c;
-            if (oy7Var != null && id == R.id.obfuscated_res_0x7f091c6d) {
+            if (oy7Var != null && id == R.id.obfuscated_res_0x7f091c6e) {
                 d(oy7Var);
                 f(this.c);
             }

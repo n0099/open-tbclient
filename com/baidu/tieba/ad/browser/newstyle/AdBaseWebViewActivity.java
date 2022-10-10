@@ -381,7 +381,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.d, true)) {
-                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1155);
+                shareItem.v = getResources().getString(R.string.obfuscated_res_0x7f0f1156);
             } else {
                 shareItem.v = this.d;
             }
@@ -516,7 +516,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.a.v(z);
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.b)) {
-            ej.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14f7));
+            ej.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14f8));
             return;
         }
         if (this.b.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -684,14 +684,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || interceptable.invokeL(1048600, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092665) {
+            if (id == R.id.obfuscated_res_0x7f092666) {
                 this.a.c();
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                 gh.a().post(this.l);
-            } else if (id == R.id.obfuscated_res_0x7f092663) {
+            } else if (id == R.id.obfuscated_res_0x7f092664) {
                 this.a.c();
                 jp5.f(getPageContext().getPageActivity(), this.b);
-            } else if (id == R.id.obfuscated_res_0x7f092661) {
+            } else if (id == R.id.obfuscated_res_0x7f092662) {
                 this.a.c();
                 ui.a(this.b);
                 ej.N(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0455));

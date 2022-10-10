@@ -121,7 +121,7 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f090755);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1133));
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1134));
             ux4 ux4Var = new ux4();
             this.h = ux4Var;
             ux4Var.a = 1000L;

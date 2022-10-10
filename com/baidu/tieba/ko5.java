@@ -389,7 +389,7 @@ public class ko5 extends Dialog {
             this.A = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09049b);
             this.l = this.k.getText().toString();
             this.v = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09049c);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb6);
+            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb7);
             this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f090499);
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0904a2);
             this.x.setOnClickListener(this.C);
@@ -414,11 +414,11 @@ public class ko5 extends Dialog {
             this.j.setText(newVersionDesc);
             if (this.b.forceUpdate()) {
                 this.g = true;
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f96));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f97));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             } else {
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14e3));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14e4));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             }
@@ -485,7 +485,7 @@ public class ko5 extends Dialog {
                     return;
                 }
                 this.u.setVisibility(0);
-                this.s.setText(R.string.obfuscated_res_0x7f0f1243);
+                this.s.setText(R.string.obfuscated_res_0x7f0f1244);
                 SkinManager.setBackgroundResource(this.s, R.drawable.dialog_middle_item_bg_selector);
                 this.A.setVisibility(0);
                 this.F = false;

@@ -105,14 +105,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092488);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092489);
             this.e = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.e.getHeadView().setIsRound(true);
             }
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924b7);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092629);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924b8);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09262a);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09015e);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce6);
         }
@@ -164,7 +164,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     layoutParams.setMargins(layoutParams.leftMargin - f3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     this.e.setLayoutParams(layoutParams);
                     this.e.o(true);
-                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f2f);
+                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f30);
                     this.e.setPendantView(R.drawable.obfuscated_res_0x7f0806e6);
                     this.g.setTextSize(0, ej.f(this.d, R.dimen.tbfontsize46));
                     setGravity(16);

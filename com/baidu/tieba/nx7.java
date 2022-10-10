@@ -70,7 +70,7 @@ public class nx7 {
             if (this.a.getPageActivity() != null && pbModel != null && (jv7Var = pbModel.G) != null) {
                 if ("3".equals(jv7Var.h0)) {
                     MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f1374));
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f1375));
                     this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
                     return true;
                 }

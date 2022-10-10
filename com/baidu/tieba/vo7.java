@@ -31,7 +31,7 @@ public class vo7 {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f137f) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1380) + str;
             }
             return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + str;
         }

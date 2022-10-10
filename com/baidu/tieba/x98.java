@@ -79,7 +79,7 @@ public class x98 extends i16<v88> implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             this.i = view2.findViewById(R.id.obfuscated_res_0x7f090579);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09229d);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f09229e);
             this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09143d);
             this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09173b);
             this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090538);

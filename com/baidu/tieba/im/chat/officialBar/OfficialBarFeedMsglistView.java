@@ -327,7 +327,7 @@ public class OfficialBarFeedMsglistView extends p9<OfficialBarFeedActivity> impl
             if (this.o) {
                 string = this.p + baseActivity.getString(R.string.obfuscated_res_0x7f0f066e);
             } else {
-                string = baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1239);
+                string = baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f123a);
             }
             this.h.setCenterTextTitle(string);
             this.h.showBottomLine();
@@ -363,7 +363,7 @@ public class OfficialBarFeedMsglistView extends p9<OfficialBarFeedActivity> impl
                 noDataView.f(this.b, i);
             }
             if (this.c != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080974, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             u87 u87Var = this.m;
             if (u87Var != null) {

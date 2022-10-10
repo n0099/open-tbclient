@@ -194,7 +194,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                         textView.setTextSize(0, tc7.g(this.a, R.dimen.obfuscated_res_0x7f070207));
                         textView.setTextColor(this.a.getResources().getColor(R.color.CAM_X0105));
                         textView.setGravity(17);
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e7c);
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e7d);
                         textView.setSingleLine();
                         textView.setEllipsize(TextUtils.TruncateAt.END);
                         aVar.a = textView;

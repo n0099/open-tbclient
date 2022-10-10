@@ -51,7 +51,7 @@ public class fx0 extends pw0 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0602, (ViewGroup) null);
             this.e = viewGroup;
-            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09254a);
+            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09254b);
             this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f091313);
         }
     }

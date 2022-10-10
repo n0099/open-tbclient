@@ -218,7 +218,7 @@ public class uq4 extends PopupWindow {
         }
         this.e = um4Var;
         if (dj.isEmpty(um4Var.e)) {
-            this.b.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f1393));
+            this.b.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f1394));
         } else {
             this.b.setText(um4Var.e);
         }

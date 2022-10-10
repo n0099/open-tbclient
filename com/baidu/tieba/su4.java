@@ -39,8 +39,8 @@ public class su4 extends ru4 {
         }
         this.o = R.color.CAM_X0304;
         this.p = R.color.CAM_X0107;
-        this.l = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092238);
-        this.m = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092226);
+        this.l = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092239);
+        this.m = (TextView) e().findViewById(R.id.obfuscated_res_0x7f092227);
         i(true);
     }
 

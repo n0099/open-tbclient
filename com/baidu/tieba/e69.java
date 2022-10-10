@@ -119,7 +119,7 @@ public class e69 extends z59 {
             super.P(navigationBar);
             navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f03));
             o0(0, ej.f(this.a.getPageActivity(), R.dimen.M_W_X002));
-            p0(R.drawable.obfuscated_res_0x7f0809cc, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
+            p0(R.drawable.obfuscated_res_0x7f0809cd, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
             this.j.setOnClickListener(new a(this));
         }
     }

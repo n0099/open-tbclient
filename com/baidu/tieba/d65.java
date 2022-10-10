@@ -30,8 +30,8 @@ public class d65 extends s55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809bd;
-        this.e = R.drawable.obfuscated_res_0x7f0809be;
+        this.d = R.drawable.obfuscated_res_0x7f0809be;
+        this.e = R.drawable.obfuscated_res_0x7f0809bf;
         this.h = R.drawable.obfuscated_res_0x7f080916;
         this.i = false;
         this.j = true;

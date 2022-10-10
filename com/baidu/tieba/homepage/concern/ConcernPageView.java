@@ -1235,7 +1235,7 @@ public class ConcernPageView extends FrameLayout {
         this.c.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         fy6 fy6Var = new fy6(this, this.c);
         this.r = fy6Var;
-        fy6Var.p(context.getString(R.string.obfuscated_res_0x7f0f136b));
+        fy6Var.p(context.getString(R.string.obfuscated_res_0x7f0f136c));
         BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = new BigdaySwipeRefreshLayout(context);
         this.v = bigdaySwipeRefreshLayout;
         bigdaySwipeRefreshLayout.addView(this.c);

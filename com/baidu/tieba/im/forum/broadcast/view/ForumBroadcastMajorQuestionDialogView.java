@@ -53,7 +53,7 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
             this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a51);
             this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a50);
             this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091043);
-            this.c.setText(R.string.obfuscated_res_0x7f0f1239);
+            this.c.setText(R.string.obfuscated_res_0x7f0f123a);
             this.d.setText(R.string.obfuscated_res_0x7f0f0676);
             this.e.setText(R.string.obfuscated_res_0x7f0f09b7);
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_private_dialog);

@@ -177,8 +177,8 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0782);
-            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091bcf)).setOnClickListener(new a(this));
+            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091bd0)).setOnClickListener(new a(this));
             findViewById(R.id.obfuscated_res_0x7f0909ab).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
             ((TextView) findViewById(R.id.obfuscated_res_0x7f0909ac)).setOnClickListener(new b(this));
         }

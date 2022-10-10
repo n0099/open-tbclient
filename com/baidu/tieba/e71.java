@@ -233,7 +233,7 @@ public class e71 {
                 this.b = inflate;
                 inflate.setVisibility(4);
                 this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f090472);
-                this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f091e79);
+                this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f091e7a);
                 this.h = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f09046e);
                 this.i = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f09046b);
                 this.j = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f09046c);

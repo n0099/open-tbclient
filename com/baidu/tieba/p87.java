@@ -138,7 +138,7 @@ public abstract class p87 extends BaseAdapter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             a aVar = new a(this);
             aVar.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f090606);
-            aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc1);
+            aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc2);
             aVar.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090604);
             aVar.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a6f);
             aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09060a);
@@ -149,8 +149,8 @@ public abstract class p87 extends BaseAdapter {
             aVar.h = messageRedDotView;
             messageRedDotView.setShadowEnabled(false);
             aVar.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915c5);
-            aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e5d);
-            aVar.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e52);
+            aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e5e);
+            aVar.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e53);
             aVar.b.setPlaceHolder(1);
             return aVar;
         }

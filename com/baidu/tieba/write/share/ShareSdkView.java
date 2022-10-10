@@ -192,18 +192,18 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             setOrientation(1);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07c2, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091ea7);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea9);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091ea5);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091ea1);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea2);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea4);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091eaa);
-            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091ea8);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091ea6);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea3);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091ea0);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091eab);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091ea8);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091eaa);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091ea6);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091ea2);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea5);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091eab);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091ea9);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091ea7);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea4);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091ea1);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091eac);
             setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.m.setOnClickListener(this);
@@ -213,7 +213,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             this.e.setBorderWidth(ej.f(context, R.dimen.tbds1));
             this.e.setDefaultResource(R.color.CAM_X0205);
             this.e.setRadius(ej.f(context, R.dimen.obfuscated_res_0x7f070266));
-            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f85);
+            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f86);
             this.n = (ej.k(getContext()) - ej.f(getContext(), R.dimen.tbds516)) / ej.f(getContext(), R.dimen.tbds45);
             this.q = ej.f(getContext(), R.dimen.tbds27);
             this.r = ej.f(getContext(), R.dimen.tbds11);
@@ -288,7 +288,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1174), r29Var.f));
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1175), r29Var.f));
             this.e.K(r29Var.d, 10, false);
             this.f.setText(r29Var.c);
             if (StringUtils.isNull(r29Var.h)) {

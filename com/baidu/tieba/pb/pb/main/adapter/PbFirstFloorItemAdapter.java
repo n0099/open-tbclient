@@ -128,7 +128,7 @@ public class PbFirstFloorItemAdapter extends qn<mv7, PbFirstFloorItemViewHolder>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mv7Var) == null) {
                 if (mv7Var != null) {
-                    this.a.setText(this.d.mContext.getText(R.string.obfuscated_res_0x7f0f0fdd));
+                    this.a.setText(this.d.mContext.getText(R.string.obfuscated_res_0x7f0f0fde));
                     ItemData itemData = new ItemData();
                     itemData.parseProto(mv7Var.a);
                     this.b.setData(itemData, 17, mv7Var.b);

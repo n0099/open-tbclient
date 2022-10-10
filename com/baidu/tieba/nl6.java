@@ -71,7 +71,7 @@ public class nl6 extends dh6<bu4, ThreadCardViewHolder<ThreadData>> implements g
             if (this.b.b != null && this.b.b.getForum() != null) {
                 as6.c(threadData, this.b.b.getForum().getId());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f092180 && threadData.isVideoThreadType()) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092181 && threadData.isVideoThreadType()) {
                 this.b.P(threadData);
             }
             if (view2 instanceof VoteView) {

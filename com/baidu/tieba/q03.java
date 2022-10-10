@@ -396,7 +396,7 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.b.F0 = z;
                 if (z) {
-                    this.b.D0.setImageResource(R.drawable.obfuscated_res_0x7f0811b2);
+                    this.b.D0.setImageResource(R.drawable.obfuscated_res_0x7f0811b3);
                     this.a.post(new a(this));
                 }
             }
@@ -433,9 +433,9 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 this.a.E0 = z;
                 if (z) {
-                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f0811b4);
+                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f0811b5);
                 } else {
-                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f0811b2);
+                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f0811b3);
                 }
                 j13.onEvent("emoji_clk");
             }
@@ -646,7 +646,7 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
             return;
         }
         if (!SwanAppNetworkUtils.i(getContext())) {
-            m13.h(getContext(), R.string.obfuscated_res_0x7f0f1302);
+            m13.h(getContext(), R.string.obfuscated_res_0x7f0f1303);
             return;
         }
         try {
@@ -723,7 +723,7 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
             layoutParams.rightMargin = ch3.g(9.0f);
             this.t0.addView(this.w0, layoutParams);
             FrameLayout frameLayout = new FrameLayout(this.r0);
-            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811b6);
+            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811b7);
             frameLayout.setPadding(1, 1, 1, 1);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1, 17);
             SimpleDraweeView simpleDraweeView = new SimpleDraweeView(this.r0);
@@ -743,7 +743,7 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(ch3.g(20.0f), ch3.g(20.0f));
             layoutParams3.gravity = 8388613;
             this.w0.addView(this.y0, layoutParams3);
-            this.y0.setImageResource(R.drawable.obfuscated_res_0x7f0811b7);
+            this.y0.setImageResource(R.drawable.obfuscated_res_0x7f0811b8);
             this.x0.setOnClickListener(this);
             this.y0.setOnTouchListener(new bh3());
             this.y0.setOnClickListener(this);
@@ -756,7 +756,7 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
             this.t0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2f);
             this.s0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f0906e3);
             this.u0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912e1);
-            this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5c);
+            this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5d);
             this.z0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f31);
             this.D0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090892);
             this.A0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.panel_root);
@@ -823,16 +823,16 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
                     return;
                 }
                 this.u0.setVisibility(0);
-                this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f130f), Integer.valueOf(200 - a2)));
+                this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f1310), Integer.valueOf(200 - a2)));
                 this.u0.setTextColor(ContextCompat.getColor(this.r0, R.color.obfuscated_res_0x7f060ab2));
             } else {
                 this.v0.setEnabled(false);
                 this.u0.setVisibility(0);
                 this.u0.setTextColor(ContextCompat.getColor(this.r0, R.color.obfuscated_res_0x7f060ab3));
                 if (a2 < 1200) {
-                    this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f130e), Integer.valueOf(a2 - 200)));
+                    this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f130f), Integer.valueOf(a2 - 200)));
                 } else {
-                    this.u0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f130d));
+                    this.u0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f130e));
                 }
             }
         }
@@ -850,8 +850,8 @@ public class q03 extends dh4 implements View.OnClickListener, gr2<MediaModel> {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             p23.a aVar = new p23.a(getContext());
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12ff);
-            aVar.v(R.string.obfuscated_res_0x7f0f1303);
+            aVar.U(R.string.obfuscated_res_0x7f0f1300);
+            aVar.v(R.string.obfuscated_res_0x7f0f1304);
             aVar.O(R.string.obfuscated_res_0x7f0f011a, new a(this));
             aVar.X();
         }

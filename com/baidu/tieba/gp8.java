@@ -456,7 +456,7 @@ public class gp8 {
             String f2 = f(threadData);
             Uri parse = f2 == null ? null : Uri.parse(f2);
             String str2 = threadData.getAbstract();
-            String format = MessageFormat.format(activity.getResources().getString(R.string.obfuscated_res_0x7f0f114e), title, str2);
+            String format = MessageFormat.format(activity.getResources().getString(R.string.obfuscated_res_0x7f0f114f), title, str2);
             ShareItem shareItem = new ShareItem();
             shareItem.v = title;
             shareItem.w = format;
@@ -524,18 +524,18 @@ public class gp8 {
                 frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
             }
             navigationBarCoverTip.setVisibility(8);
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e8);
-            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920ea);
-            TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e7);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e6);
-            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1602));
+            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e9);
+            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920eb);
+            TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e8);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e7);
+            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1603));
             String errorString = postWriteCallBackData.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
-                textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1601));
+                textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1602));
             } else {
                 textView2.setText(errorString);
             }
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1600));
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1601));
             tBSpecificationBtn.setConfig(new oy4());
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0301);
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0301);
@@ -580,19 +580,19 @@ public class gp8 {
                     frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
                 }
                 navigationBarCoverTip.setVisibility(8);
-                ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e8);
-                TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920ea);
-                TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e7);
-                ImageView imageView = (ImageView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e9);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e6);
+                ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e9);
+                TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920eb);
+                TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e8);
+                ImageView imageView = (ImageView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920ea);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e7);
                 r15 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
                 if (pushStrategyConfig != null && pushStrategyConfig.d()) {
                     Map<String, String> f2 = j35.f(g(i));
                     textView.setText(f2.get("view_params_key_title"));
                     textView2.setText(f2.get("view_params_key_desc"));
                 } else {
-                    textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1607));
-                    textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1606));
+                    textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1608));
+                    textView2.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1607));
                 }
                 tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0997));
                 imageView.setVisibility(0);
@@ -649,23 +649,23 @@ public class gp8 {
                     }
                     NavigationBarCoverTip navigationBarCoverTip2 = navigationBarCoverTip;
                     navigationBarCoverTip2.setVisibility(8);
-                    ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e8);
-                    TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920ea);
-                    TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e7);
-                    TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e6);
-                    String string2 = TbadkCoreApplication.getInst().getResources().getString(writeData.isQuestionThread() ? R.string.obfuscated_res_0x7f0f160a : R.string.obfuscated_res_0x7f0f1609);
+                    ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0867, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e9);
+                    TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920eb);
+                    TextView textView2 = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e8);
+                    TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920e7);
+                    String string2 = TbadkCoreApplication.getInst().getResources().getString(writeData.isQuestionThread() ? R.string.obfuscated_res_0x7f0f160b : R.string.obfuscated_res_0x7f0f160a);
                     if (writeData.isQuestionThread()) {
                         if (postWriteCallBackData.getInviteesNumberInt() < 50) {
-                            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1605);
+                            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1606);
                         } else {
-                            string = String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1604), postWriteCallBackData.getInviteesNumber());
+                            string = String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1605), postWriteCallBackData.getInviteesNumber());
                         }
                     } else {
-                        string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1603);
+                        string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1604);
                     }
                     textView.setText(string2);
                     textView2.setText(string);
-                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1149));
+                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f114a));
                     tBSpecificationBtn.setConfig(new oy4());
                     SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
                     SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0302);
@@ -711,9 +711,9 @@ public class gp8 {
                 frameLayout.addView(navigationBarCoverTip, new ViewGroup.LayoutParams(-1, -2));
             }
             navigationBarCoverTip.setVisibility(8);
-            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0868, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e8);
-            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920ea);
-            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f160b));
+            ShadowLinearLayout shadowLinearLayout = (ShadowLinearLayout) LayoutInflater.from(currentActivity).inflate(R.layout.obfuscated_res_0x7f0d0868, (ViewGroup) null, false).findViewById(R.id.obfuscated_res_0x7f0920e9);
+            TextView textView = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f0920eb);
+            textView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f160c));
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
             shadowLinearLayout.b();
             navigationBarCoverTip.setBackgroundColor(0);

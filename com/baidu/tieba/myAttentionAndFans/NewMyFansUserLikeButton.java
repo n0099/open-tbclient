@@ -199,7 +199,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
         this.w = 1;
         this.x = false;
@@ -273,7 +273,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
         this.w = 1;
         this.x = false;
@@ -298,7 +298,7 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdc);
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fdd);
         this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b0);
         this.w = 1;
         this.x = false;

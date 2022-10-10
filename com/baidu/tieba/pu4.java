@@ -171,7 +171,7 @@ public class pu4 {
                 tbPageContext.getLayoutMode().l(skinType == 1);
                 tbPageContext.getLayoutMode().k(this.e);
             }
-            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+            this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
         }
     }
 

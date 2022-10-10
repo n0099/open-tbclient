@@ -219,8 +219,8 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.B == null || this.a.B.getAuthor() == null || StringUtils.isNull(this.a.B.getAuthor().getName_show()) || StringUtils.isNull(this.a.B.getAuthor().getUserId()) || this.a.B.getForum_name() == null) {
                 return;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f092066) != null && (view2.getTag(R.id.obfuscated_res_0x7f092066) instanceof String)) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092066);
+            if (view2.getTag(R.id.obfuscated_res_0x7f092067) != null && (view2.getTag(R.id.obfuscated_res_0x7f092067) instanceof String)) {
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092067);
                 if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                     return;
@@ -277,7 +277,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.B == null || this.a.B.getAuthor() == null) {
                 return;
             }
-            yo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.B.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            yo4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.B.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.y != null) {
                 this.a.x.onClick(view2);
             }
@@ -536,7 +536,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
                 }
                 this.e.setText(cutChineseAndEnglishWithEmoji);
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f1511);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1512);
             }
         } else {
             ViewGroup.LayoutParams layoutParams = this.z.getLayoutParams();
@@ -549,7 +549,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                 this.e.setText(threadData.getAuthor().getName_show());
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f1511);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1512);
             }
         }
         HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.e);
@@ -731,7 +731,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092488);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092489);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -739,40 +739,40 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new g(this));
-            this.D = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09248e);
-            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f09248a);
+            this.D = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09248f);
+            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f09248b);
             this.E = headCustomImageView;
             headCustomImageView.setOnClickListener(this.N);
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924b4);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0924b5);
             this.C = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ef9);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0924d7);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0924d8);
             this.i = userIconBox;
             userIconBox.setOnClickListener(this.K);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
             this.e = textView;
             textView.setOnClickListener(this.L);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e66);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b1);
-            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0921bb);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b2);
+            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0921bc);
             this.g = userIconBox2;
             userIconBox2.setOnClickListener(this.M);
             this.g.setAutoChangedStyle(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218d);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218e);
             if (DeviceInfoUtil.isMi5X()) {
                 this.j.setPadding(0, -P, 0, 0);
             }
             this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f0905f8);
             this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090203);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090202);
-            this.z = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924b8);
+            this.z = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924b9);
             this.A = findViewById(R.id.obfuscated_res_0x7f09054c);
-            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fb2);
+            this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fb3);
             this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b4d);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e26);
-            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092607);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e27);
+            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f092608);
             this.r = virtualImageStatusTip;
             virtualImageStatusTip.setOnClickListener(this.N);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092493);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092494);
         }
     }
 
@@ -891,7 +891,7 @@ public class CardUserInfoLayout extends LinearLayout implements xx {
             this.m.setVisibility(z ? 0 : 8);
             if (z) {
                 this.m.setText(str);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c2, R.color.CAM_X0109, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f0809c3, R.color.CAM_X0109, null);
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
             }
         }

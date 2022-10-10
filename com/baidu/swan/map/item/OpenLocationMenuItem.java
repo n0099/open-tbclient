@@ -170,7 +170,7 @@ public class OpenLocationMenuItem {
         this.d = ch3.g(1.0f);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e7d));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e7e));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

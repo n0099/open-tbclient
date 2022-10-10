@@ -220,7 +220,7 @@ public class fs7 implements View.OnClickListener, wd6 {
         findViewById2.setClickable(false);
         this.d.setOnClickListener(this);
         this.d.setVisibility(8);
-        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092483);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092484);
         this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e24);
         this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09010d);
         this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09010c);

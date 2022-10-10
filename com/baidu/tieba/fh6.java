@@ -63,7 +63,7 @@ public class fh6 {
         TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c94);
         TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c95);
         TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c92);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a0);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a1);
         nu4 nu4Var = new nu4(activity);
         nu4Var.setContentView(inflate);
         nu4Var.setContentViewSize(2);

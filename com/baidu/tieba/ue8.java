@@ -72,8 +72,8 @@ public class ue8 {
         this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.obfuscated_res_0x7f0d023b);
         c(i);
         this.a.setTextViewText(R.id.obfuscated_res_0x7f090841, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cfe));
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f09082f, R.drawable.obfuscated_res_0x7f080e79);
-        this.a.setImageViewResource(R.id.obfuscated_res_0x7f090832, R.drawable.obfuscated_res_0x7f080e77);
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f09082f, R.drawable.obfuscated_res_0x7f080e7a);
+        this.a.setImageViewResource(R.id.obfuscated_res_0x7f090832, R.drawable.obfuscated_res_0x7f080e78);
         this.a.setTextViewText(R.id.obfuscated_res_0x7f09082d, downloadData.getUser_name());
         zg.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
         Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
@@ -112,7 +112,7 @@ public class ue8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setTextViewText(R.id.obfuscated_res_0x7f090841, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0523));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f09082f, R.drawable.obfuscated_res_0x7f080e7a);
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f09082f, R.drawable.obfuscated_res_0x7f080e7b);
         }
     }
 
@@ -120,7 +120,7 @@ public class ue8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setTextViewText(R.id.obfuscated_res_0x7f090841, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cfe));
-            this.a.setImageViewResource(R.id.obfuscated_res_0x7f09082f, R.drawable.obfuscated_res_0x7f080e79);
+            this.a.setImageViewResource(R.id.obfuscated_res_0x7f09082f, R.drawable.obfuscated_res_0x7f080e7a);
         }
     }
 }

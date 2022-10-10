@@ -158,26 +158,26 @@ public class mm4 {
         TiebaStatic.log(statisticItem);
         Activity pageActivity = c.getPageActivity();
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01fa, (ViewGroup) null, false);
-        TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092677);
+        TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092678);
         boolean z2 = true;
-        textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1411), mVar.a()));
+        textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1412), mVar.a()));
         textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
         View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912cd);
-        View findViewById2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f091c39);
+        View findViewById2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f091c3a);
         findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
         findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-        HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09248b);
-        headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+        HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09248c);
+        headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
         headImageView.setGodIconWidth(R.dimen.tbds68);
         headImageView.setAutoChangeStyle(false);
         UtilHelper.showHeadImageViewBigV(headImageView, userData);
         headImageView.setIsRound(true);
         headImageView.K(userData.getAvater(), 25, false);
-        TextView textView2 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924b6);
+        TextView textView2 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924b7);
         textView2.setText(userData.getName_show());
         textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
-        TextView textView3 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924d6);
-        textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1410), mVar.b()));
+        TextView textView3 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924d7);
+        textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1411), mVar.b()));
         textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
         LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0906d4);
         if (ListUtils.isEmpty(userData.getManagerForum()) && !userData.isNewGod()) {
@@ -212,7 +212,7 @@ public class mm4 {
                     if (z3) {
                         desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 8, StringHelper.STRING_MORE);
                     }
-                    format = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11be), desc);
+                    format = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11bf), desc);
                 }
                 textView5.setText(format);
                 textView5.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X09));
@@ -227,7 +227,7 @@ public class mm4 {
             }
             z2 = false;
         }
-        TextView textView6 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924d0);
+        TextView textView6 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924d1);
         String intro = userData.getIntro();
         if (TextUtils.isEmpty(userData.getIntro()) && z2) {
             intro = StringHelper.getBaAgeAutoYearAndMonth(userData.getTb_age());
@@ -247,7 +247,7 @@ public class mm4 {
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f034a));
         tBSpecificationBtn.setOnClickListener(new a(this, userData, c));
         this.a = new ul4(c);
-        this.a.b(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080d53, false));
+        this.a.b(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080d54, false));
         this.a.c(viewGroup);
         this.a.d();
         TbSingleton.getInstance();

@@ -137,8 +137,8 @@ public class wl6 {
         View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d034d, relativeLayout);
         this.a = inflate;
         inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f19);
-        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091f1a);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f1a);
+        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091f1b);
         this.d = frsTabSortSwitchButton;
         frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
         this.e = this.d.getState();

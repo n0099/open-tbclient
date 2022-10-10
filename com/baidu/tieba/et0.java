@@ -107,8 +107,8 @@ public class et0 extends vs0 {
             VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
             this.b = verticalVolumeBar;
             verticalVolumeBar.setLayoutParams(w(false));
-            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e38));
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e39);
+            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e39));
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e3a);
             int dimension = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07059d);
             int i = dimension / 2;
             this.b.setPadding(i, dimension, i, dimension);

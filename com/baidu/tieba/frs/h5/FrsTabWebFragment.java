@@ -232,7 +232,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ii6 {
                     frsTabWebFragment2.hideLoadingView(frsTabWebFragment2.j);
                     TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                     FrsTabWebFragment frsTabWebFragment3 = this.a;
-                    frsTabWebFragment3.showNetRefreshView(frsTabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f14f8), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd6), false, this.a.r);
+                    frsTabWebFragment3.showNetRefreshView(frsTabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f14f9), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd7), false, this.a.r);
                     return;
                 }
                 this.a.l = false;
@@ -285,7 +285,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ii6 {
                 frsTabWebFragment.hideLoadingView(frsTabWebFragment.j);
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 FrsTabWebFragment frsTabWebFragment2 = this.a;
-                frsTabWebFragment2.showNetRefreshView(frsTabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f14f8), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd6), false, this.a.r);
+                frsTabWebFragment2.showNetRefreshView(frsTabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f14f9), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd7), false, this.a.r);
             }
         }
 
@@ -614,7 +614,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ii6 {
             if (this.h == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d035a, (ViewGroup) null);
                 this.h = inflate;
-                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092659);
+                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f09265a);
                 this.j = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091411);
                 W1();
             }

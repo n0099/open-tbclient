@@ -327,7 +327,7 @@ public class lq7 implements kq7, yx4.g {
         }
         this.c = (NavigationBar) nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091657);
         this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d7);
-        this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bc2);
+        this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bc3);
         this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09166e);
         z();
         B();

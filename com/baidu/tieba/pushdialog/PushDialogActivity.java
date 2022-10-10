@@ -214,7 +214,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                     return;
                 }
                 nu4 nu4Var = new nu4(this.a);
-                nu4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f69));
+                nu4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f6a));
                 nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0436, new a(this));
                 nu4Var.create(this.a.getPageContext()).show();
             }
@@ -739,7 +739,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f091b0d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f091b0e : invokeV.intValue;
     }
 
     public void G(Context context, String str) {

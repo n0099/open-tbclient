@@ -393,7 +393,7 @@ public class nn8 {
                     dp8.g(writeData, e);
                     if (e == null) {
                         this.b.setError_code(-53);
-                        this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f0));
+                        this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f1));
                         fp8.a("发帖：开始上传视频 失败 1");
                         iq4.b(AlbumActivityConfig.FROM_WRITE, "uploadErrorvideo1");
                         return false;
@@ -482,7 +482,7 @@ public class nn8 {
             String imagesCodeForPost = writeData.getImagesCodeForPost();
             if ((!writeData.isAddThread() || TextUtils.isEmpty(writeData.getTitle())) && TextUtils.isEmpty(returnVoiceMd5) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(this.d) && writeData.getVideoInfo() == null && !writeData.isLinkThread() && writeData.getWriteVoteData() == null) {
                 this.b.setError_code(-53);
-                this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1064));
+                this.b.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1065));
                 iq4.b(AlbumActivityConfig.FROM_WRITE, "uploadErrorother");
                 return false;
             }

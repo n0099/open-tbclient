@@ -29,26 +29,26 @@ public final class oe1 {
                                 if (i != 302) {
                                     switch (i) {
                                         case 401:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f46);
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f47);
                                         case 402:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f43);
-                                        case 403:
                                             return he1.a().getString(R.string.obfuscated_res_0x7f0f0f44);
+                                        case 403:
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f45);
                                         default:
-                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4b);
+                                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4c);
                                     }
                                 }
-                                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f45);
+                                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f46);
                             }
-                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f47);
+                            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f48);
                         }
-                        return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4a);
+                        return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4b);
                     }
-                    return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4b);
+                    return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4c);
                 }
-                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f48);
+                return he1.a().getString(R.string.obfuscated_res_0x7f0f0f49);
             }
-            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f49);
+            return he1.a().getString(R.string.obfuscated_res_0x7f0f0f4a);
         }
         return (String) invokeI.objValue;
     }

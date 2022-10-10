@@ -269,7 +269,7 @@ public class n08 extends BaseAdapter {
                 emotionView.k0();
                 dVar.a.setController(this.c);
                 dVar.a.setOnClickListener(new a(this));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0923c6);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0923c7);
                 dVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 dVar.b.setOnClickListener(new b(this));

@@ -599,7 +599,7 @@ public class ib8 implements fb8 {
                 ib8 ib8Var = this.a;
                 ib8Var.o0(ib8Var.f);
                 seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-                seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e82));
+                seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e83));
             }
         }
 
@@ -610,7 +610,7 @@ public class ib8 implements fb8 {
                 return;
             }
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e81));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e82));
             if (!this.a.t.getControl().isPlaying()) {
                 this.a.t.getControl().P(this.a.L0);
             }
@@ -728,7 +728,7 @@ public class ib8 implements fb8 {
                     } else {
                         ib8Var.o0(ib8Var.h);
                     }
-                    this.a.t0(R.id.obfuscated_res_0x7f092549);
+                    this.a.t0(R.id.obfuscated_res_0x7f09254a);
                     return true;
                 }
                 ib8 ib8Var2 = this.a;
@@ -740,7 +740,7 @@ public class ib8 implements fb8 {
                         ib8 ib8Var3 = this.a;
                         ib8Var3.o0(ib8Var3.d);
                         this.a.t.getControl().P(this.a.L0);
-                        this.a.t0(R.id.obfuscated_res_0x7f092556);
+                        this.a.t0(R.id.obfuscated_res_0x7f092557);
                         return true;
                     }
                     return true;
@@ -749,7 +749,7 @@ public class ib8 implements fb8 {
                 ib8Var4.o0(ib8Var4.f);
                 this.a.S();
                 this.a.t.getControl().P(this.a.L0);
-                this.a.t0(R.id.obfuscated_res_0x7f092556);
+                this.a.t0(R.id.obfuscated_res_0x7f092557);
                 return true;
             }
             return invokeL.booleanValue;
@@ -1436,24 +1436,24 @@ public class ib8 implements fb8 {
             ((ViewGroup) view2).addView(viewGroup);
         }
         this.N = new WeakReference<>(TbadkCoreApplication.getInst());
-        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092588);
+        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092589);
         this.v = this.Q.findViewById(R.id.obfuscated_res_0x7f0903a3);
-        this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f09253d);
-        this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092556);
-        this.z = (PercentSizeView) this.Q.findViewById(R.id.obfuscated_res_0x7f092542);
-        this.y = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092549);
-        this.A = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f092558);
-        this.B = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f09255a);
-        this.C = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f09251d);
-        this.D = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092544);
-        this.E = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092522);
-        this.F = (OperableVideoMediaControllerView) this.Q.findViewById(R.id.obfuscated_res_0x7f092541);
-        this.G = (OperableVideoNetworkStateTipView) this.Q.findViewById(R.id.obfuscated_res_0x7f092546);
-        this.H = (OperableVideoShareView) this.Q.findViewById(R.id.obfuscated_res_0x7f09256c);
-        this.J = this.Q.findViewById(R.id.obfuscated_res_0x7f09250d);
-        this.I = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092523);
-        this.K = (VideoGestureView) this.Q.findViewById(R.id.obfuscated_res_0x7f092525);
-        this.M = (OperableVideoErrorView) this.Q.findViewById(R.id.obfuscated_res_0x7f09251f);
+        this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f09253e);
+        this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092557);
+        this.z = (PercentSizeView) this.Q.findViewById(R.id.obfuscated_res_0x7f092543);
+        this.y = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f09254a);
+        this.A = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f092559);
+        this.B = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f09255b);
+        this.C = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f09251e);
+        this.D = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092545);
+        this.E = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092523);
+        this.F = (OperableVideoMediaControllerView) this.Q.findViewById(R.id.obfuscated_res_0x7f092542);
+        this.G = (OperableVideoNetworkStateTipView) this.Q.findViewById(R.id.obfuscated_res_0x7f092547);
+        this.H = (OperableVideoShareView) this.Q.findViewById(R.id.obfuscated_res_0x7f09256d);
+        this.J = this.Q.findViewById(R.id.obfuscated_res_0x7f09250e);
+        this.I = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092524);
+        this.K = (VideoGestureView) this.Q.findViewById(R.id.obfuscated_res_0x7f092526);
+        this.M = (OperableVideoErrorView) this.Q.findViewById(R.id.obfuscated_res_0x7f092520);
         this.H.setVideoContainer(this);
         this.w.addAnimatorListener(new e(this));
         this.w.setAnimation(R.raw.obfuscated_res_0x7f11001b);
@@ -1468,11 +1468,11 @@ public class ib8 implements fb8 {
         HomeGroupUbsUIHelper.handleImgMask(this.v, R.color.CAM_X0601);
         this.F.setOnSeekBarChangeListener(this.I0);
         this.z.setHeightPercent(0.583f);
-        this.z.setBackgroundResource(R.drawable.obfuscated_res_0x7f081287);
+        this.z.setBackgroundResource(R.drawable.obfuscated_res_0x7f081288);
         this.E.setSvgStateImage(new SvgPureType(R.drawable.obfuscated_res_0x7f08062f, R.color.CAM_X0101), new SvgPureType(R.drawable.obfuscated_res_0x7f080637, R.color.CAM_X0101));
         this.E.setState(0);
         this.E.setOnClickListener(this);
-        this.y.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a42, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+        this.y.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a43, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
         this.y.setOnClickListener(this);
         this.I.setOnClickListener(this);
         TbVideoViewContainer tbVideoViewContainer = new TbVideoViewContainer(this.O);
@@ -1711,19 +1711,19 @@ public class ib8 implements fb8 {
         }
         int id = view2.getId();
         t0(id);
-        if (id == R.id.obfuscated_res_0x7f092544) {
+        if (id == R.id.obfuscated_res_0x7f092545) {
             W();
-        } else if (id == R.id.obfuscated_res_0x7f092522 || id == R.id.obfuscated_res_0x7f092523) {
+        } else if (id == R.id.obfuscated_res_0x7f092523 || id == R.id.obfuscated_res_0x7f092524) {
             T();
         } else {
-            if (id == R.id.obfuscated_res_0x7f092565) {
+            if (id == R.id.obfuscated_res_0x7f092566) {
                 o0(this.b);
                 startPlay();
                 if (this.c0) {
                     TiebaStatic.log(new StatisticItem("c13345").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_locate", this.Y ? 1 : 2));
                 }
                 l0();
-            } else if (id == R.id.obfuscated_res_0x7f092556) {
+            } else if (id == R.id.obfuscated_res_0x7f092557) {
                 int i2 = this.p;
                 if (i2 != this.b && i2 != this.c && i2 != this.o) {
                     o0(this.f);
@@ -1736,7 +1736,7 @@ public class ib8 implements fb8 {
                     TiebaStatic.log(new StatisticItem("c13344").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_source", this.Y ? 1 : 2).param("obj_locate", 1));
                 }
                 l0();
-            } else if (id == R.id.obfuscated_res_0x7f092549) {
+            } else if (id == R.id.obfuscated_res_0x7f09254a) {
                 o0(this.g);
                 k0();
                 this.t.getControl().pause();
@@ -1746,7 +1746,7 @@ public class ib8 implements fb8 {
             } else if (id == R.id.obfuscated_res_0x7f0919ea) {
                 o0(this.b);
                 startPlay();
-            } else if (id == R.id.obfuscated_res_0x7f091c0a) {
+            } else if (id == R.id.obfuscated_res_0x7f091c0b) {
                 o0(this.b);
                 startPlay();
             }

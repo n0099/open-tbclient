@@ -84,14 +84,14 @@ public class yl7 implements ShareChannelService {
                 if (b) {
                     return b;
                 }
-                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1190));
+                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1191));
                 return b;
             } else if (i == 6) {
                 boolean b2 = om8.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (b2) {
                     return b2;
                 }
-                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1189));
+                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f118a));
                 return b2;
             } else if (i != 8) {
                 return false;
@@ -100,7 +100,7 @@ public class yl7 implements ShareChannelService {
                 if (b3) {
                     return b3;
                 }
-                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f116a));
+                ej.N(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f116b));
                 return b3;
             }
         }

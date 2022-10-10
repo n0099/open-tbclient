@@ -52,7 +52,7 @@ public class TitleBarView extends RelativeLayout {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_address_title_bar, (ViewGroup) this, true);
             this.leftBtn = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_left_btn);
             this.leftImageBtn = (ImageView) inflate.findViewById(R.id.sapi_sdk_titlebar_left_back_btn);
-            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d8c);
+            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d8d);
             this.rightBtn = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_right_btn);
         }
     }

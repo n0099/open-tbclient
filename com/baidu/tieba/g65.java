@@ -36,7 +36,7 @@ public class g65 extends s55 {
         }
         this.t = true;
         this.u = true;
-        this.d = R.drawable.obfuscated_res_0x7f0809c1;
+        this.d = R.drawable.obfuscated_res_0x7f0809c2;
         this.i = false;
         this.j = true;
         this.k = false;

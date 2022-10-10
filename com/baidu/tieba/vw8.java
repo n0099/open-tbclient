@@ -100,7 +100,7 @@ public class vw8 extends BaseAdapter implements View.OnClickListener {
             aVar.a.setBorderWidth(ej.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
             aVar.a.setConrers(15);
             aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ce);
+            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923cf);
         }
     }
 
@@ -245,7 +245,7 @@ public class vw8 extends BaseAdapter implements View.OnClickListener {
                     }
                 }
                 aVar.a.setTag(ww8Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091bb3, aVar);
+                aVar.a.setTag(R.id.obfuscated_res_0x7f091bb4, aVar);
                 aVar.a.setOnClickListener(this);
                 aVar.c.setText(ww8Var.b());
                 aVar.d = i;
@@ -278,7 +278,7 @@ public class vw8 extends BaseAdapter implements View.OnClickListener {
                 statisticItem.param("obj_source", 1);
                 TiebaStatic.log(statisticItem);
                 if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b42).equals(ww8Var.b()) && (hVar = this.d) != null) {
-                    hVar.i1(ww8Var, view2.getTag(R.id.obfuscated_res_0x7f091bb3));
+                    hVar.i1(ww8Var, view2.getTag(R.id.obfuscated_res_0x7f091bb4));
                     this.c = this.a.indexOf(ww8Var);
                     this.b = ww8Var.b();
                 }
@@ -295,7 +295,7 @@ public class vw8 extends BaseAdapter implements View.OnClickListener {
             notifyDataSetChanged();
             VideoEffectLayout.h hVar2 = this.d;
             if (hVar2 != null) {
-                hVar2.i1(ww8Var, view2.getTag(R.id.obfuscated_res_0x7f091bb3));
+                hVar2.i1(ww8Var, view2.getTag(R.id.obfuscated_res_0x7f091bb4));
             }
         }
     }

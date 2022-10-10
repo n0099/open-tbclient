@@ -228,7 +228,7 @@ public class y78 extends qn<x26, ThreadCardViewHolder<x26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180) {
+            if (id == R.id.obfuscated_res_0x7f092181) {
                 StatisticItem s = x26Var.s("c13543");
                 s.param("obj_type", x26Var.N(x26Var.a));
                 TiebaStatic.log(s);

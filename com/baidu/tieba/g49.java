@@ -217,7 +217,7 @@ public class g49 extends n49<e59> {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04cb, viewGroup, false);
             this.c = inflate;
-            this.g = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091b33);
+            this.g = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091b34);
             NormalItemCell.a aVar = new NormalItemCell.a();
             aVar.a = R.color.CAM_X0206;
             aVar.c = R.drawable.icon_pure_ba16;

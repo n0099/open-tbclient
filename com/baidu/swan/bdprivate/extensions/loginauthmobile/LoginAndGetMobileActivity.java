@@ -90,7 +90,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             jl3.a().onResult(i);
             if (i != 0) {
-                d33.f(this, R.string.obfuscated_res_0x7f0f12e6).H(true);
+                d33.f(this, R.string.obfuscated_res_0x7f0f12e7).H(true);
             } else {
                 finish();
             }
@@ -108,7 +108,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6c);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.a = linearLayout;
             linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b2c));
             this.a.getBackground().mutate().setAlpha(0);

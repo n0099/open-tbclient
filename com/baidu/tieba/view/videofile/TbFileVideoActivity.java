@@ -284,7 +284,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             c46 c46Var = this.e;
             if (c46Var != null && c46Var.g()) {
                 wu4 wu4Var = new wu4(getPageContext(), new yu4(getPageContext().getPageActivity()));
-                wu4Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f0538), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f0f96)}, new e(this, wu4Var));
+                wu4Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f0538), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f0f97)}, new e(this, wu4Var));
                 wu4Var.k();
                 return;
             }
@@ -325,13 +325,13 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f062a)).setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09267f)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a21));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092680)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a22));
             addSystemImageButton.setOnClickListener(new c(this));
             NavigationBar navigationBar2 = this.a;
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
             if (this.h == 2) {
                 resources = getResources();
-                i = R.string.obfuscated_res_0x7f0f10a2;
+                i = R.string.obfuscated_res_0x7f0f10a3;
             } else {
                 resources = getResources();
                 i = R.string.obfuscated_res_0x7f0f0c62;
@@ -436,11 +436,11 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 if (c46Var != null) {
                     if (c46Var.isPlaying()) {
                         this.e.pause();
-                        this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a39));
+                        this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3a));
                         return;
                     }
                     this.e.start();
-                    this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a41));
+                    this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a42));
                 }
             }
         }
@@ -506,7 +506,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             c46 c46Var = this.e;
             if (c46Var != null) {
                 c46Var.onResume();
-                this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a39));
+                this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a3a));
             }
         }
     }

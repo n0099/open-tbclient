@@ -255,7 +255,7 @@ public class xh8 extends yh8 {
         SkinManager.setViewTextColor(this.c0, (int) R.color.CAM_X0304);
         SkinManager.setViewTextColor(this.d0, (int) R.color.CAM_X0105);
         this.e0.setImageBitmap(this.R.d());
-        SkinManager.setImageResource(this.W, R.drawable.obfuscated_res_0x7f080f76);
+        SkinManager.setImageResource(this.W, R.drawable.obfuscated_res_0x7f080f77);
         j0(false);
         super.m0();
     }

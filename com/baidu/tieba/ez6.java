@@ -121,7 +121,7 @@ public class ez6 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.i == null) {
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f080972, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             this.a.u = false;
         }
 
@@ -170,7 +170,7 @@ public class ez6 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.i == null) {
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f080972, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             this.a.u = false;
         }
 
@@ -962,11 +962,11 @@ public class ez6 {
         }
         imageView.setVisibility(0);
         if (z) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080972, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.o, R.color.CAM_X0201);
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080972, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setBackgroundResource(this.o, R.color.CAM_X0207);
     }
 
@@ -1140,7 +1140,7 @@ public class ez6 {
             }
             this.n.p();
             this.n.m(null);
-            this.n.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+            this.n.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
             this.n.i(R.drawable.new_pic_emotion_08);
             this.n.l(0);
             this.n.attachView(this.m, false);
@@ -1219,7 +1219,7 @@ public class ez6 {
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (this.i != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080972, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080973, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             }
             f95 f95Var = this.h;
             if (f95Var != null) {

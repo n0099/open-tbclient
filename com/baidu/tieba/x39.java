@@ -392,7 +392,7 @@ public abstract class x39<D> extends n49<D> implements t49 {
         }
         if (((ImageSpan[]) M().getText().getSpans(0, M().getText().length(), ImageSpan.class)).length >= 10) {
             if (this.i == null) {
-                this.i = Toast.makeText(this.a.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1456, 0);
+                this.i = Toast.makeText(this.a.getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1457, 0);
             }
             if (Build.VERSION.SDK_INT >= 28 && this.i.getView().isShown()) {
                 this.i.cancel();

@@ -395,7 +395,7 @@ public class SigleRecordsFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
             LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07ce, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bb4);
+            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bb5);
             this.h = new zx4(this.a.getPageContext());
             q36 q36Var = new q36(this.a.getPageContext(), this.e);
             this.i = q36Var;

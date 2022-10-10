@@ -240,8 +240,8 @@ public class yu4 {
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
             this.c = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0906f5);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092218);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092229);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092219);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f09222a);
             this.f = findViewById;
             findViewById.setVisibility(8);
             this.h = this.b.findViewById(R.id.obfuscated_res_0x7f0907c3);
@@ -268,8 +268,8 @@ public class yu4 {
             d2.f(R.color.CAM_X0204);
             this.c = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0906f5);
             this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0906f6);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092218);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092229);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092219);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f09222a);
             this.f = findViewById;
             findViewById.setVisibility(8);
             this.h = this.b.findViewById(R.id.obfuscated_res_0x7f0907c3);

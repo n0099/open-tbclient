@@ -136,7 +136,7 @@ public class fd1 extends BaseAdapter {
                 if (item.getIsSelected() == 1) {
                     aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                 } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f08126c);
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f08126d);
                 }
             }
             return view2;

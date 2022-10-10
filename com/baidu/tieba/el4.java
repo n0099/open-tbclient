@@ -147,10 +147,10 @@ public class el4 implements View.OnClickListener {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0835, (ViewGroup) null);
             this.b = relativeLayout;
             relativeLayout.setVisibility(8);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fe2);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fe3);
             this.c = textView;
             textView.setVisibility(8);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091fe1);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091fe2);
             this.d = imageView;
             imageView.setOnClickListener(this);
             this.d.setVisibility(8);
@@ -207,7 +207,7 @@ public class el4 implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091fe1) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091fe2) {
             j();
         }
     }

@@ -243,7 +243,7 @@ public class bv7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.i.setText(R.string.obfuscated_res_0x7f0f0fdc);
+                this.i.setText(R.string.obfuscated_res_0x7f0f0fdd);
                 SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
                 this.i.setEnabled(false);
                 return;

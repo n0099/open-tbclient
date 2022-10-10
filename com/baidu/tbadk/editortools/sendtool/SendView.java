@@ -110,7 +110,7 @@ public class SendView extends TextView implements t55 {
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-        setText(R.string.obfuscated_res_0x7f0f112c);
+        setText(R.string.obfuscated_res_0x7f0f112d);
         setOnClickListener(new a(this));
     }
 

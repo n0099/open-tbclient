@@ -1008,11 +1008,11 @@ public class ss3 implements xr3, yr3, vr3, zr3 {
                             i2 = 0;
                         }
                         i0();
-                        this.a.getResources().getString(R.string.obfuscated_res_0x7f0f134e);
+                        this.a.getResources().getString(R.string.obfuscated_res_0x7f0f134f);
                         if (this.x) {
-                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f134f), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
+                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1350), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
                         } else {
-                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1351), Integer.valueOf(min2 - currentPosition));
+                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1352), Integer.valueOf(min2 - currentPosition));
                         }
                         if (this.g != null) {
                             this.g.d(format);

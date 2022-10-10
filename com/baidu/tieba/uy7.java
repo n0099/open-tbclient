@@ -150,23 +150,23 @@ public class uy7 extends p9 {
                 i = (width - 1005) / 4;
             }
             this.c.setHorizontalSpacing(i);
-            T(this.d, R.drawable.obfuscated_res_0x7f08099b);
+            T(this.d, R.drawable.obfuscated_res_0x7f08099c);
             EMTextView eMTextView = this.n;
-            int i2 = R.drawable.obfuscated_res_0x7f0809a3;
-            T(eMTextView, R.drawable.obfuscated_res_0x7f0809a3);
-            T(this.e, R.drawable.obfuscated_res_0x7f08099a);
-            T(this.f, R.drawable.obfuscated_res_0x7f080996);
+            int i2 = R.drawable.obfuscated_res_0x7f0809a4;
+            T(eMTextView, R.drawable.obfuscated_res_0x7f0809a4);
+            T(this.e, R.drawable.obfuscated_res_0x7f08099b);
+            T(this.f, R.drawable.obfuscated_res_0x7f080997);
             this.f.setAlpha(TbSingleton.getInstance().mCanCallFans ? 1.0f : 0.33f);
-            T(this.g, R.drawable.obfuscated_res_0x7f0809ab);
+            T(this.g, R.drawable.obfuscated_res_0x7f0809ac);
             EMTextView eMTextView2 = this.h;
             if (!this.w) {
-                i2 = R.drawable.obfuscated_res_0x7f080992;
+                i2 = R.drawable.obfuscated_res_0x7f080993;
             }
             T(eMTextView2, i2);
-            T(this.i, R.drawable.obfuscated_res_0x7f08098c);
-            T(this.p, R.drawable.obfuscated_res_0x7f0809a2);
-            T(this.q, R.drawable.obfuscated_res_0x7f080997);
-            T(this.k, R.drawable.obfuscated_res_0x7f0809a6);
+            T(this.i, R.drawable.obfuscated_res_0x7f08098d);
+            T(this.p, R.drawable.obfuscated_res_0x7f0809a3);
+            T(this.q, R.drawable.obfuscated_res_0x7f080998);
+            T(this.k, R.drawable.obfuscated_res_0x7f0809a7);
             TextSizeSeekBar textSizeSeekBar = this.s;
             if (textSizeSeekBar != null) {
                 textSizeSeekBar.e();
@@ -220,11 +220,11 @@ public class uy7 extends p9 {
             this.o.setVisibility(z ? 0 : 8);
             if (z2) {
                 this.o.setText(R.string.obfuscated_res_0x7f0f0816);
-                T(this.o, R.drawable.obfuscated_res_0x7f080989);
+                T(this.o, R.drawable.obfuscated_res_0x7f08098a);
                 return;
             }
-            this.o.setText(R.string.obfuscated_res_0x7f0f1565);
-            T(this.o, R.drawable.obfuscated_res_0x7f080999);
+            this.o.setText(R.string.obfuscated_res_0x7f0f1566);
+            T(this.o, R.drawable.obfuscated_res_0x7f08099a);
         }
     }
 
@@ -261,11 +261,11 @@ public class uy7 extends p9 {
             this.m.setVisibility(z ? 0 : 8);
             if (z2) {
                 this.m.setText(R.string.obfuscated_res_0x7f0f0de0);
-                T(this.m, R.drawable.obfuscated_res_0x7f08098b);
+                T(this.m, R.drawable.obfuscated_res_0x7f08098c);
                 return;
             }
             this.m.setText(R.string.obfuscated_res_0x7f0f0414);
-            T(this.m, R.drawable.obfuscated_res_0x7f08098a);
+            T(this.m, R.drawable.obfuscated_res_0x7f08098b);
         }
     }
 
@@ -275,11 +275,11 @@ public class uy7 extends p9 {
             this.j.setVisibility(z ? 0 : 8);
             if (z2) {
                 this.j.setText(R.string.obfuscated_res_0x7f0f0de1);
-                T(this.j, R.drawable.obfuscated_res_0x7f0809a8);
+                T(this.j, R.drawable.obfuscated_res_0x7f0809a9);
                 return;
             }
-            this.j.setText(R.string.obfuscated_res_0x7f0f1457);
-            T(this.j, R.drawable.obfuscated_res_0x7f0809a7);
+            this.j.setText(R.string.obfuscated_res_0x7f0f1458);
+            T(this.j, R.drawable.obfuscated_res_0x7f0809a8);
         }
     }
 
@@ -291,11 +291,11 @@ public class uy7 extends p9 {
                 this.l.setVisibility(z ? 0 : 8);
                 if (z2) {
                     this.l.setText(R.string.obfuscated_res_0x7f0f0cb3);
-                    T(this.l, R.drawable.obfuscated_res_0x7f080991);
+                    T(this.l, R.drawable.obfuscated_res_0x7f080992);
                     return;
                 }
                 this.l.setText(R.string.obfuscated_res_0x7f0f05ef);
-                T(this.l, R.drawable.obfuscated_res_0x7f08099e);
+                T(this.l, R.drawable.obfuscated_res_0x7f08099f);
                 return;
             }
             this.l.setVisibility(8);
@@ -321,11 +321,11 @@ public class uy7 extends p9 {
         if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.k.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.k.setText(R.string.obfuscated_res_0x7f0f156c);
+                this.k.setText(R.string.obfuscated_res_0x7f0f156d);
             } else {
                 this.k.setText(R.string.obfuscated_res_0x7f0f04a0);
             }
-            this.k.setText(R.string.obfuscated_res_0x7f0f11ce);
+            this.k.setText(R.string.obfuscated_res_0x7f0f11cf);
         }
     }
 
@@ -508,7 +508,7 @@ public class uy7 extends p9 {
             this.q = eMTextView14;
             eMTextView14.setOnClickListener(this.v);
             this.s = (TextSizeSeekBar) this.b.findViewById(R.id.obfuscated_res_0x7f091848);
-            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f00);
+            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f01);
             EMTextView eMTextView15 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091844);
             this.t = eMTextView15;
             eMTextView15.setOnClickListener(this.v);

@@ -57,8 +57,8 @@ public class x06 extends AlertDialog {
             if (window != null) {
                 window.setDimAmount(0.0f);
                 window.setContentView(R.layout.obfuscated_res_0x7f0d03ba);
-                this.a = window.findViewById(R.id.obfuscated_res_0x7f092275);
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09227e);
+                this.a = window.findViewById(R.id.obfuscated_res_0x7f092276);
+                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09227f);
                 if (!StringUtils.isNull(this.c)) {
                     this.b.setText(this.c);
                 }

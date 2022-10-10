@@ -93,9 +93,9 @@ public class jj6 {
         this.k = new a(this);
         this.b = tbPageContext;
         this.a = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092272);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092273);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906e3);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5e);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e5f);
         this.f = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f09043d);
         oy4 oy4Var = new oy4();
         oy4Var.p(R.color.CAM_X0618);

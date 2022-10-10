@@ -205,7 +205,7 @@ public class d32 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0099, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924e1);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924e2);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917b0);
             this.f = textView;
             textView.setOnEditorActionListener(new a(this));

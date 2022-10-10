@@ -353,7 +353,7 @@ public class h06 {
         View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f09162c);
         this.q = findViewById;
         findViewById.setAlpha(0.0f);
-        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f092634);
+        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f092635);
         this.p = navigationBar;
         navigationBar.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02eb));
         if (this.p.getBarBgView() != null) {
@@ -361,11 +361,11 @@ public class h06 {
         }
         this.a = ej.f(this.b, R.dimen.tbds402);
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TextView textView = (TextView) this.p.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, this.b).findViewById(R.id.obfuscated_res_0x7f091c43);
+        TextView textView = (TextView) this.p.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, this.b).findViewById(R.id.obfuscated_res_0x7f091c44);
         this.r = textView;
         textView.setText(R.string.obfuscated_res_0x7f0f02e2);
         this.r.setOnClickListener(this.b);
-        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f092632);
+        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f092633);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b);
         this.i = linearLayoutManager;
         this.s.setLayoutManager(linearLayoutManager);
@@ -385,7 +385,7 @@ public class h06 {
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, this.C));
         this.n.setVisibility(4);
         this.s.r(this.n);
-        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092638);
+        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092639);
         this.t = voteStatusCard;
         voteStatusCard.setOnRefreshListener(this.L);
         this.v = this.l.findViewById(R.id.obfuscated_res_0x7f090345);
@@ -393,12 +393,12 @@ public class h06 {
         SelectRuleView selectRuleView = (SelectRuleView) this.l.findViewById(R.id.obfuscated_res_0x7f090346);
         this.x = selectRuleView;
         selectRuleView.setType(1);
-        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f092628);
-        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f092636);
+        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f092629);
+        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f092637);
         this.y = searchView;
         searchView.a(new e(this));
         this.A = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f0909f9);
-        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092640);
+        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092641);
         PbListView pbListView = new PbListView(this.b);
         this.D = pbListView;
         pbListView.b();

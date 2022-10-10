@@ -43,7 +43,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923be);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923bf);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eec);
     }
 
@@ -51,7 +51,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             hv4.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a51, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a52, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -59,7 +59,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 0) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0f9f);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0fa0);
                 this.c.setVisibility(0);
             } else if (i == 1) {
                 this.b.setText(R.string.obfuscated_res_0x7f0f0a5b);

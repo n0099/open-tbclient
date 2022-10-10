@@ -342,7 +342,7 @@ public class sm6 {
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f99);
             this.i = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090fdd);
             this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fe0);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f092217);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f092218);
             this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f090f96);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f97);
             rm6.P(this.e, 0, 30);

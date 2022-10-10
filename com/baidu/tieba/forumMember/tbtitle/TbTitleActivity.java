@@ -128,7 +128,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0920ed && this.a.checkUpIsLogin()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0920ee && this.a.checkUpIsLogin()) {
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.e.Q(this.a.b, this.a.a);
                 } else {

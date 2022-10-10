@@ -290,11 +290,11 @@ public class MemberCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03cc, (ViewGroup) null);
             this.c = inflate;
-            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c6);
-            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c7);
+            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
             t1();
             this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0914ea);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092659);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f09265a);
             u1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");
@@ -371,7 +371,7 @@ public class MemberCenterFragment extends BaseFragment {
     public void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setTitleText(R.string.obfuscated_res_0x7f0f0acb);

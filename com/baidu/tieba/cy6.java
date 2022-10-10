@@ -167,7 +167,7 @@ public class cy6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
         this.r = new TextView[3];
         this.s = new TextView[3];
         this.t = new FollowUserButton[3];
-        this.u = new int[]{R.id.obfuscated_res_0x7f091b89, R.id.obfuscated_res_0x7f091b8a, R.id.obfuscated_res_0x7f091b8b};
+        this.u = new int[]{R.id.obfuscated_res_0x7f091b8a, R.id.obfuscated_res_0x7f091b8b, R.id.obfuscated_res_0x7f091b8c};
         this.v = new int[]{R.color.CAM_X0301, R.color.CAM_X0305, R.color.CAM_X0312};
         this.k = tbPageContext;
         this.l = b2;
@@ -184,8 +184,8 @@ public class cy6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             for (int i = 0; i < 3; i++) {
                 this.n[i].K(this.d.d[i].b(), 10, false);
                 this.p[i].setText(this.d.d[i].c());
-                this.s[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb6, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].f())}));
-                this.r[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb4, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].a())}));
+                this.s[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb7, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].f())}));
+                this.r[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb5, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i].a())}));
                 this.t[i].setTag(Integer.valueOf(i));
                 o(this.t[i], this.d.d[i].l());
                 this.o[i].setVisibility(this.d.b ? 0 : 8);
@@ -195,7 +195,7 @@ public class cy6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 } else if (!StringUtils.isNull(this.d.d[i].h()) && UbsABTestHelper.isRecommendBarHotText()) {
                     this.q[i].setText(this.d.d[i].h());
                 } else {
-                    this.q[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb5));
+                    this.q[i].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb6));
                 }
             }
         }
@@ -259,7 +259,7 @@ public class cy6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     public final void k(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b8c);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b8d);
             this.i.t(R.color.CAM_X0109);
             this.i.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
             this.j.r(R.color.CAM_X0304);
@@ -270,13 +270,13 @@ public class cy6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 View findViewById = view2.findViewById(this.u[i]);
                 findViewById.setTag(Integer.valueOf(i));
                 findViewById.setOnClickListener(this);
-                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b88);
-                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b92);
-                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b8e);
-                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b87);
-                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b85);
-                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b90);
-                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091b84);
+                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b89);
+                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b93);
+                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b8f);
+                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b88);
+                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b86);
+                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091b91);
+                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091b85);
                 this.t[i].setOnClickListener(this);
                 int i2 = i + 1;
                 this.o[i].setText(String.valueOf(i2));
@@ -364,7 +364,7 @@ public class cy6 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 param = param.param("obj_name", this.d.a);
             }
             TiebaStatic.log(param);
-        } else if (id == R.id.obfuscated_res_0x7f091b89 || id == R.id.obfuscated_res_0x7f091b8a || id == R.id.obfuscated_res_0x7f091b8b) {
+        } else if (id == R.id.obfuscated_res_0x7f091b8a || id == R.id.obfuscated_res_0x7f091b8b || id == R.id.obfuscated_res_0x7f091b8c) {
             FrsActivityConfig callFrom = new FrsActivityConfig(this.k.getPageActivity()).createNormalCfg(aVar.c(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
             if (UbsABTestHelper.isRecommendBarHotText()) {
                 Intent intent = callFrom.getIntent();

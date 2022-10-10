@@ -165,7 +165,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                ej.M(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f10ac);
+                ej.M(this.a.getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f10ad);
             }
         }
     }
@@ -648,7 +648,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                     ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00d4);
                     return;
                 }
-                ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f10a6);
+                ej.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f10a7);
             }
         }
     }
@@ -727,11 +727,11 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.J = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090e4e);
             this.E = inflate.findViewById(R.id.obfuscated_res_0x7f091308);
             this.F = inflate.findViewById(R.id.obfuscated_res_0x7f091309);
-            this.G = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092386);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092387);
+            this.G = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092387);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092388);
             this.H = textView;
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092375);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092376);
             this.I = textView2;
             textView2.setOnClickListener(this);
             this.D.setContentView(inflate);
@@ -788,15 +788,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908c9);
             this.i = tbImageView;
             tbImageView.setGifIconSupport(false);
-            this.u = findViewById(R.id.obfuscated_res_0x7f091c3a);
+            this.u = findViewById(R.id.obfuscated_res_0x7f091c3b);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912d0);
             this.v = findViewById2;
             findViewById2.setOnClickListener(this);
             this.u.setOnClickListener(this);
             this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f09010b);
             this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f09010e);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091db4);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091db5);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091db5);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091db6);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09089e);
             this.l = textView;
             textView.setOnClickListener(null);
@@ -855,7 +855,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             if (pckInfo != null && !StringUtils.isNull(pckInfo.pck_name)) {
                 shareItem.v = this.A.pck_info.pck_name;
             } else {
-                shareItem.v = getString(R.string.obfuscated_res_0x7f0f1406);
+                shareItem.v = getString(R.string.obfuscated_res_0x7f0f1407);
             }
             shareItem.w = getString(R.string.obfuscated_res_0x7f0f0d4a);
             shareItem.x = this.a + this.w + "/" + this.A.pic_info.pic_id;
@@ -889,7 +889,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             SkinManager.setViewTextColor(this.H, (int) R.color.cp_cont_r);
             SkinManager.setViewTextColor(this.I, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.G, (int) R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, R.drawable.obfuscated_res_0x7f080a27, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.r, R.drawable.obfuscated_res_0x7f080a28, R.color.CAM_X0105, null);
             if (i2 != 1 && i2 != 4) {
                 SkinManager.setBackgroundColor(this.t, R.color.white_alpha100, i2);
             } else {

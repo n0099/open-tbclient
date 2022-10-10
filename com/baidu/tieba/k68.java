@@ -95,7 +95,7 @@ public class k68 extends i16<b68> {
         this.i = 3;
         this.m = new a(this);
         View h = h();
-        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0925d9);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0925da);
         AutoBannerView autoBannerView = (AutoBannerView) h.findViewById(R.id.obfuscated_res_0x7f0918e0);
         this.k = autoBannerView;
         autoBannerView.setMarqueenTime(3000L);

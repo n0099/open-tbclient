@@ -204,7 +204,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            ej.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f13ec);
+            ej.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f13ed);
         }
     }
 
@@ -491,7 +491,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 SkinManager.setBackgroundColor(this.g, this.b);
                 SkinManager.setBackgroundColor(this.h, this.b);
                 this.h.setVisibility(8);
-                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091abc);
+                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091abd);
                 h(TbadkCoreApplication.getInst().getSkinType());
                 SkinManager.setViewTextColor(this.d, (int) R.color.common_color_10039);
                 this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, ej.f(this.c.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023c)));
@@ -803,7 +803,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d072e, viewGroup, false);
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c83);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c84);
             ub8 ub8Var = new ub8(getActivity(), inflate);
             this.b = ub8Var;
             if (ub8Var.g() == null) {
@@ -817,15 +817,15 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
             if (!dj.isEmpty(string3)) {
                 this.a = string3;
             }
-            NoDataViewFactory.b bVar = new NoDataViewFactory.b(getString(R.string.obfuscated_res_0x7f0f1447), new d(this));
+            NoDataViewFactory.b bVar = new NoDataViewFactory.b(getString(R.string.obfuscated_res_0x7f0f1448), new d(this));
             int dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070231);
             String str2 = "";
             NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, dimension);
             if (this.a.equals("photolive")) {
                 int l = ox4.k().l(TbadkCoreApplication.getCurrentAccount() + "photolive_hostLevel", -1);
                 if (l == 0) {
-                    string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f144a);
-                    str = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f1512);
+                    string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f144b);
+                    str = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f1513);
                     dVar = NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_06, dimension, -1, -1);
                     cVar = NoDataViewFactory.c.a(bVar);
                 } else {

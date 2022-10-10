@@ -120,7 +120,7 @@ public class nw6 extends nf5<ActivityPageResIdl> {
                 ot4Var.j(recommendForumList.forum_list);
                 ot4Var.f = recommendForumList.class_name;
                 ot4Var.floorPosition = recommendForumList.floor_position.intValue();
-                ot4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
+                ot4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
                 ot4Var.e = R.color.CAM_X0108;
                 arrayList.add(ot4Var);
             }
@@ -129,7 +129,7 @@ public class nw6 extends nf5<ActivityPageResIdl> {
                 st4 st4Var = new st4();
                 st4Var.f(recommendUserList.user_list);
                 st4Var.floorPosition = recommendUserList.floor_position.intValue();
-                st4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd2);
+                st4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fd3);
                 st4Var.b = R.color.CAM_X0108;
                 arrayList.add(st4Var);
             }

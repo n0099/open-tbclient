@@ -411,8 +411,8 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d07ea);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f43);
-            int i = this.mPageType == 1 ? R.string.obfuscated_res_0x7f0f11ee : R.string.obfuscated_res_0x7f0f11ef;
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f44);
+            int i = this.mPageType == 1 ? R.string.obfuscated_res_0x7f0f11ef : R.string.obfuscated_res_0x7f0f11f0;
             e eVar = new e(this);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
             this.mNavigationBar = navigationBar;
@@ -491,7 +491,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
         if (interceptable == null || interceptable.invokeL(65557, this, getForumsFromForumClassResIdl) == null) {
             if (getForumsFromForumClassResIdl != null && (dataRes = getForumsFromForumClassResIdl.data) != null && (list = dataRes.forum_info) != null && !list.isEmpty()) {
                 this.mListFooter.setVisibility(0);
-                this.mFooterText.setText(this.mHasMore ? R.string.obfuscated_res_0x7f0f0fc1 : R.string.obfuscated_res_0x7f0f0a01);
+                this.mFooterText.setText(this.mHasMore ? R.string.obfuscated_res_0x7f0f0fc2 : R.string.obfuscated_res_0x7f0f0a01);
                 SkinManager.setViewTextColor(this.mFooterText, this.mHasMore ? R.color.CAM_X0302 : R.color.CAM_X0109);
                 if (this.mHasMore) {
                     SkinManager.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);

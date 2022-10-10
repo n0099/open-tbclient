@@ -421,7 +421,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
             this.e.attachView(this, false);
             this.e.p();
             if (z) {
-                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
             } else {
                 this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f089f));
             }

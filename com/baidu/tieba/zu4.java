@@ -140,8 +140,8 @@ public class zu4 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0230, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092135);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092118);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092136);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092119);
                 bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090617);
             } else {
                 bVar = (b) view2.getTag();
@@ -157,7 +157,7 @@ public class zu4 extends BaseAdapter {
                 bVar.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080830, WebPManager.ResourceStateType.NORMAL));
                 bVar.c.setVisibility(0);
             } else if (this.c) {
-                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809fb, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(bVar.c, R.drawable.obfuscated_res_0x7f0809fc, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
                 bVar.c.setVisibility(0);
             } else {
                 bVar.c.setVisibility(4);

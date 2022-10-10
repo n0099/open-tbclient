@@ -59,7 +59,7 @@ public class GroupChatView extends CommonGroupMsglistView {
                 TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090cfe);
                 this.a = textView;
                 textView.setText(string);
-                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091bbc);
+                ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.obfuscated_res_0x7f091bbd);
                 this.b = imageView;
                 imageView.setVisibility(8);
                 if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {

@@ -334,8 +334,8 @@ public class NestedScrollHeader extends RelativeLayout {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4012);
             this.h = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c7, (ViewGroup) this, true);
-            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091add);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dda);
+            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091ade);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ddb);
             this.e = findViewById(R.id.obfuscated_res_0x7f090c6e);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c61);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090772);
@@ -403,7 +403,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0613);
                 WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080762, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
-                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a6f, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a70, SkinManager.getColor(R.color.CAM_X0619), WebPManager.ResourceStateType.NORMAL);
                 j(this.d);
             } else {
                 hv4 d3 = hv4.d(this.c);
@@ -411,7 +411,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0210);
                 WebPManager.setMaskDrawable(this.f, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
-                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a6f, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+                pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a70, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, 1.0f - this.d, TbadkCoreApplication.getInst().getSkinType());
             }
             this.a.r();

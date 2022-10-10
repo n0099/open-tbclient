@@ -757,7 +757,7 @@ public class VideoAdFragment extends BaseFragment implements qm5.b, vy8 {
         imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08084f, WebPManager.ResourceStateType.NORMAL_DISABLE));
         EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090688);
         this.x = eMTextView;
-        eMTextView.setText(R.string.obfuscated_res_0x7f0f1526);
+        eMTextView.setText(R.string.obfuscated_res_0x7f0f1527);
         hv4 d3 = hv4.d(this.x);
         d3.z(R.dimen.T_X09);
         d3.A(R.string.F_X01);
@@ -771,7 +771,7 @@ public class VideoAdFragment extends BaseFragment implements qm5.b, vy8 {
         imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08084e, WebPManager.ResourceStateType.NORMAL));
         EMTextView eMTextView2 = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091568);
         this.A = eMTextView2;
-        eMTextView2.setText(R.string.obfuscated_res_0x7f0f1528);
+        eMTextView2.setText(R.string.obfuscated_res_0x7f0f1529);
         hv4 d4 = hv4.d(this.A);
         d4.z(R.dimen.T_X09);
         d4.A(R.string.F_X01);
@@ -808,7 +808,7 @@ public class VideoAdFragment extends BaseFragment implements qm5.b, vy8 {
         this.G = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0900ab);
         TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0900ac);
         this.H = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f1525);
+        textView2.setText(R.string.obfuscated_res_0x7f0f1526);
         hv4 d7 = hv4.d(this.H);
         d7.z(R.dimen.T_X09);
         d7.v(R.color.CAM_X0621);
@@ -841,7 +841,7 @@ public class VideoAdFragment extends BaseFragment implements qm5.b, vy8 {
         }
         this.D.setText(e2);
         if (dj.isEmpty(gv8Var.d())) {
-            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1527), false, null);
+            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1528), false, null);
         } else {
             this.E.setData(gv8Var.d(), false, null);
         }
@@ -970,7 +970,7 @@ public class VideoAdFragment extends BaseFragment implements qm5.b, vy8 {
             this.n = i2;
             WebPManager.setMaskDrawable(this.e, R.drawable.obfuscated_res_0x7f0807f4, null);
             hv4.d(this.a).f(R.color.CAM_X0611);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             AdInfoButton adInfoButton = this.I;
             if (adInfoButton != null) {

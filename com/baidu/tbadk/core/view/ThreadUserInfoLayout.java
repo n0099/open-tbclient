@@ -142,8 +142,8 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.getAuthor() == null || StringUtils.isNull(this.a.p.getAuthor().getName_show()) || StringUtils.isNull(this.a.p.getAuthor().getUserId()) || this.a.p.getForum_name() == null) {
                 return;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f092066) != null && (view2.getTag(R.id.obfuscated_res_0x7f092066) instanceof String)) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092066);
+            if (view2.getTag(R.id.obfuscated_res_0x7f092067) != null && (view2.getTag(R.id.obfuscated_res_0x7f092067) instanceof String)) {
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f092067);
                 if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                     return;
@@ -200,7 +200,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.p == null || this.a.p.getAuthor() == null) {
                 return;
             }
-            yo4.s(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1509), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            yo4.s(this.a.q.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150a), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.p.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.s == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -270,13 +270,13 @@ public class ThreadUserInfoLayout extends LinearLayout {
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09054e);
             this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e66);
             this.e = (UserIconBox) inflate.findViewById(R.id.obfuscated_res_0x7f09054b);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09219d);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092192);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09219e);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092193);
             this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0907f9);
             this.n = findViewById(R.id.obfuscated_res_0x7f09080b);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f092198);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f092199);
             this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090546);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921bc);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921bd);
             this.l = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ea);
             View a2 = bo4.b().a(this.q, 1);
             this.k = a2;
@@ -464,7 +464,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             }
             ThreadData threadData2 = this.p;
             if (threadData2.middle_page_num > 0 && threadData2.middle_page_pass_flag == 0) {
-                str = getContext().getString(R.string.obfuscated_res_0x7f0f111c);
+                str = getContext().getString(R.string.obfuscated_res_0x7f0f111d);
             } else {
                 str = StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f066e);
             }
@@ -690,7 +690,7 @@ public class ThreadUserInfoLayout extends LinearLayout {
             }
             this.c.setText(ju7.b(this.q, this.c.getText().toString()));
             this.c.setGravity(16);
-            this.c.setTag(R.id.obfuscated_res_0x7f092066, ju7.a());
+            this.c.setTag(R.id.obfuscated_res_0x7f092067, ju7.a());
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
         }
     }

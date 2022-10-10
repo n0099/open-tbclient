@@ -76,7 +76,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         }
         this.i = mt7Var;
         this.b.K(mt7Var.f, 10, false);
-        this.d.setCompoundDrawablesWithIntrinsicBounds(mt7Var.b() ? WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a48, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL) : null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.d.setCompoundDrawablesWithIntrinsicBounds(mt7Var.b() ? WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a49, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL) : null, (Drawable) null, (Drawable) null, (Drawable) null);
         this.d.setText(mt7Var.c);
         this.g.setText(mt7Var.d);
         String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), mt7Var.g);
@@ -119,17 +119,17 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a8, (ViewGroup) this, true);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c6d);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091c6e);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090715);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092034);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091719);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09079a);
             this.b.setPlaceHolder(1);
             this.b.setRadius(ej.f(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            findViewById(R.id.obfuscated_res_0x7f091c6d).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091c6e).setOnClickListener(this);
         }
     }
 

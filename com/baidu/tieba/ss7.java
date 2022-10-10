@@ -148,7 +148,7 @@ public class ss7 implements InterestedForumModel.d, ft7, View.OnClickListener, I
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a.e()) {
                 this.g.setEnabled(true);
-                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f120d));
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f120e));
             } else {
                 this.g.setEnabled(false);
                 this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f094b));

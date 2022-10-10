@@ -148,9 +148,9 @@ public class oc8 implements View.OnClickListener {
         this.u = false;
         this.a = pushDialogActivity;
         pushDialogActivity.setContentView(i);
-        this.d = d(R.id.obfuscated_res_0x7f091c83);
+        this.d = d(R.id.obfuscated_res_0x7f091c84);
         this.c = d(R.id.obfuscated_res_0x7f0907d7);
-        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f091b0e);
+        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f091b0f);
         this.e = editorScrollView;
         editorScrollView.setOverScrollMode(2);
         this.e.setListener(new a(this));
@@ -168,17 +168,17 @@ public class oc8 implements View.OnClickListener {
                 this.a.getWindow().setBackgroundDrawable(this.b);
             }
         }
-        View d = d(R.id.obfuscated_res_0x7f091b0c);
+        View d = d(R.id.obfuscated_res_0x7f091b0d);
         this.p = d;
         d.setOnClickListener(this);
         this.q = (TextView) d(R.id.obfuscated_res_0x7f090688);
-        TbImageView tbImageView = (TbImageView) d(R.id.obfuscated_res_0x7f091b10);
+        TbImageView tbImageView = (TbImageView) d(R.id.obfuscated_res_0x7f091b11);
         this.f = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081833);
         this.f.setAutoChangeStyle(false);
-        this.g = (TextView) d(R.id.obfuscated_res_0x7f091b11);
-        this.i = (TextView) d(R.id.obfuscated_res_0x7f091b0f);
-        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.obfuscated_res_0x7f091b13);
+        this.g = (TextView) d(R.id.obfuscated_res_0x7f091b12);
+        this.i = (TextView) d(R.id.obfuscated_res_0x7f091b10);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.obfuscated_res_0x7f091b14);
         this.l = clickableHeaderImageView;
         clickableHeaderImageView.setBorderSurroundContent(true);
         this.l.setIsRound(true);
@@ -187,7 +187,7 @@ public class oc8 implements View.OnClickListener {
         this.l.setBorderWidth(ej.f(this.a, R.dimen.tbds1));
         this.l.setBorderColor(ContextCompat.getColor(this.a, R.color.black_alpha15));
         this.r = new dl5();
-        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.obfuscated_res_0x7f091b0d);
+        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.obfuscated_res_0x7f091b0e);
         this.j = tbRichTextView;
         tbRichTextView.setTextColor(ContextCompat.getColor(this.a, R.color.CAM_X0107));
         this.r.s(ej.f(this.a, R.dimen.tbds38));
@@ -196,12 +196,12 @@ public class oc8 implements View.OnClickListener {
         this.r.o(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
         this.r.i(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
         this.j.setLayoutStrategy(this.r);
-        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.obfuscated_res_0x7f091b16);
+        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.obfuscated_res_0x7f091b17);
         this.k = pushDialogVideoView;
         pushDialogVideoView.setPageContext(this.a.getPageContext());
-        this.m = (TextView) d(R.id.obfuscated_res_0x7f091b15);
-        this.n = (TextView) d(R.id.obfuscated_res_0x7f091b12);
-        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.obfuscated_res_0x7f091b14);
+        this.m = (TextView) d(R.id.obfuscated_res_0x7f091b16);
+        this.n = (TextView) d(R.id.obfuscated_res_0x7f091b13);
+        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.obfuscated_res_0x7f091b15);
         this.o = commonUserLikeButton;
         commonUserLikeButton.setAfterOnClickListener(this);
         ImageView imageView = (ImageView) d(R.id.obfuscated_res_0x7f0907bb);
@@ -229,7 +229,7 @@ public class oc8 implements View.OnClickListener {
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         double c = ((this.t.c() * (1.0f - ((this.k.getCurrentPosition() * 1.0f) / (this.t.b() * 1000)))) * 1.0f) / 1048576.0f;
         if (c >= 0.1d) {
-            ej.N(this.a.getPageContext().getPageActivity(), String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f6d), decimalFormat.format(c)));
+            ej.N(this.a.getPageContext().getPageActivity(), String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f6e), decimalFormat.format(c)));
         }
     }
 

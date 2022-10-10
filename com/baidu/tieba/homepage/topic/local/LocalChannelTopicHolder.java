@@ -45,10 +45,10 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements x
                 return;
             }
         }
-        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922f9);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922d7);
-        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f092313);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c4);
+        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922fa);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0922d8);
+        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f092314);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922c5);
     }
 
     public void a(u47 u47Var) {

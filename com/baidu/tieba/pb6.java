@@ -84,7 +84,7 @@ public class pb6 {
         this.a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0773, (ViewGroup) null);
         this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092136);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092137);
         ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e2a);
         this.d = imageView;
         imageView.setOnClickListener(new a(this));

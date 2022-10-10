@@ -66,9 +66,9 @@ public class ShareFromGameCenter extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07bf, this);
             setOrientation(1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8a);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8b);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c76);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f07);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f08);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7b);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c69);
             HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c6a);
@@ -76,11 +76,11 @@ public class ShareFromGameCenter extends LinearLayout {
             headImageView.setDefaultResource(R.drawable.pic_avatar_ba_140);
             this.c.setAutoChangeStyle(false);
             this.d = (Button) findViewById(R.id.obfuscated_res_0x7f09002f);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920b7);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920b8);
             this.e = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.e.setAutoChangeStyle(false);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b6);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b7);
         }
     }
 

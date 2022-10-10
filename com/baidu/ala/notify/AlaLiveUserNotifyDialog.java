@@ -117,7 +117,7 @@ public class AlaLiveUserNotifyDialog extends Dialog {
             this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090209);
             this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09041e);
             this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091a36);
-            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0924c3);
+            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0924c4);
             this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09100c);
             this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09177d);
             this.userPortrait.setDefaultResource(R.drawable.icon_default_avatar100_bg);
@@ -138,10 +138,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
                 this.overUserPortraitBg.setVisibility(0);
                 return;
             }
-            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812a6);
+            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812a7);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
-            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812a7);
+            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812a8);
             this.overUserPortraitBg.setVisibility(8);
         }
     }

@@ -209,7 +209,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                         oq4.c(3, PersonGroupActivity.v[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.j, PersonGroupActivity.t[this.a.c], PersonGroupActivity.s[this.a.c]);
                         PersonGroupActivity personGroupActivity = this.a;
-                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080acc);
+                        personGroupActivity.showToastWithIcon(personGroupActivity.getPageContext().getContext().getString(PersonGroupActivity.u[this.a.c]), R.drawable.obfuscated_res_0x7f080acd);
                         this.a.j.setContentDescription(this.a.getPageContext().getString(PersonGroupActivity.u[oq4.a(3) % 3]));
                         return;
                     }
@@ -602,7 +602,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getContext());
             game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
             nu4Var.setContentView(game2GroupShareDialogView);
-            nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
+            nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new a(this, j, shareFromGameCenterMsgData, game2GroupShareDialogView));
             nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this, game2GroupShareDialogView));
             nu4Var.create(getPageContext()).show();
         }
@@ -632,7 +632,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.h.onChangeSkinType(getPageContext(), i);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080a17, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080a18, R.color.CAM_X0105, null);
             this.o.p(i);
             SkinManager.setBackgroundResource(this.o, R.color.common_color_10173);
             if (this.p != null) {
@@ -682,9 +682,9 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 if (i == 1) {
                     this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f0851);
                 } else if (i != 2) {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1365);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1366);
                 } else {
-                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1192);
+                    this.e = getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1193);
                 }
             }
             if (this.q == null) {

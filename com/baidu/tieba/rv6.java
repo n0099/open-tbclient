@@ -135,7 +135,7 @@ public class rv6 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0380, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ff);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092100);
                 bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0907f9);
                 view2.setTag(bVar);
             }

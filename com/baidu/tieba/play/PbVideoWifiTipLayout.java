@@ -89,11 +89,11 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0516, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092428);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092427);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09238e);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d8);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092429);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092428);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923eb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09238f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d9);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

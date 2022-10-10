@@ -288,11 +288,11 @@ public class sy<T extends yq4> implements xx, so5 {
                 this.m.h = R.color.CAM_X0205;
             }
             if (this.g != null) {
-                this.d.setTag(R.id.obfuscated_res_0x7f092609, null);
+                this.d.setTag(R.id.obfuscated_res_0x7f09260a, null);
                 this.g.a(t);
                 gx<T> gxVar = this.g;
                 if (gxVar instanceof j19) {
-                    this.d.setTag(R.id.obfuscated_res_0x7f092609, gxVar);
+                    this.d.setTag(R.id.obfuscated_res_0x7f09260a, gxVar);
                 }
             }
             gx<T> gxVar2 = this.h;
@@ -553,7 +553,7 @@ public class sy<T extends yq4> implements xx, so5 {
         } else {
             inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0880, viewGroup, false);
         }
-        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f092180);
+        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f092181);
         this.d = threadCardView;
         this.e = (RelativeLayout) threadCardView.findViewById(R.id.obfuscated_res_0x7f0904fd);
         LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0903b6);

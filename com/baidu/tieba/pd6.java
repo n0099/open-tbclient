@@ -183,7 +183,7 @@ public class pd6 {
         if (inflate == null) {
             return;
         }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091f40);
+        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091f41);
         a aVar = new a(this);
         this.d.setDisableParentEvent(false);
         this.d.setCoverFlowFactory(aVar);

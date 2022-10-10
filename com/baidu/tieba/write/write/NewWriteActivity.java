@@ -412,19 +412,19 @@ public class NewWriteActivity extends BaseFragmentActivity implements r49, Voice
             return;
         }
         ox4.k().u("key_virtual_image_setting_guide_has_show", true);
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092606)).inflate();
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f092605);
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092607)).inflate();
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f092606);
         this.i = findViewById;
         findViewById.setVisibility(0);
         this.i.setOnClickListener(new e(this));
         hv4 d2 = hv4.d(this.i);
         d2.e(R.string.A_X05);
         d2.f(R.color.CAM_X0611);
-        hv4 d3 = hv4.d(this.i.findViewById(R.id.obfuscated_res_0x7f092602));
+        hv4 d3 = hv4.d(this.i.findViewById(R.id.obfuscated_res_0x7f092603));
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0201);
-        ((GifView) this.i.findViewById(R.id.obfuscated_res_0x7f092601)).setGifRaw(R.raw.obfuscated_res_0x7f110071);
-        View findViewById2 = this.i.findViewById(R.id.obfuscated_res_0x7f0925ff);
+        ((GifView) this.i.findViewById(R.id.obfuscated_res_0x7f092602)).setGifRaw(R.raw.obfuscated_res_0x7f110071);
+        View findViewById2 = this.i.findViewById(R.id.obfuscated_res_0x7f092600);
         if (this.k instanceof e69) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById2.getLayoutParams();
             layoutParams.setMarginStart(TbDimenUtil.dp2px(getApplicationContext(), 100.0f));
@@ -435,9 +435,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements r49, Voice
         d4.n(R.string.J_X07);
         d4.f(R.color.CAM_X0205);
         g48 a2 = g48.a();
-        hv4.d((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092603)).v(R.color.CAM_X0105);
-        hv4.d((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092600)).v(R.color.CAM_X0105);
-        TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0925fd);
+        hv4.d((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092604)).v(R.color.CAM_X0105);
+        hv4.d((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092601)).v(R.color.CAM_X0105);
+        TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0925fe);
         if (a2 != null && a2.b() == 1) {
             textView.setVisibility(8);
         } else {
@@ -458,17 +458,17 @@ public class NewWriteActivity extends BaseFragmentActivity implements r49, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.h == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0925fa)).inflate();
-                this.h = findViewById(R.id.obfuscated_res_0x7f0925f9);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0925fb)).inflate();
+                this.h = findViewById(R.id.obfuscated_res_0x7f0925fa);
             }
             this.h.setVisibility(0);
             hv4 d2 = hv4.d(this.h);
             d2.e(R.string.A_X05);
             d2.f(R.color.CAM_X0611);
-            hv4 d3 = hv4.d(this.h.findViewById(R.id.obfuscated_res_0x7f0925f8));
+            hv4 d3 = hv4.d(this.h.findViewById(R.id.obfuscated_res_0x7f0925f9));
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0925f6);
+            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0925f7);
             hv4 d4 = hv4.d(textView);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X07);
@@ -478,7 +478,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements r49, Voice
             d4.k(R.color.CAM_X0105);
             d4.j(R.string.A_X07);
             textView.setOnClickListener(new c(this));
-            TextView textView2 = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0925f5);
+            TextView textView2 = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f0925f6);
             hv4 d5 = hv4.d(textView2);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X07);
@@ -622,10 +622,10 @@ public class NewWriteActivity extends BaseFragmentActivity implements r49, Voice
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d005e);
             this.a = findViewById(R.id.obfuscated_res_0x7f091792);
-            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
-            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0926c0);
+            this.b = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
+            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0926c1);
             this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b1);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092285);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092286);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));

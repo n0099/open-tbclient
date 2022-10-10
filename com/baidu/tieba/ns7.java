@@ -111,7 +111,7 @@ public class ns7 extends ms7 {
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f54);
             this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f4a);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f56);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e53);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e54);
             this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f4b);
             int k = ej.k(TbadkCoreApplication.getInst()) / 5;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);

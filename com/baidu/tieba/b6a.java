@@ -670,9 +670,9 @@ public final class b6a {
             attributes.width = -1;
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.findViewById(R.id.obfuscated_res_0x7f091c66).setOnClickListener(new e(payDialogType, w5aVar, iViewEventListener, a6aVar));
-            TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092364);
-            TextView textView2 = (TextView) window.findViewById(R.id.obfuscated_res_0x7f0923b1);
+            window.findViewById(R.id.obfuscated_res_0x7f091c67).setOnClickListener(new e(payDialogType, w5aVar, iViewEventListener, a6aVar));
+            TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092365);
+            TextView textView2 = (TextView) window.findViewById(R.id.obfuscated_res_0x7f0923b2);
             EditText etInput = (EditText) window.findViewById(R.id.obfuscated_res_0x7f090934);
             TextView btnOk = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09044e);
             Intrinsics.checkExpressionValueIsNotNull(btnOk, "btnOk");

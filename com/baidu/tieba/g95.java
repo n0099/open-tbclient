@@ -82,7 +82,7 @@ public class g95 extends z85 {
         this.e = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09167b);
         this.d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091678);
         my4 my4Var = new my4();
-        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fd8));
+        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
         this.d.setTextSize(R.dimen.T_X05);
         this.d.setConfig(my4Var);
         this.f = R.drawable.new_pic_emotion_08;

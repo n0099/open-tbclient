@@ -150,9 +150,9 @@ public class in7 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0584, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ce);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920cf);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d0);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920cf);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d0);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d1);
                 aVar.d = view2.findViewById(R.id.divider_line);
             }
             fn7 item = getItem(i);

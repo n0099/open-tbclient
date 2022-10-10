@@ -102,17 +102,17 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092488);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092489);
             this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e8);
             this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909f8);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09065d);
             this.d = imageView;
             if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4b, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a4c, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
             ImageView imageView2 = this.a;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b3d, false));
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080b3e, false));
             }
             SkinManager.setLottieAnimation(this.c, R.raw.obfuscated_res_0x7f110062);
             TBLottieAnimationView tBLottieAnimationView = this.c;

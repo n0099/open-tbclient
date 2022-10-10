@@ -460,7 +460,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeL(1048586, this, shareThreadMsgData) == null) {
             if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar()) && !StringUtils.isNull(shareThreadMsgData.getAuthor_name_show())) {
                 this.R.setVisibility(0);
-                this.R.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f13e3), shareThreadMsgData.getAuthor_name_show()));
+                this.R.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f13e4), shareThreadMsgData.getAuthor_name_show()));
                 return;
             }
             this.R.setVisibility(8);
@@ -520,7 +520,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0493, (ViewGroup) this, true);
             setOnClickListener(this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e84);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e85);
             BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090ee2);
             this.c = barImageView;
             barImageView.setShowOval(true);
@@ -531,7 +531,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a8e);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a44);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a53);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eaf);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091eb0);
             BarImageView barImageView2 = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090ee4);
             this.h = barImageView2;
             barImageView2.setShowOval(true);
@@ -546,16 +546,16 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             this.i.getHeadView().setDefaultResource(17170445);
             this.i.getHeadView().setPlaceHolder(1);
             this.i.setIsclearmode(true);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218e);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b9);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09218f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ba);
             this.k = textView;
             textView.setMaxLines(1);
             this.k.setEllipsize(TextUtils.TruncateAt.END);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092189);
-            this.m = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921a7);
-            this.z = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921a4);
-            this.Q = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f0921c6);
-            this.R = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b0);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09218a);
+            this.m = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921a8);
+            this.z = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921a5);
+            this.Q = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f0921c7);
+            this.R = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b1);
             this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919c1);
             this.o = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919c6);
             this.q = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ec2);
@@ -566,14 +566,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             setStrokeWith(this.s);
             setStrokeWith(this.p);
             setStrokeWith(this.o);
-            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09253a);
-            this.t = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092592);
-            this.u = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09252c);
+            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09253b);
+            this.t = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092593);
+            this.u = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09252d);
             setStrokeWith(this.t);
             setStrokeWith(this.u);
-            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f092556);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092558);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f09251d);
+            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f092557);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092559);
+            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f09251e);
             this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef8);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091765);
             this.A = textView2;

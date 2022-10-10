@@ -230,7 +230,7 @@ public class TabWebFragment extends BaseWebViewFragment implements ii6 {
                     tabWebFragment2.hideLoadingView(tabWebFragment2.j);
                     TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                     TabWebFragment tabWebFragment3 = this.a;
-                    tabWebFragment3.showNetRefreshView(tabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f14f8), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd6), false, this.a.r);
+                    tabWebFragment3.showNetRefreshView(tabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f14f9), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd7), false, this.a.r);
                     return;
                 }
                 this.a.m = false;
@@ -283,7 +283,7 @@ public class TabWebFragment extends BaseWebViewFragment implements ii6 {
                 tabWebFragment.hideLoadingView(tabWebFragment.j);
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 TabWebFragment tabWebFragment2 = this.a;
-                tabWebFragment2.showNetRefreshView(tabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f14f8), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd6), false, this.a.r);
+                tabWebFragment2.showNetRefreshView(tabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f14f9), null, inst.getString(R.string.obfuscated_res_0x7f0f0fd7), false, this.a.r);
             }
         }
 
@@ -587,9 +587,9 @@ public class TabWebFragment extends BaseWebViewFragment implements ii6 {
             if (this.h == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0855, (ViewGroup) null);
                 this.h = inflate;
-                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092659);
+                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f09265a);
                 this.j = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091411);
-                this.k = (ViewGroup) this.h.findViewById(R.id.obfuscated_res_0x7f0920cc);
+                this.k = (ViewGroup) this.h.findViewById(R.id.obfuscated_res_0x7f0920cd);
                 U1();
             }
             NestedScrollWebView nestedScrollWebView = this.i;

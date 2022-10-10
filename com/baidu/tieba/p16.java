@@ -195,16 +195,16 @@ public class p16 extends j16<v26> {
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f090a46) {
                 if (ViewHelper.checkUpIsLogin(this.a.h().getContext())) {
-                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f09204e);
-                    String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204d));
+                    String str = (String) view2.getTag(R.id.obfuscated_res_0x7f09204f);
+                    String valueOf = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204e));
                     if (dj.isForumName(str)) {
                         this.a.y.Q(str, valueOf);
                         TiebaStatic.log(new StatisticItem(this.a.A).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, t16.e()));
                     }
                 }
-            } else if (view2.getTag(R.id.obfuscated_res_0x7f09204e) != null) {
-                String str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f09204e);
-                String valueOf2 = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204d));
+            } else if (view2.getTag(R.id.obfuscated_res_0x7f09204f) != null) {
+                String str2 = (String) view2.getTag(R.id.obfuscated_res_0x7f09204f);
+                String valueOf2 = String.valueOf(view2.getTag(R.id.obfuscated_res_0x7f09204e));
                 if (dj.isForumName(str2)) {
                     if (view2.getId() == R.id.obfuscated_res_0x7f091477) {
                         TiebaStatic.log(new StatisticItem(this.a.C).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, t16.e()));
@@ -252,7 +252,7 @@ public class p16 extends j16<v26> {
         }
         this.v = new CardExtendForumItemHolder(this.w);
         this.q.addView(this.t);
-        this.t.setSelector(R.drawable.obfuscated_res_0x7f080ce4);
+        this.t.setSelector(R.drawable.obfuscated_res_0x7f080ce5);
         this.t.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), 0);
         C();
         if (this.u == null) {

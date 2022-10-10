@@ -229,7 +229,7 @@ public class PersonalizePageView extends FrameLayout {
                     if (currentActivity != null) {
                         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                         bdTopToast.h(true);
-                        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0fb9));
+                        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0fba));
                         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
                     }
                 }
@@ -598,7 +598,7 @@ public class PersonalizePageView extends FrameLayout {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.f == null) {
                     return;
                 }
-                this.a.b.f.D(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f0fcb));
+                this.a.b.f.D(this.a.b.getContext().getString(R.string.obfuscated_res_0x7f0f0fcc));
                 this.a.b.f.f();
                 this.a.b.f.M(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
@@ -1896,7 +1896,7 @@ public class PersonalizePageView extends FrameLayout {
                 if (c != null) {
                     BdTopToast bdTopToast = new BdTopToast(c, 2000);
                     bdTopToast.h(true);
-                    bdTopToast.g(c.getString(R.string.obfuscated_res_0x7f0f0fb9));
+                    bdTopToast.g(c.getString(R.string.obfuscated_res_0x7f0f0fba));
                     bdTopToast.i((ViewGroup) c.findViewById(16908290));
                 }
             }
@@ -2403,7 +2403,7 @@ public class PersonalizePageView extends FrameLayout {
             this.w.a().setOnClickListener(this.h0);
             fy6 fy6Var = new fy6(this, this.b);
             this.H = fy6Var;
-            fy6Var.p(context.getString(R.string.obfuscated_res_0x7f0f1372));
+            fy6Var.p(context.getString(R.string.obfuscated_res_0x7f0f1373));
             BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = new BigdaySwipeRefreshLayout(context);
             this.a = bigdaySwipeRefreshLayout;
             bigdaySwipeRefreshLayout.addView(this.b);

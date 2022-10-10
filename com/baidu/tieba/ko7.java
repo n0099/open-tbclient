@@ -36,8 +36,8 @@ public class ko7 extends s55 {
         this.o = true;
         this.i = false;
         this.j = true;
-        this.d = R.drawable.obfuscated_res_0x7f0809d1;
-        this.e = R.drawable.obfuscated_res_0x7f0809d3;
+        this.d = R.drawable.obfuscated_res_0x7f0809d2;
+        this.e = R.drawable.obfuscated_res_0x7f0809d4;
         this.n = 6;
         this.p = new int[]{1};
     }

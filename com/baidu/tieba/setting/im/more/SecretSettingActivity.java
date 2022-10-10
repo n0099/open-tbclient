@@ -98,7 +98,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SecretSettingActivity secretSettingActivity = this.a;
-                secretSettingActivity.Y1("reply", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f29));
+                secretSettingActivity.Y1("reply", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f2a));
             }
         }
 
@@ -135,7 +135,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 SecretSettingActivity secretSettingActivity = this.a;
-                secretSettingActivity.Y1("group", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f25));
+                secretSettingActivity.Y1("group", secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f26));
                 TiebaStatic.log("c10652");
             }
         }
@@ -241,7 +241,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
                         return;
                     }
                     this.a.b.n(operation, type);
-                    this.a.a.E(operation, type);
+                    this.a.a.R(operation, type);
                     return;
                 }
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
@@ -307,8 +307,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
                     }
                     this.a.b.l(privacyData);
                     this.a.b.m();
-                    this.a.a.C(true);
-                    this.a.a.F(this.a.b);
+                    this.a.a.P(true);
+                    this.a.a.S(this.a.b);
                     SecretSettingActivity secretSettingActivity = this.a;
                     secretSettingActivity.Z1(secretSettingActivity.b);
                     TbadkCoreApplication.getInst().setLocationShared(this.a.b.j());
@@ -363,7 +363,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
                 int l2 = k2.l(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
                 this.a.k = l;
                 this.a.l = l2;
-                this.a.a.D(l, l2);
+                this.a.a.Q(l, l2);
             }
         }
     }
@@ -470,7 +470,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
                 this.a.b.y(((Integer) customResponsedMessage.getData()).intValue());
-                this.a.a.F(this.a.b);
+                this.a.a.S(this.a.b);
             }
         }
     }
@@ -508,19 +508,19 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
                         return;
                     }
                     if (z2) {
-                        this.a.a.w().j();
+                        this.a.a.I().j();
                     } else {
-                        this.a.a.w().m();
+                        this.a.a.I().m();
                     }
                 } else if (z) {
                 } else {
                     if (z2) {
-                        this.a.a.v().j();
-                        this.a.a.B(false);
+                        this.a.a.H().j();
+                        this.a.a.O(false);
                         return;
                     }
-                    this.a.a.v().m();
-                    this.a.a.B(true);
+                    this.a.a.H().m();
+                    this.a.a.O(true);
                 }
             }
         }
@@ -671,16 +671,16 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
     public void i0(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, view2, switchState) == null) {
-            if (view2 == this.a.v()) {
+            if (view2 == this.a.H()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.m.E(8, true, this.t);
-                    this.a.B(true);
+                    this.a.O(true);
                 } else {
                     this.m.E(8, false, this.t);
-                    this.a.B(false);
+                    this.a.O(false);
                 }
                 U1(switchState, 5);
-            } else if (view2 == this.a.w()) {
+            } else if (view2 == this.a.I()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.m.E(9, true, this.t);
                 } else {
@@ -711,14 +711,14 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             super.onCreate(bundle);
             this.a = new tg8(this);
             this.b = new rg8();
-            this.a.A(this.o);
+            this.a.N(this.o);
             this.m = new MsgRemindModel(getPageContext());
             if (this.b.k()) {
-                this.a.C(true);
-                this.a.F(this.b);
+                this.a.P(true);
+                this.a.S(this.b);
                 Z1(this.b);
             } else {
-                this.a.C(false);
+                this.a.P(false);
             }
             registerListener(this.q);
             registerListener(this.p);
@@ -745,7 +745,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResourceRecycle();
-            this.a.z();
+            this.a.M();
         }
     }
 }

@@ -497,7 +497,7 @@ public class am6 extends i16<ThreadData> implements g26, Object {
         if (tbImageView2 != null) {
             tbImageView2.setPageId(f());
         }
-        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f0921a0);
+        View findViewById = h2.findViewById(R.id.obfuscated_res_0x7f0921a1);
         this.F = findViewById;
         findViewById.setOnClickListener(new a(this));
         this.k.setOnSelectStatusChangeListener(new b(this));

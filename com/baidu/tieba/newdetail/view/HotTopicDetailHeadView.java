@@ -247,10 +247,10 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             this.d = findViewById(R.id.obfuscated_res_0x7f090384);
             this.f = findViewById(R.id.obfuscated_res_0x7f090d51);
             this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e23);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09221b);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09221f);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09221d);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092034);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09079a);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09079b);
             this.n = findViewById(R.id.obfuscated_res_0x7f090799);

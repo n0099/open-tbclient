@@ -119,23 +119,23 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             a(e(privateForumPopInfoData.C()));
             if (privateForumPopInfoData.C().equals("left_time")) {
                 this.f.setText(R.string.obfuscated_res_0x7f0f0747);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f40);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f41);
             } else if (!privateForumPopInfoData.C().equals("clear_forum") && !privateForumPopInfoData.C().equals("task_fail")) {
                 if (privateForumPopInfoData.C().equals("task_complete")) {
                     this.f.setText(R.string.obfuscated_res_0x7f0f0747);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f41);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f42);
                 } else {
                     this.f.setText(R.string.obfuscated_res_0x7f0f0747);
                     f();
-                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f3d);
-                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3e);
+                    SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080f3e);
+                    SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3f);
                 }
             } else {
                 this.f.setText(R.string.obfuscated_res_0x7f0f0749);
-                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f3f);
+                SkinManager.setImageResource(this.a, R.drawable.obfuscated_res_0x7f080f40);
             }
             this.f.setTag(R.id.obfuscated_res_0x7f090f89, Boolean.valueOf(z));
-            this.f.setTag(R.id.obfuscated_res_0x7f091a90, privateForumPopInfoData);
+            this.f.setTag(R.id.obfuscated_res_0x7f091a91, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
             this.e.setText(privateForumPopInfoData.A());
             return true;
@@ -175,9 +175,9 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd7);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd4);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a8f);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a90);
             this.h = findViewById(R.id.obfuscated_res_0x7f090d46);
-            this.i = findViewById(R.id.obfuscated_res_0x7f091a8e);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091a8f);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
             hv4 d = hv4.d(this.f);
             d.l(R.dimen.tbds1);

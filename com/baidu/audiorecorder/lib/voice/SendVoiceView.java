@@ -122,7 +122,7 @@ public class SendVoiceView extends LinearLayout implements t55, w77, ISendVoiceV
         int i3 = k;
         setPadding(0, i3, 0, i3);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b6, this);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fe);
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102b);
         setFocusable(true);
         setFocusableInTouchMode(true);
@@ -293,7 +293,7 @@ public class SendVoiceView extends LinearLayout implements t55, w77, ISendVoiceV
             }
             ImageView imageView = this.c;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080962, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080963, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
             hv4 d = hv4.d(this);
             d.n(R.string.J_X01);

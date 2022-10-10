@@ -45,7 +45,7 @@ public class MsgMultiImageTextView extends a87 {
     public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fc);
+            this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fd);
             this.F = (MultiContentView) j(R.id.obfuscated_res_0x7f09157d);
         }
     }

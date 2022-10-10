@@ -65,7 +65,7 @@ public class a88 extends qn<y26, AutoVideoCardViewHolder<y26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f09256a) {
+            if (id == R.id.obfuscated_res_0x7f092181 || id == R.id.obfuscated_res_0x7f09256b) {
                 a78.a(view2, y26Var, 2);
             } else if (id == R.id.obfuscated_res_0x7f091746) {
                 a78.a(view2, y26Var, 4);
@@ -103,7 +103,7 @@ public class a88 extends qn<y26, AutoVideoCardViewHolder<y26>> implements to5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0924b6 || id == R.id.obfuscated_res_0x7f092488) {
+            if (id == R.id.obfuscated_res_0x7f0924b7 || id == R.id.obfuscated_res_0x7f092489) {
                 a78.a(view2, yq4Var, 1);
             }
         }

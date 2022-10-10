@@ -477,9 +477,9 @@ public class ew8 extends p9 {
     public void B(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092596);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092595);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092597);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092597);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092596);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092598);
             this.f.setVisibility(8);
             this.f.setOnClickListener(new h(this));
             Q(this.i);
@@ -712,11 +712,11 @@ public class ew8 extends p9 {
             this.i = z;
             if (z) {
                 this.g.setSelected(false);
-                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1562));
+                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1563));
                 return;
             }
             this.g.setSelected(true);
-            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1561));
+            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1562));
         }
     }
 

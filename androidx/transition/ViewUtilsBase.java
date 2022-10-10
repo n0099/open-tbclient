@@ -62,7 +62,7 @@ public class ViewUtilsBase {
     public void clearNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getVisibility() == 0) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db1, null);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2, null);
         }
     }
 
@@ -70,7 +70,7 @@ public class ViewUtilsBase {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            Float f = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db1);
+            Float f = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2);
             if (f != null) {
                 return view2.getAlpha() / f.floatValue();
             }
@@ -81,8 +81,8 @@ public class ViewUtilsBase {
 
     public void saveNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db1) == null) {
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db1, Float.valueOf(view2.getAlpha()));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2) == null) {
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2, Float.valueOf(view2.getAlpha()));
         }
     }
 
@@ -141,7 +141,7 @@ public class ViewUtilsBase {
     public void setTransitionAlpha(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048581, this, view2, f) == null) {
-            Float f2 = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db1);
+            Float f2 = (Float) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2);
             if (f2 != null) {
                 view2.setAlpha(f2.floatValue() * f);
             } else {

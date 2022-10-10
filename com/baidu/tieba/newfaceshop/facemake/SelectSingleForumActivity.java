@@ -118,7 +118,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09232e);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09232f);
                 if (checkBox.isChecked()) {
                     return;
                 }
@@ -167,7 +167,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f1116);
+            this.a.setText(R.string.obfuscated_res_0x7f0f1117);
         }
     }
 
@@ -194,8 +194,8 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d07b0);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c83);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091c84);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = addSystemImageButton;
@@ -206,12 +206,12 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             }
             this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0568));
             this.d.setOnClickListener(this.k);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0925b1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0925b2);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092330);
             this.a = textView;
             textView.setOnClickListener(this.k);
             this.j = findViewById(R.id.obfuscated_res_0x7f091282);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f092333);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f092334);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {

@@ -163,8 +163,8 @@ public class e08 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
             this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092419);
-            this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092381);
+            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092382);
             hv4 d = hv4.d(this.c);
             d.v(R.color.CAM_X0109);
             d.A(R.string.F_X01);

@@ -312,7 +312,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             super.onResume();
             if (!zd5.a(this)) {
                 this.a.M(false);
-                showNetRefreshView(this.a.z(), getString(R.string.obfuscated_res_0x7f0f162a), getString(R.string.obfuscated_res_0x7f0f07ec), getString(R.string.obfuscated_res_0x7f0f07eb), true, getNetRefreshListener());
+                showNetRefreshView(this.a.z(), getString(R.string.obfuscated_res_0x7f0f162b), getString(R.string.obfuscated_res_0x7f0f07ec), getString(R.string.obfuscated_res_0x7f0f07eb), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
                 setNetRefreshViewEmotionMarginTop(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;

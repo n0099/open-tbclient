@@ -305,8 +305,8 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 this.b = (TbPageContext) a2;
             }
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a5, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092034);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221f);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09079a);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0919dc);
             this.f = textView;
@@ -314,14 +314,14 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919dd);
             this.g = textView2;
             textView2.setOnClickListener(this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091abd);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091abe);
             this.h = findViewById;
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             this.i = layoutParams;
             layoutParams.height = this.k;
             this.h.setLayoutParams(layoutParams);
             this.h.setAlpha(0.0f);
-            this.m = (HotTopicDetailPkProcess) findViewById(R.id.obfuscated_res_0x7f091aa8);
+            this.m = (HotTopicDetailPkProcess) findViewById(R.id.obfuscated_res_0x7f091aa9);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0919df);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e1);
             this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e0);

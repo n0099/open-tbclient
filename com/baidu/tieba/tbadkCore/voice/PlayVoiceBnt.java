@@ -257,7 +257,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073b, (ViewGroup) this, true);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919fa);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919eb);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abd);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);

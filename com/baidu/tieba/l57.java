@@ -54,11 +54,11 @@ public class l57 extends i16<d57> {
         }
         this.i = 3;
         View h = h();
-        this.j = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092300);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092304);
-        this.l = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f092302);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092303);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092301);
+        this.j = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092301);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092305);
+        this.l = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f092303);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092304);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092302);
         this.l.setRadius(ej.f(this.c, R.dimen.tbds10));
         this.l.setConrers(15);
         this.l.setPlaceHolder(2);
@@ -115,7 +115,7 @@ public class l57 extends i16<d57> {
         this.o = d57Var;
         if (d57Var.a) {
             if (StringUtils.isNull(d57Var.d)) {
-                this.k.setText(R.string.obfuscated_res_0x7f0f1466);
+                this.k.setText(R.string.obfuscated_res_0x7f0f1467);
             } else {
                 this.k.setText(d57Var.d);
             }
@@ -153,6 +153,6 @@ public class l57 extends i16<d57> {
             this.m.setVisibility(0);
             this.m.setText(d57Var.e.getTitle());
         }
-        this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f145e), Integer.valueOf(d57Var.e.getReply_num())));
+        this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f145f), Integer.valueOf(d57Var.e.getReply_num())));
     }
 }

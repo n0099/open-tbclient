@@ -228,7 +228,7 @@ public class xi5 extends BaseAdapter {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d013d, (ViewGroup) null, false);
                 a aVar = new a(this, view2);
                 if (!ListUtils.isEmpty(this.c) && this.c.size() > i && !TextUtils.isEmpty(this.c.get(i))) {
-                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f081241);
                     aVar.a.K(this.c.get(i), 10, false);
                 }
                 if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {

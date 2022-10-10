@@ -235,7 +235,7 @@ public class HotUserRankFragment extends BaseFragment {
             if (this.a == null) {
                 View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02db, (ViewGroup) null);
                 this.a = inflate;
-                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091b50), this.c, this.d);
+                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091b51), this.c, this.d);
                 this.b = rankListViewController;
                 rankListViewController.g(this.g);
             }

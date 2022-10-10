@@ -112,7 +112,7 @@ public class k98 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080f7c);
+            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080f7d);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);

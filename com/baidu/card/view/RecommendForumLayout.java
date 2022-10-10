@@ -85,7 +85,7 @@ public class RecommendForumLayout extends LinearLayout implements xx {
             if (!TextUtils.isEmpty(ot4Var.d) && ot4Var.e != 0) {
                 this.f.setText(ot4Var.d);
             } else {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0fbe);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0fbf);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
@@ -124,13 +124,13 @@ public class RecommendForumLayout extends LinearLayout implements xx {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0770, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09224a);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09224b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
             this.f = textView;
             hv4.d(textView).z(R.dimen.T_X07);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec8);
-            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc2);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091bc3);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
             HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.a, this.l);
             this.d = horizontalRecommendForumAdapter;
             int i = this.l;
@@ -143,7 +143,7 @@ public class RecommendForumLayout extends LinearLayout implements xx {
             this.c.setAdapter(this.d);
             this.c.setClipChildren(false);
             this.d.notifyDataSetChanged();
-            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fbe));
+            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0fbf));
             RefreshView refreshView = new RefreshView(getContext());
             this.k = refreshView;
             this.b.setRefreshViewAndListener(refreshView);

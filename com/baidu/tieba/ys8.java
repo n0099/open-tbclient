@@ -126,7 +126,7 @@ public class ys8 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0133, viewGroup, false);
                 aVar = new a(this);
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0922b8);
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0922b9);
                 aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038b);
                 aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038c);
                 aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09038d);

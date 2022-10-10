@@ -122,8 +122,8 @@ public class YYPayGiftView extends LinearLayout implements q5a {
             Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09043c);
             this.c = button;
             button.setOnClickListener(new a(this));
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c54);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c55);
             this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090cf4);
             r5a r5aVar = new r5a(context, this.j, this.i);
             this.k = r5aVar;

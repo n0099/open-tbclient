@@ -308,7 +308,7 @@ public class PermissionJudgePolicy {
     private int getPermissionDescriptionId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f101c : (h.g.equals(str) || h.h.equals(str)) ? R.string.obfuscated_res_0x7f0f1021 : PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f1019 : PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f1022 : h.c.equals(str) ? R.string.obfuscated_res_0x7f0f101b : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f1023 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f101a : R.string.obfuscated_res_0x7f0f101c : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f101d : (h.g.equals(str) || h.h.equals(str)) ? R.string.obfuscated_res_0x7f0f1022 : PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f101a : PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str) ? R.string.obfuscated_res_0x7f0f1023 : h.c.equals(str) ? R.string.obfuscated_res_0x7f0f101c : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f1024 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f101b : R.string.obfuscated_res_0x7f0f101d : invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -386,7 +386,7 @@ public class PermissionJudgePolicy {
             }
             nu4 nu4Var = new nu4(activity);
             nu4Var.setCanceledOnTouchOutside(false);
-            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101d);
+            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f101e);
             nu4Var.setMessageId(getPermissionDescriptionId(str));
             nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0997, new nu4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                 public static /* synthetic */ Interceptable $ic;

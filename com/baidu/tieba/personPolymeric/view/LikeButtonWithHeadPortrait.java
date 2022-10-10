@@ -166,8 +166,8 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements qz4 {
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090440);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0925a4);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c36);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0925a5);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c37);
         }
     }
 

@@ -82,7 +82,7 @@ public class OneKeyLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0046);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c83);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c84);
             initData();
             if (TextUtils.isEmpty(this.a)) {
                 this.c = new st7(getPageContext(), findViewById);

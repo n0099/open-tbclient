@@ -75,7 +75,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.a.s();
                 }
                 if (httpResponsedMessage.getError() != -1 && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0f26);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0f27);
                 } else {
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                 }

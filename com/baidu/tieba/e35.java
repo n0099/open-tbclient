@@ -186,8 +186,8 @@ public class e35 {
         }
         this.b = null;
         this.c = null;
-        this.d = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f117c);
-        this.e = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f15c0) + this.d;
+        this.d = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f117d);
+        this.e = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f15c1) + this.d;
         this.g = new a(this);
         this.h = new b(this);
         this.i = new c(this);
@@ -542,7 +542,7 @@ public class e35 {
             return;
         }
         if (!y25.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
-            BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.obfuscated_res_0x7f0f1178)).i();
+            BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.obfuscated_res_0x7f0f1179)).i();
             return;
         }
         shareItem.w = d(shareItem.w, Cea708Decoder.COMMAND_DLW, 20, shareItem.n0 ? this.e : "");

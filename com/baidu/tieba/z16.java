@@ -360,7 +360,7 @@ public class z16 extends i16<CardPersonDynamicThreadData> {
                         z16Var2.M(z16Var2.m.b);
                         return;
                     }
-                    BdToast b = BdToast.b(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f1530));
+                    BdToast b = BdToast.b(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f1531));
                     b.f(BdToast.ToastIcon.FAILURE);
                     b.i();
                     return;
@@ -551,19 +551,19 @@ public class z16 extends i16<CardPersonDynamicThreadData> {
         View h2 = h();
         this.k = h2;
         this.n = tbPageContext;
-        this.o = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0926d6);
+        this.o = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0926d7);
         this.p = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0912d9);
         this.q = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091551);
         this.r = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09076f);
-        this.s = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091f1d);
-        this.M = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092591);
-        this.t = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0923f3);
+        this.s = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091f1e);
+        this.M = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092592);
+        this.t = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0923f4);
         this.u = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f091016);
-        this.w = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0921b9);
+        this.w = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0921ba);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.k.findViewById(R.id.obfuscated_res_0x7f090503);
         this.i = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(this.X);
-        TextView textView = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092189);
+        TextView textView = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09218a);
         this.x = textView;
         textView.setVisibility(8);
         this.y = (ConstrainImageGroup) this.k.findViewById(R.id.obfuscated_res_0x7f090504);
@@ -572,21 +572,21 @@ public class z16 extends i16<CardPersonDynamicThreadData> {
         ak5 ak5Var = new ak5(3);
         ak5Var.d(1.0d);
         this.y.setImageProcessor(ak5Var);
-        this.A = this.k.findViewById(R.id.obfuscated_res_0x7f0921c4);
-        this.B = (TbImageView) this.k.findViewById(R.id.obfuscated_res_0x7f0921c2);
-        this.C = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f092191);
+        this.A = this.k.findViewById(R.id.obfuscated_res_0x7f0921c5);
+        this.B = (TbImageView) this.k.findViewById(R.id.obfuscated_res_0x7f0921c3);
+        this.C = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f092192);
         this.j = (ThreadViewAndCommentInfoLayout) this.k.findViewById(R.id.obfuscated_res_0x7f090505);
         this.G = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f090861);
-        this.H = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09251d);
-        this.I = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092558);
+        this.H = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09251e);
+        this.I = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092559);
         this.J = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0902e5);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.k.findViewById(R.id.obfuscated_res_0x7f090222);
         this.K = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
         SkinManager.setLottieAnimation(this.K, R.raw.obfuscated_res_0x7f110007);
         this.L = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090991);
-        this.D = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091eba);
-        this.E = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091ebb);
+        this.D = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091ebb);
+        this.E = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091ebc);
         LinearLayout linearLayout = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0913e0);
         this.F = linearLayout;
         linearLayout.setVisibility(8);
@@ -616,7 +616,7 @@ public class z16 extends i16<CardPersonDynamicThreadData> {
         this.Q.setShareReportFrom(6);
         this.Q.setStType("person_page");
         this.Q.setForumAfterClickListener(new b(this));
-        this.T = (EMTextView) this.k.findViewById(R.id.obfuscated_res_0x7f092421);
+        this.T = (EMTextView) this.k.findViewById(R.id.obfuscated_res_0x7f092422);
     }
 
     public final void G(CardPersonDynamicThreadData cardPersonDynamicThreadData) {
@@ -966,7 +966,7 @@ public class z16 extends i16<CardPersonDynamicThreadData> {
                         this.B.K(this.m.y.thumbnail_url, 17, false);
                         if (this.R) {
                             this.L.setVisibility(0);
-                            this.L.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1554), new Object[0]));
+                            this.L.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1555), new Object[0]));
                         } else {
                             this.G.setVisibility(0);
                             this.H.setText(StringHelper.stringForVideoTime(this.m.y.video_duration.intValue() * 1000));
@@ -1042,7 +1042,7 @@ public class z16 extends i16<CardPersonDynamicThreadData> {
             this.t.setCompoundDrawables(drawable, null, null, null);
             return;
         }
-        textView.setText(R.string.obfuscated_res_0x7f0f0f52);
+        textView.setText(R.string.obfuscated_res_0x7f0f0f53);
         Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_card_open);
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
         this.t.setCompoundDrawables(drawable2, null, null, null);

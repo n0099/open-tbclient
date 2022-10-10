@@ -102,7 +102,7 @@ public class tu4 implements View.OnClickListener {
         View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0877, (ViewGroup) null);
         this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091283);
         this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09031a);
-        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09227e);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09227f);
         this.b = inflate;
         this.d.setBackgroundDrawable(b());
         this.e.setMaxLines(1);

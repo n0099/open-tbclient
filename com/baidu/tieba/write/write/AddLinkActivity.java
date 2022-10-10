@@ -593,9 +593,9 @@ public class AddLinkActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011c);
             this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092376);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092377);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09241b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09237e);
             this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011e);
             this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f090931);
             this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
@@ -678,7 +678,7 @@ public class AddLinkActivity extends BaseActivity {
             hv4 d2 = hv4.d(this.f);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0209);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0809df, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0809e0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0110);
         }
     }

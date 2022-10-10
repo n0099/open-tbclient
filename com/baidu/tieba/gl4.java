@@ -101,9 +101,9 @@ public class gl4 {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0838, (ViewGroup) null);
             this.b = linearLayout;
             linearLayout.setVisibility(8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fef);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ff0);
             this.d = new DecimalFormat("0.0#");
-            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f133d);
+            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f133e);
         }
     }
 

@@ -46,7 +46,7 @@ public class eg5 {
             this.b = true;
             this.c = R.drawable.new_pic_emotion_05;
             this.d = eg5.c(R.string.obfuscated_res_0x7f0f0c72, new Object[0]);
-            this.e = eg5.c(R.string.obfuscated_res_0x7f0f0fd8, new Object[0]);
+            this.e = eg5.c(R.string.obfuscated_res_0x7f0f0fd9, new Object[0]);
             this.f = false;
             this.g = ej.f(eg5.getContext(), R.dimen.obfuscated_res_0x7f0702bf);
         }
@@ -81,8 +81,8 @@ public class eg5 {
             this.b = true;
             this.c = R.drawable.new_pic_emotion_08;
             this.d = ej.f(eg5.getContext(), R.dimen.obfuscated_res_0x7f070292);
-            this.e = eg5.c(R.string.obfuscated_res_0x7f0f0fd8, new Object[0]);
-            this.f = eg5.c(R.string.obfuscated_res_0x7f0f0fd9, new Object[0]);
+            this.e = eg5.c(R.string.obfuscated_res_0x7f0f0fd9, new Object[0]);
+            this.f = eg5.c(R.string.obfuscated_res_0x7f0f0fda, new Object[0]);
             this.g = eg5.c(R.string.obfuscated_res_0x7f0f048c, new Object[0]);
         }
     }

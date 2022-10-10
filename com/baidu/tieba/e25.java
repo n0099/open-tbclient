@@ -501,11 +501,11 @@ public class e25 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0494, (ViewGroup) null);
             this.j = inflate;
-            this.k = inflate.findViewById(R.id.obfuscated_res_0x7f09220e);
-            this.n = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f092204);
-            this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f092213);
-            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f0921fd);
-            this.o = (TBSpecificationBtn) this.j.findViewById(R.id.obfuscated_res_0x7f0921f8);
+            this.k = inflate.findViewById(R.id.obfuscated_res_0x7f09220f);
+            this.n = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f092205);
+            this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f092214);
+            this.m = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f0921fe);
+            this.o = (TBSpecificationBtn) this.j.findViewById(R.id.obfuscated_res_0x7f0921f9);
             this.l.setText(this.e);
             this.m.setText(this.f);
             this.o.setText(this.g);

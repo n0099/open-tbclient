@@ -50,7 +50,7 @@ public class v36 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091a92 || id == R.id.obfuscated_res_0x7f0926d8) {
+                if (id == R.id.obfuscated_res_0x7f091a93 || id == R.id.obfuscated_res_0x7f0926d9) {
                     if (this.a.b != null && this.a.b.isShowing()) {
                         vj8.b("1");
                         this.a.b.dismiss();
@@ -72,7 +72,7 @@ public class v36 {
                     PermissionUtil.setIsAgreePrivacyPolicy(true);
                     PermissionUtil.starMainTabActivity(this.a.a, 2);
                     this.a.a.finish();
-                } else if (id == R.id.obfuscated_res_0x7f091a8d) {
+                } else if (id == R.id.obfuscated_res_0x7f091a8e) {
                     if (this.a.b.isShowing()) {
                         vj8.b("1");
                         this.a.b.dismiss();
@@ -80,7 +80,7 @@ public class v36 {
                     }
                     if (this.a.c == null) {
                         v36 v36Var = this.a;
-                        v36Var.c = go5.a(v36Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f1f, R.string.obfuscated_res_0x7f0f10fd);
+                        v36Var.c = go5.a(v36Var.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f20, R.string.obfuscated_res_0x7f0f10fe);
                     }
                     this.a.c.show();
                     vj8.b("2");
@@ -91,7 +91,7 @@ public class v36 {
                         vj8.a("2", "2");
                         if (this.a.d == null) {
                             v36 v36Var2 = this.a;
-                            v36Var2.d = go5.a(v36Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f20, R.string.obfuscated_res_0x7f0f10f2);
+                            v36Var2.d = go5.a(v36Var2.a.getPageContext(), this.a.f, R.string.obfuscated_res_0x7f0f0f21, R.string.obfuscated_res_0x7f0f10f3);
                             this.a.d.show();
                             vj8.b("3");
                         }

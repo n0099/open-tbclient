@@ -328,16 +328,16 @@ public class wt8 implements View.OnClickListener, tt8 {
             ShareItem shareItem2 = shareDialogConfig.shareItem;
             if (!shareItem2.l0) {
                 if (shareItem2.m0) {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f1471);
-                } else {
                     this.c.setText(R.string.obfuscated_res_0x7f0f1472);
+                } else {
+                    this.c.setText(R.string.obfuscated_res_0x7f0f1473);
                 }
             } else {
                 String sharePanelText = TbSingleton.getInstance().getSharePanelText();
                 if (!TextUtils.isEmpty(sharePanelText)) {
                     this.c.setText(sharePanelText);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f1473);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f1474);
                 }
             }
             if (shareDialogConfig.isShowNovelMask()) {

@@ -203,11 +203,11 @@ public class mv8 extends BaseAdapter {
             if (musicData != null) {
                 int i2 = musicData.editMusicType;
                 if (i2 == 1) {
-                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b28), 24, false);
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b29), 24, false);
                 } else if (i2 != 2) {
                     aVar.a.K(musicData.img, 10, false);
                 } else {
-                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b12), 24, false);
+                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b13), 24, false);
                 }
                 aVar.b.setVisibility(4);
                 aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));

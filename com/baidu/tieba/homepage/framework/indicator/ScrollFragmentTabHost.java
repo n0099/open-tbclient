@@ -192,7 +192,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements jy6 {
                         int intValue = data.c.intValue() > 0 ? data.c.intValue() * 1000 : 5000;
                         String str = data.g;
                         if (TextUtils.isEmpty(str)) {
-                            str = this.a.b.getString(R.string.obfuscated_res_0x7f0f1396);
+                            str = this.a.b.getString(R.string.obfuscated_res_0x7f0f1397);
                         }
                         String fixedText = UtilHelper.getFixedText(str, 20);
                         if (this.a.S != null) {
@@ -1742,7 +1742,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements jy6 {
             if (newScrollFragmentAdapter != null) {
                 newScrollFragmentAdapter.B(str);
             }
-            if (getResources().getString(R.string.obfuscated_res_0x7f0f1372).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f026d).equals(TbadkCoreApplication.getInst().getHomeBarShowTabName())) {
+            if (getResources().getString(R.string.obfuscated_res_0x7f0f1373).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f026d).equals(TbadkCoreApplication.getInst().getHomeBarShowTabName())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921722, Boolean.valueOf(this.y.getVisibility() == 0)));
             }
         }
@@ -1870,7 +1870,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements jy6 {
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090d9c);
             this.i = frameLayout;
             sp8.c(frameLayout, 5);
-            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092028);
+            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092029);
             this.j = customViewPager;
             customViewPager.setForm(1);
             this.k = findViewById(R.id.divider_line);

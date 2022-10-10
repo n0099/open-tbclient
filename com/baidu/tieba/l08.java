@@ -212,7 +212,7 @@ public class l08 implements QueryMatchEmotionModel.b, k08.b, EmotionView.c {
                     this.c.setClipToPadding(false);
                     int f = ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230);
                     this.c.setPadding(f, f, f, f);
-                    this.c.setSelector(R.drawable.obfuscated_res_0x7f080ce4);
+                    this.c.setSelector(R.drawable.obfuscated_res_0x7f080ce5);
                     this.i.height = ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070245);
                     this.h.addView(this.c, this.i);
                     if (this.d == null) {

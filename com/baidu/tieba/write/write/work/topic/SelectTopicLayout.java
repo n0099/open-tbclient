@@ -423,23 +423,23 @@ public class SelectTopicLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07b1, this);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09223c);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09223d);
             this.a = findViewById;
             findViewById.setOnClickListener(new a(this));
             this.b = findViewById(R.id.obfuscated_res_0x7f0906dc);
             this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906db);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092299);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09229a);
             this.e = findViewById(R.id.obfuscated_res_0x7f0903e2);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e58);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091e59);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0922fd);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0922fe);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922fc);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0922ff);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e59);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5a);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0922fe);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ff);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922fd);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f092300);
             this.k = editText;
             editText.addTextChangedListener(new b(this));
-            this.l = (SelectTopicListLayout) findViewById(R.id.obfuscated_res_0x7f091e56);
-            this.m = (SelectTopicSuggestLayout) findViewById(R.id.obfuscated_res_0x7f091e57);
+            this.l = (SelectTopicListLayout) findViewById(R.id.obfuscated_res_0x7f091e57);
+            this.m = (SelectTopicSuggestLayout) findViewById(R.id.obfuscated_res_0x7f091e58);
             this.j.setOnClickListener(this.z);
             setDelButtonVisible(false);
             v();
@@ -658,7 +658,7 @@ public class SelectTopicLayout extends RelativeLayout {
             hv4 d7 = hv4.d(this.f);
             d7.n(R.string.J_X01);
             d7.f(R.color.CAM_X0209);
-            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b8, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b9, SkinManager.getColor(R.color.CAM_X0108), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 

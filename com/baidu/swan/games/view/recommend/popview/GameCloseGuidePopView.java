@@ -322,10 +322,10 @@ public class GameCloseGuidePopView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083d, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f092396);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0923c7);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091c58);
-            this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9d);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092397);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0923c8);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091c59);
+            this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c9e);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

@@ -291,9 +291,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                     return;
                 }
-                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f157d), str2);
+                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f157e), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    this.a.sPlayView.onShowErr(5, wj.a(R.string.obfuscated_res_0x7f0f1587));
+                    this.a.sPlayView.onShowErr(5, wj.a(R.string.obfuscated_res_0x7f0f1588));
                 } else {
                     this.a.sPlayView.onShowErr(5, str4);
                 }
@@ -501,7 +501,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     i playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            a = wj.a(R.string.obfuscated_res_0x7f0f1586);
+                            a = wj.a(R.string.obfuscated_res_0x7f0f1587);
                         } else {
                             a = wj.a(R.string.voice_err_play);
                         }

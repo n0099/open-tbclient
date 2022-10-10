@@ -938,42 +938,42 @@ public class kk6 extends fu6 {
         this.w = tbImageView;
         tbImageView.setPageId(this.b.getUniqueId());
         this.w.setDefaultBgResource(R.color.transparent);
-        this.w.setDefaultResource(R.drawable.obfuscated_res_0x7f080f39);
+        this.w.setDefaultResource(R.drawable.obfuscated_res_0x7f080f3a);
         this.z0 = this.d.findViewById(R.id.obfuscated_res_0x7f090d56);
-        this.b1 = (TbVideoView) this.d.findViewById(R.id.obfuscated_res_0x7f092534);
-        TbImageView tbImageView2 = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09252e);
+        this.b1 = (TbVideoView) this.d.findViewById(R.id.obfuscated_res_0x7f092535);
+        TbImageView tbImageView2 = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09252f);
         this.c1 = tbImageView2;
         tbImageView2.setPageId(this.b.getUniqueId());
-        this.c1.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f39);
-        this.c1.setDefaultResource(R.drawable.obfuscated_res_0x7f080f39);
+        this.c1.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f3a);
+        this.c1.setDefaultResource(R.drawable.obfuscated_res_0x7f080f3a);
         this.c1.setPlaceHolder(2);
-        this.d1 = this.d.findViewById(R.id.obfuscated_res_0x7f092533);
-        this.e1 = this.d.findViewById(R.id.obfuscated_res_0x7f092532);
-        this.f1 = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f092531);
+        this.d1 = this.d.findViewById(R.id.obfuscated_res_0x7f092534);
+        this.e1 = this.d.findViewById(R.id.obfuscated_res_0x7f092533);
+        this.f1 = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f092532);
         this.A0 = this.d.findViewById(R.id.obfuscated_res_0x7f090bf2);
         this.S = (FrsLikeRecommendLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090b83);
         jr6.d(this.z0, this.A0);
         this.i1 = jr6.b(this.d);
         this.j1 = this.d.findViewById(R.id.obfuscated_res_0x7f090d3a);
         this.k1 = this.d.findViewById(R.id.obfuscated_res_0x7f09140d);
-        this.g1 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092429);
+        this.g1 = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09242a);
         this.h1 = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f091457);
-        this.l1 = this.d.findViewById(R.id.obfuscated_res_0x7f09252f);
-        this.m1 = (FrsHeaderVideoImageShadeView) this.d.findViewById(R.id.obfuscated_res_0x7f09252d);
+        this.l1 = this.d.findViewById(R.id.obfuscated_res_0x7f092530);
+        this.m1 = (FrsHeaderVideoImageShadeView) this.d.findViewById(R.id.obfuscated_res_0x7f09252e);
         this.C0 = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091273);
         int l2 = this.Z0.l(LogicField.ROUND_CORNER_STYLE);
         View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f090d51);
         this.D0 = findViewById;
         findViewById.setVisibility(l2);
-        this.E0 = this.d.findViewById(R.id.obfuscated_res_0x7f091e66);
+        this.E0 = this.d.findViewById(R.id.obfuscated_res_0x7f091e67);
         this.F0 = this.d.findViewById(R.id.obfuscated_res_0x7f090320);
-        this.x = (ServiceAreaView) this.d.findViewById(R.id.obfuscated_res_0x7f091e67);
+        this.x = (ServiceAreaView) this.d.findViewById(R.id.obfuscated_res_0x7f091e68);
         this.y = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090adf);
-        this.D = (FrsVoiceRoomListLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092612);
+        this.D = (FrsVoiceRoomListLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092613);
         this.A = (FrsTopView) this.d.findViewById(R.id.obfuscated_res_0x7f090c1b);
         this.G0 = this.d.findViewById(R.id.obfuscated_res_0x7f090c12);
         this.B = this.d.findViewById(R.id.obfuscated_res_0x7f090c13);
-        this.C = this.d.findViewById(R.id.obfuscated_res_0x7f091e6a);
+        this.C = this.d.findViewById(R.id.obfuscated_res_0x7f091e6b);
         this.h = (List) this.Z0.a(LogicField.LIKE_BTN);
         this.i = (List) this.Z0.a(LogicField.SIGN_BTN);
         this.L = (ImageView) k1().a(LogicField.SPEED_ICON);
@@ -995,7 +995,7 @@ public class kk6 extends fu6 {
         this.N.setStrokeWith(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
         this.N.setShowOval(true);
         this.N.setPlaceHolder(1);
-        MessageRedDotView messageRedDotView = (MessageRedDotView) this.d.findViewById(R.id.obfuscated_res_0x7f091bbd);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.d.findViewById(R.id.obfuscated_res_0x7f091bbe);
         this.p1 = messageRedDotView;
         messageRedDotView.setThreeDotMode(2);
         this.p1.setEnterForumStyle(true);
@@ -1594,7 +1594,7 @@ public class kk6 extends fu6 {
                 View inflate = LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0662, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09073f);
                 TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912f1);
-                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f31);
+                TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f32);
                 SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090964), R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
@@ -1742,8 +1742,8 @@ public class kk6 extends fu6 {
                 contentView = popupWindow.getContentView();
             }
             SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f0914df), R.color.CAM_X0101, 1);
-            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f091f29), R.color.CAM_X0305, 1);
-            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f0920f2), R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f091f2a), R.color.CAM_X0305, 1);
+            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f0920f3), R.color.CAM_X0101, 1);
             int[] iArr = new int[2];
             this.L.getLocationOnScreen(iArr);
             PopupWindow popupWindow2 = this.M;
@@ -2423,13 +2423,13 @@ public class kk6 extends fu6 {
                 }
             }
         } else if (cr4Var.d() < cr4Var.b()) {
-            this.g1.setText(R.string.obfuscated_res_0x7f0f124b);
+            this.g1.setText(R.string.obfuscated_res_0x7f0f124c);
             I1();
         } else if (cr4Var.d() < cr4Var.c()) {
-            this.g1.setText(R.string.obfuscated_res_0x7f0f124a);
+            this.g1.setText(R.string.obfuscated_res_0x7f0f124b);
             I1();
         } else {
-            this.g1.setText(R.string.obfuscated_res_0x7f0f124c);
+            this.g1.setText(R.string.obfuscated_res_0x7f0f124d);
             this.h1.setVisibility(4);
             if (this.h1.isAnimating()) {
                 this.h1.cancelAnimation();

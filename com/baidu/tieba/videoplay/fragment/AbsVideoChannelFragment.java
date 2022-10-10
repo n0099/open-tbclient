@@ -958,7 +958,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
             this.k = imageView;
             imageView.setOnClickListener(new c(this));
-            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0920cc);
+            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0920cd);
             this.l = viewGroup;
             ((RelativeLayout.LayoutParams) viewGroup.getLayoutParams()).topMargin = on4.c + UtilHelper.getStatusBarHeight();
             P1();
@@ -1069,7 +1069,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a20, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080a21, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             FragmentAdapter fragmentAdapter = this.m;
             if (fragmentAdapter == null || fragmentAdapter.c() == null) {
                 return;

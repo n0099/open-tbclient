@@ -275,13 +275,13 @@ public class CoinClickDialog extends Activity {
     public final void h(GameGuideConfigInfo gameGuideConfigInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, gameGuideConfigInfo) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092382);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092383);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a9);
-            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0923aa);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092383);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092384);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0923aa);
+            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ab);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090480);
             ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090642);
-            ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0922a1)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
+            ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0922a2)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
             if (this.a) {
                 textView.setText(gameGuideConfigInfo.dialogInfo.maxNumsTips);
             } else {

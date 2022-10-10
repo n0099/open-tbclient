@@ -95,11 +95,11 @@ public class f16 implements e16, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = (LinearLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904c4);
-            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f30);
-            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2f);
-            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2e);
-            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2b);
-            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2c);
+            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f31);
+            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f30);
+            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2f);
+            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2c);
+            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f2d);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -166,27 +166,27 @@ public class f16 implements e16, View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091f30) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091f31) {
                 e16.a aVar = this.i;
                 if (aVar == null || aVar.a(2)) {
                     f(2);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f30) {
                 e16.a aVar2 = this.i;
                 if (aVar2 == null || aVar2.a(1)) {
                     f(1);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2f) {
                 e16.a aVar3 = this.i;
                 if (aVar3 == null || aVar3.a(0)) {
                     f(0);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2b) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2c) {
                 e16.a aVar4 = this.i;
                 if (aVar4 == null || aVar4.a(3)) {
                     f(3);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f2d) {
                 e16.a aVar5 = this.i;
                 if (aVar5 == null || aVar5.a(4)) {
                     f(4);

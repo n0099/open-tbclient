@@ -166,14 +166,14 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
             ViewCompat.setBackground(this, this.mBackground);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
             this.mTitleView = textView;
             int i = this.mTextAppearance;
             if (i != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ebe);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fa5);
+            this.mShortcutView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ebf);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fa6);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);

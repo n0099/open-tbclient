@@ -1860,7 +1860,7 @@ public class ia8 {
             this.n = imageView;
             imageView.setOnClickListener(this.N0);
             this.o = this.e.findViewById(R.id.obfuscated_res_0x7f09129c);
-            this.p = this.e.findViewById(R.id.obfuscated_res_0x7f0921eb);
+            this.p = this.e.findViewById(R.id.obfuscated_res_0x7f0921ec);
             this.f.getControl().setContinuePlayEnable(true);
             this.f.getControl().setOperableVideoContainer(this.G0);
             this.f.getControl().setOnSurfaceDestroyedListener(this.L0);
@@ -1869,20 +1869,20 @@ public class ia8 {
             switchImageView.setStateImage(R.drawable.obfuscated_res_0x7f080368, R.drawable.obfuscated_res_0x7f08036a);
             this.t.setState(0);
             this.t.setOnClickListener(this.N0);
-            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09243f);
+            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f092440);
             this.u = textView;
             textView.setOnClickListener(this.N0);
-            TextView textView2 = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09243d);
+            TextView textView2 = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09243e);
             this.v = textView2;
             textView2.setOnClickListener(this.N0);
-            this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09243c);
-            TbImageView tbImageView = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092588);
+            this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09243d);
+            TbImageView tbImageView = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092589);
             this.A = tbImageView;
-            tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080fa3);
+            tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080fa4);
             ImageView imageView2 = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090ee0);
             this.E = imageView2;
             imageView2.setOnClickListener(this.N0);
-            this.F = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09258a);
+            this.F = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09258b);
             View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f0912ad);
             this.q = findViewById2;
             findViewById2.setVisibility(8);
@@ -2447,7 +2447,7 @@ public class ia8 {
                     LayoutInflater.from(this.E0).inflate(R.layout.obfuscated_res_0x7f0d0292, (ViewGroup) this.e, true);
                     View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f091261);
                     this.Q = findViewById;
-                    this.S = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ecc);
+                    this.S = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ecd);
                     this.V = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0902be);
                 }
             } else if (i2 == 2 && this.R == null && (view2 = this.e) != null && (view2 instanceof ViewGroup)) {
@@ -2455,7 +2455,7 @@ public class ia8 {
                 View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f09126b);
                 this.R = findViewById2;
                 this.U = (ImageView) findViewById2.findViewById(R.id.obfuscated_res_0x7f0902c4);
-                this.T = (SeekBar) this.R.findViewById(R.id.obfuscated_res_0x7f091ece);
+                this.T = (SeekBar) this.R.findViewById(R.id.obfuscated_res_0x7f091ecf);
             }
         }
     }
@@ -2578,9 +2578,9 @@ public class ia8 {
                 }
             }
             if (this.g0 > 0) {
-                this.U.setImageResource(R.drawable.obfuscated_res_0x7f080a8f);
+                this.U.setImageResource(R.drawable.obfuscated_res_0x7f080a90);
             } else {
-                this.U.setImageResource(R.drawable.obfuscated_res_0x7f080a8e);
+                this.U.setImageResource(R.drawable.obfuscated_res_0x7f080a8f);
             }
             this.W.setStreamVolume(3, this.h0, 0);
             this.T.setProgress(this.g0);
@@ -2710,7 +2710,7 @@ public class ia8 {
             this.l.setVisibility(8);
             this.g.b();
             this.A.setVisibility(8);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b29);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b2a);
             l1(this.f0);
             B1();
             t tVar = this.N;
@@ -2740,7 +2740,7 @@ public class ia8 {
             this.l.setVisibility(0);
             this.g.b();
             this.A.setVisibility(8);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b1b);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b1c);
             VideoListMediaControllerView videoListMediaControllerView = this.h;
             if (videoListMediaControllerView != null && (videoListMediaControllerView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();

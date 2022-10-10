@@ -216,7 +216,7 @@ public class yd7 extends p9 implements NoNetworkView.b {
             textView.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f08da));
             this.h.setGravity(16);
             this.h.setLayoutParams(new ViewGroup.LayoutParams(-2, -1));
-            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1b, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1c, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
             hv4 d = hv4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
@@ -274,7 +274,7 @@ public class yd7 extends p9 implements NoNetworkView.b {
         p();
         n();
         m();
-        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0925c7);
         this.j = noNetworkView;
         noNetworkView.a(this);
     }
@@ -301,7 +301,7 @@ public class yd7 extends p9 implements NoNetworkView.b {
                     }
                 }
             }
-            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1b, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1c, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
             hv4 d = hv4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);

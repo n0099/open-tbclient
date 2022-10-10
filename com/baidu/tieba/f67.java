@@ -594,7 +594,7 @@ public class f67 {
             this.d.setNextPage(this.i);
         }
         this.i.t(ej.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.i.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1559));
+        this.i.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f155a));
         this.i.C(onClickListener);
         this.i.f();
     }
@@ -635,7 +635,7 @@ public class f67 {
             }
             this.h.p();
             this.h.m(null);
-            this.h.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+            this.h.n(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
             this.h.i(R.drawable.new_pic_emotion_08);
             this.h.l(0);
             this.h.attachView(this.m, false);
@@ -665,7 +665,7 @@ public class f67 {
             this.d.setNextPage(this.i);
         }
         this.i.t(ej.f(this.b.getPageActivity(), R.dimen.tbds178));
-        this.i.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f155c));
+        this.i.D(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f155d));
         this.i.C(null);
         this.i.f();
     }
@@ -853,8 +853,8 @@ public class f67 {
             View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08e2, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092573);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092576);
+            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092574);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092577);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.b.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -868,7 +868,7 @@ public class f67 {
             this.n = qa8Var;
             qa8Var.v(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.n.u(this.v);
-            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092577);
+            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092578);
             i27 i27Var = new i27(this.b);
             this.f = i27Var;
             this.e.setProgressView(i27Var);
@@ -892,7 +892,7 @@ public class f67 {
             this.g = y27Var;
             y27Var.a(this.v);
             this.k.i(this.g);
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f092570);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f092571);
             n();
         }
     }

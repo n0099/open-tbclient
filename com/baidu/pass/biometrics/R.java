@@ -142,24 +142,24 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_bio_toast_bg = 0x7f080e88;
-        public static final int pass_face_timeout_reason1 = 0x7f080e89;
-        public static final int pass_face_timeout_reason2 = 0x7f080e8a;
-        public static final int pass_face_timeout_reason3 = 0x7f080e8b;
-        public static final int pass_liveness_agree_btn_bg = 0x7f080e8c;
-        public static final int pass_liveness_bio_dialog_negative_btn_bg = 0x7f080e8d;
-        public static final int pass_liveness_bio_dialog_negative_btn_bg_night = 0x7f080e8e;
-        public static final int pass_liveness_bio_dialog_positive_btn_bg = 0x7f080e8f;
-        public static final int pass_liveness_bio_dialog_positive_btn_bg_night = 0x7f080e90;
-        public static final int pass_liveness_bio_face_loading_mask_layer = 0x7f080e91;
-        public static final int pass_liveness_bio_loading = 0x7f080e92;
-        public static final int pass_liveness_dialog_bg = 0x7f080e93;
-        public static final int pass_liveness_dialog_bg_night = 0x7f080e94;
-        public static final int pass_liveness_face_icon_loading = 0x7f080e95;
-        public static final int pass_liveness_face_recognizing_close = 0x7f080e96;
-        public static final int pass_liveness_face_recognizing_waring = 0x7f080e97;
-        public static final int pass_liveness_face_yy_default = 0x7f080e98;
-        public static final int pass_liveness_toast_bg = 0x7f080e99;
+        public static final int pass_bio_toast_bg = 0x7f080e89;
+        public static final int pass_face_timeout_reason1 = 0x7f080e8a;
+        public static final int pass_face_timeout_reason2 = 0x7f080e8b;
+        public static final int pass_face_timeout_reason3 = 0x7f080e8c;
+        public static final int pass_liveness_agree_btn_bg = 0x7f080e8d;
+        public static final int pass_liveness_bio_dialog_negative_btn_bg = 0x7f080e8e;
+        public static final int pass_liveness_bio_dialog_negative_btn_bg_night = 0x7f080e8f;
+        public static final int pass_liveness_bio_dialog_positive_btn_bg = 0x7f080e90;
+        public static final int pass_liveness_bio_dialog_positive_btn_bg_night = 0x7f080e91;
+        public static final int pass_liveness_bio_face_loading_mask_layer = 0x7f080e92;
+        public static final int pass_liveness_bio_loading = 0x7f080e93;
+        public static final int pass_liveness_dialog_bg = 0x7f080e94;
+        public static final int pass_liveness_dialog_bg_night = 0x7f080e95;
+        public static final int pass_liveness_face_icon_loading = 0x7f080e96;
+        public static final int pass_liveness_face_recognizing_close = 0x7f080e97;
+        public static final int pass_liveness_face_recognizing_waring = 0x7f080e98;
+        public static final int pass_liveness_face_yy_default = 0x7f080e99;
+        public static final int pass_liveness_toast_bg = 0x7f080e9a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -205,16 +205,16 @@ public final class R {
         public static final int pass_bio_liveness_recog_yy_bottom = 0x7f0917ab;
         public static final int pass_bio_loading_view = 0x7f0917ac;
         public static final int positive_btn = 0x7f091a38;
-        public static final int rim_base_toast_icon = 0x7f091c49;
-        public static final int rim_base_toast_message = 0x7f091c4a;
-        public static final int sapi_sdk_titlebar_title_tv = 0x7f091d8c;
-        public static final int time_out_dialog_msg = 0x7f0921e8;
-        public static final int title_text = 0x7f092243;
-        public static final int tv_pose_warning_tip = 0x7f0923eb;
-        public static final int view_switcher = 0x7f0925d0;
+        public static final int rim_base_toast_icon = 0x7f091c4a;
+        public static final int rim_base_toast_message = 0x7f091c4b;
+        public static final int sapi_sdk_titlebar_title_tv = 0x7f091d8d;
+        public static final int time_out_dialog_msg = 0x7f0921e9;
+        public static final int title_text = 0x7f092244;
+        public static final int tv_pose_warning_tip = 0x7f0923ec;
+        public static final int view_switcher = 0x7f0925d1;
 
         /* renamed from: webView */
-        public static final int obfuscated = 0x7f092653;
+        public static final int obfuscated = 0x7f092654;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

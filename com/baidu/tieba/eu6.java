@@ -133,14 +133,14 @@ public class eu6 extends z85 {
                 if (view2 == null) {
                     view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d077a, (ViewGroup) null);
                     bVar = new b();
-                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091c83);
+                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091c84);
                     bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
                     bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a35);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ba);
+                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921bb);
                     bVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c0);
                     bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d5d);
                     bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a34);
-                    bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921b9);
+                    bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ba);
                     bVar.i = view2.findViewById(R.id.divider_line);
                     bVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906eb);
                     view2.setTag(bVar);
@@ -221,7 +221,7 @@ public class eu6 extends z85 {
         this.a = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09167a);
         this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091679);
         this.f = this.attachedView.findViewById(R.id.obfuscated_res_0x7f0907f9);
-        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091b8d);
+        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091b8e);
         this.attachedView.setOnClickListener(null);
         this.g = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906f3);
         this.h = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09142f);

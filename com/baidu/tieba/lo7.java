@@ -14,7 +14,7 @@ public class lo7 extends s55 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lo7(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1389), 16, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f138a), 16, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,7 +34,7 @@ public class lo7 extends s55 {
         this.d = R.drawable.obfuscated_res_0x7f08081e;
         this.e = R.drawable.obfuscated_res_0x7f08081e;
         this.h = R.drawable.icon_pure_post_more_tail64;
-        this.r = R.drawable.obfuscated_res_0x7f0809b0;
+        this.r = R.drawable.obfuscated_res_0x7f0809b1;
         this.i = false;
         this.j = true;
         this.m = new TailToolController(context);

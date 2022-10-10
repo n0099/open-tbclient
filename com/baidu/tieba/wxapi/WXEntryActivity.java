@@ -81,7 +81,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
             setContentView(R.layout.obfuscated_res_0x7f0d050a);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091ccb);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091ccc);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a75));

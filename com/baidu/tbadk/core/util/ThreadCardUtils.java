@@ -254,7 +254,7 @@ public final class ThreadCardUtils {
         }
         ThreadData threadData = yq4Var.getThreadData();
         if (threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-            BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1537));
+            BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1538));
             b.f(BdToast.ToastIcon.FAILURE);
             b.i();
             return;
@@ -380,7 +380,7 @@ public final class ThreadCardUtils {
     public static void setSendHelpPrefix(SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65571, null, spannableStringBuilder) == null) {
-            setUniversalPrefix(spannableStringBuilder, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1129), R.color.CAM_X0302, R.color.CAM_X0101);
+            setUniversalPrefix(spannableStringBuilder, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112a), R.color.CAM_X0302, R.color.CAM_X0101);
         }
     }
 
@@ -564,11 +564,11 @@ public final class ThreadCardUtils {
                 }
                 if (threadData.getTabId() > 0 && !dj.isEmpty(threadData.getTabName()) && isNoThreadTitle(threadData) && (spannableStringBuilder == null || dj.isEmptyStringAfterTrim(spannableStringBuilder.toString()))) {
                     if (threadData.isShareThread && threadData.originalThreadData != null) {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f117d));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f117e));
                     } else if (threadData.isVoiceThreadType()) {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159e));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f159f));
                     } else {
-                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13e5));
+                        spannableStringBuilder = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13e6));
                     }
                 }
                 if (spannableStringBuilder != null && !dj.isEmptyStringAfterTrim(spannableStringBuilder.toString())) {

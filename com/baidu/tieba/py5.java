@@ -365,7 +365,7 @@ public class py5 implements jz5, iz5 {
             this.e.onChangeSkinType(this.d, i);
             this.e.getBackground().mutate().setAlpha(0);
             SkinManager.setNavbarTitleColor(this.e.mTextTitle, R.color.CAM_X0101, R.color.CAM_X0101);
-            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f0810cf);
+            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f0810d0);
             this.f.setDivider(SkinManager.getDrawable(i, (int) R.color.CAM_X0204));
             this.f.setDividerHeight(this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
@@ -398,7 +398,7 @@ public class py5 implements jz5, iz5 {
             if (this.o) {
                 addSystemImageButton.setOnClickListener(new c(this));
             }
-            this.m = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.m = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092680);
             this.e.showBottomLine(false);
             if (!this.o) {
                 this.n = this.e.setCenterTextTitle(this.d.getString(R.string.obfuscated_res_0x7f0f0226));
@@ -556,7 +556,7 @@ public class py5 implements jz5, iz5 {
                 this.q.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
             this.q.m(null);
-            this.q.n(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0fd9));
+            this.q.n(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0fda));
             this.q.onChangeSkinType();
             if (!this.r) {
                 ((ViewGroup) this.g).addView(this.q.b(), 0);

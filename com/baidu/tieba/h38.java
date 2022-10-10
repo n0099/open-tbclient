@@ -239,15 +239,15 @@ public class h38 {
                     this.e.b.dismiss();
                 }
                 if (i == 0) {
-                    this.e.g0(((Integer) this.a.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203e), ((Integer) this.a.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) this.a.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                    this.e.g0(((Integer) this.a.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203f), ((Integer) this.a.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) this.a.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                 } else if (i == 1) {
-                    String str = (String) this.a.get(R.id.obfuscated_res_0x7f092095);
-                    String str2 = (String) this.a.get(R.id.obfuscated_res_0x7f092097);
-                    String str3 = (String) this.a.get(R.id.obfuscated_res_0x7f092096);
+                    String str = (String) this.a.get(R.id.obfuscated_res_0x7f092096);
+                    String str2 = (String) this.a.get(R.id.obfuscated_res_0x7f092098);
+                    String str3 = (String) this.a.get(R.id.obfuscated_res_0x7f092097);
                     UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
                     userMuteAddAndDelCustomMessage.setData(this.b, this.c, str, str2, str3, 1, this.d, this.e.D);
                     userMuteAddAndDelCustomMessage.setTag(this.e.D);
-                    this.e.M0(this.b, userMuteAddAndDelCustomMessage, this.d, str, (String) this.a.get(R.id.obfuscated_res_0x7f092093));
+                    this.e.M0(this.b, userMuteAddAndDelCustomMessage, this.d, str, (String) this.a.get(R.id.obfuscated_res_0x7f092094));
                 }
             }
         }
@@ -652,16 +652,16 @@ public class h38 {
                 }
                 switch (i) {
                     case 10:
-                        this.b.g0(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f09203e), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                        this.b.g0(((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray.get(R.id.obfuscated_res_0x7f09203f), ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                         return;
                     case 11:
                         if (this.b.y != null) {
-                            this.b.y.a(new Object[]{sparseArray.get(R.id.obfuscated_res_0x7f09205c), sparseArray.get(R.id.obfuscated_res_0x7f092049), sparseArray.get(R.id.obfuscated_res_0x7f09204c), sparseArray.get(R.id.obfuscated_res_0x7f09204a), sparseArray.get(R.id.obfuscated_res_0x7f09204b)});
+                            this.b.y.a(new Object[]{sparseArray.get(R.id.obfuscated_res_0x7f09205d), sparseArray.get(R.id.obfuscated_res_0x7f09204a), sparseArray.get(R.id.obfuscated_res_0x7f09204d), sparseArray.get(R.id.obfuscated_res_0x7f09204b), sparseArray.get(R.id.obfuscated_res_0x7f09204c)});
                             return;
                         }
                         return;
                     case 12:
-                        this.b.T(this.a, (String) sparseArray.get(R.id.obfuscated_res_0x7f092094), sparseArray);
+                        this.b.T(this.a, (String) sparseArray.get(R.id.obfuscated_res_0x7f092095), sparseArray);
                         return;
                     case 13:
                         AbsVideoPbFragment absVideoPbFragment = this.b.a;
@@ -1337,9 +1337,9 @@ public class h38 {
                             } else if (tag instanceof SparseArray) {
                                 TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
                                 SparseArray<Object> sparseArray2 = (SparseArray) tag;
-                                if ((sparseArray2.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean) && ((Boolean) sparseArray2.get(R.id.obfuscated_res_0x7f092098)).booleanValue()) {
-                                    sparseArray2.put(R.id.obfuscated_res_0x7f09204f, 0);
-                                    sparseArray2.put(R.id.obfuscated_res_0x7f092038, 2);
+                                if ((sparseArray2.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean) && ((Boolean) sparseArray2.get(R.id.obfuscated_res_0x7f092099)).booleanValue()) {
+                                    sparseArray2.put(R.id.obfuscated_res_0x7f092050, 0);
+                                    sparseArray2.put(R.id.obfuscated_res_0x7f092039, 2);
                                     this.a.B(sparseArray2);
                                     return;
                                 }
@@ -1349,10 +1349,10 @@ public class h38 {
                             }
                         case 6:
                             SparseArray sparseArray3 = (SparseArray) view2.getTag();
-                            if (sparseArray3 != null && (sparseArray3.get(R.id.obfuscated_res_0x7f092040) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f09203e) instanceof String) && (sparseArray3.get(R.id.obfuscated_res_0x7f09205c) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean)) {
-                                boolean booleanValue = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f09203f)).booleanValue();
-                                int intValue = ((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f09205c)).intValue();
-                                boolean booleanValue2 = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092050)).booleanValue();
+                            if (sparseArray3 != null && (sparseArray3.get(R.id.obfuscated_res_0x7f092041) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f09203f) instanceof String) && (sparseArray3.get(R.id.obfuscated_res_0x7f09205d) instanceof Integer) && (sparseArray3.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean)) {
+                                boolean booleanValue = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092040)).booleanValue();
+                                int intValue = ((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f09205d)).intValue();
+                                boolean booleanValue2 = ((Boolean) sparseArray3.get(R.id.obfuscated_res_0x7f092051)).booleanValue();
                                 AbsVideoPbFragment absVideoPbFragment = this.a.a;
                                 if (absVideoPbFragment == null || absVideoPbFragment.P() == null) {
                                     return;
@@ -1363,14 +1363,14 @@ public class h38 {
                                         this.a.u0(sparseArray3, intValue, booleanValue);
                                         return;
                                     } else {
-                                        this.a.i0(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203e), intValue, booleanValue, null, F);
+                                        this.a.i0(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203f), intValue, booleanValue, null, F);
                                         return;
                                     }
                                 } else if (booleanValue && !booleanValue2) {
                                     this.a.u0(sparseArray3, intValue, booleanValue);
                                     return;
                                 } else {
-                                    this.a.g0(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203e), intValue, booleanValue);
+                                    this.a.g0(((Integer) sparseArray3.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray3.get(R.id.obfuscated_res_0x7f09203f), intValue, booleanValue);
                                     return;
                                 }
                             }
@@ -1384,32 +1384,32 @@ public class h38 {
                             if (sparseArray4 == null) {
                                 return;
                             }
-                            boolean booleanValue3 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092084)).booleanValue();
-                            boolean booleanValue4 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092082)).booleanValue();
-                            boolean booleanValue5 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092098)).booleanValue();
-                            boolean booleanValue6 = sparseArray4.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
+                            boolean booleanValue3 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092085)).booleanValue();
+                            boolean booleanValue4 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092083)).booleanValue();
+                            boolean booleanValue5 = ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092099)).booleanValue();
+                            boolean booleanValue6 = sparseArray4.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
                             if (!booleanValue3) {
                                 if (booleanValue4) {
-                                    this.a.g0(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203e), ((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f09205c)).intValue(), ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f09203f)).booleanValue());
+                                    this.a.g0(((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) sparseArray4.get(R.id.obfuscated_res_0x7f09203f), ((Integer) sparseArray4.get(R.id.obfuscated_res_0x7f09205d)).intValue(), ((Boolean) sparseArray4.get(R.id.obfuscated_res_0x7f092040)).booleanValue());
                                     return;
                                 }
                                 return;
                             } else if (booleanValue5) {
-                                sparseArray4.put(R.id.obfuscated_res_0x7f09204f, 1);
-                                sparseArray4.put(R.id.obfuscated_res_0x7f092038, 2);
+                                sparseArray4.put(R.id.obfuscated_res_0x7f092050, 1);
+                                sparseArray4.put(R.id.obfuscated_res_0x7f092039, 2);
                                 this.a.B(sparseArray4);
                                 return;
                             } else {
                                 if (booleanValue6) {
-                                    sparseArray4.put(R.id.obfuscated_res_0x7f092038, 2);
+                                    sparseArray4.put(R.id.obfuscated_res_0x7f092039, 2);
                                 }
-                                sparseArray4.put(R.id.obfuscated_res_0x7f09205d, Boolean.TRUE);
+                                sparseArray4.put(R.id.obfuscated_res_0x7f09205e, Boolean.TRUE);
                                 this.a.l0(view2);
                                 return;
                             }
                         case 8:
                             if (ViewHelper.checkUpIsLogin(this.a.a.getContext()) && (sparseArray = (SparseArray) view2.getTag()) != null) {
-                                PostData postData2 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+                                PostData postData2 = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
                                 if (postData2.q() == null) {
                                     return;
                                 }
@@ -1479,7 +1479,7 @@ public class h38 {
                 if (nu4Var != null) {
                     nu4Var.dismiss();
                 }
-                this.d.a.x3(((Integer) this.a.get(R.id.obfuscated_res_0x7f092040)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203e), this.b, this.c);
+                this.d.a.x3(((Integer) this.a.get(R.id.obfuscated_res_0x7f092041)).intValue(), (String) this.a.get(R.id.obfuscated_res_0x7f09203f), this.b, this.c);
             }
         }
     }
@@ -1594,7 +1594,7 @@ public class h38 {
             C0();
             UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001429);
             userMuteCheckCustomMessage.userIdF = dh.g(currentAccount, 0L);
-            userMuteCheckCustomMessage.userIdT = dh.g((String) sparseArray.get(R.id.obfuscated_res_0x7f092094), 0L);
+            userMuteCheckCustomMessage.userIdT = dh.g((String) sparseArray.get(R.id.obfuscated_res_0x7f092095), 0L);
             BdUniqueId bdUniqueId = this.D;
             userMuteCheckCustomMessage.mId = bdUniqueId;
             userMuteCheckCustomMessage.setTag(bdUniqueId);
@@ -1766,8 +1766,8 @@ public class h38 {
                         if (this.A == null || TextUtils.isEmpty(url)) {
                             return true;
                         }
-                        if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
-                            this.C = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                        if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextImageInfo)) {
+                            this.C = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                         } else {
                             this.C = null;
                         }
@@ -1780,8 +1780,8 @@ public class h38 {
                         if (!TextUtils.isEmpty(gifView.getBdImage().q())) {
                             this.B = gifView.getBdImage().q();
                         }
-                        if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
-                            this.C = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                        if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextImageInfo)) {
+                            this.C = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                         } else {
                             this.C = null;
                         }
@@ -1792,8 +1792,8 @@ public class h38 {
                             if (!TextUtils.isEmpty(tbMemeImageView.getBdImage().q())) {
                                 this.B = tbMemeImageView.getBdImage().q();
                             }
-                            if (view2.getTag(R.id.obfuscated_res_0x7f092078) != null && (view2.getTag(R.id.obfuscated_res_0x7f092078) instanceof TbRichTextImageInfo)) {
-                                this.C = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092078);
+                            if (view2.getTag(R.id.obfuscated_res_0x7f092079) != null && (view2.getTag(R.id.obfuscated_res_0x7f092079) instanceof TbRichTextImageInfo)) {
+                                this.C = (TbRichTextMemeInfo) view2.getTag(R.id.obfuscated_res_0x7f092079);
                             } else {
                                 this.C = null;
                             }
@@ -1820,7 +1820,7 @@ public class h38 {
                     return true;
                 }
             }
-            PostData postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c);
+            PostData postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d);
             this.G = postData;
             if (postData == null || this.a.S3() == null) {
                 return true;
@@ -1838,44 +1838,44 @@ public class h38 {
             }
             boolean z7 = Y(view2) && !z6;
             boolean z8 = (!Y(view2) || (onVar = this.A) == null || onVar.t()) ? false : true;
-            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-            boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue6 = sparseArray.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
-            String str = sparseArray.get(R.id.obfuscated_res_0x7f09204c) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204c) : null;
-            boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092054) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092054)).booleanValue() : false;
-            boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f09205d) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).booleanValue() : false;
+            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092056) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092056)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+            boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue6 = sparseArray.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
+            String str = sparseArray.get(R.id.obfuscated_res_0x7f09204d) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204d) : null;
+            boolean booleanValue7 = sparseArray.get(R.id.obfuscated_res_0x7f092055) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092055)).booleanValue() : false;
+            boolean booleanValue8 = sparseArray.get(R.id.obfuscated_res_0x7f09205e) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205e)).booleanValue() : false;
             if (z7) {
                 z4 = booleanValue7;
                 z3 = booleanValue6;
                 z2 = booleanValue5;
-                arrayList.add(new uu4(1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10ae), this.c));
+                arrayList.add(new uu4(1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10af), this.c));
             } else {
                 z2 = booleanValue5;
                 z3 = booleanValue6;
                 z4 = booleanValue7;
             }
             if (z8) {
-                arrayList.add(new uu4(2, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10af), this.c));
+                arrayList.add(new uu4(2, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b0), this.c));
             }
             if (!z7 && !z8) {
                 uu4 uu4Var7 = new uu4(3, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0452), this.c);
                 SparseArray sparseArray3 = new SparseArray();
-                sparseArray3.put(R.id.obfuscated_res_0x7f09203c, this.G);
+                sparseArray3.put(R.id.obfuscated_res_0x7f09203d, this.G);
                 uu4Var7.d.setTag(sparseArray3);
                 arrayList.add(uu4Var7);
             }
             if (!booleanValue && !z6) {
                 if (z5) {
-                    uu4Var6 = new uu4(4, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ff1), this.c);
+                    uu4Var6 = new uu4(4, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ff2), this.c);
                 } else {
                     uu4Var6 = new uu4(4, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aaa), this.c);
                 }
                 SparseArray sparseArray4 = new SparseArray();
-                sparseArray4.put(R.id.obfuscated_res_0x7f09203c, this.G);
-                sparseArray4.put(R.id.obfuscated_res_0x7f092055, Boolean.FALSE);
+                sparseArray4.put(R.id.obfuscated_res_0x7f09203d, this.G);
+                sparseArray4.put(R.id.obfuscated_res_0x7f092056, Boolean.FALSE);
                 uu4Var6.d.setTag(sparseArray4);
                 arrayList.add(uu4Var6);
             }
@@ -1883,51 +1883,51 @@ public class h38 {
                 if (!X() && !booleanValue4 && booleanValue3) {
                     uu4 uu4Var8 = new uu4(5, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b4d), this.c);
                     SparseArray sparseArray5 = new SparseArray();
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                     sparseArray5.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                     sparseArray5.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                     sparseArray5.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                     sparseArray5.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                     uu4Var8.d.setTag(sparseArray5);
                     arrayList.add(uu4Var8);
                 } else {
                     if ((b0(booleanValue2) && TbadkCoreApplication.isLogin()) && !z6) {
-                        uu4 uu4Var9 = new uu4(5, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1016), this.c);
+                        uu4 uu4Var9 = new uu4(5, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1017), this.c);
                         uu4Var9.d.setTag(str);
                         arrayList.add(uu4Var9);
                     }
                 }
                 if (booleanValue4) {
                     SparseArray sparseArray6 = new SparseArray();
-                    sparseArray6.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray6.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                    sparseArray6.put(R.id.obfuscated_res_0x7f092049, sparseArray.get(R.id.obfuscated_res_0x7f092049));
+                    sparseArray6.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray6.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                     sparseArray6.put(R.id.obfuscated_res_0x7f09204a, sparseArray.get(R.id.obfuscated_res_0x7f09204a));
                     sparseArray6.put(R.id.obfuscated_res_0x7f09204b, sparseArray.get(R.id.obfuscated_res_0x7f09204b));
-                    sparseArray6.put(R.id.obfuscated_res_0x7f09204c, str);
+                    sparseArray6.put(R.id.obfuscated_res_0x7f09204c, sparseArray.get(R.id.obfuscated_res_0x7f09204c));
+                    sparseArray6.put(R.id.obfuscated_res_0x7f09204d, str);
                     if (!X() && z2) {
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                         sparseArray6.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                         sparseArray6.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                         sparseArray6.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                     } else {
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                     }
                     if (z3) {
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                        sparseArray6.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue2));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue2));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                         if (z4) {
                             uu4Var5 = new uu4(6, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b0), this.c);
                             uu4Var5.d.setTag(sparseArray6);
@@ -1937,7 +1937,7 @@ public class h38 {
                             uu4Var = null;
                         }
                     } else {
-                        sparseArray6.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                        sparseArray6.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                     }
                     uu4Var5 = null;
                     uu4Var2 = new uu4(7, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8), this.c);
@@ -1946,16 +1946,16 @@ public class h38 {
                     uu4Var = null;
                 } else if (z3) {
                     SparseArray sparseArray7 = new SparseArray();
-                    sparseArray7.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
-                    sparseArray7.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
-                    sparseArray7.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                    sparseArray7.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                    sparseArray7.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue2));
-                    sparseArray7.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                    sparseArray7.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                    sparseArray7.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                    sparseArray7.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
+                    sparseArray7.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
+                    sparseArray7.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                    sparseArray7.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                    sparseArray7.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue2));
+                    sparseArray7.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray7.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                    sparseArray7.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                     if (this.a.K().S1().W() == 1002 && !booleanValue2) {
-                        uu4Var4 = new uu4(6, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1016), this.c);
+                        uu4Var4 = new uu4(6, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1017), this.c);
                     } else {
                         uu4Var4 = new uu4(6, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b0), this.c);
                     }
@@ -2033,23 +2033,23 @@ public class h38 {
 
     public void F0(boolean z2, SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048586, this, z2, sparseArray) == null) && (sparseArray.get(R.id.obfuscated_res_0x7f092094) instanceof String) && (sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean) && (sparseArray.get(R.id.obfuscated_res_0x7f092038) instanceof Integer)) {
+        if ((interceptable == null || interceptable.invokeZL(1048586, this, z2, sparseArray) == null) && (sparseArray.get(R.id.obfuscated_res_0x7f092095) instanceof String) && (sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean) && (sparseArray.get(R.id.obfuscated_res_0x7f092039) instanceof Integer)) {
             wu4 wu4Var = this.b;
             if (wu4Var != null && wu4Var.isShowing()) {
                 this.b.dismiss();
                 this.b = null;
             }
-            String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f092092);
-            String str2 = (String) sparseArray.get(R.id.obfuscated_res_0x7f092094);
-            if (((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue()) {
+            String str = (String) sparseArray.get(R.id.obfuscated_res_0x7f092093);
+            String str2 = (String) sparseArray.get(R.id.obfuscated_res_0x7f092095);
+            if (((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue()) {
                 yu4 yu4Var = new yu4(this.a.getBaseFragmentActivity());
                 yu4Var.n(new a0(this, sparseArray, z2, str2, str));
                 ArrayList arrayList = new ArrayList();
-                if ((sparseArray.get(R.id.obfuscated_res_0x7f092038) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092038)).intValue() : -1) == 1) {
+                if ((sparseArray.get(R.id.obfuscated_res_0x7f092039) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092039)).intValue() : -1) == 1) {
                     arrayList.add(new uu4(0, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04b0), yu4Var));
                 }
                 if (z2) {
-                    arrayList.add(new uu4(1, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14bc), yu4Var));
+                    arrayList.add(new uu4(1, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14bd), yu4Var));
                 } else {
                     arrayList.add(new uu4(1, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b49), yu4Var));
                 }
@@ -2085,10 +2085,10 @@ public class h38 {
             yu4 yu4Var = new yu4(this.a.getContext());
             ArrayList arrayList = new ArrayList();
             if (this.a.K().S1() != null && this.a.K().S1().O() != null && !this.a.K().S1().O().isBjh()) {
-                arrayList.add(new uu4(0, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ae), yu4Var));
+                arrayList.add(new uu4(0, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10af), yu4Var));
             }
             if (!z2) {
-                arrayList.add(new uu4(1, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10af), yu4Var));
+                arrayList.add(new uu4(1, this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10b0), yu4Var));
             }
             yu4Var.j(arrayList);
             yu4Var.n(new s(this, cVar));
@@ -2193,7 +2193,7 @@ public class h38 {
             boolean z9 = vy7Var.u;
             uy7Var.w = z9;
             if (z9) {
-                uy7Var.m().setText(R.string.obfuscated_res_0x7f0f1016);
+                uy7Var.m().setText(R.string.obfuscated_res_0x7f0f1017);
                 this.u.G(false);
             }
         }
@@ -2271,11 +2271,11 @@ public class h38 {
         }
         wu4 wu4Var = new wu4(this.a.getPageContext());
         if (this.a.K().S1().f == null || this.a.K().S1().f.size() <= 0) {
-            strArr = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11d1), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11d2)};
+            strArr = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11d2), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11d3)};
         } else {
             strArr = new String[this.a.K().S1().f.size()];
             for (int i2 = 0; i2 < this.a.K().S1().f.size(); i2++) {
-                strArr[i2] = this.a.K().S1().f.get(i2).sort_name + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11cf);
+                strArr[i2] = this.a.K().S1().f.get(i2).sort_name + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11d0);
             }
         }
         wu4Var.i(null, strArr, new m(this, wu4Var, view2));
@@ -2411,11 +2411,11 @@ public class h38 {
     public void T(boolean z2, String str, SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Boolean.valueOf(z2), str, sparseArray}) == null) {
-            String str2 = sparseArray.get(R.id.obfuscated_res_0x7f092095) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092095) : "";
-            String str3 = sparseArray.get(R.id.obfuscated_res_0x7f092097) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092097) : "";
-            String str4 = sparseArray.get(R.id.obfuscated_res_0x7f092096) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092096) : "";
-            String str5 = sparseArray.get(R.id.obfuscated_res_0x7f092092) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092092) : "";
-            String str6 = sparseArray.get(R.id.obfuscated_res_0x7f092093) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092093) : "";
+            String str2 = sparseArray.get(R.id.obfuscated_res_0x7f092096) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092096) : "";
+            String str3 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092098) : "";
+            String str4 = sparseArray.get(R.id.obfuscated_res_0x7f092097) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092097) : "";
+            String str5 = sparseArray.get(R.id.obfuscated_res_0x7f092093) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092093) : "";
+            String str6 = sparseArray.get(R.id.obfuscated_res_0x7f092094) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f092094) : "";
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
             userMuteAddAndDelCustomMessage.setData(z2, str, str2, str3, str4, 1, str5, this.D);
             userMuteAddAndDelCustomMessage.setTag(this.D);
@@ -2456,7 +2456,7 @@ public class h38 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && this.s == null) {
             this.s = new pu4(this.a.getPageContext().getPageActivity());
-            String[] strArr = {this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f036a), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11cb), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10e0)};
+            String[] strArr = {this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f036a), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11cc), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10e1)};
             pu4 pu4Var = this.s;
             pu4Var.j(strArr, new l(this));
             pu4Var.g(pu4.b.obfuscated_res_0x7f1003ad);
@@ -2536,7 +2536,7 @@ public class h38 {
                 e2.printStackTrace();
                 sparseArray = null;
             }
-            if (sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) == null) {
+            if (sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) == null) {
                 return;
             }
             e0(postData);
@@ -2602,7 +2602,7 @@ public class h38 {
             }
             this.j.removeAllViews();
             this.m = new ArrayList();
-            CustomBlueCheckRadioButton D = D("0", this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13eb));
+            CustomBlueCheckRadioButton D = D("0", this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f13ec));
             this.m.add(D);
             D.setChecked(true);
             this.j.addView(D);
@@ -2658,19 +2658,19 @@ public class h38 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z2), str2, Boolean.valueOf(z3)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f09203e, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i2));
-            sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(i3));
-            sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09203f, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(i3));
+            sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z2));
             sparseArray.put(Q, Integer.valueOf(R));
-            int i4 = (i3 != 1002 || z2) ? R.string.obfuscated_res_0x7f0f04a5 : R.string.obfuscated_res_0x7f0f1013;
+            int i4 = (i3 != 1002 || z2) ? R.string.obfuscated_res_0x7f0f04a5 : R.string.obfuscated_res_0x7f0f1014;
             int i5 = R.string.obfuscated_res_0x7f0f043e;
             if (i2 == 0) {
                 if (i3 != 1002 || z2) {
                     i5 = R.string.obfuscated_res_0x7f0f04a9;
                     i4 = R.string.obfuscated_res_0x7f0f04aa;
                 } else {
-                    i4 = R.string.obfuscated_res_0x7f0f1017;
+                    i4 = R.string.obfuscated_res_0x7f0f1018;
                 }
             }
             this.e = new nu4(this.a.getActivity());
@@ -2705,10 +2705,10 @@ public class h38 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z2)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
-            sparseArray.put(R.id.obfuscated_res_0x7f09203e, str);
-            sparseArray.put(R.id.obfuscated_res_0x7f092040, Integer.valueOf(i2));
-            sparseArray.put(R.id.obfuscated_res_0x7f09205c, Integer.valueOf(i3));
-            sparseArray.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(z2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09203f, str);
+            sparseArray.put(R.id.obfuscated_res_0x7f092041, Integer.valueOf(i2));
+            sparseArray.put(R.id.obfuscated_res_0x7f09205d, Integer.valueOf(i3));
+            sparseArray.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(z2));
             sparseArray.put(Q, Integer.valueOf(R));
             if (z2) {
                 s0(sparseArray);
@@ -2727,53 +2727,53 @@ public class h38 {
             yu4Var.q(this.a.getString(R.string.obfuscated_res_0x7f0f02e8));
             yu4Var.n(new j(this, z2));
             ArrayList arrayList = new ArrayList();
-            int intValue = sparseArray.get(R.id.obfuscated_res_0x7f092038) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092038)).intValue() : -1;
-            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f09203e)) && intValue != 2) {
-                if ((sparseArray.get(R.id.obfuscated_res_0x7f092040) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092040)).intValue() : -1) == 0) {
+            int intValue = sparseArray.get(R.id.obfuscated_res_0x7f092039) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092039)).intValue() : -1;
+            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f09203f)) && intValue != 2) {
+                if ((sparseArray.get(R.id.obfuscated_res_0x7f092041) instanceof Integer ? ((Integer) sparseArray.get(R.id.obfuscated_res_0x7f092041)).intValue() : -1) == 0) {
                     uu4Var2 = new uu4(10, this.a.getString(R.string.obfuscated_res_0x7f0f04bb), yu4Var);
                 } else {
                     uu4Var2 = new uu4(10, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), yu4Var);
                 }
                 SparseArray sparseArray2 = new SparseArray();
-                sparseArray2.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                sparseArray2.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
                 sparseArray2.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
-                sparseArray2.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                sparseArray2.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                sparseArray2.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
+                sparseArray2.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                 uu4Var2.d.setTag(sparseArray2);
                 arrayList.add(uu4Var2);
             }
-            if ((sparseArray.get(R.id.obfuscated_res_0x7f09205d) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205d)).booleanValue()) {
+            if ((sparseArray.get(R.id.obfuscated_res_0x7f09205e) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09205e)).booleanValue()) {
                 uu4 uu4Var3 = new uu4(13, this.a.getString(R.string.obfuscated_res_0x7f0f0b3d), yu4Var);
                 SparseArray sparseArray3 = new SparseArray();
-                sparseArray3.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                sparseArray3.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
                 sparseArray3.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
-                sparseArray3.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                sparseArray3.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                sparseArray3.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
+                sparseArray3.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                 uu4Var3.d.setTag(sparseArray3);
                 arrayList.add(uu4Var3);
             }
-            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f092049)) || !"".equals(sparseArray.get(R.id.obfuscated_res_0x7f09204a))) {
+            if (!"".equals(sparseArray.get(R.id.obfuscated_res_0x7f09204a)) || !"".equals(sparseArray.get(R.id.obfuscated_res_0x7f09204b))) {
                 SparseArray sparseArray4 = new SparseArray();
-                sparseArray4.put(R.id.obfuscated_res_0x7f092049, sparseArray.get(R.id.obfuscated_res_0x7f092049));
                 sparseArray4.put(R.id.obfuscated_res_0x7f09204a, sparseArray.get(R.id.obfuscated_res_0x7f09204a));
                 sparseArray4.put(R.id.obfuscated_res_0x7f09204b, sparseArray.get(R.id.obfuscated_res_0x7f09204b));
-                sparseArray4.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
                 sparseArray4.put(R.id.obfuscated_res_0x7f09204c, sparseArray.get(R.id.obfuscated_res_0x7f09204c));
+                sparseArray4.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                sparseArray4.put(R.id.obfuscated_res_0x7f09204d, sparseArray.get(R.id.obfuscated_res_0x7f09204d));
                 uu4 uu4Var4 = new uu4(11, this.a.getString(R.string.obfuscated_res_0x7f0f0668), yu4Var);
                 uu4Var4.d.setTag(sparseArray4);
                 arrayList.add(uu4Var4);
             }
-            if ((sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue()) {
+            if ((sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean) && ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue()) {
                 SparseArray sparseArray5 = new SparseArray();
-                sparseArray5.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                sparseArray5.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                sparseArray5.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                 sparseArray5.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                sparseArray5.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                 sparseArray5.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                sparseArray5.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                 sparseArray5.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
-                sparseArray5.put(R.id.obfuscated_res_0x7f092092, sparseArray.get(R.id.obfuscated_res_0x7f092092));
+                sparseArray5.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
+                sparseArray5.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                 if (z2) {
-                    uu4Var = new uu4(12, this.a.getString(R.string.obfuscated_res_0x7f0f14bc), yu4Var);
+                    uu4Var = new uu4(12, this.a.getString(R.string.obfuscated_res_0x7f0f14bd), yu4Var);
                 } else {
                     uu4Var = new uu4(12, this.a.getString(R.string.obfuscated_res_0x7f0f0b49), yu4Var);
                 }
@@ -2925,9 +2925,9 @@ public class h38 {
             return;
         }
         if (sparseArray != null) {
-            sparseArray.put(R.id.obfuscated_res_0x7f092052, Boolean.TRUE);
+            sparseArray.put(R.id.obfuscated_res_0x7f092053, Boolean.TRUE);
         }
-        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1194, TBAlertConfig.OperateBtnStyle.MAIN);
+        TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1195, TBAlertConfig.OperateBtnStyle.MAIN);
         TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0375, TBAlertConfig.OperateBtnStyle.SECONDARY);
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.P());
         tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f0b45);
@@ -2946,7 +2946,7 @@ public class h38 {
             return;
         }
         if (sparseArray != null) {
-            sparseArray.put(R.id.obfuscated_res_0x7f092052, Boolean.TRUE);
+            sparseArray.put(R.id.obfuscated_res_0x7f092053, Boolean.TRUE);
         }
         co5 co5Var = new co5(this.a.K().S1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue(), this.a.K().S1().l().getDeletedReasonInfo().is_boomgrow.intValue(), this.a.K().S1().o().has_forum_rule.intValue());
         co5Var.i(this.a.K().S1().l().getId(), this.a.K().S1().l().getName());
@@ -3037,7 +3037,7 @@ public class h38 {
         AbsVideoPbFragment absVideoPbFragment2;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048639, this, sparseArray) == null) || (absVideoPbFragment = this.a) == null || absVideoPbFragment.K() == null || sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048639, this, sparseArray) == null) || (absVideoPbFragment = this.a) == null || absVideoPbFragment.K() == null || sparseArray == null || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f09203d)) == null) {
             return;
         }
         if (this.c == null) {
@@ -3048,13 +3048,13 @@ public class h38 {
         ArrayList arrayList = new ArrayList();
         boolean z2 = this.a.K().S1() != null && this.a.K().S1().i0();
         if (sparseArray != null) {
-            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f09203f) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f09203f)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092084) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092084)).booleanValue() : false;
-            boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092098) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092098)).booleanValue() : false;
-            boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092082) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092082)).booleanValue() : false;
+            boolean booleanValue = sparseArray.get(R.id.obfuscated_res_0x7f092040) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092040)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(R.id.obfuscated_res_0x7f092085) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092085)).booleanValue() : false;
+            boolean booleanValue4 = sparseArray.get(R.id.obfuscated_res_0x7f092099) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092099)).booleanValue() : false;
+            boolean booleanValue5 = sparseArray.get(R.id.obfuscated_res_0x7f092083) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.obfuscated_res_0x7f092083)).booleanValue() : false;
             uu4 uu4Var3 = null;
-            String str = sparseArray.get(R.id.obfuscated_res_0x7f09204c) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204c) : null;
+            String str = sparseArray.get(R.id.obfuscated_res_0x7f09204d) instanceof String ? (String) sparseArray.get(R.id.obfuscated_res_0x7f09204d) : null;
             if (postData.q() != null) {
                 boolean z3 = postData.q().hasAgree;
                 int r2 = postData.r();
@@ -3067,7 +3067,7 @@ public class h38 {
                 }
                 uu4 uu4Var4 = new uu4(8, absVideoPbFragment2.getString(i2), this.c);
                 SparseArray sparseArray2 = new SparseArray();
-                sparseArray2.put(R.id.obfuscated_res_0x7f09203c, postData);
+                sparseArray2.put(R.id.obfuscated_res_0x7f09203d, postData);
                 uu4Var4.d.setTag(sparseArray2);
                 arrayList.add(uu4Var4);
             }
@@ -3075,56 +3075,56 @@ public class h38 {
                 if (!booleanValue3 && booleanValue2) {
                     uu4 uu4Var5 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f0b4d), this.c);
                     SparseArray sparseArray3 = new SparseArray();
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                     sparseArray3.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                    sparseArray3.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray3.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                     uu4Var5.d.setTag(sparseArray3);
                     arrayList.add(uu4Var5);
                 } else {
                     if ((b0(booleanValue) && TbadkCoreApplication.isLogin()) && !z2) {
-                        uu4 uu4Var6 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f1016), this.c);
+                        uu4 uu4Var6 = new uu4(5, this.a.getString(R.string.obfuscated_res_0x7f0f1017), this.c);
                         uu4Var6.d.setTag(str);
                         arrayList.add(uu4Var6);
                     }
                 }
                 if (booleanValue3) {
                     SparseArray sparseArray4 = new SparseArray();
-                    sparseArray4.put(R.id.obfuscated_res_0x7f092084, Boolean.TRUE);
-                    sparseArray4.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                    sparseArray4.put(R.id.obfuscated_res_0x7f092049, sparseArray.get(R.id.obfuscated_res_0x7f092049));
+                    sparseArray4.put(R.id.obfuscated_res_0x7f092085, Boolean.TRUE);
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
                     sparseArray4.put(R.id.obfuscated_res_0x7f09204a, sparseArray.get(R.id.obfuscated_res_0x7f09204a));
                     sparseArray4.put(R.id.obfuscated_res_0x7f09204b, sparseArray.get(R.id.obfuscated_res_0x7f09204b));
-                    sparseArray4.put(R.id.obfuscated_res_0x7f09204c, str);
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09204c, sparseArray.get(R.id.obfuscated_res_0x7f09204c));
+                    sparseArray4.put(R.id.obfuscated_res_0x7f09204d, str);
                     if (booleanValue4) {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092098, Boolean.TRUE);
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092053, sparseArray.get(R.id.obfuscated_res_0x7f092053));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092099, Boolean.TRUE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092054, sparseArray.get(R.id.obfuscated_res_0x7f092054));
                         sparseArray4.put(R.id.obfuscated_res_0x7f092095, sparseArray.get(R.id.obfuscated_res_0x7f092095));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092093, sparseArray.get(R.id.obfuscated_res_0x7f092093));
                         sparseArray4.put(R.id.obfuscated_res_0x7f092096, sparseArray.get(R.id.obfuscated_res_0x7f092096));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092094, sparseArray.get(R.id.obfuscated_res_0x7f092094));
                         sparseArray4.put(R.id.obfuscated_res_0x7f092097, sparseArray.get(R.id.obfuscated_res_0x7f092097));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092098, sparseArray.get(R.id.obfuscated_res_0x7f092098));
                     } else {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
                     }
                     if (booleanValue5) {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                        sparseArray4.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                         uu4 uu4Var7 = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), this.c);
                         uu4Var7.d.setTag(sparseArray4);
                         uu4Var3 = uu4Var7;
                     } else {
-                        sparseArray4.put(R.id.obfuscated_res_0x7f092082, Boolean.FALSE);
+                        sparseArray4.put(R.id.obfuscated_res_0x7f092083, Boolean.FALSE);
                     }
                     uu4 uu4Var8 = new uu4(7, this.a.getString(R.string.obfuscated_res_0x7f0f02e8), this.c);
                     uu4Var8.d.setTag(sparseArray4);
@@ -3132,16 +3132,16 @@ public class h38 {
                     uu4Var = uu4Var3;
                 } else if (booleanValue5) {
                     SparseArray sparseArray5 = new SparseArray();
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092084, Boolean.FALSE);
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092098, Boolean.FALSE);
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092082, Boolean.TRUE);
-                    sparseArray5.put(R.id.obfuscated_res_0x7f09205c, sparseArray.get(R.id.obfuscated_res_0x7f09205c));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f09203f, Boolean.valueOf(booleanValue));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f09203e, sparseArray.get(R.id.obfuscated_res_0x7f09203e));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092040, sparseArray.get(R.id.obfuscated_res_0x7f092040));
-                    sparseArray5.put(R.id.obfuscated_res_0x7f092050, sparseArray.get(R.id.obfuscated_res_0x7f092050));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092085, Boolean.FALSE);
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092099, Boolean.FALSE);
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092083, Boolean.TRUE);
+                    sparseArray5.put(R.id.obfuscated_res_0x7f09205d, sparseArray.get(R.id.obfuscated_res_0x7f09205d));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092040, Boolean.valueOf(booleanValue));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f09203f, sparseArray.get(R.id.obfuscated_res_0x7f09203f));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092041, sparseArray.get(R.id.obfuscated_res_0x7f092041));
+                    sparseArray5.put(R.id.obfuscated_res_0x7f092051, sparseArray.get(R.id.obfuscated_res_0x7f092051));
                     if (this.a.K().S1().W() == 1002 && !booleanValue) {
-                        uu4Var = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f1016), this.c);
+                        uu4Var = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f1017), this.c);
                     } else {
                         uu4Var = new uu4(6, this.a.getString(R.string.obfuscated_res_0x7f0f04b0), this.c);
                     }

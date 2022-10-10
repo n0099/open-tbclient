@@ -93,7 +93,7 @@ public class sw0 extends pw0 implements View.OnClickListener {
             if (this.f == null) {
                 LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d05dc, null);
                 this.f = linearLayout;
-                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092395);
+                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092396);
                 Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090418);
                 this.h = button;
                 button.setOnClickListener(this);

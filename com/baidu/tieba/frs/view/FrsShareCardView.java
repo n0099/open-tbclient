@@ -80,7 +80,7 @@ public class FrsShareCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0349, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e80);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e81);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b09);
             this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090609);
             this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b05);

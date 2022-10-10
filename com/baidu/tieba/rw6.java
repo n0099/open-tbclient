@@ -472,8 +472,8 @@ public class rw6 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0393, (ViewGroup) null);
             this.c = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c7d);
-            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092450);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c7e);
+            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092451);
             this.f = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0913e8);
             this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0914c7);
             this.h = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0903db);

@@ -364,7 +364,7 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04c5, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6c);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a45);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a5d);
             this.c = textView;
@@ -418,7 +418,7 @@ public class PostAnimateFloatView extends FrameLayout implements xx {
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08096b, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {

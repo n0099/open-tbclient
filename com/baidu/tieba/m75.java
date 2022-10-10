@@ -128,10 +128,10 @@ public class m75 {
             Context context = TbadkCoreApplication.getInst().getContext();
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06ee, (ViewGroup) null);
-            hv4 d = hv4.d(inflate.findViewById(R.id.obfuscated_res_0x7f092604));
+            hv4 d = hv4.d(inflate.findViewById(R.id.obfuscated_res_0x7f092605));
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f6);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f7);
             hv4 d2 = hv4.d(textView);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X07);
@@ -141,7 +141,7 @@ public class m75 {
             d2.k(R.color.CAM_X0105);
             d2.j(R.string.A_X07);
             textView.setOnClickListener(new a(cVar, tBAlertBuilder));
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f5);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f6);
             hv4 d3 = hv4.d(textView2);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X07);

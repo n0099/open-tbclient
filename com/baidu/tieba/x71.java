@@ -179,7 +179,7 @@ public class x71 extends z71 {
                 simpleFeedAdInfoView.update(adBaseModel);
                 mp0 mp0Var = adBaseModel.p;
                 if (mp0Var == null || mp0Var.k) {
-                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dee));
+                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080def));
                 }
                 this.j.setAfterListener(new a(this, adBaseModel));
             }

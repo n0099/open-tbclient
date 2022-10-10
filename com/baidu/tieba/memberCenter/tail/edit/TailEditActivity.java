@@ -148,7 +148,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
                     return;
                 }
                 TailEditActivity tailEditActivity = this.a;
-                tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1388));
+                tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1389));
             }
         }
     }
@@ -442,7 +442,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             nu4 nu4Var = new nu4(getActivity());
-            nu4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f137d));
+            nu4Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f137e));
             nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new h(this, nu4Var));
             nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0436, new i(this, nu4Var));
             nu4Var.create(getPageContext());
@@ -567,7 +567,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             setSwipeBackEnabled(false);
             this.b = new yn7(this, this.f, this.g);
             this.a = new xn7(getPageContext());
-            this.c = findViewById(R.id.obfuscated_res_0x7f0920a1);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0920a2);
             L1();
             M1();
             K1();

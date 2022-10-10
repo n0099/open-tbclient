@@ -199,10 +199,10 @@ public class fe8 extends qn<r26, CardAppLegoViewHolder> implements sd8, xd8 {
         V v;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f092046) instanceof AdvertAppInfo.ILegoAdvert)) {
+            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.obfuscated_res_0x7f092047) instanceof AdvertAppInfo.ILegoAdvert)) {
                 return true;
             }
-            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f092046));
+            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.obfuscated_res_0x7f092047));
         }
         return invokeL.booleanValue;
     }
@@ -218,7 +218,7 @@ public class fe8 extends qn<r26, CardAppLegoViewHolder> implements sd8, xd8 {
             if (this.d == null || (view2 = (View) og7.h().a(this.a, this.d, 2)) == null) {
                 return null;
             }
-            view2.setTag(R.id.obfuscated_res_0x7f092046, this.d);
+            view2.setTag(R.id.obfuscated_res_0x7f092047, this.d);
             return new CardAppLegoViewHolder((jh7) view2);
         }
         return (CardAppLegoViewHolder) invokeL.objValue;

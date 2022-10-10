@@ -240,7 +240,7 @@ public class QuickWebView extends BaseWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (this.j == null) {
-                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fd3);
+                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fd4);
             }
             return this.j;
         }

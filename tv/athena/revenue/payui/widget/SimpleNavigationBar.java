@@ -124,8 +124,8 @@ public class SimpleNavigationBar extends FrameLayout {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06aa, (ViewGroup) this, true);
             this.c = (ImageView) findViewById(R.id.iv_back);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092419);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fe);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ff);
             this.c.setOnClickListener(new a(this));
             this.b.setOnClickListener(new b(this));
         }

@@ -337,7 +337,7 @@ public class su7 {
         shareThreadView.setTitle(vu7Var.getThreadInfo().title);
         shareThreadView.setDesc(vu7Var.getThreadInfo()._abstract);
         nu4Var.setContentView(shareThreadView);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new e(vu7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new e(vu7Var, pbChosenActivity, shareThreadView, j, str, j2, str2));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new f(pbChosenActivity, shareThreadView));
         nu4Var.setCanceledOnTouchOutside(false);
         nu4Var.create(pbChosenActivity.getPageContext()).show();
@@ -354,7 +354,7 @@ public class su7 {
         shareThreadView.setDesc(vu7Var.getThreadInfo()._abstract);
         shareThreadView.c(str4, false);
         nu4Var.setContentView(shareThreadView);
-        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1146, new c(vu7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
+        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1147, new c(vu7Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
         nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new d(pbChosenActivity, shareThreadView));
         nu4Var.setCanceledOnTouchOutside(false);
         nu4Var.create(pbChosenActivity.getPageContext()).show();
@@ -369,7 +369,7 @@ public class su7 {
         String str3 = vu7Var.getThreadInfo().title;
         String str4 = vu7Var.getThreadInfo()._abstract;
         Resources resources = this.a.getPageContext().getPageActivity().getResources();
-        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f114e), str3, str4);
+        String format = MessageFormat.format(resources.getString(R.string.obfuscated_res_0x7f0f114f), str3, str4);
         resources.getString(R.string.obfuscated_res_0x7f0f03de, str3);
         ShareItem shareItem = new ShareItem();
         shareItem.v = str3;

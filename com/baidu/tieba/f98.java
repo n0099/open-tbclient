@@ -592,7 +592,7 @@ public class f98 {
             View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f09195a);
             this.G = findViewById;
             findViewById.setAlpha(0.33f);
-            GodRecommendLayout godRecommendLayout = (GodRecommendLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091ba2);
+            GodRecommendLayout godRecommendLayout = (GodRecommendLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091ba3);
             this.C = godRecommendLayout;
             godRecommendLayout.setPageContext(this.a);
             this.C.setPageUniqueId(this.a.getUniqueId());
@@ -611,7 +611,7 @@ public class f98 {
             this.M.setOnClickListener(this.H);
             this.D = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091944);
             this.E = (TBLottieAnimationView) this.c.findViewById(R.id.obfuscated_res_0x7f0913d9);
-            this.B = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924df);
+            this.B = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924e0);
             H(TbadkCoreApplication.getInst().getSkinType());
         }
     }

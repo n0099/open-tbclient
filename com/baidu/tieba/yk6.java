@@ -56,7 +56,7 @@ public class yk6 extends dh6<bu4, ThreadCardViewHolder<ThreadData>> implements g
         public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast b = BdToast.b(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f1537));
+                BdToast b = BdToast.b(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f1538));
                 b.f(BdToast.ToastIcon.FAILURE);
                 b.i();
             }

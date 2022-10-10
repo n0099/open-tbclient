@@ -570,9 +570,9 @@ public class e33 {
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912d2);
         TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912db);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c44);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c45);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091c46);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c45);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c46);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091c47);
         if (!TextUtils.isEmpty(charSequence)) {
             textView.setTextColor(a33.a);
             if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
@@ -596,7 +596,7 @@ public class e33 {
                     if (!TextUtils.isEmpty(charSequence2)) {
                         linearLayout2.setVisibility(8);
                     } else {
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c3c)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
+                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c3d)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
                         textView2.setText(charSequence2);
@@ -664,7 +664,7 @@ public class e33 {
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         boolean z2 = true;
         linearLayout.setClickable(true);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f092108);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f092109);
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0912d1);
         simpleDraweeView.setVisibility(0);
         if (view2 != null) {
@@ -679,8 +679,8 @@ public class e33 {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(f33.a(activity, 15.0f), 0, 0, 0);
             linearLayout2.setLayoutParams(layoutParams);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092218);
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa1);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092219);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa2);
             TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091738);
             if (TextUtils.isEmpty(charSequence)) {
                 if (!TextUtils.isEmpty(charSequence2)) {
@@ -711,7 +711,7 @@ public class e33 {
                 textView4.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c3));
                 TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091035);
                 ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091038);
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091c46);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091c47);
                 if (!TextUtils.isEmpty(charSequence3)) {
                     if (toastRightAreaStyle == ToastRightAreaStyle.BUTTON) {
                         frameLayout.setVisibility(0);
@@ -745,8 +745,8 @@ public class e33 {
             return;
         }
         z2 = false;
-        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092218);
-        TextView textView22 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa1);
+        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092219);
+        TextView textView22 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fa2);
         TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091738);
         if (TextUtils.isEmpty(charSequence)) {
         }

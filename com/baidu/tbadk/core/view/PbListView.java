@@ -32,7 +32,7 @@ public class PbListView extends rn {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int new_pic_emotion_03 = 2131234386;
+    public static final int new_pic_emotion_03 = 2131234387;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -393,7 +393,7 @@ public class PbListView extends rn {
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091abc);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f091abd);
             this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091859);
             this.j = this.i.findViewById(R.id.obfuscated_res_0x7f0908e5);
             this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091849);
@@ -433,11 +433,11 @@ public class PbListView extends rn {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
             } else if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a56))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a01)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09ff)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f122c)) && !this.w) {
+            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a01)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09ff)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f122d)) && !this.w) {
                 if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a02))) {
                     color = SkinManager.getColor(i, (int) R.color.CAM_X0110);
                 } else {
-                    color = (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09fe)) || charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0fa1))) ? SkinManager.getColor(i, (int) R.color.CAM_X0109) : 0;
+                    color = (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09fe)) || charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0fa2))) ? SkinManager.getColor(i, (int) R.color.CAM_X0109) : 0;
                 }
             } else {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);

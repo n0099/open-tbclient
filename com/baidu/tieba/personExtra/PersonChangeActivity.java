@@ -487,7 +487,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 PersonChangeActivity personChangeActivity = this.c;
-                personChangeActivity.showLoadingDialog(personChangeActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f10b1), this.c.I);
+                personChangeActivity.showLoadingDialog(personChangeActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f10b2), this.c.I);
                 super.onPreExecute();
             }
         }
@@ -1597,17 +1597,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091792);
             this.k = (ManualObservableScrollView) findViewById(R.id.obfuscated_res_0x7f091914);
             this.w = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091988);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091e76);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091e77);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.c = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0923, this.G0);
             this.T = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09267f);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092680);
             this.V = imageView;
             imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f03f8));
             this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a47);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092399);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09239a);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09239a);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09239b);
             this.w.setOnClickListener(this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f75);
             this.x = linearLayout;
@@ -1619,12 +1619,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0916bf);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091427);
             this.C = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0919c4);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091e77);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e74);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091e78);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e75);
             this.w0 = (InterestForumTagLayout) findViewById(R.id.obfuscated_res_0x7f090f49);
-            this.x0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f79);
-            this.y0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f78);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f7a);
+            this.x0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f7a);
+            this.y0 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f79);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f7b);
             this.z0 = textView;
             textView.setOnClickListener(this);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f77);
@@ -1648,9 +1648,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0916be);
             this.S = imageView2;
             imageView2.setOnClickListener(this);
-            this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ba);
+            this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bb);
             this.P = findViewById(R.id.obfuscated_res_0x7f091980);
-            this.Q = findViewById(R.id.obfuscated_res_0x7f0924b9);
+            this.Q = findViewById(R.id.obfuscated_res_0x7f0924ba);
             this.P.setOnClickListener(this);
             this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f79);
             this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f090f7c);
@@ -1940,9 +1940,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             }
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d062b, (View.OnClickListener) null);
             this.i = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c43);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c44);
             this.d = textView;
-            textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f10a2));
+            textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f10a3));
             SkinManager.setViewTextColor(this.d, R.color.navi_op_text, 1);
             this.i.setOnClickListener(this);
         }
@@ -2076,7 +2076,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             PersonChangeModel personChangeModel = this.B;
             int nickNameLeftDays = (personChangeModel == null || personChangeModel.D() == null) ? 0 : this.B.D().getNickNameLeftDays();
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(getActivity());
-            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f151f);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f1520);
             tBAlertBuilder.o(String.format(getString(R.string.obfuscated_res_0x7f0f0c69), Integer.valueOf(nickNameLeftDays)));
             tBAlertBuilder.r(aVar);
             tBAlertBuilder.h(true);
@@ -2104,7 +2104,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             layoutParams2.height = ej.f(this, R.dimen.tbds229);
             this.y.setGravity(51);
             this.y.setHint(getString(R.string.obfuscated_res_0x7f0f0a61));
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080978, SkinManager.getColor(R.color.CAM_X0301), null);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080979, SkinManager.getColor(R.color.CAM_X0301), null);
             if (pureDrawable != null) {
                 this.l.setCompoundDrawablePadding(ej.f(this, R.dimen.M_W_X002));
                 this.l.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);
@@ -2227,12 +2227,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             super.onChangeSkinType(i2);
             getLayoutMode().l(i2 == 1);
             getLayoutMode().k(this.j);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.V, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.V, R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.c.onChangeSkinType(getPageContext(), i2);
             this.D.refresh();
             SkinManager.setViewTextColor(this.q0, (int) R.color.CAM_X0109);
             WebPManager.setMaskDrawable(this.X, R.drawable.obfuscated_res_0x7f080811, null);
-            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080a50, R.color.CAM_X0108, null);
+            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080a51, R.color.CAM_X0108, null);
             TextView textView = this.d;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0302, 1);
@@ -2318,7 +2318,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             if (this.t0 == null || this.q0 == null) {
                                 return;
                             }
-                            ui.a(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f144c), TbadkCoreApplication.getCurrentAccountNameShow(), this.t0.getText().toString()));
+                            ui.a(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f144d), TbadkCoreApplication.getCurrentAccountNameShow(), this.t0.getText().toString()));
                             BdTopToast bdTopToast = new BdTopToast(this, 3000);
                             bdTopToast.h(true);
                             bdTopToast.g(getResources().getString(R.string.obfuscated_res_0x7f0f0456));
@@ -2355,7 +2355,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                     } else {
                         A2();
                         if (Build.VERSION.SDK_INT < 19) {
-                            c3(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1244), false);
+                            c3(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1245), false);
                             return;
                         } else if (NickNameActivitySwitch.isOn()) {
                             Y2();
@@ -2540,7 +2540,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.v0.setVisibility(8);
         }
         if (StringUtils.isNull(this.B.D().getName())) {
-            this.q0.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1428));
+            this.q0.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1429));
             this.P.setClickable(true);
             this.Q.setVisibility(0);
         } else {

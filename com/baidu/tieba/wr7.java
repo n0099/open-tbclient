@@ -158,7 +158,7 @@ public class wr7 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e94);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e41);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e42);
                 view2.setOnClickListener(new a(this));
             }
         }
@@ -266,7 +266,7 @@ public class wr7 extends BaseAdapter {
             bVar.b.getLayoutParams().height = this.h;
             bVar.b.setTag(null);
             bVar.b.setRadius(1);
-            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
+            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be3);
             bVar.b.K(null, 12, false);
             bVar.b.invalidate();
             ImageFileInfo imageFileInfo = this.a.get(i);

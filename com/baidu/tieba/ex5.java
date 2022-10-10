@@ -112,17 +112,17 @@ public class ex5 implements View.OnClickListener {
             }
             this.a = view2;
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebf);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092352);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092351);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4c);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092353);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092352);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4d);
             this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec0);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235e);
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4e);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235f);
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c4f);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235c);
             this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913e4);
             this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec1);
             this.l = view2.findViewById(R.id.obfuscated_res_0x7f0913da);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234d);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234e);
             this.m = textView;
             textView.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07032b));
             this.n = (LinearLayout.LayoutParams) this.j.getLayoutParams();
@@ -201,7 +201,7 @@ public class ex5 implements View.OnClickListener {
                 this.c.g.setText(name_show);
             }
             this.c.l.setVisibility(0);
-            this.c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081240);
+            this.c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
             this.c.c.setText(this.e.getThreadAlaInfo().label_name);
             this.c.c.setVisibility(0);
             if (this.e.getAuthor() != null && this.e.getAuthor().getAlaUserData() != null && !dj.isEmpty(this.e.getAuthor().getAlaUserData().great_anchor_icon)) {

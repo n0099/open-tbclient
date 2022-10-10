@@ -227,9 +227,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049d, (ViewGroup) this, true);
-            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091fbc);
+            this.b = (SuspendIdleView) findViewById(R.id.obfuscated_res_0x7f091fbd);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09165a);
-            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091fba);
+            this.d = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091fbb);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
             h(context);
             g(context);
@@ -256,7 +256,7 @@ public class FloatWebLayout extends FrameLayout {
             this.e = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090318);
             this.f = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090662);
             this.g = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f0905e7);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f080a13, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0105, null);
             SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0105, R.color.s_navbar_title_color);
             this.e.setOnClickListener(new a(this));

@@ -172,7 +172,7 @@ public abstract class mr6 implements or6 {
             this.b = view2.getContext();
             this.c = view2;
             this.d = onClickListener;
-            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0925c5);
             this.e = navigationBar;
             navigationBar.getBarBgView().setAlpha(1.0f);
             i();
@@ -186,7 +186,7 @@ public abstract class mr6 implements or6 {
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09267f);
+            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092680);
         }
     }
 

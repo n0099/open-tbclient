@@ -144,7 +144,7 @@ public class kr2 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || e(str)) {
             return;
         }
-        this.b.e(6, R.string.obfuscated_res_0x7f0f1260);
+        this.b.e(6, R.string.obfuscated_res_0x7f0f1261);
     }
 
     public void i(View view2, String str) {

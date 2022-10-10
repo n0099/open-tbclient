@@ -54,7 +54,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0552, (ViewGroup) this, true);
             this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e20);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.c = findViewById(R.id.obfuscated_res_0x7f0907f9);
             c();
         }
